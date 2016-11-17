@@ -1,7 +1,7 @@
 window.Template.Controllers.WallController = function (element) {
     'use strict';
     var animOnScroll;
-
+    console.log('ola')
     function simulateResize() {
         window.top.innerWidth = window.top.innerWidth - 1;
         Y.one(window.top).simulate('resize');
