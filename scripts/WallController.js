@@ -117,6 +117,7 @@ window.Template.Controllers.WallController = function (element) {
             }, 100);
         });
         loadImages();
+        console.log('olo')
     }
 
     initialize();
