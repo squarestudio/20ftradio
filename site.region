@@ -123,4 +123,7 @@
   </script>
 {.end}
 </body>
+{.if authenticatedAccount}
+<squarespace:script src="admin.js" combo="false"/>
+{.end}
 </html>
