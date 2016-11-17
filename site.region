@@ -8,7 +8,12 @@
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="black" />
     {squarespace-headers}
-  <script></script>
+  <script>
+    window.Template = {
+      Util:{},
+      Controllers: {}
+    }
+  </script>
 </head>
 
 <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
