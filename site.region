@@ -55,8 +55,7 @@
     </header>
     {.end}
     <div class="sqs-cart-dropzone"></div>
-    <section id="container" class="{collection.typeLabel}" {.equal? collection.typeName
-    "wall-index"}sqs-controller="Template.Controllers.WallController"{.end}>
+    <section id="container" class="{collection.typeLabel}" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.end}>
     <div id="container-content" data-content-field="main-content">
         {.section collection}{.equal? typeName "products"}{.section categories}
         <div id="categoryNav">
