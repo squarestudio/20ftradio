@@ -1,0 +1,53 @@
+<div class="Share Share-custom sqs-share-buttons" data-item-identifier="{id}" data-item-path="{sourceUrl}">
+    <div class="Share-buttons">
+        <a href="https://www.facebook.com/sharer/sharer.php?u="
+           class="Share-buttons-item Share-buttons-item--social" target="_blank" data-service="facebook">
+            <svg class="Share-buttons-item-icon" viewBox="0 0 64 64">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="/universal/svg/social-accounts.svg#facebook-icon"></use>
+                <svg></svg>
+            </svg>
+            <span class="Share-buttons-item-label">Facebook</span><span class="Share-buttons-item-count">0</span>
+        </a>
+        <a href="https://twitter.com/intent/tweet?text={title}&amp;url="
+           class="Share-buttons-item Share-buttons-item--social" target="_blank" data-service="twitter">
+            <svg class="Share-buttons-item-icon" viewBox="0 0 64 64">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="/universal/svg/social-accounts.svg#twitter-icon"></use>
+            </svg>
+            <span class="Share-buttons-item-label">Twitter</span>
+        </a>
+        <a href="https://plus.google.com/share?url="
+           class="Share-buttons-item Share-buttons-item--social" target="_blank" data-service="google">
+            <svg class="Share-buttons-item-icon" viewBox="0 0 64 64">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="/universal/svg/social-accounts.svg#google-icon"></use>
+            </svg>
+            <span class="Share-buttons-item-label">Google</span>
+        </a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;source={title}&amp;summary=&amp;url="
+           class="Share-buttons-item Share-buttons-item--social" target="_blank" data-service="linkedin">
+            <svg class="Share-buttons-item-icon" viewBox="0 0 64 64">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="/universal/svg/social-accounts.svg#linkedin-icon"></use>
+            </svg>
+            <span class="Share-buttons-item-label">LinkedIn</span><span class="Share-buttons-item-count">0</span>
+        </a>
+        <a href="https://www.stumbleupon.com/badge/?url={clickthroughUrl}"
+           class="Share-buttons-item Share-buttons-item--social" target="_blank" data-service="stumbleupon">
+            <svg class="Share-buttons-item-icon" viewBox="0 0 64 64">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="/universal/svg/social-accounts.svg#stumbleupon-icon"></use>
+            </svg>
+            <span class="Share-buttons-item-label">StumbleUpon</span>
+        </a>
+        <a href="https://www.reddit.com/submit?url={clickthroughUrl}"
+           class="Share-buttons-item Share-buttons-item--social" target="_blank" data-service="reddit">
+            <svg class="Share-buttons-item-icon" viewBox="0 0 64 64">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                     xlink:href="/universal/svg/social-accounts.svg#reddit-icon"></use>
+            </svg>
+            <span class="Share-buttons-item-label">Reddit</span>
+        </a>
+    </div>
+</div>
