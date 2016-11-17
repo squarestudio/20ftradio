@@ -99,6 +99,14 @@
 <squarespace:script src="site.js" combo="true"/>
 <squarespace:script src="dynamic-data.js" combo="true"/>
 <squarespace:script src="lazy-loader.js" combo="true"/>
+    <squarespace:script src="jquery.min.js" combo="false" />
+    <squarespace:script src="masonry.pkgd.min.js" combo="false" />
+    <squarespace:script src="imagesloaded.pkgd.min.js" combo="false" />
+    <squarespace:script src="typed.min.js" combo="false" />
+    <squarespace:script src="wall-scripts/swiper.min.js" combo="false" />
+    <squarespace:script src="wall-scripts/classie.js" combo="false" />
+    <squarespace:script src="wall-scripts/AnimOnScroll.js" combo="false" />
+    <squarespace:script src="share-buttons.js" combo="false" />
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
   <script>
