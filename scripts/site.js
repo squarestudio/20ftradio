@@ -10,7 +10,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
         toggleFolder(elem);
       });
       if (Y.one('.page-wall-index')){
-        window.Wall =  new window.Template.Controllers.WallController();
+        //window.Wall =  new window.Template.Controllers.WallController();
       }
     });
 
