@@ -9,6 +9,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
         toggleFolder(elem.siblings('li.folder.dropdown-open').item(0));
         toggleFolder(elem);
       });
+      window.Wall = 
     });
 
     // move cart pill below nav
