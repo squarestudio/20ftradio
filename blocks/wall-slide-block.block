@@ -10,7 +10,7 @@
                     <div class="eventlist-datetag-inner">
                         <div class="eventlist-datetag-startdate eventlist-datetag-startdate--month">{startDate|date %b}</div>
                         <div class="eventlist-datetag-startdate eventlist-datetag-startdate--day">{startDate|date %d}</div>
-                        <div class="eventlist-datetag-time"><span class="event-time-12hr">{startDate|date %t}</span><span class="event-time-24hr">05:00</span></div>
+                        <div class="eventlist-datetag-time"><span class="event-time-12hr">{startDate|date %p}</span><span class="event-time-24hr">05:00</span></div>
                         <div class="eventlist-datetag-status"></div>
                     </div>
                 </div>
