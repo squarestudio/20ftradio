@@ -8,7 +8,7 @@
     {.repeated section items}
       {.if customContent.featured}
       {.or}
-
+        {@|apply wall-slide-block.block}
       {.end}
     {.end}
   </ul>
