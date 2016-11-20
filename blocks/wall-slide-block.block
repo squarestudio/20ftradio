@@ -3,7 +3,7 @@
     <div class="grid-slide-wrapper {.section customContent.animatedTexts}animated-text{.end}">
         {.event?}
         {.if clickthroughUrl}<a class="wrap-link" href="{clickthroughUrl}">{.end}
-        <div class="grid-slide-image ">
+        <div class="grid-slide-image wall-item-event">
             <img {@|image-meta} data-fixed-ratio="true" data-load="false"/>
             <a href="/events/2016/11/4/elhsts6rrvav2wrb5m7md3u572yqoj" class="eventlist-column-date">
 
