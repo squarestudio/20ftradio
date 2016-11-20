@@ -2,7 +2,7 @@
     data-slide-id="{id}" data-slide-url="{urlId}">
     <div class="grid-slide-wrapper {.section customContent.animatedTexts}animated-text{.end}">
         {.event?}
-        {.if clickthroughUrl}<a class="wrap-link" href="{clickthroughUrl}">{.end}
+        {.if fullUrl}<a class="wrap-link" href="{fullUrl}">{.end}
         <div class="grid-slide-image wall-item-event">
             <img {@|image-meta} data-fixed-ratio="true" data-load="false"/>
             <a href="/events/2016/11/4/elhsts6rrvav2wrb5m7md3u572yqoj" class="eventlist-column-date">
@@ -16,7 +16,7 @@
                 </div>
             </a>
         </div>
-        {.if clickthroughUrl}</a>{.end}
+        {.if fullUrl}</a>{.end}
         {.end}
         {.if customContent}
             {.equal? customContent.customType "wall-item-image"}
