@@ -1,4 +1,5 @@
-<li class="grid-slide {customContent.customType} {.if body}grid-slide-has-description{.or}grid-slide-has-no-description{.end}{.equal? @index 1} grid-first-slide{.end}{.video?} grid-slide-video{.end}" data-slide-id="{id}" data-slide-url="{urlId}">
+<li class="grid-slide {customContent.customType} {.if body}grid-slide-has-description{.or}grid-slide-has-no-description{.end}{.equal? @index 1} grid-first-slide{.end}{.video?} grid-slide-video{.end}"
+    data-slide-id="{id}" data-slide-url="{urlId}">
     <div class="grid-slide-wrapper {.section customContent.animatedTexts}animated-text{.end}">
         {.if customContent}
         {.equal? customContent.customType "wall-item-image"}
@@ -9,7 +10,7 @@
                 {.repeated section customContent.gallery}
                 <div class="grid-gallery-slide swiper-slide">
                     <figure class="content-fill">
-                        <img {@|image-meta}  data-fixed-ratio="true"/>
+                        <img {@|image-meta} data-fixed-ratio="true"/>
                     </figure>
                 </div>
                 {.end}
@@ -69,7 +70,7 @@
         {.end}
         {.or}
         {.image?}
-        {.if clickthroughUrl}<a  class="wrap-link" href="{clickthroughUrl}">{.end}
+        {.if clickthroughUrl}<a class="wrap-link" href="{clickthroughUrl}">{.end}
         <div class="grid-slide-image">
             <img {@|image-meta} data-fixed-ratio="true" data-load="false"/>
         </div>
