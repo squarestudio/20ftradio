@@ -6,25 +6,14 @@
         <div class="grid-slide-image wall-item-event">
             <img {@|image-meta} data-fixed-ratio="true" data-load="false"/>
             <a href="/events/2016/11/4/elhsts6rrvav2wrb5m7md3u572yqoj" class="eventlist-column-date">
-
                 <div class="eventlist-datetag">
-
                     <div class="eventlist-datetag-inner">
-
                         <div class="eventlist-datetag-startdate eventlist-datetag-startdate--month">Dec</div>
-                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate--day"> 6</div>
-
-
+                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate--day">6</div>
                         <div class="eventlist-datetag-time"><span class="event-time-12hr"> 5:00 am</span><span class="event-time-24hr">05:00</span></div>
-
-
-
                         <div class="eventlist-datetag-status"></div>
-
                     </div>
-
                 </div>
-
             </a>
         </div>
         {.if clickthroughUrl}</a>{.end}
