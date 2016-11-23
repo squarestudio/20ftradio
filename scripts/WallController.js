@@ -160,7 +160,9 @@ window.Template.Controllers.WallController = function (element) {
                         var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                         link.insert(compiled, 'before').remove(); //insert compiled template and remove our empty link from  document
                         imagesReady();
-                        loadImages();
+                        setTimeout(function () {
+                            loadImages();
+                        }, 100)
                     })
                 })
             })
