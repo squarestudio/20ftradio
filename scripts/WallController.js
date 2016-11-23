@@ -168,7 +168,9 @@ window.Template.Controllers.WallController = function (element) {
             })
         } else {
             imagesReady();
-            loadImages();
+            setTimeout(function () {
+                loadImages();
+            }, 100)
         }
     }
     initialize();
