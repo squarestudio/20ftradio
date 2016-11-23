@@ -149,6 +149,7 @@ window.Template.Controllers.WallController = function (element) {
                 }, 100);
             });
         };
+        imagesReady();
         if (Y.one('.wall-item-link')){
             Y.use(['node', 'squarespace-json-template'], function (Y) {
                 var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/\^/g, '{');
@@ -160,13 +161,11 @@ window.Template.Controllers.WallController = function (element) {
                         var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                         console.log(order)
                         link.insert(compiled, 'before').remove(); //insert compiled template and remove our empty link from  document
-                        imagesReady();
                         loadImages();
                     })
                 })
             })
         } else {
-            imagesReady();
             loadImages();
         }
     }
