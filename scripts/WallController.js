@@ -129,6 +129,7 @@ window.Template.Controllers.WallController = function (element) {
             getItems(collection_url);
         })
     }
+
     function initialize() {
         window.Template.Util.initShareButtons();
         if (animOnScroll) animOnScroll = null;
@@ -166,13 +167,12 @@ window.Template.Controllers.WallController = function (element) {
             loadImages();
         }
     }
-    Y.use(['node', 'squarespace-json-template'], function (Y) {
-        initialize();
-    })
 
     return {
         sync: function () {
-            initialize();
+            Y.use(['node', 'squarespace-json-template'], function (Y) {
+                initialize();
+            })
         },
         destroy: function () {
 
