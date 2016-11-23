@@ -126,8 +126,7 @@ window.Template.Controllers.WallController = function (element) {
                     }
                 })
             }
-
-            getItems(coll_id, coll_data, start);
+            getItems(collection_url);
         })
     }
     function initialize() {
