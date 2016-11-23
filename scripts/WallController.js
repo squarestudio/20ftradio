@@ -163,7 +163,7 @@ window.Template.Controllers.WallController = function (element) {
                         imagesReady();
                         setTimeout(function () {
                             loadImages();
-                        }, 100)
+                        }, 20)
                     })
                 })
             })
@@ -171,7 +171,7 @@ window.Template.Controllers.WallController = function (element) {
             imagesReady();
             setTimeout(function () {
                 loadImages();
-            }, 100)
+            }, 20)
         }
     }
     initialize();
