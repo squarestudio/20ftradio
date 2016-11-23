@@ -158,20 +158,26 @@ window.Template.Controllers.WallController = function (element) {
                         order = link.getAttribute('data-first-order');
                     getCollectionItems(url).then(function (items) {
                         console.log(items);
-                        var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
-                        console.log(Y.Node.create(compiled))
-                        if(order == 'true'){
-                            var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
-                            wallGrid.append(nodes);
-                            wallGrid.prepend(compiled);
+                        if(items){
+                            var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
+                            console.log(Y.Node.create(compiled))
+                            if(order == 'true'){
+                                var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
+                                wallGrid.append(nodes);
+                                wallGrid.prepend(compiled);
+                            } else {
+                                link.insert(compiled, 'before');
+                                nodes = getNodesOrderedByAdded(wallGrid.all('li'));
+                                wallGrid.append(nodes);
+                            }
+                            link.remove();
+                            imagesReady();
+                            loadImages();
                         } else {
-                            link.insert(compiled, 'before');
-                            nodes = getNodesOrderedByAdded(wallGrid.all('li'));
-                            wallGrid.append(nodes);
+                            link.remove();
+                            imagesReady();
+                            loadImages();
                         }
-                        link.remove();
-                        imagesReady();
-                        loadImages();
                     })
                 })
             })
