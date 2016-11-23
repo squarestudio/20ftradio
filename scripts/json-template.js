@@ -403,7 +403,7 @@ YUI.add("squarespace-json-template", function (a) {
         func: function (b, c, e) {
             var f = 0,
                 f = (new Date(b)).getTimezoneOffset();
-            if (!a.Lang.isNumber(b)) return "Invalid date.";
+            //if (!a.Lang.isNumber(b)) return "Invalid date.";
             if ("undefined" !== typeof TimezoneJS) {
                 var k;
                 try {
