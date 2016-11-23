@@ -1,37 +1,6 @@
 window.Template.Controllers.WallController = function (element) {
     'use strict';
     var animOnScroll;
-
-    function getContentItems(collection_url) {
-        return new Y.Promise(function (resolve) {
-            var content_items = {past: [], upcoming: []};
-            var offset = '';
-            function getItems(collection_url, offset) {
-                Y.Data.get({
-                    url: collection_url+'?format=json',
-                    data: {
-                        offset: offset || ''
-                    },
-                    success: function (items) {
-                        console.log(items);
-                        content_items.upcoming = content_items.upcoming.concat(items.upcoming);
-                        content_items.past = content_items.past.concat(items.past);
-                        if (items.pagination) {
-
-                        } else {
-                            resolve(content_items);
-                        }
-                    },
-                    failure: function (e) {
-                        console.warn('error : ' + e.message);
-                        resolve(content_items);
-                    }
-                })
-            }
-
-            getItems(coll_id, coll_data, start);
-        })
-    }
     
     function simulateResize() {
         window.top.innerWidth = window.top.innerWidth - 1;
@@ -131,6 +100,36 @@ window.Template.Controllers.WallController = function (element) {
         });
     }
 
+    function getCollectionItems(collection_url) {
+        return new Y.Promise(function (resolve) {
+            var content_items = {past: [], upcoming: []};
+            var offset = '';
+            function getItems(collection_url, offset) {
+                Y.Data.get({
+                    url: collection_url+'?format=json',
+                    data: {
+                        offset: offset || ''
+                    },
+                    success: function (items) {
+                        console.log(items);
+                        content_items.upcoming = content_items.upcoming.concat(items.upcoming);
+                        content_items.past = content_items.past.concat(items.past);
+                        if (items.pagination) {
+
+                        } else {
+                            resolve(content_items);
+                        }
+                    },
+                    failure: function (e) {
+                        console.warn('error : ' + e.message);
+                        resolve(content_items);
+                    }
+                })
+            }
+
+            getItems(coll_id, coll_data, start);
+        })
+    }
     function initialize() {
         window.Template.Util.initShareButtons();
         if (animOnScroll) animOnScroll = null;
@@ -151,6 +150,9 @@ window.Template.Controllers.WallController = function (element) {
             Y.all('.wall-item-link').each(function (link) {
                 var url = link.getAttribute('href'),
                     order = link.getAttribute('data-order');
+                getCollectionItems(url).then(function (items) {
+                    console.log(items)
+                })
             })
         } else {
             loadImages();
