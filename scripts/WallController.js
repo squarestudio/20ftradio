@@ -161,8 +161,9 @@ window.Template.Controllers.WallController = function (element) {
                         console.log(order)
                         link.insert(compiled, 'before').remove(); //insert compiled template and remove our empty link from  document
                         imagesReady();
+                        loadImages();
                         setTimeout(function () {
-                            loadImages();
+
                         }, 20)
                     })
                 })
