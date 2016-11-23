@@ -151,7 +151,9 @@ window.Template.Controllers.WallController = function (element) {
                 var url = link.getAttribute('href'),
                     order = link.getAttribute('data-order');
                 getCollectionItems(url).then(function (items) {
-                    console.log(items)
+                    console.log(items);
+                    var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
+                    link.insert(compiled, 'before').remove(); //insert compiled template and remove our empty link from  document
                 })
             })
         } else {
