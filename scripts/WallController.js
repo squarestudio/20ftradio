@@ -159,7 +159,7 @@ window.Template.Controllers.WallController = function (element) {
                     getCollectionItems(url).then(function (items) {
                         console.log(items);
                         var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
-                        console.log(compiled)
+                        console.log(Y.Node.create(compiled))
                         if(order){
                             wallGrid.prepend(compiled);
                         } else {
