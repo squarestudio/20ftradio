@@ -116,7 +116,11 @@ window.Template.Controllers.WallController = function (element) {
                 simulateResize();
             }, 100);
         });
-        if (Y.one())
+        if (Y.one('.wall-item-link')){
+
+        } else {
+            
+        }
         loadImages();
     }
 
