@@ -180,7 +180,8 @@ window.Template.Controllers.WallController = function (element) {
     function getNodesOrderedByAdded(nodes) {
         nodes._nodes.sort(function(a, b) {
             return +a.getAttribute('data-added-on') - +b.getAttribute('data-added-on');
-        })
+        });
+        return nodes;
     }
     initialize();
     return {
