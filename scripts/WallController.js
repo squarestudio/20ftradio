@@ -135,7 +135,7 @@ window.Template.Controllers.WallController = function (element) {
         if (animOnScroll) animOnScroll = null;
         var imagesReady = function () {
             imagesLoaded(document.getElementById("wallGrid"), function() {
-                console.log('activated')
+                console.log('activated');
                 initGalleries();
                 initVideos();
                 initTexts();
