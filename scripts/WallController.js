@@ -4,7 +4,7 @@ window.Template.Controllers.WallController = function (element) {
 
     function getContentItems(collection_url) {
         return new Y.Promise(function (resolve) {
-            var content_items = [];
+            var content_items = {past: [], };
             var offset = '';
             function getItems(collection_url, offset) {
                 Y.Data.get({
@@ -14,9 +14,9 @@ window.Template.Controllers.WallController = function (element) {
                     },
                     success: function (items) {
                         console.log(items);
-                        content_items = content_items.concat(items.results);
+                        content_items = content_items.concat(items);
                         if (items.pagination) {
-                            
+
                         } else {
                             resolve(content_items);
                         }
