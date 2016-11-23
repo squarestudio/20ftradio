@@ -164,7 +164,7 @@ window.Template.Controllers.WallController = function (element) {
                         } else {
                             link.insert(compiled, 'before');
                         }
-                        var nodes = getNodesOrderedByAdded(wallGrid.all('li'));//Array.prototype.slice.call(wallGrid.querySelectorAll('.wrapper'));
+                        var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
                         wallGrid.append(nodes);
                         link.remove();
                         imagesReady();
