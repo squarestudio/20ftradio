@@ -5,9 +5,10 @@
         {.end}
     {.end}
   <ul class="effect-2" id="grid">
-    {.repeated section items}<script>console.log({@|json-pretty})</script>
+    {.repeated section items}<script>console.log({@|json})</script>
       {.if customContent.featured}
-      {.or}{.equal? dd ''}
+      {.or}{.equal? customContent.customType "wall-item-link"}
+        
       {.or}
         {@|apply wall-slide-block.block}
       {.end}
