@@ -113,6 +113,7 @@
 {.or}
 
 {.end}
+<script type="text/javascript" src="/js/timezone-js/src/date.js">
 <squarespace:script src="json-template.js" combo="false"/>
 <squarespace:script src="core-0.2.0.min.js" combo="false"/>
 <squarespace:script src="sqs-controller.js" combo="false"/>
