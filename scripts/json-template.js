@@ -415,7 +415,7 @@ YUI.add("squarespace-json-template", function (a) {
             } else c = -parseInt(Static.SQUARESPACE_CONTEXT.get("website.timeZoneOffset"), 10) / 6E4, k = (new Date).getTimezoneOffset(), f = c - k;
             b = new Date(b - 6E4 * f);
             e = e.join(" ");
-            console.log(b, e)
+            console.log(b,c, e)
             return a.DataType.Date.format(b, {format: e})
         }
     }, {
