@@ -132,20 +132,6 @@ window.Template.Controllers.WallController = function (element) {
     function initialize() {
         window.Template.Util.initShareButtons();
         if (animOnScroll) animOnScroll = null;
-        imagesLoaded(document.getElementById("wallGrid"), function() {
-            console.log('activated')
-            initGalleries();
-            initVideos();
-            initTexts();
-            animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
-                minDuration: 1,
-                maxDuration: 2,
-                viewportFactor: 0.2
-            });
-            setTimeout(function () {
-                simulateResize();
-            }, 100);
-        });
         if (Y.one('.wall-item-link')){
             var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/%/g, '{');
             Y.all('.wall-item-link').each(function (link) {
@@ -155,6 +141,20 @@ window.Template.Controllers.WallController = function (element) {
                     console.log(items);
                     var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                     link.insert(compiled, 'before').remove(); //insert compiled template and remove our empty link from  document
+                    imagesLoaded(document.getElementById("wallGrid"), function() {
+                        console.log('activated')
+                        initGalleries();
+                        initVideos();
+                        initTexts();
+                        animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
+                            minDuration: 1,
+                            maxDuration: 2,
+                            viewportFactor: 0.2
+                        });
+                        setTimeout(function () {
+                            simulateResize();
+                        }, 100);
+                    });
                     loadImages();
                 })
             })
