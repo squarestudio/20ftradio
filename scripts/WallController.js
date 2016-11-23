@@ -161,12 +161,14 @@ window.Template.Controllers.WallController = function (element) {
                         var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                         console.log(Y.Node.create(compiled))
                         if(order){
+                            var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
+                            wallGrid.append(nodes);
                             wallGrid.prepend(compiled);
                         } else {
                             link.insert(compiled, 'before');
+                            nodes = getNodesOrderedByAdded(wallGrid.all('li'));
+                            wallGrid.append(nodes);
                         }
-                        var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
-                        wallGrid.append(nodes);
                         link.remove();
                         imagesReady();
                         loadImages();
