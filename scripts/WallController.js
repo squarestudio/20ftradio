@@ -117,7 +117,10 @@ window.Template.Controllers.WallController = function (element) {
             }, 100);
         });
         if (Y.one('.wall-item-link')){
-
+            Y.all('.wall-item-link').each(function (link) {
+                var url = link.getAttribute('href'),
+                    order = link.getAttribute('data-order');
+            })
         } else {
             loadImages();
         }
