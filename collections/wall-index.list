@@ -5,7 +5,7 @@
         {.end}
     {.end}
   <ul class="effect-2" id="wallGrid">
-    {.repeated section items}<script>console.log({@|json})</script>
+    {.repeated section items}
       {.if customContent.featured}
       {.or}{.equal? customContent.customType "wall-item-link"}
         <a class="wall-item-link" href="{clickthroughUrl}" data-first-order="{customContent.firstOrder}"></a>
