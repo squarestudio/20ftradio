@@ -8,7 +8,7 @@
     {.repeated section items}<script>console.log({@|json})</script>
       {.if customContent.featured}
       {.or}{.equal? customContent.customType "wall-item-link"}
-        <a href=""></a>
+        <a href="{clickthroughUrl}" data-first-order="{customContent.firstOrder}"></a>
       {.or}
         {@|apply wall-slide-block.block}
       {.end}
