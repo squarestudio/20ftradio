@@ -175,7 +175,7 @@ window.Template.Controllers.WallController = function (element) {
         }
     }
     function getNodesOrderedByAdded(nodes) {
-        
+
     }
     initialize();
     return {
