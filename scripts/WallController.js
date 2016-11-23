@@ -8,7 +8,7 @@ window.Template.Controllers.WallController = function (element) {
             var offset = '';
             function getItems(collection_url, offset) {
                 Y.Data.get({
-                    url: offset ? collection_url+'?format=json&offset=',
+                    url: offset ? collection_url+'?format=json&offset='+offset:collection_url+'?format=json',
                     data: {
                         limit: 250,
                         start: start || ''
