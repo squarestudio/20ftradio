@@ -19,7 +19,7 @@
 <script id="wall-item-link-query-template" type="text/x-json-template">
     %.if upcoming}
         %.repeated section upcoming}
-            <li class="grid-slide %customContent.customType} %.if body}grid-slide-has-description%.or}grid-slide-has-no-description%.end}%.video?} grid-slide-video%.end}"
+            <li class="grid-slide"
                 data-slide-id="%id}" data-slide-url="%urlId}" data-added-on="%addedOn}">
                 <div class="grid-slide-wrapper %.section customContent.animatedTexts}animated-text%.end}">
                     %.if fullUrl}<a class="wrap-link" href="%fullUrl}">%.end}
@@ -45,7 +45,7 @@
     %.end}
     %.if past}
         %.repeated section past}
-            <li class="grid-slide %customContent.customType} %.if body}grid-slide-has-description%.or}grid-slide-has-no-description%.end}%.video?} grid-slide-video%.end}"
+            <li class="grid-slide"
                 data-slide-id="%id}" data-slide-url="%urlId}" data-added-on="%addedOn}">
                 <div class="grid-slide-wrapper %.section customContent.animatedTexts}animated-text%.end}">
                     %.if fullUrl}<a class="wrap-link" href="%fullUrl}">%.end}
