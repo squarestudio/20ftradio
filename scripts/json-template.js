@@ -87,6 +87,7 @@ YUI.add("datatype-date-format", function(a, e) {
             },
             aggregates: { c: "locale", D: "%m/%d/%y", F: "%Y-%m-%d", h: "%b", n: "\n", r: "%I:%M:%S %p", R: "%H:%M", t: "\t", T: "%H:%M:%S", x: "locale", X: "locale" },
             format: function(b, g) {
+                console.log(b, g)
                 g = g || {};
                 if (!a.Lang.isDate(b)) return a.Lang.isValue(b) ? b : "";
                 var e, l;
@@ -94,6 +95,7 @@ YUI.add("datatype-date-format", function(a, e) {
                 l = a.Intl.get("datatype-date-format");
                 for (var k = function(a, b) {
                     var c = d.aggregates[b];
+                    console.log(c)
                     return "locale" === c ? l[b] : c }, f = function(k, g) {
                     var e = d.formats[g];
                     switch (a.Lang.type(e)) {
