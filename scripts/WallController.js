@@ -8,23 +8,21 @@ window.Template.Controllers.WallController = function (element) {
             var offset = '';
             function getItems(collection_url, offset) {
                 Y.Data.get({
-                    url: offset ? collection_url+'?format=json&offset='+offset:collection_url+'?format=json',
+                    url: collection_url+'?format=json',
                     data: {
-                        limit: 250,
-                        start: start || ''
+                        offset: offset || ''
                     },
                     success: function (items) {
-                        console.log('Get collection ' + coll_data.sqstp_collection.title + ' items');
-                        logData('Get collection ' + coll_data.sqstp_collection.title + ' items');
+                        console.log(items);
                         content_items = content_items.concat(items.results);
-                        if (items.hasNextPage) {
-                            getItems(coll_id, coll_data, items.nextPageStart);
+                        if (items.pagination) {
+                            
                         } else {
                             resolve(content_items);
                         }
                     },
                     failure: function (e) {
-                        console.warn(coll_data.sqstp_collection.title + ': ' + e.message);
+                        console.warn('error : ' + e.message);
                         resolve(content_items);
                     }
                 })
