@@ -155,12 +155,12 @@ window.Template.Controllers.WallController = function (element) {
                 var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/\^/g, '{');
                 Y.all('.wall-item-link').each(function (link) {
                     var url = link.getAttribute('href'),
-                        order = Boolean(link.getAttribute('data-first-order'));
+                        order = link.getAttribute('data-first-order');
                     getCollectionItems(url).then(function (items) {
                         console.log(items);
                         var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                         console.log(order)
-                        if(order){
+                        if(order == 'true'){
                             var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
                             wallGrid.append(nodes);
                             wallGrid.prepend(compiled);
