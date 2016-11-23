@@ -5,7 +5,7 @@
         {.end}
     {.end}
   <ul class="effect-2" id="grid">
-    {.repeated section items}
+    {.repeated section items}<script>console.log({@|json-pretty})</script>
       {.if customContent.featured}
       {.or}{.equal? dd ''}
       {.or}
