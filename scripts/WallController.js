@@ -150,16 +150,18 @@ window.Template.Controllers.WallController = function (element) {
             });
         };
         if (Y.one('.wall-item-link')){
-            var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/%/g, '{');
-            Y.all('.wall-item-link').each(function (link) {
-                var url = link.getAttribute('href'),
-                    order = link.getAttribute('data-order');
-                getCollectionItems(url).then(function (items) {
-                    console.log(items);
-                    var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
-                    link.insert(compiled, 'before').remove(); //insert compiled template and remove our empty link from  document
-                    imagesReady();
-                    loadImages();
+            Y.use(['node', 'squarespace-json-template'], function (Y) {
+                var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/%/g, '{');
+                Y.all('.wall-item-link').each(function (link) {
+                    var url = link.getAttribute('href'),
+                        order = link.getAttribute('data-order');
+                    getCollectionItems(url).then(function (items) {
+                        console.log(items);
+                        var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
+                        link.insert(compiled, 'before').remove(); //insert compiled template and remove our empty link from  document
+                        imagesReady();
+                        loadImages();
+                    })
                 })
             })
         } else {
@@ -170,9 +172,7 @@ window.Template.Controllers.WallController = function (element) {
 
     return {
         sync: function () {
-            Y.use(['node', 'squarespace-json-template'], function (Y) {
-                initialize();
-            })
+            initialize();
         },
         destroy: function () {
 
