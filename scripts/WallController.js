@@ -161,8 +161,9 @@ window.Template.Controllers.WallController = function (element) {
             loadImages();
         }
     }
-Y.use('')
-    initialize();
+    Y.use(['node', 'squarespace-json-template', 'squarespace-data'], function (Y) {
+        initialize();
+    })
 
     return {
         sync: function () {
