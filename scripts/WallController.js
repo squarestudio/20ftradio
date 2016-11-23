@@ -9,7 +9,7 @@ window.Template.Controllers.WallController = function (element) {
     }
 
     function loadImages() {
-        var images = document.querySelectorAll('#grid img[data-src]:not(.swiper-lazy)');
+        var images = document.querySelectorAll('#wallGrid img[data-src]:not(.swiper-lazy)');
         for (var i = 0; i < images.length; i++) {
             images[i].removeAttribute('data-load');
             ImageLoader.load(images[i], {load: true});
@@ -17,7 +17,7 @@ window.Template.Controllers.WallController = function (element) {
     }
 
     function initGalleries() {
-        var swipers = document.querySelectorAll('#grid .swiper-container');
+        var swipers = document.querySelectorAll('#wallGrid .swiper-container');
         for (var i = 0; i < swipers.length; i++) {
             var swiper_el = $(swipers[i]);
             swiper_el.css('height', swiper_el.outerHeight(true));
