@@ -1,9 +1,37 @@
 window.Template.Controllers.WallController = function (element) {
     'use strict';
     var animOnScroll;
-    
-    function queryCollectionItems() {
-        
+
+    function getContentItems(collection_url) {
+        return new Y.Promise(function (resolve) {
+            var content_items = [];
+            var offset = '';
+            function getItems(collection_url, offset) {
+                Y.Data.get({
+                    url: offset ? collection_url+'?format=json&offset=',
+                    data: {
+                        limit: 250,
+                        start: start || ''
+                    },
+                    success: function (items) {
+                        console.log('Get collection ' + coll_data.sqstp_collection.title + ' items');
+                        logData('Get collection ' + coll_data.sqstp_collection.title + ' items');
+                        content_items = content_items.concat(items.results);
+                        if (items.hasNextPage) {
+                            getItems(coll_id, coll_data, items.nextPageStart);
+                        } else {
+                            resolve(content_items);
+                        }
+                    },
+                    failure: function (e) {
+                        console.warn(coll_data.sqstp_collection.title + ': ' + e.message);
+                        resolve(content_items);
+                    }
+                })
+            }
+
+            getItems(coll_id, coll_data, start);
+        })
     }
     
     function simulateResize() {
