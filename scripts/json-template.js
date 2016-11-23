@@ -403,7 +403,6 @@ YUI.add("squarespace-json-template", function (a) {
         func: function (b, c, e) {
             var f = 0,
                 f = (new Date(b)).getTimezoneOffset();
-            console.log(b, c, e)
             if (!a.Lang.isNumber(b)) return "Invalid date.";
             if ("undefined" !== typeof TimezoneJS) {
                 var k;
@@ -416,6 +415,7 @@ YUI.add("squarespace-json-template", function (a) {
             } else c = -parseInt(c.get("website.timeZoneOffset"), 10) / 6E4, k = (new Date).getTimezoneOffset(), f = c - k;
             b = new Date(b - 6E4 * f);
             e = e.join(" ");
+            console.log(b, c, e)
             return a.DataType.Date.format(b, {format: e})
         }
     }, {
