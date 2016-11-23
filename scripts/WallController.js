@@ -178,7 +178,9 @@ window.Template.Controllers.WallController = function (element) {
         }
     }
     function getNodesOrderedByAdded(nodes) {
-        nodes._nodes.sort
+        nodes._nodes.sort(function(a, b) {
+            return +a.dataset.percentage - +b.dataset.percentage;
+        })
     }
     initialize();
     return {
