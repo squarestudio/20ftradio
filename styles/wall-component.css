@@ -1,11 +1,11 @@
-.grid {
+#grid {
 	max-width: 69em;
 	list-style: none;
 	margin: 30px auto;
 	padding: 0;
 }
 
-.grid li {
+#grid li {
 	display: block;
 	float: left;
 	padding: 7px;
@@ -15,24 +15,24 @@
 	overflow: hidden;
 }
 
-.grid li.shown,
-.no-js .grid li,
-.no-cssanimations .grid li {
+#grid li.shown,
+.no-js #grid li,
+.no-cssanimations #grid li {
 	opacity: 1;
 }
 
-.grid li img {
+#grid li img {
 	outline: none;
 	border: none;
 	display: block;
 	max-width: 100%;
 	width: 100%;
 }
-.grid li .grid-slide-wrapper {
+#grid li .grid-slide-wrapper {
 	opacity: 0;
 }
 	/* Effect 1: opacity */
-body.wall-scroll-effect-effect-1 .grid li.animate .grid-slide-wrapper{
+body.wall-scroll-effect-effect-1 #grid li.animate .grid-slide-wrapper{
 	-webkit-animation: fadeIn 0.65s ease forwards;
 	animation: fadeIn 0.65s ease forwards;
 }
@@ -48,10 +48,10 @@ body.wall-scroll-effect-effect-1 .grid li.animate .grid-slide-wrapper{
 }
 
 /* Effect 2: Move Up */
-body.wall-scroll-effect-effect-2 .grid li.animate {
+body.wall-scroll-effect-effect-2 #grid li.animate {
 	opacity: 1;
 }
-body.wall-scroll-effect-effect-2 .grid li.animate .grid-slide-wrapper{
+body.wall-scroll-effect-effect-2 #grid li.animate .grid-slide-wrapper{
 	-webkit-transform: translateY(200px);
 	transform: translateY(200px);
 	-webkit-animation: moveUp 1s ease forwards;
@@ -69,7 +69,7 @@ body.wall-scroll-effect-effect-2 .grid li.animate .grid-slide-wrapper{
 }
 
 /* Effect 3: Scale up */
-body.wall-scroll-effect-effect-3 .grid li.animate .grid-slide-wrapper{
+body.wall-scroll-effect-effect-3 #grid li.animate .grid-slide-wrapper{
 	-webkit-transform: scale(0.6);
 	transform: scale(0.6);
 	-webkit-animation: scaleUp 0.65s ease-in-out forwards;
@@ -87,12 +87,12 @@ body.wall-scroll-effect-effect-3 .grid li.animate .grid-slide-wrapper{
 }
 
 /* Effect 4: fall perspective */
-body.wall-scroll-effect-effect-4 .grid {
+body.wall-scroll-effect-effect-4 #grid {
 	-webkit-perspective: 1300px;
 	perspective: 1300px;
 }
 
-body.wall-scroll-effect-effect-4 .grid li.animate .grid-slide-wrapper{
+body.wall-scroll-effect-effect-4 #grid li.animate .grid-slide-wrapper{
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	-webkit-transform: translateZ(400px) translateY(300px) rotateX(-90deg);
@@ -112,12 +112,12 @@ body.wall-scroll-effect-effect-4 .grid li.animate .grid-slide-wrapper{
 }
 
 /* Effect 5: fly (based on http://lab.hakim.se/scroll-wall-scroll-effect-effects/ by @hakimel) */
-body.wall-scroll-effect-effect-5 .grid {
+body.wall-scroll-effect-effect-5 #grid {
 	-webkit-perspective: 1300px;
 	perspective: 1300px;
 }
 
-body.wall-scroll-effect-effect-5 .grid li.animate .grid-slide-wrapper{
+body.wall-scroll-effect-effect-5 #grid li.animate .grid-slide-wrapper{
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	-webkit-transform-origin: 50% 50% -300px;
@@ -139,12 +139,12 @@ body.wall-scroll-effect-effect-5 .grid li.animate .grid-slide-wrapper{
 }
 
 /* Effect 6: flip (based on http://lab.hakim.se/scroll-wall-scroll-effect-effects/ by @hakimel) */
-body.wall-scroll-effect-effect-6 .grid {
+body.wall-scroll-effect-effect-6 #grid {
 	-webkit-perspective: 1300px;
 	perspective: 1300px;
 }
 
-body.wall-scroll-effect-effect-6 .grid li.animate .grid-slide-wrapper{
+body.wall-scroll-effect-effect-6 #grid li.animate .grid-slide-wrapper{
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	-webkit-transform-origin: 0% 0%;
@@ -166,12 +166,12 @@ body.wall-scroll-effect-effect-6 .grid li.animate .grid-slide-wrapper{
 }
 
 /* Effect 7: helix (based on http://lab.hakim.se/scroll-wall-scroll-effect-effects/ by @hakimel) */
-body.wall-scroll-effect-effect-7 .grid {
+body.wall-scroll-effect-effect-7 #grid {
 	-webkit-perspective: 1300px;
 	perspective: 1300px;
 }
 
-body.wall-scroll-effect-effect-7 .grid li.animate .grid-slide-wrapper{
+body.wall-scroll-effect-effect-7 #grid li.animate .grid-slide-wrapper{
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	-webkit-transform: rotateY(-180deg);
@@ -191,12 +191,12 @@ body.wall-scroll-effect-effect-7 .grid li.animate .grid-slide-wrapper{
 }
 
 /* Effect 8:  */
-body.wall-scroll-effect-effect-8 .grid {
+body.wall-scroll-effect-effect-8 #grid {
 	-webkit-perspective: 1300px;
 	perspective: 1300px;
 }
 
-body.wall-scroll-effect-effect-8 .grid li.animate .grid-slide-wrapper{
+body.wall-scroll-effect-effect-8 #grid li.animate .grid-slide-wrapper{
 	-webkit-transform-style: preserve-3d;
 	transform-style: preserve-3d;
 	-webkit-transform: scale(0.4);
@@ -218,13 +218,13 @@ body.wall-scroll-effect-effect-8 .grid li.animate .grid-slide-wrapper{
 }
 
 @media screen and (max-width: 1080px) {
-	.grid li {
+	#grid li {
 		width: 50%!important;
 	}
 }
 
 @media screen and (max-width: 414px) {
-	.grid li {
+	#grid li {
 		width: 100%!important;
 	}
 }
