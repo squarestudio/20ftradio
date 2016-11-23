@@ -160,7 +160,8 @@ window.Template.Controllers.WallController = function (element) {
                         console.log(items);
                         var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                         if(order){
-                            var nodes = Array.prototype.slice.call(wallGrid.querySelectorAll('.wrapper'));
+                            var nodes = getNodesOrderedByAdded(wallGrid.all('li'));//Array.prototype.slice.call(wallGrid.querySelectorAll('.wrapper'));
+                            wallGrid.append(nodes);
                             wallGrid.prepend(compiled);
                         } else {
                             link.insert(compiled, 'before');
@@ -177,7 +178,7 @@ window.Template.Controllers.WallController = function (element) {
         }
     }
     function getNodesOrderedByAdded(nodes) {
-
+        nodes._nodes.sort
     }
     initialize();
     return {
