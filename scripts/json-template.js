@@ -87,7 +87,6 @@ YUI.add("datatype-date-format", function(a, e) {
             },
             aggregates: { c: "locale", D: "%m/%d/%y", F: "%Y-%m-%d", h: "%b", n: "\n", r: "%I:%M:%S %p", R: "%H:%M", t: "\t", T: "%H:%M:%S", x: "locale", X: "locale" },
             format: function(b, g) {
-                console.log(b, g)
                 g = g || {};
                 if (!a.Lang.isDate(b)) return a.Lang.isValue(b) ? b : "";
                 var e, l;
@@ -415,7 +414,6 @@ YUI.add("squarespace-json-template", function (a) {
             } else c = -parseInt(Static.SQUARESPACE_CONTEXT.website.timeZoneOffset, 10) / 6E4, k = (new Date).getTimezoneOffset(), f = c - k;
             b = new Date(b - 6E4 * f);
             e = e.join(" ");
-            console.log(b,c, e)
             return a.DataType.Date.format(b, {format: e})
         }
     }, {
