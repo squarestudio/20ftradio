@@ -159,9 +159,9 @@ window.Template.Controllers.WallController = function (element) {
                         console.log(items);
                         var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                         if(order){
-                            link.insert(compiled, 'before')
+                            Y.one('#wallGrid').prepend(compiled);
                         } else {
-
+                            link.insert(compiled, 'before');
                         }
                         link.remove();
                         imagesReady();
