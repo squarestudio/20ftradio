@@ -161,7 +161,7 @@ window.Template.Controllers.WallController = function (element) {
             loadImages();
         }
     }
-
+Y.use('')
     initialize();
 
     return {
