@@ -166,7 +166,7 @@ window.Template.Controllers.WallController = function (element) {
             loadImages();
         }
     }
-    Y.use(['node', 'squarespace-json-template', 'datatype-date'], function (Y) {
+    Y.use(['node', 'squarespace-json-template'], function (Y) {
         initialize();
     })
 
