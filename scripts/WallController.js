@@ -119,9 +119,8 @@ window.Template.Controllers.WallController = function (element) {
         if (Y.one('.wall-item-link')){
 
         } else {
-            
+            loadImages();
         }
-        loadImages();
     }
 
     initialize();
