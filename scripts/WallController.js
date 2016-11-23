@@ -131,6 +131,7 @@ window.Template.Controllers.WallController = function (element) {
     }
 
     function initialize() {
+        var wallGrid = Y.one('#wallGrid');
         window.Template.Util.initShareButtons();
         if (animOnScroll) animOnScroll = null;
         var imagesReady = function () {
@@ -159,7 +160,8 @@ window.Template.Controllers.WallController = function (element) {
                         console.log(items);
                         var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                         if(order){
-                            Y.one('#wallGrid').prepend(compiled);
+                            var nodes = Array.prototype.slice.call(wallGrid.querySelectorAll('.wrapper'));
+                            wallGrid.prepend(compiled);
                         } else {
                             link.insert(compiled, 'before');
                         }
