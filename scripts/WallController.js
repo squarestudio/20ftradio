@@ -169,7 +169,7 @@ window.Template.Controllers.WallController = function (element) {
             loadImages();
         }
     }
-
+    initialize();
     return {
         sync: function () {
             initialize();
