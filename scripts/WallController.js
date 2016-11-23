@@ -103,11 +103,11 @@ window.Template.Controllers.WallController = function (element) {
     function initialize() {
         window.Template.Util.initShareButtons();
         if (animOnScroll) animOnScroll = null;
-        imagesLoaded(document.getElementById("grid"), function() {
+        imagesLoaded(document.getElementById("wallGrid"), function() {
             initGalleries();
             initVideos();
             initTexts();
-            animOnScroll = new AnimOnScroll(document.getElementById("grid"), {
+            animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
                 minDuration: 1,
                 maxDuration: 2,
                 viewportFactor: 0.2
