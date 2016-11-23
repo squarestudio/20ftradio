@@ -111,8 +111,9 @@
 {.if authenticatedAccount}
 <squarespace:script src="admin.js" combo="false"/>
 {.or}
-<squarespace:script src="json-template.js" combo="false"/>
+
 {.end}
+<squarespace:script src="json-template.js" combo="false"/>
 <squarespace:script src="core-0.2.0.min.js" combo="false"/>
 <squarespace:script src="sqs-controller.js" combo="false"/>
 <squarespace:script src="site.js" combo="true"/>
