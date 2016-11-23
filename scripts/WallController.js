@@ -147,7 +147,6 @@ window.Template.Controllers.WallController = function (element) {
         });
         if (Y.one('.wall-item-link')){
             Y.all('.wall-item-link').each(function (link) {
-                console.log(link)
                 var url = link.getAttribute('href'),
                     order = link.getAttribute('data-order');
                 getCollectionItems(url).then(function (items) {
