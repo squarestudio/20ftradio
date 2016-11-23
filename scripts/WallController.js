@@ -133,6 +133,7 @@ window.Template.Controllers.WallController = function (element) {
         window.Template.Util.initShareButtons();
         if (animOnScroll) animOnScroll = null;
         imagesLoaded(document.getElementById("wallGrid"), function() {
+            console.log('activated')
             initGalleries();
             initVideos();
             initTexts();
