@@ -114,6 +114,7 @@ YUI.add("datatype-date-format", function(a, e) {
     a.namespace("DataType");
     a.DataType.Date = a.Date
 }, "3.17.2", { lang: "ar ar-JO ca ca-ES da da-DK de de-AT de-DE el el-GR en en-AU en-CA en-GB en-IE en-IN en-JO en-MY en-NZ en-PH en-SG en-US es es-AR es-BO es-CL es-CO es-EC es-ES es-MX es-PE es-PY es-US es-UY es-VE fi fi-FI fr fr-BE fr-CA fr-FR hi hi-IN hu id id-ID it it-IT ja ja-JP ko ko-KR ms ms-MY nb nb-NO nl nl-BE nl-NL pl pl-PL pt pt-BR ro ro-RO ru ru-RU sv sv-SE th th-TH tr tr-TR vi vi-VN zh-Hans zh-Hans-CN zh-Hant zh-Hant-HK zh-Hant-TW".split(" ") })
+
 YUI.add("squarespace-json-template", function (a) {
     function f(a) {
         return a.replace(/([\{\}\(\)\[\]\|\^\$\-\+\?])/g,
@@ -398,7 +399,6 @@ YUI.add("squarespace-json-template", function (a) {
     }, {
         name: "date",
         func: function (b, c, e) {
-            console.log(b, c, e)
             var f = 0,
                 f = (new Date(b)).getTimezoneOffset();
             if (!a.Lang.isNumber(b)) return "Invalid date.";
@@ -413,7 +413,7 @@ YUI.add("squarespace-json-template", function (a) {
             } else c = -parseInt(c.get("website.timeZoneOffset"), 10) / 6E4, k = (new Date).getTimezoneOffset(), f = c - k;
             b = new Date(b - 6E4 * f);
             e = e.join(" ");
-            return a.Squarespace.DateUtils.dateFormat(b, {format: e})
+            return a.DataType.Date.format(b, {format: e})
         }
     }, {
         name: "image",
@@ -586,4 +586,4 @@ YUI.add("squarespace-json-template", function (a) {
     a.JSONTemplate.evaluateJsonTemplate = function (b, c, e) {
         return "string" != typeof b ? "JSON Template Error: Processing failed because no input was provided. (type: " + typeof b + ", template: " + JSON.stringify(b) + ", dictionary: " + JSON.stringify(c) + ", partials: " + JSON.stringify(e) + ")" : (new a.JSONTemplate.Template(b, {partials: e})).expand(c)
     }
-}, "1.0", {requires: "json squarespace-common squarespace-date-utils squarespace-escaping-utils squarespace-rendering squarespace-template-helpers squarespace-util".split(" ")})
+}, "1.0", {requires: "datatype-date-format json squarespace-common squarespace-date-utils squarespace-escaping-utils squarespace-rendering squarespace-template-helpers squarespace-util".split(" ")})
