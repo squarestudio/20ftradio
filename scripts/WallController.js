@@ -116,6 +116,7 @@ window.Template.Controllers.WallController = function (element) {
                 simulateResize();
             }, 100);
         });
+        if (Y.one())
         loadImages();
     }
 
