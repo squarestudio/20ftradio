@@ -1,0 +1,576 @@
+ YUI.add("squarespace-json-template", function(a) {
+        function f(a) {
+            return a.replace(/([\{\}\(\)\[\]\|\^\$\-\+\?])/g, "\\$1")
+        }
+        function b(a, b) {
+            var c = t[a + b];
+            void 0 === c && (c = "(" + f(a) + "\\S.*?" + f(b) + "\n?)",
+                c = RegExp(c, "g"));
+            return c
+        }
+        function e(a, b) {
+            var c = [{
+                context: a,
+                index: -1
+            }];
+            return {
+                PushSection: function(a) {
+                    if (void 0 === a || null === a)
+                        return null ;
+                    a = "@" == a ? c[c.length - 1].context : c[c.length - 1].context[a] || null ;
+                    c.push({
+                        context: a,
+                        index: -1
+                    });
+                    return a
+                },
+                Pop: function() {
+                    c.pop()
+                },
+                next: function() {
+                    var a = c[c.length - 1];
+                    -1 == a.index && (a = {
+                        context: null ,
+                        index: 0
+                    },
+                        c.push(a));
+                    var b = c[c.length - 2].context;
+                    if (a.index == b.length)
+                        c.pop();
+                    else
+                        return a.context = b[a.index++],
+                            !0
+                },
+                _Undefined: function(a) {
+                    return void 0 === b ? null : b
+                },
+                _LookUpStack: function(a) {
+                    for (var b = c.length - 1; ; ) {
+                        var e = c[b];
+                        if ("@index" == a) {
+                            if (-1 != e.index)
+                                return e.index
+                        } else if (e = e.context,
+                            "object" === typeof e && (e = e[a],
+                            void 0 !== e))
+                            return e;
+                        b--;
+                        if (-1 >= b)
+                            return this._Undefined(a)
+                    }
+                },
+                get: function(a) {
+                    if ("@" == a)
+                        return c[c.length - 1].context;
+                    var b = a.split(".")
+                        , e = this._LookUpStack(b[0]);
+                    if (1 < b.length)
+                        for (var f = 1; f < b.length; f++) {
+                            if (null === e)
+                                return "[JSONT: Can't resolve '" + a + "'.]";
+                            e = e[b[f]];
+                            if (void 0 === e)
+                                return this._Undefined(b[f])
+                        }
+                    return e
+                }
+            }
+        }
+        function c(a, b, c) {
+            for (var e = 0; e < a.length; e++) {
+                var f = a[e];
+                if ("string" == typeof f)
+                    c(f);
+                else
+                    (0,
+                        f[0])(f[1], b, c)
+            }
+        }
+        function l(a, b, c) {
+            var e;
+            e = b.get(a.name);
+            for (var f = 0; f < a.formatters.length; f++) {
+                var k = a.formatters[f];
+                e = (0,
+                    k[0])(e, b, k[1])
+            }
+            c(e)
+        }
+        function k(a, b, e) {
+            var f = b.PushSection(a.section_name)
+                , k = !1;
+            f && (k = !0);
+            f && 0 === f.length && (k = !1);
+            k ? (c(a.Statements(), b, e),
+                b.Pop()) : (b.Pop(),
+                c(a.Statements("or"), b, e))
+        }
+        function g(a, b, e) {
+            for (var f = b.get("@"), k = 0; k < a.clauses.length; k++) {
+                var l = a.clauses[k]
+                    , p = l[1];
+                if ((0,
+                        l[0][0])(f, b, l[0][1])) {
+                    c(p, b, e);
+                    break
+                }
+            }
+        }
+        function q(a, b, e) {
+            var f = b.PushSection(a.section_name);
+            if (f && 0 < f.length) {
+                var f = f.length - 1
+                    , k = a.Statements();
+                a = a.Statements("alternate");
+                for (var l = 0; void 0 !== b.next(); l++)
+                    c(k, b, e),
+                    l != f && c(a, b, e)
+            } else
+                c(a.Statements("or"), b, e);
+            b.Pop()
+        }
+        function r(c, e) {
+            function f(b) {
+                if (b.startsWith(h)) {
+                    var c = e.partials[b.substr(h.length)];
+                    if (c)
+                        return [function(b, e, f) {
+                            return a.JSONTemplate.evaluateJsonTemplate(c, b)
+                        }
+                            , null ];
+                    throw {
+                        name: "BadPartialInclude",
+                        message: b.substr(h) + " is not a valid partial. Remember, loops are not supported (a partial include cannot be included inside itself)."
+                    };
+                }
+                var k = t.lookup(b);
+                if (!k[0])
+                    throw {
+                        name: "BadFormatter",
+                        message: b + " is not a valid formatter"
+                    };
+                return k
+            }
+            function r(a) {
+                var b = y.lookup(a);
+                if (!b[0])
+                    throw {
+                        name: "BadPredicate",
+                        message: a + " is not a valid predicate"
+                    };
+                return b
+            }
+            var t = new w([u(a.JSONTemplate.DEFAULT_FORMATTERS), v(a.JSONTemplate.DEFAULT_PREFIX_FORMATTERS)])
+                , y = w([u(a.JSONTemplate.DEFAULT_PREDICATES), v(a.JSONTemplate.DEFAULT_PARAMETRIC_PREDICATES)])
+                , H = e.format_char || "|";
+            if (":" != H && "|" != H)
+                throw {
+                    name: "ConfigurationError",
+                    message: "Only format characters : and | are accepted"
+                };
+            var Q = e.meta || "{}"
+                , R = Q.length;
+            if (1 == R % 2)
+                throw {
+                    name: "ConfigurationError",
+                    message: Q + " has an odd number of metacharacters"
+                };
+            for (var ea = Q.substring(0, R / 2), Q = Q.substring(R / 2, R), R = b(ea, Q), V = x({}), U = [V], M = ea.length, S, P, T = 0; ; ) {
+                S = R.exec(c);
+                if (null === S)
+                    break;
+                else
+                    P = S[0];
+                S.index > T && (T = c.slice(T, S.index),
+                    V.Append(T));
+                T = R.lastIndex;
+                S = !1;
+                "\n" == P.slice(-1) && (P = P.slice(null , -1),
+                    S = !0);
+                P = P.slice(M, -M);
+                if ("#" != P.charAt(0)) {
+                    if ("." == P.charAt(0)) {
+                        P = P.substring(1, P.length);
+                        var O = {
+                            "meta-left": ea,
+                            "meta-right": Q,
+                            space: " ",
+                            tab: "\t",
+                            newline: "\n"
+                        }[P];
+                        if (void 0 !== O) {
+                            V.Append(O);
+                            continue
+                        }
+                        if (O = P.match(B)) {
+                            P = O[3];
+                            O[1] ? (S = q,
+                                P = A({
+                                    section_name: P
+                                })) : (S = k,
+                                P = x({
+                                    section_name: P
+                                }));
+                            V.Append([S, P]);
+                            U.push(P);
+                            V = P;
+                            continue
+                        }
+                        var $;
+                        if (O = P.match(C)) {
+                            S = ($ = O[1]) ? r($) : null ;
+                            V.NewOrClause(S);
+                            continue
+                        }
+                        var O = !1
+                            , Y = P.match(D);
+                        if (Y) {
+                            if ($ = Y[1],
+                                    O = !0,
+                                -1 == $.indexOf("?")) {
+                                S = [function(a) {
+                                    return function(b, c) {
+                                        var e, f, k;
+                                        if (-1 !== a.indexOf(" || ")) {
+                                            e = a.split("||");
+                                            for (k = 0; k < e.length; k++)
+                                                if (f = e[k].trim(),
+                                                        c.get(f))
+                                                    return !0;
+                                            return !1
+                                        }
+                                        if (-1 !== a.indexOf(" && ")) {
+                                            e = a.split(" && ");
+                                            for (k = 0; k < e.length; k++)
+                                                if (f = e[k].trim(),
+                                                        !c.get(f))
+                                                    return !1;
+                                            return !0
+                                        }
+                                        return c.get(a)
+                                    }
+                                }($), null ];
+                                P = z();
+                                P.NewOrClause(S);
+                                V.Append([g, P]);
+                                U.push(P);
+                                V = P;
+                                continue
+                            }
+                        } else if ("?" == P.charAt(P.length - 1) || "?" == P.split(" ")[0].charAt(P.split(" ")[0].length - 1))
+                            $ = P,
+                                O = !0;
+                        if (O) {
+                            S = $ ? r($) : null ;
+                            P = z();
+                            P.NewOrClause(S);
+                            V.Append([g, P]);
+                            U.push(P);
+                            V = P;
+                            continue
+                        }
+                        if ("alternates with" == P) {
+                            V.AlternatesWith();
+                            continue
+                        }
+                        if ("end" == P) {
+                            U.pop();
+                            if (0 < U.length)
+                                V = U[U.length - 1];
+                            else
+                                throw {
+                                    name: "TemplateSyntaxError",
+                                    message: "Got too many {end} statements"
+                                };
+                            continue
+                        }
+                    }
+                    Y = P.split(H);
+                    if (1 == Y.length)
+                        O = [f("str")];
+                    else {
+                        O = [];
+                        for (P = 1; P < Y.length; P++)
+                            O.push(f(Y[P]));
+                        P = Y[0]
+                    }
+                    V.Append([l, {
+                        name: P,
+                        formatters: O
+                    }]);
+                    S && V.Append("\n")
+                }
+            }
+            V.Append(c.slice(T));
+            if (1 !== U.length)
+                throw {
+                    name: "TemplateSyntaxError",
+                    message: "Got too few {end} statements."
+                };
+            return V
+        }
+        a.namespace("JSONTemplate");
+        var h = "apply "
+            , t = {};
+        a.JSONTemplate.DEFAULT_FORMATTERS = a.Squarespace.TEMPLATE_FORMATTERS;
+        a.JSONTemplate.DEFAULT_PREFIX_FORMATTERS = [].concat(a.Squarespace.TEMPLATE_PREFIX_FORMATTERS, [{
+            name: "pluralize",
+            func: function(a, b, c) {
+                switch (c.length) {
+                    case 0:
+                        b = "";
+                        c = "s";
+                        break;
+                    case 1:
+                        b = "";
+                        c = c[0];
+                        break;
+                    case 2:
+                        b = c[0];
+                        c = c[1];
+                        break;
+                    default:
+                        throw {
+                            name: "EvaluationError",
+                            message: "pluralize got too many args"
+                        };
+                }
+                return 1 == a ? b : c
+            }
+        }, {
+            name: "encode-space",
+            func: function(a, b, c) {
+                return a.replace(/\s/g, "&nbsp;")
+            }
+        }, {
+            name: "truncate",
+            func: function(a, b, c) {
+                b = c[0] || 100;
+                c = c[1] || "...";
+                a && a.length > b && (a = a.substring(0, b),
+                    a = a.replace(/\w+$/, ""),
+                    a += c);
+                return a
+            }
+        }, {
+            name: "date",
+            func: function(b, c, e) {
+                var f = 0
+                    , f = (new Date(b)).getTimezoneOffset();
+                if (!a.Lang.isNumber(b))
+                    return "Invalid date.";
+                if ("undefined" !== typeof TimezoneJS) {
+                    var k;
+                    try {
+                        k = new TimezoneJS.Date(b,c.get("website.timeZone"))
+                    } catch (l) {
+                        return "Invalid Timezone"
+                    }
+                    f = (isNaN(k.getTimezoneOffset()) ? 0 : k.getTimezoneOffset()) - f
+                } else
+                    c = -parseInt(c.get("website.timeZoneOffset"), 10) / 6E4,
+                        k = (new Date).getTimezoneOffset(),
+                        f = c - k;
+                b = new Date(b - 6E4 * f);
+                e = e.join(" ");
+                return a.DataType.Date.format(b, {
+                    format: e
+                })
+            }
+        }, {
+            name: "image",
+            func: function(b, c, e) {
+                var f;
+                b.mediaFocalPoint && (f = b.mediaFocalPoint.x + "," + b.mediaFocalPoint.y);
+                return '<img class="' + (e[0] ? e[0] : "thumb-image") + '" ' + (b.title ? 'alt="' + a.Squarespace.Escaping.escapeForHtmlTag(b.title) + '" ' : "") + ' data-image="' + b.assetUrl + '" data-image-dimensions="' + b.originalSize + '" data-image-focal-point="' + f + '"/>'
+            }
+        }, {
+            name: "timesince",
+            func: function(b, c, e) {
+                if (!a.Lang.isNumber(b))
+                    return "Invalid date.";
+                e.join(" ");
+                return '<span class="timesince" data-date="' + b + '">' + a.Squarespace.DateUtils.humanizeDate(b) + "</span>"
+            }
+        }, {
+            name: "resizedHeightForWidth",
+            func: function(a, b, c) {
+                b = a.split("x");
+                if (2 != b.length)
+                    return "Invalid source parameter.  Pass in 'originalSize'.";
+                a = parseInt(b[0], 10);
+                b = parseInt(b[1], 10);
+                c = parseInt(c[0], 10) / a;
+                return parseInt(b * c, 10)
+            }
+        }, {
+            name: "resizedWidthForHeight",
+            func: function(a, b, c) {
+                b = a.split("x");
+                if (2 != b.length)
+                    return "Invalid source parameter.  Pass in 'originalSize'.";
+                a = parseInt(b[0], 10);
+                b = parseInt(b[1], 10);
+                c = parseInt(c[0], 10) / b;
+                return parseInt(a * c, 10)
+            }
+        }, {
+            name: "squarespaceThumbnailForWidth",
+            func: function(b, c, e) {
+                return a.Squarespace.Rendering.getSquarespaceSizeForWidth(parseInt(e[0], 10))
+            }
+        }, {
+            name: "squarespaceThumbnailForHeight",
+            func: function(b, c, e) {
+                c = b.split("x");
+                if (2 != c.length)
+                    return "Invalid source parameter.  Pass in 'originalSize'.";
+                b = parseInt(c[0], 10);
+                c = parseInt(c[1], 10);
+                e = parseInt(e[0], 10) / c;
+                e = parseInt(b * e, 10);
+                return a.Squarespace.Rendering.getSquarespaceSizeForWidth(e)
+            }
+        }, {
+            name: "cycle",
+            func: function(a, b, c) {
+                return c[(a - 1) % c.length]
+            }
+        }]);
+        var u = function(a) {
+            return {
+                lookup: function(b) {
+                    return [a[b] || null , null ]
+                }
+            }
+        }
+            , v = function(a) {
+            return {
+                lookup: function(b) {
+                    for (var c = 0; c < a.length; c++) {
+                        var e = a[c].name
+                            , f = a[c].func;
+                        if (b.slice(0, e.length) == e)
+                            return c = b.charAt(e.length),
+                                b = "" === c ? [] : b.split(c).slice(1),
+                                [f, b]
+                    }
+                    return [null , null ]
+                }
+            }
+        }
+            , w = function(a) {
+            return {
+                lookup: function(b) {
+                    for (var c = 0; c < a.length; c++) {
+                        var e = a[c].lookup(b);
+                        if (e[0])
+                            return e
+                    }
+                    return [null , null ]
+                }
+            }
+        }
+            , y = function(a) {
+            var b = {
+                current_clause: [],
+                Append: function(a) {
+                    b.current_clause.push(a)
+                },
+                AlternatesWith: function() {
+                    throw {
+                        name: "TemplateSyntaxError",
+                        message: "{.alternates with} can only appear with in {.repeated section ...}"
+                    };
+                },
+                NewOrClause: function(a) {
+                    throw {
+                        name: "NotImplemented"
+                    };
+                }
+            };
+            return b
+        }
+            , x = function(a) {
+            var b = y(a);
+            b.statements = {
+                "default": b.current_clause
+            };
+            b.section_name = a.section_name;
+            b.Statements = function(a) {
+                return b.statements[a || "default"] || []
+            }
+            ;
+            b.NewOrClause = function(a) {
+                if (a)
+                    throw {
+                        name: "TemplateSyntaxError",
+                        message: "{.or} clause only takes a predicate inside predicate blocks"
+                    };
+                b.current_clause = [];
+                b.statements.or = b.current_clause
+            }
+            ;
+            return b
+        }
+            , A = function(a) {
+            var b = x(a);
+            b.AlternatesWith = function() {
+                b.current_clause = [];
+                b.statements.alternate = b.current_clause
+            }
+            ;
+            return b
+        }
+            , z = function(a) {
+            var b = y(a);
+            b.clauses = [];
+            b.NewOrClause = function(a) {
+                a = a || [function(a) {
+                        return !0
+                    }
+                        , null ];
+                b.current_clause = [];
+                b.clauses.push([a, b.current_clause])
+            }
+            ;
+            return b
+        }
+            , B = /(repeated)?\s*(section)\s+(\S+)?/
+            , C = /^or(?:[\s\-]+(.+))?/
+            , D = /^if(?:[\s\-]+(.+))?/;
+        a.JSONTemplate.Template = Class.create({
+            initialize: function(a, b, c) {
+                a = this.removeMultilineComments(a);
+                this._options = b || {};
+                this._program = r(a, this._options)
+            },
+            removeMultilineComments: function(a) {
+                for (var b = a.search("{##"), c; 0 <= b; )
+                    c = a.substr(b),
+                        a = a.substr(0, b) + c.substr(c.search("##}") + 3),
+                        b = a.search("{##");
+                return a
+            },
+            render: function(a, b) {
+                var f = e(a, this._options.undefined_str);
+                c(this._program.Statements(), f, b)
+            },
+            expand: function(a) {
+                var b = [];
+                this.render(a, function(a) {
+                    b.push(a)
+                });
+                return b.join("")
+            }
+        });
+        a.JSONTemplate.DEFAULT_PREDICATES = a.Squarespace.TEMPLATE_PREDICATES;
+        a.JSONTemplate.DEFAULT_PARAMETRIC_PREDICATES = a.Squarespace.TEMPLATE_PARAMETRIC_PREDICATES;
+        a.JSONTemplate.evaluateJsonTemplate = function(b, c, e) {
+            return "string" != typeof b ? "JSON Template Error: Processing failed because no input was provided. (type: " + typeof b + ", template: " + JSON.stringify(b) + ", dictionary: " + JSON.stringify(c) + ", partials: " + JSON.stringify(e) + ")" : (new a.JSONTemplate.Template(b,{
+                partials: e
+            })).expand(c)
+        }
+    }, "1.0", {
+        requires: "datatype-date-format json squarespace-common squarespace-date-utils squarespace-escaping-utils squarespace-rendering squarespace-template-helpers squarespace-util".split(" ")
+    })
