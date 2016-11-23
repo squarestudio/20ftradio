@@ -35,7 +35,7 @@
                                     </div>
                                     <div class="eventlist-datetag-status"></div>
                                 </div>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                     ^.if fullUrl}</a>^.end}
