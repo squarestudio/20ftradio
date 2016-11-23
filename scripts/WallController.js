@@ -174,6 +174,9 @@ window.Template.Controllers.WallController = function (element) {
             loadImages();
         }
     }
+    function getNodesOrderedByAdded(nodes) {
+        
+    }
     initialize();
     return {
         sync: function () {
