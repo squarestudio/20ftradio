@@ -8,7 +8,7 @@
     {.repeated section items}
       {.if customContent.featured}
       {.or}{.equal? customContent.customType "wall-item-link"}
-        <a class="wall-item-link" data-template="wall-item-link-query-template" href="{clickthroughUrl}" data-first-order="{customContent.firstOrder}"></a>
+        <a class="wall-item-link" data-template="#wall-item-link-query-template" href="{clickthroughUrl}" data-first-order="{customContent.firstOrder}"></a>
       {.or}
         {@|apply wall-slide-block.block}
       {.end}
