@@ -5,15 +5,12 @@
         {.end}
     {.end}
   <ul class="effect-2" id="grid">
-      <squarespace:query collection="events" limit="100">
-          {.repeated section items}
-            {@|apply wall-slide-block.block}
-          {.end}
-      </squarespace:query>
     {.repeated section items}
       {.if customContent.featured}
+      {.or}{.equal? dd ''}
       {.or}
         {@|apply wall-slide-block.block}
+      {.end}
       {.end}
     {.end}
   </ul>
