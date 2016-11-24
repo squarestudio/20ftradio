@@ -1,6 +1,8 @@
 window.Template.Controllers.WallController = function (element) {
     'use strict';
-    var animOnScroll;
+    var animOnScroll,
+        wallGrid,
+        castContainer;
     
     function simulateResize() {
         window.top.innerWidth = window.top.innerWidth - 1;
@@ -131,7 +133,7 @@ window.Template.Controllers.WallController = function (element) {
     }
 
     function initialize() {
-        var wallGrid = Y.one('#wallGrid');
+        wallGrid = Y.one('#wallGrid');
         window.Template.Util.initShareButtons();
         if (animOnScroll) animOnScroll = null;
         var imagesReady = function () {
@@ -190,8 +192,8 @@ window.Template.Controllers.WallController = function (element) {
         }
     }
     function initCast() {
-        var castDiv = Y.one('#castDiv');
-        castDiv.one('img') && castDiv.one('img').removeAttribute('data-load') && ImageLoader.load(castDiv.one('img'), {load: true});
+        castContainer = Y.one('#castDiv');
+        castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {load: true});
     }
     function getNodesOrderedByAdded(nodes) {
         nodes._nodes.sort(function(a, b) {
