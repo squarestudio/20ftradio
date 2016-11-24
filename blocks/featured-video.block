@@ -1,9 +1,9 @@
-<div class="container slide-into-view">
+<div class="container">
         <div class="grid-slide grid-slide-full-width {customContent.customType} {.video?} grid-slide-video{.end}" data-slide-id="{id}" data-slide-url="{urlId}">
             <div class="grid-slide-wrapper {.section customContent.animatedTexts}animated-text{.end}">
                 {.video?}<script>console.log({@|json-pretty})</script>
                 <div class="grid-slide-video grid-slide-video-featured {.section customContent.autoplay}grid-slide-video-autoplay{.end}">
-                    <div id="castDiv" class="cast-container content-fit" data-url="{oembed.url}">
+                    <div id="castDiv" class="cast-container content-fit slide-into-view" data-url="{oembed.url}">
                         <img {@|image-meta} data-fixed-ratio="true" data-load="false"/>
                     </div>
                 </div>
