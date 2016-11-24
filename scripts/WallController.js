@@ -210,7 +210,8 @@ window.Template.Controllers.WallController = function (element) {
                     'autoplay': 1,
                     'controls': 0,
                     'modestbranding': 1,
-                    'rel': 0
+                    'rel': 0,
+                    'showinfo': 0
                 },
                 events: {
                     'onReady': onPlayerReady,
