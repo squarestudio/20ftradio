@@ -195,7 +195,7 @@ window.Template.Controllers.WallController = function (element) {
     function initCast() {
         castContainer = Y.one('#castDiv');
         var videoId = castContainer.getAttribute('url').split('=')[1];
-        console.log(videoId)
+        console.log(castContainer.getAttribute('url'),castContainer.getAttribute('url').split('='), videoId)
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {load: true, fill: true});
         var tag = document.createElement('script');
         tag.src = "//www.youtube.com/iframe_api";
