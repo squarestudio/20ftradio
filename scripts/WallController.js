@@ -205,7 +205,7 @@ window.Template.Controllers.WallController = function (element) {
             window.castPlayer = castPlayer = new YT.Player('castPlayer', {
                 height: '720',
                 width: '1280',
-                videoId: ,
+                videoId: '',
                 events: {
                     'onReady': onPlayerReady,
                     'onStateChange': onPlayerStateChange,
