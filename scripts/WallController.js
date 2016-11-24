@@ -207,11 +207,14 @@ window.Template.Controllers.WallController = function (element) {
                 videoId: videoId,
                 events: {
                     'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
+                    'onStateChange': onPlayerStateChange,
+                    'onError': onPlayerError
                 }
             });
+        };
+        function onPlayerError(event){
+            console.log('loading shoutcast')
         }
-        // 4. The API will call this function when the video player is ready.
         function onPlayerReady(event) {
             event.target.playVideo();
         }
