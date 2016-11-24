@@ -194,20 +194,18 @@ window.Template.Controllers.WallController = function (element) {
     }
     function initCast() {
         castContainer = Y.one('#castDiv');
+        var videoId = castContainer.getAttribute('url').split('=')[1];
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {load: true, fill: true});
         var tag = document.createElement('script');
-
-        tag.src = "https://www.youtube.com/iframe_api";
+        tag.src = "//www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        // 3. This function creates an <iframe> (and YouTube player)
-        //    after the API code downloads.
         var player;
         function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '360',
-                width: '640',
-                videoId: 'M7lc1UVf-VE',
+            player = new YT.Player('castPlayer', {
+                height: '720',
+                width: '1280',
+                videoId: videoId,
                 events: {
                     'onReady': onPlayerReady,
                     'onStateChange': onPlayerStateChange
