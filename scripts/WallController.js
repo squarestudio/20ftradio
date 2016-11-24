@@ -195,6 +195,7 @@ window.Template.Controllers.WallController = function (element) {
     function initCast() {
         castContainer = Y.one('#castDiv');
         var videoId = castContainer.getAttribute('data-url').split('=')[1];
+        var alternUrl = castContainer.getAttribute('data-alternative-url');
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {load: true, fill: true});
         var tag = document.createElement('script');
         tag.src = "//www.youtube.com/iframe_api";
@@ -213,7 +214,8 @@ window.Template.Controllers.WallController = function (element) {
             });
         };
         function onPlayerError(event){
-            console.log('loading shoutcast')
+            console.log('loading shoutcast');
+            var shoutCast = Y.Node.create('<video controls="" autoplay="" name="media"><source src="'+alternUrl+'" type="audio/mpeg"></video>')
         }
         function onPlayerReady(event) {
             event.target.playVideo();
