@@ -5,7 +5,7 @@
                 <div class="grid-slide-video grid-slide-video-featured {.section customContent.autoplay}grid-slide-video-autoplay{.end}">
                     <div id="castDiv" class="cast-container content-fit slide-into-view" data-url="{oembed.url}">
                         <img {@|image-meta} data-load="false"/>
-                        <div id="castPlaye"></div>
+                        <div id="castPlayer"></div>
                     </div>
                 </div>
                 {.end}
