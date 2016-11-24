@@ -206,7 +206,10 @@ window.Template.Controllers.WallController = function (element) {
                 height: '720',
                 width: '1280',
                 videoId: videoId,
-                playerVars: { 'autoplay': 1, 'controls': 0 },
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0
+                },
                 events: {
                     'onReady': onPlayerReady,
                     'onStateChange': onPlayerStateChange,
@@ -222,7 +225,8 @@ window.Template.Controllers.WallController = function (element) {
 
         }
         function onPlayerReady(event) {
-            event.target.playVideo();
+            console.log('playerReady');
+            //event.target.playVideo();
         }
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
