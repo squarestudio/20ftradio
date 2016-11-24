@@ -185,6 +185,13 @@ window.Template.Controllers.WallController = function (element) {
             imagesReady();
             loadImages();
         }
+        if(Y.one('#castDiv')){
+            initCast()
+        }
+    }
+    function initCast() {
+        var castDiv = Y.one('#castDiv');
+        castDiv.one('img') && ImageLoader.load(castDiv.one('img'), {load: true});
     }
     function getNodesOrderedByAdded(nodes) {
         nodes._nodes.sort(function(a, b) {
