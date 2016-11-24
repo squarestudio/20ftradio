@@ -201,6 +201,7 @@ window.Template.Controllers.WallController = function (element) {
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             var state = castPlayer.getPlayerState();
+
         });
         var tag = document.createElement('script');
         tag.src = "//www.youtube.com/iframe_api";
