@@ -200,6 +200,7 @@ window.Template.Controllers.WallController = function (element) {
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {load: true, fill: true});
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
+            var state = castPlayer.getPlayerState();
         });
         var tag = document.createElement('script');
         tag.src = "//www.youtube.com/iframe_api";
