@@ -1,13 +1,12 @@
 <div class="grid-container">
-    <!--{.repeated section items}
+    {.repeated section items}
         {.if customContent.featured}
             {@|apply featured-video.block}
         {.end}
-    {.end}-->
+    {.end}
   <ul class="effect-2" id="wallGrid">
     {.repeated section items}
-      {.if customContent.feature}
-        {@|apply featured-video.block}
+      {.if customContent.featured}
       {.or}{.equal? customContent.customType "wall-item-link"}
         <a class="wall-item-link" data-template="#wall-item-link-query-template" href="{clickthroughUrl}" data-first-order="{customContent.firstOrder}"></a>
       {.or}
