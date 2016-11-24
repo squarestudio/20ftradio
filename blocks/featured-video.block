@@ -6,6 +6,7 @@
                     <div id="castDiv" class="cast-container content-fit slide-into-view" data-url="{oembed.url}">
                         <img {@|image-meta} data-load="false"/>
                         <div id="castPlayer"></div>
+                        <video src="http://185.33.21.112:11029"></video>
                     </div>
                 </div>
                 {.end}
