@@ -6,7 +6,7 @@
     {.end}-->
   <ul class="effect-2" id="wallGrid">
     {.repeated section items}
-      {.if customContent.featured}
+      {.if customContent.feature}
         {@|apply featured-video.block}
       {.or}{.equal? customContent.customType "wall-item-link"}
         <a class="wall-item-link" data-template="#wall-item-link-query-template" href="{clickthroughUrl}" data-first-order="{customContent.firstOrder}"></a>
