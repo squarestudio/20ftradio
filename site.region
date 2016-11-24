@@ -51,6 +51,16 @@
             <h2 class="logo-subtitle">{@}</h2>
             {.end}
         </div>
+        <div class="site-player">
+            <div class="site-player-wrapper">
+                <a class="play-button">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                    <div class="triangle-1"></div>
+                    <div class="triangle-2"></div>
+                </a>
+            </div>
+        </div>
         <squarespace:navigation navigationId="pages" template="navigation"/>
     </header>
     {.end}
