@@ -14,7 +14,7 @@ window.Template.Controllers.WallController = function (element) {
         var images = document.querySelectorAll('#wallGrid img[data-src]:not(.swiper-lazy)');
         for (var i = 0; i < images.length; i++) {
             images[i].removeAttribute('data-load');
-            ImageLoader.load(images[i], {load: true, fill: true});
+            ImageLoader.load(images[i], {load: true});
         }
     }
 
@@ -193,7 +193,7 @@ window.Template.Controllers.WallController = function (element) {
     }
     function initCast() {
         castContainer = Y.one('#castDiv');
-        castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {load: true});
+        castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {load: true, fill: true});
     }
     function getNodesOrderedByAdded(nodes) {
         nodes._nodes.sort(function(a, b) {
