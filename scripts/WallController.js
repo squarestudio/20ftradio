@@ -14,7 +14,7 @@ window.Template.Controllers.WallController = function (element) {
         var images = document.querySelectorAll('#wallGrid img[data-src]:not(.swiper-lazy)');
         for (var i = 0; i < images.length; i++) {
             images[i].removeAttribute('data-load');
-            ImageLoader.load(images[i], {load: true});
+            ImageLoader.load(images[i], {load: true, fill: true});
         }
     }
 
