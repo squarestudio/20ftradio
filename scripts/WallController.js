@@ -201,7 +201,7 @@ window.Template.Controllers.WallController = function (element) {
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
         window.onYouTubeIframeAPIReady =  function () {
-            castPlayer = new YT.Player('castPlayer', {
+            window.castPlayer = castPlayer = new YT.Player('castPlayer', {
                 height: '720',
                 width: '1280',
                 videoId: videoId,
