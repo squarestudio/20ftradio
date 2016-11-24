@@ -53,7 +53,7 @@
         </div>
         <div class="site-player">
             <div class="site-player-wrapper">
-                <a class="play-button">
+                <a id="playButton" class="play-button">
                     <div class="left"></div>
                     <div class="right"></div>
                     <div class="triangle-1"></div>
