@@ -201,7 +201,11 @@ window.Template.Controllers.WallController = function (element) {
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             var state = castPlayer.getPlayerState();
-
+            if (state == YT.PlayerState.PLAYING) {
+                castPlayer.pauseVideo();
+            } else if (state == YT.PlayerState.PAUSED) {
+                castPlayer.playVideo();
+            }
         });
         var tag = document.createElement('script');
         tag.src = "//www.youtube.com/iframe_api";
@@ -240,13 +244,9 @@ window.Template.Controllers.WallController = function (element) {
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
                 sitePlayer.removeClass('paused');
-            }
-            if (event.data == YT.PlayerState.PAUSED) {
+            } else if (event.data == YT.PlayerState.PAUSED) {
                 sitePlayer.addClass('paused');
             }
-        }
-        function stopVideo() {
-            castPlayer.stopVideo();
         }
     }
     function getNodesOrderedByAdded(nodes) {
