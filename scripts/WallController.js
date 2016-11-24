@@ -3,7 +3,7 @@ window.Template.Controllers.WallController = function (element) {
     var animOnScroll,
         wallGrid,
         castPlayer,
-        sitePlayer = Y.one('#playButton'),
+        sitePlayer = Y.one('.site-player'),
         castContainer;
     
     function simulateResize() {
