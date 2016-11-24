@@ -198,6 +198,9 @@ window.Template.Controllers.WallController = function (element) {
         var videoId = castContainer.getAttribute('data-url').split('=')[1];
         var alternUrl = castContainer.getAttribute('data-alternative-url');
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {load: true, fill: true});
+        sitePlayer.one('#playButton').on('click', function (e) {
+            e.halt();
+        });
         var tag = document.createElement('script');
         tag.src = "//www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -235,6 +238,9 @@ window.Template.Controllers.WallController = function (element) {
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
                 sitePlayer.removeClass('paused');
+            }
+            if (event.data == YT.PlayerState.PAUSED) {
+                sitePlayer.addClass('paused');
             }
         }
         function stopVideo() {
