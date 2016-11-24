@@ -49,7 +49,7 @@ window.Template.Controllers.WallController = function (element) {
         if (Y.Squarespace.VideoLoader) Y.Squarespace.VideoLoader.prototype._showOverlayOnOthers = function () {
             return false
         };
-        var videos = Y.all('.grid-slide-video-autoplay');
+        var videos = wallGrid.all('.grid-slide-video-autoplay');
         videos.each(function (video) {
                 var videoloader = video.one('.sqs-video-wrapper').videoloader;
                 video.on('hover', function () {
