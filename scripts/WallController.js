@@ -216,6 +216,7 @@ window.Template.Controllers.WallController = function (element) {
             event.target.playVideo();
         }
         function onPlayerStateChange(event) {
+            console.log(event)
             if (event.data == YT.PlayerState.PLAYING) {
 
             }
