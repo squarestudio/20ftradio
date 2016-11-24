@@ -214,7 +214,7 @@ window.Template.Controllers.WallController = function (element) {
             });
         };
         function onPlayerError(event){
-            castPlayer.remove();
+            castPlayer.destroy();
             console.log('loading shoutcast');
             var shoutCast = Y.Node.create('<video controls="" autoplay="" name="media"><source src="'+alternUrl+'" type="audio/mpeg"></video>');
             castContainer.append(shoutCast);
