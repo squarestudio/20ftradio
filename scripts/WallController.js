@@ -2,6 +2,7 @@ window.Template.Controllers.WallController = function (element) {
     'use strict';
     var animOnScroll,
         wallGrid,
+        castPlayer,
         castContainer;
     
     function simulateResize() {
