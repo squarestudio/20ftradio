@@ -215,7 +215,9 @@ window.Template.Controllers.WallController = function (element) {
         };
         function onPlayerError(event){
             console.log('loading shoutcast');
-            var shoutCast = Y.Node.create('<video controls="" autoplay="" name="media"><source src="'+alternUrl+'" type="audio/mpeg"></video>')
+            var shoutCast = Y.Node.create('<video controls="" autoplay="" name="media"><source src="'+alternUrl+'" type="audio/mpeg"></video>');
+            castContainer.append(shoutCast);
+
         }
         function onPlayerReady(event) {
             event.target.playVideo();
