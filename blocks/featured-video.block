@@ -6,7 +6,7 @@
                     <div id="castDiv">
 
                     </div>
-                    
+                    <img {@|image-meta} data-fixed-ratio="true" data-load="false"/>
                 </div>
                 {.end}
             </div>
