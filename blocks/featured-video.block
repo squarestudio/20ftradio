@@ -4,9 +4,8 @@
                 {.video?}<script>console.log({@|json-pretty})</script>
                 <div class="grid-slide-video grid-slide-video-featured {.section customContent.autoplay}grid-slide-video-autoplay{.end}">
                     <div id="castDiv" class="cast-container" data-url="{oembed.url}">
-
+                        <img {@|image-meta} data-fixed-ratio="true" data-load="false"/>
                     </div>
-                    <img {@|image-meta} data-fixed-ratio="true" data-load="false"/>
                 </div>
                 {.end}
             </div>
