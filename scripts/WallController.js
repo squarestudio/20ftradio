@@ -208,7 +208,9 @@ window.Template.Controllers.WallController = function (element) {
                 videoId: videoId,
                 playerVars: {
                     'autoplay': 1,
-                    'controls': 0
+                    'controls': 0,
+                    'modestbranding': 1,
+                    'rel': 0
                 },
                 events: {
                     'onReady': onPlayerReady,
