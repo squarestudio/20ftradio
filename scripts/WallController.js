@@ -234,7 +234,7 @@ window.Template.Controllers.WallController = function (element) {
         }
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
-                //sitePlayer.removeClass('paused');
+                sitePlayer.removeClass('paused');
             }
         }
         function stopVideo() {
