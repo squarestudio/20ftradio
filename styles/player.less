@@ -45,18 +45,20 @@
     -webkit-transform: translateY(100%);
     transform: translateY(100%);
   }
-  .play-button.paused .left {
-    width: 50%;
-  }
-  .play-button.paused .right {
-    width: 50%;
-  }
-  .play-button.paused .triangle-1 {
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-  .play-button.paused .triangle-2 {
-    -webkit-transform: translateY(50%);
-    transform: translateY(50%);
+  &.paused {
+    .play-button .left {
+      width: 50%;
+    }
+    .play-button .right {
+      width: 50%;
+    }
+    .play-button .triangle-1 {
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+    .play-button .triangle-2 {
+      -webkit-transform: translateY(50%);
+      transform: translateY(50%);
+    }
   }
 }
