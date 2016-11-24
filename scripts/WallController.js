@@ -200,9 +200,8 @@ window.Template.Controllers.WallController = function (element) {
         tag.src = "//www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        var player;
         function onYouTubeIframeAPIReady() {
-            player = new YT.Player('castPlayer', {
+            castPlayer = new YT.Player('castPlayer', {
                 height: '720',
                 width: '1280',
                 videoId: videoId,
@@ -227,7 +226,7 @@ window.Template.Controllers.WallController = function (element) {
             }
         }
         function stopVideo() {
-            player.stopVideo();
+            castPlayer.stopVideo();
         }
     }
     function getNodesOrderedByAdded(nodes) {
