@@ -1,5 +1,5 @@
-<!--<div class="container slide-into-view">-->
-        <li class="grid-slide grid-slide-full-width {customContent.customType} {.video?} grid-slide-video{.end}" data-slide-id="{id}" data-slide-url="{urlId}">
+<div class="container slide-into-view">
+        <div class="grid-slide grid-slide-full-width {customContent.customType} {.video?} grid-slide-video{.end}" data-slide-id="{id}" data-slide-url="{urlId}">
             <div class="grid-slide-wrapper {.section customContent.animatedTexts}animated-text{.end}">
                 {.video?}
                 <div class="grid-slide-video {.section customContent.autoplay}grid-slide-video-autoplay{.end}">
@@ -7,6 +7,5 @@
                 </div>
                 {.end}
             </div>
-        </li>
-<!--
-</div>-->
+        </div>
+</div>
