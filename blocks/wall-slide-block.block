@@ -29,9 +29,6 @@
             {.equal? customContent.customType "wall-item-video"}
                 {.video?}
                     {.if customContent.featured}
-                    <div style="width: 100%;" class="grid-slide-video {.section customContent.autoplay}grid-slide-video-autoplay{.end}">
-                        {@|video}
-                    </div>
                     {.or}
                     <div class="grid-slide-video {.section customContent.autoplay}grid-slide-video-autoplay{.end}">
                         {@|video}
