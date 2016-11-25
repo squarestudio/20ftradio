@@ -207,11 +207,11 @@ window.Template.Controllers.WallController = function (element) {
                 castPlayer.playVideo();
             }
         });
-        sitePlayer.one('#volControl').on('change', function (e) {
+        sitePlayer.one('#volControl').on('change input', function (e) {
             e.halt();
             var volume = e.currentTarget.get('value');
-            console.log(e)
-            castPlayer.setVolume(1)
+            console.log(volume)
+            castPlayer.setVolume(volume)
         });
         var tag = document.createElement('script');
         tag.src = "//www.youtube.com/iframe_api";
