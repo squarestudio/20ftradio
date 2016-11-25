@@ -197,6 +197,7 @@ window.Template.Controllers.WallController = function (element) {
         castContainer = Y.one('#castDiv');
         var videoId = castContainer.getAttribute('data-url').split('=')[1];
         var alternUrl = castContainer.getAttribute('data-alternative-url');
+        var volumeIcon = sitePlayer.one('#volumeButton i')
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {load: true, fill: true});
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
@@ -211,13 +212,13 @@ window.Template.Controllers.WallController = function (element) {
             e.halt();
             var volume = e.currentTarget.get('value');
             if(volume > 55){
-                sitePlayer.addClass('volumeHigh').removeClass('volumeMedium').removeClass('volumeLow').removeClass('volumeMute');
+                volumeIcon.addClass('volumeHigh').removeClass('volumeMedium').removeClass('volumeLow').removeClass('volumeMute');
             } else if(20<volume<55){
-                sitePlayer.addClass('volumeMedium').removeClass('volumeHigh').removeClass('volumeLow').removeClass('volumeMute');
+                volumeIcon.addClass('volumeMedium').removeClass('volumeHigh').removeClass('volumeLow').removeClass('volumeMute');
             } else if(0<volume<20){
-                sitePlayer.addClass('volumeLow').removeClass('volumeHigh').removeClass('volumeMedium').removeClass('volumeMute');
+                volumeIcon.addClass('volumeLow').removeClass('volumeHigh').removeClass('volumeMedium').removeClass('volumeMute');
             } else {
-                sitePlayer.addClass('volumeMute').removeClass('volumeHigh').removeClass('volumeLow').removeClass('volumeMute').removeClass('volumeMedium');
+                volumeIcon.addClass('volumeMute').removeClass('volumeHigh').removeClass('volumeLow').removeClass('volumeMute').removeClass('volumeMedium');
             }
             castPlayer.setVolume(volume);
         });
