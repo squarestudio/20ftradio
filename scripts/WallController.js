@@ -210,8 +210,14 @@ window.Template.Controllers.WallController = function (element) {
         sitePlayer.one('#volControl').on(['change', 'input'], function (e) {
             e.halt();
             var volume = e.currentTarget.get('value');
-            console.log(volume)
-            castPlayer.setVolume(volume)
+            if(volume > 55){
+                sitePlayer.addClass('volumeHigh').removeClass('volumeMedium').removeClass('volumeLow');
+            } else if(20<volume<55){
+
+            } else if(1<volume<20){
+
+            }
+            castPlayer.setVolume(volume);
         });
         var tag = document.createElement('script');
         tag.src = "//www.youtube.com/iframe_api";
