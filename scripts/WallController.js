@@ -198,6 +198,7 @@ window.Template.Controllers.WallController = function (element) {
         var videoId = castContainer.getAttribute('data-url').split('=')[1];
         var alternUrl = castContainer.getAttribute('data-alternative-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
+        var volumeControl = sitePlayer.one('#volControl')
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {load: true, fill: true});
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
@@ -212,13 +213,15 @@ window.Template.Controllers.WallController = function (element) {
             e.halt();
             if(e.currentTarget.hasClass('icono-volumeMute')){
                 castPlayer.setVolume(50);
+                volumeControl.set('value', 50);
                 volumeIcon._node.className = 'icono-volumeMedium';
             } else {
                 castPlayer.setVolume(0);
+                volumeControl.set('value', 0);
                 volumeIcon._node.className = 'icono-volumeMute';
             }
         });
-        sitePlayer.one('#volControl').on(['change', 'input'], function (e) {
+        volumeControl.on(['change', 'input'], function (e) {
             e.halt();
             var volume = e.currentTarget.get('value');
             if(volume > 55){
