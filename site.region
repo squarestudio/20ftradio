@@ -60,7 +60,7 @@
                     <i class="icono-"></i>
                 </a>
                 <input id="volControl" type="range" min="0" max="100" step="1"></input>
-                <div id="trackName">Dj Babushka</div>
+                <div class="track-name"><span>Now playing: </span><span id="trackName">Dj Babushka</span></div>
             </div>
         </div>
         <squarespace:navigation navigationId="pages" template="navigation"/>
