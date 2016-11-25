@@ -51,7 +51,7 @@
             <h2 class="logo-subtitle">{@}</h2>
             {.end}
         </div>
-        <div class="site-player paused">
+        <div class="site-player paused volumeMedium">
             <div class="site-player-wrapper">
                 <a id="playButton">
                     <i class="icono-"></i>
