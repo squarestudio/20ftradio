@@ -211,11 +211,13 @@ window.Template.Controllers.WallController = function (element) {
             e.halt();
             var volume = e.currentTarget.get('value');
             if(volume > 55){
-                sitePlayer.addClass('volumeHigh').removeClass('volumeMedium').removeClass('volumeLow');
+                sitePlayer.addClass('volumeHigh').removeClass('volumeMedium').removeClass('volumeLow').removeClass('volumeMute');
             } else if(20<volume<55){
-
-            } else if(1<volume<20){
-
+                sitePlayer.addClass('volumeMedium').removeClass('volumeHigh').removeClass('volumeLow').removeClass('volumeMute');
+            } else if(0<volume<20){
+                sitePlayer.addClass('volumeLow').removeClass('volumeHigh').removeClass('volumeMedium').removeClass('volumeMute');
+            } else {
+                sitePlayer.addClass('volumeMute').removeClass('volumeHigh').removeClass('volumeLow').removeClass('volumeMute').removeClass('volumeMedium');
             }
             castPlayer.setVolume(volume);
         });
