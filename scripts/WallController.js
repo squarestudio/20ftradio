@@ -207,6 +207,15 @@ window.Template.Controllers.WallController = function (element) {
                 castPlayer.playVideo();
             }
         });
+        sitePlayer.one('#volControl').on('click', function (e) {
+            e.halt();
+            var state = castPlayer.getPlayerState();
+            if (state == YT.PlayerState.PLAYING) {
+                castPlayer.pauseVideo();
+            } else if (state == YT.PlayerState.PAUSED) {
+                castPlayer.playVideo();
+            }
+        });
         var tag = document.createElement('script');
         tag.src = "//www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
