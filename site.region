@@ -53,11 +53,8 @@
         </div>
         <div class="site-player paused">
             <div class="site-player-wrapper">
-                <a id="playButton" class="play-button">
-                    <div class="left"></div>
-                    <div class="right"></div>
-                    <div class="triangle-1"></div>
-                    <div class="triangle-2"></div>
+                <a id="playButton">
+                    <i class="icono-play"></i>
                 </a>
                 <a id="volumeButton">
                     <i class="icono-volume"></i>
