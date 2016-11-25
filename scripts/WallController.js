@@ -221,7 +221,7 @@ window.Template.Controllers.WallController = function (element) {
                     'controls': 0,
                     'modestbranding': 1,
                     'rel': 0,
-                    'showinfo': 0,
+                    //'showinfo': 0,
                     'fs': 0
                 },
                 events: {
