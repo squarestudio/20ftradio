@@ -208,6 +208,15 @@ window.Template.Controllers.WallController = function (element) {
                 castPlayer.playVideo();
             }
         });
+        sitePlayer.one('#playButton').on('click', function (e) {
+            e.halt();
+            var state = castPlayer.getPlayerState();
+            if (state == YT.PlayerState.PLAYING) {
+                castPlayer.pauseVideo();
+            } else if (state == YT.PlayerState.PAUSED) {
+                castPlayer.playVideo();
+            }
+        });
         sitePlayer.one('#volControl').on(['change', 'input'], function (e) {
             e.halt();
             var volume = e.currentTarget.get('value');
