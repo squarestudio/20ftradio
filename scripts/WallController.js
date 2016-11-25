@@ -210,8 +210,13 @@ window.Template.Controllers.WallController = function (element) {
         });
         volumeIcon.on('click', function (e) {
             e.halt();
-            if(e.currentTarget.hasClass())
-            castPlayer.setVolume(volume);
+            if(e.currentTarget.hasClass('icono-volumeMute')){
+                castPlayer.setVolume(50);
+                volumeIcon._node.className = 'icono-volumeMedium';
+            } else {
+                castPlayer.setVolume(0);
+                volumeIcon._node.className = 'icono-volumeMute';
+            }
         });
         sitePlayer.one('#volControl').on(['change', 'input'], function (e) {
             e.halt();
