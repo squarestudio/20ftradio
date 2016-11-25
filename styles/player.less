@@ -1,4 +1,4 @@
-.site-player{
+.site-player {
   .v-h-align;
   position: absolute;
   .play-button {
@@ -63,4 +63,57 @@
       transform: translateY(50%);
     }
   }
+
+  .volume a:before {
+    left: -2px;
+    border: 7px solid transparent;
+    border-right-color: #c55500;
+    margin-top: -7px;
+    background: transparent;
+  }
+
+  .volume a:after {
+    left: 4px;
+    width: 4px;
+    height: 6px;
+    margin-top: -3px;
+  }
+
+  .volume a:hover:before,
+  .volume a:focus:before,
+  .volume a:active:before {
+    border-right-color: #730800;
+    background: transparent;
+  }
+
+  .volume a:hover:after,
+  .volume a:focus:after,
+  .volume a:active:after {
+    background: #730800;
+  }
+
+  /* Volume on */
+
+  .volume-on:before {
+    left: 12px;
+    width: 6px;
+    height: 6px;
+    margin-top: -5px;
+    border: 4px double #c55500;
+    border-width: 4px 4px 0 0;
+    /* css3 */
+    -webkit-border-radius: 0 15px 0 0;
+    -moz-border-radius: 0 15px 0 0;
+    border-radius: 0 15px 0 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .volume-on:hover:before {
+    border-color: #730800;
+  }
+
 }
