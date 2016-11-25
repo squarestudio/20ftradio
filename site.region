@@ -59,7 +59,9 @@
                     <div class="triangle-1"></div>
                     <div class="triangle-2"></div>
                 </a>
-                <a class="icono-volume"></a>
+                <a id="volumeButton">
+                    <i class="icono-volume"></i>
+                </a>
             </div>
         </div>
         <squarespace:navigation navigationId="pages" template="navigation"/>
