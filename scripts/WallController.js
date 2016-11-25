@@ -243,9 +243,9 @@ window.Template.Controllers.WallController = function (element) {
         }
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
-                sitePlayer.addClass('playing').removeClass('paused stopped');
+                sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
             } else if (event.data == YT.PlayerState.PAUSED) {
-                sitePlayer.removeClass('playing stopped').addClass('paused');
+                sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
         }
     }
