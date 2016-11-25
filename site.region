@@ -59,7 +59,7 @@
                 <a id="volumeButton">
                     <i class="icono-"></i>
                 </a>
-                <input id="volControl" type="range" min="0" max="100" step="1"></input>
+                <input id="volControl" class="volume-control" type="range" min="0" max="100" step="1"></input>
                 <div class="track-name"><span>Now playing: </span><span id="trackName">Dj Babushka</span></div>
             </div>
         </div>
