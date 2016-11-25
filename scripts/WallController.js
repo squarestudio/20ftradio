@@ -207,7 +207,7 @@ window.Template.Controllers.WallController = function (element) {
                 castPlayer.playVideo();
             }
         });
-        sitePlayer.one('#volControl').on('change input', function (e) {
+        sitePlayer.one('#volControl').on('change', function (e) {
             e.halt();
             var volume = e.currentTarget.get('value');
             console.log(volume)
