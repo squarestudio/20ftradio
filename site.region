@@ -54,7 +54,7 @@
         <div class="site-player paused">
             <div class="site-player-wrapper">
                 <a id="playButton">
-                    <i class="icono-play"></i>
+                    <i></i>
                 </a>
                 <a id="volumeButton">
                     <i class="icono-volume"></i>
