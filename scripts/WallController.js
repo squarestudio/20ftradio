@@ -208,7 +208,7 @@ window.Template.Controllers.WallController = function (element) {
                 castPlayer.playVideo();
             }
         });
-        sitePlayer.one('#playButton').on('click', function (e) {
+        volumeIcon.on('click', function (e) {
             e.halt();
             var state = castPlayer.getPlayerState();
             if (state == YT.PlayerState.PLAYING) {
@@ -267,6 +267,7 @@ window.Template.Controllers.WallController = function (element) {
             //event.target.playVideo();
         }
         function onPlayerStateChange(event) {
+            console.log(event)
             if (event.data == YT.PlayerState.PLAYING) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
             } else if (event.data == YT.PlayerState.PAUSED) {
