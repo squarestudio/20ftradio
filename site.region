@@ -51,13 +51,13 @@
             <h2 class="logo-subtitle">{@}</h2>
             {.end}
         </div>
-        <div class="site-player paused volumeMedium">
+        <div class="site-player paused">
             <div class="site-player-wrapper">
                 <a id="playButton">
                     <i class="icono-"></i>
                 </a>
                 <a id="volumeButton">
-                    <i class="icono-"></i>
+                    <i class="icono-volumeMedium"></i>
                 </a>
                 <input id="volControl" class="volume-control" type="range" min="0" max="100" step="1"></input>
                 <div class="track-name"><span>Now playing: </span><span id="trackName">Dj Babushka</span></div>
