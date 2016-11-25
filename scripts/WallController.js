@@ -211,6 +211,7 @@ window.Template.Controllers.WallController = function (element) {
         sitePlayer.one('#volControl').on(['change', 'input'], function (e) {
             e.halt();
             var volume = e.currentTarget.get('value');
+            if(volume)
             if(volume > 55){
                 volumeIcon.addClass('volumeHigh').removeClass('volumeMedium').removeClass('volumeLow').removeClass('volumeMute');
             } else if(20<volume<55){
