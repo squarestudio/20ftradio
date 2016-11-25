@@ -212,13 +212,13 @@ window.Template.Controllers.WallController = function (element) {
             e.halt();
             var volume = e.currentTarget.get('value');
             if(volume > 55){
-                volumeIcon.addClass('volumeHigh').removeClass('volumeMedium').removeClass('volumeLow').removeClass('volumeMute');
+                volumeIcon._node.className('icono-volumeHigh');
             } else if(volume<55 && volume> 20){
-                volumeIcon.addClass('volumeMedium').removeClass('volumeHigh').removeClass('volumeLow').removeClass('volumeMute');
+                volumeIcon._node.className('icono-volumeMedium');
             } else if(volume<20 && volume>0){
-                volumeIcon.addClass('volumeLow').removeClass('volumeHigh').removeClass('volumeMedium').removeClass('volumeMute');
+                volumeIcon._node.className('icono-volumeLow');
             } else {
-                volumeIcon.addClass('volumeMute').removeClass('volumeHigh').removeClass('volumeLow').removeClass('volumeMute').removeClass('volumeMedium');
+                volumeIcon._node.className('icono-volumeMute');
             }
             castPlayer.setVolume(volume);
         });
