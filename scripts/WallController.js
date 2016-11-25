@@ -209,7 +209,7 @@ window.Template.Controllers.WallController = function (element) {
         });
         sitePlayer.one('#volControl').on('change', function (e) {
             e.halt();
-            var volume = e.
+            var volume = e.currentTarget.get('value');
             console.log(e)
             castPlayer.setVolume(1)
         });
