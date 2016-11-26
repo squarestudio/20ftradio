@@ -280,6 +280,8 @@ window.Template.Controllers.WallController = function (element) {
     }
 
     function getNodesOrderedByDate(nodes) {
+        var now = (new Date()).getMilliseconds();
+        console.log(now)
         nodes._nodes.sort(function(a, b) {
             return +b.getAttribute('data-start-date') - +a.getAttribute('data-end-date');
         });
