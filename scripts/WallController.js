@@ -283,7 +283,7 @@ window.Template.Controllers.WallController = function (element) {
         var now = (new Date()).getTime();
         nodes._nodes.sort(function(a, b) {
             console.log(+now - +a.getAttribute('data-start-date'))
-            return +b.getAttribute('data-start-date') - +a.getAttribute('data-end-date');
+            return +a.getAttribute('data-start-date') - +now;
         });
         return nodes;
     }
