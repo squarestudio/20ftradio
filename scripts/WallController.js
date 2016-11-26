@@ -278,13 +278,16 @@ window.Template.Controllers.WallController = function (element) {
             }
         }
     }
+
     function getNodesOrderedByAdded(nodes) {
         nodes._nodes.sort(function(a, b) {
             return +b.getAttribute('data-added-on') - +a.getAttribute('data-added-on');
         });
         return nodes;
     }
+
     initialize();
+    
     return {
         sync: function () {
             initialize();
