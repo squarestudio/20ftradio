@@ -168,7 +168,7 @@ window.Template.Controllers.WallController = function (element) {
                             if(order == 'true'){
                                 var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
                                 wallGrid.append(nodes);
-                                wallGrid.prepend(getNodesOrderedByAdded(compiledFragment.all('li')));
+                                wallGrid.prepend(getNodesOrderedByDate(compiledFragment.all('li')));
                             } else {
                                 link.insert(compiledFragment, 'before');
                                 nodes = getNodesOrderedByAdded(wallGrid.all('li'));
