@@ -279,7 +279,7 @@ window.Template.Controllers.WallController = function (element) {
         }
     }
 
-    function getNodesOrderedByAdded(nodes) {
+    function getNodesOrderedByDate(nodes) {
         nodes._nodes.sort(function(a, b) {
             return +b.getAttribute('data-added-on') - +a.getAttribute('data-added-on');
         });
