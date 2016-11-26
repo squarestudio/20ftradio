@@ -287,7 +287,7 @@ window.Template.Controllers.WallController = function (element) {
     }
 
     initialize();
-    
+
     return {
         sync: function () {
             initialize();
