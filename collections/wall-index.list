@@ -20,7 +20,7 @@
     ^.if upcoming}
         ^.repeated section upcoming}
             <li class="grid-slide eventlist-event--upcoming"
-                data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^endDate} data-added-on="^endDate}">
+                data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^endDate}" data-end-date="^endDate}">
                 <div class="grid-slide-wrapper ^.section customContent.animatedTexts}animated-text^.end}">
                     ^.if fullUrl}<a class="wrap-link" href="^fullUrl}">^.end}
                     <div class="grid-slide-image wall-item-event">
