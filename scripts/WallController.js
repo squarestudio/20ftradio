@@ -245,7 +245,7 @@ window.Template.Controllers.WallController = function (element) {
                 width: '1280',
                 videoId: videoId,
                 playerVars: {
-                    'autoplay': 1,
+                    //'autoplay': 1,
                     'controls': 0,
                     'modestbranding': 1,
                     'rel': 0,
