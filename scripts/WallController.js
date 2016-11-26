@@ -290,7 +290,6 @@ window.Template.Controllers.WallController = function (element) {
     }
 
     function getNodesOrderedByAdded(nodes) {
-        var now = (new Date()).getTime();
         nodes._nodes.sort(function(a, b) {
             return +b.getAttribute('data-added-on') - +a.getAttribute('data-added-on');
         });
