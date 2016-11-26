@@ -282,7 +282,7 @@ window.Template.Controllers.WallController = function (element) {
     function getNodesOrderedByDate(nodes) {
         var now = (new Date()).getTime();
         nodes._nodes.sort(function(a, b) {
-            console.log(+b.getAttribute('data-start-date') - +a.getAttribute('data-end-date'))
+            console.log(+now - +a.getAttribute('data-start-date'))
             return +b.getAttribute('data-start-date') - +a.getAttribute('data-end-date');
         });
         return nodes;
