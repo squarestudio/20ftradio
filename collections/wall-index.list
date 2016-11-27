@@ -4,7 +4,7 @@
             {@|apply featured-video.block}
         {.end}
     {.end}
-  <ul class="effect-2" id="wallGrid">
+  <ul class="effect-2" id="wallGrid" class="wallGrid">
     {.repeated section items}
       {.if customContent.featured}
       {.or}{.equal? customContent.customType "wall-item-link"}
