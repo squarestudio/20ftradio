@@ -21,7 +21,7 @@
 <script id="wall-item-link-query-template" type="text/x-json-template">
     ^.if upcoming}
         ^.repeated section upcoming}
-            <div class="wallGrid wall">
+            <div class="wallGrid wallEvents">
                 <li class="grid-slide event-item eventlist-event--upcoming"
                     data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
                     <div class="grid-slide-wrapper ^.section customContent.animatedTexts}animated-text^.end}">
@@ -49,28 +49,30 @@
     ^.end}
     ^.if past}
         ^.repeated section past}
-            <li class="grid-slide event-item eventlist-event--past"
-                data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
-                <div class="grid-slide-wrapper ^.section customContent.animatedTexts}animated-text^.end}">
-                    ^.if fullUrl}<a class="wrap-link" href="^fullUrl}">^.end}
-                    <div class="grid-slide-image wall-item-event">
-                        <img ^@|image-meta} data-fixed-ratio="true" data-load="false"/>
-                        <div class="eventlist-column-date">
-                            <div class="eventlist-datetag">
-                                <div class="eventlist-datetag-inner">
-                                    <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
-                                    <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
-                                    <div class="eventlist-datetag-time"><span class="event-time-12hr">^startDate|date %H:%M %p}</span>
-                                        <span class="event-time-24hr">^startDate|date %H:%M %p}</span>
+            <div class="wallGrid wallEvents">
+                <li class="grid-slide event-item eventlist-event--past"
+                    data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
+                    <div class="grid-slide-wrapper ^.section customContent.animatedTexts}animated-text^.end}">
+                        ^.if fullUrl}<a class="wrap-link" href="^fullUrl}">^.end}
+                        <div class="grid-slide-image wall-item-event">
+                            <img ^@|image-meta} data-fixed-ratio="true" data-load="false"/>
+                            <div class="eventlist-column-date">
+                                <div class="eventlist-datetag">
+                                    <div class="eventlist-datetag-inner">
+                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
+                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
+                                        <div class="eventlist-datetag-time"><span class="event-time-12hr">^startDate|date %H:%M %p}</span>
+                                            <span class="event-time-24hr">^startDate|date %H:%M %p}</span>
+                                        </div>
+                                        <div class="eventlist-datetag-status"></div>
                                     </div>
-                                    <div class="eventlist-datetag-status"></div>
                                 </div>
                             </div>
                         </div>
+                        ^.if fullUrl}</a>^.end}
                     </div>
-                    ^.if fullUrl}</a>^.end}
-                </div>
-            </li>
+                </li>
+            </div>
         ^.end}
     ^.end}
 </script>
