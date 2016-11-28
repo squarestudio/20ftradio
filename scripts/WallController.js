@@ -213,7 +213,7 @@ window.Template.Controllers.WallController = function (element) {
             var state = castPlayer.getPlayerState();
             if (state == YT.PlayerState.PLAYING) {
                 castPlayer.pauseVideo();
-            } else if (state == YT.PlayerState.PAUSED || state == YT.PlayerState.STOPPED) {
+            } else if (state == YT.PlayerState.PAUSED || state == YT.PlayerState.UNSTARTED) {
                 castPlayer.playVideo();
             }
         });
