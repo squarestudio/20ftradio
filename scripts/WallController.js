@@ -174,6 +174,7 @@ window.Template.Controllers.WallController = function (element) {
                                 nodes = getNodesOrderedByAdded(wallGrid.all('li'));
                                 wallGrid.append(nodes);
                             }*/
+                            console.log(compiledFragment)
                             wallGrid.prepend(compiledFragment);
                             /*if(compiledFragment.one('.wallEvents-Upcoming')) {
                                 wallGrid.prepend(compiledFragment);
