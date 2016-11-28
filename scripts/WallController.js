@@ -174,7 +174,11 @@ window.Template.Controllers.WallController = function (element) {
                                 nodes = getNodesOrderedByAdded(wallGrid.all('li'));
                                 wallGrid.append(nodes);
                             }*/
-                            wallGrid.prepend(compiledFragment);
+                            if(compiledFragment.one('.wallEvents-Upcoming')) {
+                                wallGrid.prepend(compiledFragment.one('.wallEvents-Upcoming'));
+                            } else if(compiledFragment.one('.wallEvents-Past')) {
+                                wallGrid.append(compiledFragment.one('.wallEvents-Past'));
+                            }
                             link.remove();
                             imagesReady();
                             loadImages();
