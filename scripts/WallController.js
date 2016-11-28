@@ -164,7 +164,7 @@ window.Template.Controllers.WallController = function (element) {
                         console.log(items);
                         if(items){
                             var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
-                            var compiledFragment = Y.Node.create(compiled);
+                            var compiledFragment = Y.Node.create('<ul class="wallGrid wallEvents">'+compiled+'</ul>');
                             if(order == 'true'){
                                 var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
                                 wallGrid.append(nodes);
