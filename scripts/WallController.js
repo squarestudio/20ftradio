@@ -165,7 +165,7 @@ window.Template.Controllers.WallController = function (element) {
                         if(items){
                             var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                             var compiledFragment = Y.Node.create('<ul class="wallGrid wallEvents">'+compiled+'</ul>');
-                            if(order == 'true'){
+/*                            if(order == 'true'){
                                 var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
                                 wallGrid.append(nodes);
                                 wallGrid.prepend(getNodesOrderedByDate(compiledFragment.all('li')));
@@ -173,7 +173,8 @@ window.Template.Controllers.WallController = function (element) {
                                 link.insert(compiledFragment, 'before');
                                 nodes = getNodesOrderedByAdded(wallGrid.all('li'));
                                 wallGrid.append(nodes);
-                            }
+                            }*/
+                            wallGrid.prepend(compiledFragment);
                             link.remove();
                             imagesReady();
                             loadImages();
