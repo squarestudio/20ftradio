@@ -1,10 +1,10 @@
-<div class="grid-container" id="wallGrid">
+<div class="grid-container">
     {.repeated section items}
         {.if customContent.featured}
             {@|apply featured-video.block}
         {.end}
     {.end}
-  <ul class="wallGrid">
+  <ul class="wallGrid" id="wallGrid">
     {.repeated section items}
       {.if customContent.featured}
       {.or}{.equal? customContent.customType "wall-item-link"}
