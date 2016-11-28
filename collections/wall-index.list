@@ -20,8 +20,8 @@
 </div>
 <script id="wall-item-link-query-template" type="text/x-json-template">
     ^.if upcoming}
+    <div class="wallGrid wallEvents">
         ^.repeated section upcoming}
-            <div class="wallGrid wallEvents">
                 <li class="grid-slide event-item eventlist-event--upcoming"
                     data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
                     <div class="grid-slide-wrapper ^.section customContent.animatedTexts}animated-text^.end}">
@@ -44,12 +44,12 @@
                         ^.if fullUrl}</a>^.end}
                     </div>
                 </li>
-            </div>
         ^.end}
     ^.end}
+    </div>
     ^.if past}
+    <div class="wallGrid wallEvents">
         ^.repeated section past}
-            <div class="wallGrid wallEvents">
                 <li class="grid-slide event-item eventlist-event--past"
                     data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
                     <div class="grid-slide-wrapper ^.section customContent.animatedTexts}animated-text^.end}">
@@ -72,7 +72,7 @@
                         ^.if fullUrl}</a>^.end}
                     </div>
                 </li>
-            </div>
         ^.end}
     ^.end}
+    </div>
 </script>
