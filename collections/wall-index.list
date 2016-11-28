@@ -48,7 +48,7 @@
     ^.end}
     </ul>
     ^.if past}
-    <ulclass="wallGrid wallEvents wallEvents-Past">
+    <ul class="wallGrid wallEvents wallEvents-Past">
         ^.repeated section past}
                 <li class="grid-slide event-item eventlist-event--past"
                     data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
@@ -74,5 +74,5 @@
                 </li>
         ^.end}
     ^.end}
-    </div>
+    </ul>
 </script>
