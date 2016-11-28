@@ -175,7 +175,7 @@ window.Template.Controllers.WallController = function (element) {
                                 wallGrid.append(nodes);
                             }*/
                             if(compiledFragment.one('.wallEvents-Upcoming')) {
-                                wallGrid.prepend(compiledFragment.one('.wallEvents-Upcoming'));
+                                wallGrid.prepend(compiledFragment);
                             }
                             if(compiledFragment.one('.wallEvents-Past')) {
                                 wallGrid.append(compiledFragment.one('.wallEvents-Past'));
