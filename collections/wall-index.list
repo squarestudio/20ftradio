@@ -20,7 +20,7 @@
 </div>
 <script id="wall-item-link-query-template" type="text/x-json-template">
     ^.if upcoming}
-    <div class="wallGrid wallEvents">
+    <div class="wallGrid wallEvents wallEvents-Upcoming">
         ^.repeated section upcoming}
                 <li class="grid-slide event-item eventlist-event--upcoming"
                     data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
@@ -48,7 +48,7 @@
     ^.end}
     </div>
     ^.if past}
-    <div class="wallGrid wallEvents">
+    <div class="wallGrid wallEvents wallEvents-Past">
         ^.repeated section past}
                 <li class="grid-slide event-item eventlist-event--past"
                     data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
