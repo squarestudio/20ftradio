@@ -163,7 +163,7 @@ window.Template.Controllers.WallController = function (element) {
         if (Y.one('.wall-item-link')) {
             Y.use(['node', 'squarespace-json-template'], function (Y) {
                 var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/\^/g, '{');
-                Y.all('.wall-item-link').each(function (link) {
+                wallGrid.all('.wall-item-link').each(function (link) {
                     var url = link.getAttribute('href'),
                         order = link.getAttribute('data-first-order');
                     getCollectionItems(url).then(function (items) {
