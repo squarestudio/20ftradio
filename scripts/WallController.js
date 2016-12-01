@@ -192,12 +192,12 @@ window.Template.Controllers.WallController = function (element) {
                              }*/
                             console.log(compiledFragment);
                             if (compiledFragment.one('.wallEvents-Upcoming')) {
-                                var upcomingMob = compiledFragment.one('.wallEvents-Upcoming').clone(!0);
-                                mobileWall.prepend(upcomingMob.get('children'));
+                                /*var upcomingMob = compiledFragment.one('.wallEvents-Upcoming').clone(!0);
+                                mobileWall.prepend(upcomingMob.get('children'));*/
                             }
                             if (compiledFragment.one('.wallEvents-Past')) {
-                                var pastMob =compiledFragment.one('.wallEvents-Past').clone(!0);
-                                mobileWall.append(pastMob.get('children'));
+                               /* var pastMob =compiledFragment.one('.wallEvents-Past').clone(!0);
+                                mobileWall.append(pastMob.get('children'));*/
                             }
                             wallGrid.prepend(compiledFragment.all('li'));
                             link.remove();
