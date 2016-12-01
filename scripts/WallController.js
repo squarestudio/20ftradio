@@ -161,7 +161,7 @@ window.Template.Controllers.WallController = function (element) {
             });
         };
         if (Y.one('.wall-item-link')) {
-            console.log('activated wall');
+            console.log('link');
             Y.use(['node', 'squarespace-json-template'], function (Y) {
                 var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/\^/g, '{');
                 wallGrid.all('.wall-item-link').each(function (link) {
