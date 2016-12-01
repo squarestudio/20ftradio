@@ -84,6 +84,7 @@ window.Template.Controllers.CastController = function (element) {
                 castPlayer.playVideo();
             }
         });
+        videoYoutubazing();
         volumeIcon.on('click', function (e) {
             e.halt();
             if (e.currentTarget.hasClass('icono-volumeMute')) {
@@ -122,7 +123,6 @@ window.Template.Controllers.CastController = function (element) {
         var castPlayer = Y.Node.create('<video id="castPlayer" class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
         castContainer.append(castPlayer);
         castPlayer = castPlayer._node;
-        videoYoutubazing();
         console.log(castPlayer);
         castPlayer.addEventListener('canplaythrough', onPlayerReady);
         castPlayer.addEventListener('play', onPlayerStateChange);
