@@ -99,7 +99,7 @@ window.Template.Controllers.CastController = function (element) {
             initShoutCast(shoutCastUrl);
         }
     }
-    function initShoutCast(shoutCastUrl){
+    function initShoutCast(shoutCasturl){
         console.log('shoutcast');
         castPlayer = Y.Node.create('<video id="castPlayer" class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
         castContainer.append(castPlayer);
