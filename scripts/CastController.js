@@ -80,9 +80,9 @@ window.Template.Controllers.CastController = function (element) {
             e.halt();
             var state = castPlayer.getPlayerState();
             console.log(state);
-            if (state == YT.PlayerState.PLAYING) {
+            if (state === YT.PlayerState.PLAYING) {
                 castPlayer.pauseVideo();
-            } else if (state == YT.PlayerState.PAUSED) {
+            } else if (state === YT.PlayerState.PAUSED) {
                 castPlayer.playVideo();
             } else if (state){
                 castPlayer.playVideo();
