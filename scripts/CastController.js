@@ -46,22 +46,21 @@ window.Template.Controllers.CastController = function (element) {
             });
         };
     }
-    function videoYoutubazing(video) {
+    function videoYoutubazing() {
         Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
             get: function(){
                 return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
             }
         });
-        video.playVideo = function(){
-            video.play();
+        HTMLMediaElement.prototype.playVideo = function(){
+            this.play();
         };
-        video.setVolume = function(volume){
-            video.volume = volume/100;
+        HTMLMediaElement.prototype.setVolume = function(volume){
+            this.volume = volume/100;
         };
-        video.getPlayerState = function () {
+        HTMLMediaElement.prototype.getPlayerState = function () {
             return video.paused;
         };
-        return video;
     }
     function initCast() {
         castContainer = Y.one('#castDiv');
