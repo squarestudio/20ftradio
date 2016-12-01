@@ -112,6 +112,7 @@ window.Template.Controllers.WallController = function (element) {
         return new Y.Promise(function (resolve) {
             var content_items = {past: [], upcoming: []};
             var offset = '';
+
             function getItems(collection_url, offset) {
                 Y.Data.get({
                     url: collection_url + '?format=json',
@@ -121,9 +122,13 @@ window.Template.Controllers.WallController = function (element) {
                     },
                     success: function (items) {
                         console.log(items)
-                        if (items.past.length || items.upcoming.length){
-                            if(items.upcoming) {content_items.upcoming = content_items.upcoming.concat(items.upcoming);}
-                            if(items.past){content_items.past = content_items.past.concat(items.past);}
+                        if (items.past.length || items.upcoming.length) {
+                            if (items.upcoming) {
+                                content_items.upcoming = content_items.upcoming.concat(items.upcoming);
+                            }
+                            if (items.past) {
+                                content_items.past = content_items.past.concat(items.past);
+                            }
                             if (items.pagination && items.pagination.nextPage) {
                                 getItems(collection_url, items.pagination.nextPage.toLowerCase());
                             } else {
@@ -146,7 +151,7 @@ window.Template.Controllers.WallController = function (element) {
 
     function initialize() {
         wallGrid = Y.one('#wallGrid');
-        console.log(wallGrid)
+        var mobileWall = wallGrid.one('.mobile-only');
         window.Template.Util.initShareButtons();
         if (animOnScroll) animOnScroll = null;
         var imagesReady = function () {
@@ -166,7 +171,6 @@ window.Template.Controllers.WallController = function (element) {
             });
         };
         if (Y.one('.wall-item-link')) {
-            console.log('link');
             Y.use(['node', 'squarespace-json-template'], function (Y) {
                 var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/\^/g, '{');
                 wallGrid.all('.wall-item-link').each(function (link) {
@@ -188,12 +192,12 @@ window.Template.Controllers.WallController = function (element) {
                              }*/
                             console.log(compiledFragment);
                             wallGrid.prepend(compiledFragment);
-                            /*if(compiledFragment.one('.wallEvents-Upcoming')) {
-                             wallGrid.prepend(compiledFragment);
-                             }
-                             if(compiledFragment.one('.wallEvents-Past')) {
-                             wallGrid.append(compiledFragment.one('.wallEvents-Past'));
-                             }*/
+                            if (compiledFragment.one('.wallEvents-Upcoming')) {
+                                mobileWall.prepend(compiledFragment);
+                            }
+                            if (compiledFragment.one('.wallEvents-Past')) {
+                                mobileWall.append(compiledFragment.one('.wallEvents-Past'));
+                            }
                             link.remove();
                             imagesReady();
                             loadImages();
