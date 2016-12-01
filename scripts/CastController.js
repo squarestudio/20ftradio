@@ -8,7 +8,7 @@ window.Template.Controllers.CastController = function (element) {
         if (Y.one('#castDiv')) {
             initCast();
         }
-        Y.one(window).on('resize', refreshImages());
+        Y.one(window).on('resize', refreshImages);
     }
     function refreshImages() {
         castContainer.all('img').each(function (img) {
