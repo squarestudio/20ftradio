@@ -28,7 +28,7 @@
     </div>
 </div>
 <script id="wall-item-link-query-template" type="text/x-json-template">
-    <ul class="wallGrid wallEvents wallEvents-Upcoming">
+    <ul class="wallGrid wallEvents">
     ^.if upcoming}
         ^.repeated section upcoming}
                 <li class="grid-slide event-item eventlist-event--upcoming"
