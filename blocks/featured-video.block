@@ -3,7 +3,7 @@
             <div class="grid-slide-wrapper {.section customContent.animatedTexts}animated-text{.end}">
                 {.video?}
                 <div class="grid-slide-video grid-slide-video-featured {.section customContent.autoplay}grid-slide-video-autoplay{.end}">
-
+                    {@|video}
                 </div>
                 {.end}
             </div>
