@@ -1,8 +1,8 @@
 window.Template.Controllers.WallController = function (element) {
     'use strict';
-    var animOnScroll,
-        wallGrid;
-    
+    var animOnScroll;
+    var wallGrid = Y.one('#wallGrid');
+
     function simulateResize() {
         window.top.innerWidth = window.top.innerWidth - 1;
         Y.one(window.top).simulate('resize');
@@ -30,7 +30,7 @@ window.Template.Controllers.WallController = function (element) {
                 simulateTouch: false,
                 noSwiping: true,
                 onInit: function (swiper) {
-                    if(document.querySelector('html').className.indexOf('touch-styles') < 0){
+                    if (document.querySelector('html').className.indexOf('touch-styles') < 0) {
                         swiper.stopAutoplay();
                         swiper.container[0].onmouseenter = function () {
                             swiper.startAutoplay();
@@ -50,16 +50,16 @@ window.Template.Controllers.WallController = function (element) {
         };
         var videos = wallGrid.all('.grid-slide-video-autoplay');
         videos.each(function (video) {
-                var videoloader = video.one('.sqs-video-wrapper').videoloader;
-                video.on('hover', function () {
-                    if (videoloader && videoloader.get('showingVideo')) {
-                        videoloader.play();
-                    } else {
-                       videoloader && videoloader.showVideo();
-                    }
-                }, function () {
-                    videoloader && videoloader.pause();
-                })
+            var videoloader = video.one('.sqs-video-wrapper').videoloader;
+            video.on('hover', function () {
+                if (videoloader && videoloader.get('showingVideo')) {
+                    videoloader.play();
+                } else {
+                    videoloader && videoloader.showVideo();
+                }
+            }, function () {
+                videoloader && videoloader.pause();
+            })
         })
     }
 
@@ -78,12 +78,14 @@ window.Template.Controllers.WallController = function (element) {
                     buffer_text = '';
                 }
                 else {
-                    if (text !== '<p>&nbsp;</p>'){
+                    if (text !== '<p>&nbsp;</p>') {
                         buffer_text += text;
                     }
                 }
             });
-            var longest_text = readyTexts.sort(function (a, b) { return b.length - a.length; })[0];
+            var longest_text = readyTexts.sort(function (a, b) {
+                return b.length - a.length;
+            })[0];
             $(this).find(".text-spacer-element").html(longest_text);
             var body_text = $(this).find(".grid-slide-description-body");
             body_text.typed({
@@ -95,8 +97,13 @@ window.Template.Controllers.WallController = function (element) {
                 loop: true,
                 contentType: 'html',
                 showCursor: false,
-                callback: function(t) {t.backDelay = 5000;t.startDelay = 0},
-                onStringTyped: function(t) {t.backDelay = 1000}
+                callback: function (t) {
+                    t.backDelay = 5000;
+                    t.startDelay = 0
+                },
+                onStringTyped: function (t) {
+                    t.backDelay = 1000
+                }
             });
         });
     }
@@ -105,9 +112,10 @@ window.Template.Controllers.WallController = function (element) {
         return new Y.Promise(function (resolve) {
             var content_items = {past: [], upcoming: []};
             var offset = '';
+
             function getItems(collection_url, offset) {
                 Y.Data.get({
-                    url: collection_url+'?format=json',
+                    url: collection_url + '?format=json',
                     data: {
                         offset: offset || ''
                     },
@@ -126,6 +134,7 @@ window.Template.Controllers.WallController = function (element) {
                     }
                 })
             }
+
             getItems(collection_url);
         })
     }
@@ -135,7 +144,7 @@ window.Template.Controllers.WallController = function (element) {
         window.Template.Util.initShareButtons();
         if (animOnScroll) animOnScroll = null;
         var imagesReady = function () {
-            imagesLoaded(document.getElementById("wallGrid"), function() {
+            imagesLoaded(document.getElementById("wallGrid"), function () {
                 console.log('activated wall');
                 initGalleries();
                 initVideos();
@@ -150,7 +159,7 @@ window.Template.Controllers.WallController = function (element) {
                 }, 100);
             });
         };
-        if (Y.one('.wall-item-link')){
+        if (Y.one('.wall-item-link')) {
             Y.use(['node', 'squarespace-json-template'], function (Y) {
                 var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/\^/g, '{');
                 Y.all('.wall-item-link').each(function (link) {
@@ -158,26 +167,26 @@ window.Template.Controllers.WallController = function (element) {
                         order = link.getAttribute('data-first-order');
                     getCollectionItems(url).then(function (items) {
                         console.log(items);
-                        if(items){
+                        if (items) {
                             var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                             var compiledFragment = Y.Node.create(compiled);
-/*                            if(order == 'true'){
-                                var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
-                                wallGrid.append(nodes);
-                                wallGrid.prepend(getNodesOrderedByDate(compiledFragment.all('li')));
-                            } else {
-                                link.insert(compiledFragment, 'before');
-                                nodes = getNodesOrderedByAdded(wallGrid.all('li'));
-                                wallGrid.append(nodes);
-                            }*/
+                            /*                            if(order == 'true'){
+                             var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
+                             wallGrid.append(nodes);
+                             wallGrid.prepend(getNodesOrderedByDate(compiledFragment.all('li')));
+                             } else {
+                             link.insert(compiledFragment, 'before');
+                             nodes = getNodesOrderedByAdded(wallGrid.all('li'));
+                             wallGrid.append(nodes);
+                             }*/
                             console.log(compiledFragment);
                             wallGrid.prepend(compiledFragment);
                             /*if(compiledFragment.one('.wallEvents-Upcoming')) {
-                                wallGrid.prepend(compiledFragment);
-                            }
-                            if(compiledFragment.one('.wallEvents-Past')) {
-                                wallGrid.append(compiledFragment.one('.wallEvents-Past'));
-                            }*/
+                             wallGrid.prepend(compiledFragment);
+                             }
+                             if(compiledFragment.one('.wallEvents-Past')) {
+                             wallGrid.append(compiledFragment.one('.wallEvents-Past'));
+                             }*/
                             link.remove();
                             imagesReady();
                             loadImages();
@@ -198,7 +207,7 @@ window.Template.Controllers.WallController = function (element) {
 
     function getNodesOrderedByDate(nodes) {
         var now = (new Date()).getTime();
-        nodes._nodes.sort(function(a, b) {
+        nodes._nodes.sort(function (a, b) {
             var bigger = parseInt(b.getAttribute('data-start-date')) - parseInt(a.getAttribute('data-start-date'));
             console.log(bigger);
             return bigger - now;
@@ -207,7 +216,7 @@ window.Template.Controllers.WallController = function (element) {
     }
 
     function getNodesOrderedByAdded(nodes) {
-        nodes._nodes.sort(function(a, b) {
+        nodes._nodes.sort(function (a, b) {
             return +b.getAttribute('data-added-on') - +a.getAttribute('data-added-on');
         });
         return nodes;
