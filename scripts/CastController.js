@@ -1,18 +1,25 @@
 window.Template.Controllers.CastController = function (element) {
     'use strict';
+    var castPlayer,
+        sitePlayer = Y.one('.site-player'),
+        castContainer;
 
     function initialize() {
-        if(Y.one('#castDiv')){
+        if (Y.one('#castDiv')) {
             initCast()
         }
     }
+
     function initCast() {
         castContainer = Y.one('#castDiv');
         var videoId = castContainer.getAttribute('data-url').split('=')[1];
         var alternUrl = castContainer.getAttribute('data-alternative-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl')
-        castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {load: true, fill: true});
+        castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
+            load: true,
+            fill: true
+        });
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             var state = castPlayer.getPlayerState();
@@ -27,7 +34,7 @@ window.Template.Controllers.CastController = function (element) {
         });
         volumeIcon.on('click', function (e) {
             e.halt();
-            if(e.currentTarget.hasClass('icono-volumeMute')){
+            if (e.currentTarget.hasClass('icono-volumeMute')) {
                 castPlayer.setVolume(50);
                 volumeControl.set('value', 50);
                 volumeIcon._node.className = 'icono-volumeMedium';
@@ -40,11 +47,11 @@ window.Template.Controllers.CastController = function (element) {
         volumeControl.on(['change', 'input'], function (e) {
             e.halt();
             var volume = e.currentTarget.get('value');
-            if(volume > 55){
+            if (volume > 55) {
                 volumeIcon._node.className = 'icono-volumeHigh';
-            } else if(volume<55 && volume> 20){
+            } else if (volume < 55 && volume > 20) {
                 volumeIcon._node.className = 'icono-volumeMedium';
-            } else if(volume<20 && volume>0){
+            } else if (volume < 20 && volume > 0) {
                 volumeIcon._node.className = 'icono-volumeLow';
             } else {
                 volumeIcon._node.className = 'icono-volumeMute';
@@ -55,7 +62,7 @@ window.Template.Controllers.CastController = function (element) {
         tag.src = "//www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        window.onYouTubeIframeAPIReady =  function () {
+        window.onYouTubeIframeAPIReady = function () {
             window.castPlayer = castPlayer = new YT.Player('castPlayer', {
                 height: '720',
                 width: '1280',
@@ -75,17 +82,19 @@ window.Template.Controllers.CastController = function (element) {
                 }
             });
         };
-        function onPlayerError(event){
+        function onPlayerError(event) {
             castPlayer.destroy();
             console.log('loading shoutcast');
-            var shoutCast = Y.Node.create('<video class="hidden" autoplay="1" name="media"><source src="'+alternUrl+'" type="audio/mpeg"></video>');
+            var shoutCast = Y.Node.create('<video class="hidden" autoplay="1" name="media"><source src="' + alternUrl + '" type="audio/mpeg"></video>');
             castContainer.append(shoutCast);
         }
+
         function onPlayerReady(event) {
             console.log('playerReady');
             event.target.setVolume(50);
             event.target.playVideo();
         }
+
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
@@ -95,6 +104,7 @@ window.Template.Controllers.CastController = function (element) {
             }
         }
     }
+
     initialize();
 
     return {
