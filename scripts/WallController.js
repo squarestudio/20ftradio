@@ -200,7 +200,7 @@ window.Template.Controllers.WallController = function (element) {
                                 mobileWall.append(pastMob.get('children'));*/
                             }
                             var events = Y.Node.create('<ul class="wallGrid wallEvents"></ul>');
-                            wallGrid.prepend(compiledFragment.all('li'));
+                            wallGrid.prepend(events.prepend(compiledFragment.all('li')));
                             link.remove();
                             imagesReady();
                             loadImages();
