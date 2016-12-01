@@ -4,6 +4,7 @@ window.Template.Controllers.CastController = function (element) {
         sitePlayer = Y.one('.site-player'),
         videoId,
         shoutCastUrl,
+        playerType = 'stream',
         castContainer = Y.one('#castDiv');
 
     function initialize() {
@@ -95,30 +96,28 @@ window.Template.Controllers.CastController = function (element) {
         if(videoId){
             initYoutubeStream(videoId);
         }
-
-        function onPlayerError(event) {
-            castPlayer.destroy();
-            console.log('loading shoutcast');
-            var shoutCast = Y.Node.create('<video class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
-            castContainer.append(shoutCast);
-        }
-
-        function onPlayerReady(event) {
-            console.log('playerReady');
-            event.target.setVolume(50);
-            event.target.playVideo();
-        }
-
-        function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.PLAYING) {
-                sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
-                !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
-            } else if (event.data == YT.PlayerState.PAUSED) {
-                sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
-            }
-        }
+    }
+    function onPlayerError(event) {
+        castPlayer.destroy();
+        console.log('loading shoutcast');
+        var shoutCast = Y.Node.create('<video class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
+        castContainer.append(shoutCast);
     }
 
+    function onPlayerReady(event) {
+        console.log('playerReady');
+        event.target.setVolume(50);
+        event.target.playVideo();
+    }
+
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+            sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
+            !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+        } else if (event.data == YT.PlayerState.PAUSED) {
+            sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
+        }
+    }
     initialize();
 
     return {
