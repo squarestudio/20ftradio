@@ -2,6 +2,8 @@ window.Template.Controllers.CastController = function (element) {
     'use strict';
     var castPlayer,
         sitePlayer = Y.one('.site-player'),
+        videoId,
+        shoutCastUrl,
         castContainer = Y.one('#castDiv');
 
     function initialize() {
@@ -17,11 +19,36 @@ window.Template.Controllers.CastController = function (element) {
             ImageLoader.load(img, {load: true});
         });
     }
-
+    function initYoutubeStream() {
+        var tag = document.createElement('script');
+        tag.src = "//www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        window.onYouTubeIframeAPIReady = function () {
+            castPlayer = new YT.Player('castPlayer', {
+                height: '720',
+                width: '1280',
+                videoId: videoId,
+                playerVars: {
+                    'autoplay': 1,
+                    'controls': 0,
+                    'modestbranding': 1,
+                    'rel': 0,
+                    //'showinfo': 0,
+                    'fs': 0
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange,
+                    'onError': onPlayerError
+                }
+            });
+        };
+    }
     function initCast() {
         castContainer = Y.one('#castDiv');
-        var videoId = castContainer.getAttribute('data-url').split('=')[1];
-        var alternUrl = castContainer.getAttribute('data-alternative-url');
+        videoId = castContainer.getAttribute('data-url').split('=')[1];
+        shoutCastUrl = castContainer.getAttribute('data-alternative-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
@@ -65,35 +92,14 @@ window.Template.Controllers.CastController = function (element) {
             }
             castPlayer.setVolume(volume);
         });
-        var tag = document.createElement('script');
-        tag.src = "//www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        window.onYouTubeIframeAPIReady = function () {
-            window.castPlayer = castPlayer = new YT.Player('castPlayer', {
-                height: '720',
-                width: '1280',
-                videoId: videoId,
-                playerVars: {
-                    'autoplay': 1,
-                    'controls': 0,
-                    'modestbranding': 1,
-                    'rel': 0,
-                    //'showinfo': 0,
-                    'fs': 0
-                },
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange,
-                    'onError': onPlayerError
-                }
-            });
-        };
+        if(videoId){
+            initYoutubeStream(videoId);
+        }
 
         function onPlayerError(event) {
             castPlayer.destroy();
             console.log('loading shoutcast');
-            var shoutCast = Y.Node.create('<video class="hidden" autoplay="1" name="media"><source src="' + alternUrl + '" type="audio/mpeg"></video>');
+            var shoutCast = Y.Node.create('<video class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
             castContainer.append(shoutCast);
         }
 
