@@ -141,6 +141,7 @@ window.Template.Controllers.WallController = function (element) {
 
     function initialize() {
         wallGrid = Y.one('#wallGrid');
+        console.log(wallGrid)
         window.Template.Util.initShareButtons();
         if (animOnScroll) animOnScroll = null;
         var imagesReady = function () {
