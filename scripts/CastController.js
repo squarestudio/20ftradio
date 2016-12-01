@@ -125,8 +125,8 @@ window.Template.Controllers.CastController = function (element) {
         videoYoutubazing();
         console.log(castPlayer);
         castPlayer.addEventListener('canplaythrough', onPlayerReady);
-        castPlayer.addEventListener('canplaythrough', onPlayerReady);
-        castPlayer.addEventListener('canplaythrough', onPlayerReady);
+        castPlayer.addEventListener('play', onPlayerStateChange);
+        castPlayer.addEventListener('pause', onPlayerStateChange);
     }
 
     function onPlayerError(event) {
