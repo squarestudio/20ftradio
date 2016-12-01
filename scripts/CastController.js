@@ -1,3 +1,18 @@
-/**
- * Created by michael on 01.12.16.
- */
+window.Template.Controllers.CastController = function (element) {
+    'use strict';
+
+    function initialize() {
+        
+    }
+    
+    initialize();
+
+    return {
+        sync: function () {
+            initialize();
+        },
+        destroy: function () {
+
+        }
+    };
+};
