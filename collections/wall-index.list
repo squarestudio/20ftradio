@@ -16,7 +16,7 @@
                 {.end}
             {.end}
         </ul>
-        <ul class="wallGrid">
+        <ul class="wallGrid mobile-only">
             {.repeated section items}
                 {.if customContent.featured}
                     {.or}
