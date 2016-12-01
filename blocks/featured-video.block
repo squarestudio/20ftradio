@@ -3,10 +3,7 @@
             <div class="grid-slide-wrapper {.section customContent.animatedTexts}animated-text{.end}">
                 {.video?}
                 <div class="grid-slide-video grid-slide-video-featured {.section customContent.autoplay}grid-slide-video-autoplay{.end}">
-                    <div id="castDiv" class="cast-container content-fit slide-into-view" data-url="{oembed.url}" data-alternative-url="{customContent.alternativeUrl}">
-                        <img {@|image-meta} data-load="false"/>
-                        <div id="castPlayer"></div>
-                    </div>
+
                 </div>
                 {.end}
             </div>
