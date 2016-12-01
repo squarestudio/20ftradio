@@ -51,9 +51,9 @@ window.Template.Controllers.CastController = function (element) {
             video.play();
         };
         video.setVolume = function(volume){
-            video.volume = volume;
+            video.volume = volume/100;
         };
-        video.getState = function () {
+        video.getPlayerState = function () {
             return video.paused;
         };
         return video;
@@ -105,7 +105,6 @@ window.Template.Controllers.CastController = function (element) {
             }
             castPlayer.setVolume(volume);
         });
-
         if(videoId){
             initYoutubeStream();
         } else if (shoutCastUrl) {
