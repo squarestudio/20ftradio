@@ -46,6 +46,18 @@ window.Template.Controllers.CastController = function (element) {
             });
         };
     }
+    function videoYoutubazing(video) {
+        video.playVideo = function(){
+            video.play();
+        };
+        video.setVolume = function(volume){
+            video.volume = volume;
+        };
+        video.getState = function () {
+            return video.paused;
+        };
+        return video;
+    }
     function initCast() {
         castContainer = Y.one('#castDiv');
         videoId = castContainer.getAttribute('data-url').split('=')[1];
@@ -93,6 +105,7 @@ window.Template.Controllers.CastController = function (element) {
             }
             castPlayer.setVolume(volume);
         });
+
         if(videoId){
             initYoutubeStream();
         } else if (shoutCastUrl) {
