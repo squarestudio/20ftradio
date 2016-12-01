@@ -56,6 +56,9 @@ window.Template.Controllers.CastController = function (element) {
         HTMLMediaElement.prototype.playVideo = function(){
             this.play();
         };
+        HTMLMediaElement.prototype.pauseVideo = function(){
+            this.pause();
+        };
         HTMLMediaElement.prototype.setVolume = function(volume){
             this.volume = volume/100;
         };
@@ -80,8 +83,10 @@ window.Template.Controllers.CastController = function (element) {
                 castPlayer.pauseVideo();
             } else if (state == YT.PlayerState.PAUSED) {
                 castPlayer.playVideo();
-            } else {
+            } else if (state){
                 castPlayer.playVideo();
+            } else {
+                castPlayer.pauseVideo();
             }
         });
         videoYoutubazing();
