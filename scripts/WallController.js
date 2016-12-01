@@ -116,7 +116,8 @@ window.Template.Controllers.WallController = function (element) {
                 Y.Data.get({
                     url: collection_url + '?format=json',
                     data: {
-                        offset: offset || ''
+                        view: 'list',
+                        month: offset || ''
                     },
                     success: function (items) {
                         console.log(items)
