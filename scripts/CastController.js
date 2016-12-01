@@ -98,7 +98,7 @@ window.Template.Controllers.CastController = function (element) {
         }
     }
     function onPlayerError(event) {
-        castPlayer.destroy();
+        castPlayer.empty();
         console.log('loading shoutcast');
         var shoutCast = Y.Node.create('<video class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
         castContainer.append(shoutCast);
