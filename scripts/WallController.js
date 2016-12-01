@@ -117,7 +117,7 @@ window.Template.Controllers.WallController = function (element) {
                     url: collection_url + '?format=json',
                     data: {
                         view: 'list',
-                        month: offset || ''
+                        offset: offset || ''
                     },
                     success: function (items) {
                         console.log(items)
