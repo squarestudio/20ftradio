@@ -20,7 +20,9 @@
             {.repeated section items}
                 {.if customContent.featured}
                     {.or}
-                        {@|apply wall-slide-block.block}
+                    {.equal? customContent.customType "wall-item-link"}
+                    {.or}
+                    {@|apply wall-slide-block.block}
                     {.end}
                 {.end}
             {.end}
