@@ -104,7 +104,8 @@ window.Template.Controllers.CastController = function (element) {
         playerType = 'shoutcast';
         var castPlayer = Y.Node.create('<video id="castPlayer" class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
         castContainer.append(castPlayer);
-        castPlayer.on('canplaythrough', onPlayerReady);
+        castPlayer = castPlayer._node;
+        castPlayer.addEventListener('canplaythrough', onPlayerReady);
     }
 
     function onPlayerError(event) {
