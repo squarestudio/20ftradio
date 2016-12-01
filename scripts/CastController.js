@@ -79,7 +79,6 @@ window.Template.Controllers.CastController = function (element) {
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             var state = castPlayer.getPlayerState();
-            console.log(state);
             if (state === YT.PlayerState.PLAYING) {
                 castPlayer.pauseVideo();
             } else if (state === YT.PlayerState.PAUSED) {
@@ -142,14 +141,12 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onPlayerReady(event) {
-        console.log(event)
         console.log('playerReady');
         event.target.setVolume(50);
         event.target.playVideo();
     }
 
     function onPlayerStateChange(event) {
-        console.log(event);
         if (event.data){
             if (event.data == YT.PlayerState.PLAYING) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
