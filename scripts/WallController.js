@@ -112,7 +112,7 @@ window.Template.Controllers.WallController = function (element) {
         return new Y.Promise(function (resolve) {
             var content_items = {past: [], upcoming: []};
             var offset = '';
-
+            console.log('olol')
             function getItems(collection_url, offset) {
                 Y.Data.get({
                     url: collection_url + '?format=json',
