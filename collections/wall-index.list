@@ -16,7 +16,15 @@
                 {.end}
             {.end}
         </ul>
-        
+        <ul class="wallGrid">
+            {.repeated section items}
+                {.if customContent.featured}
+                    {.or}
+                        {@|apply wall-slide-block.block}
+                    {.end}
+                {.end}
+            {.end}
+        </ul>
     </div>
 </div>
 <script id="wall-item-link-query-template" type="text/x-json-template">
