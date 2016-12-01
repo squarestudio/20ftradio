@@ -82,6 +82,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
             });
         };
+        
         function onPlayerError(event) {
             castPlayer.destroy();
             console.log('loading shoutcast');
