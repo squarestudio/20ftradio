@@ -191,15 +191,15 @@ window.Template.Controllers.WallController = function (element) {
                              wallGrid.append(nodes);
                              }*/
                             console.log(compiledFragment);
-                            var upcomingMob = compiledFragment.one('.wallEvents-Upcoming').clone(!0);
-                            var pastMob =compiledFragment.one('.wallEvents-Past').clone(!0);
-                            wallGrid.prepend(compiledFragment);
                             if (compiledFragment.one('.wallEvents-Upcoming')) {
-                                mobileWall.prepend(compiledFragment);
+                                var upcomingMob = compiledFragment.one('.wallEvents-Upcoming').clone(!0);
+                                mobileWall.prepend(upcomingMob.get('children'));
                             }
                             if (compiledFragment.one('.wallEvents-Past')) {
-                                mobileWall.append(compiledFragment.one('.wallEvents-Past'));
+                                var pastMob =compiledFragment.one('.wallEvents-Past').clone(!0);
+                                mobileWall.append(pastMob.get('children'));
                             }
+                            wallGrid.prepend(compiledFragment.all('li'));
                             link.remove();
                             imagesReady();
                             loadImages();
