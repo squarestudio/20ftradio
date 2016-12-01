@@ -67,6 +67,7 @@
     {.end}
     <div class="sqs-cart-dropzone"></div>
     <squarespace:query collection="cast" limit="1">
+        <script>console.log({@|json-pretty})</script>
         {.if items}
             {.section items.0}
                 <div id="castDiv" class="cast-container content-fit slide-into-view" data-url="{oembed.url}" data-alternative-url="{customContent.alternativeUrl}">
