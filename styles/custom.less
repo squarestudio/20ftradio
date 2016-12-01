@@ -30,7 +30,14 @@
     padding: 10px 0;
   }
 }
-
+#mobile-navigation{
+  #mobile-navigation-label {
+    color: @navTextColor;
+    &:hover {
+      color: @navActiveColor;
+    }
+  }
+}
 @media only screen and (max-width: 800px) {
   .wallGrid {
     li {
