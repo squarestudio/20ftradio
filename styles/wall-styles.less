@@ -574,19 +574,10 @@ body {
     margin: 0 auto;
     .grid-slide {
       padding: @wallItemGap;
-      &.wall-item-video .grid-slide-video-featured {
+      &.wall-item-video .grid-slide-video-featured, &.wall-item-video .grid-slide-video-featured {
         height: 50vh;
         position: relative;
         overflow: hidden;
-        #castPlayer {
-          position: absolute;
-          top: 0;
-          left: 0;
-          bottom: 0;
-          right: 0;
-          width: 100%;
-          height: 100%;
-        }
         img {
           object-fit: contain;
           object-position: center;
@@ -623,7 +614,7 @@ body {
   .grid-slide-wrapper {
     overflow: hidden;
     position: relative;
-    
+
   }
   .wall-item-event {
     .eventlist-column-date{
