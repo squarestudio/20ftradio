@@ -122,7 +122,7 @@ window.Template.Controllers.WallController = function (element) {
                         content_items.upcoming = content_items.upcoming.concat(items.upcoming);
                         content_items.past = content_items.past.concat(items.past);
                         if (items.pagination) {
-
+                            
                         } else {
                             resolve(content_items);
                         }
