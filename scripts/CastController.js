@@ -121,7 +121,7 @@ window.Template.Controllers.CastController = function (element) {
         var castPlayer = Y.Node.create('<video id="castPlayer" class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
         castContainer.append(castPlayer);
         castPlayer = castPlayer._node;
-        castPlayer = videoYoutubazing(castPlayer);
+        videoYoutubazing();
         console.log(castPlayer);
         castPlayer.addEventListener('canplaythrough', onPlayerReady);
     }
