@@ -12,6 +12,7 @@ window.Template.Controllers.CastController = function (element) {
     }
     function refreshImages() {
         castContainer.all('img', function (img) {
+            img.removeAttribute('data-load');
             ImageLoader.load(img, {load: true});
         })
     }
