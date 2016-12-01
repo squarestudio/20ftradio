@@ -191,8 +191,8 @@ window.Template.Controllers.WallController = function (element) {
                              wallGrid.append(nodes);
                              }*/
                             console.log(compiledFragment);
-                            var upcomingMob = Y.Node.clone(compiledFragment.one('.wallEvents-Upcoming'), !0);
-                            var pastMob = Y.Node.clone(compiledFragment.one('.wallEvents-Past'), !0);
+                            var upcomingMob = compiledFragment.one('.wallEvents-Upcoming').clone(!0);
+                            var pastMob =compiledFragment.one('.wallEvents-Past').clone(!0);
                             wallGrid.prepend(compiledFragment);
                             if (compiledFragment.one('.wallEvents-Upcoming')) {
                                 mobileWall.prepend(compiledFragment);
