@@ -279,7 +279,7 @@ window.Template.Controllers.WallController = function (element) {
         function onPlayerReady(event) {
             console.log('playerReady');
             event.target.setVolume(50);
-            //event.target.playVideo();
+            event.target.playVideo();
         }
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
