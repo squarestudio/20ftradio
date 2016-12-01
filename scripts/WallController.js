@@ -121,7 +121,6 @@ window.Template.Controllers.WallController = function (element) {
                         offset: offset || ''
                     },
                     success: function (items) {
-                        console.log(items)
                         if (items.past.length || items.upcoming.length) {
                             if (items.upcoming) {
                                 content_items.upcoming = content_items.upcoming.concat(items.upcoming);
