@@ -284,6 +284,7 @@ window.Template.Controllers.WallController = function (element) {
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.PLAYING) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
+                !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
             } else if (event.data == YT.PlayerState.PAUSED) {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
