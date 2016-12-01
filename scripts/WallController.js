@@ -119,7 +119,7 @@ window.Template.Controllers.WallController = function (element) {
                         offset: offset || ''
                     },
                     success: function (items) {
-                        if (items.past || items.upcoming){
+                        if (items.past.length || items.upcoming.length){
                             if(items.upcoming) {content_items.upcoming = content_items.upcoming.concat(items.upcoming);}
                             if(items.past){content_items.past = content_items.past.concat(items.past);}
                             if (items.pagination && items.pagination.nextPage) {
