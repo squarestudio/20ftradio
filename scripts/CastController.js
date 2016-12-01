@@ -4,7 +4,7 @@ window.Template.Controllers.CastController = function (element) {
         sitePlayer = Y.one('.site-player'),
         videoId,
         shoutCastUrl,
-        playerType = 'stream',
+        playerType = 'youtube',
         castContainer = Y.one('#castDiv');
 
     function initialize() {
@@ -101,9 +101,10 @@ window.Template.Controllers.CastController = function (element) {
     }
     function initShoutCast(){
         console.log('shoutcast');
+        playerType = 'shoutcast';
         var castPlayer = Y.Node.create('<video id="castPlayer" class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
         castContainer.append(castPlayer);
-        castPlayer.on('')
+        castPlayer.on('canplaythrough', onPlayerReady);
     }
 
     function onPlayerError(event) {
