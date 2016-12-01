@@ -23,7 +23,7 @@ window.Template.Controllers.CastController = function (element) {
         var videoId = castContainer.getAttribute('data-url').split('=')[1];
         var alternUrl = castContainer.getAttribute('data-alternative-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
-        var volumeControl = sitePlayer.one('#volControl')
+        var volumeControl = sitePlayer.one('#volControl');
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
             load: true,
             fill: true
