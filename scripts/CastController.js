@@ -101,10 +101,11 @@ window.Template.Controllers.CastController = function (element) {
     }
     function initShoutCast(){
         console.log('shoutcast');
-        castPlayer = Y.Node.create('<video id="castPlayer" class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
-        castContainer.append(castPlayer);
-
+        var shoutcastElement = Y.Node.create('<video id="castPlayer" class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
+        castContainer.append(shoutcastElement);
+        castPlayer 0
     }
+
     function onPlayerError(event) {
         castPlayer.destroy();
         castPlayer = null;
