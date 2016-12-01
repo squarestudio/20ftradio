@@ -129,7 +129,6 @@ window.Template.Controllers.CastController = function (element) {
         castPlayer = Y.Node.create('<video id="castPlayer" class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
         castContainer.append(castPlayer);
         castPlayer = castPlayer._node;
-        console.log(castPlayer);
         castPlayer.addEventListener('canplaythrough', onPlayerReady);
         castPlayer.addEventListener('play', onPlayerStateChange);
         castPlayer.addEventListener('pause', onPlayerStateChange);
