@@ -124,6 +124,8 @@ window.Template.Controllers.WallController = function (element) {
                             if(items.past){content_items.past = content_items.past.concat(items.past);}
                             if (items.pagination && items.pagination.nextPage) {
                                 getItems(collection_url, items.pagination.nextPage.toLowerCase());
+                            } else {
+                                resolve(content_items);
                             }
                         } else {
                             resolve(content_items);
