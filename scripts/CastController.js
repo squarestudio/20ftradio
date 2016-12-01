@@ -95,14 +95,19 @@ window.Template.Controllers.CastController = function (element) {
         });
         if(videoId){
             initYoutubeStream(videoId);
+        } else if (shoutCastUrl) {
+            initShoutCast(shoutCastUrl);
         }
+    }
+    function initShoutCast(shoutCastUrl){
+        castPlayer = Y.Node.create('<video id="castPlayer" class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
+        castContainer.append(castPlayer);
     }
     function onPlayerError(event) {
         castPlayer.destroy();
         castPlayer = null;
         console.log('loading shoutcast');
-        castPlayer = Y.Node.create('<video id="castPlayer" class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
-        castContainer.append(shoutCast);
+        initShoutCast()
     }
 
     function onPlayerReady(event) {
