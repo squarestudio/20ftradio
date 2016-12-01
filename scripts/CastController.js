@@ -96,7 +96,7 @@ window.Template.Controllers.CastController = function (element) {
         if(videoId){
             initYoutubeStream(videoId);
         } else if (shoutCastUrl) {
-            initShoutCast(shoutCastUrl);
+            initShoutCast();
         }
     }
     function initShoutCast(shoutCasturl){
