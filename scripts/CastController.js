@@ -47,6 +47,11 @@ window.Template.Controllers.CastController = function (element) {
         };
     }
     function videoYoutubazing(video) {
+        Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
+            get: function(){
+                return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
+            }
+        });
         video.playVideo = function(){
             video.play();
         };
