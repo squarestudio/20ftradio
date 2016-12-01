@@ -2,7 +2,7 @@ window.Template.Controllers.CastController = function (element) {
     'use strict';
     var castPlayer,
         sitePlayer = Y.one('.site-player'),
-        castContainer;
+        castContainer = Y.one('#castDiv');
 
     function initialize() {
         if (Y.one('#castDiv')) {
