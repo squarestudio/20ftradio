@@ -70,7 +70,7 @@
     <squarespace:query collection="cast" limit="2">
         {.if items}
         {.section items.0}
-        <div id="castDiv" class="cast-container content-fit slide-into-view" sqs-controller="Template.Controllers.CastController" data-url="{oembed.url}" data-alternative-url="{customContent.alternativeUrl}">
+        <div id="castDiv" data-title="{title}" class="cast-container content-fit slide-into-view" sqs-controller="Template.Controllers.CastController" data-url="{oembed.url}" data-alternative-url="{customContent.alternativeUrl}">
             <img {@|image-meta} data-load="false"/>
             <div id="castPlayer"></div>
         </div>
