@@ -60,7 +60,7 @@ window.Template.Controllers.CastController = function (element) {
             this.volume = volume/100;
         };
         HTMLMediaElement.prototype.getPlayerState = function () {
-            return video.paused;
+            return this.paused;
         };
     }
     function initCast() {
