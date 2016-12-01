@@ -119,10 +119,12 @@ window.Template.Controllers.WallController = function (element) {
                         offset: offset || ''
                     },
                     success: function (items) {
-                        content_items.upcoming = content_items.upcoming.concat(items.upcoming);
-                        content_items.past = content_items.past.concat(items.past);
-                        if (items.length && items.pagination && items.pagination.nextPage) {
-                            getItems(collection_url, items.pagination.nextPage.toLowerCase());
+                        if (items.past || items.upcoming){
+                            if(items.upcoming) {content_items.upcoming = content_items.upcoming.concat(items.upcoming);}
+                            if(items.past){content_items.past = content_items.past.concat(items.past);}
+                            if (items.pagination && items.pagination.nextPage) {
+                                getItems(collection_url, items.pagination.nextPage.toLowerCase());
+                            }
                         } else {
                             resolve(content_items);
                         }
