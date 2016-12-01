@@ -118,6 +118,7 @@ window.Template.Controllers.CastController = function (element) {
         castContainer.append(castPlayer);
         castPlayer = castPlayer._node;
         castPlayer = videoYoutubazing(castPlayer);
+        console.log(castPlayer);
         castPlayer.addEventListener('canplaythrough', onPlayerReady);
     }
 
