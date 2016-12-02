@@ -137,6 +137,7 @@ window.Template.Controllers.CastController = function (element) {
         castPlayer.addEventListener('canplaythrough', onPlayerReady);
         castPlayer.addEventListener('play', onPlayerStateChange);
         castPlayer.addEventListener('pause', onPlayerStateChange);
+        castPlayer.addEventListener('error', onPlayerError);
     }
 
     function onPlayerError(event) {
