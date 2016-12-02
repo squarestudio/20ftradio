@@ -135,12 +135,12 @@
 
 {.end}
 <squarespace:script src="json-template.js" combo="true"/>
-<squarespace:script src="core-0.2.0.min.js" combo="false"/>
-<squarespace:script src="sqs-controller.js" combo="false"/>
+<squarespace:script src="core-0.2.0.min.js" combo="true"/>
+<squarespace:script src="sqs-controller.js" combo="true"/>
+<squarespace:script src="ajaxLoader.js" combo="true"/>
 <squarespace:script src="site.js" combo="true"/>
 <squarespace:script src="dynamic-data.js" combo="true"/>
 <squarespace:script src="lazy-loader.js" combo="true"/>
-<squarespace:script src="ajaxLoader.js" combo="false"/>
 <squarespace:script src="jquery.min.js" combo="false"/>
 <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
 <squarespace:script src="imagesloaded.pkgd.min.js" combo="false"/>
