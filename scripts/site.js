@@ -505,7 +505,8 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
 });
 (function() {
   'use strict';
-    if(1){
+  window.addEventListener('DOMContentLoaded', function () {
+    if (1) {
       new AjaxLoader({
         sqsController: true,
         timeout: 6000,
@@ -524,11 +525,12 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
           var container = document.querySelector('#container-content');
           container.classList.remove('slide-up');
           container.classList.add('slide-into-view');
-          window.setTimeout(function() {
+          window.setTimeout(function () {
             container.classList.remove('slide-into-view');
           }, 500);
         }
       });
 
     }
+  });
 }());
