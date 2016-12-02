@@ -66,7 +66,7 @@
     </header>
     {.end}
     <div class="sqs-cart-dropzone"></div>
-    <section id="container" class="{collection.typeLabel}" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.end}>
+    <section id="container" class="{collection.typeLabel}">
     <squarespace:query collection="cast" limit="2">
         {.if items}
         {.section items.0}
@@ -77,7 +77,7 @@
         {.end}
         {.end}
     </squarespace:query>
-    <div id="container-content" data-content-field="main-content" role="main">
+    <div id="container-content" data-content-field="main-content" role="main" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.end}>
         {.section collection}{.equal? typeName "products"}{.section categories}
         <div id="categoryNav">
             <input type="checkbox" name="category-nav-toggle" id="categoryNavToggle"
