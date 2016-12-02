@@ -21,7 +21,7 @@ window.Template.Controllers.CastController = function (element) {
         });
     }
     function initYoutubeStream() {
-        console.log('init youtube')
+        console.log('init youtube');
         var tag = document.createElement('script');
         tag.src = "//www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -141,7 +141,7 @@ window.Template.Controllers.CastController = function (element) {
             console.log('loading shoutcast');
             initShoutCast()
         } else {
-
+            initYoutubeStream()
         }
     }
 
