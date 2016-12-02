@@ -187,7 +187,7 @@
       this.toggleLoadingAttr('add');
       // this.toggleWillChange(document.querySelector(this.SITE_CONTAINER), ['transform', 'opacity']);
 
-      if( currentEvent.type == 'click' ) {
+      if(currentEvent.type == 'click' ) {
 
         if(this.isPageTransitionEnabled() && this.hasSomeParentTheClass(currentTarget, this.pageTransition.animLink) ) {
           // Index link click, with Page Transition Animation Enabled
@@ -251,11 +251,10 @@
               this.replaceHistory();
               this.updateHistory(url, document.querySelector('title').textContent);
             }
-
             this.updatePage(pageData);
           }
         } else {
-          this.handleTimeout(url);
+          //this.handleTimeout(url);
         }
       }
     },
