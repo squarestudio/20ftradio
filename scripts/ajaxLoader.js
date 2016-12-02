@@ -101,7 +101,7 @@
 
     bindLinks: function (e) {
       var link = this.walkUpDOM(e.target || e.srcElement, 'A');
-      console.log(link)
+      console.log(e)
       e.preventDefault();
       if(link && link.getAttribute('data-ajax-loader') === 'ajax-loader-binded') {
         console.log(link)
