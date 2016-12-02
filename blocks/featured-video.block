@@ -2,7 +2,7 @@
         <div class="grid-slide grid-slide-featured grid-slide-full-width {customContent.customType} {.video?} grid-slide-video{.end}" data-slide-id="{id}" data-slide-url="{urlId}">
             <div class="grid-slide-wrapper {.section customContent.animatedTexts}animated-text{.end}">
                 {.video?}
-                <div class="grid-slide-video slide-into-view grid-slide-video-featured {.section customContent.autoplay}grid-slide-video-autoplay{.end}">
+                <div class="grid-slide-video slide-into-view grid-slide-video-featured {.section customContent.autoplay}grid-slide-video-autoplay{.end}" style="animation-duration: 3.5s">
                     {@|video}
                 </div>
                 {.end}
