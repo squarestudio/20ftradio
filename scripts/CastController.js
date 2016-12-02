@@ -136,9 +136,12 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onPlayerError(event) {
-        if(playerType == 'youtube')
-        console.log('loading shoutcast');
-        initShoutCast()
+        if(playerType == 'youtube'){
+            console.log('loading shoutcast');
+            initShoutCast()
+        } else {
+
+        }
     }
 
     function onPlayerReady(event) {
