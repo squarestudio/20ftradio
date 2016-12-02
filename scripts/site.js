@@ -123,7 +123,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
 
     _setupNavigation: function() {
       // Configure the links with transition
-      if(Y.one('#topBar')){
+/*      if(Y.one('#topBar')){
         Y.one('#topBar').delegate('click', Y.bind(function(e){
           e.halt();
           this.animate('#container', {
@@ -136,8 +136,8 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
           }, function() {
             window.location = e.currentTarget.getAttribute('href');
           });
-        }, this), '.transition-lin');
-      }
+        }, this), '.transition-link');
+      }*/
 
 
       if( Y.one('.projectPrev') ) {
