@@ -77,7 +77,7 @@
         {.end}
         {.end}
     </squarespace:query>
-    <div id="container-content" data-content-field="main-content">
+    <div id="container-content" data-content-field="main-content" role="main">
         {.section collection}{.equal? typeName "products"}{.section categories}
         <div id="categoryNav">
             <input type="checkbox" name="category-nav-toggle" id="categoryNavToggle"
