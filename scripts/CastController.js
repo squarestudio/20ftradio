@@ -142,6 +142,7 @@ window.Template.Controllers.CastController = function (element) {
     function onPlayerError(event) {
         retry++;
         console.log(retry);
+        castContainer.removeClass('initialized');
         if (retry < maxRetry){
             if(playerType == 'youtube'){
                 console.log('youtube failed');
@@ -161,6 +162,7 @@ window.Template.Controllers.CastController = function (element) {
         console.log('playerReady');
         event.target.setVolume(50);
         event.target.playVideo();
+        castContainer.addClass('initialized');
     }
 
     function onPlayerStateChange(event) {
