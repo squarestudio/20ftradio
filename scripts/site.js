@@ -506,7 +506,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
 (function() {
   'use strict';
   window.addEventListener('DOMContentLoaded', function () {
-    if (1) {
+    if (!Static.SQUARESPACE_CONTEXT.authenticatedAccount) {
       new AjaxLoader({
         sqsController: true,
         timeout: 6000,
