@@ -449,7 +449,8 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
     _setupPositioning: function() {
       var adjustForHeaderFooter = function() {
         if(Y.one('#topBar')){
-          Y.one('#container').setStyle('marginTop', Y.one('#topBar').get('offsetHeight'));
+          //Y.one('#container').setStyle('marginTop', Y.one('#topBar').get('offsetHeight'));
+          Y.one('#castDiv').setStyle('marginTop', Y.one('#topBar').get('offsetHeight'));
         }
 
         if (Y.Squarespace.Template.getTweakValue('autohide-footer') + "" === "false" && Y.one('#bottomBar')) {
