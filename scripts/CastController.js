@@ -10,7 +10,7 @@ window.Template.Controllers.CastController = function (element) {
         castContainer = Y.one('#castDiv');
 
     function initialize() {
-        if (Y.one('#castDiv')) {
+        if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('')) {
             initCast();
         }
         Y.one(window).on('resize', refreshImages);
