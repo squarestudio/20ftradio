@@ -243,7 +243,7 @@ window.Template.Controllers.WallController = function (element) {
             initialize();
         },
         destroy: function () {
-
+            console.log('destroy wall');
         }
     };
 
