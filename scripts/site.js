@@ -514,7 +514,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
           animLink: 'index-page-transition-link',
           animClass: 'tweak-page-transition-animation',
           fadeInDuration: 0.78,
-          fadeOutDuration: 0.2,
+          fadeOutDuration: 0.2
         },
         beforeRequestAnim: function () {
           var container = document.querySelector('.content-container');
