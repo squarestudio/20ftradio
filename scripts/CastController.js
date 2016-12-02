@@ -19,7 +19,7 @@ window.Template.Controllers.CastController = function (element) {
         castContainer.all('img').each(function (img) {
             img.removeAttribute('data-load');
             ImageLoader.load(img, {load: true});
-        }); 
+        });
     }
     function initYoutubeStream() {
         console.log('init youtube');
