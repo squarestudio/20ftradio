@@ -509,7 +509,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
       new AjaxLoader({
         sqsController: true,
         timeout: 6000,
-        siteContainer: '.content-container',
+        siteContainer: '#container-content',
         pageTransition: {
           animLink: 'index-page-transition-link',
           animClass: 'tweak-page-transition-animation',
@@ -517,11 +517,11 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
           fadeOutDuration: 0.2
         },
         beforeRequestAnim: function () {
-          var container = document.querySelector('.content-container');
+          var container = document.querySelector('#container-content');
           container.classList.add('slide-up');
         },
         afterRequestAnim: function () {
-          var container = document.querySelector('.content-container');
+          var container = document.querySelector('#container-content');
           container.classList.remove('slide-up');
           container.classList.add('slide-into-view');
           window.setTimeout(function() {
