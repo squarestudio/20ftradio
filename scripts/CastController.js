@@ -142,6 +142,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function onPlayerError(event) {
         retry++;
+        console.log(retry);
         if (retry < maxRetry){
             if(playerType == 'youtube'){
                 console.log('youtube failed');
