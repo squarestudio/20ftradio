@@ -102,6 +102,7 @@
     bindLinks: function (e) {
       var link = this.walkUpDOM(e.target || e.srcElement, 'A');
       console.log(link)
+      e.preventDefault();
       if(link && link.getAttribute('data-ajax-loader') === 'ajax-loader-binded') {
         console.log(link)
         // If control, alt, or shift are pressed, return false and let default browser behavior happen
