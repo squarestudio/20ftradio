@@ -4,6 +4,8 @@ window.Template.Controllers.CastController = function (element) {
         sitePlayer = Y.one('.site-player'),
         videoId,
         shoutCastUrl,
+        retry = 0,
+        maxRetry = 5,
         playerType = 'youtube',
         castContainer = Y.one('#castDiv');
 
