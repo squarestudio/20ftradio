@@ -1,7 +1,6 @@
 /* jshint loopFunc:false */
 Y.use('node','squarespace-gallery-ng', function(Y) {
 
-
   Y.on('domready', function() {
 
     Y.all('#mobile-navigation li.folder').each(function(elem) {
@@ -504,3 +503,32 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
 
   });
 });
+(function() {
+  'use strict';
+    if(1){
+      new AjaxLoader({
+        sqsController: true,
+        timeout: 6000,
+        siteContainer: '.content-container',
+        pageTransition: {
+          animLink: 'index-page-transition-link',
+          animClass: 'tweak-page-transition-animation',
+          fadeInDuration: 0.78,
+          fadeOutDuration: 0.2,
+        },
+        beforeRequestAnim: function () {
+          var container = document.querySelector('.content-container');
+          container.classList.add('slide-up');
+        },
+        afterRequestAnim: function () {
+          var container = document.querySelector('.content-container');
+          container.classList.remove('slide-up');
+          container.classList.add('slide-into-view');
+          window.setTimeout(function() {
+            container.classList.remove('slide-into-view');
+          }, 500);
+        }
+      });
+
+    }
+}());
