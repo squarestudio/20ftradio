@@ -140,12 +140,17 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onPlayerError(event) {
-        if(playerType == 'youtube'){
-            console.log('youtube failed');
-            console.log('loading shoutcast');
-            initShoutCast()
+        retry++;
+        if (retry < maxRetry){
+            if(playerType == 'youtube'){
+                console.log('youtube failed');
+                console.log('loading shoutcast');
+                initShoutCast()
+            } else {
+                initYoutubeStream()
+            }
         } else {
-            initYoutubeStream()
+            console.log('Seems no one stream working');
         }
     }
 
