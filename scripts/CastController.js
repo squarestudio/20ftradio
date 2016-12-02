@@ -190,7 +190,7 @@ window.Template.Controllers.CastController = function (element) {
             initialize();
         },
         destroy: function () {
-
+            console.log('destroy cast');
         }
     };
 };
