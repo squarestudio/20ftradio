@@ -134,7 +134,7 @@ window.Template.Controllers.CastController = function (element) {
         castPlayer.addEventListener('play', onPlayerStateChange);
         castPlayer.addEventListener('pause', onPlayerStateChange);
     }
-
+ 
     function onPlayerError(event) {
 
         console.log('loading shoutcast');
