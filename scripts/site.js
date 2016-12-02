@@ -530,7 +530,6 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
           }, 500);
         }
       });
-
     }
   });
 }());
