@@ -82,14 +82,18 @@ window.Template.Controllers.CastController = function (element) {
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             var state = castPlayer.getPlayerState();
-            if (state === YT.PlayerState.PLAYING) {
-                castPlayer.pauseVideo();
-            } else if (state === YT.PlayerState.PAUSED) {
-                castPlayer.playVideo();
-            } else if (state){
-                castPlayer.playVideo();
+            if (playerType == 'youtube'){
+                if (state === YT.PlayerState.PLAYING) {
+                    castPlayer.pauseVideo();
+                } else if (state === YT.PlayerState.PAUSED) {
+                    castPlayer.playVideo();
+                }
             } else {
-                castPlayer.pauseVideo();
+                if (state){
+                    castPlayer.playVideo();
+                } else {
+                    castPlayer.pauseVideo();
+                }
             }
         });
         videoYoutubazing();
