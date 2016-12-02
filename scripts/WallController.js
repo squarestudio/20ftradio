@@ -216,7 +216,7 @@ window.Template.Controllers.WallController = function (element) {
             loadImages();
         }
     }
-    
+
     function getNodesOrderedByDate(nodes) {
         var now = (new Date()).getTime();
         nodes._nodes.sort(function (a, b) {
