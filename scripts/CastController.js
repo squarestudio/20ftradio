@@ -22,10 +22,12 @@ window.Template.Controllers.CastController = function (element) {
     }
     function initYoutubeStream() {
         console.log('init youtube');
-        var tag = document.createElement('script');
-        tag.src = "//www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        if(!window.YT){
+            var tag = document.createElement('script');
+            tag.src = "//www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        }
         window.onYouTubeIframeAPIReady = function () {
             castPlayer = new YT.Player('castPlayer', {
                 height: '720',
