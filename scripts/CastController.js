@@ -52,11 +52,6 @@ window.Template.Controllers.CastController = function (element) {
         };
     }
     function videoYoutubazing() {
-        Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
-            get: function(){
-                return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
-            }
-        });
         HTMLMediaElement.prototype.playVideo = function(){
             this.play();
         };
@@ -173,7 +168,7 @@ window.Template.Controllers.CastController = function (element) {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
         } else {
-            if(event.target.playing){
+            if(!event.target.paused){
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                 !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
             } else {
