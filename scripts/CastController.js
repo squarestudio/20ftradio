@@ -126,7 +126,6 @@ window.Template.Controllers.CastController = function (element) {
         console.log('shoutcast');
         playerType = 'shoutcast';
         castPlayer.remove();
-        castPlayer = null;
         castPlayer = Y.Node.create('<video id="castPlayer" class="hidden" autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
         castContainer.append(castPlayer);
         castPlayer = castPlayer._node;
