@@ -513,6 +513,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
         sqsController: true,
         timeout: 6000,
         siteContainer: '#container-content',
+        activeNavClass: 'active-link',
         pageTransition: {
           animLink: 'index-page-transition-link',
           animClass: 'tweak-page-transition-animation',
