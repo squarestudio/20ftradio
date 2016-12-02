@@ -134,9 +134,9 @@ window.Template.Controllers.CastController = function (element) {
         castPlayer.addEventListener('play', onPlayerStateChange);
         castPlayer.addEventListener('pause', onPlayerStateChange);
     }
- 
-    function onPlayerError(event) {
 
+    function onPlayerError(event) {
+        if(playerType == 'youtube')
         console.log('loading shoutcast');
         initShoutCast()
     }
