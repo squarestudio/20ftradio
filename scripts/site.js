@@ -136,7 +136,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
           }, function() {
             window.location = e.currentTarget.getAttribute('href');
           });
-        }, this), '.transition-link');
+        }, this), '.transition-lin');
       }
 
 
