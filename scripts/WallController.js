@@ -150,70 +150,72 @@ window.Template.Controllers.WallController = function (element) {
 
     function initialize() {
         wallGrid = Y.one('#wallGrid');
-        var mobileWall = wallGrid.one('.mobile-only');
-        window.Template.Util.initShareButtons();
-        if (animOnScroll) animOnScroll = null;
-        var imagesReady = function () {
-            imagesLoaded(document.getElementById("wallGrid"), function () {
-                console.log('activated wall');
-                initGalleries();
-                initVideos();
-                initTexts();
-                animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
-                    minDuration: 1,
-                    maxDuration: 2,
-                    viewportFactor: 0.2
+        if(wallGrid){
+            var mobileWall = wallGrid.one('.mobile-only');
+            window.Template.Util.initShareButtons();
+            if (animOnScroll) animOnScroll = null;
+            var imagesReady = function () {
+                imagesLoaded(document.getElementById("wallGrid"), function () {
+                    console.log('activated wall');
+                    initGalleries();
+                    initVideos();
+                    initTexts();
+                    animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
+                        minDuration: 1,
+                        maxDuration: 2,
+                        viewportFactor: 0.2
+                    });
+                    setTimeout(function () {
+                        simulateResize();
+                    }, 100);
                 });
-                setTimeout(function () {
-                    simulateResize();
-                }, 100);
-            });
-        };
-        if (Y.one('.wall-item-link')) {
-            Y.use(['node', 'squarespace-json-template'], function (Y) {
-                var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/\^/g, '{');
-                wallGrid.all('.wall-item-link').each(function (link) {
-                    var url = link.getAttribute('href'),
-                        order = link.getAttribute('data-first-order');
-                    getCollectionItems(url).then(function (items) {
-                        console.log(items);
-                        if (items) {
-                            var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
-                            var compiledFragment = Y.Node.create(compiled);
-                            /*                            if(order == 'true'){
-                             var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
-                             wallGrid.append(nodes);
-                             wallGrid.prepend(getNodesOrderedByDate(compiledFragment.all('li')));
-                             } else {
-                             link.insert(compiledFragment, 'before');
-                             nodes = getNodesOrderedByAdded(wallGrid.all('li'));
-                             wallGrid.append(nodes);
-                             }*/
-                            console.log(compiledFragment);
-                            if (compiledFragment.one('.wallEvents-Upcoming')) {
-                                var upcomingMob = compiledFragment.one('.wallEvents-Upcoming').cloneNode(!0);
-                                mobileWall.prepend(upcomingMob.get('children'));
+            };
+            if (Y.one('.wall-item-link')) {
+                Y.use(['node', 'squarespace-json-template'], function (Y) {
+                    var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/\^/g, '{');
+                    wallGrid.all('.wall-item-link').each(function (link) {
+                        var url = link.getAttribute('href'),
+                            order = link.getAttribute('data-first-order');
+                        getCollectionItems(url).then(function (items) {
+                            console.log(items);
+                            if (items) {
+                                var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
+                                var compiledFragment = Y.Node.create(compiled);
+                                /*                            if(order == 'true'){
+                                 var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
+                                 wallGrid.append(nodes);
+                                 wallGrid.prepend(getNodesOrderedByDate(compiledFragment.all('li')));
+                                 } else {
+                                 link.insert(compiledFragment, 'before');
+                                 nodes = getNodesOrderedByAdded(wallGrid.all('li'));
+                                 wallGrid.append(nodes);
+                                 }*/
+                                console.log(compiledFragment);
+                                if (compiledFragment.one('.wallEvents-Upcoming')) {
+                                    var upcomingMob = compiledFragment.one('.wallEvents-Upcoming').cloneNode(!0);
+                                    mobileWall.prepend(upcomingMob.get('children'));
+                                }
+                                if (compiledFragment.one('.wallEvents-Past')) {
+                                    var pastMob =compiledFragment.one('.wallEvents-Past').cloneNode(!0);
+                                    mobileWall.append(pastMob.get('children'));
+                                }
+                                var events = Y.Node.create('<ul class="wallGrid wallEvents"></ul>');
+                                wallGrid.prepend(events.prepend(compiledFragment.all('li')));
+                                link.remove();
+                                imagesReady();
+                                loadImages();
+                            } else {
+                                link.remove();
+                                imagesReady();
+                                loadImages();
                             }
-                            if (compiledFragment.one('.wallEvents-Past')) {
-                                var pastMob =compiledFragment.one('.wallEvents-Past').cloneNode(!0);
-                                mobileWall.append(pastMob.get('children'));
-                            }
-                            var events = Y.Node.create('<ul class="wallGrid wallEvents"></ul>');
-                            wallGrid.prepend(events.prepend(compiledFragment.all('li')));
-                            link.remove();
-                            imagesReady();
-                            loadImages();
-                        } else {
-                            link.remove();
-                            imagesReady();
-                            loadImages();
-                        }
+                        })
                     })
                 })
-            })
-        } else {
-            imagesReady();
-            loadImages();
+            } else {
+                imagesReady();
+                loadImages();
+            }
         }
     }
 
