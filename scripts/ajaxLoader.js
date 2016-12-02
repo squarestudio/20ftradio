@@ -399,7 +399,6 @@
       } else if(!ajaxFired) {
         currentEvent = e;
         this.fireRequest(e.state.url + e.state.search);
-
       } else {
         console.log('uh oh something wrong with bindPopState');
       }
