@@ -147,6 +147,8 @@ window.Template.Controllers.CastController = function (element) {
                 console.log('loading shoutcast');
                 initShoutCast()
             } else {
+                console.log('shoutcast failed');
+                console.log('loading youtube');
                 initYoutubeStream()
             }
         } else {
