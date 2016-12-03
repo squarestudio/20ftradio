@@ -165,7 +165,7 @@ window.Template.Controllers.CastController = function (element) {
         retry++;
         console.log(retry);
         castContainer.removeClass('initialized');
-        if (retry < maxRetry) {
+        if (retry <= maxRetry) {
             if (playerType == 'youtube' && videoId) {
                 console.log('youtube failed');
                 console.log('loading shoutcast');
