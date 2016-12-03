@@ -54,6 +54,16 @@
                         </div>
                         ^.if fullUrl}</a>^.end}
                     </div>
+                    <div class="text-wrapper">
+                        <div class="slide-descr">
+                            {.if title}<h2>{title}</h2>{.end}
+                            {.if excerpt}
+                            <div class="descr">{excerpt}</div>
+                            {.or}
+                            <div class="descr">{body}</div>
+                            {.end}
+                        </div>
+                    </div>
                 </li>
         ^.end}
     </ul>
@@ -81,6 +91,16 @@
                             </div>
                         </div>
                         ^.if fullUrl}</a>^.end}
+                    </div>
+                    <div class="text-wrapper">
+                        <div class="slide-descr">
+                            {.if title}<h2>{title}</h2>{.end}
+                            {.if excerpt}
+                            <div class="descr">{excerpt}</div>
+                            {.or}
+                            <div class="descr">{body}</div>
+                            {.end}
+                        </div>
                     </div>
                 </li>
         ^.end}
