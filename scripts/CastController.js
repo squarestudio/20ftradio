@@ -166,11 +166,11 @@ window.Template.Controllers.CastController = function (element) {
         console.log(retry);
         castContainer.removeClass('initialized');
         if (retry < maxRetry) {
-            if (playerType == 'youtube') {
+            if (playerType == 'youtube' && videoId) {
                 console.log('youtube failed');
                 console.log('loading shoutcast');
                 initShoutCast()
-            } else {
+            } else if (playerType == 'shoutcast' && shoutCastUrl) {
                 console.log('shoutcast failed');
                 console.log('loading youtube');
                 castPlayer.removeEventListener('canplaythrough', onPlayerReady);
@@ -181,6 +181,9 @@ window.Template.Controllers.CastController = function (element) {
                 castPlayer.removeEventListener('stalled', onPlayerError);
                 castPlayer.removeEventListener('suspend', onPlayerError);
                 initYoutubeStream();
+            }
+            else {
+                console.log('Seems no data to work');
             }
         } else {
             console.log('Seems no one stream working');
