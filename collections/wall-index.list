@@ -3,7 +3,7 @@
         {.if customContent.featured}
             {@|apply featured-video.block}
         {.end}
-    {.end}<script>console.log({@|json-pretty})</script>
+    {.end}
     <div id="wallGrid">
         <ul class="wallGrid">
             {.repeated section items}
