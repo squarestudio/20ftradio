@@ -85,5 +85,6 @@
         {.or}{.image?}
             {@|apply wall-overlay-block.block}
         {.end}
+        {.end}
     </div>
 </li>
