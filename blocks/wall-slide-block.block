@@ -86,7 +86,7 @@
                 {.if excerpt}
                     <div class="descr">{excerpt}</div>
                 {.or}
-
+                    <div class="descr">{body}</div>
                 {.end}
             </div>
         </div>
