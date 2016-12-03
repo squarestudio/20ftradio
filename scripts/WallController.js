@@ -203,6 +203,9 @@ window.Template.Controllers.WallController = function (element) {
                                 link.remove();
                                 imagesReady();
                                 loadImages();
+                                if(window.AjaxLoader){
+                                    
+                                }
                             } else {
                                 link.remove();
                                 imagesReady();
