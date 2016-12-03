@@ -46,18 +46,20 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initYoutubeStream() {
-        console.log('init youtube');
-        if (!window.YT) {
-            var tag = document.createElement('script');
-            tag.src = "//www.youtube.com/iframe_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        } else {
-            initYoutubePlayer();
+        if(videoId){
+            console.log('init youtube');
+            if (!window.YT) {
+                var tag = document.createElement('script');
+                tag.src = "//www.youtube.com/iframe_api";
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            } else {
+                initYoutubePlayer();
+            }
+            window.onYouTubeIframeAPIReady = function () {
+                initYoutubePlayer();
+            };
         }
-        window.onYouTubeIframeAPIReady = function () {
-            initYoutubePlayer();
-        };
     }
 
     function videoYoutubazing() {
