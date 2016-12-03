@@ -30,6 +30,8 @@ window.Template.Controllers.CastController = function (element) {
             tag.src = "//www.youtube.com/iframe_api";
             var firstScriptTag = document.getElementsByTagName('script')[0];
             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        } else {
+            initPlayer();
         }
         var initPlayer = function () {
             castPlayer = new YT.Player('castPlayer', {
@@ -50,7 +52,7 @@ window.Template.Controllers.CastController = function (element) {
                     'onError': onPlayerError
                 }
             });
-        }
+        };
         window.onYouTubeIframeAPIReady = function () {
             initPlayer();
         };
