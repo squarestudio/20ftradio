@@ -30,6 +30,7 @@ window.Template.Controllers.WallController = function (element) {
                 simulateTouch: false,
                 noSwiping: true,
                 onInit: function (swiper) {
+                    console.log(swiper)
                     if (document.querySelector('html').className.indexOf('touch-styles') < 0) {
                         swiper.stopAutoplay();
                         swiper.container[0].onmouseenter = function () {
