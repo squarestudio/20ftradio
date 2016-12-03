@@ -191,7 +191,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onPlayerReady(event) {
-        console.log('playerReady');
+        console.log(playerType, 'playerReady');
         event.target.setVolume(50);
         event.target.playVideo();
         castContainer.addClass('initialized');
