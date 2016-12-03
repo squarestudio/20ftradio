@@ -24,6 +24,8 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initYoutubePlayer() {
+        videoId = castContainer.getAttribute('data-url').split('=')[1];
+        shoutCastUrl = castContainer.getAttribute('data-alternative-url');
         castPlayer = new YT.Player('castPlayer', {
             height: '720',
             width: '1280',
@@ -61,11 +63,6 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function videoYoutubazing() {
-        /*        Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
-         get: function(){
-         return !!(this.currentTime > 0 && !this.paused && !this.ended && this.readyState > 2);
-         }
-         });*/
         HTMLMediaElement.prototype.playVideo = function () {
             this.play();
         };
