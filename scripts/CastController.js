@@ -7,6 +7,7 @@ window.Template.Controllers.CastController = function (element) {
         retry = 0,
         maxRetry = 5,
         playerType = 'youtube',
+        shoutCastTimeout,
         castContainer = Y.one('#castDiv');
 
     function initialize() {
@@ -159,7 +160,7 @@ window.Template.Controllers.CastController = function (element) {
         castPlayer.addEventListener('stalled', onPlayerError);
         castPlayer.addEventListener('suspend', onPlayerError);
         castPlayer.addEventListener('emptied', onPlayerError);
-        setTimeout(function () {
+        shoutCastTimeout = setTimeout(function () {
             if(castPlayer.paused){
                 onPlayerError();
             }
@@ -170,6 +171,10 @@ window.Template.Controllers.CastController = function (element) {
         retry++;
         console.log(retry, playerType, shoutCastUrl, videoId);
         castContainer.removeClass('initialized');
+        if(shoutCastTimeout){
+            clearTimeout(shoutCastTimeout);
+            console.log('Shoutcast timeout reset')
+        }
         if (retry <= maxRetry) {
             if (playerType == 'youtube' && videoId) {
                 console.log('youtube failed');
@@ -197,6 +202,10 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onPlayerReady(event) {
+        if(shoutCastTimeout){
+            clearTimeout(shoutCastTimeout);
+            console.log('Shoutcast timeout reset')
+        }
         console.log(playerType, 'playerReady');
         event.target.setVolume(50);
         event.target.playVideo();
