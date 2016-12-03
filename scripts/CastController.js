@@ -59,6 +59,8 @@ window.Template.Controllers.CastController = function (element) {
             window.onYouTubeIframeAPIReady = function () {
                 initYoutubePlayer();
             };
+        } else {
+            console.log("No data to init youtube");
         }
     }
 
