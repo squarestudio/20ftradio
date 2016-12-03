@@ -170,8 +170,11 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
     _setHeaderValues: function () {
       if(Y.one('#topBar')){
         var topBarHeight = Y.one('#topBar').get('offsetHeight');
-        //Y.one('#container').setStyle('marginTop', topBarHeight);
-        Y.one('#castDiv').setStyle('marginTop', topBarHeight);
+        if (Y.one('#castDiv')){
+          Y.one('#castDiv').setStyle('marginTop', topBarHeight);
+        } else {
+          Y.one('#container').setStyle('marginTop', topBarHeight);
+        }
         Y.all('#project .switcher').setStyle('top', topBarHeight + 35);
       }
     },
@@ -449,8 +452,13 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
     _setupPositioning: function() {
       var adjustForHeaderFooter = function() {
         if(Y.one('#topBar')){
-          //Y.one('#container').setStyle('marginTop', Y.one('#topBar').get('offsetHeight'));
+          var topBarHeight = Y.one('#topBar').get('offsetHeight');
           Y.one('#castDiv').setStyle('marginTop', Y.one('#topBar').get('offsetHeight'));
+          if (Y.one('#castDiv')){
+            Y.one('#castDiv').setStyle('marginTop', topBarHeight);
+          } else {
+            Y.one('#container').setStyle('marginTop', topBarHeight);
+          }
         }
 
         if (Y.Squarespace.Template.getTweakValue('autohide-footer') + "" === "false" && Y.one('#bottomBar')) {
