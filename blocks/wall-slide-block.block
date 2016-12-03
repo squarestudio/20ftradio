@@ -83,7 +83,10 @@
         <div class="wrapper">
             <div class="slide-descr">
                 {.if title}<h2>{title}</h2>{.end}
-                {.if excerpt}<div class="descr">{excerpt}</div>{.end}
+                {.if excerpt}
+                    <div class="descr">{excerpt}</div>
+                
+                {.end}
             </div>
         </div>
     </div>
