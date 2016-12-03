@@ -204,7 +204,7 @@ window.Template.Controllers.WallController = function (element) {
                                 imagesReady();
                                 loadImages();
                                 if(window.AjaxLoader){
-                                    
+                                    Y.all('.wallEvents a').setAttribute('data-ajax')
                                 }
                             } else {
                                 link.remove();
