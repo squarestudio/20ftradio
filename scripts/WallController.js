@@ -149,6 +149,7 @@ window.Template.Controllers.WallController = function (element) {
     }
 
     function initialize() {
+        console.log('Wall init');
         wallGrid = Y.one('#wallGrid');
         if(wallGrid){
             var mobileWall = wallGrid.one('.mobile-only');
