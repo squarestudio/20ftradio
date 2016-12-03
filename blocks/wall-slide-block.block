@@ -80,7 +80,7 @@
             {.if clickthroughUrl}</a>{.end}
         {.end}
         {.end}
-        <div class="text-wrapper">
+        <a href="{.if clickthroughUrl}{clickthroughUrl}{.or}{.if sourceUrl}{sourceUrl}{.end}{.end}" class="text-wrapper">
             <div class="slide-descr">
                 {.if title}<h2>{title}</h2>{.end}
                 {.if excerpt}
@@ -89,6 +89,6 @@
                     <div class="descr">{body}</div>
                 {.end}
             </div>
-        </div>
+        </a>
     </div>
 </li>
