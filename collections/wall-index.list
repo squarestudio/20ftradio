@@ -54,7 +54,7 @@
                         </div>
                         ^.if fullUrl}</a>^.end}
                     </div>
-                    <div class="text-wrapper">
+                    <a href="^.if clickthroughUrl}^clickthroughUrl}^.or}^.if sourceUrl}^sourceUrl}^.or}^.if fullUrl}^fullUrl}^.end}^.end}^.end}" class="text-wrapper">
                         <div class="slide-descr">
                             ^.if title}<h2>^title}</h2>^.end}
                             ^.if excerpt}
@@ -63,7 +63,7 @@
                             <div class="descr">^body}</div>
                             ^.end}
                         </div>
-                    </div>
+                    </a>
                 </li>
         ^.end}
     </ul>
@@ -92,7 +92,7 @@
                         </div>
                         ^.if fullUrl}</a>^.end}
                     </div>
-                    <div class="text-wrapper">
+                    <a href="^.if clickthroughUrl}^clickthroughUrl}^.or}^.if sourceUrl}^sourceUrl}^.or}^.if fullUrl}^fullUrl}^.end}^.end}^.end}" class="text-wrapper">
                         <div class="slide-descr">
                             ^.if title}<h2>^title}</h2>^.end}
                             ^.if excerpt}
@@ -101,7 +101,7 @@
                             <div class="descr">^body}</div>
                             ^.end}
                         </div>
-                    </div>
+                    </a>
                 </li>
         ^.end}
     </ul>
