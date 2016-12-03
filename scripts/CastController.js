@@ -158,6 +158,7 @@ window.Template.Controllers.CastController = function (element) {
         castPlayer.addEventListener('abort', onPlayerError);
         castPlayer.addEventListener('stalled', onPlayerError);
         castPlayer.addEventListener('suspend', onPlayerError);
+        castPlayer.addEventListener('emptied', onPlayerError);
     }
 
     function onPlayerError(event) {
@@ -179,6 +180,7 @@ window.Template.Controllers.CastController = function (element) {
                 castPlayer.removeEventListener('abort', onPlayerError);
                 castPlayer.removeEventListener('stalled', onPlayerError);
                 castPlayer.removeEventListener('suspend', onPlayerError);
+                castPlayer.removeEventListener('emptied', onPlayerError);
                 initYoutubeStream();
             }
             else {
