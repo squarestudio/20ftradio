@@ -168,7 +168,14 @@ window.Template.Controllers.CastController = function (element) {
             } else {
                 console.log('shoutcast failed');
                 console.log('loading youtube');
-                initYoutubeStream()
+                castPlayer.removeEventListener('canplaythrough', onPlayerReady);
+                castPlayer.removeEventListener('play', onPlayerStateChange);
+                castPlayer.removeEventListener('pause', onPlayerStateChange);
+                castPlayer.removeEventListener('error', onPlayerError);
+                castPlayer.removeEventListener('abort', onPlayerError);
+                castPlayer.removeEventListener('stalled', onPlayerError);
+                castPlayer.removeEventListener('suspend', onPlayerError);
+                initYoutubeStream();
             }
         } else {
             console.log('Seems no one stream working');
