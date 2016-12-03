@@ -190,7 +190,6 @@ window.Template.Controllers.WallController = function (element) {
                                  nodes = getNodesOrderedByAdded(wallGrid.all('li'));
                                  wallGrid.append(nodes);
                                  }*/
-                                console.log(compiledFragment);
                                 if (compiledFragment.one('.wallEvents-Upcoming')) {
                                     var upcomingMob = compiledFragment.one('.wallEvents-Upcoming').cloneNode(!0);
                                     mobileWall.prepend(upcomingMob.get('children'));
