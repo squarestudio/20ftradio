@@ -80,7 +80,7 @@
             {.if clickthroughUrl}</a>{.end}
         {.end}
         {.end}
-        <div class="wrapper">
+        <div class="text-wrapper">
             <div class="slide-descr">
                 {.if title}<h2>{title}</h2>{.end}
                 {.if excerpt}
