@@ -139,6 +139,9 @@ window.Template.Controllers.CastController = function (element) {
         } else if (shoutCastUrl) {
             initShoutCast();
         }
+        else {
+            console.log("No data to init");
+        }
     }
 
     function initShoutCast() {
