@@ -1,0 +1,10 @@
+<a href="{.if clickthroughUrl}{clickthroughUrl}{.or}{.if sourceUrl}{sourceUrl}{.or}{.if fullUrl}{fullUrl}{.end}{.end}{.end}" class="text-wrapper">
+    <div class="slide-descr">
+        {.if title}<h2>{title}</h2>{.end}
+        {.if excerpt}
+        <div class="descr">{excerpt}</div>
+        {.or}
+        <div class="descr">{body}</div>
+        {.end}
+    </div>
+</a>
