@@ -42,7 +42,9 @@ window.Template.Controllers.CastController = function (element) {
                 'onError': onPlayerError
             }
         });
-    };
+        playerType = 'youtube';
+    }
+
     function initYoutubeStream() {
         console.log('init youtube');
         if (!window.YT) {
