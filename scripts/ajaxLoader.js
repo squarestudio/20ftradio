@@ -158,7 +158,7 @@
 
     modifyLinkState: function(url){
 
-      Array.prototype.forEach.call(document.querySelectorAll('.' + this.ACTIVE_NAV_CLASS), function(el){
+      Array.prototype.forEach.call(document.querySelectorAll('.' + this.+), function(el){
         el.classList.remove(this.ACTIVE_NAV_CLASS);
       }.bind(this));
 
