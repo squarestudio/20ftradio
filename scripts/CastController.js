@@ -183,7 +183,7 @@ window.Template.Controllers.CastController = function (element) {
                 initYoutubeStream();
             }
             else {
-                console.log('Seems no data to work');
+                console.log('Seems no data to work now');
             }
         } else {
             console.log('Seems no one stream working');
