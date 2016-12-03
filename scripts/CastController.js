@@ -151,8 +151,8 @@ window.Template.Controllers.CastController = function (element) {
         castPlayer.addEventListener('play', onPlayerStateChange);
         castPlayer.addEventListener('pause', onPlayerStateChange);
         castPlayer.addEventListener('error', onPlayerError);
-        castPlayer.addEventListener('error', onPlayerError);
-        castPlayer.addEventListener('error', onPlayerError);
+        castPlayer.addEventListener('abort', onPlayerError);
+        castPlayer.addEventListener('stalled', onPlayerError);
     }
 
     function onPlayerError(event) {
