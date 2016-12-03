@@ -81,9 +81,9 @@
         {.end}
         {.end}
         {.equal? customContent.customType "wall-item-image"}
-            {apply|wall-overlay-block.block}
+            {@|apply wall-overlay-block.block}
         {.or}{.image?}
-            {apply|wall-overlay-block.block}
+            {@|apply wall-overlay-block.block}
         {.end}
     </div>
 </li>
