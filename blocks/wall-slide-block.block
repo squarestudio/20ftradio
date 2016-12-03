@@ -85,6 +85,7 @@
                 {.if title}<h2>{title}</h2>{.end}
                 {.if excerpt}
                     <div class="descr">{excerpt}</div>
+                {.or}
                 
                 {.end}
             </div>
