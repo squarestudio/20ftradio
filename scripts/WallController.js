@@ -204,7 +204,8 @@ window.Template.Controllers.WallController = function (element) {
                                 imagesReady();
                                 loadImages();
                                 if(window.AjaxLoader){
-                                    Y.all('.wallEvents a').setAttribute('data-ajax')
+                                    Y.all('.wallEvents a').setAttribute('data-ajax-loader','ajax-loader-binded');
+                                    Y.all('.wallEvents a').setAttribute('data-ajax-loader','ajax-loader-binded');
                                 }
                             } else {
                                 link.remove();
