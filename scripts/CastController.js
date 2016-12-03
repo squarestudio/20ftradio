@@ -25,6 +25,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function initYoutubePlayer() {
         videoId = castContainer.getAttribute('data-url').split('=')[1];
+        console.log(videoId)
         shoutCastUrl = castContainer.getAttribute('data-alternative-url');
         castPlayer = new YT.Player('castPlayer', {
             height: '720',
