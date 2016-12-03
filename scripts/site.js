@@ -453,7 +453,6 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
       var adjustForHeaderFooter = function() {
         if(Y.one('#topBar')){
           var topBarHeight = Y.one('#topBar').get('offsetHeight');
-          Y.one('#castDiv').setStyle('marginTop', Y.one('#topBar').get('offsetHeight'));
           if (Y.one('#castDiv')){
             Y.one('#castDiv').setStyle('marginTop', topBarHeight);
           } else {
