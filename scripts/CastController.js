@@ -24,9 +24,6 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initYoutubePlayer() {
-        videoId = castContainer.getAttribute('data-url').split('=')[1];
-        console.log(videoId)
-        shoutCastUrl = castContainer.getAttribute('data-alternative-url');
         castPlayer = new YT.Player('castPlayer', {
             height: '720',
             width: '1280',
@@ -163,8 +160,6 @@ window.Template.Controllers.CastController = function (element) {
         retry++;
         console.log(retry, playerType, shoutCastUrl, videoId);
         castContainer.removeClass('initialized');
-        videoId = castContainer.getAttribute('data-url').split('=')[1];
-        shoutCastUrl = castContainer.getAttribute('data-alternative-url');
         if (retry <= maxRetry) {
             if (playerType == 'youtube' && videoId) {
                 console.log('youtube failed');
