@@ -2,7 +2,9 @@
 Y.use('node','squarespace-gallery-ng', function(Y) {
 
   Y.on('domready', function() {
-
+    if (window.self !== window.top) {
+      
+    }
     Y.all('#mobile-navigation li.folder').each(function(elem) {
       elem.on('click', function() {
         toggleFolder(elem.siblings('li.folder.dropdown-open').item(0));
