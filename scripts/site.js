@@ -3,6 +3,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
 
   Y.on('domready', function() {
     if (window.self !== window.top) {
+      console.log(window.top.Y.one('.sqs-preview-frame-content'))
       window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
     }
     Y.all('#mobile-navigation li.folder').each(function(elem) {
