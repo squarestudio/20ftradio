@@ -16,7 +16,6 @@ window.Template.Controllers.CastController = function (element) {
         }
         Y.one(window).on('resize', refreshImages);
         if (window.self !== window.top) {
-            console.log(window.top.Y.one('.sqs-preview-frame-content'))
             window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
         }
     }
