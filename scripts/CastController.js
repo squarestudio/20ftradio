@@ -246,8 +246,9 @@ window.Template.Controllers.CastController = function (element) {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
                 success: function (i, data) {
-                    if(data.status == 200)
-                    console.log(i, text)
+                    if(data.status == 200 && data.readyState == 4){
+                     var status_html = Y.Node.create('data.responseText');
+                    }
                 },
                 failure: function () {
                     //err, 401
