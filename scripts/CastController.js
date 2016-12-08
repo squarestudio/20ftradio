@@ -234,7 +234,18 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function getShoutcastStatus() {
-        
+        Y.io('priv/data.json', {
+            username: 'foo',
+            password: 'bar',
+            on: {
+                success: function () {
+                    //got the data, carry on
+                },
+                failure: function () {
+                    //err, 401
+                }
+            }
+        });
     }
     initialize();
 
