@@ -234,12 +234,10 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function getShoutcastStatus() {
-        Y.io('priv/data.json', {
-            username: 'foo',
-            password: 'bar',
+        Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
-                success: function () {
-                    //got the data, carry on
+                success: function (data, text) {
+                    console.log(data, text)
                 },
                 failure: function () {
                     //err, 401
