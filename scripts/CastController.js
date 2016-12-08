@@ -257,6 +257,7 @@ window.Template.Controllers.CastController = function (element) {
                         console.log(current_song);
                         if(trackName.get('text') !== current_song){
                             trackName.set('text', current_song);
+                            trackName.removeClass('scroll-track').addClass('scroll-track');
                         }
                     }
                 },
