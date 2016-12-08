@@ -213,6 +213,7 @@ window.Template.Controllers.CastController = function (element) {
         if(shoutCastTimeout){
             clearTimeout(shoutCastTimeout);
             console.log('Shoutcast timeout reset');
+            getShoutcastStatus();
             shoutCastStatusInterval = setInterval(function () {
                 getShoutcastStatus();
             }, 10000);
@@ -244,8 +245,8 @@ window.Template.Controllers.CastController = function (element) {
     function getShoutcastStatus() {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
-                success: function (data, text) {
-                    console.log(data, text)
+                success: function (i, data) {
+                    console.log(i, text)
                 },
                 failure: function () {
                     //err, 401
