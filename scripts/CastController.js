@@ -150,10 +150,6 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initShoutCast() {
-        getShoutcastStatus();
-        shoutCastStatusInterval = setInterval(function () {
-            getShoutcastStatus();
-        }, 10000);
         console.log('shoutcast');
         playerType = 'shoutcast';
         castPlayer && castPlayer.destroy && castPlayer.destroy();
