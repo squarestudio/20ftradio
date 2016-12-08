@@ -51,7 +51,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initYoutubeStream() {
-        if(videoId){
+        if (videoId) {
             console.log('init youtube');
             if (!window.YT) {
                 var tag = document.createElement('script');
@@ -165,7 +165,7 @@ window.Template.Controllers.CastController = function (element) {
         castPlayer.addEventListener('suspend', onPlayerError);
         castPlayer.addEventListener('emptied', onPlayerError);
         shoutCastTimeout = setTimeout(function () {
-            if(castPlayer.paused){
+            if (castPlayer.paused) {
                 onPlayerError();
             }
         }, 7000);
@@ -175,11 +175,11 @@ window.Template.Controllers.CastController = function (element) {
         retry++;
         console.log(retry, playerType, shoutCastUrl, videoId);
         castContainer.removeClass('initialized');
-        if(shoutCastTimeout){
+        if (shoutCastTimeout) {
             clearTimeout(shoutCastTimeout);
             console.log('Shoutcast timeout reset')
         }
-        if(shoutCastStatusInterval){
+        if (shoutCastStatusInterval) {
             clearInterval(shoutCastStatusInterval);
             console.log('Shoutcast status reset')
         }
@@ -210,7 +210,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onPlayerReady(event) {
-        if(shoutCastTimeout){
+        if (shoutCastTimeout) {
             clearTimeout(shoutCastTimeout);
             console.log('Shoutcast timeout reset');
             getShoutcastStatus();
@@ -246,8 +246,9 @@ window.Template.Controllers.CastController = function (element) {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
                 success: function (i, data) {
-                    if(data.status == 200 && data.readyState == 4){
-                     var status_html = Y.Node.create('data.responseText');
+                    if (data.status == 200 && data.readyState == 4) {
+                        var status_html = Y.Node.create('data.responseText');
+                        var last_tr = status_html.one('table[')
                     }
                 },
                 failure: function () {
@@ -256,6 +257,7 @@ window.Template.Controllers.CastController = function (element) {
             }
         });
     }
+
     initialize();
 
     return {
