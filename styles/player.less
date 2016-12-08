@@ -67,10 +67,13 @@
     color: @navActiveColor;
     opacity: 0;
     display: inline-block;
+    max-height: 0;
+    .transition(max-height .3s);
     &.scroll-track {
       opacity: 1;
       animation: scroll-track 10s infinite linear;
       -webkit-animation: scroll-track 10s infinite linear;
+      max-height: 100px;
     }
     span {
       color: inherit;
