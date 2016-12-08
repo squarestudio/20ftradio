@@ -254,7 +254,7 @@ window.Template.Controllers.CastController = function (element) {
                         console.log(data.status)
                         var status_html = Y.Node.create('data.responseText');
                         var last_tr = status_html.one('table[cellpadding]')
-                        console.log(last_tr);
+                        console.log(status_html);
                     }
                 },
                 failure: function () {
