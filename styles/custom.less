@@ -9,14 +9,17 @@
 .wallGrid {
   width: 50%;
 }
-.site-alignment-center #container{
+
+.site-alignment-center #container {
   margin-top: 0;
 }
+
 .site-titlelogo-position-left {
   #navigator header#topBar ul#nav {
     float: right;
   }
 }
+
 .grid-container {
   .container {
     max-width: @wallWidth;
@@ -24,8 +27,8 @@
     margin: 0 auto;
     .grid-slide {
       padding: @wallItemGap 0;
-      &:first-child{
-        padding-top: 0!important;
+      &:first-child {
+        padding-top: 0 !important;
       }
       &.wall-item-video .grid-slide-video-featured, &.wall-item-video .sqs-video-wrapper {
         height: 50vh;
@@ -66,11 +69,13 @@
 
 #navigator {
   .siteTitle {
-    padding: 0!important;
+    padding: 0 !important;
     margin: 0;
   }
-  header#topBar ul#nav li {
-    margin: 0 1.3em 0px 0;
+  header#topBar ul#nav {
+    li {
+      margin: 0 1.3em 0px 0;
+    }
   }
 }
 
