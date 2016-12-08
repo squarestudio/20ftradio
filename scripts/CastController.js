@@ -233,6 +233,9 @@ window.Template.Controllers.CastController = function (element) {
         }
     }
 
+    function getShoutcastStatus() {
+        
+    }
     initialize();
 
     return {
