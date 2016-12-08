@@ -65,7 +65,7 @@
                     <i class="icono-volumeMedium"></i>
                 </a>
                 <input id="volControl" class="volume-control" type="range" min="0" max="100" step="1"></input>
-                <div class="track-name"><span> </span></div>
+                <div class="track-name"><span></span></div>
             </div>
         </div>
         <squarespace:navigation navigationId="pages" template="navigation"/>
