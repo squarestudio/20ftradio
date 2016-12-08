@@ -253,8 +253,11 @@ window.Template.Controllers.CastController = function (element) {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
                         var status_html = Y.Node.create(data.responseText);
-                        var last_tr = status_html.one('table[cellpadding=2] tr:last-child').get('text');
-                        console.log(last_tr);
+                        var current_song = status_html.one('table[cellpadding=2] tr:last-child').get('text');
+                        console.log(current_song);
+                        if(trackName.get('text') !== current_song){
+
+                        }
                     }
                 },
                 failure: function () {
