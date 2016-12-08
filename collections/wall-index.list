@@ -30,80 +30,80 @@
     </div>
 </div>
 <script id="wall-item-link-query-template" type="text/x-json-template">
-    ^.if upcoming}
+    {.if upcoming}
     <ul class="wallGrid wallEvents wallEvents-Upcoming">
-        ^.repeated section upcoming}
+        {.repeated section upcoming}
                 <li class="grid-slide event-item eventlist-event--upcoming"
-                    data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
+                    data-slide-id="{id}" data-slide-url="{urlId}" data-start-date="{startDate}" data-end-date="{endDate}">
                     <div class="grid-slide-wrapper">
-                        ^.if fullUrl}<a class="wrap-link" href="^fullUrl}">^.end}
+                        {.if fullUrl}<a class="wrap-link" href="{fullUrl}">{.end}
                         <div class="grid-slide-image wall-item-event">
-                            <img ^@|image-meta} data-fixed-ratio="true" data-load="false"/>
+                            <img {@|image-meta} data-fixed-ratio="true" data-load="false"/>
                             <div class="eventlist-column-date">
                                 <div class="eventlist-datetag">
                                     <div class="eventlist-datetag-inner">
-                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
-                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
-                                        <div class="eventlist-datetag-time"><span class="event-time-12hr">^startDate|date %H:%M %p}</span>
-                                            <span class="event-time-24hr">^startDate|date %H:%M %p}</span>
+                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">{startDate|date %b}</div>
+                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">{startDate|date %d}</div>
+                                        <div class="eventlist-datetag-time"><span class="event-time-12hr">{startDate|date %H:%M %p}</span>
+                                            <span class="event-time-24hr">{startDate|date %H:%M %p}</span>
                                         </div>
                                         <div class="eventlist-datetag-status"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        ^.if fullUrl}</a>^.end}
+                        {.if fullUrl}</a>{.end}
                     </div>
-                    <a href="^.if clickthroughUrl}^clickthroughUrl}^.or}^.if sourceUrl}^sourceUrl}^.or}^.if fullUrl}^fullUrl}^.end}^.end}^.end}" class="text-wrapper">
+                    <a href="{.if clickthroughUrl}{clickthroughUrl}{.or}{.if sourceUrl}{sourceUrl}{.or}{.if fullUrl}{fullUrl}{.end}{.end}{.end}" class="text-wrapper">
                         <div class="slide-descr">
-                            ^.if title}<h2>^title}</h2>^.end}
-                            ^.if excerpt}
-                            <div class="descr">^excerpt}</div>
-                            ^.or}
-                            <div class="descr">^body}</div>
-                            ^.end}
+                            {.if title}<h2>{title}</h2>{.end}
+                            {.if excerpt}
+                            <div class="descr">{excerpt}</div>
+                            {.or}
+                            <div class="descr">{body}</div>
+                            {.end}
                         </div>
                     </a>
                 </li>
-        ^.end}
+        {.end}
     </ul>
-    ^.end}
-    ^.if past}
+    {.end}
+    {.if past}
     <ul class="wallGrid wallEvents wallEvents-Past">
-        ^.repeated section past}
+        {.repeated section past}
                 <li class="grid-slide event-item eventlist-event--past"
-                    data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
+                    data-slide-id="{id}" data-slide-url="{urlId}" data-start-date="{startDate}" data-end-date="{endDate}">
                     <div class="grid-slide-wrapper">
-                        ^.if fullUrl}<a class="wrap-link" href="^fullUrl}">^.end}
+                        {.if fullUrl}<a class="wrap-link" href="{fullUrl}">{.end}
                         <div class="grid-slide-image wall-item-event">
-                            <img ^@|image-meta} data-fixed-ratio="true" data-load="false"/>
+                            <img {@|image-meta} data-fixed-ratio="true" data-load="false"/>
                             <div class="eventlist-column-date">
                                 <div class="eventlist-datetag">
                                     <div class="eventlist-datetag-inner">
-                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
-                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
-                                        <div class="eventlist-datetag-time"><span class="event-time-12hr">^startDate|date %H:%M %p}</span>
-                                            <span class="event-time-24hr">^startDate|date %H:%M %p}</span>
+                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">{startDate|date %b}</div>
+                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">{startDate|date %d}</div>
+                                        <div class="eventlist-datetag-time"><span class="event-time-12hr">{startDate|date %H:%M %p}</span>
+                                            <span class="event-time-24hr">{startDate|date %H:%M %p}</span>
                                         </div>
                                         <div class="eventlist-datetag-status"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        ^.if fullUrl}</a>^.end}
+                        {.if fullUrl}</a>{.end}
                     </div>
-                    <a href="^.if clickthroughUrl}^clickthroughUrl}^.or}^.if sourceUrl}^sourceUrl}^.or}^.if fullUrl}^fullUrl}^.end}^.end}^.end}" class="text-wrapper">
+                    <a href="{.if clickthroughUrl}{clickthroughUrl}{.or}{.if sourceUrl}{sourceUrl}{.or}{.if fullUrl}{fullUrl}{.end}{.end}{.end}" class="text-wrapper">
                         <div class="slide-descr">
-                            ^.if title}<h2>^title}</h2>^.end}
-                            ^.if excerpt}
-                            <div class="descr">^excerpt}</div>
-                            ^.or}
-                            <div class="descr">^body}</div>
-                            ^.end}
+                            {.if title}<h2>{title}</h2>{.end}
+                            {.if excerpt}
+                            <div class="descr">{excerpt}</div>
+                            {.or}
+                            <div class="descr">{body}</div>
+                            {.end}
                         </div>
                     </a>
                 </li>
-        ^.end}
+        {.end}
     </ul>
-    ^.end}
+    {.end}
 </script>
