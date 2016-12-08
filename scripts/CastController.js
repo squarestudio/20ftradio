@@ -248,7 +248,8 @@ window.Template.Controllers.CastController = function (element) {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
                         var status_html = Y.Node.create('data.responseText');
-                        var last_tr = status_html.one('table[')
+                        var last_tr = status_html.one('table[cellpadding=2]')
+                        console.log(last_tr);
                     }
                 },
                 failure: function () {
