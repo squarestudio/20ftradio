@@ -215,7 +215,7 @@ window.Template.Controllers.CastController = function (element) {
             console.log('Shoutcast timeout reset');
             shoutCastStatusInterval = setInterval(function () {
                 getShoutcastStatus();
-            })
+            }, 10000);
         }
         console.log(playerType, 'playerReady');
         event.target.setVolume(50);
