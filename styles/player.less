@@ -66,11 +66,12 @@
     white-space: nowrap;
     color: @navActiveColor;
     opacity: 0;
-    display: inline-block;
+    display: block;
     max-height: 0;
     .transition(max-height .3s);
     &.scroll-track {
       opacity: 1;
+      display: inline-block;
       animation: scroll-track 10s infinite linear;
       -webkit-animation: scroll-track 10s infinite linear;
       max-height: 100px;
