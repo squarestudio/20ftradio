@@ -2,6 +2,7 @@ window.Template.Controllers.CastController = function (element) {
     'use strict';
     var castPlayer,
         sitePlayer = Y.one('.site-player'),
+        trackName = sitePlayer.one('.track-name'),
         videoId,
         shoutCastUrl,
         retry = 0,
