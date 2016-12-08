@@ -65,6 +65,10 @@
   .track-name{
     white-space: nowrap;
     color: @navTextColor;
+    &.scroll-track {
+      animation: scroll-track 5s infinite;
+      -webkit-animation: scroll-track 5s infinite;
+    }
     span {
       color: inherit;
     }
