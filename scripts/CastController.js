@@ -256,7 +256,7 @@ window.Template.Controllers.CastController = function (element) {
                         var current_song = status_html.one('table[cellpadding=2] tr:last-child').get('text');
                         console.log(current_song);
                         if(trackName.get('text') !== current_song){
-                            trackName.set('text', current_song);
+                            trackName.one('span').set('text', current_song);
                             trackName.removeClass('scroll-track').addClass('scroll-track');
                         }
                     }
