@@ -1,9 +1,11 @@
 .slide-into-view {
   animation: slideintoview 3s;
 }
+
 body {
   overflow-x: hidden;
 }
+
 .mobile-only {
   display: none;
 }
@@ -92,7 +94,9 @@ body {
     a {
       border: none;
       border-width: 0;
-      height: @logoSize;
+      &.sqs-svg-icon--wrapper {
+        height: @logoSize;
+      }
     }
   }
 }
@@ -112,10 +116,10 @@ body {
       #footerBlock.sqs-layout {
         float: left;
         .sqs-block {
-          padding: 0!important;
+          padding: 0 !important;
         }
       }
-      >div {
+      > div {
         max-width: none;
       }
       div.social-accounts {
@@ -142,6 +146,7 @@ body {
       width: 100% !important;
     }
   }
+
   #navigator .siteTitle {
     margin: 0 !important;
     float: right !important;
@@ -163,15 +168,15 @@ body {
     }
   }
 
-  .site-titlelogo-position-left{
+  .site-titlelogo-position-left {
     #navigator .siteTitle {
       margin: 0 !important;
       float: left !important;
-      padding: 0!important;
+      padding: 0 !important;
       max-width: 35% !important;
       text-align: left !important;
     }
-    .site-player{
+    .site-player {
       left: auto;
       right: 3%;
       width: 100%;
