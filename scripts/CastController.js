@@ -293,7 +293,7 @@ window.Template.Controllers.CastController = function (element) {
             var userTimezoneOffset = currentTime.getTimezoneOffset()*60*1000;
             currentTime = currentTime.getTime();
             currentEvents.upcoming.forEach(function (event) {
-                console.log(currentTime, new Date(event.startDate+siteTimezoneOffset+userTimezoneOffset).getTime(), currentTime - (event.endDate+siteTimezoneOffset))
+                console.log(currentTime-new Date(event.startDate+siteTimezoneOffset+userTimezoneOffset).getTime(), currentTime - (event.endDate+siteTimezoneOffset))
                 if (currentTime >= new Date(event.startDate+siteTimezoneOffset+userTimezoneOffset).getTime() && currentTime <= new Date(event.endtDate+siteTimezoneOffset+userTimezoneOffset).getTime()){
                     console.log(event.title)
                 }
