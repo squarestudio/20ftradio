@@ -204,6 +204,7 @@ window.Template.Controllers.WallController = function (element) {
                                 link.remove();
                                 imagesReady();
                                 loadImages();
+                                Y.fire('getCurrentEvent');
                                 if(window.AjaxLoader){
                                     Y.all('.wallGrid a').setAttribute('data-ajax-loader','ajax-loader-binded');
                                     //Y.all('.wallEvents a').setAttribute('data-ajax-loader','ajax-loader-binded');
