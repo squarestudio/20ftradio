@@ -86,6 +86,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initCast() {
+        getCurrentEvent();
         castContainer = Y.one('#castDiv');
         videoId = castContainer.getAttribute('data-url').split('=')[1];
         shoutCastUrl = castContainer.getAttribute('data-alternative-url');
@@ -219,6 +220,7 @@ window.Template.Controllers.CastController = function (element) {
                 getShoutcastStatus();
             }, 10000);*/
         }
+        //getCurrentEvent();
         console.log(playerType, 'playerReady');
         event.target.setVolume(50);
         event.target.playVideo();
