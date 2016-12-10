@@ -10,6 +10,7 @@ window.Template.Controllers.CastController = function (element) {
         playerType = 'youtube',
         shoutCastTimeout,
         shoutCastStatusInterval,
+        currentEvents,
         castContainer = Y.one('#castDiv');
 
     function initialize() {
@@ -286,16 +287,24 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function getCurrentEvent() {
-        getCollectionItems('/events').then(function (events) {
-            if(events && events.upcoming){
-                var currentTime = new Date().getTime();
-                events.upcoming.forEach(function (event) {
-                    if (currentTime >= event.startDate && currentTime <= event.endDate){
-                        console.log(event.title)
-                    }
-                })
-            }
-        })
+        var checkEvents = function () {
+            var currentTime = new Date().getTime();
+            currentEvents.upcoming.forEach(function (event) {
+                if (currentTime >= event.startDate && currentTime <= event.endDate){
+                    console.log(event.title)
+                }
+            })
+        }
+        if(!currentEvents){
+            getCollectionItems('/events').then(function (events) {
+                if(events && events.upcoming){
+                    currentEvents = events;
+                    checkEvents();
+                }
+            })
+        } else {
+            checkEvents();
+        }
     }
     function getShoutcastStatus() {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
