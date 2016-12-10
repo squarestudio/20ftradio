@@ -89,7 +89,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initCast() {
-        console.log('init cast')
+        console.log('init cast');
         getCurrentEvent();
         eventStatusInterval = setInterval(function () {
             getCurrentEvent();
