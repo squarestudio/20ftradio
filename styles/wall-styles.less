@@ -653,16 +653,12 @@ body {
         display: none;
       }
     }
-    .event-on-air{
-      .eventlist-datetag-inner {
-        &:after {
-          content: '● On Air';
-          font-size: 12px;
-          font-weight: bold;
-          margin: 10px 0 5px 0;
-          color: green;
-          display: none;
-        }
+  }
+  .event-on-air{
+    .eventlist-datetag-inner {
+      &:after {
+        display: block;
+        animation: 1s blinking;
       }
     }
   }
