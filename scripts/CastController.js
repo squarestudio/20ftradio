@@ -295,7 +295,8 @@ window.Template.Controllers.CastController = function (element) {
             currentEvents.upcoming.forEach(function (event) {
                 console.log(currentTime-new Date(event.startDate+siteTimezoneOffset+userTimezoneOffset).getTime(), currentTime - (event.endDate+siteTimezoneOffset))
                 if (currentTime >= new Date(event.startDate+siteTimezoneOffset+userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate+siteTimezoneOffset+userTimezoneOffset).getTime()){
-                    console.log(event.title)
+                    console.log(event.title);
+                    trackName.one('span').set('text', event.title).addClass('scroll-track');
                 }
             })
         };
