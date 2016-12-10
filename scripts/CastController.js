@@ -174,6 +174,14 @@ window.Template.Controllers.CastController = function (element) {
         castPlayer.addEventListener('stalled', onPlayerError);
         castPlayer.addEventListener('suspend', onPlayerError);
         castPlayer.addEventListener('emptied', onPlayerError);
+        if (shoutCastTimeout) {
+            clearTimeout(shoutCastTimeout);
+            console.log('Shoutcast timeout reset')
+        }
+        if (shoutCastStatusInterval) {
+            clearInterval(shoutCastStatusInterval);
+            console.log('Shoutcast status reset')
+        }
         shoutCastTimeout = setTimeout(function () {
             if (castPlayer.paused) {
                 onPlayerError();
