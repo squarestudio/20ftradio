@@ -229,7 +229,7 @@ window.Template.Controllers.CastController = function (element) {
         } else {
             console.log('Seems no one stream working, trying shoutcast record');
             maxRetry = 0;
-            shoutCastUrl = shoutCastUrl.split('listen')
+            shoutCastUrl = shoutCastUrl.split('listen')[0] + '/'
         }
     }
 
