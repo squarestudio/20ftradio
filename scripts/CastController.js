@@ -90,7 +90,6 @@ window.Template.Controllers.CastController = function (element) {
     function initCast() {
         console.log('init cast');
         Y.one('#castDiv').addClass('initialized');
-        console.log(Y.one('#castDiv'), Y.one('#castDiv').get('className'))
         getCurrentEvent();
         eventStatusInterval = setInterval(function () {
             getCurrentEvent();
