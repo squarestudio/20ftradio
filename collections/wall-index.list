@@ -33,8 +33,7 @@
     ^.if upcoming}
     <ul class="wallGrid wallEvents wallEvents-Upcoming">
         ^.repeated section upcoming}
-                <li class="grid-slide event-item eventlist-event--upcoming"
-                    data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
+                <li class="grid-slide event-item event-item-^id} eventlist-event--upcoming" data-start-date="^startDate}" data-end-date="^endDate}">
                     <div class="grid-slide-wrapper">
                         ^.if fullUrl}<a class="wrap-link" href="^fullUrl}">^.end}
                         <div class="grid-slide-image wall-item-event">
@@ -71,8 +70,7 @@
     ^.if past}
     <ul class="wallGrid wallEvents wallEvents-Past">
         ^.repeated section past}
-                <li class="grid-slide event-item eventlist-event--past"
-                    data-slide-id="^id}" data-slide-url="^urlId}" data-start-date="^startDate}" data-end-date="^endDate}">
+                <li class="grid-slide event-item event-item-^id} eventlist-event--past" data-start-date="^startDate}" data-end-date="^endDate}">
                     <div class="grid-slide-wrapper">
                         ^.if fullUrl}<a class="wrap-link" href="^fullUrl}">^.end}
                         <div class="grid-slide-image wall-item-event">
