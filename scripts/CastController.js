@@ -299,20 +299,26 @@ window.Template.Controllers.CastController = function (element) {
             var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
             var userTimezoneOffset = currentTime.getTimezoneOffset()*60*1000;
             currentTime = currentTime.getTime();
-            var title = false;
+            var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
                 if (currentTime >= new Date(event.startDate+siteTimezoneOffset+userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate+siteTimezoneOffset+userTimezoneOffset).getTime()){
-                    title = event.title;
+                    eventOnAir = event;
                     console.log(event.title);
                 }
             });
-            if (title){
-                trackName.one('span').set('text', title);
+            if (eventOnAir){
+                trackName.one('span').set('text', eventOnAir.title);
                 trackName.addClass('scroll-track');
+                if(Y.one('.event-item-'+eventOnAir.id)){
+                    Y.all('.event-item-'+eventOnAir.id).addClass('event-on-air');
+                }
             } else {
                 trackName.one('span').set('text', '');
                 trackName.removeClass('scroll-track');
                 console.log('no current event');
+                if(Y.one('.event-on-air')){
+                    Y.all('.event-on-air').removeClass('event-on-air');
+                }
             }
         };
         if(!currentEvents){
