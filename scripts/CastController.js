@@ -229,7 +229,6 @@ window.Template.Controllers.CastController = function (element) {
                 getShoutcastStatus();
             }, 10000);
         }
-        //getCurrentEvent();
         console.log(playerType, 'playerReady');
         event.target.setVolume(50);
         event.target.playVideo();
@@ -304,6 +303,7 @@ window.Template.Controllers.CastController = function (element) {
                 console.log(currentTime-new Date(event.startDate+siteTimezoneOffset+userTimezoneOffset).getTime(), currentTime - (event.endDate+siteTimezoneOffset))
                 if (currentTime >= new Date(event.startDate+siteTimezoneOffset+userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate+siteTimezoneOffset+userTimezoneOffset).getTime()){
                     trackName.one('span').set('text', event.title);
+                    console.log(event.title);
                     trackName.addClass('scroll-track');
                 }
             })
