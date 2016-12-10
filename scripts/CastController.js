@@ -190,10 +190,10 @@ window.Template.Controllers.CastController = function (element) {
             clearInterval(shoutCastStatusInterval);
             console.log('Shoutcast status reset')
         }
-        if (eventStatusInterval) {
+        /*if (eventStatusInterval) {
             clearInterval(eventStatusInterval);
             console.log('Event status reset')
-        }
+        }*/
         if (retry <= maxRetry) {
             if (playerType == 'youtube' && videoId) {
                 console.log('youtube failed');
