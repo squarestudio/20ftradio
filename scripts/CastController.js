@@ -367,6 +367,7 @@ window.Template.Controllers.CastController = function (element) {
         destroy: function () {
             console.log('destroy cast');
             Y.one(window).detach('resize', refreshImages);
+            Y.detach('getCurrentEvent', getCurrentEvent);
         }
     };
 };
