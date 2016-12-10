@@ -244,7 +244,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function getCurrentEvent() {
-        Y.io('/', {
+        Y.io('/events?format=json', {
             on: {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
