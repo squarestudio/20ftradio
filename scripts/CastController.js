@@ -21,7 +21,6 @@ window.Template.Controllers.CastController = function (element) {
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
-            Y.one('#castDiv').addClass('initialized');
         }
     }
 
@@ -90,6 +89,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function initCast() {
         console.log('init cast');
+        Y.one('#castDiv').addClass('initialized');
         getCurrentEvent();
         eventStatusInterval = setInterval(function () {
             getCurrentEvent();
