@@ -288,7 +288,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function getCurrentEvent() {
         var checkEvents = function () {
-            var currentTime = new Date().getTimezoneOffset()
+            var currentTime = new Date()
             currentEvents.upcoming.forEach(function (event) {
                 console.log(currentTime, new Date(event.startDate+Static.SQUARESPACE_CONTEXT.website.timeZoneOffset).getTime(), currentTime - event.endDate)
                 if (currentTime >= event.startDate && currentTime <= event.endDate){
