@@ -312,6 +312,7 @@ window.Template.Controllers.CastController = function (element) {
             } else {
                 trackName.one('span').set('text', '');
                 trackName.removeClass('scroll-track');
+                console.log('no current event');
             }
         };
         if(!currentEvents){
