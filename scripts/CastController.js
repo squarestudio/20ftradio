@@ -92,6 +92,7 @@ window.Template.Controllers.CastController = function (element) {
         eventStatusInterval = setInterval(function () {
             getCurrentEvent();
         }, 10000);
+        Y.on('getCurrentEvent', getCurrentEvent);
         castContainer = Y.one('#castDiv');
         videoId = castContainer.getAttribute('data-url').split('=')[1];
         shoutCastUrl = castContainer.getAttribute('data-alternative-url');
