@@ -21,6 +21,7 @@ window.Template.Controllers.CastController = function (element) {
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
+            Y.one('#castDiv').addClass('initialized');
         }
     }
 
