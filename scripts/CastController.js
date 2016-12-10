@@ -227,7 +227,9 @@ window.Template.Controllers.CastController = function (element) {
                 console.log('Seems no data to work now');
             }
         } else {
-            console.log('Seems no one stream working');
+            console.log('Seems no one stream working, trying shoutcast record');
+            maxRetry = 0;
+            shoutCastUrl = ''
         }
     }
 
