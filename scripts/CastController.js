@@ -69,6 +69,7 @@ window.Template.Controllers.CastController = function (element) {
             };
         } else {
             console.log("No data to init youtube");
+            onPlayerError();
         }
     }
 
