@@ -299,33 +299,33 @@ window.Template.Controllers.CastController = function (element) {
         var checkEvents = function () {
             var currentTime = new Date();
             var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
-            var userTimezoneOffset = currentTime.getTimezoneOffset()*60*1000;
+            var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
             currentTime = currentTime.getTime();
             var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
-                if (currentTime >= new Date(event.startDate+siteTimezoneOffset+userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate+siteTimezoneOffset+userTimezoneOffset).getTime()){
+                if (currentTime >= new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()) {
                     eventOnAir = event;
                     console.log(event.title);
                 }
             });
-            if (eventOnAir){
+            if (eventOnAir) {
                 trackName.one('span').set('text', eventOnAir.title);
                 trackName.addClass('scroll-track');
-                if(Y.one('.event-item-'+eventOnAir.id)){
-                    Y.all('.event-item-'+eventOnAir.id).addClass('event-on-air');
+                if (Y.one('.event-item-' + eventOnAir.id)) {
+                    Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
                 }
             } else {
                 trackName.one('span').set('text', '');
                 trackName.removeClass('scroll-track');
                 console.log('no current event');
-                if(Y.one('.event-on-air')){
+                if (Y.one('.event-on-air')) {
                     Y.all('.event-on-air').removeClass('event-on-air');
                 }
             }
         };
-        if(!currentEvents){
+        if (!currentEvents) {
             getCollectionItems('/events').then(function (events) {
-                if(events && events.upcoming){
+                if (events && events.upcoming) {
                     currentEvents = events;
                     checkEvents();
                 }
@@ -334,6 +334,7 @@ window.Template.Controllers.CastController = function (element) {
             checkEvents();
         }
     }
+
     function getShoutcastStatus() {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
@@ -342,7 +343,7 @@ window.Template.Controllers.CastController = function (element) {
                         var status_html = Y.Node.create(data.responseText);
                         var current_song = status_html.one('table[cellpadding=2] tr:last-child').get('text');
                         console.log(current_song);
-                        if(trackName.get('text') !== current_song){
+                        if (trackName.get('text') !== current_song) {
                             trackName.one('span').set('text', current_song);
                             trackName.removeClass('scroll-track').addClass('scroll-track');
                         }
