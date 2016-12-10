@@ -290,7 +290,9 @@ window.Template.Controllers.CastController = function (element) {
             if(events && events.upcoming){
                 var currentTime = new Date().getTime();
                 events.upcoming.forEach(function (event) {
-                    console.log(currentTime, event.startDate, event.endDate);
+                    if (currentTime >= event.startDate && currentTime <= event.endDate){
+                        console.log(event.title)
+                    }
                 })
             }
         })
