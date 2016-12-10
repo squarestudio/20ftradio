@@ -299,18 +299,21 @@ window.Template.Controllers.CastController = function (element) {
             var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
             var userTimezoneOffset = currentTime.getTimezoneOffset()*60*1000;
             currentTime = currentTime.getTime();
+            var title = false;
             currentEvents.upcoming.forEach(function (event) {
                 console.log(currentTime-new Date(event.startDate+siteTimezoneOffset+userTimezoneOffset).getTime(), currentTime - (event.endDate+siteTimezoneOffset))
                 if (currentTime >= new Date(event.startDate+siteTimezoneOffset+userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate+siteTimezoneOffset+userTimezoneOffset).getTime()){
-                    trackName.one('span').set('text', event.title);
+                    title = event.title;
                     console.log(event.title);
-                    trackName.addClass('scroll-track');
-                } else {
-                    trackName.one('span').set('text', '');
-                    console.log('no events');
-                    trackName.removeClass('scroll-track');
                 }
             })
+            if (title){
+                trackName.one('span').set('text', title);
+                trackName.addClass('scroll-track');
+            } else {
+                trackName.one('span').set('text', '');
+                trackName.removeClass('scroll-track');
+            }
         };
         if(!currentEvents){
             getCollectionItems('/events').then(function (events) {
