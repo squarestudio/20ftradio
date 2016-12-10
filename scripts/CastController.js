@@ -305,6 +305,10 @@ window.Template.Controllers.CastController = function (element) {
                     trackName.one('span').set('text', event.title);
                     console.log(event.title);
                     trackName.addClass('scroll-track');
+                } else {
+                    trackName.one('span').set('text', '');
+                    console.log('no events');
+                    trackName.removeClass('scroll-track');
                 }
             })
         };
