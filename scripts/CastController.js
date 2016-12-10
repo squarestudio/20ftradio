@@ -243,27 +243,56 @@ window.Template.Controllers.CastController = function (element) {
         }
     }
 
-    function getCurrentEvent() {
-        Y.io('/events?format=json', {
-            on: {
-                success: function (i, data) {
-                    if (data.status == 200 && data.readyState == 4) {
-                        var status_html = Y.Node.create(data.responseText);
-                        var current_song = status_html.one('table[cellpadding=2] tr:last-child').get('text');
-                        console.log(current_song);
-                        if(trackName.get('text') !== current_song){
-                            trackName.one('span').set('text', current_song);
-                            trackName.removeClass('scroll-track').addClass('scroll-track');
+    function getCollectionItems(collection_url) {
+        return new Y.Promise(function (resolve) {
+            var content_items = {past: [], upcoming: []};
+            var offset = '';
+
+            function getItems(collection_url, offset) {
+                Y.Data.get({
+                    url: collection_url + '?format=json',
+                    data: {
+                        view: 'list',
+                        offset: offset || ''
+                    },
+                    success: function (items) {
+                        if (items.past.length || items.upcoming.length) {
+                            if (items.upcoming) {
+                                content_items.upcoming = content_items.upcoming.concat(items.upcoming);
+                            }
+                            if (items.past) {
+                                content_items.past = content_items.past.concat(items.past);
+                            }
+                            if (items.pagination && items.pagination.nextPage) {
+                                getItems(collection_url, items.pagination.nextPage.toLowerCase());
+                            } else {
+                                resolve(content_items);
+                            }
+                        } else {
+                            resolve(content_items);
                         }
+                    },
+                    failure: function (e) {
+                        console.warn('error : ' + e.message);
+                        resolve(content_items);
                     }
-                },
-                failure: function () {
-                    //err, 401
-                }
+                })
             }
-        });
+
+            getItems(collection_url);
+        })
     }
 
+    function getCurrentEvent() {
+        getCollectionItems('/events').then(function (events) {
+            if(events && events.upcoming){
+                var currentTime = new Date().getTime();
+                events.upcoming.forEach(function (event) {
+                    console.log(currentTime, event.startDate, event.endDate);
+                })
+            }
+        })
+    }
     function getShoutcastStatus() {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
