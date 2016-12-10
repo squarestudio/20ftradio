@@ -206,7 +206,7 @@ window.Template.Controllers.CastController = function (element) {
          clearInterval(eventStatusInterval);
          console.log('Event status reset')
          }
-        if (retry <= maxRetry) {
+        if (retry < maxRetry) {
             if (playerType == 'youtube' && videoId) {
                 console.log('youtube failed');
                 console.log('loading shoutcast');
@@ -227,11 +227,12 @@ window.Template.Controllers.CastController = function (element) {
             else {
                 console.log('Seems no data to work now');
             }
-        } else {
-            console.log('Seems no one stream working, trying shoutcast record');
-            maxRetry = 0;
+        } else if (retry == maxRetry){
+            console.log('Trying shoutcast record');
             shoutCastUrl = shoutCastUrl.split('listen')[0] + 'records/radiouser2780986/record.mp3';
             initShoutCast();
+        } else {
+            console.log('Seems no one stream working');
         }
     }
 
