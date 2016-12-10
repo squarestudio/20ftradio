@@ -83,6 +83,9 @@
                                         <div class="eventlist-datetag-time"><span class="event-time-12hr">^startDate|date %H:%M %p}</span>
                                             <span class="event-time-24hr">^startDate|date %H:%M %p}</span>
                                         </div>
+                                        <div class="eventlist-datetag-time"><span class="event-time-12hr">^endDate|date %H:%M %p}</span>
+                                            <span class="event-time-24hr">^endDate|date %H:%M %p}</span>
+                                        </div>
                                         <div class="eventlist-datetag-status"></div>
                                     </div>
                                 </div>
