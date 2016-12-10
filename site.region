@@ -85,7 +85,7 @@
         {.end}
     </squarespace:query>
     <section id="container">
-    <div id="container-content" data-content-field="main-content" role="main" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.end}>
+    <div id="container-content" data-content-field="main-content" role="main">
         {.section collection}{.equal? typeName "products"}{.section categories}
         <div id="categoryNav">
             <input type="checkbox" name="category-nav-toggle" id="categoryNavToggle"
@@ -105,7 +105,9 @@
             </nav>
         </div>
         {.end}{.end}{.end}
-        {squarespace.main-content}
+        <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.end}>
+            {squarespace.main-content}
+        </div>
     </div>
     </section>
     {.section website}
