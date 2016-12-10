@@ -43,8 +43,9 @@
                                     <div class="eventlist-datetag-inner">
                                         <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
                                         <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
-                                        <div class="eventlist-datetag-time"><span class="event-time-12hr">^startDate|date %H:%M %p}</span>
-                                            <span class="event-time-24hr">^startDate|date %H:%M %p}</span>
+                                        <div class="eventlist-datetag-time">
+                                            <span class="event-time-12hr">^startDate|date %H:%M %p}</span>
+                                            <span class="event-time-24hr">^startDate|date %H:%M}</span>
                                         </div>
                                         <div class="eventlist-datetag-status"></div>
                                     </div>
