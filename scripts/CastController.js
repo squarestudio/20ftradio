@@ -290,7 +290,7 @@ window.Template.Controllers.CastController = function (element) {
         var checkEvents = function () {
             var currentTime = new Date().getTime();
             currentEvents.upcoming.forEach(function (event) {
-                console.log(currentTime - new Date(event.startDate).getTime(), currentTime - event.endDate)
+                console.log(new Date(event.startDate), currentTime - event.endDate)
                 if (currentTime >= event.startDate && currentTime <= event.endDate){
                     console.log(event.title)
                 }
