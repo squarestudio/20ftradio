@@ -94,7 +94,8 @@ window.Template.Controllers.CastController = function (element) {
         getCurrentEvent();
         if (eventStatusInterval) {
             clearInterval(eventStatusInterval);
-            console.log('Event status reset')
+            console.log('Event status reset');
+            eventStatusInterval = null;
         }
         eventStatusInterval = setInterval(function () {
             getCurrentEvent();
