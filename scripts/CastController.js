@@ -164,7 +164,7 @@ window.Template.Controllers.CastController = function (element) {
         playerType = 'shoutcast';
         castPlayer && castPlayer.destroy && castPlayer.destroy();
         Y.one('#castPlayer').remove();
-        castPlayer = Y.Node.create('<video id="castPlayer" class="hidden" playsinline autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
+        castPlayer = Y.Node.create('<audio id="castPlayer" class="hidden" playsinline autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
         castContainer.append(castPlayer);
         castPlayer = castPlayer._node;
         castPlayer.addEventListener('canplaythrough', onPlayerReady);
