@@ -183,11 +183,11 @@ window.Template.Controllers.CastController = function (element) {
             clearInterval(shoutCastStatusInterval);
             console.log('Shoutcast status reset')
         }
-/*        shoutCastTimeout = setTimeout(function () {
+        shoutCastTimeout = setTimeout(function () {
             if (castPlayer.paused) {
                 onPlayerError();
             }
-        }, 7000);*/
+        }, 7000);
     }
 
     function onPlayerError(event) {
