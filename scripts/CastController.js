@@ -92,6 +92,10 @@ window.Template.Controllers.CastController = function (element) {
         console.log('init cast');
         Y.one('#castDiv').addClass('initialized');
         getCurrentEvent();
+        if (eventStatusInterval) {
+            clearInterval(eventStatusInterval);
+            console.log('Event status reset')
+        }
         eventStatusInterval = setInterval(function () {
             getCurrentEvent();
         }, 10000);
@@ -204,10 +208,6 @@ window.Template.Controllers.CastController = function (element) {
             console.log('Shoutcast status reset');
             shoutCastStatusInterval = null;
         }
-/*        if (eventStatusInterval) {
-         clearInterval(eventStatusInterval);
-         console.log('Event status reset')
-         }*/
         if (retry < maxRetry) {
             if (playerType == 'youtube' && videoId) {
                 console.log('youtube failed');
