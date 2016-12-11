@@ -196,16 +196,18 @@ window.Template.Controllers.CastController = function (element) {
         castContainer.removeClass('initialized');
         if (shoutCastTimeout) {
             clearTimeout(shoutCastTimeout);
-            console.log('Shoutcast timeout reset')
+            console.log('Shoutcast timeout reset');
+            shoutCastTimeout = null;
         }
         if (shoutCastStatusInterval) {
             clearInterval(shoutCastStatusInterval);
-            console.log('Shoutcast status reset')
+            console.log('Shoutcast status reset');
+            shoutCastStatusInterval = null;
         }
-        if (eventStatusInterval) {
+/*        if (eventStatusInterval) {
          clearInterval(eventStatusInterval);
          console.log('Event status reset')
-         }
+         }*/
         if (retry < maxRetry) {
             if (playerType == 'youtube' && videoId) {
                 console.log('youtube failed');
