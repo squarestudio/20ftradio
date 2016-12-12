@@ -72,7 +72,7 @@
         </div>
         <squarespace:navigation navigationId="pages" template="navigation"/>
         <div class="header-block">
-            <squarespace:block-field id="headerBlock" class="header-block" columns="12" label="Header Content"/>
+            <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content"/>
             {.if socialAccounts}
             <div class="social-accounts social-links sqs-svg-icon--list" data-content-field="connected-accounts">
                 {.repeated section socialAccounts}
