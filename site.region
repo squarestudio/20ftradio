@@ -76,22 +76,6 @@
             </div>
             <div class="header-block">
                 <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content"/>
-                {.if socialAccounts}
-                <div class="social-accounts social-links sqs-svg-icon--list" data-content-field="connected-accounts">
-                    {.repeated section socialAccounts}
-                    <a href="{profileUrl}" target="_blank" class="sqs-svg-icon--wrapper {serviceName}">
-                        <div>
-                            <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
-                                <use class="sqs-use--icon"
-                                     xlink:href="/universal/svg/social-accounts.svg#{serviceName}-icon"></use>
-                                <use class="sqs-use--mask"
-                                     xlink:href="/universal/svg/social-accounts.svg#{serviceName}-mask"></use>
-                            </svg>
-                        </div>
-                    </a>
-                    {.end}
-                </div>
-                {.end}
             </div>
         </div>
     </header>
