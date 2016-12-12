@@ -56,21 +56,23 @@
             <h2 class="logo-subtitle">{@}</h2>
             {.end}
         </div>
-        <div class="site-player paused">
-            <div class="site-player-wrapper">
-                <div class="site-player-controls">
-                    <a id="playButton">
-                        <i class="icono-"></i>
-                    </a>
-                    <a id="volumeButton">
-                        <i class="icono-volumeMedium"></i>
-                    </a>
-                    <input id="volControl" class="volume-control" type="range" min="0" max="100" step="1"></input>
+        <squarespace:navigation navigationId="pages" template="navigation"/>
+        <div class="site-player-block">
+            <div class="site-player paused">
+                <div class="site-player-wrapper">
+                    <div class="site-player-controls">
+                        <a id="playButton">
+                            <i class="icono-"></i>
+                        </a>
+                        <a id="volumeButton">
+                            <i class="icono-volumeMedium"></i>
+                        </a>
+                        <input id="volControl" class="volume-control" type="range" min="0" max="100" step="1"></input>
+                    </div>
+                    <div class="track-name"><span>Now playing: </span></div>
                 </div>
-                <div class="track-name"><span>Now playing: </span></div>
             </div>
         </div>
-        <squarespace:navigation navigationId="pages" template="navigation"/>
         <div class="header-block">
             <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content"/>
             {.if socialAccounts}
