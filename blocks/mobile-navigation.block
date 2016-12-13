@@ -67,6 +67,7 @@
     Y.on('domready', function() {
       var nav = Y.one('#mobile-navigation');
       var doc = Y.one('html');
+      var body = Y.one('body');
       if (nav) {
         if(doc.hasClass('touch')){
           Y.on('click', function(e) {
@@ -76,12 +77,12 @@
             }
           }, '#mobile-navigation-label');
         } else {
-          Y.on('click', function(e) {
+          Y.on('hover', function(e) {
             if (!e.target.getAttribute('href')) {
-              nav.toggleClass('sqs-mobile-nav-open');
-              Y.one('body').toggleClass('sqs-mobile-nav-open');
+              nav.addClass('sqs-mobile-nav-open');
+              body.addClass('sqs-mobile-nav-open');
             }
-          }, '#mobile-navigation-label');
+          }, );
         }
       }
     });
