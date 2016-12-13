@@ -131,7 +131,7 @@ window.Template.Controllers.CastController = function (element) {
         volumeIcon.on('click', function (e) {
             e.halt();
             if (castContainer.get('offsetWidth')<430){
-
+                sitePlayer.toggleClass('volume-range-visible');
             } else {
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
                     castPlayer.setVolume(50);
