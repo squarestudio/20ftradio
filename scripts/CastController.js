@@ -289,13 +289,15 @@ window.Template.Controllers.CastController = function (element) {
             } else if (event.data == YT.PlayerState.PAUSED) {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
-        } else {
+        } else if (event){
             if (!event.target.paused) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                 !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
             } else {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
+        } else if(playerType == 'soundcloud'){
+            
         }
     }
 
