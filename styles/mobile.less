@@ -198,11 +198,6 @@ html.touch {
     } */
 
     .siteTitle {
-      margin:0 @mobilePadding !important;
-      float: none !important;
-      padding: 25px 0 20px !important;
-      max-width: 100% !important;
-      text-align: center !important;
       h1 {
         text-align:center !important;
       }
@@ -281,35 +276,6 @@ html.touch {
   //   }
   // }
 
-  #mobile-navigation {
-    .main-nav-font;
-    font-size:15px;
-    ul {
-      li {
-        .main-nav-font;
-        font-size:15px;
-        margin:12px 0;
-
-        &.folder .folder-parent {
-          > a:first-child:before {
-            content:'+';
-            margin-right:0.25em;
-          }
-        }
-        &.folder {
-          &.dropdown-open .folder-parent {
-            > a:first-child:before {
-              content:'-';
-            }
-          }
-          .folder-child { display:none; height:0; overflow:hidden; opacity:1; margin-top:0; }
-        }
-        &.folder.dropdown-open, &.folder.active-link {
-          .folder-child { display:block; height:auto!important; }
-        }
-      }
-    }
-  }
 
   // CATEGORY NAV MOBILE
 
