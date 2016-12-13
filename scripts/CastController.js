@@ -297,7 +297,7 @@ window.Template.Controllers.CastController = function (element) {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
         } else if(playerType == 'soundcloud'){
-            console.log(castPlayer.isPaused)
+            console.log(castPlayer.isPaused())
             if(!castPlayer.isPaused()){
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                 !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
