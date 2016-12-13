@@ -32,6 +32,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initYoutubePlayer() {
+        //videoId = videoId.split('=')[1];
         castPlayer = new YT.Player('castPlayer', {
             height: '720',
             width: '1280',
@@ -102,7 +103,7 @@ window.Template.Controllers.CastController = function (element) {
         }, 10000);
         Y.on('getCurrentEvent', getCurrentEvent);
         castContainer = Y.one('#castDiv');
-        videoId = castContainer.getAttribute('data-url').split('=')[1];
+        videoId = castContainer.getAttribute('data-url');
         shoutCastUrl = castContainer.getAttribute('data-alternative-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
