@@ -130,14 +130,18 @@ window.Template.Controllers.CastController = function (element) {
         videoYoutubazing();
         volumeIcon.on('click', function (e) {
             e.halt();
-            if (e.currentTarget.hasClass('icono-volumeMute')) {
-                castPlayer.setVolume(50);
-                volumeControl.set('value', 50);
-                volumeIcon._node.className = 'icono-volumeMedium';
+            if (castContainer.get('offsetWidth')<430){
+
             } else {
-                castPlayer.setVolume(0);
-                volumeControl.set('value', 0);
-                volumeIcon._node.className = 'icono-volumeMute';
+                if (e.currentTarget.hasClass('icono-volumeMute')) {
+                    castPlayer.setVolume(50);
+                    volumeControl.set('value', 50);
+                    volumeIcon._node.className = 'icono-volumeMedium';
+                } else {
+                    castPlayer.setVolume(0);
+                    volumeControl.set('value', 0);
+                    volumeIcon._node.className = 'icono-volumeMute';
+                }
             }
         });
         volumeControl.on(['change', 'input'], function (e) {
