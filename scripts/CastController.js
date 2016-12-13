@@ -5,7 +5,7 @@ window.Template.Controllers.CastController = function (element) {
         trackName = sitePlayer.one('.track-name'),
         videoId,
         shoutCastUrl,
-        sounCloudUrl,
+        soundCloudUrl,
         retry = 0,
         maxRetry = 5,
         playerType = 'youtube',
@@ -106,7 +106,7 @@ window.Template.Controllers.CastController = function (element) {
         castContainer = Y.one('#castDiv');
         videoId = castContainer.getAttribute('data-url');
         shoutCastUrl = castContainer.getAttribute('data-alternative-url');
-        sounCloudUrl = castContainer.getAttribute('data-soundcloud-url');
+        soundCloudUrl = castContainer.getAttribute('data-soundcloud-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
@@ -165,7 +165,7 @@ window.Template.Controllers.CastController = function (element) {
             initYoutubeStream();
         } else if (shoutCastUrl) {
             initShoutCast();
-        } else if (sounCloudUrl){
+        } else if (soundCloudUrl){
             initSoundCloud();
         }
         else {
@@ -177,7 +177,7 @@ window.Template.Controllers.CastController = function (element) {
         playerType = 'soundcloud';
         castPlayer && castPlayer.destroy && castPlayer.destroy();
         Y.one('#castPlayer').remove();
-        castPlayer = Y.Node.create('<iframe id="castPlayer" src="" class="hidden"></iframe>');
+        castPlayer = Y.Node.create('<iframe id="castPlayer" src="https://w.soundcloud.com/player/?url="'+soundCloudUrl+'+ 'class="hidden"></iframe>');
         castContainer.append(castPlayer);
         castPlayer = castPlayer._node;
     }
