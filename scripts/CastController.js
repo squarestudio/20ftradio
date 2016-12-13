@@ -183,11 +183,9 @@ window.Template.Controllers.CastController = function (element) {
         castPlayer = castPlayer._node;
         castPlayer = SC.Widget(castPlayer);
         castPlayer.bind(SC.Widget.Events.READY, function() {
+
             castPlayer.bind(SC.Widget.Events.PLAY, function() {
-                // get information about currently playing sound
-                castPlayer.getCurrentSound(function(currentSound) {
-                    console.log('sound ' + currentSound.get('') + 'began to play');
-                });
+
             });
             castPlayer.setVolume(50);
             castPlayer.play()
