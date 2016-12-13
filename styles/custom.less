@@ -357,12 +357,11 @@ body {
   .nav-container .site-player-block {
     max-width: 38%;
     float: right;
-    overflow: hidden;
     .site-player {
       overflow: visible;
       &.volume-range-visible{
         .volume-control{
-          .translate(0, 0);
+
         }
       }
       #volumeButton{
@@ -373,7 +372,8 @@ body {
         width: 80px;
         display: inline-block;
         .transition(transform .2s);
-        .translate(0, 50px);
+        .transform-origin(right, top);
+        .transform(rotate(-90deg));
       }
     }
   }
