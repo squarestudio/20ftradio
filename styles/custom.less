@@ -211,6 +211,33 @@ body {
   }
 }
 @media only screen and (max-width: 1024px) {
+  #mobile-navigation {
+    .main-nav-font;
+    font-size:15px;
+    ul {
+      li {
+        .main-nav-font;
+        font-size:15px;
+        &.folder .folder-parent {
+          > a:first-child:before {
+            content:'+';
+            margin-right:0.25em;
+          }
+        }
+        &.folder {
+          &.dropdown-open .folder-parent {
+            > a:first-child:before {
+              content:'-';
+            }
+          }
+          .folder-child { display:none; height:0; overflow:hidden; opacity:1; margin-top:0; }
+        }
+        &.folder.dropdown-open, &.folder.active-link {
+          .folder-child { display:block; height:auto!important; }
+        }
+      }
+    }
+  }
   #navigator {
     .nav-container {
       .header-block, .main-nav {
