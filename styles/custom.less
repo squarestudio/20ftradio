@@ -294,13 +294,6 @@ body {
 }
 
 @media only screen and (max-width: 640px) {
-  #navigator .nav-container #mobileNav #mobile-navigation ul {
-    position: absolute;
-    width: 100%;
-    left: 0;
-    background: @background;
-    top: @logoSize;
-  }
   .wallGrid {
     li {
       width: 100% !important;
@@ -341,8 +334,14 @@ body {
       width: 100% !important;
     }
   }
-
   .mobile-only {
     display: block !important;
+  }
+  #navigator .nav-container #mobileNav #mobile-navigation ul {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background: @background;
+    top: @logoSize;
   }
 }
