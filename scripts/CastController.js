@@ -196,6 +196,7 @@ window.Template.Controllers.CastController = function (element) {
             // set new volume level
             castPlayer.setVolume(50);
             // get the value of the current position
+            castPlayer.play()
         });
     }
 
