@@ -70,15 +70,10 @@
       var body = Y.one('body');
       if (nav) {
         if(doc.hasClass('touch')){
-          Y.on('click', function(e) {
-            if (!e.target.getAttribute('href')) {
-              nav.toggleClass('sqs-mobile-nav-open');
-              Y.one('body').toggleClass('sqs-mobile-nav-open');
-            } else {
-              nav.toggleClass('sqs-mobile-nav-open');
-              Y.one('body').toggleClass('sqs-mobile-nav-open');
-            }
-          }, '#mobile-navigation-label');
+          nav.on('click', function(e) {
+            nav.toggleClass('sqs-mobile-nav-open');
+            Y.one('body').toggleClass('sqs-mobile-nav-open');
+          });
         } else {
           nav.on('hover', function(e) {
             nav.addClass('sqs-mobile-nav-open');
