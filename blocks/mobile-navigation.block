@@ -68,7 +68,7 @@
       var nav = Y.one('#mobile-navigation');
       var doc = Y.one('html');
       var body = Y.one('body');
-      var mobile_label = Y.one('#mobile-navigation-label');
+      var mobile_nav = Y.one('#mobile-navigation');
       if (nav) {
         if(doc.hasClass('touch')){
           Y.on('click', function(e) {
@@ -78,7 +78,7 @@
             }
           }, '#mobile-navigation-label');
         } else {
-          mobile_label.on('hover', function(e) {
+          mobile_nav.on('hover', function(e) {
             if (!e.target.getAttribute('href')) {
               nav.addClass('sqs-mobile-nav-open');
               body.addClass('sqs-mobile-nav-open');
