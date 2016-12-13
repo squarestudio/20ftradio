@@ -363,7 +363,7 @@ body {
         .volume-control{
           opacity: 1;
           .transition2(transform .2s ease-in, opacity 0.2s 0.1s);
-          .transform(rotate(-90deg), scale(1));
+          .transform(rotate(-90deg), scaleY(1));
         }
       }
       #volumeButton{
@@ -379,7 +379,7 @@ body {
         opacity: 0;
         .transition2(transform .2s 0.1s ease-in, opacity 0.2s);
         .transform-origin(right, top);
-        .transform(rotate(-90deg), scale(0.6));
+        .transform(rotate(-90deg), scaleY(0.6));
       }
     }
   }
