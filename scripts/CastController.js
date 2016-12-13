@@ -253,7 +253,7 @@ window.Template.Controllers.CastController = function (element) {
                 console.log('Seems no data to work now');
             }
         } else if (retry == maxRetry) {
-            if(soundCloudUrl){
+            if (soundCloudUrl) {
                 console.log('Trying soundcloud');
                 initSoundCloud();
             }
@@ -272,9 +272,12 @@ window.Template.Controllers.CastController = function (element) {
              }, 10000);*/
         }
         console.log(playerType, 'playerReady');
-        console.log(event)
-        event.target.setVolume(50);
-        event.target.playVideo();
+        castPlayer.setVolume(50);
+        if (castPlayer.playVideo) {
+            castPlayer.playVideo()
+        } else if (castPlayer.play) {
+            castPlayer.play();
+        }
         castContainer.addClass('initialized');
     }
 
