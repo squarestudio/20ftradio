@@ -2,7 +2,7 @@
 /* SIMPLE
 -------------------------------------------------*/
 
-#sqs-mobile-nav(simple, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 1024px, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
+#sqs-mobile-nav(simple, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 30em, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
 
   (~"@{mobileEl}") {
     width: 100%;
@@ -14,7 +14,7 @@
 /* FIXED TOP
 -------------------------------------------------*/
 
-#sqs-mobile-nav(fixed-top, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 1024px, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
+#sqs-mobile-nav(fixed-top, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 30em, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
 
   (~"@{mobileEl}") {
     position: fixed;
@@ -23,15 +23,15 @@
     z-index: 9999;
     width: 100%;
     padding: 1em 0;
-    text-align: center;    
+    text-align: center;
   }
 }
 
 /* FIXED RIGHT
 -------------------------------------------------*/
 
-#sqs-mobile-nav(fixed-right, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 1024px, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
-  
+#sqs-mobile-nav(fixed-right, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 30em, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
+
   (~"@{mobileEl}") {
     position: fixed;
     top: 1em;
@@ -40,7 +40,7 @@
     z-index: 9999;
 
     /*#mobile-navigation-label {
-      padding: .5em 0;      
+      padding: .5em 0;
     }*/
  }
 }
@@ -48,7 +48,7 @@
 /* PUSH RIGHT
 -------------------------------------------------*/
 
-#sqs-mobile-nav(push-right, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 1024px, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
+#sqs-mobile-nav(push-right, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 30em, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
 
   body,
   (~"@{mobileEl}") {
@@ -56,14 +56,14 @@
     -moz-transition: left 0.3s ease-out;
     -ms-transition: left 0.3s ease-out;
     -o-transition: left 0.3s ease-out;
-    transition: left 0.3s ease-out;  
-  }  
+    transition: left 0.3s ease-out;
+  }
 
   body {
     position: relative;
     left: 0;
-    
-    &.sqs-mobile-nav-open {      
+
+    &.sqs-mobile-nav-open {
       left: 100%;
       overflow: hidden;
     }
@@ -92,7 +92,7 @@
 
     &.sqs-mobile-nav-open {
       left: 0;
-      
+
       ul {
         padding: 1em 0;
       }
@@ -101,22 +101,22 @@
         // background: @color;
         color: @background;
       }
-    }  
+    }
   }
 }
 
 /* SLIDE DOWN
 -------------------------------------------------*/
 
-#sqs-mobile-nav(slide-down, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 1024px, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
+#sqs-mobile-nav(slide-down, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 30em, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
 
   (~"@{mobileEl}") {
     -webkit-transition: top 0.3s ease-out;
     -moz-transition: top 0.3s ease-out;
     -ms-transition: top 0.3s ease-out;
     -o-transition: top 0.3s ease-out;
-    transition: top 0.3s ease-out;  
-  }  
+    transition: top 0.3s ease-out;
+  }
 
   (~"@{mobileEl}") {
     position: fixed;
@@ -142,7 +142,7 @@
 
     &.sqs-mobile-nav-open {
       top: 0;
-      
+
       ul {
         padding: 1em 0;
       }
@@ -151,14 +151,14 @@
         // background: @color;
         color: @background;
       }
-    }  
+    }
   }
 }
 
 /* COMMON CODE
 -------------------------------------------------*/
 
-#sqs-mobile-nav(@_, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 1024px, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
+#sqs-mobile-nav(@_, @standardEl: '#main-navigation', @mobileEl: '#mobile-navigation', @minWidth: 30em, @background: orange, @color: white, @borderRadius: 0px, @label: 'Menu', @closeLabel: 'Menu') {
 
   /* MOBILE ELEMENT
   -----------------------------------------------*/
