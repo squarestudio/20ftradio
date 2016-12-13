@@ -544,7 +544,12 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
   if(Y.one('.header-block-content')){
     var header_content = Y.one('.header-block-content');
     if(header_content.one('.sqs-svg-icon--list')){
-      header_content.one('.socialaccountlinks-v2-block .sqs-svg-icon--list').append('')
+      header_content.one('.socialaccountlinks-v2-block .sqs-svg-icon--list').append('<a href="http://soundcloud.com/20-ft" target="_blank" class="sqs-svg-icon--wrapper soundcloud">' +
+          '<div>' +
+          '<svg class="sqs-svg-icon--social" viewBox="0 0 64 64">' +
+            '<use class="sqs-use--icon" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/universal/svg/social-accounts.svg#soundcloud-icon">' +
+          '</use><use class="sqs-use--mask" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/universal/svg/social-accounts.svg#soundcloud-mask"></use>' +
+          '</svg></div></a>');
     }
     var cloned_content = header_content.cloneNode(true);
     console.log(cloned_content);
