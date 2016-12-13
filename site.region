@@ -119,6 +119,7 @@
     </section>
     {.section website}
     <footer id="bottomBar">
+            <div class="footer-h-content"></div>
             <squarespace:block-field id="footerBlock" class="footer-block" columns="12" label="Footer Content"/>
     </footer>
     {.end}
