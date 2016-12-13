@@ -542,7 +542,9 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
     }
   });
   if(Y.one('.header-block-content')){
-    var cloned_content = Y.one('.header-block-content').cloneNode(true);
+    var header_content = Y.one('.header-block-content');
+    if(header_content.one())
+    var cloned_content = header_content.cloneNode(true);
     console.log(cloned_content);
     Y.one('.footer-h-content').append(cloned_content);
   }
