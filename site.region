@@ -150,6 +150,7 @@
 <squarespace:script src="wall-scripts/AnimOnScroll.js" combo="false"/>
 <squarespace:script src="share-buttons.js" combo="false"/>
 <squarespace:script src="WallController.js" combo="false"/>
+<squarespace:script src="soundcloud-api-widget.js" combo="false"/>
 <squarespace:script src="CastController.js" combo="false"/>
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
