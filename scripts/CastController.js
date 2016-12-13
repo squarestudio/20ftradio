@@ -5,6 +5,7 @@ window.Template.Controllers.CastController = function (element) {
         trackName = sitePlayer.one('.track-name'),
         videoId,
         shoutCastUrl,
+        sounCloudUrl,
         retry = 0,
         maxRetry = 5,
         playerType = 'youtube',
@@ -105,6 +106,7 @@ window.Template.Controllers.CastController = function (element) {
         castContainer = Y.one('#castDiv');
         videoId = castContainer.getAttribute('data-url');
         shoutCastUrl = castContainer.getAttribute('data-alternative-url');
+        sounCloudUrl = castContainer.getAttribute('data-soundcloud-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
@@ -163,12 +165,17 @@ window.Template.Controllers.CastController = function (element) {
             initYoutubeStream();
         } else if (shoutCastUrl) {
             initShoutCast();
+        } else if (sounCloudUrl){
+            initSoundCloud();
         }
         else {
             console.log("No data to init");
         }
     }
-
+    function initSoundCloud() {
+        console.log('shoutcast');
+        playerType = 'shoutcast';
+    }
     function initShoutCast() {
         console.log('shoutcast');
         playerType = 'shoutcast';
