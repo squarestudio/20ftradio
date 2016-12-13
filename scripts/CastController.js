@@ -133,7 +133,7 @@ window.Template.Controllers.CastController = function (element) {
         videoYoutubazing();
         volumeIcon.on('click', function (e) {
             e.halt();
-            if (castContainer.get('offsetWidth')<430){
+            if (castContainer.get('offsetWidth') < 430) {
                 sitePlayer.toggleClass('volume-range-visible');
             } else {
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
@@ -165,22 +165,32 @@ window.Template.Controllers.CastController = function (element) {
             initYoutubeStream();
         } else if (shoutCastUrl) {
             initShoutCast();
-        } else if (soundCloudUrl){
+        } else if (soundCloudUrl) {
             initSoundCloud();
         }
         else {
             console.log("No data to init");
         }
     }
+
     function initSoundCloud() {
         console.log('soundcloud');
         playerType = 'soundcloud';
         castPlayer && castPlayer.destroy && castPlayer.destroy();
         Y.one('#castPlayer').remove();
-        castPlayer = Y.Node.create('<iframe id="castPlayer" src="https://w.soundcloud.com/player/?url='+soundCloudUrl+'&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="hidden"></iframe>');
+        castPlayer = Y.Node.create('<iframe id="castPlayer" src="https://w.soundcloud.com/player/?url=' + soundCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="hidden"></iframe>');
         castContainer.append(castPlayer);
         castPlayer = castPlayer._node;
+        castPlayer = SC.Widget(castPlayer);
+        castPlayer.bind(SC.Widget.Events.READY, function () {
+            castPlayer.bind(SC.Widget.Events.FINISH, function () {
+                castPlayer.load(newSoundUrl, {
+                    show_artwork: false
+                });
+            });
+        });
     }
+
     function initShoutCast() {
         console.log('shoutcast');
         playerType = 'shoutcast';
@@ -247,7 +257,7 @@ window.Template.Controllers.CastController = function (element) {
             else {
                 console.log('Seems no data to work now');
             }
-        } else if (retry == maxRetry){
+        } else if (retry == maxRetry) {
             console.log('Trying shoutcast record');
             shoutCastUrl = shoutCastUrl.split('listen')[0] + 'records/radiouser2780986/record.mp3';
             initShoutCast();
@@ -260,10 +270,10 @@ window.Template.Controllers.CastController = function (element) {
         if (shoutCastTimeout) {
             clearTimeout(shoutCastTimeout);
             console.log('Shoutcast timeout reset');
-/*            getShoutcastStatus();
-            shoutCastStatusInterval = setInterval(function () {
-                getShoutcastStatus();
-            }, 10000);*/
+            /*            getShoutcastStatus();
+             shoutCastStatusInterval = setInterval(function () {
+             getShoutcastStatus();
+             }, 10000);*/
         }
         console.log(playerType, 'playerReady');
         event.target.setVolume(50);
