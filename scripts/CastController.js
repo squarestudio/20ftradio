@@ -182,12 +182,20 @@ window.Template.Controllers.CastController = function (element) {
         castContainer.append(castPlayer);
         castPlayer = castPlayer._node;
         castPlayer = SC.Widget(castPlayer);
-        castPlayer.bind(SC.Widget.Events.READY, function () {
-            castPlayer.bind(SC.Widget.Events.FINISH, function () {
-                castPlayer.load(newSoundUrl, {
-                    show_artwork: false
+        castPlayer.bind(SC.Widget.Events.READY, function() {
+            castPlayer.bind(SC.Widget.Events.PLAY, function() {
+                // get information about currently playing sound
+                castPlayer.getCurrentSound(function(currentSound) {
+                    console.log('sound ' + currentSound.get('') + 'began to play');
                 });
             });
+            // get current level of volume
+            castPlayer.getVolume(function(volume) {
+                console.log('current volume value is ' + volume);
+            });
+            // set new volume level
+            castPlayer.setVolume(50);
+            // get the value of the current position
         });
     }
 
