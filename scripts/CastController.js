@@ -189,13 +189,7 @@ window.Template.Controllers.CastController = function (element) {
                     console.log('sound ' + currentSound.get('') + 'began to play');
                 });
             });
-            // get current level of volume
-            castPlayer.getVolume(function(volume) {
-                console.log('current volume value is ' + volume);
-            });
-            // set new volume level
             castPlayer.setVolume(50);
-            // get the value of the current position
             castPlayer.play()
         });
     }
