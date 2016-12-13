@@ -298,6 +298,12 @@ window.Template.Controllers.CastController = function (element) {
             }
         } else if(playerType == 'soundcloud'){
             console.log(castPlayer)
+            if(!castPlayer.isPaused()){
+                sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
+                !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+            } else {
+                sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
+            }
         }
     }
 
