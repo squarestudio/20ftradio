@@ -71,6 +71,7 @@
       if (nav) {
         if(doc.hasClass('touch')){
           nav.on('click', function(e) {
+            console.log(e)
             nav.toggleClass('sqs-mobile-nav-open');
             Y.one('body').toggleClass('sqs-mobile-nav-open');
           });
