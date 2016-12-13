@@ -182,14 +182,8 @@ window.Template.Controllers.CastController = function (element) {
         castContainer.append(castPlayer);
         castPlayer = castPlayer._node;
         castPlayer = SC.Widget(castPlayer);
-        castPlayer.bind(SC.Widget.Events.READY, function() {
-
-            castPlayer.bind(SC.Widget.Events.PLAY, function() {
-
-            });
-            castPlayer.setVolume(50);
-            castPlayer.play()
-        });
+        castPlayer.bind(SC.Widget.Events.READY, onPlayerReady);
+        castPlayer.bind(SC.Widget.Events.PLAY, onPlayerStateChange);
     }
 
     function initShoutCast() {
