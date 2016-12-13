@@ -102,7 +102,7 @@ window.Template.Controllers.CastController = function (element) {
         }, 10000);
         Y.on('getCurrentEvent', getCurrentEvent);
         castContainer = Y.one('#castDiv');
-        videoId = castContainer.getAttribute('data-url')//.split('=')[1];
+        videoId = castContainer.getAttribute('data-url').split('=')[1];
         shoutCastUrl = castContainer.getAttribute('data-alternative-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
