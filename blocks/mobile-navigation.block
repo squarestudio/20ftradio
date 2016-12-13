@@ -68,6 +68,7 @@
       var nav = Y.one('#mobile-navigation');
       var doc = Y.one('html');
       var body = Y.one('body');
+      var mobile_label = Y.one('#mobile-navigation-label');
       if (nav) {
         if(doc.hasClass('touch')){
           Y.on('click', function(e) {
@@ -77,12 +78,15 @@
             }
           }, '#mobile-navigation-label');
         } else {
-          Y.on('hover', function(e) {
+          mobile_label.on('hover', function(e) {
             if (!e.target.getAttribute('href')) {
               nav.addClass('sqs-mobile-nav-open');
               body.addClass('sqs-mobile-nav-open');
             }
-          }, );
+          }, function () {
+            nav.removeClass('sqs-mobile-nav-open');
+            body.removeClass('sqs-mobile-nav-open');
+          });
         }
       }
     });
