@@ -34,44 +34,43 @@ body {
     height: @logoSize;
     float: left;;
   }
-  .header-block {
-    min-width: 60px;
-    float: left;
+}
+.header-block-content {
+  min-width: 60px;
+  float: left;
+  .sqs-block {
+    padding-bottom: 0 !important;
+  }
+  .sqs-layout > .sqs-row {
+    [class*=sqs-col] {
+      height: @logoSize;
+    }
     .sqs-block {
-      padding-bottom: 0 !important;
+      .v-align;
     }
-    .sqs-layout > .sqs-row {
-      [class*=sqs-col] {
-        height: @logoSize;
-      }
-      .sqs-block {
-        .v-align;
-      }
-      .sqs-donate-button {
-        font-size: 13px;
-        line-height: 1;
-      }
-      .sqs-block-button-element {
-        line-height: 1;
-      }
-      .sqs-block-button-element--small {
-        padding: 1em 2.5em;
-      }
+    .sqs-donate-button {
+      font-size: 13px;
+      line-height: 1;
     }
-    .socialaccountlinks-v2-block {
-      width: auto;
-      margin-right: 6px;
-      a {
-        border-width: 0;
-        border: none;
-        text-decoration: none;
-        margin-bottom: 0;
-        vertical-align: middle;
-      }
+    .sqs-block-button-element {
+      line-height: 1;
+    }
+    .sqs-block-button-element--small {
+      padding: 1em 2.5em;
+    }
+  }
+  .socialaccountlinks-v2-block {
+    width: auto;
+    margin-right: 6px;
+    a {
+      border-width: 0;
+      border: none;
+      text-decoration: none;
+      margin-bottom: 0;
+      vertical-align: middle;
     }
   }
 }
-
 .site-titlelogo-position-left {
   #navigator header#topBar ul#nav {
     float: none;
