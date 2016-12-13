@@ -297,7 +297,7 @@ window.Template.Controllers.CastController = function (element) {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
         } else if(playerType == 'soundcloud'){
-            
+            console.log(castPlayer)
         }
     }
 
