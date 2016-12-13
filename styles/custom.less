@@ -12,9 +12,6 @@ body {
 .mobile-only {
   display: none;
 }
-.unvisible{
-
-}
 
 .wallGrid {
   width: 50%;
@@ -126,6 +123,10 @@ body {
   iframe, video {
     opacity: 0;
     .transition(opacity .2s);
+  }
+  iframe.soundcloud-stream{
+    opacity: 0;
+    z-index: -1;
   }
   &.stream-activated {
     iframe {
