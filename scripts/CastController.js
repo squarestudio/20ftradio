@@ -177,7 +177,7 @@ window.Template.Controllers.CastController = function (element) {
         playerType = 'soundcloud';
         castPlayer && castPlayer.destroy && castPlayer.destroy();
         Y.one('#castPlayer').remove();
-        castPlayer = Y.Node.create('<iframe id="castPlayer" src="https://w.soundcloud.com/player/?url="'+soundCloudUrl+'+ 'class="hidden"></iframe>');
+        castPlayer = Y.Node.create('<iframe id="castPlayer" src="https://w.soundcloud.com/player/?url="'+soundCloudUrl+'class="hidden"></iframe>');
         castContainer.append(castPlayer);
         castPlayer = castPlayer._node;
     }
