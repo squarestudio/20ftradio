@@ -68,7 +68,6 @@
       var nav = Y.one('#mobile-navigation');
       var doc = Y.one('html');
       var body = Y.one('body');
-      var mobile_nav = Y.one('#mobile-navigation');
       if (nav) {
         if(doc.hasClass('touch')){
           Y.on('click', function(e) {
@@ -78,11 +77,9 @@
             }
           }, '#mobile-navigation-label');
         } else {
-          mobile_nav.on('hover', function(e) {
-            if (!e.target.getAttribute('href')) {
-              nav.addClass('sqs-mobile-nav-open');
-              body.addClass('sqs-mobile-nav-open');
-            }
+          nav.on('hover', function(e) {
+            nav.addClass('sqs-mobile-nav-open');
+            body.addClass('sqs-mobile-nav-open');
           }, function () {
             nav.removeClass('sqs-mobile-nav-open');
             body.removeClass('sqs-mobile-nav-open');
