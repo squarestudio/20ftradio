@@ -115,19 +115,29 @@ window.Template.Controllers.CastController = function (element) {
         });
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
-            var state = castPlayer.getPlayerState();
+            var state = null;
             if (playerType == 'youtube') {
+                state = castPlayer.getPlayerState();
                 if (state === YT.PlayerState.PLAYING) {
                     castPlayer.pauseVideo();
                 } else if (state === YT.PlayerState.PAUSED) {
                     castPlayer.playVideo();
                 }
-            } else {
+            } else if (playerType == 'shoutcast'){
+                state = castPlayer.getPlayerState();
                 if (state) {
                     castPlayer.playVideo();
                 } else {
                     castPlayer.pauseVideo();
                 }
+            } else {
+                castPlayer.isPaused(function (state) {
+                    if (state) {
+                        castPlayer.play();
+                    } else {
+                        castPlayer.pause();
+                    }
+                })
             }
         });
         videoYoutubazing();
