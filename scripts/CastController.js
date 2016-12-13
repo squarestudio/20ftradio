@@ -266,9 +266,10 @@ window.Template.Controllers.CastController = function (element) {
                 console.log('Seems no data to work now');
             }
         } else if (retry == maxRetry) {
-            console.log('Trying shoutcast record');
-            shoutCastUrl = shoutCastUrl.split('listen')[0] + 'records/radiouser2780986/record.mp3';
-            initShoutCast();
+            if(soundCloudUrl){
+                console.log('Trying soundcloud');
+                initSoundCloud();
+            }
         } else {
             console.log('Seems no one stream working');
         }
