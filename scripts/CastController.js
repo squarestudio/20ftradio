@@ -206,7 +206,7 @@ window.Template.Controllers.CastController = function (element) {
                     youtubePlayer.playVideo();
                 }
             } else {
-                
+                onPlayerError();
             }
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
         }
