@@ -69,14 +69,14 @@ window.Template.Controllers.CastController = function (element) {
             console.log('Youtube timeout reset');
             youtubeCheckInterval = null;
         }
-        youtubeCheckInterval = setTimeout(function () {
+        youtubeCheckInterval = setInterval(function () {
             var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED);
-            if (state === YT.PlayerState.PLAYING) {
-                youtubePlayer.pauseVideo();
-            } else if (state === YT.PlayerState.PAUSED) {
-                onPlayerError()
-            }
+            /*if (state === YT.PlayerState.PLAYING) {
+             youtubePlayer.pauseVideo();
+             } else if (state === YT.PlayerState.PAUSED) {
+             onPlayerError()
+             }*/
         }, 7000);
     }
 
