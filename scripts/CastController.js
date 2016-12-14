@@ -10,7 +10,7 @@ window.Template.Controllers.CastController = function (element) {
         maxRetry = 5,
         playerType = 'youtube',
         youtubePlayer,
-        shotcastPlayer,
+        shoutcastPlayer = Y.one('#shoutcastPlayer'),
         soundCloudPlayer,
         youtubeTimeout,
         shoutCastTimeout,
@@ -149,9 +149,9 @@ window.Template.Controllers.CastController = function (element) {
             } else if (playerType == 'shoutcast'){
                 state = castPlayer.getPlayerState();
                 if (state) {
-                    shotcastPlayer.playVideo();
+                    shoutcastPlayer.playVideo();
                 } else {
-                    shotcastPlayer.pauseVideo();
+                    shoutcastPlayer.pauseVideo();
                 }
             } else {
                 castPlayer.isPaused(function (state) {
@@ -224,19 +224,19 @@ window.Template.Controllers.CastController = function (element) {
     function initShoutCast() {
         console.log('shoutcast');
         playerType = 'shoutcast';
-        castPlayer && castPlayer.destroy && castPlayer.destroy();
-        Y.one('#castPlayer').remove();
-        castPlayer = Y.Node.create('<audio id="castPlayer" class="hidden" playsinline autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
-        castContainer.append(castPlayer);
-        castPlayer = castPlayer._node;
-        castPlayer.addEventListener('canplaythrough', onPlayerReady);
-        castPlayer.addEventListener('play', onPlayerStateChange);
-        castPlayer.addEventListener('pause', onPlayerStateChange);
-        castPlayer.addEventListener('error', onPlayerError);
-        castPlayer.addEventListener('abort', onPlayerError);
-        castPlayer.addEventListener('stalled', onPlayerError);
-        castPlayer.addEventListener('suspend', onPlayerError);
-        castPlayer.addEventListener('emptied', onPlayerError);
+        shoutcastPlayer && shoutcastPlayer.destroy && shoutcastPlayer.destroy();
+        Y.one('#shoutcastPlayer').remove();
+        shoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" class="hidden" playsinline autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
+        castContainer.append(shoutcastPlayer);
+        shoutcastPlayer = shoutcastPlayer._node;
+        shoutcastPlayer.addEventListener('canplaythrough', onPlayerReady);
+        shoutcastPlayer.addEventListener('play', onPlayerStateChange);
+        shoutcastPlayer.addEventListener('pause', onPlayerStateChange);
+        shoutcastPlayer.addEventListener('error', onPlayerError);
+        shoutcastPlayer.addEventListener('abort', onPlayerError);
+        shoutcastPlayer.addEventListener('stalled', onPlayerError);
+        shoutcastPlayer.addEventListener('suspend', onPlayerError);
+        shoutcastPlayer.addEventListener('emptied', onPlayerError);
         if (shoutCastTimeout) {
             clearTimeout(shoutCastTimeout);
             console.log('Shoutcast timeout reset')
@@ -246,7 +246,7 @@ window.Template.Controllers.CastController = function (element) {
             console.log('Shoutcast status reset')
         }
         shoutCastTimeout = setTimeout(function () {
-            if (castPlayer.paused) {
+            if (shoutcastPlayer.paused) {
                 onPlayerError();
             }
         }, 7000);
