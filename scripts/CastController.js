@@ -194,14 +194,18 @@ window.Template.Controllers.CastController = function (element) {
             console.log("No data to init");
         }
         streamCheckInterval = setInterval(function () {
-            var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-            console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration(), youtubePlayer.getPlaylist());
-            /*if (state === YT.PlayerState.PLAYING) {
-             youtubePlayer.pauseVideo();
-             } else if (state === YT.PlayerState.PAUSED) {
-             onPlayerError()
-             }*/
-        }, 7000);
+            checkStreams();
+        }, checkingTime);
+    }
+
+    function checkStreams() {
+        var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
+        console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration(), youtubePlayer.getPlaylist());
+        /*if (state === YT.PlayerState.PLAYING) {
+         youtubePlayer.pauseVideo();
+         } else if (state === YT.PlayerState.PAUSED) {
+         onPlayerError()
+         }*/
     }
 
     function initSoundCloud() {
