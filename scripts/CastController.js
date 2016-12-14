@@ -311,7 +311,7 @@ window.Template.Controllers.CastController = function (element) {
         if (event){
             if(event.data || event.target && event.target.shoutcastPlayer){
                 castType = 'youtube';
-            } else if(){
+            } else if(1){
 
             }
         }
