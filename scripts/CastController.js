@@ -310,12 +310,12 @@ window.Template.Controllers.CastController = function (element) {
         var castType = '';
         if (event){
             if(event.data || event.target && event.target.shoutcastPlayer){
-                castType = 'youtube'
+                castType = 'youtube';
             } else if(){
-                
+
             }
         }
-        if (event.data)
+        console.log(castType);
         console.log(retry, playerType, event);
         castContainer.removeClass('initialized');
         if (retry < maxRetry) {
