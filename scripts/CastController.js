@@ -262,11 +262,6 @@ window.Template.Controllers.CastController = function (element) {
         retry++;
         console.log(retry, playerType, shoutCastUrl, videoId);
         castContainer.removeClass('initialized');
-        if (shoutCastTimeout) {
-            clearTimeout(shoutCastTimeout);
-            console.log('Shoutcast timeout reset');
-            shoutCastTimeout = null;
-        }
         if (shoutCastStatusInterval) {
             clearInterval(shoutCastStatusInterval);
             console.log('Shoutcast status reset');
