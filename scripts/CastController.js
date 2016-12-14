@@ -98,6 +98,12 @@ window.Template.Controllers.CastController = function (element) {
         HTMLMediaElement.prototype.setVolume = function (volume) {
             this.volume = volume / 100;
         };
+        HTMLMediaElement.prototype.mute = function () {
+            this.muted = true;
+        };
+        HTMLMediaElement.prototype.unMute = function () {
+            this.muted = false;
+        };
         HTMLMediaElement.prototype.getPlayerState = function () {
             return this.paused;
         };
@@ -209,7 +215,7 @@ window.Template.Controllers.CastController = function (element) {
                         console.log('mute while buffer');
                         if(shoutcastPlayer){
                             shoutcastPlayer.play();
-                            
+                            shoutcastPlayer.mute()
                         }
                     }
                 } else {
