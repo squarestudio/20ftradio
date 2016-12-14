@@ -291,7 +291,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function onPlayerError(event) {
         retry++;
-        console.log(retry, playerType, shoutCastUrl, videoId);
+        console.log(retry, playerType, event);
         castContainer.removeClass('initialized');
         if (retry < maxRetry) {
             if (playerType == 'youtube' && videoId) {
