@@ -210,6 +210,7 @@ window.Template.Controllers.CastController = function (element) {
         if (youtubePlayer){
             var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
             if (youtubePlayer.getDuration && youtubePlayer.getDuration()){
+                playerType = 'youtube';
                 if(state > 1 ){//paused or buffering
                     youtubePlayer.playVideo();
                     if(state == 3){//buffering
@@ -220,56 +221,14 @@ window.Template.Controllers.CastController = function (element) {
                     console.log('unmute and play');
                     youtubePlayer.unMute();
                 }
-            } else {
+            } else {//no duration
                 youtubePlayer.mute();
                 console.log('mute while no youtube data');
-                if(shoutcastPlayer){
-                    shoutcastPlayer.play();
-                    shoutcastPlayer.unMute();
-                    if (soundCloudPlayer){
-                        soundCloudPlayer.pause();
-                        soundCloudPlayer.setVolume(0);
-                    }
-                } else {
-                    initShoutCast();
-                }
-                if(soundCloudPlayer){
-                    soundCloudPlayer.play();
-                    soundCloudPlayer.setVolume(50);
-                    if (shoutcastPlayer){
-                        shoutcastPlayer.pause();
-                        shoutcastPlayer.setVolume(0);
-                    }
-                } else {
-                    initSoundCloud();
-                }
+                playerType = null;
             }
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
         }
-        if (shoutcastPlayer){
-            state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-            console.log(state, shoutcastPlayer.duration, shoutcastPlayer.error, shoutcastPlayer.networkState, shoutcastPlayer.progress);
-            if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState<3){
-                if(youtubePlayer && youtubePlayer.getPlayerState() !== 1){
-                    shoutcastPlayer.play();
-                } else {
-                    shoutcastPlayer.play();
-                }
-            } else {
-                if(youtubePlayer){
-                    youtubePlayer.playVideo();
-                    youtubePlayer.unMute();
-                } else {
-                    initYoutubePlayer();
-                }
-            }
-        }
-
-        /*if (state === YT.PlayerState.PLAYING) {
-         youtubePlayer.pauseVideo();
-         } else if (state === YT.PlayerState.PAUSED) {
-         onPlayerError()
-         }*/
+        if
     }
 
     function initSoundCloud() {
