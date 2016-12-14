@@ -315,7 +315,7 @@ window.Template.Controllers.CastController = function (element) {
 
             }
         }
-        console.log('Cast Type'+castType);
+        console.log('Cast Type = '+castType);
         console.log(retry, playerType, event);
         castContainer.removeClass('initialized');
         if (retry < maxRetry) {
