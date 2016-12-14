@@ -8,7 +8,7 @@ window.Template.Controllers.CastController = function (element) {
         soundCloudUrl,
         retry = 0,
         maxRetry = 5,
-        playerType = null,
+        playerType = 'youtube',
         checkingTime = 2000,
         streamCheckInterval,
         youtubePlayer = null,
@@ -255,7 +255,6 @@ window.Template.Controllers.CastController = function (element) {
 
     function initShoutCast() {
         console.log('shoutcast');
-        playerType = 'shoutcast';
         shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
         if (!shoutcastPlayer){
             shoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" class="hidden" playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
