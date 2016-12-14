@@ -54,7 +54,7 @@ window.Template.Controllers.CastController = function (element) {
             events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange,
-                //'onError': onPlayerError
+                'onError': onPlayerError
             }
         });
         playerType = 'youtube';
