@@ -234,8 +234,12 @@ window.Template.Controllers.CastController = function (element) {
                 shoutcastPlayer.paused && shoutcastPlayer.play();
                 shoutcastPlayer.muted && shoutcastPlayer.unMute();
                 if (soundCloudPlayer){
-                    soundCloudPlayer.pause();
-                    soundCloudPlayer.setVolume(0);
+                    soundCloudPlayer.isPaused(function (paused) {
+                        if (!paused){
+                            soundCloudPlayer.pause();
+                            soundCloudPlayer.setVolume(0);
+                        }
+                    });
                 }
             } else {
                 initShoutCast();
