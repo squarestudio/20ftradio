@@ -230,6 +230,18 @@ window.Template.Controllers.CastController = function (element) {
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
         }
         if(!playerType){
+            if(shoutcastPlayer){
+                shoutcastPlayer.paused && shoutcastPlayer.play();
+                shoutcastPlayer.unMute();
+                if (soundCloudPlayer){
+                    soundCloudPlayer.pause();
+                    soundCloudPlayer.setVolume(0);
+                }
+            } else {
+                initShoutCast();
+            }
+        }
+        if(!playerType){
             if(soundCloudPlayer){
                 soundCloudPlayer.isPaused(function (paused) {
                     if (paused){
