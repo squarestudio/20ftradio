@@ -236,13 +236,8 @@ window.Template.Controllers.CastController = function (element) {
                 console.log(state, shoutcastPlayer.duration, shoutcastPlayer.networkState);
                 if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState<3){
                     console.log('here')
-                    if(youtubePlayer && youtubePlayer.getPlayerState() !== 1){
-                        shoutcastPlayer.play();
-                        shoutcastPlayer.muted && shoutcastPlayer.unMute();
-                    } else {
-                        shoutcastPlayer.play();
-                        shoutcastPlayer.muted && shoutcastPlayer.unMute();
-                    }
+                    shoutcastPlayer.play();
+                    shoutcastPlayer.muted && shoutcastPlayer.unMute();
                     playerType = 'shoutcast'
                 } else {
                     playerType = null;
