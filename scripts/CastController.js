@@ -226,9 +226,6 @@ window.Template.Controllers.CastController = function (element) {
                         shoutcastPlayer.mute();
                     }
                 }
-            } else {
-                console.log('not ready to get dur')
-                onPlayerError();
             }
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
         }
