@@ -59,6 +59,20 @@ window.Template.Controllers.CastController = function (element) {
                 'onError': onPlayerError
             }
         });
+        if (youtubeTimeout) {
+            clearTimeout(youtubeTimeout);
+            console.log('Youtube timeout reset');
+            youtubeTimeout = null;
+        }
+        youtubeTimeout = setTimeout(function () {
+            var state = castPlayer.getPlayerState && castPlayer.getPlayerState();
+            console.log(state)
+            if (state === YT.PlayerState.PLAYING) {
+                castPlayer.pauseVideo();
+            } else if (state === YT.PlayerState.PAUSED) {
+                castPlayer.playVideo();
+            }
+        }, 7000);
     }
 
     function initYoutubeStream() {
