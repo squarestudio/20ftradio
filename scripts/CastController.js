@@ -215,7 +215,7 @@ window.Template.Controllers.CastController = function (element) {
                         console.log('mute while buffer');
                         if(shoutcastPlayer){
                             shoutcastPlayer.play();
-                            shoutcastPlayer.mute();
+                            shoutcastPlayer.unMute();
                         }
                     }
                 } else {
@@ -223,7 +223,7 @@ window.Template.Controllers.CastController = function (element) {
                     youtubePlayer.unMute();
                     if(shoutcastPlayer){
                         shoutcastPlayer.pause();
-                        shoutcastPlayer.unMute();
+                        shoutcastPlayer.mute();
                     }
                 }
             } else {
@@ -235,7 +235,7 @@ window.Template.Controllers.CastController = function (element) {
             state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
             console.log(state, shoutcastPlayer.duration);
             if (shoutcastPlayer.duration && state){
-                
+
                 //shoutcastPlayer.playVideo();
             }
         }
