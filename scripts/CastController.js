@@ -37,9 +37,9 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initYoutubePlayer() {
-        if(videoId.indexOf('watch')>-1){
+        if (videoId.indexOf('watch') > -1) {
             videoId = videoId.split('=')[1];
-        } else if (videoId.indexOf('embed/')>-1){
+        } else if (videoId.indexOf('embed/') > -1) {
             videoId = videoId.split('embed/')[1];
             console.log(videoId)
         }
@@ -69,7 +69,7 @@ window.Template.Controllers.CastController = function (element) {
         }
         youtubeTimeout = setTimeout(function () {
             var state = castPlayer.getPlayerState && castPlayer.getPlayerState();
-            console.log(state,YT.PlayerState.PLAYING,YT.PlayerState.PAUSED);
+            console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED);
             if (state === YT.PlayerState.PLAYING) {
                 castPlayer.pauseVideo();
             } else if (state === YT.PlayerState.PAUSED) {
@@ -81,7 +81,9 @@ window.Template.Controllers.CastController = function (element) {
     function initYoutubeStream() {
         if (videoId) {
             console.log('init youtube');
-            if(!castContainer.one('#youtubePlayer')) castContainer.prepend('<div id="youtubePlayer" class="stream-player"></div>');
+            if (!castContainer.one('#youtubePlayer')) {
+                castContainer.prepend('<div id="youtubePlayer" class="stream-player"></div>');
+            }
             if (!window.YT) {
                 var tag = document.createElement('script');
                 tag.src = "//www.youtube.com/iframe_api";
@@ -147,7 +149,7 @@ window.Template.Controllers.CastController = function (element) {
                 } else if (state === YT.PlayerState.PAUSED) {
                     youtubePlayer.playVideo();
                 }
-            } else if (playerType == 'shoutcast'){
+            } else if (playerType == 'shoutcast') {
                 state = castPlayer.getPlayerState();
                 if (state) {
                     shoutcastPlayer.playVideo();
@@ -326,17 +328,17 @@ window.Template.Controllers.CastController = function (element) {
             } else if (event.data == YT.PlayerState.PAUSED) {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
-        } else if (event.target){
+        } else if (event.target) {
             if (!event.target.paused) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                 !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
             } else {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
-        } else if(playerType == 'soundcloud'){
+        } else if (playerType == 'soundcloud') {
             castPlayer.isPaused(function (paused) {
                 console.log(paused);
-                if(!paused){
+                if (!paused) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                     !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
                 } else {
