@@ -222,6 +222,8 @@ window.Template.Controllers.CastController = function (element) {
                                 soundCloudPlayer.pause();
                                 soundCloudPlayer.setVolume(0);
                             }
+                        } else {
+                            initShoutCast()''
                         }
                         if(soundCloudPlayer){
                             soundCloudPlayer.play();
@@ -230,6 +232,8 @@ window.Template.Controllers.CastController = function (element) {
                                 shoutcastPlayer.pause();
                                 shoutcastPlayer.setVolume(0);
                             }
+                        } else {
+                            initSoundCloud();
                         }
                     }
                 } else {
