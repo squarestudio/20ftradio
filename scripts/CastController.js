@@ -214,6 +214,8 @@ window.Template.Controllers.CastController = function (element) {
                 playerType = 'youtube';
                 if(state > 1 ){//paused or buffering
                     youtubePlayer.playVideo();
+                    shoutcastPlayer && shoutcastPlayer.pause();
+                    soundCloudPlayer&& soundCloudPlayer.pause();
                     if(state == 3){//buffering
                         youtubePlayer.mute();
                         console.log('mute while buffer');
