@@ -48,14 +48,7 @@ window.Template.Controllers.CastController = function (element) {
             height: '720',
             width: '1280',
             videoId: videoId,
-            playerVars: {
-                'autoplay': 1,
-                'controls': 0,
-                'modestbranding': 1,
-                'rel': 0,
-                //'showinfo': 0,
-                'fs': 0
-            },
+
             events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange,
