@@ -140,18 +140,18 @@ window.Template.Controllers.CastController = function (element) {
             e.halt();
             var state = null;
             if (playerType == 'youtube') {
-                state = castPlayer.getPlayerState();
+                state = youtubePlayer.getPlayerState();
                 if (state === YT.PlayerState.PLAYING) {
-                    castPlayer.pauseVideo();
+                    youtubePlayer.pauseVideo();
                 } else if (state === YT.PlayerState.PAUSED) {
-                    castPlayer.playVideo();
+                    youtubePlayer.playVideo();
                 }
             } else if (playerType == 'shoutcast'){
                 state = castPlayer.getPlayerState();
                 if (state) {
-                    castPlayer.playVideo();
+                    shotcastPlayer.playVideo();
                 } else {
-                    castPlayer.pauseVideo();
+                    shotcastPlayer.pauseVideo();
                 }
             } else {
                 castPlayer.isPaused(function (state) {
