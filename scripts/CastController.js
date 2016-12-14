@@ -205,7 +205,7 @@ window.Template.Controllers.CastController = function (element) {
             }, checkingTime);
         }
     }
-fu
+    
     function checkStreams() {
         if (youtubePlayer){
             var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
