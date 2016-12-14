@@ -68,10 +68,10 @@ window.Template.Controllers.CastController = function (element) {
             youtubeTimeout = null;
         }
         youtubeTimeout = setTimeout(function () {
-            var state = castPlayer.getPlayerState && castPlayer.getPlayerState();
+            var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED);
             if (state === YT.PlayerState.PLAYING) {
-                castPlayer.pauseVideo();
+                youtubePlayer.pauseVideo();
             } else if (state === YT.PlayerState.PAUSED) {
                 onPlayerError()
             }
