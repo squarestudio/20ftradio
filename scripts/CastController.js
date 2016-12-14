@@ -258,7 +258,7 @@ window.Template.Controllers.CastController = function (element) {
         playerType = 'shoutcast';
         shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
         if (!shoutcastPlayer){
-            shoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" class="hidden" playsinline autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
+            shoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" class="hidden" playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
         }
         castContainer.append(shoutcastPlayer);
         shoutcastPlayer = shoutcastPlayer._node;
