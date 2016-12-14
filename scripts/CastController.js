@@ -11,9 +11,9 @@ window.Template.Controllers.CastController = function (element) {
         playerType = null,
         checkingTime = 2000,
         streamCheckInterval,
-        youtubePlayer,
-        shoutcastPlayer = Y.one('#shoutcastPlayer'),
-        soundCloudPlayer,
+        youtubePlayer = null,
+        shoutcastPlayer = null,
+        soundCloudPlayer = null,
         eventStatusInterval,
         currentEvents,
         castContainer = Y.one('#castDiv');
