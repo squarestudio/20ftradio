@@ -40,7 +40,8 @@ window.Template.Controllers.CastController = function (element) {
         if (videoId.indexOf('watch') > -1) {
             videoId = videoId.split('=')[1];
         } else if (videoId.indexOf('live_stream') > -1) {
-            videoId = videoId.split('?')[1];
+            var channel = videoId.split('channel=')[1];
+            videoId = 'live_stream';
             console.log(videoId)
         }
         playerType = 'youtube';
@@ -54,7 +55,7 @@ window.Template.Controllers.CastController = function (element) {
                 'modestbranding': 1,
                 'rel': 0,
                 //'showinfo': 0,
-                'channel': 'UCN5cr3-T9kZu5pis0Du_dXw',
+                'channel': channel || '',
                 'fs': 0
             },
             events: {
