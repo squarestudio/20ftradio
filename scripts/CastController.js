@@ -199,9 +199,11 @@ window.Template.Controllers.CastController = function (element) {
         } else {
             console.log("No data to init");
         }
-        streamCheckInterval = setInterval(function () {
-            checkStreams();
-        }, checkingTime);
+        if (videoId || shoutCastUrl || soundCloudUrl){
+            streamCheckInterval = setInterval(function () {
+                checkStreams();
+            }, checkingTime);
+        }
     }
 
     function checkStreams() {
