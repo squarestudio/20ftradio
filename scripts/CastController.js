@@ -42,7 +42,7 @@ window.Template.Controllers.CastController = function (element) {
         } else if (videoId.indexOf('live_stream') > -1) {
             var channel = videoId.split('channel=')[1];
             videoId = 'live_stream';
-            console.log(videoId)
+            console.log(videoId, channel)
         }
         playerType = 'youtube';
         youtubePlayer = new YT.Player('youtubePlayer', {
