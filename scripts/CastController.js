@@ -54,7 +54,7 @@ window.Template.Controllers.CastController = function (element) {
                 'modestbranding': 1,
                 'rel': 0,
                 //'showinfo': 0,
-                'channel': 'UCN5cr3-T9kZu5pis0Du_dXw'
+                'channel': 'UCN5cr3-T9kZu5pis0Du_dXw',
                 'fs': 0
             },
             events: {
