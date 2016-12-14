@@ -232,7 +232,7 @@ window.Template.Controllers.CastController = function (element) {
         if(!playerType){
             if(shoutcastPlayer){
                 shoutcastPlayer.paused && shoutcastPlayer.play();
-                shoutcastPlayer.unMute();
+                shoutcastPlayer.muted && shoutcastPlayer.unMute();
                 if (soundCloudPlayer){
                     soundCloudPlayer.pause();
                     soundCloudPlayer.setVolume(0);
