@@ -223,7 +223,7 @@ window.Template.Controllers.CastController = function (element) {
                                 soundCloudPlayer.setVolume(0);
                             }
                         } else {
-                            initShoutCast()''
+                            initShoutCast();
                         }
                         if(soundCloudPlayer){
                             soundCloudPlayer.play();
