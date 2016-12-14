@@ -226,18 +226,24 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initSoundCloud() {
-        console.log('soundcloud');
-        playerType = 'soundcloud';
-        castPlayer && castPlayer.destroy && castPlayer.destroy();
-        Y.one('#castPlayer').remove();
-        castPlayer = Y.Node.create('<iframe id="castPlayer" src="https://w.soundcloud.com/player/?url=' + soundCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="soundcloud-stream"></iframe>');
-        castContainer.append(castPlayer);
-        castPlayer = castPlayer._node;
-        castPlayer = SC.Widget(castPlayer);
-        castPlayer.bind(SC.Widget.Events.READY, onPlayerReady);
-        castPlayer.bind(SC.Widget.Events.PLAY, onPlayerStateChange);
-        castPlayer.bind(SC.Widget.Events.PAUSE, onPlayerStateChange);
-        castPlayer.bind(SC.Widget.Events.FINISH, onPlayerError);
+        if (soundCloudUrl){
+            console.log('soundcloud');
+            playerType = 'soundcloud';
+            if (soundCloudPlayer){
+                soundCloudPlayer.play();
+            } else {
+                soundCloudPlayer = Y.Node.create('<iframe id="soundCloudPlayer" src="https://w.soundcloud.com/player/?url=' + soundCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="soundcloud-stream"></iframe>');
+                castContainer.append(soundCloudPlayer);
+                soundCloudPlayer = soundCloudPlayer._node;
+                soundCloudPlayer = SC.Widget(soundCloudPlayer);
+                soundCloudPlayer.bind(SC.Widget.Events.READY, onPlayerReady);
+                soundCloudPlayer.bind(SC.Widget.Events.PLAY, onPlayerStateChange);
+                soundCloudPlayer.bind(SC.Widget.Events.PAUSE, onPlayerStateChange);
+                soundCloudPlayer.bind(SC.Widget.Events.FINISH, onPlayerError);
+            }
+        } else {
+            console.log('no SoundCloud url')
+        }
     }
 
     function initShoutCast() {
@@ -267,11 +273,19 @@ window.Template.Controllers.CastController = function (element) {
             if (playerType == 'youtube' && videoId) {
                 console.log('youtube failed');
                 console.log('loading shoutcast');
-                initShoutCast();
+                if(shoutcastPlayer){
+                    shoutcastPlayer.load()
+                } else {
+                    initShoutCast();   
+                }
             } else if (playerType == 'shoutcast' && shoutCastUrl) {
                 console.log('shoutcast failed');
                 console.log('loading youtube');
-                initYoutubeStream();
+                if (youtubePlayer){
+                    youtubePlayer.playVideo();
+                } else {
+                    initYoutubeStream();   
+                }
             }
             else {
                 console.log('Seems no data to work now');
