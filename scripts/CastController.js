@@ -218,6 +218,10 @@ window.Template.Controllers.CastController = function (element) {
                         if(shoutcastPlayer){
                             shoutcastPlayer.play();
                             shoutcastPlayer.unMute();
+                            if (soundCloudPlayer){
+                                soundCloudPlayer.pause();
+                                soundCloudPlayer.mute();
+                            }
                         }
                     }
                 } else {
