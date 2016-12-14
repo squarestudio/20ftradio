@@ -308,10 +308,12 @@ window.Template.Controllers.CastController = function (element) {
             castContainer.addClass('initialized');
         } else if (playerType == 'shoutcast'){
             shoutcastPlayer.play();
-            shoutcastPlayer.setVolume(50)
+            shoutcastPlayer.setVolume(50);
+            castContainer.addClass('initialized');
         } else if (playerType == 'soundcloud'){
             shoutcastPlayer.play();
-            shoutcastPlayer.setVolume(50)
+            shoutcastPlayer.setVolume(50);
+            castContainer.addClass('initialized');
         }
         if (shoutCastTimeout) {
             clearTimeout(shoutCastTimeout);
