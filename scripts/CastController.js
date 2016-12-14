@@ -210,9 +210,9 @@ window.Template.Controllers.CastController = function (element) {
         if (youtubePlayer){
             var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
             if (youtubePlayer.getDuration && youtubePlayer.getDuration()){
-                if(state > 1){
+                if(state > 1 ){//paused or buffering
                     youtubePlayer.playVideo();
-                    if(state == 3){
+                    if(state == 3){//buffering
                         youtubePlayer.mute();
                         console.log('mute while buffer');
                     }
