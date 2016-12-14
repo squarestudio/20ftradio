@@ -206,6 +206,12 @@ window.Template.Controllers.CastController = function (element) {
             }
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
         }
+        if (shoutcastPlayer){
+            var state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
+            if (youtubePlayer.getDuration() && state>1){
+                youtubePlayer.playVideo();
+            }
+        }
 
         /*if (state === YT.PlayerState.PLAYING) {
          youtubePlayer.pauseVideo();
