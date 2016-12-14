@@ -207,6 +207,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function checkStreams() {
+        playerType = null;
         if (youtubePlayer){
             var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
             if (youtubePlayer.getDuration && youtubePlayer.getDuration()){
@@ -228,7 +229,9 @@ window.Template.Controllers.CastController = function (element) {
             }
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
         }
-        if
+        if(playerType){
+
+        }
     }
 
     function initSoundCloud() {
