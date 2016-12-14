@@ -291,11 +291,12 @@ window.Template.Controllers.CastController = function (element) {
                     initYoutubePlayer();
                 }
                 if(soundCloudPlayer){
-                    soundCloudPlayer.isPlayed(function (played) {
-                        
-                    })
-                    soundCloudPlayer.play();
-                    soundCloudPlayer.setVolume(50);
+                    soundCloudPlayer.isPaused(function (paused) {
+                        if (paused){
+                            soundCloudPlayer.play();
+                            soundCloudPlayer.setVolume(50);
+                        }
+                    });
                     if (youtubePlayer){
                         youtubePlayer.pauseVideo();
                         youtubePlayer.mute();
