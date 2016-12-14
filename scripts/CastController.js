@@ -206,7 +206,9 @@ window.Template.Controllers.CastController = function (element) {
                     youtubePlayer.playVideo();
                     if(state == 3){
                         youtubePlayer.mute();
+                        console.log('mute while buffer')
                     } else {
+                        console.log('unmute and play')
                         youtubePlayer.unmute();
                     }
                 }
