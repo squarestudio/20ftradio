@@ -44,7 +44,7 @@ window.Template.Controllers.CastController = function (element) {
             console.log(videoId)
         }
         playerType = 'youtube';
-        castPlayer = new YT.Player('castPlayer', {
+        youtubePlayer = new YT.Player('castPlayer', {
             height: '720',
             width: '1280',
             videoId: videoId,
