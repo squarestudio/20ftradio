@@ -40,7 +40,7 @@ window.Template.Controllers.CastController = function (element) {
         if (videoId.indexOf('watch') > -1) {
             videoId = videoId.split('=')[1];
         } else if (videoId.indexOf('live_stream') > -1) {
-            videoId = videoId.split('embed/')[1];
+            videoId = videoId.split('?')[1];
             console.log(videoId)
         }
         playerType = 'youtube';
