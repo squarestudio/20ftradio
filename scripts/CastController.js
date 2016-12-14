@@ -230,7 +230,20 @@ window.Template.Controllers.CastController = function (element) {
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
         }
         if(!playerType){
-
+            if(soundCloudPlayer){
+                soundCloudPlayer.isPaused(function (paused) {
+                    if (paused){
+                        soundCloudPlayer.play();
+                        soundCloudPlayer.setVolume(50);
+                    }
+                });
+                if (youtubePlayer){
+                    youtubePlayer.pauseVideo();
+                    youtubePlayer.mute();
+                }
+            } else {
+                initSoundCloud();
+            }
         }
     }
 
