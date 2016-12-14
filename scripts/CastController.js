@@ -10,12 +10,10 @@ window.Template.Controllers.CastController = function (element) {
         maxRetry = 5,
         playerType = null,
         checkingTime = 2000,
+        streamCheckInterval,
         youtubePlayer,
         shoutcastPlayer = Y.one('#shoutcastPlayer'),
         soundCloudPlayer,
-        youtubeCheckInterval,
-        shoutCastTimeout,
-        shoutCastStatusInterval,
         eventStatusInterval,
         currentEvents,
         castContainer = Y.one('#castDiv');
@@ -195,6 +193,15 @@ window.Template.Controllers.CastController = function (element) {
         } else {
             console.log("No data to init");
         }
+        streamCheckInterval = setInterval(function () {
+            var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
+            console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration(), youtubePlayer.getPlaylist());
+            /*if (state === YT.PlayerState.PLAYING) {
+             youtubePlayer.pauseVideo();
+             } else if (state === YT.PlayerState.PAUSED) {
+             onPlayerError()
+             }*/
+        }, 7000);
     }
 
     function initSoundCloud() {
