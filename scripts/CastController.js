@@ -241,21 +241,9 @@ window.Template.Controllers.CastController = function (element) {
                         shoutcastPlayer.play();
                         shoutcastPlayer.muted && shoutcastPlayer.unMute();
                     }
+                    playerType = 'shoutcast'
                 } else {
-                    if(youtubePlayer){
-                        youtubePlayer.playVideo();
-                        youtubePlayer.unMute();
-                    } else {
-                        initYoutubePlayer();
-                    }
-                }
-                if (soundCloudPlayer){
-                    soundCloudPlayer.isPaused(function (paused) {
-                        if (!paused){
-                            soundCloudPlayer.pause();
-                            soundCloudPlayer.setVolume(0);
-                        }
-                    });
+                    playerType = null;
                 }
             } else {
                 initShoutCast();
@@ -267,11 +255,16 @@ window.Template.Controllers.CastController = function (element) {
                     if (paused){
                         soundCloudPlayer.play();
                         soundCloudPlayer.setVolume(50);
+                        playerType = 'soundcloud';
                     }
                 });
                 if (youtubePlayer){
                     youtubePlayer.pauseVideo();
                     youtubePlayer.mute();
+                }
+                if (shoutcastPlayer){
+                    !shoutcastPlayer.paused && shoutcastPlayer.pause();
+                    !shoutcastPlayer.muted && shoutcastPlayer.mute();
                 }
             } else {
                 initSoundCloud();
