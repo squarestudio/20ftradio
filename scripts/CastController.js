@@ -201,8 +201,12 @@ window.Template.Controllers.CastController = function (element) {
     function checkStreams() {
         if (youtubePlayer){
             var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-            if (youtubePlayer.getDuration() && state>1){
-                youtubePlayer.playVideo();
+            if (youtubePlayer.getDuration()){
+                if(state > 1){
+                    youtubePlayer.playVideo();
+                }
+            } else {
+                
             }
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
         }
