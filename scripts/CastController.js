@@ -205,7 +205,7 @@ window.Template.Controllers.CastController = function (element) {
             }, checkingTime);
         }
     }
-
+fu
     function checkStreams() {
         if (youtubePlayer){
             var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
@@ -220,7 +220,7 @@ window.Template.Controllers.CastController = function (element) {
                             shoutcastPlayer.unMute();
                             if (soundCloudPlayer){
                                 soundCloudPlayer.pause();
-                                soundCloudPlayer.mute();
+                                soundCloudPlayer.setVolume(0);
                             }
                         }
                     }
