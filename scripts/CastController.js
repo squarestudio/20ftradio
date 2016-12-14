@@ -215,34 +215,10 @@ window.Template.Controllers.CastController = function (element) {
                     if(state == 3){
                         youtubePlayer.mute();
                         console.log('mute while buffer');
-                        if(shoutcastPlayer){
-                            shoutcastPlayer.play();
-                            shoutcastPlayer.unMute();
-                            if (soundCloudPlayer){
-                                soundCloudPlayer.pause();
-                                soundCloudPlayer.setVolume(0);
-                            }
-                        } else {
-                            initShoutCast();
-                        }
-                        if(soundCloudPlayer){
-                            soundCloudPlayer.play();
-                            soundCloudPlayer.setVolume(50);
-                            if (shoutcastPlayer){
-                                shoutcastPlayer.pause();
-                                shoutcastPlayer.setVolume(0);
-                            }
-                        } else {
-                            initSoundCloud();
-                        }
                     }
                 } else {
                     console.log('unmute and play');
                     youtubePlayer.unMute();
-                    if(shoutcastPlayer){
-                        shoutcastPlayer.pause();
-                        shoutcastPlayer.mute();
-                    }
                 }
             } else {
                 youtubePlayer.mute();
