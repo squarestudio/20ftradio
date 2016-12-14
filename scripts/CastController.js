@@ -12,7 +12,7 @@ window.Template.Controllers.CastController = function (element) {
         youtubePlayer,
         shoutcastPlayer = Y.one('#shoutcastPlayer'),
         soundCloudPlayer,
-        youtubeTimeout,
+        youtubeCheckInterval,
         shoutCastTimeout,
         shoutCastStatusInterval,
         eventStatusInterval,
@@ -64,12 +64,12 @@ window.Template.Controllers.CastController = function (element) {
                 'onError': onPlayerError
             }
         });
-        if (youtubeTimeout) {
-            clearTimeout(youtubeTimeout);
+        if (youtubeCheckInterval) {
+            clearTimeout(youtubeCheckInterval);
             console.log('Youtube timeout reset');
-            youtubeTimeout = null;
+            youtubeCheckInterval = null;
         }
-        youtubeTimeout = setTimeout(function () {
+        youtubeCheckInterval = setTimeout(function () {
             var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED);
             if (state === YT.PlayerState.PLAYING) {
