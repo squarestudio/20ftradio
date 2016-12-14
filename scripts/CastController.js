@@ -242,10 +242,10 @@ window.Template.Controllers.CastController = function (element) {
     function initShoutCast() {
         console.log('shoutcast');
         playerType = 'shoutcast';
-        shoutcastPlayer = Y.one('#shoutcastPlayer')._node,
-        shoutcastPlayer && shoutcastPlayer.destroy && shoutcastPlayer.destroy();
-        Y.one('#shoutcastPlayer').remove();
-        shoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" class="hidden" playsinline autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
+        shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
+        if (!shoutcastPlayer){
+            shoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" class="hidden" playsinline autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
+        }
         castContainer.append(shoutcastPlayer);
         shoutcastPlayer = shoutcastPlayer._node;
         shoutcastPlayer.addEventListener('canplaythrough', onPlayerReady);
