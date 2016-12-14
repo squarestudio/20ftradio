@@ -33,7 +33,11 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initYoutubePlayer() {
-        //videoId = videoId.split('=')[1];
+        if(videoId.indexOf('watch')){
+            videoId = videoId.split('=')[1];
+        } else if (videoId.indexOf('embed/')){
+            videoId = videoId.split('embed/')[1];
+        }
         castPlayer = new YT.Player('castPlayer', {
             height: '720',
             width: '1280',
