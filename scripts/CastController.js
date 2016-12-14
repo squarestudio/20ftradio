@@ -8,7 +8,7 @@ window.Template.Controllers.CastController = function (element) {
         soundCloudUrl,
         retry = 0,
         maxRetry = 5,
-        playerType = 'youtube',
+        playerType = null,
         checkingTime = 2000,
         youtubePlayer,
         shoutcastPlayer = Y.one('#shoutcastPlayer'),
@@ -65,20 +65,6 @@ window.Template.Controllers.CastController = function (element) {
                 'onError': onPlayerError
             }
         });
-        if (youtubeCheckInterval) {
-            clearTimeout(youtubeCheckInterval);
-            console.log('Youtube timeout reset');
-            youtubeCheckInterval = null;
-        }
-        youtubeCheckInterval = setInterval(function () {
-            var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-            console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration(), youtubePlayer.getPlaylist());
-            /*if (state === YT.PlayerState.PLAYING) {
-             youtubePlayer.pauseVideo();
-             } else if (state === YT.PlayerState.PAUSED) {
-             onPlayerError()
-             }*/
-        }, 7000);
     }
 
     function initYoutubeStream() {
@@ -206,8 +192,7 @@ window.Template.Controllers.CastController = function (element) {
             initShoutCast();
         } else if (soundCloudUrl) {
             initSoundCloud();
-        }
-        else {
+        } else {
             console.log("No data to init");
         }
     }
