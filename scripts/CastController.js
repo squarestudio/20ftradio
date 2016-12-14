@@ -307,6 +307,10 @@ window.Template.Controllers.CastController = function (element) {
 
     function onPlayerError(event) {
         retry++;
+        if (event){
+            if(event.data || )
+        }
+        if (event.data)
         console.log(retry, playerType, event);
         castContainer.removeClass('initialized');
         if (retry < maxRetry) {
