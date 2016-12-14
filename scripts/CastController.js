@@ -275,14 +275,14 @@ window.Template.Controllers.CastController = function (element) {
             } else if (playerType == 'shoutcast' && shoutCastUrl) {
                 console.log('shoutcast failed');
                 console.log('loading youtube');
-                castPlayer.removeEventListener('canplaythrough', onPlayerReady);
-                castPlayer.removeEventListener('play', onPlayerStateChange);
-                castPlayer.removeEventListener('pause', onPlayerStateChange);
-                castPlayer.removeEventListener('error', onPlayerError);
-                castPlayer.removeEventListener('abort', onPlayerError);
-                castPlayer.removeEventListener('stalled', onPlayerError);
-                castPlayer.removeEventListener('suspend', onPlayerError);
-                castPlayer.removeEventListener('emptied', onPlayerError);
+                shoutcastPlayer.removeEventListener('canplaythrough', onPlayerReady);
+                shoutcastPlayer.removeEventListener('play', onPlayerStateChange);
+                shoutcastPlayer.removeEventListener('pause', onPlayerStateChange);
+                shoutcastPlayer.removeEventListener('error', onPlayerError);
+                shoutcastPlayer.removeEventListener('abort', onPlayerError);
+                shoutcastPlayer.removeEventListener('stalled', onPlayerError);
+                shoutcastPlayer.removeEventListener('suspend', onPlayerError);
+                shoutcastPlayer.removeEventListener('emptied', onPlayerError);
                 initYoutubeStream();
             }
             else {
