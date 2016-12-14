@@ -81,7 +81,7 @@ window.Template.Controllers.CastController = function (element) {
     function initYoutubeStream() {
         if (videoId) {
             console.log('init youtube');
-            castContainer.prepend('<div id="youtubePlayer" class="stream-player"></div>');
+            if(!castContainer.one('#youtubePlayer')) castContainer.prepend('<div id="youtubePlayer" class="stream-player"></div>');
             if (!window.YT) {
                 var tag = document.createElement('script');
                 tag.src = "//www.youtube.com/iframe_api";
