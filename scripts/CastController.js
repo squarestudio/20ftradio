@@ -283,26 +283,8 @@ window.Template.Controllers.CastController = function (element) {
                 if(youtubePlayer){
                     youtubePlayer.playVideo();
                     youtubePlayer.unMute();
-                    if (soundCloudPlayer){
-                        soundCloudPlayer.pause();
-                        soundCloudPlayer.setVolume(0);
-                    }
                 } else {
                     initYoutubePlayer();
-                }
-                if(soundCloudPlayer){
-                    soundCloudPlayer.isPaused(function (paused) {
-                        if (paused){
-                            soundCloudPlayer.play();
-                            soundCloudPlayer.setVolume(50);
-                        }
-                    });
-                    if (youtubePlayer){
-                        youtubePlayer.pauseVideo();
-                        youtubePlayer.mute();
-                    }
-                } else {
-                    initSoundCloud();
                 }
             }
         }
