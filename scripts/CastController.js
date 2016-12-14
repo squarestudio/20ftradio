@@ -33,6 +33,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initYoutubePlayer() {
+        console.log(videoId) 
         if(videoId.indexOf('watch')){
             videoId = videoId.split('=')[1];
         } else if (videoId.indexOf('embed/')){
