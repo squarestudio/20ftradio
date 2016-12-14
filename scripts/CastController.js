@@ -235,8 +235,9 @@ window.Template.Controllers.CastController = function (element) {
             state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
             console.log(state, shoutcastPlayer.duration);
             if (shoutcastPlayer.duration && state){
-                if(youtubePlayer && youtubePlayer.getPlayerState())
-                //shoutcastPlayer.playVideo();
+                if(youtubePlayer && youtubePlayer.getPlayerState() !== 1){
+                    shoutcastPlayer.play();   
+                }
             }
         }
 
