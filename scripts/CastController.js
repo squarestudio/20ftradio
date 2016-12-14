@@ -36,7 +36,9 @@ window.Template.Controllers.CastController = function (element) {
         if(videoId.indexOf('watch')){
             videoId = videoId.split('=')[1];
         } else if (videoId.indexOf('embed/')){
+            console.log(videoId)
             videoId = videoId.split('embed/')[1];
+            console.log(videoId)
         }
         castPlayer = new YT.Player('castPlayer', {
             height: '720',
