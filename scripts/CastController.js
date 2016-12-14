@@ -204,6 +204,11 @@ window.Template.Controllers.CastController = function (element) {
             if (youtubePlayer.getDuration()){
                 if(state > 1){
                     youtubePlayer.playVideo();
+                    if(state<3){
+                        youtubePlayer.mute();
+                    } else {
+                        youtubePlayer.unmute();
+                    }
                 }
             } else {
                 onPlayerError();
