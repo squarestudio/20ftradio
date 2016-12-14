@@ -70,7 +70,7 @@ window.Template.Controllers.CastController = function (element) {
             if (state === YT.PlayerState.PLAYING) {
                 castPlayer.pauseVideo();
             } else if (state === YT.PlayerState.PAUSED) {
-                castPlayer.playVideo();
+                onPlayerError()
             }
         }, 7000);
     }
