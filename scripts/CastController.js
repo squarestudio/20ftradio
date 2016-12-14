@@ -39,6 +39,7 @@ window.Template.Controllers.CastController = function (element) {
             videoId = videoId.split('embed/')[1];
             console.log(videoId)
         }
+        playerType = 'youtube';
         castPlayer = new YT.Player('castPlayer', {
             height: '720',
             width: '1280',
@@ -57,7 +58,6 @@ window.Template.Controllers.CastController = function (element) {
                 'onError': onPlayerError
             }
         });
-        playerType = 'youtube';
     }
 
     function initYoutubeStream() {
