@@ -231,6 +231,7 @@ window.Template.Controllers.CastController = function (element) {
         }
         if(!playerType){
             if(shoutcastPlayer){
+                
                 shoutcastPlayer.paused && shoutcastPlayer.play();
                 shoutcastPlayer.muted && shoutcastPlayer.unMute();
                 if (soundCloudPlayer){
