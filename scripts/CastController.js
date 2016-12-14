@@ -307,8 +307,13 @@ window.Template.Controllers.CastController = function (element) {
 
     function onPlayerError(event) {
         retry++;
+        var castType = '';
         if (event){
-            if(event.data || )
+            if(event.data || event.target && event.target.shoutcastPlayer){
+                castType = 'youtube'
+            } else if(){
+                
+            }
         }
         if (event.data)
         console.log(retry, playerType, event);
