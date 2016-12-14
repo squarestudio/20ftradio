@@ -272,6 +272,7 @@ window.Template.Controllers.CastController = function (element) {
                 initSoundCloud();
             }
         }
+        console.log(playerType)
     }
 
     function initSoundCloud() {
