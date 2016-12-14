@@ -71,7 +71,7 @@ window.Template.Controllers.CastController = function (element) {
         }
         youtubeCheckInterval = setInterval(function () {
             var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-            console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED);
+            console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration(), youtubePlayer.grt);
             /*if (state === YT.PlayerState.PLAYING) {
              youtubePlayer.pauseVideo();
              } else if (state === YT.PlayerState.PAUSED) {
