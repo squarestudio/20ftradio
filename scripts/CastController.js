@@ -302,6 +302,22 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onPlayerReady(event) {
+        if (playerType == 'youtube'){
+            youtubePlayer.setVolume(50);
+            youtubePlayer.playVideo();
+            if (castPlayer.playVideo) {
+                castPlayer.playVideo()
+            } else if (castPlayer.play) {
+                castPlayer.play();
+            }
+            castContainer.addClass('initialized');
+        } else if (playerType == 'shoutcast'){
+            shoutcastPlayer.play();
+            shoutcastPlayer.setVolume(50)
+        } else if (playerType == 'soundcloud'){
+            shoutcastPlayer.play();
+            shoutcastPlayer.setVolume(50)
+        }
         if (shoutCastTimeout) {
             clearTimeout(shoutCastTimeout);
             console.log('Shoutcast timeout reset');
@@ -311,13 +327,6 @@ window.Template.Controllers.CastController = function (element) {
              }, 10000);*/
         }
         console.log(playerType, 'playerReady');
-        castPlayer.setVolume(50);
-        if (castPlayer.playVideo) {
-            castPlayer.playVideo()
-        } else if (castPlayer.play) {
-            castPlayer.play();
-        }
-        castContainer.addClass('initialized');
     }
 
     function onPlayerStateChange(event) {
