@@ -210,7 +210,7 @@ window.Template.Controllers.CastController = function (element) {
                     }
                 } else {
                     console.log('unmute and play');
-                    youtubePlayer.unmute();
+                    youtubePlayer.unMute();
                 }
             } else {
                 onPlayerError();
