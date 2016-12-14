@@ -271,6 +271,7 @@ window.Template.Controllers.CastController = function (element) {
             } else if (playerType == 'shoutcast' && shoutCastUrl) {
                 console.log('shoutcast failed');
                 console.log('loading youtube');
+                if (youtubePlayer)
                 //initYoutubeStream();
             }
             else {
