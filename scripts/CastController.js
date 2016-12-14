@@ -262,11 +262,6 @@ window.Template.Controllers.CastController = function (element) {
         retry++;
         console.log(retry, playerType, shoutCastUrl, videoId);
         castContainer.removeClass('initialized');
-        if (shoutCastStatusInterval) {
-            clearInterval(shoutCastStatusInterval);
-            console.log('Shoutcast status reset');
-            shoutCastStatusInterval = null;
-        }
         if (retry < maxRetry) {
             if (playerType == 'youtube' && videoId) {
                 console.log('youtube failed');
