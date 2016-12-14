@@ -229,7 +229,7 @@ window.Template.Controllers.CastController = function (element) {
             }
             console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
         }
-        if(playerType){
+        if(!playerType){
 
         }
     }
