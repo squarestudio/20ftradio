@@ -81,6 +81,7 @@ window.Template.Controllers.CastController = function (element) {
     function initYoutubeStream() {
         if (videoId) {
             console.log('init youtube');
+            castContainer.prepend('<div id="youtubePlayer" class="stream-player"></div>');
             if (!window.YT) {
                 var tag = document.createElement('script');
                 tag.src = "//www.youtube.com/iframe_api";
@@ -224,7 +225,7 @@ window.Template.Controllers.CastController = function (element) {
     function initShoutCast() {
         console.log('shoutcast');
         playerType = 'shoutcast';
-        shoutcastPlayer = Y.one('#shoutcastPlayer'),
+        shoutcastPlayer = Y.one('#shoutcastPlayer')._node,
         shoutcastPlayer && shoutcastPlayer.destroy && shoutcastPlayer.destroy();
         Y.one('#shoutcastPlayer').remove();
         shoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" class="hidden" playsinline autoplay="1" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
