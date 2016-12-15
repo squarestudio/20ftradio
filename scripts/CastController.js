@@ -62,7 +62,7 @@ window.Template.Controllers.CastController = function (element) {
                 'onReady': function () {
                     onPlayerReady('youtube')
                 },
-                'onStateChange': onPlayerStateChange,
+                'onStateChange': onPlayerStateChange('youtube'),
                 'onError': onYoutubeError
             }
         });
@@ -419,26 +419,15 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onPlayerStateChange(playerType) {
-        console.log(playerType)
-        if (playerType !== null && typeof playerType === 'string') {
-
-        }
         if (playerType == 'youtube') {
-
-        } else if (playerType == 'shoutcast') {
-
-        } else if (playerType == 'soundcloud') {
-
-        }
-        if (event.data) {
-            if (event.data == YT.PlayerState.PLAYING) {
+            if (youtubePlayer.getPlayerState() == YT.PlayerState.PLAYING) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                 !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
-            } else if (event.data == YT.PlayerState.PAUSED) {
+            } else if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
-        } else if (event.target) {
-            if (!event.target.paused) {
+        } else if (playerType == 'shoutcast') {
+            if (!shoutcastPlayer.paused) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                 !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
             } else {
@@ -446,14 +435,13 @@ window.Template.Controllers.CastController = function (element) {
             }
         } else if (playerType == 'soundcloud') {
             soundCloudPlayer.isPaused(function (paused) {
-                console.log(paused);
                 if (!paused) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                     !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
                 } else {
                     sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
                 }
-            })
+            }
         }
     }
 
