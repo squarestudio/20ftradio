@@ -420,7 +420,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function onPlayerStateChange(playerType) {
         console.log(playerType)
-        if 
+        if (playerType)
         if (playerType == 'youtube') {
 
         } else if (playerType == 'shoutcast') {
