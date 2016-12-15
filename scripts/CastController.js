@@ -10,7 +10,7 @@ window.Template.Controllers.CastController = function (element) {
         maxRetry = 5,
         userPaused,
         playerType = 'youtube',
-        checkingTime = 2000,
+        checkingTime = 1000,
         streamCheckInterval,
         youtubePlayer = null,
         shoutcastPlayer = null,
