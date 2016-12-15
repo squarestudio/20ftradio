@@ -272,7 +272,7 @@ window.Template.Controllers.CastController = function (element) {
                         activePlayer = 'shoutcast';
                         pausePlayersExept('shoutcast');
                     } else {
-                        shoutcastPlayer.load();
+                        //shoutcastPlayer.load();
                         activePlayer = null;
                     }
                 } else {
@@ -360,47 +360,6 @@ window.Template.Controllers.CastController = function (element) {
 
     function onYoutubeError(event) {
         console.log('youtube error');
-        /*        retry++;
-         var castType = '';
-         if (event) {
-         if (event.data || event.target && event.target.shoutcastPlayer) {
-         castType = 'youtube';
-         } else if (1) {
-
-         }
-         }
-         console.log('Cast Type = ' + castType);
-         console.log(retry, playerType, event);
-         castContainer.removeClass('initialized');
-         if (retry < maxRetry) {
-         if (playerType == 'youtube' && videoId) {
-         console.log('youtube failed');
-         console.log('loading shoutcast');
-         if (shoutcastPlayer) {
-         shoutcastPlayer.load()
-         } else {
-         initShoutCast();
-         }
-         } else if (playerType == 'shoutcast' && shoutCastUrl) {
-         console.log('shoutcast failed');
-         console.log('loading youtube');
-         if (youtubePlayer) {
-         youtubePlayer.playVideo();
-         } else {
-         initYoutubeStream();
-         }
-         }
-         else {
-         console.log('Seems no data to work now');
-         }
-         } else if (retry == maxRetry) {
-         if (soundCloudUrl) {
-         console.log('Trying soundcloud');
-         initSoundCloud();
-         }
-         } else {
-         console.log('Seems no one stream working');
-         }*/
     }
 
     function onPlayerReady(playerType) {
