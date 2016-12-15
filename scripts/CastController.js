@@ -45,7 +45,6 @@ window.Template.Controllers.CastController = function (element) {
             videoId = 'live_stream';
             console.log(videoId, channel)
         }
-        playerType = 'youtube';
         youtubePlayer = new YT.Player('youtubePlayer', {
             height: '720',
             width: '1280',
