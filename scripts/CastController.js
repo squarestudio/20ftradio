@@ -186,7 +186,7 @@ window.Template.Controllers.CastController = function (element) {
                     }
                 } else {
                     if (activePlayer) {
-                        players[activePlayer].mute();
+                        players[activePlayer].setVolume(0);
                         volumeControl.set('value', 0);
                         volumeIcon._node.className = 'icono-volumeMute';
                     }
