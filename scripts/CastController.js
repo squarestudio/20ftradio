@@ -284,11 +284,10 @@ window.Template.Controllers.CastController = function (element) {
                             soundCloudPlayer.play();
                             soundCloudPlayer.setVolume(50);
                             activePlayer = 'soundcloud';
-                        } else {
-                            activePlayer = 'soundcloud';
                         }
                     });
                     pausePlayersExept('soundcloud');
+                    activePlayer = 'soundcloud';
                 } else {
                     initSoundCloud();
                 }
