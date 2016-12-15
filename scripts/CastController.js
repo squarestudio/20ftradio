@@ -218,7 +218,7 @@ window.Template.Controllers.CastController = function (element) {
         playerType = playerType || false;
         for (var player in players) {
             if (players.hasOwnProperty(player) && player !== playerType) {
-                console.log(player+': PLAYER TYPE')
+                console.log(player+': Paused');
                 if(players[player].pauseVideo){players[player].pauseVideo()}
                 if(players[player].pause){players[player].pause()}
             }
