@@ -10,7 +10,7 @@ window.Template.Controllers.CastController = function (element) {
         maxRetry = 5,
         userPaused,
         players={},
-        playerType = 'youtube',
+        activePlayer = null,
         checkingTime = 10000,
         streamCheckInterval,
         youtubePlayer = null,
@@ -217,12 +217,11 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function checkStreams() {
-        playerType = null;
         if (!userPaused) {
             if (youtubePlayer) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
-                    playerType = 'youtube';
+                    activePlayer = 'youtube';
                     if (state > 1) {//paused or buffering
                         youtubePlayer.playVideo();
                         shoutcastPlayer && shoutcastPlayer.pause();
