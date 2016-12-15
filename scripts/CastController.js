@@ -315,7 +315,7 @@ window.Template.Controllers.CastController = function (element) {
         castContainer.append(shoutcastPlayer);
         shoutcastPlayer = shoutcastPlayer._node;
         shoutcastPlayer.addEventListener('canplaythrough', function () {
-            onPlayerReady('shoutcast');
+            onPlayerReady('soundcloud')
         });
         shoutcastPlayer.addEventListener('play', onPlayerStateChange);
         shoutcastPlayer.addEventListener('pause', onPlayerStateChange);
@@ -379,7 +379,6 @@ window.Template.Controllers.CastController = function (element) {
         if (playerType == 'youtube'){
             youtubePlayer.setVolume(50);
             youtubePlayer.playVideo();
-            castContainer.addClass('initialized');
         }
         console.log(playerType, 'playerReady');
     }
