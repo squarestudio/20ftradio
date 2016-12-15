@@ -266,6 +266,7 @@ window.Template.Controllers.CastController = function (element) {
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (retry>2){
+                console.log('try another players')
                 if (!activePlayer) {
                     if (shoutcastPlayer) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
