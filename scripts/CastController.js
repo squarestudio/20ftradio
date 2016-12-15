@@ -337,11 +337,11 @@ window.Template.Controllers.CastController = function (element) {
         players['shoutcast'] = shoutcastPlayer;
     }
 
-    function onShoutCastError() {
+    function onShoutCastError(e) {
         console.log('shoutcast failed');
     }
 
-    function onSoundCloudError() {
+    function onSoundCloudError(e) {
         console.log('soundcloud error')
     }
 
