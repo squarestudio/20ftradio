@@ -216,10 +216,11 @@ window.Template.Controllers.CastController = function (element) {
         }
     }
     function pausePlayersExept(playerType) {
-        if(playerType){
-
-        } else {
-            
+        for (var player in players) {
+            if (players.hasOwnProperty(player)) {
+                if(player.pauseVideo){player.pauseVideo()}
+                if(player.pause){player.pause()}
+            }
         }
     }
     function checkStreams() {
