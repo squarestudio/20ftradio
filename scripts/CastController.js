@@ -427,6 +427,7 @@ window.Template.Controllers.CastController = function (element) {
                 } else if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) {
                     sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
                 }
+                checkStreams();
             }
         } else if (playerType == 'shoutcast') {
             if (!shoutcastPlayer.paused) {
@@ -435,6 +436,7 @@ window.Template.Controllers.CastController = function (element) {
             } else {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
+            checkStreams();
         } else if (playerType == 'soundcloud') {
             soundCloudPlayer.isPaused(function (paused) {
                 if (!paused) {
@@ -443,7 +445,8 @@ window.Template.Controllers.CastController = function (element) {
                 } else {
                     sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
                 }
-            })
+            });
+            checkStreams();
         }
     }
 
