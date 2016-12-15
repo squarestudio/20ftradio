@@ -240,7 +240,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
-            console.log(playerType)
+            console.log(playerType);
             if(!playerType){
                 if(shoutcastPlayer){
                     state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
@@ -257,7 +257,7 @@ window.Template.Controllers.CastController = function (element) {
                     initShoutCast();
                 }
             }
-            console.log(playerType)
+            console.log(playerType);
             if(!playerType){
                 if(soundCloudPlayer){
                     soundCloudPlayer.isPaused(function (paused) {
