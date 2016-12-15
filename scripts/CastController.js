@@ -420,7 +420,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function onPlayerStateChange(playerType) {
         if (playerType == 'youtube') {
-            if(youtubePlayer.getPlayerState){
+            if(youtubePlayer && youtubePlayer.getPlayerState){
                 if (youtubePlayer.getPlayerState() == YT.PlayerState.PLAYING) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                     !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
