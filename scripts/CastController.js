@@ -250,11 +250,12 @@ window.Template.Controllers.CastController = function (element) {
                     if (state > 1) {//paused or buffering
                         youtubePlayer.playVideo();
                         pausePlayersExept('youtube');
+                        onPlayerStateChange('youtube');
                         if (state == 3) {//buffering
-                            console.log('mute while buffer');
+                            console.log('youtube buffering');
                         }
                     } else {
-                        console.log('unmute and play');
+                        console.log('try to play youtube');
                         youtubePlayer.playVideo();
                         retry = 0;
                     }
