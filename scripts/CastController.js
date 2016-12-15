@@ -441,7 +441,7 @@ window.Template.Controllers.CastController = function (element) {
                 } else {
                     sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
                 }
-            }
+            })
         }
     }
 
