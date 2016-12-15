@@ -180,7 +180,11 @@ window.Template.Controllers.CastController = function (element) {
                 console.log('volume' + activePlayer);
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
                     if (activePlayer) {
-                        players[activePlayer].setVolume(50);
+                        if(activePlayer == 'soundcloud'){
+                            players[activePlayer].setVolume(0.5);
+                        } else {
+                            players[activePlayer].setVolume(50);
+                        }
                         volumeControl.set('value', 50);
                         volumeIcon._node.className = 'icono-volumeMedium';
                     }
@@ -206,7 +210,11 @@ window.Template.Controllers.CastController = function (element) {
                 volumeIcon._node.className = 'icono-volumeMute';
             }
             if (activePlayer) {
-                players[activePlayer].setVolume(volume/100);
+                if(activePlayer == 'soundcloud'){
+                    players[activePlayer].setVolume(volume/100);
+                } else {
+                    players[activePlayer].setVolume(volume);
+                }
             }
         });
         if (videoId) {
