@@ -62,7 +62,9 @@ window.Template.Controllers.CastController = function (element) {
                 'onReady': function () {
                     onPlayerReady('youtube')
                 },
-                'onStateChange': function(){onPlayerStateChange('youtube')},
+                'onStateChange': function () {
+                    onPlayerStateChange('youtube')
+                },
                 'onError': onYoutubeError
             }
         });
@@ -225,7 +227,7 @@ window.Template.Controllers.CastController = function (element) {
                 if (players[player].pauseVideo) {
                     players[player].pauseVideo()
                 } else if (players[player].pause) {
-                    if (player == 'soundcloud'){
+                    if (player == 'soundcloud') {
                         players[player].isPaused(function (paused) {
                             if (!paused) {
                                 soundCloudPlayer.pause()
@@ -265,19 +267,19 @@ window.Template.Controllers.CastController = function (element) {
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
-            if (retry>2){
-                console.log('try another players')
+            if (retry > 2) {
+                console.log('try another players');
                 if (!activePlayer) {
                     if (shoutcastPlayer) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                         console.log(state, shoutcastPlayer.duration, shoutcastPlayer.networkState);
-                        if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState < 3) {
+                        if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3) {
                             shoutcastPlayer.play();
                             shoutcastPlayer.muted && shoutcastPlayer.unMute();
                             activePlayer = 'shoutcast';
                             pausePlayersExept('shoutcast');
                         } else {
-                            //shoutcastPlayer.load();
+                            shoutcastPlayer.load();
                             activePlayer = null;
                         }
                     } else {
@@ -386,7 +388,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function onPlayerStateChange(playerType) {
         if (playerType == 'youtube') {
-            if(youtubePlayer && youtubePlayer.getPlayerState){
+            if (youtubePlayer && youtubePlayer.getPlayerState) {
                 if (youtubePlayer.getPlayerState() == YT.PlayerState.PLAYING) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                     !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
