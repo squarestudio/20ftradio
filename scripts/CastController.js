@@ -215,69 +215,71 @@ window.Template.Controllers.CastController = function (element) {
 
     function checkStreams() {
         playerType = null;
-        if (youtubePlayer){
-            var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-            if (youtubePlayer.getDuration && youtubePlayer.getDuration()){
-                playerType = 'youtube';
-                if(state > 1 ){//paused or buffering
-                    youtubePlayer.playVideo();
-                    shoutcastPlayer && shoutcastPlayer.pause();
-                    soundCloudPlayer&& soundCloudPlayer.pause();
-                    if(state == 3){//buffering
-                        youtubePlayer.mute();
-                        console.log('mute while buffer');
+        if(!userPaused){
+            if (youtubePlayer){
+                var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
+                if (youtubePlayer.getDuration && youtubePlayer.getDuration()){
+                    playerType = 'youtube';
+                    if(state > 1 ){//paused or buffering
+                        youtubePlayer.playVideo();
+                        shoutcastPlayer && shoutcastPlayer.pause();
+                        soundCloudPlayer&& soundCloudPlayer.pause();
+                        if(state == 3){//buffering
+                            youtubePlayer.mute();
+                            console.log('mute while buffer');
+                        }
+                    } else {
+                        console.log('unmute and play');
+                        youtubePlayer.unMute();
                     }
-                } else {
-                    console.log('unmute and play');
-                    youtubePlayer.unMute();
-                }
-            } else {//no duration
-                youtubePlayer.mute();
-                console.log('mute while no youtube data');
-                playerType = null;
-            }
-            console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
-        }
-        console.log(playerType)
-        if(!playerType){
-            if(shoutcastPlayer){
-                state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                console.log(state, shoutcastPlayer.duration, shoutcastPlayer.networkState);
-                if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState<3){
-                    console.log('here')
-                    shoutcastPlayer.play();
-                    shoutcastPlayer.muted && shoutcastPlayer.unMute();
-                    playerType = 'shoutcast'
-                } else {
+                } else {//no duration
+                    youtubePlayer.mute();
+                    console.log('mute while no youtube data');
                     playerType = null;
                 }
-            } else {
-                initShoutCast();
+                console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
-        }
-        console.log(playerType)
-        if(!playerType){
-            if(soundCloudPlayer){
-                soundCloudPlayer.isPaused(function (paused) {
-                    if (paused){
-                        soundCloudPlayer.play();
-                        soundCloudPlayer.setVolume(50);
-                        playerType = 'soundcloud';
+            console.log(playerType)
+            if(!playerType){
+                if(shoutcastPlayer){
+                    state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
+                    console.log(state, shoutcastPlayer.duration, shoutcastPlayer.networkState);
+                    if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState<3){
+                        console.log('here')
+                        shoutcastPlayer.play();
+                        shoutcastPlayer.muted && shoutcastPlayer.unMute();
+                        playerType = 'shoutcast'
+                    } else {
+                        playerType = null;
                     }
-                });
-                if (youtubePlayer){
-                    youtubePlayer.pauseVideo();
-                    youtubePlayer.mute();
+                } else {
+                    initShoutCast();
                 }
-                if (shoutcastPlayer){
-                    !shoutcastPlayer.paused && shoutcastPlayer.pause();
-                    !shoutcastPlayer.muted && shoutcastPlayer.mute();
-                }
-            } else {
-                initSoundCloud();
             }
+            console.log(playerType)
+            if(!playerType){
+                if(soundCloudPlayer){
+                    soundCloudPlayer.isPaused(function (paused) {
+                        if (paused){
+                            soundCloudPlayer.play();
+                            soundCloudPlayer.setVolume(50);
+                            playerType = 'soundcloud';
+                        }
+                    });
+                    if (youtubePlayer){
+                        youtubePlayer.pauseVideo();
+                        youtubePlayer.mute();
+                    }
+                    if (shoutcastPlayer){
+                        !shoutcastPlayer.paused && shoutcastPlayer.pause();
+                        !shoutcastPlayer.muted && shoutcastPlayer.mute();
+                    }
+                } else {
+                    initSoundCloud();
+                }
+            }
+            console.log(playerType)
         }
-        console.log(playerType)
     }
 
     function initSoundCloud() {
