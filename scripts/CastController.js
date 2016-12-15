@@ -266,6 +266,10 @@ window.Template.Controllers.CastController = function (element) {
                         pausePlayersExept('youtube');
                         onPlayerStateChange('youtube');
                         retry = 0;
+                        activePlayer = null;
+                        if(state == -1){
+                            retry = 3;
+                        }
                     }
                 } else {//no duration
                     youtubePlayer.playVideo();
