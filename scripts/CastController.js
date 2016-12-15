@@ -256,7 +256,7 @@ window.Template.Controllers.CastController = function (element) {
                         }
                     } else {
                         console.log('try to play youtube');
-                        if(youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) youtubePlayer.playVideo();
+                        if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) youtubePlayer.playVideo();
                         pausePlayersExept('youtube');
                         onPlayerStateChange('youtube');
                         retry = 0;
@@ -311,11 +311,13 @@ window.Template.Controllers.CastController = function (element) {
             setActivePlayer(activePlayer);
         }
     }
+
     function setActivePlayer(active) {
-        if (active == 'youtube'){
-            castContainer.one('#youtubePlayer')&&castContainer.one('#youtubePlayer').addClass('active-player');
+        if (active == 'youtube') {
+            castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').addClass('active-player');
         }
     }
+
     function initSoundCloud() {
         if (soundCloudUrl) {
             console.log('soundcloud loading');
