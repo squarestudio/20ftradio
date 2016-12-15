@@ -51,11 +51,11 @@ window.Template.Controllers.CastController = function (element) {
             width: '1280',
             videoId: videoId,
             playerVars: {
-                'autoplay': 1,
-                'controls': 1,
-                'modestbranding': 1,
+                'autoplay': 0,
+                'controls': 0,
+                'modestbranding': 0,
                 'rel': 0,
-                'showinfo': 1,
+                'showinfo': 0,
                 'channel': channel || '',
                 'fs': 0
             },
@@ -389,12 +389,13 @@ window.Template.Controllers.CastController = function (element) {
         }
     }
 
-    function onPlayerReady(event) {
+    function onPlayerReady(playerType) {
         if (playerType == 'youtube') {
             youtubePlayer.setVolume(50);
             youtubePlayer.playVideo();
         }
         console.log(playerType, 'playerReady');
+        castContainer.addClass('initialized');
     }
 
     function onPlayerStateChange(event) {
