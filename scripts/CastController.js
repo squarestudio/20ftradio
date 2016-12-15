@@ -234,7 +234,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function checkStreams() {
         if (!userPaused) {
-            console.log("ACTIVE PLAYER = "+activePlayer);
+            console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
@@ -256,7 +256,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
-            console.log("ACTIVE PLAYER = "+activePlayer);
+            console.log("ACTIVE PLAYER = " + activePlayer);
             if (!activePlayer) {
                 if (shoutcastPlayer) {
                     state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
@@ -274,7 +274,7 @@ window.Template.Controllers.CastController = function (element) {
                     initShoutCast();
                 }
             }
-            console.log("ACTIVE PLAYER = "+activePlayer);
+            console.log("ACTIVE PLAYER = " + activePlayer);
             if (!activePlayer) {
                 if (soundCloudPlayer) {
                     soundCloudPlayer.isPaused(function (paused) {
@@ -291,7 +291,7 @@ window.Template.Controllers.CastController = function (element) {
                     initSoundCloud();
                 }
             }
-            console.log("ACTIVE PLAYER = "+activePlayer);
+            console.log("ACTIVE PLAYER = " + activePlayer);
         }
     }
 
