@@ -245,12 +245,11 @@ window.Template.Controllers.CastController = function (element) {
                 } else {//no duration
                     youtubePlayer.mute();
                     console.log('mute while no youtube data');
-                    playerType = null;
                 }
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
-            console.log(playerType);
-            if (!playerType) {
+            console.log(activePlayer);
+            if (!activePlayer) {
                 if (shoutcastPlayer) {
                     state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                     console.log(state, shoutcastPlayer.duration, shoutcastPlayer.networkState);
@@ -258,22 +257,22 @@ window.Template.Controllers.CastController = function (element) {
                         console.log('here')
                         shoutcastPlayer.play();
                         shoutcastPlayer.muted && shoutcastPlayer.unMute();
-                        playerType = 'shoutcast'
+                        activePlayer = 'shoutcast'
                     } else {
-                        playerType = null;
+                        activePlayer = null;
                     }
                 } else {
                     initShoutCast();
                 }
             }
-            console.log(playerType);
-            if (!playerType) {
+            console.log(activePlayer);
+            if (!activePlayer) {
                 if (soundCloudPlayer) {
                     soundCloudPlayer.isPaused(function (paused) {
                         if (paused) {
                             soundCloudPlayer.play();
                             soundCloudPlayer.setVolume(50);
-                            playerType = 'soundcloud';
+                            activePlayer = 'soundcloud';
                         }
                     });
                     if (youtubePlayer) {
@@ -288,7 +287,7 @@ window.Template.Controllers.CastController = function (element) {
                     initSoundCloud();
                 }
             }
-            console.log(playerType)
+            console.log(activePlayer)
         }
     }
 
