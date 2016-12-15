@@ -308,9 +308,16 @@ window.Template.Controllers.CastController = function (element) {
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
             }
+            setActivePlayer(activePlayer);
         }
     }
-
+    function setActivePlayer(active) {
+        if(players[active]){
+            if (active == 'youtube'){
+                
+            }
+        }
+    }
     function initSoundCloud() {
         if (soundCloudUrl) {
             console.log('soundcloud loading');
