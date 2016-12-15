@@ -312,10 +312,8 @@ window.Template.Controllers.CastController = function (element) {
         }
     }
     function setActivePlayer(active) {
-        if(players[active]){
-            if (active == 'youtube'){
-                castContainer.one('#youtubePlayer').addClass('active-player')
-            }
+        if (active == 'youtube'){
+            castContainer.one('#youtubePlayer')&&castContainer.one('#youtubePlayer').addClass('active-player');
         }
     }
     function initSoundCloud() {
