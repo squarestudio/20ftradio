@@ -238,6 +238,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function checkStreams() {
+        retry++;
         if (!userPaused) {
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer) {
@@ -255,7 +256,7 @@ window.Template.Controllers.CastController = function (element) {
                         youtubePlayer.playVideo();
                     }
                 } else {//no duration
-                    //youtubePlayer.playVideo();
+                    youtubePlayer.playVideo();
                     console.log('mute while no youtube data');
                     activePlayer = null;
                 }
