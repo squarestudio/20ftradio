@@ -210,6 +210,7 @@ window.Template.Controllers.CastController = function (element) {
             streamCheckInterval = setInterval(function () {
                 checkStreams();
             }, checkingTime);
+            console.log(streamCheckInterval)
         }
     }
 
