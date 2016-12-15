@@ -408,6 +408,7 @@ window.Template.Controllers.CastController = function (element) {
             soundCloudPlayer.play();
             soundCloudPlayer.setVolume('50');
         }
+        checkStreams();
         console.log(playerType, 'playerReady');
         castContainer.addClass('initialized');
     }
