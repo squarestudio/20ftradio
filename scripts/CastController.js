@@ -265,7 +265,8 @@ window.Template.Controllers.CastController = function (element) {
                         console.log('here')
                         shoutcastPlayer.play();
                         shoutcastPlayer.muted && shoutcastPlayer.unMute();
-                        activePlayer = 'shoutcast'
+                        activePlayer = 'shoutcast';
+                        pausePlayersExept('shoutcast');
                     } else {
                         activePlayer = null;
                     }
@@ -285,14 +286,7 @@ window.Template.Controllers.CastController = function (element) {
                             activePlayer = 'soundcloud';
                         }
                     });
-                    if (youtubePlayer) {
-                        youtubePlayer.pauseVideo();
-                        youtubePlayer.mute();
-                    }
-                    if (shoutcastPlayer) {
-                        !shoutcastPlayer.paused && shoutcastPlayer.pause();
-                        !shoutcastPlayer.muted && shoutcastPlayer.mute();
-                    }
+                    pausePlayersExept('soundcloud');
                 } else {
                     initSoundCloud();
                 }
