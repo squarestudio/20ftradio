@@ -279,6 +279,7 @@ window.Template.Controllers.CastController = function (element) {
                             shoutcastPlayer.muted && shoutcastPlayer.unMute();
                             activePlayer = 'shoutcast';
                             pausePlayersExept('shoutcast');
+                            onPlayerStateChange('shoutcast');
                         } else {
                             shoutcastPlayer.load();
                             activePlayer = null;
@@ -294,6 +295,7 @@ window.Template.Controllers.CastController = function (element) {
                             if (paused) {
                                 soundCloudPlayer.play();
                                 activePlayer = 'soundcloud';
+                                onPlayerStateChange('soundcloud');
                             }
                         });
                         pausePlayersExept('soundcloud');
