@@ -149,7 +149,7 @@ window.Template.Controllers.CastController = function (element) {
                     userPaused = false;
                 }
             } else if (activePlayer == 'shoutcast') {
-                state = castPlayer.getPlayerState();
+                state = shoutcastPlayer.getPlayerState();
                 if (state) {
                     shoutcastPlayer.playVideo();
                     userPaused = false;
