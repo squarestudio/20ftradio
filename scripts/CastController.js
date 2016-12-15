@@ -225,11 +225,13 @@ window.Template.Controllers.CastController = function (element) {
                 if (players[player].pauseVideo) {
                     players[player].pauseVideo()
                 } else if (players[player].pause) {
-                    players[player].isPaused(function (paused) {
-                        if (!paused) {
-                            players[player].pause()
-                        }
-                    });
+                    if (player == 'soundcloud'){
+                        players[player].isPaused(function (paused) {
+                            if (!paused) {
+                                soundCloudPlayer.pause()
+                            }
+                        });
+                    }
                 }
             }
         }
