@@ -264,12 +264,12 @@ window.Template.Controllers.CastController = function (element) {
                     state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                     console.log(state, shoutcastPlayer.duration, shoutcastPlayer.networkState);
                     if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState < 3) {
-                        console.log('here')
                         shoutcastPlayer.play();
                         shoutcastPlayer.muted && shoutcastPlayer.unMute();
                         activePlayer = 'shoutcast';
                         pausePlayersExept('shoutcast');
                     } else {
+                        shoutcastPlayer.load();
                         activePlayer = null;
                     }
                 } else {
@@ -282,7 +282,6 @@ window.Template.Controllers.CastController = function (element) {
                     soundCloudPlayer.isPaused(function (paused) {
                         if (paused) {
                             soundCloudPlayer.play();
-                            soundCloudPlayer.setVolume(50);
                             activePlayer = 'soundcloud';
                         }
                     });
