@@ -258,6 +258,7 @@ window.Template.Controllers.CastController = function (element) {
                         if (state == 3) {//buffering
                             console.log('youtube buffering');
                             retry = 0;
+                            activePlayer = null;
                         }
                     } else {
                         console.log('try to play youtube');
