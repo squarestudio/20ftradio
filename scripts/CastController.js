@@ -62,7 +62,7 @@ window.Template.Controllers.CastController = function (element) {
             events: {
                 'onReady': function(){onPlayerReady('youtube')},
                 'onStateChange': onPlayerStateChange,
-                'onError': onPlayerError
+                'onError': onYoutubeError
             }
         });
         players['youtube'] = youtubePlayer;
@@ -87,7 +87,7 @@ window.Template.Controllers.CastController = function (element) {
             };
         } else {
             console.log("No data to init youtube");
-            onPlayerError();
+            onYoutubeError();
         }
     }
 
@@ -346,8 +346,9 @@ window.Template.Controllers.CastController = function (element) {
         console.log('soundcloud error')
     }
 
-    function onPlayerError(event) {
-        retry++;
+    function onYoutubeError(event) {
+        console.log('youtube error');
+/*        retry++;
         var castType = '';
         if (event) {
             if (event.data || event.target && event.target.shoutcastPlayer) {
@@ -387,7 +388,7 @@ window.Template.Controllers.CastController = function (element) {
             }
         } else {
             console.log('Seems no one stream working');
-        }
+        }*/
     }
 
     function onPlayerReady(playerType) {
