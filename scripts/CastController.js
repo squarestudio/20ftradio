@@ -215,8 +215,12 @@ window.Template.Controllers.CastController = function (element) {
             console.log(streamCheckInterval)
         }
     }
-    function pausePlayersExept() {
-        
+    function pausePlayersExept(playerType) {
+        if(playerType){
+
+        } else {
+            
+        }
     }
     function checkStreams() {
         if (!userPaused) {
