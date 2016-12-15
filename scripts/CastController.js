@@ -398,6 +398,9 @@ window.Template.Controllers.CastController = function (element) {
         } else if(playerType == 'shoutcast'){
             shoutcastPlayer.play();
             shoutcastPlayer.setVolume(50);
+        } else if (playerType == 'soundcloud'){
+            soundCloudPlayer.play();
+            soundCloudPlayer.setVolume('50');
         }
         console.log(playerType, 'playerReady');
         castContainer.addClass('initialized');
