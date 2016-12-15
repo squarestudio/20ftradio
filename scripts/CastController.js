@@ -155,12 +155,12 @@ window.Template.Controllers.CastController = function (element) {
                     userPaused = true;
                 }
             } else {
-                castPlayer.isPaused(function (state) {
+                soundCloudPlayer.isPaused(function (state) {
                     if (state) {
-                        castPlayer.play();
+                        soundCloudPlayer.play();
                         userPaused = false;
                     } else {
-                        castPlayer.pause();
+                        soundCloudPlayer.pause();
                         userPaused = true;
                     }
                 })
