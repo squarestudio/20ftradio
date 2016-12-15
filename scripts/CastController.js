@@ -224,9 +224,12 @@ window.Template.Controllers.CastController = function (element) {
                 console.log(player + ': Paused');
                 if (players[player].pauseVideo) {
                     players[player].pauseVideo()
-                }
-                if (players[player].pause) {
-                    players[player].pause()
+                } else if (players[player].pause) {
+                    players[player].isPaused(function (paused) {
+                        if (!paused) {
+                            players[player].pause()
+                        }
+                    });
                 }
             }
         }
