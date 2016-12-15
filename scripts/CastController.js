@@ -420,11 +420,13 @@ window.Template.Controllers.CastController = function (element) {
 
     function onPlayerStateChange(playerType) {
         if (playerType == 'youtube') {
-            if (youtubePlayer.getPlayerState() == YT.PlayerState.PLAYING) {
-                sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
-                !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
-            } else if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) {
-                sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
+            if(youtubePlayer.getPlayerState){
+                if (youtubePlayer.getPlayerState() == YT.PlayerState.PLAYING) {
+                    sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
+                    !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+                } else if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) {
+                    sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
+                }
             }
         } else if (playerType == 'shoutcast') {
             if (!shoutcastPlayer.paused) {
