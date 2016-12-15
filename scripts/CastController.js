@@ -258,7 +258,7 @@ window.Template.Controllers.CastController = function (element) {
                         if (state == 3) {//buffering
                             console.log('youtube buffering', retry);
                             setTimeout(function () {
-                                if(youtubePlayer.getPlayerState()==3){retry =3; activePlayer = null;}
+                                if(youtubePlayer.getPlayerState()==3){retry =3; activePlayer = null; console.log('need try another players')}
                             }, 4000);
                         }
                     } else {
