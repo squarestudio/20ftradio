@@ -411,7 +411,7 @@ window.Template.Controllers.CastController = function (element) {
             shoutcastPlayer.setVolume(50);
         } else if (playerType == 'soundcloud') {
             soundCloudPlayer.play();
-            soundCloudPlayer.setVolume('50');
+            soundCloudPlayer.setVolume(50);
         }
         checkStreams();
         console.log(playerType, 'playerReady');
