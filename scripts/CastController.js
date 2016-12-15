@@ -254,6 +254,7 @@ window.Template.Controllers.CastController = function (element) {
                     } else {
                         console.log('unmute and play');
                         youtubePlayer.playVideo();
+                        retry = 0;
                     }
                 } else {//no duration
                     youtubePlayer.playVideo();
