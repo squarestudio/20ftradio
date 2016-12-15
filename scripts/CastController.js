@@ -243,16 +243,13 @@ window.Template.Controllers.CastController = function (element) {
                         youtubePlayer.playVideo();
                         pausePlayersExept('youtube');
                         if (state == 3) {//buffering
-                            youtubePlayer.mute();
                             console.log('mute while buffer');
                         }
                     } else {
                         console.log('unmute and play');
-                        youtubePlayer.unMute();
                         youtubePlayer.playVideo();
                     }
                 } else {//no duration
-                    youtubePlayer.mute();
                     youtubePlayer.playVideo();
                     console.log('mute while no youtube data');
                     activePlayer = null;
