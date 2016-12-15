@@ -305,6 +305,7 @@ window.Template.Controllers.CastController = function (element) {
                     onPlayerStateChange('soundcloud', 'pause')
                 });
                 soundCloudPlayer.bind(SC.Widget.Events.FINISH, onSoundCloudError());
+                players['soundcloud'] = soundCloudPlayer;
             }
         } else {
             console.log('no SoundCloud url')
@@ -319,7 +320,6 @@ window.Template.Controllers.CastController = function (element) {
         }
         castContainer.append(shoutcastPlayer);
         shoutcastPlayer = shoutcastPlayer._node;
-        players['shoutcast'] = shoutcastPlayer;
         shoutcastPlayer.addEventListener('canplaythrough', function () {
             onPlayerReady('shoutcast');
         });
@@ -334,6 +334,7 @@ window.Template.Controllers.CastController = function (element) {
         shoutcastPlayer.addEventListener('stalled', onShoutCastError);
         shoutcastPlayer.addEventListener('suspend', onShoutCastError);
         shoutcastPlayer.addEventListener('emptied', onShoutCastError);
+        players['shoutcast'] = shoutcastPlayer;
     }
 
     function onShoutCastError() {
