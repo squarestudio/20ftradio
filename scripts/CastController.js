@@ -294,7 +294,6 @@ window.Template.Controllers.CastController = function (element) {
     function initSoundCloud() {
         if (soundCloudUrl) {
             console.log('soundcloud loading');
-            playerType = 'soundcloud';
             if (soundCloudPlayer) {
                 soundCloudPlayer.play();
             } else {
