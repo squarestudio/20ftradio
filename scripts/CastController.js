@@ -446,7 +446,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
             });
         }
-        checkStreams();
+
     }
 
     function getCollectionItems(collection_url) {
