@@ -305,7 +305,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initShoutCast() {
-        console.log('shoutcast');
+        console.log('shoutcast starting');
         shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
         if (!shoutcastPlayer){
             shoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" class="hidden" playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
@@ -315,13 +315,18 @@ window.Template.Controllers.CastController = function (element) {
         shoutcastPlayer.addEventListener('canplaythrough', onPlayerReady);
         shoutcastPlayer.addEventListener('play', onPlayerStateChange);
         shoutcastPlayer.addEventListener('pause', onPlayerStateChange);
-        shoutcastPlayer.addEventListener('error', onPlayerError);
-        shoutcastPlayer.addEventListener('abort', onPlayerError);
-        shoutcastPlayer.addEventListener('stalled', onPlayerError);
-        shoutcastPlayer.addEventListener('suspend', onPlayerError);
-        shoutcastPlayer.addEventListener('emptied', onPlayerError);
+        shoutcastPlayer.addEventListener('error', onShoutCastError);
+        shoutcastPlayer.addEventListener('abort', onShoutCastError);
+        shoutcastPlayer.addEventListener('stalled', onShoutCastError);
+        shoutcastPlayer.addEventListener('suspend', onShoutCastError);
+        shoutcastPlayer.addEventListener('emptied', onShoutCastError);
     }
-
+    function onShoutCastError() {
+        console.log('shoutcast failed');
+    }
+    function onSoundCloudError() {
+        console.log('soundcloud error')
+    }
     function onPlayerError(event) {
         retry++;
         var castType = '';
