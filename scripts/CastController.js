@@ -11,7 +11,7 @@ window.Template.Controllers.CastController = function (element) {
         userPaused,
         players = {},
         activePlayer = null,
-        checkingTime = 10000,
+        checkingTime = 2000,
         streamCheckInterval,
         youtubePlayer = null,
         shoutcastPlayer = null,
