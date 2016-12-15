@@ -60,11 +60,12 @@ window.Template.Controllers.CastController = function (element) {
                 'fs': 0
             },
             events: {
-                'onReady': onPlayerReady,
+                'onReady': function(){onPlayerReady('youtube')},
                 'onStateChange': onPlayerStateChange,
                 'onError': onPlayerError
             }
         });
+        players['youtube'] = youtubePlayer;
     }
 
     function initYoutubeStream() {
