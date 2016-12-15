@@ -215,6 +215,7 @@ window.Template.Controllers.CastController = function (element) {
         }
     }
     function pausePlayersExept(playerType) {
+        playerType = playerType || false;
         for (var player in players) {
             if (players.hasOwnProperty(player) && player !== playerType) {
                 console.log(playerType+': PLAYER TYPE')
