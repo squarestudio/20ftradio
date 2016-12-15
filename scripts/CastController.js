@@ -177,15 +177,15 @@ window.Template.Controllers.CastController = function (element) {
             if (castContainer.get('offsetWidth') < 430) {
                 sitePlayer.toggleClass('volume-range-visible');
             } else {
-                console.log('volume'+activePlayer);
+                console.log('volume' + activePlayer);
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
-                    if(activePlayer){
-                        players[activePlayer].unMute();
+                    if (activePlayer) {
+                        players[activePlayer].setVolume(50);
                         volumeControl.set('value', 50);
                         volumeIcon._node.className = 'icono-volumeMedium';
                     }
                 } else {
-                    if(activePlayer){
+                    if (activePlayer) {
                         players[activePlayer].mute();
                         volumeControl.set('value', 0);
                         volumeIcon._node.className = 'icono-volumeMute';
@@ -259,18 +259,22 @@ window.Template.Controllers.CastController = function (element) {
                         if (state == 3) {//buffering
                             console.log('youtube buffering', retry);
                             setTimeout(function () {
-                                if(youtubePlayer.getPlayerState()==3){retry =3; activePlayer = null; console.log('need try another players')}
+                                if (youtubePlayer.getPlayerState() == 3) {
+                                    retry = 3;
+                                    activePlayer = null;
+                                    console.log('need try another players')
+                                }
                             }, 4000);
                         }
                     } else {
                         console.log('try to play youtube');
-                        if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED){
+                        if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) {
                             youtubePlayer.playVideo();
                             pausePlayersExept('youtube');
                             onPlayerStateChange('youtube');
                         }
                         retry = 0;
-                        if(state == -1){
+                        if (state == -1) {
                             activePlayer = null;
                             retry = 3;
                         }
@@ -289,7 +293,7 @@ window.Template.Controllers.CastController = function (element) {
                 if (!activePlayer) {
                     if (shoutcastPlayer) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                        console.log(state,shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState);
+                        console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState);
                         if (shoutcastPlayer.duration.toString() !== 'NaN' && state && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3) {
                             shoutcastPlayer.play();
                             shoutcastPlayer.muted && shoutcastPlayer.unMute();
