@@ -261,9 +261,11 @@ window.Template.Controllers.CastController = function (element) {
                         }
                     } else {
                         console.log('try to play youtube');
-                        if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) youtubePlayer.playVideo();
-                        pausePlayersExept('youtube');
-                        onPlayerStateChange('youtube');
+                        if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED){
+                            youtubePlayer.playVideo();
+                            pausePlayersExept('youtube');
+                            onPlayerStateChange('youtube');
+                        }
                         retry = 0;
                         if(state == -1){
                             activePlayer = null;
