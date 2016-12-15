@@ -9,6 +9,7 @@ window.Template.Controllers.CastController = function (element) {
         retry = 0,
         maxRetry = 5,
         userPaused,
+        players={},
         playerType = 'youtube',
         checkingTime = 10000,
         streamCheckInterval,
@@ -318,6 +319,7 @@ window.Template.Controllers.CastController = function (element) {
         }
         castContainer.append(shoutcastPlayer);
         shoutcastPlayer = shoutcastPlayer._node;
+        players['shoutcast'] = shoutcastPlayer;
         shoutcastPlayer.addEventListener('canplaythrough', function () {
             onPlayerReady('shoutcast');
         });
