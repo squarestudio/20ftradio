@@ -206,7 +206,7 @@ window.Template.Controllers.CastController = function (element) {
         } else {
             console.log("No data to init");
         }
-        if (videoId || shoutCastUrl || soundCloudUrl){
+        if (videoId || shoutCastUrl || soundCloudUrl) {
             streamCheckInterval = setInterval(function () {
                 checkStreams();
             }, checkingTime);
@@ -216,16 +216,16 @@ window.Template.Controllers.CastController = function (element) {
 
     function checkStreams() {
         playerType = null;
-        if(!userPaused){
-            if (youtubePlayer){
+        if (!userPaused) {
+            if (youtubePlayer) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                if (youtubePlayer.getDuration && youtubePlayer.getDuration()){
+                if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
                     playerType = 'youtube';
-                    if(state > 1 ){//paused or buffering
+                    if (state > 1) {//paused or buffering
                         youtubePlayer.playVideo();
                         shoutcastPlayer && shoutcastPlayer.pause();
-                        soundCloudPlayer&& soundCloudPlayer.pause();
-                        if(state == 3){//buffering
+                        soundCloudPlayer && soundCloudPlayer.pause();
+                        if (state == 3) {//buffering
                             youtubePlayer.mute();
                             console.log('mute while buffer');
                         }
@@ -241,11 +241,11 @@ window.Template.Controllers.CastController = function (element) {
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
             console.log(playerType);
-            if(!playerType){
-                if(shoutcastPlayer){
+            if (!playerType) {
+                if (shoutcastPlayer) {
                     state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                     console.log(state, shoutcastPlayer.duration, shoutcastPlayer.networkState);
-                    if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState<3){
+                    if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState < 3) {
                         console.log('here')
                         shoutcastPlayer.play();
                         shoutcastPlayer.muted && shoutcastPlayer.unMute();
@@ -258,20 +258,20 @@ window.Template.Controllers.CastController = function (element) {
                 }
             }
             console.log(playerType);
-            if(!playerType){
-                if(soundCloudPlayer){
+            if (!playerType) {
+                if (soundCloudPlayer) {
                     soundCloudPlayer.isPaused(function (paused) {
-                        if (paused){
+                        if (paused) {
                             soundCloudPlayer.play();
                             soundCloudPlayer.setVolume(50);
                             playerType = 'soundcloud';
                         }
                     });
-                    if (youtubePlayer){
+                    if (youtubePlayer) {
                         youtubePlayer.pauseVideo();
                         youtubePlayer.mute();
                     }
-                    if (shoutcastPlayer){
+                    if (shoutcastPlayer) {
                         !shoutcastPlayer.paused && shoutcastPlayer.pause();
                         !shoutcastPlayer.muted && shoutcastPlayer.mute();
                     }
@@ -284,10 +284,10 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initSoundCloud() {
-        if (soundCloudUrl){
+        if (soundCloudUrl) {
             console.log('soundcloud loading');
             playerType = 'soundcloud';
-            if (soundCloudPlayer){
+            if (soundCloudPlayer) {
                 soundCloudPlayer.play();
             } else {
                 soundCloudPlayer = Y.Node.create('<iframe id="soundCloudPlayer" src="https://w.soundcloud.com/player/?url=' + soundCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="soundcloud-stream"></iframe>');
@@ -303,7 +303,7 @@ window.Template.Controllers.CastController = function (element) {
                 soundCloudPlayer.bind(SC.Widget.Events.PAUSE, function () {
                     onPlayerStateChange('soundcloud', 'pause')
                 });
-                soundCloudPlayer.bind(SC.Widget.Events.FINISH, onPlayerError);
+                soundCloudPlayer.bind(SC.Widget.Events.FINISH, onSoundCloudError());
             }
         } else {
             console.log('no SoundCloud url')
@@ -313,7 +313,7 @@ window.Template.Controllers.CastController = function (element) {
     function initShoutCast() {
         console.log('shoutcast starting');
         shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
-        if (!shoutcastPlayer){
+        if (!shoutcastPlayer) {
             shoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" class="hidden" playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
         }
         castContainer.append(shoutcastPlayer);
@@ -321,49 +321,56 @@ window.Template.Controllers.CastController = function (element) {
         shoutcastPlayer.addEventListener('canplaythrough', function () {
             onPlayerReady('shoutcast');
         });
-        shoutcastPlayer.addEventListener('play', onPlayerStateChange);
-        shoutcastPlayer.addEventListener('pause', onPlayerStateChange);
+        shoutcastPlayer.addEventListener('play', function () {
+            onPlayerStateChange('shoutcast', 'play')
+        });
+        shoutcastPlayer.addEventListener('pause', function () {
+            onPlayerStateChange('shoutcast', 'pause')
+        });
         shoutcastPlayer.addEventListener('error', onShoutCastError);
         shoutcastPlayer.addEventListener('abort', onShoutCastError);
         shoutcastPlayer.addEventListener('stalled', onShoutCastError);
         shoutcastPlayer.addEventListener('suspend', onShoutCastError);
         shoutcastPlayer.addEventListener('emptied', onShoutCastError);
     }
+
     function onShoutCastError() {
         console.log('shoutcast failed');
     }
+
     function onSoundCloudError() {
         console.log('soundcloud error')
     }
+
     function onPlayerError(event) {
         retry++;
         var castType = '';
-        if (event){
-            if(event.data || event.target && event.target.shoutcastPlayer){
+        if (event) {
+            if (event.data || event.target && event.target.shoutcastPlayer) {
                 castType = 'youtube';
-            } else if(1){
+            } else if (1) {
 
             }
         }
-        console.log('Cast Type = '+castType);
+        console.log('Cast Type = ' + castType);
         console.log(retry, playerType, event);
         castContainer.removeClass('initialized');
         if (retry < maxRetry) {
             if (playerType == 'youtube' && videoId) {
                 console.log('youtube failed');
                 console.log('loading shoutcast');
-                if(shoutcastPlayer){
+                if (shoutcastPlayer) {
                     shoutcastPlayer.load()
                 } else {
-                    initShoutCast();   
+                    initShoutCast();
                 }
             } else if (playerType == 'shoutcast' && shoutCastUrl) {
                 console.log('shoutcast failed');
                 console.log('loading youtube');
-                if (youtubePlayer){
+                if (youtubePlayer) {
                     youtubePlayer.playVideo();
                 } else {
-                    initYoutubeStream();   
+                    initYoutubeStream();
                 }
             }
             else {
@@ -380,7 +387,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onPlayerReady(event) {
-        if (playerType == 'youtube'){
+        if (playerType == 'youtube') {
             youtubePlayer.setVolume(50);
             youtubePlayer.playVideo();
         }
