@@ -287,7 +287,7 @@ window.Template.Controllers.CastController = function (element) {
                     if (shoutcastPlayer) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                         console.log(state,shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState);
-                        if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3) {
+                        if (shoutcastPlayer.duration.toString() !== 'NaN' && state && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3) {
                             shoutcastPlayer.play();
                             shoutcastPlayer.muted && shoutcastPlayer.unMute();
                             activePlayer = 'shoutcast';
