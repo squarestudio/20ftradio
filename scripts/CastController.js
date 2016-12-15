@@ -395,6 +395,9 @@ window.Template.Controllers.CastController = function (element) {
         if (playerType == 'youtube') {
             youtubePlayer.setVolume(50);
             youtubePlayer.playVideo();
+        } else if(playerType == 'shoutcast'){
+            shoutcastPlayer.play();
+            shoutcastPlayer.setVolume(50);
         }
         console.log(playerType, 'playerReady');
         castContainer.addClass('initialized');
