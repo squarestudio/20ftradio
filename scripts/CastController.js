@@ -9,7 +9,7 @@ window.Template.Controllers.CastController = function (element) {
         retry = 0,
         maxRetry = 5,
         userPaused,
-        players={},
+        players = {},
         activePlayer = null,
         checkingTime = 10000,
         streamCheckInterval,
@@ -59,7 +59,9 @@ window.Template.Controllers.CastController = function (element) {
                 'fs': 0
             },
             events: {
-                'onReady': function(){onPlayerReady('youtube')},
+                'onReady': function () {
+                    onPlayerReady('youtube')
+                },
                 'onStateChange': onPlayerStateChange,
                 'onError': onYoutubeError
             }
@@ -214,27 +216,31 @@ window.Template.Controllers.CastController = function (element) {
             console.log(streamCheckInterval)
         }
     }
+
     function pausePlayersExept(playerType) {
         playerType = playerType || false;
         for (var player in players) {
             if (players.hasOwnProperty(player) && player !== playerType) {
-                console.log(player+': Paused');
-                if(players[player].pauseVideo){players[player].pauseVideo()}
-                if(players[player].pause){players[player].pause()}
+                console.log(player + ': Paused');
+                if (players[player].pauseVideo) {
+                    players[player].pauseVideo()
+                }
+                if (players[player].pause) {
+                    players[player].pause()
+                }
             }
         }
     }
+
     function checkStreams() {
         if (!userPaused) {
-            pausePlayersExept()
             if (youtubePlayer) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
                     activePlayer = 'youtube';
                     if (state > 1) {//paused or buffering
                         youtubePlayer.playVideo();
-                        shoutcastPlayer && shoutcastPlayer.pause();
-                        soundCloudPlayer && soundCloudPlayer.pause();
+                        pausePlayersExept('youtube');
                         if (state == 3) {//buffering
                             youtubePlayer.mute();
                             console.log('mute while buffer');
@@ -354,57 +360,57 @@ window.Template.Controllers.CastController = function (element) {
 
     function onYoutubeError(event) {
         console.log('youtube error');
-/*        retry++;
-        var castType = '';
-        if (event) {
-            if (event.data || event.target && event.target.shoutcastPlayer) {
-                castType = 'youtube';
-            } else if (1) {
+        /*        retry++;
+         var castType = '';
+         if (event) {
+         if (event.data || event.target && event.target.shoutcastPlayer) {
+         castType = 'youtube';
+         } else if (1) {
 
-            }
-        }
-        console.log('Cast Type = ' + castType);
-        console.log(retry, playerType, event);
-        castContainer.removeClass('initialized');
-        if (retry < maxRetry) {
-            if (playerType == 'youtube' && videoId) {
-                console.log('youtube failed');
-                console.log('loading shoutcast');
-                if (shoutcastPlayer) {
-                    shoutcastPlayer.load()
-                } else {
-                    initShoutCast();
-                }
-            } else if (playerType == 'shoutcast' && shoutCastUrl) {
-                console.log('shoutcast failed');
-                console.log('loading youtube');
-                if (youtubePlayer) {
-                    youtubePlayer.playVideo();
-                } else {
-                    initYoutubeStream();
-                }
-            }
-            else {
-                console.log('Seems no data to work now');
-            }
-        } else if (retry == maxRetry) {
-            if (soundCloudUrl) {
-                console.log('Trying soundcloud');
-                initSoundCloud();
-            }
-        } else {
-            console.log('Seems no one stream working');
-        }*/
+         }
+         }
+         console.log('Cast Type = ' + castType);
+         console.log(retry, playerType, event);
+         castContainer.removeClass('initialized');
+         if (retry < maxRetry) {
+         if (playerType == 'youtube' && videoId) {
+         console.log('youtube failed');
+         console.log('loading shoutcast');
+         if (shoutcastPlayer) {
+         shoutcastPlayer.load()
+         } else {
+         initShoutCast();
+         }
+         } else if (playerType == 'shoutcast' && shoutCastUrl) {
+         console.log('shoutcast failed');
+         console.log('loading youtube');
+         if (youtubePlayer) {
+         youtubePlayer.playVideo();
+         } else {
+         initYoutubeStream();
+         }
+         }
+         else {
+         console.log('Seems no data to work now');
+         }
+         } else if (retry == maxRetry) {
+         if (soundCloudUrl) {
+         console.log('Trying soundcloud');
+         initSoundCloud();
+         }
+         } else {
+         console.log('Seems no one stream working');
+         }*/
     }
 
     function onPlayerReady(playerType) {
         if (playerType == 'youtube') {
             youtubePlayer.setVolume(50);
             youtubePlayer.playVideo();
-        } else if(playerType == 'shoutcast'){
+        } else if (playerType == 'shoutcast') {
             shoutcastPlayer.play();
             shoutcastPlayer.setVolume(50);
-        } else if (playerType == 'soundcloud'){
+        } else if (playerType == 'soundcloud') {
             soundCloudPlayer.play();
             soundCloudPlayer.setVolume('50');
         }
@@ -416,36 +422,36 @@ window.Template.Controllers.CastController = function (element) {
     function onPlayerStateChange(playerType) {
         if (playerType == 'youtube') {
 
-        } else if(playerType == 'shoutcast'){
+        } else if (playerType == 'shoutcast') {
 
-        } else if (playerType == 'soundcloud'){
+        } else if (playerType == 'soundcloud') {
 
         }
         /*if (event.data) {
-            if (event.data == YT.PlayerState.PLAYING) {
-                sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
-                !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
-            } else if (event.data == YT.PlayerState.PAUSED) {
-                sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
-            }
-        } else if (event.target) {
-            if (!event.target.paused) {
-                sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
-                !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
-            } else {
-                sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
-            }
-        } else if (playerType == 'soundcloud') {
-            soundCloudPlayer.isPaused(function (paused) {
-                console.log(paused);
-                if (!paused) {
-                    sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
-                    !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
-                } else {
-                    sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
-                }
-            })
-        }*/
+         if (event.data == YT.PlayerState.PLAYING) {
+         sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
+         !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+         } else if (event.data == YT.PlayerState.PAUSED) {
+         sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
+         }
+         } else if (event.target) {
+         if (!event.target.paused) {
+         sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
+         !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+         } else {
+         sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
+         }
+         } else if (playerType == 'soundcloud') {
+         soundCloudPlayer.isPaused(function (paused) {
+         console.log(paused);
+         if (!paused) {
+         sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
+         !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+         } else {
+         sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
+         }
+         })
+         }*/
     }
 
     function getCollectionItems(collection_url) {
