@@ -256,6 +256,8 @@ window.Template.Controllers.CastController = function (element) {
                         }
                     } else {
                         console.log('try to play youtube');
+                        pausePlayersExept('youtube');
+                        onPlayerStateChange('youtube');
                         youtubePlayer.playVideo();
                         retry = 0;
                     }
