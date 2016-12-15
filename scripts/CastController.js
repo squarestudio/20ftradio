@@ -297,8 +297,12 @@ window.Template.Controllers.CastController = function (element) {
                 soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
                     onPlayerReady('soundcloud')
                 });
-                soundCloudPlayer.bind(SC.Widget.Events.PLAY, onPlayerStateChange);
-                soundCloudPlayer.bind(SC.Widget.Events.PAUSE, onPlayerStateChange);
+                soundCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
+                    onPlayerStateChange('soundcloud', 'play')
+                });
+                soundCloudPlayer.bind(SC.Widget.Events.PAUSE, function () {
+                    onPlayerStateChange('soundcloud', 'pause')
+                });
                 soundCloudPlayer.bind(SC.Widget.Events.FINISH, onPlayerError);
             }
         } else {
