@@ -315,7 +315,7 @@ window.Template.Controllers.CastController = function (element) {
         castContainer.append(shoutcastPlayer);
         shoutcastPlayer = shoutcastPlayer._node;
         shoutcastPlayer.addEventListener('canplaythrough', function () {
-            onPlayerReady('soundcloud')
+            onPlayerReady('shoutcast');
         });
         shoutcastPlayer.addEventListener('play', onPlayerStateChange);
         shoutcastPlayer.addEventListener('pause', onPlayerStateChange);
