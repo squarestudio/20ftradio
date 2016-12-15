@@ -314,7 +314,9 @@ window.Template.Controllers.CastController = function (element) {
         }
         castContainer.append(shoutcastPlayer);
         shoutcastPlayer = shoutcastPlayer._node;
-        shoutcastPlayer.addEventListener('canplaythrough', onPlayerReady);
+        shoutcastPlayer.addEventListener('canplaythrough', function () {
+            onPlayerReady('shoutcast');
+        });
         shoutcastPlayer.addEventListener('play', onPlayerStateChange);
         shoutcastPlayer.addEventListener('pause', onPlayerStateChange);
         shoutcastPlayer.addEventListener('error', onShoutCastError);
