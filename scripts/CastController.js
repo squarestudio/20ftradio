@@ -215,7 +215,9 @@ window.Template.Controllers.CastController = function (element) {
             console.log(streamCheckInterval)
         }
     }
-
+    function pausePlayersExept() {
+        
+    }
     function checkStreams() {
         if (!userPaused) {
             if (youtubePlayer) {
