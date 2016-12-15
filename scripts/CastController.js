@@ -249,10 +249,12 @@ window.Template.Controllers.CastController = function (element) {
                     } else {
                         console.log('unmute and play');
                         youtubePlayer.unMute();
+                        youtubePlayer.playVideo();
                     }
                 } else {//no duration
                     youtubePlayer.mute();
                     console.log('mute while no youtube data');
+                    activePlayer = 'youtube';
                 }
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
