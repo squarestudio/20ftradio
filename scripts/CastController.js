@@ -216,10 +216,10 @@ window.Template.Controllers.CastController = function (element) {
     }
     function pausePlayersExept(playerType) {
         for (var player in players) {
-            console.log(player)
-            if (players.hasOwnProperty(player)) {
-                if(player.pauseVideo){player.pauseVideo()}
-                if(player.pause){player.pause()}
+            if (players.hasOwnProperty(player) && player.indexOf(playerType)<0) {
+                console.log(playerType+': PLAYER TYPE')
+                if(players[player].pauseVideo){players[player].pauseVideo()}
+                if(players[player].pause){players[player].pause()}
             }
         }
     }
