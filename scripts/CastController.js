@@ -8,6 +8,7 @@ window.Template.Controllers.CastController = function (element) {
         soundCloudUrl,
         retry = 0,
         maxRetry = 5,
+        userPaused,
         playerType = 'youtube',
         checkingTime = 10000,
         streamCheckInterval,
@@ -139,22 +140,28 @@ window.Template.Controllers.CastController = function (element) {
                 state = youtubePlayer.getPlayerState();
                 if (state === YT.PlayerState.PLAYING) {
                     youtubePlayer.pauseVideo();
+                    userPaused = true;
                 } else if (state === YT.PlayerState.PAUSED) {
                     youtubePlayer.playVideo();
+                    userPaused = false;
                 }
             } else if (playerType == 'shoutcast') {
                 state = castPlayer.getPlayerState();
                 if (state) {
                     shoutcastPlayer.playVideo();
+                    userPaused = false;
                 } else {
                     shoutcastPlayer.pauseVideo();
+                    userPaused = true;
                 }
             } else {
                 castPlayer.isPaused(function (state) {
                     if (state) {
                         castPlayer.play();
+                        userPaused = false;
                     } else {
                         castPlayer.pause();
+                        userPaused = true;
                     }
                 })
             }
