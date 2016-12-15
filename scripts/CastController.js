@@ -62,7 +62,7 @@ window.Template.Controllers.CastController = function (element) {
                 'onReady': function () {
                     onPlayerReady('youtube')
                 },
-                'onStateChange': onPlayerStateChange('youtube'),
+                'onStateChange': function(){onPlayerStateChange('youtube')},
                 'onError': onYoutubeError
             }
         });
@@ -446,7 +446,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
             });
         }
-
+        //checkStreams();
     }
 
     function getCollectionItems(collection_url) {
