@@ -406,8 +406,15 @@ window.Template.Controllers.CastController = function (element) {
         castContainer.addClass('initialized');
     }
 
-    function onPlayerStateChange(event) {
-        if (event.data) {
+    function onPlayerStateChange(playerType) {
+        if (playerType == 'youtube') {
+
+        } else if(playerType == 'shoutcast'){
+
+        } else if (playerType == 'soundcloud'){
+
+        }
+        /*if (event.data) {
             if (event.data == YT.PlayerState.PLAYING) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                 !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
@@ -431,7 +438,7 @@ window.Template.Controllers.CastController = function (element) {
                     sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
                 }
             })
-        }
+        }*/
     }
 
     function getCollectionItems(collection_url) {
