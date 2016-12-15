@@ -257,45 +257,48 @@ window.Template.Controllers.CastController = function (element) {
                     }
                 } else {//no duration
                     youtubePlayer.playVideo();
-                    console.log('mute while no youtube data');
+                    console.log('no youtube data');
                     activePlayer = null;
+                    //retry = 0;
                 }
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
-            if (!activePlayer) {
-                if (shoutcastPlayer) {
-                    state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                    console.log(state, shoutcastPlayer.duration, shoutcastPlayer.networkState);
-                    if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState < 3) {
-                        shoutcastPlayer.play();
-                        shoutcastPlayer.muted && shoutcastPlayer.unMute();
-                        activePlayer = 'shoutcast';
-                        pausePlayersExept('shoutcast');
-                    } else {
-                        //shoutcastPlayer.load();
-                        activePlayer = null;
-                    }
-                } else {
-                    initShoutCast();
-                }
-            }
-            console.log("ACTIVE PLAYER = " + activePlayer);
-            if (!activePlayer) {
-                if (soundCloudPlayer) {
-                    soundCloudPlayer.isPaused(function (paused) {
-                        if (paused) {
-                            soundCloudPlayer.play();
-                            activePlayer = 'soundcloud';
+            if (retry>2){
+                if (!activePlayer) {
+                    if (shoutcastPlayer) {
+                        state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
+                        console.log(state, shoutcastPlayer.duration, shoutcastPlayer.networkState);
+                        if (shoutcastPlayer.duration !== 'NaN' && state && shoutcastPlayer.networkState < 3) {
+                            shoutcastPlayer.play();
+                            shoutcastPlayer.muted && shoutcastPlayer.unMute();
+                            activePlayer = 'shoutcast';
+                            pausePlayersExept('shoutcast');
+                        } else {
+                            //shoutcastPlayer.load();
+                            activePlayer = null;
                         }
-                    });
-                    pausePlayersExept('soundcloud');
-                    activePlayer = 'soundcloud';
-                } else {
-                    initSoundCloud();
+                    } else {
+                        initShoutCast();
+                    }
                 }
+                console.log("ACTIVE PLAYER = " + activePlayer);
+                if (!activePlayer) {
+                    if (soundCloudPlayer) {
+                        soundCloudPlayer.isPaused(function (paused) {
+                            if (paused) {
+                                soundCloudPlayer.play();
+                                activePlayer = 'soundcloud';
+                            }
+                        });
+                        pausePlayersExept('soundcloud');
+                        activePlayer = 'soundcloud';
+                    } else {
+                        initSoundCloud();
+                    }
+                }
+                console.log("ACTIVE PLAYER = " + activePlayer);
             }
-            console.log("ACTIVE PLAYER = " + activePlayer);
         }
     }
 
