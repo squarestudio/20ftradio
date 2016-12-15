@@ -178,10 +178,17 @@ window.Template.Controllers.CastController = function (element) {
                 sitePlayer.toggleClass('volume-range-visible');
             } else {
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
-                    castPlayer.setVolume(50);
-                    volumeControl.set('value', 50);
-                    volumeIcon._node.className = 'icono-volumeMedium';
+                    if(activePlayer){
+                        players[activePlayer].unMute();
+                        volumeControl.set('value', 50);
+                        volumeIcon._node.className = 'icono-volumeMedium';
+                    }
                 } else {
+                    if(activePlayer){
+                        players[activePlayer].mute();
+                        volumeControl.set('value', 0);
+                        volumeIcon._node.className = 'icono-volumeMedium';
+                    }
                     castPlayer.setVolume(0);
                     volumeControl.set('value', 0);
                     volumeIcon._node.className = 'icono-volumeMute';
