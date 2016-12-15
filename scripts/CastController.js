@@ -217,6 +217,7 @@ window.Template.Controllers.CastController = function (element) {
     }
     function pausePlayersExept(playerType) {
         for (var player in players) {
+            console.log(player)
             if (players.hasOwnProperty(player)) {
                 if(player.pauseVideo){player.pauseVideo()}
                 if(player.pause){player.pause()}
@@ -225,6 +226,7 @@ window.Template.Controllers.CastController = function (element) {
     }
     function checkStreams() {
         if (!userPaused) {
+            pausePlayersExept()
             if (youtubePlayer) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
