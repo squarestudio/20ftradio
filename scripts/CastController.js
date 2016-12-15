@@ -285,7 +285,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function initSoundCloud() {
         if (soundCloudUrl){
-            console.log('soundcloud');
+            console.log('soundcloud loading');
             playerType = 'soundcloud';
             if (soundCloudPlayer){
                 soundCloudPlayer.play();
@@ -294,7 +294,9 @@ window.Template.Controllers.CastController = function (element) {
                 castContainer.append(soundCloudPlayer);
                 soundCloudPlayer = soundCloudPlayer._node;
                 soundCloudPlayer = SC.Widget(soundCloudPlayer);
-                soundCloudPlayer.bind(SC.Widget.Events.READY, onPlayerReady);
+                soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
+                    onPlayerReady('soundcloud')
+                });
                 soundCloudPlayer.bind(SC.Widget.Events.PLAY, onPlayerStateChange);
                 soundCloudPlayer.bind(SC.Widget.Events.PAUSE, onPlayerStateChange);
                 soundCloudPlayer.bind(SC.Widget.Events.FINISH, onPlayerError);
