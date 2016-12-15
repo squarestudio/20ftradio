@@ -255,6 +255,7 @@ window.Template.Controllers.CastController = function (element) {
                     youtubePlayer.mute();
                     console.log('mute while no youtube data');
                     activePlayer = null;
+                    
                 }
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
