@@ -139,7 +139,7 @@ window.Template.Controllers.CastController = function (element) {
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             var state = null;
-            if (playerType == 'youtube') {
+            if (activePlayer == 'youtube') {
                 state = youtubePlayer.getPlayerState();
                 if (state === YT.PlayerState.PLAYING) {
                     youtubePlayer.pauseVideo();
@@ -148,7 +148,7 @@ window.Template.Controllers.CastController = function (element) {
                     youtubePlayer.playVideo();
                     userPaused = false;
                 }
-            } else if (playerType == 'shoutcast') {
+            } else if (activePlayer == 'shoutcast') {
                 state = castPlayer.getPlayerState();
                 if (state) {
                     shoutcastPlayer.playVideo();
@@ -157,7 +157,7 @@ window.Template.Controllers.CastController = function (element) {
                     shoutcastPlayer.pauseVideo();
                     userPaused = true;
                 }
-            } else {
+            } else if (activePlayer == 'soundcloud'){
                 soundCloudPlayer.isPaused(function (state) {
                     if (state) {
                         soundCloudPlayer.play();
