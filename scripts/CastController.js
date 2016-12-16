@@ -365,6 +365,7 @@ window.Template.Controllers.CastController = function (element) {
                     if (mobile && retry > 2) {
                         retry = 5;
                         notYoutube = true;
+                        activePlayer = null;
                         checkStreams();
                         return false;
                     } else {
