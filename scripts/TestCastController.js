@@ -541,10 +541,9 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function onPlayerStateChange(playerType, state) {
         if (mobile && !userClickPlay) return;
-        console.log(playerType, state)
         if (playerType == 'youtube') {
-            console.log('youtube player change')
-            if (youtubePlayer && youtubePlayer.getPlayerState) {
+            console.log('youtube player change', state);
+            if (youtubePlayer && state) {
                 if (youtubePlayer.getPlayerState() == YT.PlayerState.PLAYING) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                     !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
