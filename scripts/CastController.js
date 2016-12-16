@@ -521,6 +521,7 @@ window.Template.Controllers.CastController = function (element) {
             youtubePlayer.setVolume(50);
             youtubePlayer.playVideo();
             youtubeReady = true;
+            pausePlayersExept('youtube');
         } else if (playerType == 'shoutcast' && youtubeReady) {
             shoutcastPlayer.play();
             shoutcastPlayer.setVolume(50);
@@ -543,6 +544,7 @@ window.Template.Controllers.CastController = function (element) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                     !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
                     setActivePlayer('youtube');
+                    pausePlayersExept('youtube');
                 } else if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) {
                     sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
                 }
@@ -552,6 +554,7 @@ window.Template.Controllers.CastController = function (element) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                 !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
                 setActivePlayer('shoutcast');
+                pausePlayersExept('shoutcast');
             } else {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
