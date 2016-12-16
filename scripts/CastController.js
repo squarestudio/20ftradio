@@ -324,7 +324,6 @@ window.Template.Controllers.CastController = function (element) {
                                 activePlayer = null;
                                 if (mobile) {
                                     notYoutube = true;
-                                    checkStreams();
                                 }
                                 checkStreams()
                             }
