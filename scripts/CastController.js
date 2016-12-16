@@ -334,7 +334,7 @@ window.Template.Controllers.CastController = function (element) {
                     console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if (retry > 4) {
+                if (retry > 4 || notYoutube) {
                     console.log('try another players');
                     if (!activePlayer) {
                         if (shoutcastPlayer) {
