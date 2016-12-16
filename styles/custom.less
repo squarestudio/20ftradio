@@ -9,7 +9,7 @@ body {
   }
 }
 
-.mobile-only, .toggle-share-mobile {
+.mobile-only, .toggle-share-mobile, .mobile-play-button{
   display: none;
 }
 
@@ -293,12 +293,10 @@ body {
       }
     }
   }
-
   .footer-h-content {
     display: block;
     max-width: none;
   }
-
   #navigator {
     .nav-container {
       .header-block, .main-nav {
@@ -330,6 +328,13 @@ body {
         display: none;
       }
     }
+  }
+  .touch .mobile-play-button{
+    display: block;
+    .v-h-align;
+    position: absolute;
+    height: 64px;
+    width: 64px;
   }
 }
 
