@@ -424,7 +424,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
             }
-            setActivePlayer(activePlayer);
+            youtubeReady && setActivePlayer(activePlayer);
         }
     }
 
