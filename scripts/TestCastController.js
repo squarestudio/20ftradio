@@ -308,12 +308,12 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function checkStreams() {
         retry++;
-        if(retry<maxRetry){
-            console.log('until less than maxRetry, trying load youtube')
-        }
         console.log('Retries: ' + retry);
         if (!userPaused) {
             console.log("ACTIVE PLAYER = " + activePlayer);
+            if(retry<maxRetry){
+                console.log('until less than maxRetry, trying load youtube')
+            }
             if (youtubePlayer && !notYoutube) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
