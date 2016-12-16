@@ -436,6 +436,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onPlayerStateChange(playerType) {
+        if(mobile && !userClickPlay) return;
         if (playerType == 'youtube') {
             if (youtubePlayer && youtubePlayer.getPlayerState) {
                 if (youtubePlayer.getPlayerState() == YT.PlayerState.PLAYING) {
