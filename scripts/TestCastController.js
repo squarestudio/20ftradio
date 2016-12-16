@@ -307,6 +307,9 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function checkStreams() {
+        if(retry<maxRetry){
+            
+        }
         retry++;
         console.log('Retries: ' + retry);
         if (!userPaused) {
