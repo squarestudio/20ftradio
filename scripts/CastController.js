@@ -237,14 +237,27 @@ window.Template.Controllers.CastController = function (element) {
                 }
             }
         });
-        if (videoId) {
-            initYoutubeStream();
-        } else if (shoutCastUrl) {
-            initShoutCast();
-        } else if (soundCloudUrl) {
-            initSoundCloud();
-        } else {
-            console.log("No data to init");
+        if(!mobile){
+            if (videoId) {
+                initYoutubeStream();
+            } else if (shoutCastUrl) {
+                initShoutCast();
+            } else if (soundCloudUrl) {
+                initSoundCloud();
+            } else {
+                console.log("No data to init");
+            }
+        }
+        if(mobile){
+            if (videoId) {
+                initYoutubeStream();
+            }
+            if (shoutCastUrl) {
+                initShoutCast();
+            }
+            if (soundCloudUrl) {
+                initSoundCloud();
+            }
         }
         if (videoId || shoutCastUrl || soundCloudUrl) {
             if(!mobile){
