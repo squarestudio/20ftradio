@@ -447,10 +447,12 @@ window.Template.Controllers.CastController = function (element) {
     function onPlayerStateChange(playerType) {
         if (mobile && !userClickPlay) return;
         if (playerType == 'youtube') {
+            console.log('youtube player change')
             if (youtubePlayer && youtubePlayer.getPlayerState) {
                 if (youtubePlayer.getPlayerState() == YT.PlayerState.PLAYING) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                     !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+                    setActivePlayer('youtube');
                 } else if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) {
                     sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
                 }
