@@ -10,6 +10,7 @@ window.Template.Controllers.CastController = function (element) {
         maxRetry = 5,
         notYoutube = false,
         notShoutcast = false,
+        notSoundcloud = false,
         mobile,
         mobilePlayButton,
         userClickPlay = false,
@@ -310,8 +311,11 @@ window.Template.Controllers.CastController = function (element) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
                     activePlayer = 'youtube';
+                    if (mobile) {
+                        notSoundcloud = true;
+                    }
+                    console.log('may play youtube');
                     if (state > 1) {//paused or buffering
-                        console.log('playing youtube')
                         youtubePlayer.playVideo();
                         pausePlayersExept('youtube');
                         onPlayerStateChange('youtube');
@@ -355,7 +359,7 @@ window.Template.Controllers.CastController = function (element) {
                         checkStreams();
                         return false;
                     }
-                    if(retry < 3){
+                    if (retry < 3) {
                         activePlayer = 'youtube';
                     } else {
                         activePlayer = null;
