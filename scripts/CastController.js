@@ -56,7 +56,7 @@ window.Template.Controllers.CastController = function (element) {
                 'rel': 0,
                 'showinfo': 0,
                 'channel': channel || '',
-                'playinline': 1,
+                'playsinline': 1,
                 'fs': 0
             },
             events: {
