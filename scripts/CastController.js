@@ -518,16 +518,16 @@ window.Template.Controllers.CastController = function (element) {
         if (playerType == 'youtube') {
             youtubePlayer.setVolume(50);
             youtubePlayer.playVideo();
-        } else if (playerType == 'shoutcast') {
+            youtubeReady = true;
+        } else if (playerType == 'shoutcast' && youtubeReady) {
             shoutcastPlayer.play();
             shoutcastPlayer.setVolume(50);
-        } else if (playerType == 'soundcloud') {
+        } else if (playerType == 'soundcloud' && youtubeReady) {
             soundCloudPlayer.play();
             soundCloudPlayer.setVolume(0.5);
         }
-        checkStreams();
+        youtubeReady && checkStreams() && castContainer.addClass('initialized');
         console.log(playerType, 'playerReady');
-        castContainer.addClass('initialized');
     }
 
     function onPlayerStateChange(playerType) {
