@@ -354,8 +354,11 @@ window.Template.Controllers.CastController = function (element) {
                         checkStreams();
                         return false;
                     }
-                    activePlayer = null;
-                    //retry = 0;
+                    if(retry< 3){
+                        activePlayer = 'youtube';
+                    } else {
+                        activePlayer = null;
+                    }
                 }
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
