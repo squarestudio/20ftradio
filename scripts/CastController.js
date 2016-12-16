@@ -242,12 +242,11 @@ window.Template.Controllers.CastController = function (element) {
             console.log("No data to init");
         }
         if (videoId || shoutCastUrl || soundCloudUrl) {
-            streamCheckInterval = setInterval(function () {
-                checkStreams();
-            }, checkingTime);
-            console.log('stream check interval set')
             if(!mobile){
-
+                streamCheckInterval = setInterval(function () {
+                    checkStreams();
+                }, checkingTime);
+                console.log('stream check interval set')
             }
         }
     }
