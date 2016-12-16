@@ -177,6 +177,7 @@ window.Template.Controllers.CastController = function (element) {
                 mobile&&checkStreams();
             } else if (activePlayer == 'soundcloud') {
                 soundCloudPlayer.isPaused(function (state) {
+                    console.log(state)
                     if (state) {
                         soundCloudPlayer.play();
                         userPaused = false;
