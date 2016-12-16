@@ -376,10 +376,12 @@ window.Template.Controllers.CastController = function (element) {
                         console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState);
                         if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1) {
                             shoutcastPlayer.play();
-                            shoutcastPlayer.muted && shoutcastPlayer.unMute();
                             activePlayer = 'shoutcast';
                             pausePlayersExept('shoutcast');
                             onPlayerStateChange('shoutcast');
+                            if(mobile){
+                                notSoundcloud = true;
+                            }
                         } else {
                             shoutcastPlayer.load();
                             activePlayer = null;
@@ -394,7 +396,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
                 if (!activePlayer) {
-                    if (soundCloudPlayer) {
+                    if (soundCloudPlayer && !notSoundcloud) {
                         soundCloudPlayer.isPaused(function (paused) {
                             if (paused) {
                                 soundCloudPlayer.play();
