@@ -150,7 +150,7 @@ window.Template.Controllers.CastController = function (element) {
             e.halt();
             var state = null;
             userClickPlay = true;
-            activePlayer = activePlayer||'youtube';
+            activePlayer = activePlayer || 'youtube';
             if (activePlayer == 'youtube') {
                 state = youtubePlayer.getPlayerState();
                 console.log('youtube video', state)
@@ -164,7 +164,7 @@ window.Template.Controllers.CastController = function (element) {
                     youtubePlayer.playVideo();
                     userPaused = false;
                 }
-                mobile&&checkStreams();
+                mobile && checkStreams();
             } else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
                 if (state) {
@@ -174,10 +174,14 @@ window.Template.Controllers.CastController = function (element) {
                     shoutcastPlayer.pauseVideo();
                     userPaused = true;
                 }
-                mobile&&checkStreams();
+                mobile && checkStreams();
             } else if (activePlayer == 'soundcloud') {
                 soundCloudPlayer.isPaused(function (state) {
-                    console.log(state,'SSSS')
+                    console.log(state, 'SSSS')
+                    if (mobile && !userClickPlay) {
+                        soundCloudPlayer.play();
+                        userPaused = false;
+                    }
                     if (state) {
                         soundCloudPlayer.play();
                         userPaused = false;
@@ -186,7 +190,7 @@ window.Template.Controllers.CastController = function (element) {
                         userPaused = true;
                     }
                 });
-                mobile&&checkStreams();
+                mobile && checkStreams();
             }
         });
         mobilePlayButton.on('click', function () {
@@ -238,7 +242,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
             }
         });
-        if(!mobile){
+        if (!mobile) {
             if (videoId) {
                 initYoutubeStream();
             } else if (shoutCastUrl) {
@@ -249,7 +253,7 @@ window.Template.Controllers.CastController = function (element) {
                 console.log("No data to init");
             }
         }
-        if(mobile){
+        if (mobile) {
             if (videoId) {
                 initYoutubeStream();
             }
@@ -261,7 +265,7 @@ window.Template.Controllers.CastController = function (element) {
             }
         }
         if (videoId || shoutCastUrl || soundCloudUrl) {
-            if(!mobile){
+            if (!mobile) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
@@ -309,7 +313,7 @@ window.Template.Controllers.CastController = function (element) {
                                 if (youtubePlayer.getPlayerState() == 3) {
                                     retry = 5;
                                     activePlayer = null;
-                                    if(mobile){
+                                    if (mobile) {
                                         notYoutube = true;
                                         checkStreams();
                                     }
@@ -328,7 +332,7 @@ window.Template.Controllers.CastController = function (element) {
                         if (state == -1) {
                             activePlayer = null;
                             retry = 5;
-                            if(mobile){
+                            if (mobile) {
                                 notYoutube = true;
                                 checkStreams();
                             }
@@ -337,7 +341,7 @@ window.Template.Controllers.CastController = function (element) {
                 } else {//no duration
                     youtubePlayer.playVideo();
                     console.log('no youtube data');
-                    if (mobile){
+                    if (mobile) {
                         retry = 5;
                         notYoutube = true;
                         checkStreams();
@@ -363,7 +367,7 @@ window.Template.Controllers.CastController = function (element) {
                         } else {
                             shoutcastPlayer.load();
                             activePlayer = null;
-                            if (mobile){
+                            if (mobile) {
                                 notShoutcast = true;
                                 checkStreams();
                             }
@@ -460,7 +464,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function onShoutCastError(e) {
         console.log('shoutcast failed');
-        if (mobile){
+        if (mobile) {
             notShoutcast = true;
             retry = 5;
             checkStreams();
@@ -473,7 +477,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function onYoutubeError(event) {
         console.log('youtube error');
-        if (mobile){
+        if (mobile) {
             notYoutube = true;
             retry = 5;
             checkStreams();
