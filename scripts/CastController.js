@@ -186,17 +186,18 @@ window.Template.Controllers.CastController = function (element) {
                     userClickPlay = true;
                     console.log('SSSS')
                     checkStreams();
+                } else {
+                    soundCloudPlayer.isPaused(function (state) {
+                        if (state) {
+                            soundCloudPlayer.play();
+                            userPaused = false;
+                        } else {
+                            soundCloudPlayer.pause();
+                            userPaused = true;
+                        }
+                        mobile && checkStreams();
+                    });
                 }
-                soundCloudPlayer.isPaused(function (state) {
-                    if (state) {
-                        soundCloudPlayer.play();
-                        userPaused = false;
-                    } else {
-                        soundCloudPlayer.pause();
-                        userPaused = true;
-                    }
-                    mobile && checkStreams();
-                });
             }
             userClickPlay = true;
         });
