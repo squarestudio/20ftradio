@@ -184,8 +184,8 @@ window.Template.Controllers.CastController = function (element) {
             }
         });
         mobilePlayButton.on('click', function () {
-            sitePlayer.one('#playButton').simulate('click');
-        });
+            sitePlayer.one('#playButton').simulate('click')
+        })
         videoYoutubazing();
         volumeIcon.on('click', function (e) {
             e.halt();
@@ -242,11 +242,12 @@ window.Template.Controllers.CastController = function (element) {
             console.log("No data to init");
         }
         if (videoId || shoutCastUrl || soundCloudUrl) {
+            streamCheckInterval = setInterval(function () {
+                checkStreams();
+            }, checkingTime);
+            console.log('stream check interval set')
             if(!mobile){
-                streamCheckInterval = setInterval(function () {
-                    checkStreams();
-                }, checkingTime);
-                console.log('stream check interval set')
+
             }
         }
     }
