@@ -551,6 +551,9 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
         var a = Y.Node.create('<a href="/donate" data-ajax-loader="ajax-loader-binded">Donate</a>');
         a.addClass('ajax-binded').addClass(button.get('className'));
         var parent = button.get('parentNode');
+        if(button.ancestor('.sqs-block-donation')){
+          button.ancestor('.sqs-block-donation').removeClass('sqs-block-donation');
+        }
         button.remove();
         parent.append(a);
       }
