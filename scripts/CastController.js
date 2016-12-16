@@ -544,7 +544,6 @@ window.Template.Controllers.CastController = function (element) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                     !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
                     setActivePlayer('youtube');
-                    pausePlayersExept('youtube');
                 } else if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) {
                     sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
                 }
@@ -554,7 +553,6 @@ window.Template.Controllers.CastController = function (element) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                 !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
                 setActivePlayer('shoutcast');
-                pausePlayersExept('shoutcast');
             } else {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
