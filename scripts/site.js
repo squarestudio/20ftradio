@@ -548,7 +548,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
       }
       if(header_content.one('.sqs-donate-button')){
         var button = header_content.one('.sqs-donate-button');
-        var a = Y.Node.create('<a target="_blank" href="https://secure.squarespace.com/commerce/donate?donatePageId='+button.getAttribute('data-donate-page-id')+'"></a>');
+        var a = Y.Node.create('<a target="_blank" href="https://secure.squarespace.com/commerce/donate?donatePageId='+button.getAttribute('data-donate-page-id')+'">Donate</a>');
         a.addClass('ajax-binded').addClass(button.get('className'));
         var parent = button.get('parentNode');
         button.remove();
