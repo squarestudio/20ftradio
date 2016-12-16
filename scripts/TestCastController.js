@@ -544,7 +544,7 @@ window.Template.Controllers.TestCastController = function (element) {
         if (playerType == 'youtube') {
             console.log('youtube player change', state);
             if (youtubePlayer && state) {
-                if (youtubePlayer.getPlayerState() == YT.PlayerState.PLAYING) {
+                if (state == YT.PlayerState.PLAYING) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                     !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
                     setActivePlayer('youtube');
