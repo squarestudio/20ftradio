@@ -86,6 +86,9 @@
         {.section items.0}
         <div id="castDiv" data-title="{title}" class="cast-container content-fit slide-into-view" sqs-controller="Template.Controllers.CastController" data-url="{oembed.url}" data-soundcloud-url="{customContent.soundCloudUrl}" data-alternative-url="{customContent.shoutcastUrl}">
             <img {@|image-meta} data-load="false"/>
+            <div class="mobile-play-button">
+                
+            </div>
         </div>
         {.end}
         {.end}
