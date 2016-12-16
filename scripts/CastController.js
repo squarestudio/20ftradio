@@ -51,7 +51,7 @@ window.Template.Controllers.CastController = function (element) {
             videoId: videoId,
             playerVars: {
                 'autoplay': 0,
-                'controls': 1,
+                'controls': 0,
                 'modestbranding': 0,
                 'rel': 0,
                 'showinfo': 0,
