@@ -314,6 +314,7 @@ window.Template.Controllers.CastController = function (element) {
                                         activePlayer = null;
                                         if(mobile){
                                             notYoutube = true;
+                                            checkStreams();
                                         }
                                         console.log('need try another players')
                                     }
@@ -332,6 +333,7 @@ window.Template.Controllers.CastController = function (element) {
                                 retry = 5;
                                 if(mobile){
                                     notYoutube = true;
+                                    checkStreams();
                                 }
                             }
                         }
