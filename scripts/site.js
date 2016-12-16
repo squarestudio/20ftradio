@@ -549,6 +549,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
       var cloned_content = header_content.cloneNode(true);
       Y.one('.footer-h-content').append(cloned_content);
       Y.one('body').delegate('click', function (e) {
+        e.halt();
         Y.one('body').toggleClass('mobile-share-active');
       }, '.toggle-share-mobile');
     }
