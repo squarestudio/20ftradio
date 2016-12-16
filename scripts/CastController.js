@@ -162,6 +162,7 @@ window.Template.Controllers.CastController = function (element) {
                     youtubePlayer.playVideo();
                     userPaused = false;
                 }
+                checkStreams();
             } else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
                 if (state) {
@@ -185,7 +186,7 @@ window.Template.Controllers.CastController = function (element) {
         });
         mobilePlayButton.on('click', function () {
             sitePlayer.one('#playButton').simulate('click')
-        })
+        });
         videoYoutubazing();
         volumeIcon.on('click', function (e) {
             e.halt();
