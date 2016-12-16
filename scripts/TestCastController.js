@@ -74,8 +74,8 @@ window.Template.Controllers.TestCastController = function (element) {
                 'onReady': function () {
                     onPlayerReady('youtube')
                 },
-                'onStateChange': function () {
-                    onPlayerStateChange('youtube')
+                'onStateChange': function (e) {
+                    onPlayerStateChange('youtube', e.data)
                 },
                 'onError': onYoutubeError
             }
@@ -543,7 +543,7 @@ window.Template.Controllers.TestCastController = function (element) {
         if (mobile && !userClickPlay) return;
         console.log(playerType, state)
         if (playerType == 'youtube') {
-            console.log('youtube player change')
+            console.log('youtube player change', )
             if (youtubePlayer && youtubePlayer.getPlayerState) {
                 if (youtubePlayer.getPlayerState() == YT.PlayerState.PLAYING) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
