@@ -167,6 +167,11 @@ window.Template.Controllers.CastController = function (element) {
                 mobile && checkStreams();
             } else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
+                if (mobile && !userClickPlay) {
+                    shoutcastPlayer.playVideo();
+                    userPaused = false;
+                    userClickPlay = true;
+                }
                 if (state) {
                     shoutcastPlayer.playVideo();
                     userPaused = false;
@@ -177,10 +182,11 @@ window.Template.Controllers.CastController = function (element) {
                 mobile && checkStreams();
             } else if (activePlayer == 'soundcloud') {
                 soundCloudPlayer.isPaused(function (state) {
-                    console.log(state, 'SSSS')
                     if (mobile && !userClickPlay) {
                         soundCloudPlayer.play();
                         userPaused = false;
+                        userClickPlay = true;
+                        console.log(state, 'SSSS')
                     }
                     if (state) {
                         soundCloudPlayer.play();
