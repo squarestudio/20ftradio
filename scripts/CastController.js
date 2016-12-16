@@ -184,7 +184,6 @@ window.Template.Controllers.CastController = function (element) {
                     soundCloudPlayer.play();
                     userPaused = false;
                     userClickPlay = true;
-                    console.log('SSSS')
                     checkStreams();
                 } else {
                     soundCloudPlayer.isPaused(function (state) {
