@@ -189,8 +189,8 @@ window.Template.Controllers.CastController = function (element) {
                         soundCloudPlayer.pause();
                         userPaused = true;
                     }
+                    mobile && checkStreams();
                 });
-                mobile && checkStreams();
             }
         });
         mobilePlayButton.on('click', function () {
