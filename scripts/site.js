@@ -547,8 +547,11 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
         header_content.one('.socialaccountlinks-v2-block').get('parentNode').append('<a class="toggle-share-mobile" href="#"><div></div></a>')
       }
       if(header_content.one('.sqs-donate-button')){
-        var a = Y.Node.create('<a target="_blank" href="https://secure.squarespace.com/commerce/donate?donatePageId='+header_content.one('.sqs-donate-button').getAttribute('data-donate-page-id')+'"></a>');
-        a.addClass('ajax-binded').addClass(header_content.one('.sqs-donate-button').get('className'));
+        var button = header_content.one('.sqs-donate-button');
+        var a = Y.Node.create('<a target="_blank" href="https://secure.squarespace.com/commerce/donate?donatePageId='+button.getAttribute('data-donate-page-id')+'"></a>');
+        a.addClass('ajax-binded').addClass(button.get('className'));
+        var parent = 
+        button.remove();
         console.log(a);
       }
       var cloned_content = header_content.cloneNode(true);
