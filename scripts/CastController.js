@@ -256,7 +256,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function checkStreams() {
         retry++;
-        console.log(retry)
+        console.log('Retries: '+retry)
         if (!userPaused) {
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer) {
