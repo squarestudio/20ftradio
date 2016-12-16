@@ -146,6 +146,7 @@ window.Template.Controllers.CastController = function (element) {
             e.halt();
             var state = null;
             userClickPlay = true;
+            activePlayer = activePlayer||'youtube';
             if (activePlayer == 'youtube') {
                 state = youtubePlayer.getPlayerState();
                 if (state === YT.PlayerState.PLAYING) {
