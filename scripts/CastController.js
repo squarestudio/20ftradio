@@ -368,7 +368,7 @@ window.Template.Controllers.CastController = function (element) {
                         checkStreams();
                         return false;
                     }
-                    if (retry < 2) {
+                    if (retry < 2||retry==2) {
                         activePlayer = 'youtube';
                     } else {
                         activePlayer = null;
