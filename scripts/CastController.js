@@ -451,6 +451,7 @@ window.Template.Controllers.CastController = function (element) {
         console.log('shoutcast failed');
         if (mobile){
             notShoutcast = true;
+            checkStreams();
         }
     }
 
