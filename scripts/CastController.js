@@ -377,7 +377,7 @@ window.Template.Controllers.CastController = function (element) {
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (retry > 4 || notYoutube) {
-                console.log('try another players');
+                console.log('try another players', notShoutcast, notSoundcloud);
                 if (!activePlayer) {
                     if (shoutcastPlayer && !notShoutcast) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
