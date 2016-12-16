@@ -1,8 +1,8 @@
 window.Template.Controllers.TestCastController = function (element) {
     'use strict';
-/*    console.log = function () {
-        return false
-    }*/
+    /*    console.log = function () {
+     return false
+     }*/
     var castPlayer,
         sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
@@ -278,10 +278,10 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         if (videoId || shoutCastUrl || soundCloudUrl) {
             if (!mobile) {
-/*                streamCheckInterval = setInterval(function () {
-                    checkStreams();
-                }, checkingTime);
-                console.log('stream check interval set')*/
+                /*                streamCheckInterval = setInterval(function () {
+                 checkStreams();
+                 }, checkingTime);
+                 console.log('stream check interval set')*/
             }
         }
     }
@@ -311,7 +311,7 @@ window.Template.Controllers.TestCastController = function (element) {
         console.log('Retries: ' + retry);
         if (!userPaused) {
             console.log("ACTIVE PLAYER = " + activePlayer);
-            if(retry<maxRetry){
+            if (retry < maxRetry) {
                 console.log('until less than maxRetry, trying load youtube')
             }
             if (youtubePlayer && !notYoutube) {
@@ -535,8 +535,14 @@ window.Template.Controllers.TestCastController = function (element) {
             soundCloudPlayer.setVolume(0.5);
             setActivePlayer();
         }
-        if(youtubeReady){
+        if (youtubeReady) {
             castContainer.addClass('initialized');//checkStreams
+            if(!streamCheckInterval){
+                streamCheckInterval = setInterval(function () {
+                    checkStreams();
+                }, checkingTime);
+                console.log('stream check interval set')
+            }
         }
         console.log(playerType, 'playerReady');
     }
