@@ -321,7 +321,7 @@ window.Template.Controllers.CastController = function (element) {
                         onPlayerStateChange('youtube');
                         if (state == 3) {//buffering
                             console.log('youtube buffering', retry);
-                            if(retry > 5){
+                            if (retry > 5) {
                                 activePlayer = null;
                                 if (mobile) {
                                     notYoutube = true;
@@ -370,7 +370,7 @@ window.Template.Controllers.CastController = function (element) {
                         checkStreams();
                         return false;
                     } else {
-                        if (retry < 2||retry==2) {
+                        if (retry < 2 || retry == 2) {
                             activePlayer = 'youtube';
                         } else {
                             activePlayer = null;
@@ -391,7 +391,7 @@ window.Template.Controllers.CastController = function (element) {
                             activePlayer = 'shoutcast';
                             pausePlayersExept('shoutcast');
                             onPlayerStateChange('shoutcast');
-                            if(mobile){
+                            if (mobile) {
                                 notSoundcloud = true;
                             }
                         } else {
