@@ -9,6 +9,7 @@ window.Template.Controllers.CastController = function (element) {
         retry = 0,
         maxRetry = 5,
         notYoutube = false,
+        youtubeReady = false,
         notShoutcast = false,
         notSoundcloud = false,
         mobile,
