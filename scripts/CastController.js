@@ -368,7 +368,7 @@ window.Template.Controllers.CastController = function (element) {
                         checkStreams();
                         return false;
                     }
-                    if (retry < 3) {
+                    if (retry < 2) {
                         activePlayer = 'youtube';
                     } else {
                         activePlayer = null;
@@ -463,7 +463,7 @@ window.Template.Controllers.CastController = function (element) {
             console.log('no SoundCloud url')
         }
     }
-     
+
 
     function initShoutCast() {
         console.log('shoutcast starting');
