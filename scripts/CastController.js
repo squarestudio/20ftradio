@@ -353,6 +353,7 @@ window.Template.Controllers.CastController = function (element) {
                                 activePlayer = null;
                                 if (mobile){
                                     notShoutcast = true;
+                                    checkStreams();
                                 }
                             }
                         } else {
