@@ -461,6 +461,7 @@ window.Template.Controllers.CastController = function (element) {
             if (!shoutcastPlayer.paused) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                 !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+                setActivePlayer('shoutcast');
             } else {
                 sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
             }
@@ -469,6 +470,7 @@ window.Template.Controllers.CastController = function (element) {
                 if (!paused) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                     !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+                    setActivePlayer('soundcloud');
                 } else {
                     sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
                 }
