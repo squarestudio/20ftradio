@@ -322,7 +322,7 @@ window.Template.Controllers.CastController = function (element) {
                             console.log('youtube buffering', retry);
                             setTimeout(function () {
                                 if (youtubePlayer.getPlayerState() == 3) {
-                                    retry = 5;
+                                    retry = 6;
                                     activePlayer = null;
                                     if (mobile) {
                                         notYoutube = true;
