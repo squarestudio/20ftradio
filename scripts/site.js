@@ -550,8 +550,9 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
         var button = header_content.one('.sqs-donate-button');
         var a = Y.Node.create('<a target="_blank" href="https://secure.squarespace.com/commerce/donate?donatePageId='+button.getAttribute('data-donate-page-id')+'"></a>');
         a.addClass('ajax-binded').addClass(button.get('className'));
-        var parent = 
+        var parent = button.get('parentNode');
         button.remove();
+        parent.append(a);
         console.log(a);
       }
       var cloned_content = header_content.cloneNode(true);
