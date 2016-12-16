@@ -292,109 +292,104 @@ window.Template.Controllers.CastController = function (element) {
     function checkStreams() {
         retry++;
         console.log('Retries: ' + retry);
-        if (mobile && !userClickPlay) {
-            retry = 0;
-            return false;
-        } else {
-            if (!userPaused) {
-                console.log("ACTIVE PLAYER = " + activePlayer);
-                if (youtubePlayer && !notYoutube) {
-                    var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                    if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
-                        activePlayer = 'youtube';
-                        if (state > 1) {//paused or buffering
+        if (!userPaused) {
+            console.log("ACTIVE PLAYER = " + activePlayer);
+            if (youtubePlayer && !notYoutube) {
+                var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
+                if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
+                    activePlayer = 'youtube';
+                    if (state > 1) {//paused or buffering
+                        youtubePlayer.playVideo();
+                        pausePlayersExept('youtube');
+                        onPlayerStateChange('youtube');
+                        if (state == 3) {//buffering
+                            console.log('youtube buffering', retry);
+                            setTimeout(function () {
+                                if (youtubePlayer.getPlayerState() == 3) {
+                                    retry = 5;
+                                    activePlayer = null;
+                                    if(mobile){
+                                        notYoutube = true;
+                                        checkStreams();
+                                    }
+                                    console.log('need try another players')
+                                }
+                            }, 4000);
+                        }
+                    } else {
+                        console.log('try to play youtube');
+                        if (youtubePlayer.getPlayerState() == 1) {
                             youtubePlayer.playVideo();
                             pausePlayersExept('youtube');
                             onPlayerStateChange('youtube');
-                            if (state == 3) {//buffering
-                                console.log('youtube buffering', retry);
-                                setTimeout(function () {
-                                    if (youtubePlayer.getPlayerState() == 3) {
-                                        retry = 5;
-                                        activePlayer = null;
-                                        if(mobile){
-                                            notYoutube = true;
-                                            checkStreams();
-                                        }
-                                        console.log('need try another players')
-                                    }
-                                }, 4000);
-                            }
-                        } else {
-                            console.log('try to play youtube');
-                            if (youtubePlayer.getPlayerState() == 1) {
-                                youtubePlayer.playVideo();
-                                pausePlayersExept('youtube');
-                                onPlayerStateChange('youtube');
-                            }
-                            retry = 0;
-                            if (state == -1) {
-                                activePlayer = null;
-                                retry = 5;
-                                if(mobile){
-                                    notYoutube = true;
-                                    checkStreams();
-                                }
-                            }
                         }
-                    } else {//no duration
-                        youtubePlayer.playVideo();
-                        console.log('no youtube data');
-                        if (mobile){
+                        retry = 0;
+                        if (state == -1) {
+                            activePlayer = null;
                             retry = 5;
-                            notYoutube = true;
-                            checkStreams();
+                            if(mobile){
+                                notYoutube = true;
+                                checkStreams();
+                            }
                         }
-                        activePlayer = null;
-                        //retry = 0;
                     }
-                    console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
+                } else {//no duration
+                    youtubePlayer.playVideo();
+                    console.log('no youtube data');
+                    if (mobile){
+                        retry = 5;
+                        notYoutube = true;
+                        checkStreams();
+                    }
+                    activePlayer = null;
+                    //retry = 0;
+                }
+                console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
+            }
+            console.log("ACTIVE PLAYER = " + activePlayer);
+            if (retry > 4 || notYoutube) {
+                console.log('try another players');
+                if (!activePlayer) {
+                    if (shoutcastPlayer && !notShoutcast) {
+                        state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
+                        console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState);
+                        if (shoutcastPlayer.duration.toString() !== 'NaN' && state && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3) {
+                            shoutcastPlayer.play();
+                            shoutcastPlayer.muted && shoutcastPlayer.unMute();
+                            activePlayer = 'shoutcast';
+                            pausePlayersExept('shoutcast');
+                            onPlayerStateChange('shoutcast');
+                        } else {
+                            shoutcastPlayer.load();
+                            activePlayer = null;
+                            if (mobile){
+                                notShoutcast = true;
+                                checkStreams();
+                            }
+                        }
+                    } else {
+                        initShoutCast();
+                    }
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if (retry > 4 || notYoutube) {
-                    console.log('try another players');
-                    if (!activePlayer) {
-                        if (shoutcastPlayer && !notShoutcast) {
-                            state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                            console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState);
-                            if (shoutcastPlayer.duration.toString() !== 'NaN' && state && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3) {
-                                shoutcastPlayer.play();
-                                shoutcastPlayer.muted && shoutcastPlayer.unMute();
-                                activePlayer = 'shoutcast';
-                                pausePlayersExept('shoutcast');
-                                onPlayerStateChange('shoutcast');
-                            } else {
-                                shoutcastPlayer.load();
-                                activePlayer = null;
-                                if (mobile){
-                                    notShoutcast = true;
-                                    checkStreams();
-                                }
+                if (!activePlayer) {
+                    if (soundCloudPlayer) {
+                        soundCloudPlayer.isPaused(function (paused) {
+                            if (paused) {
+                                soundCloudPlayer.play();
+                                activePlayer = 'soundcloud';
+                                onPlayerStateChange('soundcloud');
                             }
-                        } else {
-                            initShoutCast();
-                        }
+                        });
+                        pausePlayersExept('soundcloud');
+                        activePlayer = 'soundcloud';
+                    } else {
+                        initSoundCloud();
                     }
-                    console.log("ACTIVE PLAYER = " + activePlayer);
-                    if (!activePlayer) {
-                        if (soundCloudPlayer) {
-                            soundCloudPlayer.isPaused(function (paused) {
-                                if (paused) {
-                                    soundCloudPlayer.play();
-                                    activePlayer = 'soundcloud';
-                                    onPlayerStateChange('soundcloud');
-                                }
-                            });
-                            pausePlayersExept('soundcloud');
-                            activePlayer = 'soundcloud';
-                        } else {
-                            initSoundCloud();
-                        }
-                    }
-                    console.log("ACTIVE PLAYER = " + activePlayer);
                 }
-                setActivePlayer(activePlayer);
+                console.log("ACTIVE PLAYER = " + activePlayer);
             }
+            setActivePlayer(activePlayer);
         }
     }
 
