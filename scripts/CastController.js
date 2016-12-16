@@ -9,6 +9,7 @@ window.Template.Controllers.CastController = function (element) {
         retry = 0,
         maxRetry = 5,
         mobile,
+        mobilePlayButton,
         userClickPlay = false,
         userPaused,
         players = {},
@@ -122,6 +123,7 @@ window.Template.Controllers.CastController = function (element) {
     function initCast() {
         console.log('init cast');
         Y.one('#castDiv').addClass('initialized');
+        mobilePlayButton = castContainer.one('.mobile-play-button');
         getCurrentEvent();
         if (eventStatusInterval) {
             clearInterval(eventStatusInterval);
@@ -180,6 +182,9 @@ window.Template.Controllers.CastController = function (element) {
                     }
                 })
             }
+        });
+        mobilePlayButton.on('click', function () {
+            sitePlayer.one('#playButton').simulate('click');
         });
         videoYoutubazing();
         volumeIcon.on('click', function (e) {
