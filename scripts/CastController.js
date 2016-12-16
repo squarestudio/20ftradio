@@ -345,6 +345,8 @@ window.Template.Controllers.CastController = function (element) {
             castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').addClass('active-player');
             castContainer.one('#shoutcastPlayer') && castContainer.one('#shoutcastPlayer').removeClass('active-player');
             castContainer.one('#soundcloudPlayer') && castContainer.one('#soundcloudPlayer').removeClass('active-player');
+        } else {
+            castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').removeClass('active-player');
         }
     }
 
