@@ -156,6 +156,9 @@ window.Template.Controllers.CastController = function (element) {
                 } else if (state === YT.PlayerState.PAUSED) {
                     youtubePlayer.playVideo();
                     userPaused = false;
+                } else {
+                    youtubePlayer.playVideo();
+                    userPaused = false;
                 }
             } else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
