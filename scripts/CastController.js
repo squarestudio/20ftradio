@@ -162,7 +162,7 @@ window.Template.Controllers.CastController = function (element) {
                     youtubePlayer.playVideo();
                     userPaused = false;
                 }
-                checkStreams();
+                mobile&&checkStreams();
             } else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
                 if (state) {
@@ -172,6 +172,7 @@ window.Template.Controllers.CastController = function (element) {
                     shoutcastPlayer.pauseVideo();
                     userPaused = true;
                 }
+                mobile&&checkStreams();
             } else if (activePlayer == 'soundcloud') {
                 soundCloudPlayer.isPaused(function (state) {
                     if (state) {
@@ -182,6 +183,7 @@ window.Template.Controllers.CastController = function (element) {
                         userPaused = true;
                     }
                 })
+                mobile&&checkStreams();
             }
         });
         mobilePlayButton.on('click', function () {
