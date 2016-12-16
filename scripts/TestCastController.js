@@ -535,7 +535,9 @@ window.Template.Controllers.TestCastController = function (element) {
             soundCloudPlayer.setVolume(0.5);
             setActivePlayer();
         }
-        youtubeReady && castContainer.addClass('initialized');//checkStreams
+        if(youtubeReady){
+            castContainer.addClass('initialized');//checkStreams
+        }
         console.log(playerType, 'playerReady');
     }
 
