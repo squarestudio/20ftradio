@@ -367,11 +367,12 @@ window.Template.Controllers.CastController = function (element) {
                         notYoutube = true;
                         checkStreams();
                         return false;
-                    }
-                    if (retry < 2||retry==2) {
-                        activePlayer = 'youtube';
                     } else {
-                        activePlayer = null;
+                        if (retry < 2||retry==2) {
+                            activePlayer = 'youtube';
+                        } else {
+                            activePlayer = null;
+                        }
                     }
                 }
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
