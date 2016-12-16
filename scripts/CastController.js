@@ -329,6 +329,7 @@ window.Template.Controllers.CastController = function (element) {
                                         notYoutube = true;
                                         checkStreams();
                                     }
+                                    
                                     console.log('need try another players')
                                 }
                             }, 4000);
