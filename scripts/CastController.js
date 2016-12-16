@@ -463,6 +463,7 @@ window.Template.Controllers.CastController = function (element) {
             console.log('no SoundCloud url')
         }
     }
+     
 
     function initShoutCast() {
         console.log('shoutcast starting');
