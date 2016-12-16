@@ -539,8 +539,9 @@ window.Template.Controllers.TestCastController = function (element) {
         console.log(playerType, 'playerReady');
     }
 
-    function onPlayerStateChange(playerType) {
+    function onPlayerStateChange(playerType, state) {
         if (mobile && !userClickPlay) return;
+        console.log(playerType, state)
         if (playerType == 'youtube') {
             console.log('youtube player change')
             if (youtubePlayer && youtubePlayer.getPlayerState) {
