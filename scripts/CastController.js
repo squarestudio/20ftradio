@@ -311,6 +311,7 @@ window.Template.Controllers.CastController = function (element) {
                 if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
                     activePlayer = 'youtube';
                     if (state > 1) {//paused or buffering
+                        console.log('playing youtube')
                         youtubePlayer.playVideo();
                         pausePlayersExept('youtube');
                         onPlayerStateChange('youtube');
