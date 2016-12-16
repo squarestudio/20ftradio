@@ -35,19 +35,21 @@ body {
     float: left;;
   }
 }
-.sqs-svg-icon--wrapper.mixcloud{
+
+.sqs-svg-icon--wrapper.mixcloud {
   overflow: visible;
-  >div{
+  > div {
     .scale(1);
   }
 }
+
 .header-block-content {
   min-width: 60px;
   float: left;
   .sqs-block {
     padding-bottom: 0 !important;
   }
-   > .sqs-row {
+  > .sqs-row {
     [class*=sqs-col] {
       height: @logoSize;
     }
@@ -68,7 +70,7 @@ body {
   .socialaccountlinks-v2-block {
     width: auto;
     margin-right: 6px;
-    .sqs-svg-icon--list{
+    .sqs-svg-icon--list {
       white-space: nowrap;
     }
     a {
@@ -80,6 +82,7 @@ body {
     }
   }
 }
+
 .site-titlelogo-position-left {
   #navigator header#topBar ul#nav {
     float: none;
@@ -123,17 +126,17 @@ body {
   iframe, video {
     .transition(opacity .2s);
   }
-  iframe.soundcloud-stream{
+  iframe.soundcloud-stream {
     opacity: 0;
     z-index: -1;
   }
   #youtubePlayer {
     z-index: 100;
   }
-  #shoutcastPlayer{
+  #shoutcastPlayer {
     z-index: 99;
   }
-  #souncloudPlayer{
+  #souncloudPlayer {
     z-index: 98;
   }
   .stream-player {
@@ -194,9 +197,10 @@ body {
     }
   }
 }
+
 .footer-h-content {
   display: none;
-  max-width: 1024px!important;
+  max-width: 1024px !important;
   width: 100%;
   padding: 0 10px;
   box-sizing: border-box;
@@ -294,6 +298,7 @@ body {
     display: block;
     max-width: none;
   }
+
   #navigator {
     .nav-container {
       .header-block, .main-nav {
@@ -319,8 +324,8 @@ body {
       }
     }
     footer#bottomBar {
-      position: fixed!important;
-      bottom: 0!important;
+      position: fixed !important;
+      bottom: 0 !important;
       #footerBlock {
         display: none;
       }
@@ -367,6 +372,7 @@ body {
     }
 
   }
+
   .toggle-share-mobile {
     display: inline-block;
     width: 36px;
@@ -380,21 +386,23 @@ body {
     right: 24px;
     margin-top: 2px;
   }
-  .mobile-share-active{
-    #navigator footer#bottomBar .socialaccountlinks-v2-block .sqs-block-content{
-      .scale(1,1);
+
+  .mobile-share-active {
+    #navigator footer#bottomBar .socialaccountlinks-v2-block .sqs-block-content {
+      .scale(1, 1);
     }
   }
-  #navigator{
-    footer#bottomBar{
+
+  #navigator {
+    footer#bottomBar {
       [class*=sqs-col]:not(.sqs-col-12) {
-        width: 36%!important;
-        float: left!important;
-        &.sqs-col-6{
+        width: 36% !important;
+        float: left !important;
+        &.sqs-col-6 {
           width: auto;
         }
       }
-      .socialaccountlinks-v2-block{
+      .socialaccountlinks-v2-block {
         position: absolute;
         right: 20px;
         z-index: 10000;
@@ -403,10 +411,10 @@ body {
         line-height: 1;
         margin: -@logoSize 0 0 0;
         top: 100%;
-        padding: 0!important;
+        padding: 0 !important;
         .sqs-block-content {
           background: @background;
-          .scale(0,0);
+          .scale(0, 0);
           .transition(transform 0.2s ease);
           transform-origin: right;
         }
@@ -421,11 +429,13 @@ body {
     }
   }
 }
+
 @media only screen and (max-width: 530px) {
-  .header-block-content>.sqs-row .sqs-donate-button, .header-block-content>.sqs-row .sqs-block-button-element{
+  .header-block-content > .sqs-row .sqs-donate-button, .header-block-content > .sqs-row .sqs-block-button-element {
     font-size: 11px;
   }
 }
+
 @media only screen and (max-width: 430px) {
   .wallGrid {
     display: none;
@@ -434,24 +444,25 @@ body {
       width: 100% !important;
     }
   }
+
   .nav-container .site-player-block {
     max-width: 38%;
     float: right;
     .site-player {
       overflow: visible;
-      .site-player-controls{
+      .site-player-controls {
         text-align: right;
         margin-right: 24px;
         position: relative;
       }
-      &.volume-range-visible{
-        .volume-control{
+      &.volume-range-visible {
+        .volume-control {
           opacity: 1;
           .transition2(transform .2s ease-in, opacity 0.2s 0.1s);
           .transform(rotate(-90deg), scaleX(1));
         }
       }
-      #volumeButton{
+      #volumeButton {
         margin-right: -2px;
       }
       .volume-control {
