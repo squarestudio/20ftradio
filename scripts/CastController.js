@@ -278,7 +278,7 @@ window.Template.Controllers.CastController = function (element) {
                         }
                     } else {
                         console.log('try to play youtube');
-                        if (youtubePlayer.getPlayerState() == YT.PlayerState.PAUSED) {
+                        if (youtubePlayer.getPlayerState() == 1) {
                             youtubePlayer.playVideo();
                             pausePlayersExept('youtube');
                             onPlayerStateChange('youtube');
