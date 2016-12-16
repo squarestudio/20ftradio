@@ -149,7 +149,6 @@ window.Template.Controllers.CastController = function (element) {
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             var state = null;
-            userClickPlay = true;
             activePlayer = activePlayer || 'youtube';
             if (activePlayer == 'youtube') {
                 state = youtubePlayer.getPlayerState();
@@ -198,6 +197,7 @@ window.Template.Controllers.CastController = function (element) {
                     mobile && checkStreams();
                 });
             }
+            userClickPlay = true;
         });
         mobilePlayButton.on('click', function () {
             sitePlayer.one('#playButton').simulate('click')
