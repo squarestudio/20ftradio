@@ -275,10 +275,10 @@ window.Template.Controllers.CastController = function (element) {
         }
         if (videoId || shoutCastUrl || soundCloudUrl) {
             if (!mobile) {
-                streamCheckInterval = setInterval(function () {
+/*                streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
-                console.log('stream check interval set')
+                console.log('stream check interval set')*/
             }
         }
     }
@@ -466,7 +466,8 @@ window.Template.Controllers.CastController = function (element) {
             console.log('no SoundCloud url')
         }
     }
-    
+
+
     function initShoutCast() {
         console.log('shoutcast starting');
         shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
