@@ -326,6 +326,7 @@ window.Template.Controllers.CastController = function (element) {
                         console.log('no youtube data');
                         if (mobile){
                             retry = 5;
+                            notYoutube = true;
                             checkStreams();
                         }
                         activePlayer = null;
