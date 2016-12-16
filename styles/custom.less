@@ -396,7 +396,6 @@ body {
       .socialaccountlinks-v2-block{
         position: absolute;
         right: 20px;
-        background: @background;
         z-index: 10000;
         .transform-origin(right, top);
         .transform(rotate(90deg));
@@ -405,6 +404,7 @@ body {
         top: 100%;
         padding: 0!important;
         .sqs-block-content {
+          background: @background;
           .scale(0,0);
           .transition(transform 0.2s ease);
           transform-origin: right;
