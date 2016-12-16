@@ -322,6 +322,7 @@ window.Template.Controllers.CastController = function (element) {
                         if (state == 3) {//buffering
                             console.log('youtube buffering', retry);
                             if(retry > 5){
+                                retry = 1;
                                 activePlayer = null;
                                 if (mobile) {
                                     notYoutube = true;
