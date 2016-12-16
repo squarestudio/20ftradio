@@ -8,6 +8,8 @@ window.Template.Controllers.CastController = function (element) {
         soundCloudUrl,
         retry = 0,
         maxRetry = 5,
+        mobile,
+        userClickPlay = false,
         userPaused,
         players = {},
         activePlayer = null,
@@ -22,6 +24,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
+            mobile = Y.UA.mobile;
             initCast();
             Y.one(window).on('resize', refreshImages);
             if (window.self !== window.top) {
