@@ -8,6 +8,7 @@ window.Template.Controllers.CastController = function (element) {
         soundCloudUrl,
         retry = 0,
         maxRetry = 5,
+        notYoutube = false,
         mobile,
         mobilePlayButton,
         userClickPlay = false,
@@ -283,7 +284,7 @@ window.Template.Controllers.CastController = function (element) {
         } else {
             if (!userPaused) {
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if (youtubePlayer) {
+                if (youtubePlayer && !notYoutube) {
                     var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                     if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
                         activePlayer = 'youtube';
@@ -312,6 +313,7 @@ window.Template.Controllers.CastController = function (element) {
                             if (state == -1) {
                                 activePlayer = null;
                                 retry = 5;
+                                notYoutube = true;
                             }
                         }
                     } else {//no duration
