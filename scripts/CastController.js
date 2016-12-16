@@ -271,7 +271,7 @@ window.Template.Controllers.CastController = function (element) {
                             console.log('youtube buffering', retry);
                             setTimeout(function () {
                                 if (youtubePlayer.getPlayerState() == 3) {
-                                    retry = 3;
+                                    retry = 5;
                                     activePlayer = null;
                                     console.log('need try another players')
                                 }
@@ -287,7 +287,7 @@ window.Template.Controllers.CastController = function (element) {
                         retry = 0;
                         if (state == -1) {
                             activePlayer = null;
-                            retry = 3;
+                            retry = 5;
                         }
                     }
                 } else {//no duration
@@ -299,7 +299,7 @@ window.Template.Controllers.CastController = function (element) {
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
-            if (retry > 2) {
+            if (retry > 4) {
                 console.log('try another players');
                 if (!activePlayer) {
                     if (shoutcastPlayer) {
