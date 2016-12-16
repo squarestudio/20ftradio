@@ -317,6 +317,10 @@ window.Template.Controllers.CastController = function (element) {
                     } else {//no duration
                         youtubePlayer.playVideo();
                         console.log('no youtube data');
+                        if (mobile){
+                            retry = 5;
+                            checkStreams();
+                        }
                         activePlayer = null;
                         //retry = 0;
                     }
