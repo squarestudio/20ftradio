@@ -148,6 +148,7 @@ window.Template.Controllers.CastController = function (element) {
             userClickPlay = true;
             activePlayer = activePlayer||'youtube';
             if (activePlayer == 'youtube') {
+                console.log('youtube video')
                 state = youtubePlayer.getPlayerState();
                 if (state === YT.PlayerState.PLAYING) {
                     youtubePlayer.pauseVideo();
