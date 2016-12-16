@@ -352,6 +352,7 @@ window.Template.Controllers.CastController = function (element) {
                         retry = 5;
                         notYoutube = true;
                         checkStreams();
+                        return false;
                     }
                     activePlayer = null;
                     //retry = 0;
