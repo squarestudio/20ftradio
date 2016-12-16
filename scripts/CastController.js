@@ -9,6 +9,7 @@ window.Template.Controllers.CastController = function (element) {
         retry = 0,
         maxRetry = 5,
         notYoutube = false,
+        notShoutcast = false,
         mobile,
         mobilePlayButton,
         userClickPlay = false,
@@ -338,7 +339,7 @@ window.Template.Controllers.CastController = function (element) {
                 if (retry > 4 || notYoutube) {
                     console.log('try another players');
                     if (!activePlayer) {
-                        if (shoutcastPlayer) {
+                        if (shoutcastPlayer && !notShoutcast) {
                             state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                             console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState);
                             if (shoutcastPlayer.duration.toString() !== 'NaN' && state && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3) {
@@ -350,6 +351,9 @@ window.Template.Controllers.CastController = function (element) {
                             } else {
                                 shoutcastPlayer.load();
                                 activePlayer = null;
+                                if (mobile){
+                                    notShoutcast = true;
+                                }
                             }
                         } else {
                             initShoutCast();
