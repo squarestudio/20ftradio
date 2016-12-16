@@ -449,6 +449,9 @@ window.Template.Controllers.CastController = function (element) {
 
     function onShoutCastError(e) {
         console.log('shoutcast failed');
+        if (mobile){
+            notShoutcast = true;
+        }
     }
 
     function onSoundCloudError(e) {
@@ -457,6 +460,9 @@ window.Template.Controllers.CastController = function (element) {
 
     function onYoutubeError(event) {
         console.log('youtube error');
+        if (mobile){
+            notYoutube = true;
+        }
     }
 
     function onPlayerReady(playerType) {
