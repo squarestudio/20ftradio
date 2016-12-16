@@ -547,7 +547,8 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
         header_content.one('.socialaccountlinks-v2-block').get('parentNode').append('<a class="toggle-share-mobile" href="#"><div></div></a>')
       }
       if(header_content.one('.sqs-donate-button')){
-        
+        var a = Y.Node.create('<a href="'+header_content.one('.sqs-donate-button').getAttribute('data-donate-page-id')+'"></a>');
+        console.log(a)
       }
       var cloned_content = header_content.cloneNode(true);
       Y.one('.footer-h-content').append(cloned_content);
