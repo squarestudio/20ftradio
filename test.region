@@ -85,7 +85,7 @@
         {.if items}
         {.section items.0}
         <div class="castWrapper">
-            <div id="castDiv" data-title="{title}" class="cast-container content-fit slide-into-view" sqs-controller="Template.Controllers.CastController" data-url="{oembed.url}" data-soundcloud-url="{customContent.soundCloudUrl}" data-alternative-url="{customContent.shoutcastUrl}">
+            <div id="castDiv" data-title="{title}" class="cast-container content-fit slide-into-view" sqs-controller="Template.Controllers.TestCastController" data-url="{oembed.url}" data-soundcloud-url="{customContent.soundCloudUrl}" data-alternative-url="{customContent.shoutcastUrl}">
                 <img {@|image-meta} data-load="false"/>
                 <div class="mobile-play-button">
                     <svg version="1.1" x="0px" y="0px"
@@ -164,7 +164,7 @@
 <squarespace:script src="share-buttons.js" combo="false"/>
 <squarespace:script src="WallController.js" combo="false"/>
 <squarespace:script src="soundcloud-api-widget.js" combo="false"/>
-<squarespace:script src="CastController.js" combo="false"/>
+<squarespace:script src="TestCastController.js" combo="false"/>
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
 <script>
