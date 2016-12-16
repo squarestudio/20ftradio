@@ -548,7 +548,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
       }
       if(header_content.one('.sqs-donate-button')){
         var button = header_content.one('.sqs-donate-button');
-        var a = Y.Node.create('<a href="/donate">Donate</a>');
+        var a = Y.Node.create('<a href="/donate" data-ajax-loader="ajax-loader-binded">Donate</a>');
         a.addClass('ajax-binded').addClass(button.get('className'));
         var parent = button.get('parentNode');
         button.remove();
