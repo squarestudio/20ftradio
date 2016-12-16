@@ -451,6 +451,7 @@ window.Template.Controllers.CastController = function (element) {
         console.log('shoutcast failed');
         if (mobile){
             notShoutcast = true;
+            retry = 5;
             checkStreams();
         }
     }
@@ -463,6 +464,8 @@ window.Template.Controllers.CastController = function (element) {
         console.log('youtube error');
         if (mobile){
             notYoutube = true;
+            retry = 5;
+            checkStreams();
         }
     }
 
