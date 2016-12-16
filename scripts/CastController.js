@@ -320,13 +320,6 @@ window.Template.Controllers.CastController = function (element) {
                         onPlayerStateChange('youtube');
                         if (state == 3) {//buffering
                             console.log('youtube buffering', retry);
-                            if(retry > 5){
-                                activePlayer = null;
-                                if (mobile) {
-                                    notYoutube = true;
-                                }
-                                checkStreams()
-                            }
                             setTimeout(function () {
                                 if (youtubePlayer.getPlayerState() == 3) {
                                     retry = 6;
