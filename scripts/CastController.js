@@ -298,6 +298,9 @@ window.Template.Controllers.CastController = function (element) {
                                     if (youtubePlayer.getPlayerState() == 3) {
                                         retry = 5;
                                         activePlayer = null;
+                                        if(mobile){
+                                            notYoutube = true;
+                                        }
                                         console.log('need try another players')
                                     }
                                 }, 4000);
@@ -313,7 +316,9 @@ window.Template.Controllers.CastController = function (element) {
                             if (state == -1) {
                                 activePlayer = null;
                                 retry = 5;
-                                notYoutube = true;
+                                if(mobile){
+                                    notYoutube = true;
+                                }
                             }
                         }
                     } else {//no duration
