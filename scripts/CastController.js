@@ -310,7 +310,6 @@ window.Template.Controllers.CastController = function (element) {
             if (youtubePlayer && !notYoutube) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
-                    activePlayer = 'youtube';
                     if (mobile) {
                         notSoundcloud = true;
                     }
@@ -329,7 +328,7 @@ window.Template.Controllers.CastController = function (element) {
                                         notYoutube = true;
                                         checkStreams();
                                     }
-                                    
+                                    checkStreams()
                                     console.log('need try another players')
                                 }
                             }, 4000);
