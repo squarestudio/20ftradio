@@ -193,7 +193,6 @@ window.Template.Controllers.TestCastController = function (element) {
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             var state = null;
-            activePlayer = activePlayer || 'youtube';
             if (activePlayer == 'youtube') {
                 state = youtubePlayer.getPlayerState();
                 console.log('youtube video', state)
