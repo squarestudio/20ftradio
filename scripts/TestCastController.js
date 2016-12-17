@@ -63,7 +63,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     //fbPlayer.play();
                 }
             });
-            FB.XFBML.parse(castContainer._node);
+            //FB.XFBML.parse(castContainer._node);
         };
         fbPlayer = Y.one('#fbPlayer') || null;
         if (!fbPlayer) {
