@@ -24,6 +24,7 @@ window.Template.Controllers.TestCastController = function (element) {
         checkingTime = 2000,
         streamCheckInterval,
         fbPlayer = null,
+        fbReady = false,
         youtubePlayer = null,
         shoutcastPlayer = null,
         soundCloudPlayer = null,
@@ -48,15 +49,16 @@ window.Template.Controllers.TestCastController = function (element) {
             ImageLoader.load(img, {load: true});
         });
     }
+
     function initFBPlayer() {
-        window.fbAsyncInit = function() {
+        window.fbAsyncInit = function () {
             FB.init({
                 //appId      : '{your-app-id}',
-                xfbml      : true,
-                version    : 'v2.6'
+                xfbml: true,
+                version: 'v2.6'
             });
             console.log('FB init')
-            FB.Event.subscribe('xfbml.ready', function(msg) {
+            FB.Event.subscribe('xfbml.ready', function (msg) {
                 if (msg.type === 'video' && msg.id === 'fbPlayer') {
                     fbPlayer = msg.instance;
                     console.log(msg);
@@ -66,9 +68,8 @@ window.Template.Controllers.TestCastController = function (element) {
                     fbPlayer.subscribe('paused', function () {
                         onPlayerStateChange('facebook', 'pause');
                     });
-                    fbPlayer.subscribe('error', function () {
-
-                    });
+                    fbPlayer.subscribe('error', onFBError);
+                    players['facebook'] = fbPlayer;
                     onPlayerReady('facebook');
                 }
             });
@@ -76,17 +77,18 @@ window.Template.Controllers.TestCastController = function (element) {
         };
         fbPlayer = Y.one('#fbPlayer') || null;
         if (!fbPlayer) {
-            fbPlayer = Y.Node.create('<div id="fbPlayer" data-height="'+castContainer.get('offsetHeight')+'" class="fb-video stream-player" data-allowfullscreen="false" data-href="'+videoId+'"></div>');
+            fbPlayer = Y.Node.create('<div id="fbPlayer" data-height="' + castContainer.get('offsetHeight') + '" class="fb-video stream-player" data-allowfullscreen="false" data-href="' + videoId + '"></div>');
         }
         castContainer.prepend(fbPlayer);
-        if(!window.FB){
-                (function(d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
+        if (!window.FB) {
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
         }
     }
 
@@ -298,9 +300,9 @@ window.Template.Controllers.TestCastController = function (element) {
         });
         if (!mobile) {
             if (videoId) {
-                if(videoId.indexOf('facebook')>-1){
+                if (videoId.indexOf('facebook') > -1) {
                     initFBPlayer();
-                } else if(videoId.indexOf('youtube')){
+                } else if (videoId.indexOf('youtube')) {
                     initYoutubeStream();
                 }
             } else if (shoutCastUrl) {
@@ -313,9 +315,9 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         if (mobile) {
             if (videoId) {
-                if(videoId.indexOf('facebook')>-1){
+                if (videoId.indexOf('facebook') > -1) {
                     initFBPlayer();
-                } else if(videoId.indexOf('youtube')){
+                } else if (videoId.indexOf('youtube')) {
                     initYoutubeStream();
                 }
             }
@@ -375,7 +377,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         youtubePlayer.playVideo();
                         pausePlayersExept('youtube');
                         onPlayerStateChange('youtube');
-                        if (state == 3 && retry<6) {//buffering
+                        if (state == 3 && retry < 6) {//buffering
                             console.log('youtube buffering', retry);
                             if (retry > 5) {
                                 activePlayer = false;
@@ -568,7 +570,13 @@ window.Template.Controllers.TestCastController = function (element) {
             youtubePlayer.playVideo();
             youtubeReady = true;
             pausePlayersExept('youtube');
-        } else if (playerType == 'shoutcast' && youtubeReady) {
+        } else if (playerType == 'facebook') {
+            fbPlayer.setVolume(50);
+            fbPlayer.play();
+            fbReady = true;
+            pausePlayersExept('facebook');
+        }
+        else if (playerType == 'shoutcast' && youtubeReady) {
             shoutcastPlayer.play();
             shoutcastPlayer.setVolume(50);
             setActivePlayer();
