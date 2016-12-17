@@ -50,6 +50,7 @@ window.Template.Controllers.TestCastController = function (element) {
     function initFBPlayer() {
 
     }
+
     function initYoutubePlayer() {
         if (videoId.indexOf('watch') > -1) {
             videoId = videoId.split('=')[1];
