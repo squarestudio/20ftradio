@@ -213,7 +213,10 @@ window.Template.Controllers.TestCastController = function (element) {
                     userPaused = false;
                 }
                 mobile && checkStreams();
-            } else if (activePlayer == 'shoutcast') {
+            } else if (activePlayer == 'facebook'){
+
+            }
+            else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
                 if (mobile && !userClickPlay) {
                     shoutcastPlayer.playVideo();
