@@ -45,7 +45,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 xfbml      : true,
                 version    : 'v2.5'
             });
-
             // Get Embedded Video Player API Instance
             var my_video_player;
             FB.Event.subscribe('xfbml.ready', function(msg) {
