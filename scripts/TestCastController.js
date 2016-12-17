@@ -62,7 +62,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 version    : 'v2.5'
             });
 */
-
+            console.log('FB init')
             // Get Embedded Video Player API Instance
             var my_video_player;
             FB.Event.subscribe('xfbml.ready', function(msg) {
@@ -73,7 +73,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             });
         };
-        console.log('FB init')
     }
 
     function initYoutubePlayer() {
