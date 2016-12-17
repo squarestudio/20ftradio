@@ -54,6 +54,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     console.log(msg.instance)
                 }
             });
+            console.log('FB init')
         };
     }
 
