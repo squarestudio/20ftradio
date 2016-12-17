@@ -325,7 +325,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         youtubePlayer.playVideo();
                         pausePlayersExept('youtube');
                         onPlayerStateChange('youtube');
-                        if (state == 3) {//buffering
+                        if (state == 3 && retry<6) {//buffering
                             console.log('youtube buffering', retry);
                             if (retry > 5) {
                                 activePlayer = false;
@@ -343,7 +343,7 @@ window.Template.Controllers.TestCastController = function (element) {
                                         notYoutube = true;
                                         checkStreams();
                                     }
-                                    checkStreams()
+                                    checkStreams();
                                     console.log('need try another players')
                                 }
                             }, 4000);
@@ -537,7 +537,7 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         if (youtubeReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
-            if(!streamCheckInterval){
+            if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
