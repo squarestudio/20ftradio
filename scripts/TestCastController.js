@@ -39,22 +39,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
         }
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '1313716692014044',
-                xfbml      : true,
-                version    : 'v2.5'
-            });
-            // Get Embedded Video Player API Instance
-            var my_video_player;
-            FB.Event.subscribe('xfbml.ready', function(msg) {
-                if (msg.type === 'video') {
-                    my_video_player = msg.instance;
-                    console.log(msg.instance)
-                }
-            });
-            console.log('FB init')
-        };
     }
 
     function refreshImages() {
