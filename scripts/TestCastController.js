@@ -67,13 +67,13 @@ window.Template.Controllers.TestCastController = function (element) {
                     my_video_player.play();
                 }
             });
+            FB.XFBML.parse(document);
         };
         fbPlayer = Y.one('#fbPlayer') || null;
         if (!fbPlayer) {
             fbPlayer = Y.Node.create('<div id="fbPlayer" data-height="'+castContainer.get('offsetHeight')+'" class="fb-video stream-player" data-allowfullscreen="false" data-href="'+videoId+'"></div>');
         }
         castContainer.prepend(fbPlayer);
-        FB.XFBML.parse(document);
     }
 
     function initYoutubePlayer() {
