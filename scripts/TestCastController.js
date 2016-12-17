@@ -63,11 +63,11 @@ window.Template.Controllers.TestCastController = function (element) {
                     fbPlayer.subscribe('startedPlaying', function () {
                         onPlayerStateChange('facebook', 'play');
                     });
-                    fbPlayer.subscribe('startedPlaying', function () {
-                        onPlayerStateChange('facebook', 'play');
+                    fbPlayer.subscribe('paused', function () {
+                        onPlayerStateChange('facebook', 'pause');
                     });
-                    fbPlayer.subscribe('startedPlaying', function () {
-                        onPlayerStateChange('facebook', 'play');
+                    fbPlayer.subscribe('error', function () {
+
                     });
                     onPlayerReady('facebook');
                 }
@@ -534,6 +534,10 @@ window.Template.Controllers.TestCastController = function (element) {
         shoutcastPlayer.addEventListener('suspend', onShoutCastError);
         shoutcastPlayer.addEventListener('emptied', onShoutCastError);
         players['shoutcast'] = shoutcastPlayer;
+    }
+
+    function onFBError(e) {
+        console.log('FB failed - ', e);
     }
 
     function onShoutCastError(e) {
