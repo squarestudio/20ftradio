@@ -48,7 +48,7 @@ window.Template.Controllers.TestCastController = function (element) {
         });
     }
     function initFBPlayer() {
-
+        console.log('FB init')
     }
 
     function initYoutubePlayer() {
