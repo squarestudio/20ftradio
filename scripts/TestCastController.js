@@ -51,9 +51,9 @@ window.Template.Controllers.TestCastController = function (element) {
     function initFBPlayer() {
         fbPlayer = Y.one('#fbPlayer') || null;
         if (!fbPlayer) {
-            fbPlayer = Y.Node.create('<div id="fbPlayer" class="fb-video" data-href="'+videoId+'"></div>');
+            fbPlayer = Y.Node.create('<div id="fbPlayer" class="fb-video" data-allowfullscreen="false" data-href="'+videoId+'"></div>');
         }
-        castContainer.append(shoutcastPlayer);
+        castContainer.append(fbPlayer);
         window.fbAsyncInit = function() {
 /*
             FB.init({
