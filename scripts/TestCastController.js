@@ -48,6 +48,7 @@ window.Template.Controllers.TestCastController = function (element) {
         });
     }
     function initFBPlayer() {
+        var fb
         window.fbAsyncInit = function() {
 /*
             FB.init({
