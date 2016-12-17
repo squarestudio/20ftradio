@@ -432,7 +432,8 @@ window.Template.Controllers.TestCastController = function (element) {
                     onPlayerStateChange('facebook');
                     activePlayer = 'facebook'
                 } else {
-                    retry = 5
+                    retry = 5;
+                    checkStreams();
                 }
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
