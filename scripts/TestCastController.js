@@ -53,7 +53,7 @@ window.Template.Controllers.TestCastController = function (element) {
     function initFBPlayer() {
         window.fbAsyncInit = function () {
             console.log('FB init')
-            FB.Event.subscribe('xfbml.ready', function (msg) {
+            FB.Event.subscribe('xfbml.render', function (msg) {
                 console.log(msg)
                 if (msg.type === 'video' && msg.id === 'fbPlayer') {
                     fbPlayer = msg.instance;
