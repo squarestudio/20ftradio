@@ -39,6 +39,21 @@ window.Template.Controllers.TestCastController = function (element) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
         }
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '{your-app-id}',
+                xfbml      : true,
+                version    : 'v2.5'
+            });
+
+            // Get Embedded Video Player API Instance
+            var my_video_player;
+            FB.Event.subscribe('xfbml.ready', function(msg) {
+                if (msg.type === 'video') {
+                    my_video_player = msg.instance;
+                }
+            });
+        };
     }
 
     function refreshImages() {
