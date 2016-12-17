@@ -60,7 +60,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 if (msg.type === 'video') {
                     fbPlayer = msg.instance;
                     console.log(msg)
-                    fbPlayer.play();
+                    //fbPlayer.play();
                 }
             });
             FB.XFBML.parse(castContainer._node);
