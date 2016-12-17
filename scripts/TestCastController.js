@@ -61,7 +61,13 @@ window.Template.Controllers.TestCastController = function (element) {
                     fbPlayer = msg.instance;
                     console.log(msg);
                     fbPlayer.subscribe('startedPlaying', function () {
-                        onPlayerStateChange('facebook', 'play')
+                        onPlayerStateChange('facebook', 'play');
+                    });
+                    fbPlayer.subscribe('startedPlaying', function () {
+                        onPlayerStateChange('facebook', 'play');
+                    });
+                    fbPlayer.subscribe('startedPlaying', function () {
+                        onPlayerStateChange('facebook', 'play');
                     });
                     onPlayerReady('facebook');
                 }
