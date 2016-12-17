@@ -536,7 +536,7 @@ window.Template.Controllers.TestCastController = function (element) {
             setActivePlayer();
         }
         if (youtubeReady) {
-            castContainer.addClass('initialized');//checkStreams
+            !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if(!streamCheckInterval){
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
