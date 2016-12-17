@@ -50,13 +50,11 @@ window.Template.Controllers.TestCastController = function (element) {
     }
     function initFBPlayer() {
         window.fbAsyncInit = function() {
-/*
             FB.init({
-                appId      : '{your-app-id}',
+                //appId      : '{your-app-id}',
                 xfbml      : true,
-                version    : 'v2.5'
+                version    : 'v2.6'
             });
-*/
             console.log('FB init')
             // Get Embedded Video Player API Instance
             var my_video_player;
