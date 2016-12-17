@@ -56,13 +56,11 @@ window.Template.Controllers.TestCastController = function (element) {
                 version    : 'v2.6'
             });
             console.log('FB init')
-            // Get Embedded Video Player API Instance
-            var my_video_player;
             FB.Event.subscribe('xfbml.ready', function(msg) {
                 if (msg.type === 'video') {
-                    my_video_player = msg.instance;
+                    fbPlayer = msg.instance;
                     console.log(msg)
-                    my_video_player.play();
+                    fbPlayer.play();
                 }
             });
             FB.XFBML.parse(castContainer._node);
