@@ -428,7 +428,7 @@ window.Template.Controllers.TestCastController = function (element) {
             if (fbPlayer && !youtubePlayer) {
                 var state = fb.getPlayerState && fb.getPlayerState();
                 if (fbPlayer.getDuration && fbPlayer.getDuration()) {
-                    
+
                 }
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
@@ -585,7 +585,7 @@ window.Template.Controllers.TestCastController = function (element) {
             youtubeReady = true;
             pausePlayersExept('youtube');
         } else if (playerType == 'facebook') {
-            fbPlayer.setVolume(50);
+            fbPlayer.setVolume(0.5);
             fbPlayer.play();
             fbReady = true;
             pausePlayersExept('facebook');
