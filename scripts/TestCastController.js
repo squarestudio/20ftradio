@@ -41,7 +41,7 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         window.fbAsyncInit = function() {
             FB.init({
-                appId      : '{your-app-id}',
+                appId      : '1313716692014044',
                 xfbml      : true,
                 version    : 'v2.5'
             });
@@ -51,6 +51,7 @@ window.Template.Controllers.TestCastController = function (element) {
             FB.Event.subscribe('xfbml.ready', function(msg) {
                 if (msg.type === 'video') {
                     my_video_player = msg.instance;
+                    console.log(msg.instance)
                 }
             });
         };
