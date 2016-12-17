@@ -366,7 +366,7 @@ window.Template.Controllers.TestCastController = function (element) {
             if (retry < maxRetry) {
                 console.log('until less than maxRetry, trying load youtube')
             }
-            if (youtubePlayer && !notYoutube) {
+            if (youtubePlayer && !notYoutube && !fbPlayer) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
                     if (mobile) {
@@ -425,6 +425,12 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
+            if (fbPlayer && !youtubePlayer) {
+                var state = fb.getPlayerState && fb.getPlayerState();
+                if (fbPlayer.getDuration && fbPlayer.getDuration()) {
+                    
+                }
+            }
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (retry > 4 || notYoutube) {
                 console.log('try another players', notShoutcast, notSoundcloud);
@@ -480,7 +486,7 @@ window.Template.Controllers.TestCastController = function (element) {
             castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').addClass('active-player');
             castContainer.one('#shoutcastPlayer') && castContainer.one('#shoutcastPlayer').removeClass('active-player');
             castContainer.one('#soundcloudPlayer') && castContainer.one('#soundcloudPlayer').removeClass('active-player');
-        } else if (active == 'facebook'){
+        } else if (active == 'facebook') {
             castContainer.addClass(active);
             castContainer.one('#fbPlayer') && castContainer.one('#fbPlayer').addClass('active-player');
             castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').removeClass('active-player');
