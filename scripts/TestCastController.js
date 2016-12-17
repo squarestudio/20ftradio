@@ -20,7 +20,7 @@ window.Template.Controllers.TestCastController = function (element) {
         userClickPlay = false,
         userPaused,
         players = {},
-        activePlayer = null,
+        activePlayer = false,
         checkingTime = 2000,
         streamCheckInterval,
         youtubePlayer = null,
@@ -328,7 +328,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         if (state == 3) {//buffering
                             console.log('youtube buffering', retry);
                             if (retry > 5) {
-                                activePlayer = null;
+                                activePlayer = false;
                                 if (mobile) {
                                     notYoutube = true;
                                     checkStreams();
@@ -338,7 +338,7 @@ window.Template.Controllers.TestCastController = function (element) {
                             setTimeout(function () {
                                 if (youtubePlayer.getPlayerState() == 3) {
                                     retry = 6;
-                                    activePlayer = null;
+                                    activePlayer = false;
                                     if (mobile) {
                                         notYoutube = true;
                                         checkStreams();
@@ -357,7 +357,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         }
                         retry = 0;
                         if (state == -1) {
-                            activePlayer = null;
+                            activePlayer = false;
                             retry = 5;
                             if (mobile) {
                                 notYoutube = true;
@@ -372,14 +372,14 @@ window.Template.Controllers.TestCastController = function (element) {
                     if (mobile && retry > 2) {
                         retry = 5;
                         notYoutube = true;
-                        activePlayer = null;
+                        activePlayer = false;
                         checkStreams();
                         return false;
                     } else {
                         if (retry < 2 || retry == 2) {
                             activePlayer = 'youtube';
                         } else {
-                            activePlayer = null;
+                            activePlayer = false;
                         }
                     }
                 }
@@ -402,7 +402,7 @@ window.Template.Controllers.TestCastController = function (element) {
                             }
                         } else {
                             shoutcastPlayer.load();
-                            activePlayer = null;
+                            activePlayer = false;
                             if (mobile) {
                                 notShoutcast = true;
                                 checkStreams();
