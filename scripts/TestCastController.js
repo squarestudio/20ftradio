@@ -59,11 +59,11 @@ window.Template.Controllers.TestCastController = function (element) {
             FB.Event.subscribe('xfbml.ready', function(msg) {
                 if (msg.type === 'video') {
                     fbPlayer = msg.instance;
-                    console.log(msg)
+                    console.log(msg);
                     //fbPlayer.play();
                 }
             });
-            //FB.XFBML.parse(castContainer._node);
+            FB.XFBML.parse(castContainer._node);
         };
         fbPlayer = Y.one('#fbPlayer') || null;
         if (!fbPlayer) {
