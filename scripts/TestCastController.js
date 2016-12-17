@@ -62,6 +62,7 @@ window.Template.Controllers.TestCastController = function (element) {
             FB.Event.subscribe('xfbml.ready', function(msg) {
                 if (msg.type === 'video') {
                     my_video_player = msg.instance;
+                    console.log(msg)
                 }
             });
         };
