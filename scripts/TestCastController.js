@@ -53,7 +53,7 @@ window.Template.Controllers.TestCastController = function (element) {
     function initFBPlayer() {
         window.fbAsyncInit = function () {
             FB.init({
-                //appId      : '{your-app-id}',
+                appId      : '1313716692014044',
                 xfbml: true,
                 version: 'v2.6'
             });
