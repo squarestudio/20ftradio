@@ -94,6 +94,11 @@
         {.section items.0}
         <div class="castWrapper">
             <div id="castDiv" data-title="{title}" class="TEST cast-container content-fit slide-into-view" sqs-controller="Template.Controllers.TestCastController" data-url="{oembed.url}" data-soundcloud-url="{customContent.soundCloudUrl}" data-alternative-url="{customContent.shoutcastUrl}">
+                <div
+                        class="fb-video"
+                        data-href="https://www.facebook.com/facebook/videos/10153231379946729/"
+                        data-width="500"
+                        data-allowfullscreen="true"></div>
                 <img {@|image-meta} data-load="false"/>
                 <div class="mobile-play-button">
                     <svg version="1.1" x="0px" y="0px"
