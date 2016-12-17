@@ -74,6 +74,15 @@ window.Template.Controllers.TestCastController = function (element) {
             fbPlayer = Y.Node.create('<div id="fbPlayer" data-height="'+castContainer.get('offsetHeight')+'" class="fb-video stream-player" data-allowfullscreen="false" data-href="'+videoId+'"></div>');
         }
         castContainer.prepend(fbPlayer);
+        if(!window.FB){
+                (function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+        }
     }
 
     function initYoutubePlayer() {
