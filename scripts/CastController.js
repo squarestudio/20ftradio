@@ -275,10 +275,10 @@ window.Template.Controllers.CastController = function (element) {
         }
         if (videoId || shoutCastUrl || soundCloudUrl) {
             if (!mobile) {
-/*                streamCheckInterval = setInterval(function () {
+                streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
-                console.log('stream check interval set')*/
+                console.log('stream check interval set')
             }
         }
     }
@@ -319,7 +319,7 @@ window.Template.Controllers.CastController = function (element) {
                         youtubePlayer.playVideo();
                         pausePlayersExept('youtube');
                         onPlayerStateChange('youtube');
-                        if (state == 3) {//buffering
+                        if (state == 3 && retry < 6) {//buffering
                             console.log('youtube buffering', retry);
                             if (retry > 5) {
                                 activePlayer = null;
@@ -329,18 +329,6 @@ window.Template.Controllers.CastController = function (element) {
                                 }
                                 checkStreams()
                             }
-                            setTimeout(function () {
-                                if (youtubePlayer.getPlayerState() == 3) {
-                                    retry = 6;
-                                    activePlayer = null;
-                                    if (mobile) {
-                                        notYoutube = true;
-                                        checkStreams();
-                                    }
-                                    checkStreams()
-                                    console.log('need try another players')
-                                }
-                            }, 4000);
                         }
                     } else {
                         console.log('try to play youtube');
