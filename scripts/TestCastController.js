@@ -628,14 +628,23 @@ window.Template.Controllers.TestCastController = function (element) {
                 if (state == YT.PlayerState.PLAYING) {
                     sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                     !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
-                    setActivePlayer('youtube');
+                    setActivePlayer(playerType);
                     pausePlayersExept(playerType);
                 } else if (state == YT.PlayerState.PAUSED) {
                     sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
                 }
             }
         } else if (playerType == 'facebook') {
-
+                if (state){
+                    if(state == 'play'){
+                        sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
+                        !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+                        setActivePlayer(playerType);
+                        pausePlayersExept(playerType);
+                    } else if (state = 'pause'){
+                        sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
+                    }
+                }
         }
         else if (playerType == 'shoutcast') {
             if (!shoutcastPlayer.paused) {
