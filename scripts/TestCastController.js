@@ -621,6 +621,7 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function onPlayerStateChange(playerType, state) {
         if (mobile && !userClickPlay) return;
+        console.log(playerType, state)
         if (playerType == 'youtube') {
             console.log('youtube player change', state);
             if (youtubePlayer && state) {
@@ -633,7 +634,10 @@ window.Template.Controllers.TestCastController = function (element) {
                     sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
                 }
             }
-        } else if (playerType == 'shoutcast') {
+        } else if (playerType == 'facebook') {
+
+        }
+        else if (playerType == 'shoutcast') {
             if (!shoutcastPlayer.paused) {
                 sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
                 !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
