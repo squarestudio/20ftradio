@@ -476,13 +476,21 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function setActivePlayer(active) {
         if (active == 'youtube') {
-            castContainer.addClass('youtube');
+            castContainer.addClass(active);
             castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').addClass('active-player');
             castContainer.one('#shoutcastPlayer') && castContainer.one('#shoutcastPlayer').removeClass('active-player');
             castContainer.one('#soundcloudPlayer') && castContainer.one('#soundcloudPlayer').removeClass('active-player');
-        } else {
-            castContainer.removeClass('youtube');
+        } else if (active == 'facebook'){
+            castContainer.addClass(active);
+            castContainer.one('#fbPlayer') && castContainer.one('#fbPlayer').addClass('active-player');
             castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').removeClass('active-player');
+            castContainer.one('#shoutcastPlayer') && castContainer.one('#shoutcastPlayer').removeClass('active-player');
+            castContainer.one('#soundcloudPlayer') && castContainer.one('#soundcloudPlayer').removeClass('active-player');
+        }
+        else {
+            castContainer.removeClass('youtube').removeClass('facebook').addClass(active);
+            castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').removeClass('active-player');
+            castContainer.one('#fbPlayer') && castContainer.one('#fbPlayer').removeClass('active-player');
         }
     }
 
