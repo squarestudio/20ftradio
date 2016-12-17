@@ -72,7 +72,7 @@ window.Template.Controllers.TestCastController = function (element) {
         if (!fbPlayer) {
             fbPlayer = Y.Node.create('<div id="fbPlayer" class="fb-video" data-allowfullscreen="false" data-href="'+videoId+'"></div>');
         }
-        castContainer.append(fbPlayer);
+        castContainer.prepend(fbPlayer);
     }
 
     function initYoutubePlayer() {
