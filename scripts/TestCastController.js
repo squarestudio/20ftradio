@@ -604,7 +604,7 @@ window.Template.Controllers.TestCastController = function (element) {
             soundCloudPlayer.setVolume(0.5);
             setActivePlayer();
         }
-        if (youtubeReady) {
+        if (youtubeReady || fbReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
