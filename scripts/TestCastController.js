@@ -331,22 +331,10 @@ window.Template.Controllers.TestCastController = function (element) {
                                 activePlayer = false;
                                 if (mobile) {
                                     notYoutube = true;
-                                    checkStreams();
                                 }
                                 checkStreams()
+                                console.log('need try another players')
                             }
-                            setTimeout(function () {
-                                if (youtubePlayer.getPlayerState() == 3) {
-                                    retry = 6;
-                                    activePlayer = false;
-                                    if (mobile) {
-                                        notYoutube = true;
-                                        checkStreams();
-                                    }
-                                    checkStreams();
-                                    console.log('need try another players')
-                                }
-                            }, 4000);
                         }
                     } else {
                         console.log('try to play youtube');
