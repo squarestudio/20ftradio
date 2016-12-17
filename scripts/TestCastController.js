@@ -425,10 +425,14 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
-            if (fbPlayer && !youtubePlayer) {
-                var state = fb.getPlayerState && fb.getPlayerState();
+            if (fbPlayer && !youtubePlayer && retry < 5) {
+                //var state = fb.getPlayerState && fb.getPlayerState();
                 if (fbPlayer.getDuration && fbPlayer.getDuration()) {
-
+                    pausePlayersExept('facebook');
+                    onPlayerStateChange('facebook');
+                    activePlayer = 'facebook'
+                } else {
+                    retry = 5
                 }
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
