@@ -47,7 +47,9 @@ window.Template.Controllers.TestCastController = function (element) {
             ImageLoader.load(img, {load: true});
         });
     }
+    function initFBPlayer() {
 
+    }
     function initYoutubePlayer() {
         if (videoId.indexOf('watch') > -1) {
             videoId = videoId.split('=')[1];
@@ -256,7 +258,11 @@ window.Template.Controllers.TestCastController = function (element) {
         });
         if (!mobile) {
             if (videoId) {
-                initYoutubeStream();
+                if(videoId.indexOf('facebook')>-1){
+                    initFBPlayer();
+                } else if(videoId.indexOf('youtube')){
+                    initYoutubeStream();
+                }
             } else if (shoutCastUrl) {
                 initShoutCast();
             } else if (soundCloudUrl) {
@@ -267,7 +273,11 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         if (mobile) {
             if (videoId) {
-                initYoutubeStream();
+                if(videoId.indexOf('facebook')>-1){
+                    initFBPlayer();
+                } else if(videoId.indexOf('youtube')){
+                    initYoutubeStream();
+                }
             }
             if (shoutCastUrl) {
                 initShoutCast();
