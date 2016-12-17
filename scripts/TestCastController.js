@@ -23,6 +23,7 @@ window.Template.Controllers.TestCastController = function (element) {
         activePlayer = false,
         checkingTime = 2000,
         streamCheckInterval,
+        fbPlayer = null,
         youtubePlayer = null,
         shoutcastPlayer = null,
         soundCloudPlayer = null,
@@ -48,7 +49,11 @@ window.Template.Controllers.TestCastController = function (element) {
         });
     }
     function initFBPlayer() {
-        var fb
+        fbPlayer = Y.one('#fbPlayer') || null;
+        if (!fbPlayer) {
+            fbPlayer = Y.Node.create('<div id="fbPlayer" data-video="'+videoId+'"></div>');
+        }
+        castContainer.append(shoutcastPlayer);
         window.fbAsyncInit = function() {
 /*
             FB.init({
