@@ -70,7 +70,7 @@ window.Template.Controllers.TestCastController = function (element) {
         };
         fbPlayer = Y.one('#fbPlayer') || null;
         if (!fbPlayer) {
-            fbPlayer = Y.Node.create('<div id="fbPlayer" data-width="'+castContainer.get('offsetWidth')+'" class="fb-video stream-player" data-allowfullscreen="false" data-href="'+videoId+'"></div>');
+            fbPlayer = Y.Node.create('<div id="fbPlayer" data-height="'+castContainer.get('offsetHeight')+'" class="fb-video stream-player" data-allowfullscreen="false" data-href="'+videoId+'"></div>');
         }
         castContainer.prepend(fbPlayer);
     }
