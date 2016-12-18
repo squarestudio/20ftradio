@@ -2,7 +2,7 @@ window.Template.Controllers.TestCastController = function (element) {
     'use strict';
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
-        videoId,
+        youtubeUrl,
         shoutCastUrl,
         soundCloudUrl,
         retry = 0,
@@ -45,17 +45,17 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function initYoutubePlayer() {
-        if (videoId.indexOf('watch') > -1) {
-            videoId = videoId.split('=')[1];
-        } else if (videoId.indexOf('live_stream') > -1) {
-            var channel = videoId.split('channel=')[1];
-            videoId = 'live_stream';
-            console.log(videoId, channel)
+        if (youtubeUrl.indexOf('watch') > -1) {
+            youtubeUrl = youtubeUrl.split('=')[1];
+        } else if (youtubeUrl.indexOf('live_stream') > -1) {
+            var channel = youtubeUrl.split('channel=')[1];
+            youtubeUrl = 'live_stream';
+            console.log(youtubeUrl, channel)
         }
         youtubePlayer = new YT.Player('youtubePlayer', {
             height: '720',
             width: '1280',
-            videoId: videoId,
+            videoId: youtubeUrl,
             playerVars: {
                 'autoplay': 0,
                 'controls': 0,
@@ -80,7 +80,7 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function initYoutubeStream() {
-        if (videoId) {
+        if (youtubeUrl) {
             console.log('init youtube');
             if (!castContainer.one('#youtubePlayer')) {
                 castContainer.prepend('<div id="youtubePlayer" class="stream-player"></div>');
@@ -138,7 +138,7 @@ window.Template.Controllers.TestCastController = function (element) {
         }, 10000);
         Y.on('getCurrentEvent', getCurrentEvent);
         castContainer = Y.one('#castDiv');
-        videoId = castContainer.getAttribute('data-url');
+        youtubeUrl = castContainer.getAttribute('data-url');
         shoutCastUrl = castContainer.getAttribute('data-alternative-url');
         soundCloudUrl = castContainer.getAttribute('data-soundcloud-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
@@ -251,10 +251,10 @@ window.Template.Controllers.TestCastController = function (element) {
             }
         });
         if (!mobile) {
-            if (!videoId) {
+            if (!youtubeUrl) {
                 youtubeReady = true;
             }
-            if (videoId) {
+            if (youtubeUrl) {
                 initYoutubeStream();
             } else if (shoutCastUrl) {
                 initShoutCast();
@@ -265,7 +265,7 @@ window.Template.Controllers.TestCastController = function (element) {
             }
         }
         if (mobile) {
-            if (videoId) {
+            if (youtubeUrl) {
                 initYoutubeStream();
             }
             if (shoutCastUrl) {
@@ -275,7 +275,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 initSoundCloud();
             }
         }
-        if (videoId || shoutCastUrl || soundCloudUrl) {
+        if (youtubeUrl || shoutCastUrl || soundCloudUrl) {
             if (!mobile) {
                 /*                streamCheckInterval = setInterval(function () {
                  checkStreams();
