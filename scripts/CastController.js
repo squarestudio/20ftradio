@@ -165,7 +165,8 @@ window.Template.Controllers.CastController = function (element) {
                     userPaused = false;
                 }
                 mobile && checkStreams();
-            } else if (activePlayer == 'shoutcast') {
+            }
+            else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
                 if (mobile && !userClickPlay) {
                     shoutcastPlayer.playVideo();
@@ -180,7 +181,8 @@ window.Template.Controllers.CastController = function (element) {
                     userPaused = true;
                 }
                 mobile && checkStreams();
-            } else if (activePlayer == 'soundcloud') {
+            }
+            else if (activePlayer == 'soundcloud') {
                 if (mobile && !userClickPlay) {
                     soundCloudPlayer.play();
                     userPaused = false;
