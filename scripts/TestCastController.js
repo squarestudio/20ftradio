@@ -433,7 +433,9 @@ window.Template.Controllers.TestCastController = function (element) {
                 soundCloudPlayer = SC.Widget(soundCloudPlayer);
                 soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
                     onPlayerReady('soundcloud');
-                    
+                    soundCloudPlayer.getSounds(function (sounds) {
+                        console.log(sounds)
+                    })
                 });
                 soundCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
                     onPlayerStateChange('soundcloud', 'play')
