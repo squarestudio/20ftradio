@@ -251,6 +251,9 @@ window.Template.Controllers.TestCastController = function (element) {
             }
         });
         if (!mobile) {
+            if(!videoId){
+                youtubeReady = true;
+            }
             if (videoId) {
                 initYoutubeStream();
             } else if (shoutCastUrl) {
@@ -260,9 +263,6 @@ window.Template.Controllers.TestCastController = function (element) {
             } else {
                 console.log("No data to init");
             }
-        }
-        if(!videoId){
-            youtubeReady = true;
         }
         if (mobile) {
             if (videoId) {
