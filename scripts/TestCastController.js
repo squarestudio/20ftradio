@@ -556,6 +556,7 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         console.log(playerType, 'playerReady');
     }
+
     function setPlaying(playerType) {
         sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
         castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
@@ -563,10 +564,12 @@ window.Template.Controllers.TestCastController = function (element) {
         setActivePlayer(playerType);
         pausePlayersExept(playerType);
     }
+
     function setPaused() {
         sitePlayer.removeClass('playing').removeClass('stopped').addClass('paused');
         castContainer.removeClass('playing').removeClass('stopped').addClass('paused');
     }
+
     function onPlayerStateChange(playerType, state) {
         if (mobile && !userClickPlay) return;
         if (playerType == 'youtube') {
