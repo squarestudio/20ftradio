@@ -502,13 +502,13 @@ window.Template.Controllers.TestCastController = function (element) {
         }
     }
 
-    function onPlayerReady(playerType) {
+    function onPlayerReady(playerType, data) {
         if (playerType == 'youtube') {
             youtubePlayer.setVolume(50);
             youtubePlayer.playVideo();
             youtubeReady = true;
             pausePlayersExept('youtube');
-        } else if (playerType == 'shoutcast' && youtubeReady) {
+        } else if (playerType == 'shoutcast' && youtubePlayer  youtubeReady) {
             shoutcastPlayer.play();
             shoutcastPlayer.setVolume(50);
             setActivePlayer();
