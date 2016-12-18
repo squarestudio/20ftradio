@@ -474,7 +474,7 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         castContainer.append(shoutcastPlayer);
         shoutcastPlayer = shoutcastPlayer._node;
-        shoutcastPlayer.addEventListener('canplaythrough', function () {
+        shoutcastPlayer.addEventListener('loadstart', function () {
             onPlayerReady('shoutcast');
         });
         shoutcastPlayer.addEventListener('play', function () {
