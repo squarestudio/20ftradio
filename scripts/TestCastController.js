@@ -439,7 +439,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         var skipIndex=0;
                         if (sounds && sounds.length){
                           skipIndex  = Math.floor(Math.random()*(sounds.length-1+1));
-                            console.log('SKIPSCINDEX'+skipIndex)
+                            console.log('SKIPSCINDEX == '+skipIndex)
                         }
                         onPlayerReady('soundcloud', {scSkipIndex:skipIndex});
                     })
