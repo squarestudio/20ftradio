@@ -85,7 +85,7 @@
         {.if items}
         {.section items.0}
         <div class="castWrapper">
-            <div id="castDiv" data-title="{title}" class="cast-container content-fit slide-into-view" sqs-controller="Template.Controllers.CastController" data-url="{oembed.url}" data-soundcloud-url="{customContent.soundCloudUrl}" data-alternative-url="{customContent.shoutcastUrl}">
+            <div id="castDiv" data-title="{title}" class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit slide-into-view" sqs-controller="Template.Controllers.CastController" data-url="{oembed.url}" data-soundcloud-url="{customContent.soundCloudUrl}" data-alternative-url="{customContent.shoutcastUrl}">
                 <img {@|image-meta} data-load="false"/>
                 <div class="mobile-play-button">
                     <svg version="1.1" x="0px" y="0px"
