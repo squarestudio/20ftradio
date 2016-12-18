@@ -6,7 +6,7 @@ window.Template.Controllers.TestCastController = function (element) {
         shoutCastUrl,
         soundCloudUrl,
         retry = 0,
-        maxRetry = 5,
+        maxRetry = 3,
         notYoutube = false,
         youtubeReady = false,
         notShoutcast = false,
@@ -366,7 +366,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
-            if (retry > 4 || notYoutube) {
+            if (retry > maxRetry || notYoutube) {
                 console.log('try another players', notShoutcast, notSoundcloud);
                 if (!activePlayer) {
                     if (shoutcastPlayer && !notShoutcast) {
