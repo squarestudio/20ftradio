@@ -497,7 +497,7 @@ window.Template.Controllers.TestCastController = function (element) {
         console.log('youtube error');
         if (mobile) {
             notYoutube = true;
-            retry = 5;
+            retry = maxRetry;
             checkStreams();
         }
     }
