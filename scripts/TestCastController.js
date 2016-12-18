@@ -25,6 +25,7 @@ window.Template.Controllers.TestCastController = function (element) {
         soundCloudPlayer = null,
         eventStatusInterval,
         currentEvents,
+        liveIndicator,
         castContainer = Y.one('#castDiv');
 
     function initialize() {
@@ -139,6 +140,7 @@ window.Template.Controllers.TestCastController = function (element) {
         }, 10000);
         Y.on('getCurrentEvent', getCurrentEvent);
         castContainer = Y.one('#castDiv');
+        liveIndicator = castContainer.one('.live-indicator');
         youtubeUrl = castContainer.getAttribute('data-url');
         shoutCastUrl = castContainer.getAttribute('data-alternative-url');
         soundCloudUrl = castContainer.getAttribute('data-soundcloud-url');
@@ -424,6 +426,11 @@ window.Template.Controllers.TestCastController = function (element) {
                     console.log('stream check interval reset')
                 }
             }
+        }
+        if (activePlayer && (activePlayer == 'youtube' || activePlayer == 'shoutcast')){
+            liveIndicator.addClass('active');
+        } else {
+            liveIndicator.removeClass('active');
         }
     }
 
