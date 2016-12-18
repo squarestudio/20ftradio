@@ -236,9 +236,9 @@ window.Template.Controllers.TestCastController = function (element) {
             var volume = parseInt(e.currentTarget.get('value'));
             if (volume > 55) {
                 volumeIcon._node.className = 'icono-volumeHigh';
-            } else if (volume < 55 && volume > 20) {
+            } else if (volume < 55 && volume > 21) {
                 volumeIcon._node.className = 'icono-volumeMedium';
-            } else if (volume < 20 && volume > 0) {
+            } else if (volume <= 21 && volume > 0) {
                 volumeIcon._node.className = 'icono-volumeLow';
             } else {
                 volumeIcon._node.className = 'icono-volumeMute';
