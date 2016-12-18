@@ -9,6 +9,7 @@ window.Template.Controllers.TestCastController = function (element) {
         maxRetry = 2,
         notYoutube = false,
         youtubeReady = false,
+        shoutCastReady = false,
         notShoutcast = false,
         notSoundcloud = false,
         mobile,
@@ -522,6 +523,7 @@ window.Template.Controllers.TestCastController = function (element) {
         } else if (playerType == 'shoutcast' && youtubeReady) {
             shoutcastPlayer.play();
             shoutcastPlayer.setVolume(50);
+            shoutCastReady = true;
             setActivePlayer();
         } else if (playerType == 'soundcloud' && youtubeReady) {
             data && data.scSkipIndex && soundCloudPlayer.skip(data.scSkipIndex);
