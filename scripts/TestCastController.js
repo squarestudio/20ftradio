@@ -313,9 +313,6 @@ window.Template.Controllers.TestCastController = function (element) {
             if (youtubePlayer && !notYoutube) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
-                    if (mobile) {
-                        notSoundcloud = true;
-                    }
                     console.log('may play youtube');
                     if (state > 1) {//paused or buffering
                         youtubePlayer.playVideo();
