@@ -6,7 +6,7 @@ window.Template.Controllers.TestCastController = function (element) {
         shoutCastUrl,
         soundCloudUrl,
         retry = 0,
-        maxRetry = 3,
+        maxRetry = 2,
         notYoutube = false,
         youtubeReady = false,
         notShoutcast = false,
