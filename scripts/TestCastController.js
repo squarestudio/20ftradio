@@ -390,14 +390,13 @@ window.Template.Controllers.TestCastController = function (element) {
                 console.log("ACTIVE PLAYER = " + activePlayer);
                 if (!activePlayer) {
                     if (soundCloudPlayer && !notSoundcloud) {
+                        activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
                             if (paused) {
                                 soundCloudPlayer.play();
                                 activePlayer = 'soundcloud';
                                 onPlayerStateChange('soundcloud');
                                 pausePlayersExept('soundcloud');
-                            } else {
-                                activePlayer = 'soundcloud';
                             }
                         });
                     } else {
