@@ -309,7 +309,7 @@ window.Template.Controllers.TestCastController = function (element) {
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer && !notYoutube) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                if (youtubePlayer.getDuration && youtubePlayer.getDuration() && state > 0) {
+                if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
                     if (mobile) {
                         notSoundcloud = true;
                     }
@@ -346,7 +346,7 @@ window.Template.Controllers.TestCastController = function (element) {
                             }
                         }
                     }
-                } else {//no duration or 
+                } else {//no duration (probably no data to play)
                     youtubePlayer.playVideo();
                     console.log('no youtube data', retry);
                     setActivePlayer();
