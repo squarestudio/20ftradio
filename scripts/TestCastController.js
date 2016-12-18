@@ -432,9 +432,11 @@ window.Template.Controllers.TestCastController = function (element) {
                 soundCloudPlayer = soundCloudPlayer._node;
                 soundCloudPlayer = SC.Widget(soundCloudPlayer);
                 soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
-                    onPlayerReady('soundcloud');
                     soundCloudPlayer.getSounds(function (sounds) {
-                        console.log(sounds)
+                        if (sounds && sounds.length){
+                            
+                        }
+                        onPlayerReady('soundcloud');
                     })
                 });
                 soundCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
