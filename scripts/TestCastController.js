@@ -418,6 +418,10 @@ window.Template.Controllers.TestCastController = function (element) {
                     }
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
+                if(mobile && streamCheckInterval){
+                    clearInterval(streamCheckInterval);
+                    streamCheckInterval = null;
+                }
             }
         }
     }
