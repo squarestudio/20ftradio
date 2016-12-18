@@ -100,7 +100,7 @@
                         </g>
                     </svg>
                 </div>
-                div.live-indicator
+                <div class="live-indicator blinking">Live</div>
             </div>
         </div>
         {.end}
