@@ -150,6 +150,7 @@ window.Template.Controllers.TestCastController = function (element) {
         });
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
+            if (!activePlayer) return;
             var state = null;
             if (activePlayer == 'youtube') {
                 state = youtubePlayer.getPlayerState();
