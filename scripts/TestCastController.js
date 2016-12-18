@@ -433,10 +433,12 @@ window.Template.Controllers.TestCastController = function (element) {
                 soundCloudPlayer = SC.Widget(soundCloudPlayer);
                 soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
                     soundCloudPlayer.getSounds(function (sounds) {
+                        var skipIndex=0;
                         if (sounds && sounds.length){
-                            
+                          skipIndex  = Math.floor(Math.random()*(sounds.length-1+1));
+                            console.log(skipIndex)
                         }
-                        onPlayerReady('soundcloud');
+                        onPlayerReady('soundcloud', skipIndex);
                     })
                 });
                 soundCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
