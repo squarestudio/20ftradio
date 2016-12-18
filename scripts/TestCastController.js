@@ -17,7 +17,7 @@ window.Template.Controllers.TestCastController = function (element) {
         userPaused,
         players = {},
         activePlayer = false,
-        checkingTime = 2000,
+        checkingTime = 3000,
         streamCheckInterval,
         youtubePlayer = null,
         shoutcastPlayer = null,
