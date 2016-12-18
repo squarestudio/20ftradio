@@ -438,7 +438,7 @@ window.Template.Controllers.TestCastController = function (element) {
                           skipIndex  = Math.floor(Math.random()*(sounds.length-1+1));
                             console.log(skipIndex)
                         }
-                        onPlayerReady('soundcloud', skipIndex);
+                        onPlayerReady('soundcloud', {scSkipIndex:skipIndex});
                     })
                 });
                 soundCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
@@ -513,7 +513,7 @@ window.Template.Controllers.TestCastController = function (element) {
             shoutcastPlayer.setVolume(50);
             setActivePlayer();
         } else if (playerType == 'soundcloud' && youtubeReady) {
-            soundCloudPlayer.skipIndex(data)
+            data && data.scSkipIndex && soundCloudPlayer.skipIndex(data.scSkipIndex);
             soundCloudPlayer.play();
             soundCloudPlayer.setVolume(0.5);
             setActivePlayer();
