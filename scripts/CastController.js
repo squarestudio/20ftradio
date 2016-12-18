@@ -253,6 +253,7 @@ window.Template.Controllers.CastController = function (element) {
         });
         if (!youtubeUrl) {
             youtubeReady = true;
+            retry = maxRetry;
         }
         if (!shoutCastUrl) {
             shoutCastReady = true;
