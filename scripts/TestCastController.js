@@ -361,7 +361,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         return false;
                     }
                 }
-                console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
+                console.log('Youtube State == '+state, youtubePlayer.getDuration());
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (retry > maxRetry || notYoutube) {
