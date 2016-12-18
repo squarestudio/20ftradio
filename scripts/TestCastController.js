@@ -251,7 +251,7 @@ window.Template.Controllers.TestCastController = function (element) {
             }
         });
         if (!mobile) {
-            if(!videoId){
+            if (!videoId) {
                 youtubeReady = true;
             }
             if (videoId) {
@@ -321,9 +321,9 @@ window.Template.Controllers.TestCastController = function (element) {
                         youtubePlayer.playVideo();
                         pausePlayersExept('youtube');
                         onPlayerStateChange('youtube');
-                        if (state == 3 && retry<maxRetry) {//buffering
+                        if (state == 3 && retry < maxRetry) {//buffering
                             console.log('youtube buffering', retry);
-                            if (retry > maxRetry-1) {
+                            if (retry > maxRetry - 1) {
                                 activePlayer = false;
                                 if (mobile) {
                                     notYoutube = true;
@@ -436,12 +436,12 @@ window.Template.Controllers.TestCastController = function (element) {
                 soundCloudPlayer = SC.Widget(soundCloudPlayer);
                 soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
                     soundCloudPlayer.getSounds(function (sounds) {
-                        var skipIndex=0;
-                        if (sounds && sounds.length){
-                          skipIndex  = Math.floor(Math.random()*(sounds.length-1+1));
-                            console.log('SKIPSCINDEX == '+skipIndex)
+                        var skipIndex = 0;
+                        if (sounds && sounds.length) {
+                            skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
+                            console.log('SKIPSCINDEX == ' + skipIndex)
                         }
-                        onPlayerReady('soundcloud', {scSkipIndex:skipIndex});
+                        onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
                     })
                 });
                 soundCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
