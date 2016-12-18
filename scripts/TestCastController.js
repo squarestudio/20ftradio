@@ -329,6 +329,13 @@ window.Template.Controllers.TestCastController = function (element) {
                                 console.log('need try another players')
                             }
                         }
+                        if (state == 1) {
+                            if (mobile) {
+                                notShoutcast = true;
+                                notSoundcloud = true;
+                            }
+                            retry = maxRetry;
+                        }
                     } else {
                         console.log('try to play youtube');
                         if (state == 1) {//video playing
@@ -358,7 +365,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         return false;
                     }
                 }
-                console.log('Youtube State == '+state, youtubePlayer.getDuration());
+                console.log('Youtube State == ' + state, youtubePlayer.getDuration());
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (retry > maxRetry || notYoutube) {
