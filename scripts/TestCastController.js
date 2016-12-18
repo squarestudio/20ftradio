@@ -309,7 +309,7 @@ window.Template.Controllers.TestCastController = function (element) {
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer && !notYoutube) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                if (youtubePlayer.getDuration && youtubePlayer.getDuration() && state > -1) {
+                if (youtubePlayer.getDuration && youtubePlayer.getDuration() && state > 0) {
                     if (mobile) {
                         notSoundcloud = true;
                     }
