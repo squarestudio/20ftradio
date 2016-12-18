@@ -348,6 +348,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     }
                 } else {//no duration (probably no data to play)
                     console.log('no youtube data', retry);
+                    activePlayer = false;
                     setActivePlayer();
                     if (mobile && retry > 2 && retry < maxRetry) {
                         retry = maxRetry;
@@ -355,12 +356,6 @@ window.Template.Controllers.TestCastController = function (element) {
                         activePlayer = false;
                         checkStreams();
                         return false;
-                    } else {
-                        if (retry < 2 || retry == 2) {
-                            activePlayer = 'youtube';
-                        } else {
-                            activePlayer = false;
-                        }
                     }
                 }
                 console.log(state, YT.PlayerState.PLAYING, YT.PlayerState.PAUSED, youtubePlayer.getDuration());
