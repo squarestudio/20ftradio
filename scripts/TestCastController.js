@@ -171,7 +171,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 if (mobile && !userClickPlay) {
                     shoutcastPlayer.playVideo();
                     userPaused = false;
-                    userClickPlay = true;
                 }
                 if (state) {
                     shoutcastPlayer.playVideo();
