@@ -165,7 +165,6 @@ window.Template.Controllers.TestCastController = function (element) {
                     youtubePlayer.playVideo();
                     userPaused = false;
                 }
-                mobile && checkStreams();
             }
             else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
@@ -181,7 +180,6 @@ window.Template.Controllers.TestCastController = function (element) {
                     shoutcastPlayer.pauseVideo();
                     userPaused = true;
                 }
-                mobile && checkStreams();
             }
             else if (activePlayer == 'soundcloud') {
                 if (mobile && !userClickPlay) {
@@ -198,10 +196,10 @@ window.Template.Controllers.TestCastController = function (element) {
                             soundCloudPlayer.pause();
                             userPaused = true;
                         }
-                        mobile && checkStreams();
                     });
                 }
             }
+            mobile && checkStreams();
             userClickPlay = true;
         });
         mobilePlayButton.on('click', function () {
