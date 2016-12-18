@@ -346,7 +346,7 @@ window.Template.Controllers.TestCastController = function (element) {
                             }
                         }
                     }
-                } else {//no duration
+                } else {//no duration or 
                     youtubePlayer.playVideo();
                     console.log('no youtube data', retry);
                     setActivePlayer();
