@@ -185,7 +185,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 if (mobile && !userClickPlay) {
                     soundCloudPlayer.play();
                     userPaused = false;
-                    userClickPlay = true;
                     checkStreams();
                 } else {
                     soundCloudPlayer.isPaused(function (state) {
