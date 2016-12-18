@@ -379,8 +379,11 @@ window.Template.Controllers.TestCastController = function (element) {
                             activePlayer = 'shoutcast';
                             pausePlayersExept('shoutcast');
                             onPlayerStateChange('shoutcast');
-                            if (mobile) {
-                                notSoundcloud = true;
+                            if(state == false){
+                                if (mobile) {
+                                    notSoundcloud = true;
+                                    notYoutube = true;
+                                }
                             }
                         } else {
                             shoutcastPlayer.load();
