@@ -417,7 +417,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
             }
-            //youtubeReady && setActivePlayer(activePlayer);
         }
     }
 
