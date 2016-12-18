@@ -251,10 +251,13 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             }
         });
+        if (!youtubeUrl) {
+            youtubeReady = true;
+        }
+        if (!shoutCastUrl) {
+            shoutCastReady = true;
+        }
         if (!mobile) {
-            if (!youtubeUrl) {
-                youtubeReady = true;
-            }
             if (youtubeUrl) {
                 initYoutubeStream();
             } else if (shoutCastUrl) {
