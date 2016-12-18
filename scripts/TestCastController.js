@@ -318,14 +318,14 @@ window.Template.Controllers.TestCastController = function (element) {
                         youtubePlayer.playVideo();
                         pausePlayersExept('youtube');
                         onPlayerStateChange('youtube');
-                        if (state == 3 && retry<6) {//buffering
+                        if (state == 3 && retry<maxRetry) {//buffering
                             console.log('youtube buffering', retry);
-                            if (retry > 5) {
+                            if (retry > maxRetry-1) {
                                 activePlayer = false;
                                 if (mobile) {
                                     notYoutube = true;
                                 }
-                                checkStreams()
+                                checkStreams();
                                 console.log('need try another players')
                             }
                         }
