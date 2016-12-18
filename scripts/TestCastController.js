@@ -261,6 +261,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 console.log("No data to init");
             }
         }
+        if(videoId)
         if (mobile) {
             if (videoId) {
                 initYoutubeStream();
