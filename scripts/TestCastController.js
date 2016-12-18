@@ -542,6 +542,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 }, checkingTime);
                 console.log('stream check interval set')
             }
+            checkStreams();
         }
         console.log(playerType, 'playerReady');
     }
