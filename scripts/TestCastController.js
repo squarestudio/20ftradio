@@ -331,15 +331,15 @@ window.Template.Controllers.TestCastController = function (element) {
                         }
                     } else {
                         console.log('try to play youtube');
-                        if (youtubePlayer.getPlayerState() == 1) {
-                            youtubePlayer.playVideo();
+                        if (state == 1) {//video playing
+                            activePlayer = 'youtube';
                             pausePlayersExept('youtube');
                             onPlayerStateChange('youtube');
                         }
                         retry = 0;
                         if (state == -1) {
                             activePlayer = false;
-                            retry = 5;
+                            retry = maxRetry;
                             if (mobile) {
                                 notYoutube = true;
                                 checkStreams();
@@ -347,11 +347,10 @@ window.Template.Controllers.TestCastController = function (element) {
                         }
                     }
                 } else {//no duration (probably no data to play)
-                    youtubePlayer.playVideo();
                     console.log('no youtube data', retry);
                     setActivePlayer();
-                    if (mobile && retry > 2) {
-                        retry = 5;
+                    if (mobile && retry > 2 && retry < maxRetry) {
+                        retry = maxRetry;
                         notYoutube = true;
                         activePlayer = false;
                         checkStreams();
