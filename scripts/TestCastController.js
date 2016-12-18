@@ -421,6 +421,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 if(mobile && streamCheckInterval){
                     clearInterval(streamCheckInterval);
                     streamCheckInterval = null;
+                    console.log('stream check interval reset')
                 }
             }
         }
