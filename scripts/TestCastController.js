@@ -395,9 +395,11 @@ window.Template.Controllers.TestCastController = function (element) {
                                 soundCloudPlayer.play();
                                 activePlayer = 'soundcloud';
                                 onPlayerStateChange('soundcloud');
+                                pausePlayersExept('soundcloud');
+                            } else {
+                                activePlayer = 'soundcloud';
                             }
                         });
-                        activePlayer = 'soundcloud';
                     } else {
                         initSoundCloud();
                     }
