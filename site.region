@@ -99,6 +99,7 @@
                         </g>
                     </svg>
                 </div>
+                <div class="live-indicator">● Live</div>
             </div>
         </div>
         {.end}
