@@ -119,7 +119,7 @@
         {.end}
     </squarespace:query>
     <section id="container">
-        <div class="loader">
+        <div class="content-loader">
             <div class="fountainG fountainG_1"></div>
             <div class="fountainG fountainG_2"></div>
             <div class="fountainG fountainG_3"></div>
