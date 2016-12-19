@@ -255,43 +255,47 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             }
         });
-        if (!youtubeUrl) {
-            youtubeReady = true;
-            retry = maxRetry - 1;
-        }
-        if (!shoutCastUrl) {
-            shoutCastReady = true;
-            retry = maxRetry - 1;
-        }
-        if (!mobile) {
-            if (youtubeUrl) {
-                initYoutubeStream();
-            } else if (shoutCastUrl) {
-                initShoutCast();
-            } else if (soundCloudUrl) {
-                initSoundCloud();
-            } else {
-                console.log("No data to init");
+        if(!facebookUrl){
+            if (!youtubeUrl) {
+                youtubeReady = true;
+                retry = maxRetry - 1;
             }
-        }
-        if (mobile) {
-            if (youtubeUrl) {
-                initYoutubeStream();
+            if (!shoutCastUrl) {
+                shoutCastReady = true;
+                retry = maxRetry - 1;
             }
-            if (shoutCastUrl) {
-                initShoutCast();
-            }
-            if (soundCloudUrl) {
-                initSoundCloud();
-            }
-        }
-        if (youtubeUrl || shoutCastUrl || soundCloudUrl) {
             if (!mobile) {
-                /*                streamCheckInterval = setInterval(function () {
-                 checkStreams();
-                 }, checkingTime);
-                 console.log('stream check interval set')*/
+                if (youtubeUrl) {
+                    initYoutubeStream();
+                } else if (shoutCastUrl) {
+                    initShoutCast();
+                } else if (soundCloudUrl) {
+                    initSoundCloud();
+                } else {
+                    console.log("No data to init");
+                }
             }
+            if (mobile) {
+                if (youtubeUrl) {
+                    initYoutubeStream();
+                }
+                if (shoutCastUrl) {
+                    initShoutCast();
+                }
+                if (soundCloudUrl) {
+                    initSoundCloud();
+                }
+            }
+            if (youtubeUrl || shoutCastUrl || soundCloudUrl) {
+                if (!mobile) {
+                    /*                streamCheckInterval = setInterval(function () {
+                     checkStreams();
+                     }, checkingTime);
+                     console.log('stream check interval set')*/
+                }
+            }
+        } else {
+            initFacebook();
         }
     }
 
