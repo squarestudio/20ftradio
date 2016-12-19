@@ -330,7 +330,7 @@ window.Template.Controllers.TestCastController = function (element) {
             FB.XFBML.parse(castContainer._node);
             setTimeout(function () {
                 if(fbPlayer && fbPlayer._node){
-                    sitePlayer.addClass('initialized').removeClass('not-init');
+                    sitePlayer.addClass('initialized').addClass('no-events').removeClass('not-init');
                     mobilePlayButton.addClass('hidden');
                 }
             }, 4000)
