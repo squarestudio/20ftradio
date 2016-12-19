@@ -333,8 +333,13 @@ window.Template.Controllers.CastController = function (element) {
                 if(fbPlayer && fbPlayer._node){
                     sitePlayer.addClass('initialized').addClass('no-events').removeClass('not-init');
                     mobilePlayButton.addClass('hidden');
+                    if(mobile && Y.UA.ios){
+                        fbPlayer.on('click', function () {
+                            
+                        })
+                    }
                 }
-            }, 4000)
+            }, 5000)
         };
         fbPlayer = Y.one('#fbPlayer') || null;
         if (!fbPlayer) {
