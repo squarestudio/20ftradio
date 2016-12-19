@@ -97,7 +97,7 @@
                  data-url="{oembed.url}"
                  data-facebook-url="{customContent.facebookUrl}"
                  data-soundcloud-url="{customContent.soundCloudUrl}"
-                 data-alternative-url="{customContent.shoutcastUrl}">
+                 data-shoutcast-url="{customContent.shoutcastUrl}">
                 <img {@|image-meta} data-load="false"/>
                 <div class="mobile-play-button">
                     <svg version="1.1" x="0px" y="0px"
