@@ -582,6 +582,7 @@ window.Template.Controllers.TestCastController = function (element) {
             clearInterval(streamCheckInterval);
             streamCheckInterval = null;
             preventLoops = 0;
+            lastCheckTime = 0;
         }
     }
 
