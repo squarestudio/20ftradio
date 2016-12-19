@@ -334,13 +334,7 @@ window.Template.Controllers.CastController = function (element) {
                     sitePlayer.addClass('initialized').addClass('no-events').removeClass('not-init');
                     mobilePlayButton.addClass('hidden');
                     if(mobile && Y.UA.ios){
-                        fbPlayer.one('span').on('click', function () {
-                            console.log('clicked')
-                            var a = document.createElement('A');
-                            a.href = 'https://itunes.apple.com/app/facebook/id284882215?ref=m_embedded_video';
-                            a.target = '_blank';
-                            a.click();
-                        })
+                        fbPlayer.append('<a class="fb-app-ios-link" target="_blank" href="https://itunes.apple.com/app/facebook/id284882215?ref=m_embedded_video"></a>');
                     }
                 }
             }, 5000)
