@@ -1,5 +1,8 @@
 window.Template.Controllers.CastController = function (element) {
     'use strict';
+    console.log = function () {
+        
+    };
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
         youtubeUrl,
