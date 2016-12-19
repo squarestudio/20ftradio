@@ -658,7 +658,7 @@ window.Template.Controllers.TestCastController = function (element) {
             window.addEventListener('offline', offlineMessage);
             window.addEventListener('online', onlineMessage);
         }
-        sitePlayer && sitePlayer.addClass('initialized').removeClass('not-init');
+        sitePlayer && sitePlayer.addClass('initialized').removeClass('not-init').removeClass('no-events');
         console.log(playerType, 'playerReady');
     }
 
