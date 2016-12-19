@@ -176,7 +176,11 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             }
             else if (activePlayer == 'facebook') {
-                console.log(fbPlayer)
+                if(castContainer.hasClass('paused')){
+                    fbPlayer.play();
+                } else {
+                    fbPlayer.pause();
+                }
             }
             else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
@@ -692,7 +696,7 @@ window.Template.Controllers.TestCastController = function (element) {
             }
         }
         else if (playerType == 'facebook') {
-            if(state=='play'){
+            if (state == 'play') {
                 setPlaying(playerType)
             } else {
                 setPaused();
