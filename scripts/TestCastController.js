@@ -256,7 +256,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             }
         });
-        if(!facebookUrl){
+        if (!facebookUrl) {
             if (!youtubeUrl) {
                 youtubeReady = true;
                 retry = maxRetry - 1;
@@ -327,15 +327,17 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         castContainer.prepend(fbPlayer);
         if (!window.FB) {
-            (function(d, s, id) {
+            (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id;
+                js = d.createElement(s);
+                js.id = id;
                 js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=0&version=v2.8&appId=1313716692014044";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         }
     }
+
     function pausePlayersExept(playerType) {
         playerType = playerType || false;
         for (var player in players) {
@@ -594,6 +596,10 @@ window.Template.Controllers.TestCastController = function (element) {
             retry = maxRetry;
             checkStreams();
         }
+    }
+
+    function onFBError(e) {
+        console.log('FB failed - ', e);
     }
 
     function onPlayerReady(playerType, data) {
