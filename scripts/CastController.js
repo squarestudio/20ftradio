@@ -336,7 +336,9 @@ window.Template.Controllers.CastController = function (element) {
                     if(mobile && Y.UA.ios){
                         fbPlayer.on('click', function () {
                             var a = document.createElement('A');
-                            a.href = ''
+                            a.href = 'https://itunes.apple.com/app/facebook/id284882215?ref=m_embedded_video';
+                            a.target = '_blank';
+                            a.click();
                         })
                     }
                 }
