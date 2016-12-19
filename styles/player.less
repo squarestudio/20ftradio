@@ -17,12 +17,18 @@
     .transition(opacity .2s);
   }
   &.not-init{
+    #fountainG {
+      display: block;
+    }
     .site-player-wrapper{
       opacity: 0;
       pointer-events: none;
     }
   }
   &.initialized{
+    #fountainG {
+      display: none;
+    }
     .site-player-wrapper{
       opacity: 1;
       pointer-events: all;
