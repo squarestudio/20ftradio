@@ -3,6 +3,7 @@ window.Template.Controllers.TestCastController = function (element) {
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
         youtubeUrl,
+        facebookUrl,
         shoutCastUrl,
         soundCloudUrl,
         retry = 0,
