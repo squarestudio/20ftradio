@@ -24,6 +24,7 @@ window.Template.Controllers.TestCastController = function (element) {
         checkingTime = 5000,
         streamCheckInterval,
         youtubePlayer = null,
+        fbPlayer = null,
         shoutcastPlayer = null,
         soundCloudPlayer = null,
         eventStatusInterval,
@@ -298,7 +299,42 @@ window.Template.Controllers.TestCastController = function (element) {
             initFacebook();
         }
     }
-
+    function initFBPlayer() {
+        window.fbAsyncInit = function () {
+            console.log('FB init')
+            FB.Event.subscribe('xfbml.ready', function (msg) {
+                console.log(msg)
+                if (msg.type === 'video' && msg.id === 'fbPlayer') {
+                    fbPlayer = msg.instance;
+                    console.log(msg);
+                    fbPlayer.subscribe('startedPlaying', function () {
+                        onPlayerStateChange('facebook', 'play');
+                    });
+                    fbPlayer.subscribe('paused', function () {
+                        onPlayerStateChange('facebook', 'pause');
+                    });
+                    fbPlayer.subscribe('error', onFBError);
+                    players['facebook'] = fbPlayer;
+                    onPlayerReady('facebook');
+                }
+            });
+            FB.XFBML.parse(castContainer._node);
+        };
+        fbPlayer = Y.one('#fbPlayer') || null;
+        if (!fbPlayer) {
+            fbPlayer = Y.Node.create('<div id="fbPlayer" data-show-text="false" data-height="' + castContainer.get('offsetHeight') + '" class="fb-video stream-player" data-allowfullscreen="false" data-href="' + videoId + '"></div>');
+        }
+        castContainer.prepend(fbPlayer);
+        if (!window.FB) {
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=0&version=v2.8&appId=1313716692014044";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        }
+    }
     function pausePlayersExept(playerType) {
         playerType = playerType || false;
         for (var player in players) {
