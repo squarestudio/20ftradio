@@ -214,7 +214,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     });
                 }
             }
-            mobile && checkStreams();
+            mobile && !activePlayer == 'facebook' && checkStreams();
             userClickPlay = true;
         });
         mobilePlayButton.on('click', function () {
