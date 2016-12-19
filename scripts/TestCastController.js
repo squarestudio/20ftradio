@@ -614,6 +614,7 @@ window.Template.Controllers.TestCastController = function (element) {
             fbPlayer.play();
             fbReady = true;
             pausePlayersExept('facebook');
+            activePlayer = 'facebook';
         }
         else if (playerType == 'shoutcast' && youtubeReady) {
             shoutcastPlayer.play();
