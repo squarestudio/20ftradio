@@ -308,7 +308,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 console.log(msg)
                 if (msg.type === 'video' && msg.id === 'fbPlayer') {
                     fbPlayer = msg.instance;
-                    console.log(msg);
                     fbPlayer.subscribe('startedPlaying', function () {
                         onPlayerStateChange('facebook', 'play');
                     });
