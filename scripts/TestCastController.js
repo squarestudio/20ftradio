@@ -176,7 +176,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             }
             else if (activePlayer == 'facebook'){
-                
+                console.log(fbPlayer)
             }
             else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
