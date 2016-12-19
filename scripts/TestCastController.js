@@ -10,6 +10,7 @@ window.Template.Controllers.TestCastController = function (element) {
         maxRetry = 3,
         notYoutube = false,
         youtubeReady = false,
+        fbReady = false,
         shoutCastReady = false,
         notShoutcast = false,
         notSoundcloud = false,
@@ -608,7 +609,14 @@ window.Template.Controllers.TestCastController = function (element) {
             youtubePlayer.playVideo();
             youtubeReady = true;
             pausePlayersExept('youtube');
-        } else if (playerType == 'shoutcast' && youtubeReady) {
+        }
+        else if (playerType == 'facebook') {
+            fbPlayer.setVolume(0.5);
+            fbPlayer.play();
+            fbReady = true;
+            pausePlayersExept('facebook');
+        }
+        else if (playerType == 'shoutcast' && youtubeReady) {
             shoutcastPlayer.play();
             shoutcastPlayer.setVolume(50);
             shoutCastReady = true;
