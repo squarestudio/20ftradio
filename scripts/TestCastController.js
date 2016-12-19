@@ -565,28 +565,32 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function initShoutCast() {
-        console.log('shoutcast starting');
-        shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
-        if (!shoutcastPlayer) {
-            shoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" class="hidden" preload playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
+        if (shoutCastUrl){
+            console.log('shoutcast starting');
+            shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
+            if (!shoutcastPlayer) {
+                shoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" class="hidden" preload playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
+            }
+            castContainer.append(shoutcastPlayer);
+            shoutcastPlayer = shoutcastPlayer._node;
+            shoutcastPlayer.addEventListener('loadstart', function () {
+                onPlayerReady('shoutcast');
+            });
+            shoutcastPlayer.addEventListener('play', function () {
+                onPlayerStateChange('shoutcast', 'play')
+            });
+            shoutcastPlayer.addEventListener('pause', function () {
+                onPlayerStateChange('shoutcast', 'pause')
+            });
+            shoutcastPlayer.addEventListener('error', onShoutCastError);
+            shoutcastPlayer.addEventListener('abort', onShoutCastError);
+            shoutcastPlayer.addEventListener('stalled', onShoutCastError);
+            shoutcastPlayer.addEventListener('suspend', onShoutCastError);
+            shoutcastPlayer.addEventListener('emptied', onShoutCastError);
+            players['shoutcast'] = shoutcastPlayer;
+        } else {
+            console.log('no shoutcat url to start');
         }
-        castContainer.append(shoutcastPlayer);
-        shoutcastPlayer = shoutcastPlayer._node;
-        shoutcastPlayer.addEventListener('loadstart', function () {
-            onPlayerReady('shoutcast');
-        });
-        shoutcastPlayer.addEventListener('play', function () {
-            onPlayerStateChange('shoutcast', 'play')
-        });
-        shoutcastPlayer.addEventListener('pause', function () {
-            onPlayerStateChange('shoutcast', 'pause')
-        });
-        shoutcastPlayer.addEventListener('error', onShoutCastError);
-        shoutcastPlayer.addEventListener('abort', onShoutCastError);
-        shoutcastPlayer.addEventListener('stalled', onShoutCastError);
-        shoutcastPlayer.addEventListener('suspend', onShoutCastError);
-        shoutcastPlayer.addEventListener('emptied', onShoutCastError);
-        players['shoutcast'] = shoutcastPlayer;
     }
 
     function onShoutCastError(e) {
