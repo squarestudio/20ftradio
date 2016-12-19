@@ -178,7 +178,7 @@
 <squarespace:script src="WallController.js" combo="true"/>
 <squarespace:script src="soundcloud-api-widget.js" combo="true"/>
 <squarespace:script src="CastController.js" combo="true"/>-->
-<script type="text/javascript" src="https://static1.squarespace.com/static/ta/581c4615197aeaf96c67e33c/2139/scripts/combo/?json-template.js&amp;core-0.2.0.min.js&amp;sqs-controller.js&amp;ajaxLoader.js&amp;site.js&amp;dynamic-data.js&amp;lazy-loader.js&amp;jquery.min.js&amp;masonry.pkgd.min.js&amp;imagesloaded.pkgd.min.js&amp;typed.min.js&amp;wall-scripts/swiper.min.js&amp;wall-scripts/classie.js&amp;wall-scripts/AnimOnScroll.js&amp;share-buttons.js&amp;WallController.js&amp;soundcloud-api-widget.js&amp;CastController.js"></script>
+<script type="text/javascript" async src="https://static1.squarespace.com/static/ta/581c4615197aeaf96c67e33c/2139/scripts/combo/?json-template.js&amp;core-0.2.0.min.js&amp;sqs-controller.js&amp;ajaxLoader.js&amp;site.js&amp;dynamic-data.js&amp;lazy-loader.js&amp;jquery.min.js&amp;masonry.pkgd.min.js&amp;imagesloaded.pkgd.min.js&amp;typed.min.js&amp;wall-scripts/swiper.min.js&amp;wall-scripts/classie.js&amp;wall-scripts/AnimOnScroll.js&amp;share-buttons.js&amp;WallController.js&amp;soundcloud-api-widget.js&amp;CastController.js"></script>
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
 <script>
