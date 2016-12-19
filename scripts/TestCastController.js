@@ -313,6 +313,7 @@ window.Template.Controllers.TestCastController = function (element) {
         retry++;
         console.log('Retries: ' + retry);
         if (!userPaused) {
+            activePlayer = false;
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer && !notYoutube) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
@@ -374,7 +375,7 @@ window.Template.Controllers.TestCastController = function (element) {
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (retry > maxRetry || notYoutube) {
                 console.log('try another players', notShoutcast, notSoundcloud);
-                if (!activePlayer) {
+                if (!activePlayer ) {
                     if (shoutcastPlayer && !notShoutcast) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                         console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState);
