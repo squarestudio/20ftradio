@@ -380,7 +380,7 @@ window.Template.Controllers.CastController = function (element) {
             preventLoops++;
         }
         if (preventLoops > maxRetry + 1) {
-            offlineMessage();
+            //offlineMessage();
             return;
         }
         if (!userPaused) {
@@ -652,7 +652,7 @@ window.Template.Controllers.CastController = function (element) {
             soundCloudPlayer.setVolume(0.5);
             setActivePlayer();
         }
-        if (youtubeReady || shoutCastReady) {
+        if ((youtubeReady || shoutCastReady) && retry < maxRetry) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
