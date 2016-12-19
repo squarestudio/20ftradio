@@ -558,18 +558,27 @@ window.Template.Controllers.TestCastController = function (element) {
                 console.log('stream check interval set')
             }
             checkStreams();
-            var offline_event = window.addEventListener('offline', function () {
-                console.log('offline');
-                if (streamCheckInterval) {
-                    clearInterval(streamCheckInterval);
-                    streamCheckInterval = null;
-                }
-            })
-            console.log(offline_event)
+            window.addEventListener('offline', offlineMessage);
+            window.addEventListener('online', onlineMessage);
         }
         console.log(playerType, 'playerReady');
     }
-
+    function offlineMessage() {
+        console.log('offline');
+        if (streamCheckInterval) {
+            clearInterval(streamCheckInterval);
+            streamCheckInterval = null;
+        }
+    }
+    function onlineMessage() {
+        console.log(online);
+        if (!streamCheckInterval) {
+            streamCheckInterval = setInterval(function () {
+                checkStreams();
+            }, checkingTime);
+            console.log('stream check interval set')
+        }
+    }
     function setPlaying(playerType) {
         sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
         castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
