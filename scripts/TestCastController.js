@@ -296,9 +296,10 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             }
         } else {
-            initFacebook();
+            initFBPlayer();
         }
     }
+
     function initFBPlayer() {
         window.fbAsyncInit = function () {
             console.log('FB init')
