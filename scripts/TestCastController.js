@@ -332,7 +332,7 @@ window.Template.Controllers.TestCastController = function (element) {
         };
         fbPlayer = Y.one('#fbPlayer') || null;
         if (!fbPlayer) {
-            fbPlayer = Y.Node.create('<div id="fbPlayer" data-show-text="false" data-height="' + castContainer.get('offsetHeight') + '" class="fb-video stream-player" data-allowfullscreen="false" data-href="' + facebookUrl + '"></div>');
+            fbPlayer = Y.Node.create('<div id="fbPlayer" data-show-text="false" data-width="' + castContainer.get('offsetWidth') + '" class="fb-video stream-player" data-allowfullscreen="false" data-href="' + facebookUrl + '"></div>');
         }
         castContainer.prepend(fbPlayer);
         if (!window.FB) {
