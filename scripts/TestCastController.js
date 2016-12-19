@@ -510,16 +510,16 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function onShoutCastError(e) {
-        console.log('shoutcast failed');
+        console.log('shoutcast failed', e);
         if (mobile) {
             notShoutcast = true;
-            retry = 5;
+            retry = maxRetry;
             checkStreams();
         }
     }
 
     function onSoundCloudError(e) {
-        console.log('soundcloud error')
+        console.log('soundcloud error', e)
     }
 
     function onYoutubeError(event) {
