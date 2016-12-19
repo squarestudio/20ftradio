@@ -145,6 +145,7 @@ window.Template.Controllers.TestCastController = function (element) {
         }, 10000);
         Y.on('getCurrentEvent', getCurrentEvent);
         castContainer = Y.one('#castDiv');
+        sitePlayer = Y.one('.site-player');
         liveIndicator = castContainer.one('.live-indicator');
         youtubeUrl = castContainer.getAttribute('data-url');
         facebookUrl = castContainer.getAttribute('data-facebook-url');
