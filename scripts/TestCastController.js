@@ -312,9 +312,8 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function initFBPlayer() {
         window.fbAsyncInit = function () {
-            console.log('FB init')
+            console.log('FB init');
             FB.Event.subscribe('xfbml.ready', function (msg) {
-                console.log(msg)
                 if (msg.type === 'video' && msg.id === 'fbPlayer') {
                     fbPlayer = msg.instance;
                     fbPlayer.subscribe('startedPlaying', function () {
@@ -329,6 +328,12 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             });
             FB.XFBML.parse(castContainer._node);
+            setTimeout(function () {
+                if(fbPlayer && fbPlayer._node){
+                    sitePlayer.addClass('initialized').removeClass('not-init');
+                    mobilePlayButton.addClass('hidden');
+                }
+            }, 4000)
         };
         fbPlayer = Y.one('#fbPlayer') || null;
         if (!fbPlayer) {
