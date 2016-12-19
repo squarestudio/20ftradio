@@ -177,7 +177,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             }
             else if (activePlayer == 'facebook') {
-                if(castContainer.hasClass('paused')){
+                if (castContainer.hasClass('paused')) {
                     fbPlayer.play();
                 } else {
                     fbPlayer.pause();
@@ -620,7 +620,12 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         else if (playerType == 'facebook') {
             fbPlayer.setVolume(0.5);
-            !mobile && fbPlayer.play();
+            if (!mobile) {
+                fbPlayer.play();
+            }
+            if (mobile){
+                mobilePlayButton.addClass('hidden');
+            }
             fbReady = true;
             pausePlayersExept('facebook');
             activePlayer = 'facebook';
