@@ -220,7 +220,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 console.log('volume' + activePlayer);
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
                     if (activePlayer) {
-                        if (activePlayer == 'soundcloud') {
+                        if (activePlayer == 'soundcloud' || activePlayer == 'facebook') {
                             players[activePlayer].setVolume(0.5);
                         } else {
                             players[activePlayer].setVolume(50);
