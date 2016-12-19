@@ -63,9 +63,9 @@ window.Template.Controllers.WallController = function (element) {
         });
         var embed_videos = wallGrid.all('.sqs-video-wrapper');
         embed_videos.each(function (embed) {
-            if(embed.getData('html').indexOf('<iframe') > -1){
+            if(embed.getAttribute('data-html').indexOf('<iframe') > -1){
                 if(embed.one('.intrinisc-inner')){
-                    embed.one('.intrinisc-inner').prepend(embed.getData('html'));
+                    embed.one('.intrinisc-inner').prepend(embed.getAttribute('data-html'));
                 }
             }
         })
