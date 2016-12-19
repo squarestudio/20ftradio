@@ -253,11 +253,11 @@ window.Template.Controllers.TestCastController = function (element) {
         });
         if (!youtubeUrl) {
             youtubeReady = true;
-            retry = maxRetry-1;
+            retry = maxRetry - 1;
         }
         if (!shoutCastUrl) {
             shoutCastReady = true;
-            retry = maxRetry-1;
+            retry = maxRetry - 1;
         }
         if (!mobile) {
             if (youtubeUrl) {
@@ -377,7 +377,7 @@ window.Template.Controllers.TestCastController = function (element) {
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (retry > maxRetry || notYoutube) {
                 console.log('try another players', notShoutcast, notSoundcloud);
-                if (!activePlayer ) {
+                if (!activePlayer) {
                     if (shoutcastPlayer && !notShoutcast) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                         console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
@@ -424,14 +424,14 @@ window.Template.Controllers.TestCastController = function (element) {
                     }
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if(mobile && streamCheckInterval){
+                if (mobile && streamCheckInterval) {
                     clearInterval(streamCheckInterval);
                     streamCheckInterval = null;
                     console.log('stream check interval reset')
                 }
             }
         }
-        if (activePlayer && (activePlayer == 'youtube' || activePlayer == 'shoutcast')){
+        if (activePlayer && (activePlayer == 'youtube' || activePlayer == 'shoutcast')) {
             liveIndicator.addClass('active');
         } else {
             liveIndicator.removeClass('active');
@@ -558,7 +558,13 @@ window.Template.Controllers.TestCastController = function (element) {
                 console.log('stream check interval set')
             }
             checkStreams();
-            
+            var offline_event = window.addEventListener('offline', function () {
+                console.log('offline');
+                if (streamCheckInterval) {
+                    clearInterval(streamCheckInterval);
+                    streamCheckInterval = null;
+                }
+            })
         }
         console.log(playerType, 'playerReady');
     }
