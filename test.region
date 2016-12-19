@@ -60,7 +60,7 @@
             </div>
             <squarespace:navigation navigationId="pages" template="navigation"/>
             <div class="site-player-block">
-                <div class="site-player paused">
+                <div class="site-player paused ">
                     <div class="site-player-wrapper">
                         <div class="site-player-controls">
                             <a id="playButton">
