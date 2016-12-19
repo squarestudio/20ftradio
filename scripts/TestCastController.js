@@ -176,7 +176,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             }
             else if (activePlayer == 'facebook') {
-                console.log(castContainer.hasClass('paused'))
                 if(castContainer.hasClass('paused')){
                     fbPlayer.play();
                 } else {
