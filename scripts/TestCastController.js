@@ -254,7 +254,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 volumeIcon._node.className = 'icono-volumeMute';
             }
             if (activePlayer) {
-                if (activePlayer == 'soundcloud') {
+                if (activePlayer == 'soundcloud' || activePlayer == 'facebook') {
                     players[activePlayer].setVolume(volume / 100);
                 } else {
                     players[activePlayer].setVolume(volume);
