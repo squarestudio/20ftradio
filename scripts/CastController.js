@@ -380,7 +380,7 @@ window.Template.Controllers.CastController = function (element) {
             preventLoops++;
         }
         if (preventLoops > maxRetry + 1) {
-            //offlineMessage();
+            offlineMessage();
             return;
         }
         if (!userPaused) {
