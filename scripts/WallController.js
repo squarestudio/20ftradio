@@ -61,6 +61,10 @@ window.Template.Controllers.WallController = function (element) {
                 videoloader && videoloader.pause();
             })
         })
+        var embed_videos = wallGrid.all('.grid-slide-video');
+        embed_videos.each(function (embed) {
+            
+        })
     }
 
     function initTexts() {
