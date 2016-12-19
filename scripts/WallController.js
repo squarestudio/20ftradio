@@ -66,7 +66,7 @@ window.Template.Controllers.WallController = function (element) {
             if(embed.getAttribute('data-html').indexOf('<iframe') > -1){
                 console.log(embed)
                 if(embed.one('.intrinsic-inner')){
-                    embed.one('.intrinsic-inner').prepend(embed.getAttribute('data-html'));
+                    embed.one('.intrinsic-inner').addClass('aspect-16-9')//.prepend(embed.getAttribute('data-html'));
                 }
             }
         })
