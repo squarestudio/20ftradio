@@ -67,7 +67,7 @@ window.Template.Controllers.WallController = function (element) {
                 var videoloader = embed.videoloader;
                 videoloader && videoloader.showVideo();
                 if(embed.one('.intrinsic-inner')){
-                    embed.one('.intrinsic-inner').addClass('aspect-16-9')//.prepend(embed.getAttribute('data-html'));
+                    embed.one('.intrinsic-inner').addClass('aspect-16-9');
                 }
             }
         })
