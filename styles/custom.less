@@ -12,11 +12,17 @@ body {
 .mobile-only, .toggle-share-mobile, .mobile-play-button {
   display: none;
 }
+
+body[data-ajax-loader=loaded]{
+  .content-loader{
+    display: none;
+  }
+}
 .content-loader{
   max-width: 200px;
   width: 100%;
   text-align: center;
-  margin: 10px auto;
+  margin: 10% auto;
 }
 
 .wallGrid {
