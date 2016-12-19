@@ -170,14 +170,14 @@
 <squarespace:script src="jquery.min.js" combo="false"/>
 <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
 <squarespace:script src="imagesloaded.pkgd.min.js" combo="false"/>
-<squarespace:script src="typed.min.js" combo="false"/>
-<squarespace:script src="wall-scripts/swiper.min.js" combo="false"/>
-<squarespace:script src="wall-scripts/classie.js" combo="false"/>
-<squarespace:script src="wall-scripts/AnimOnScroll.js" combo="false"/>
-<squarespace:script src="share-buttons.js" combo="false"/>
-<squarespace:script src="WallController.js" combo="false"/>
-<squarespace:script src="soundcloud-api-widget.js" combo="false"/>
-<squarespace:script src="CastController.js" combo="false"/>
+<squarespace:script src="typed.min.js" combo="true"/>
+<squarespace:script src="wall-scripts/swiper.min.js" combo="true"/>
+<squarespace:script src="wall-scripts/classie.js" combo="true"/>
+<squarespace:script src="wall-scripts/AnimOnScroll.js" combo="true"/>
+<squarespace:script src="share-buttons.js" combo="true"/>
+<squarespace:script src="WallController.js" combo="true"/>
+<squarespace:script src="soundcloud-api-widget.js" combo="true"/>
+<squarespace:script src="CastController.js" combo="true"/>
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
 <script>
