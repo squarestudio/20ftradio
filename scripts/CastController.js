@@ -335,7 +335,8 @@ window.Template.Controllers.CastController = function (element) {
                     mobilePlayButton.addClass('hidden');
                     if(mobile && Y.UA.ios){
                         fbPlayer.on('click', function () {
-                            
+                            var a = document.createElement('A');
+                            a.href = ''
                         })
                     }
                 }
