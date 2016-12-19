@@ -144,6 +144,7 @@ window.Template.Controllers.TestCastController = function (element) {
         castContainer = Y.one('#castDiv');
         liveIndicator = castContainer.one('.live-indicator');
         youtubeUrl = castContainer.getAttribute('data-url');
+        facebookUrl = castContainer.getAttribute('data-facebook-url');
         shoutCastUrl = castContainer.getAttribute('data-alternative-url');
         soundCloudUrl = castContainer.getAttribute('data-soundcloud-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
