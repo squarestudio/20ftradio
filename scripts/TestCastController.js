@@ -320,7 +320,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     onPlayerReady('facebook');
                 }
             });
-            //FB.XFBML.parse(castContainer._node);
+            FB.XFBML.parse(castContainer._node);
         };
         fbPlayer = Y.one('#fbPlayer') || null;
         if (!fbPlayer) {
