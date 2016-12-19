@@ -5,10 +5,10 @@
   overflow: hidden;
   width: 100%;
   a {
-    border-color: transparent!important;
+    border-color: transparent !important;
     cursor: pointer;
     position: relative;
-    border-width: 0!important;
+    border-width: 0 !important;
     display: inline-block;
     width: 36px;
     vertical-align: top;
@@ -16,17 +16,17 @@
   .site-player-controls {
     .transition(opacity .2s);
   }
-  &.not-init{
+  &.not-init {
     #fountainG {
       display: block;
     }
-    .site-player-controls{
+    .site-player-controls {
       display: none;
     }
   }
-  &.no-events{
+  &.no-events {
     pointer-events: none;
-    .site-player-controls{
+    .site-player-controls {
       opacity: 0.5;
     }
   }
@@ -40,63 +40,63 @@
     background-color: @navTextColor;
     display: inline-block;
   }
-  &.initialized{
+  &.initialized {
     #fountainG {
       display: none;
     }
-    .fountainG{
+    .fountainG {
       animation: none;
     }
-    .site-player-controls{
+    .site-player-controls {
       display: block;
     }
   }
   &.playing {
     #playButton {
-      i{
+      i {
         .icono-pause;
         width: 4px;
-        box-shadow: inset 0 0 0 32px,8px 0 0 0;
+        box-shadow: inset 0 0 0 32px, 8px 0 0 0;
         margin: 7px 20px 7px 10px;
       }
     }
   }
   &.paused {
     #playButton {
-      i{
+      i {
         .icono-play;
       }
     }
   }
   &.volumeHigh {
     #volumeButton {
-      i{
+      i {
         .icono-volumeHigh;
       }
     }
   }
   &.volumeMedium {
     #volumeButton {
-      i{
+      i {
         .icono-volumeMedium;
       }
     }
   }
   &.volumeLow {
     #volumeButton {
-      i{
+      i {
         .icono-volumeLow;
       }
     }
   }
-  &.volumeMute{
+  &.volumeMute {
     #volumeButton {
-      i{
+      i {
         .icono-volumeMute;
       }
     }
   }
-  #volumeButton{
+  #volumeButton {
     margin-right: 6px;
   }
   .volume-control {
@@ -108,7 +108,7 @@
     height: 32px;
     text-align: center;
   }
-  .track-name{
+  .track-name {
     white-space: nowrap;
     color: @navActiveColor;
     opacity: 0;
