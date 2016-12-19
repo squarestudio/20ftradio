@@ -320,6 +320,7 @@ window.Template.Controllers.TestCastController = function (element) {
         if(now-lastCheckTime<checkingTime-1000){
             preventLoops++;
         }
+        if (preventLoops > maxRetry+1) {offlineMessage(); return;}
         if (!userPaused) {
             activePlayer = false;
             console.log("ACTIVE PLAYER = " + activePlayer);
@@ -576,6 +577,7 @@ window.Template.Controllers.TestCastController = function (element) {
         if (streamCheckInterval) {
             clearInterval(streamCheckInterval);
             streamCheckInterval = null;
+            preventLoops = 0;
         }
     }
     function onlineMessage() {
