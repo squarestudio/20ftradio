@@ -175,6 +175,9 @@ window.Template.Controllers.TestCastController = function (element) {
                     userPaused = false;
                 }
             }
+            else if (activePlayer == 'facebook'){
+
+            }
             else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
                 if (mobile && !userClickPlay) {
