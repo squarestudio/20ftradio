@@ -60,10 +60,12 @@ window.Template.Controllers.WallController = function (element) {
             }, function () {
                 videoloader && videoloader.pause();
             })
-        })
-        var embed_videos = wallGrid.all('.grid-slide-video');
+        });
+        var embed_videos = wallGrid.all('.sqs-video-wrapper');
         embed_videos.each(function (embed) {
-            
+            if(embed.getData('html').indexOf('<iframe') > -1){
+                
+            }
         })
     }
 
