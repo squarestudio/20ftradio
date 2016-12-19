@@ -565,6 +565,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     streamCheckInterval = null;
                 }
             })
+            console.log(offline_event)
         }
         console.log(playerType, 'playerReady');
     }
