@@ -386,7 +386,7 @@ window.Template.Controllers.TestCastController = function (element) {
                             activePlayer = 'shoutcast';
                             pausePlayersExept('shoutcast');
                             onPlayerStateChange('shoutcast');
-                            if (state == false) {
+                            if (state == false) { 
                                 if (mobile) {
                                     notSoundcloud = true;
                                     notYoutube = true;
@@ -511,6 +511,7 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function onShoutCastError(e) {
         console.log('shoutcast failed', e);
+        e.target.someError = e.type;
         if (mobile) {
             notShoutcast = true;
             retry = maxRetry;
@@ -519,7 +520,7 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function onSoundCloudError(e) {
-        console.log('soundcloud error', e)
+        console.log('soundcloud error', e);
     }
 
     function onYoutubeError(event) {
