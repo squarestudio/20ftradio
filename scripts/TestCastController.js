@@ -13,6 +13,7 @@ window.Template.Controllers.TestCastController = function (element) {
         notShoutcast = false,
         notSoundcloud = false,
         preventLoops = 0,
+        lastCheckTime,
         mobile,
         mobilePlayButton,
         userClickPlay = false,
