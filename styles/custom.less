@@ -38,6 +38,10 @@ body {
 
 .sqs-svg-icon--wrapper.mixcloud {
   overflow: visible;
+  .transition(opacity .2s);
+  &:hover {
+    opacity: 1!important;
+  }
   > div {
     .scale(1);
   }
@@ -70,6 +74,11 @@ body {
   .socialaccountlinks-v2-block {
     width: auto;
     margin-right: 6px;
+    &:hover {
+      .mixcloud {
+        opacity: .4;
+      }
+    }
     .sqs-svg-icon--list {
       white-space: nowrap;
     }
