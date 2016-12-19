@@ -217,7 +217,7 @@ window.Template.Controllers.TestCastController = function (element) {
             if (castContainer.get('offsetWidth') < 430) {
                 sitePlayer.toggleClass('volume-range-visible');
             } else {
-                console.log('volume' + activePlayer);
+                console.log('volume - ' + activePlayer);
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
                     if (activePlayer) {
                         if (activePlayer == 'soundcloud' || activePlayer == 'facebook') {
