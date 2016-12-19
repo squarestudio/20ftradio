@@ -63,10 +63,10 @@ window.Template.Controllers.WallController = function (element) {
         });
         var embed_videos = wallGrid.all('.sqs-video-wrapper');
         embed_videos.each(function (embed) {
-            console.log(embed)
             if(embed.getAttribute('data-html').indexOf('<iframe') > -1){
-                if(embed.one('.intrinisc-inner')){
-                    embed.one('.intrinisc-inner').prepend(embed.getAttribute('data-html'));
+                console.log(embed)
+                if(embed.one('.intrinsic-inner')){
+                    embed.one('.intrinsic-inner').prepend(embed.getAttribute('data-html'));
                 }
             }
         })
