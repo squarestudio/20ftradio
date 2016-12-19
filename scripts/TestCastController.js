@@ -620,7 +620,7 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         else if (playerType == 'facebook') {
             fbPlayer.setVolume(0.5);
-            fbPlayer.play();
+            !mobile && fbPlayer.play();
             fbReady = true;
             pausePlayersExept('facebook');
             activePlayer = 'facebook';
