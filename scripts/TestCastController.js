@@ -314,8 +314,9 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function checkStreams() {
+        var now = new Date().getTime();
         retry++;
-        console.log('Retries: ' + retry);
+        console.log('Retries: ' + retry, now - lastCheckTime);
         if (!userPaused) {
             activePlayer = false;
             console.log("ACTIVE PLAYER = " + activePlayer);
@@ -435,9 +436,11 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         if (activePlayer && (activePlayer == 'youtube' || activePlayer == 'shoutcast')) {
             liveIndicator.addClass('active');
-        } else {
+        }
+        else {
             liveIndicator.removeClass('active');
         }
+        lastCheckTime = new Date().getTime();
     }
 
     function setActivePlayer(active) {
