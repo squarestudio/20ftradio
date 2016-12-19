@@ -334,7 +334,7 @@ window.Template.Controllers.CastController = function (element) {
                     sitePlayer.addClass('initialized').addClass('no-events').removeClass('not-init');
                     mobilePlayButton.addClass('hidden');
                     if(mobile && Y.UA.ios){
-                        fbPlayer.on('click', function () {
+                        fbPlayer.one('iframe').on('click', function () {
                             console.log('clicked')
                             var a = document.createElement('A');
                             a.href = 'https://itunes.apple.com/app/facebook/id284882215?ref=m_embedded_video';
