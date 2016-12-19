@@ -253,9 +253,11 @@ window.Template.Controllers.TestCastController = function (element) {
         });
         if (!youtubeUrl) {
             youtubeReady = true;
+            retry = maxRetry-1;
         }
         if (!shoutCastUrl) {
             shoutCastReady = true;
+            retry = maxRetry-1;
         }
         if (!mobile) {
             if (youtubeUrl) {
