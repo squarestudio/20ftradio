@@ -317,10 +317,13 @@ window.Template.Controllers.TestCastController = function (element) {
         var now = new Date().getTime();
         retry++;
         console.log('Retries: ' + retry, now - lastCheckTime);
-        if(now-lastCheckTime<checkingTime-1000){
+        if (now - lastCheckTime < checkingTime - 1000) {
             preventLoops++;
         }
-        if (preventLoops > maxRetry+1) {offlineMessage(); return;}
+        if (preventLoops > maxRetry + 1) {
+            offlineMessage();
+            return;
+        }
         if (!userPaused) {
             activePlayer = false;
             console.log("ACTIVE PLAYER = " + activePlayer);
@@ -572,6 +575,7 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         console.log(playerType, 'playerReady');
     }
+
     function offlineMessage() {
         console.log('offline');
         if (streamCheckInterval) {
@@ -580,6 +584,7 @@ window.Template.Controllers.TestCastController = function (element) {
             preventLoops = 0;
         }
     }
+
     function onlineMessage() {
         console.log(online);
         if (!streamCheckInterval) {
@@ -589,6 +594,7 @@ window.Template.Controllers.TestCastController = function (element) {
             console.log('stream check interval set')
         }
     }
+
     function setPlaying(playerType) {
         sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
         castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
