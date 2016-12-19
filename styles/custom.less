@@ -13,12 +13,20 @@ body {
   display: none;
 }
 
-body[data-ajax-loader=loaded]{
-  .content-loader{
-    display: none;
+body {
+  &[data-ajax-loader=loaded] {
+    .content-loader {
+      display: none;
+    }
+  }
+  &[data-ajax-loader=loading] {
+    .content-loader {
+      display: block;
+    }
   }
 }
-.content-loader{
+
+.content-loader {
   max-width: 200px;
   width: 100%;
   text-align: center;
