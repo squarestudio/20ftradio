@@ -50,6 +50,10 @@ window.Template.Controllers.CastController = function (element) {
             img.removeAttribute('data-load');
             ImageLoader.load(img, {load: true});
         });
+        if(Y.one('#fbPlayer')){
+            Y.one('#fbPlayer').setAttribute('data-width', castContainer.get('offsetWidth'));
+            Y.one('#fbPlayer').setAttribute('data-height', castContainer.get('offsetHeight'));
+        }
     }
 
     function initYoutubePlayer() {
