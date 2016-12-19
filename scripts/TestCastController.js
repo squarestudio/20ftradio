@@ -586,7 +586,7 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function onlineMessage() {
-        console.log(online);
+        console.log('online');
         if (!streamCheckInterval) {
             streamCheckInterval = setInterval(function () {
                 checkStreams();
