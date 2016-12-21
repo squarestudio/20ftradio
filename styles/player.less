@@ -48,6 +48,7 @@
       animation: none;
     }
     .site-player-controls {
+      max-height: 200px;
       display: block;
     }
   }
@@ -107,7 +108,8 @@
   .site-player-controls {
     height: 32px;
     text-align: center;
-    display: none;
+    max-height: 0;
+    .transition(max-height .3s);
   }
   .track-name {
     white-space: nowrap;
