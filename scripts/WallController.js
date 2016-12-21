@@ -63,10 +63,10 @@ window.Template.Controllers.WallController = function (element) {
         });
         var embed_videos = wallGrid.all('.sqs-video-wrapper');
         embed_videos.each(function (embed) {
-            if(embed.getAttribute('data-html').indexOf('<iframe') > -1){
+            if (embed.getAttribute('data-html').indexOf('<iframe') > -1) {
                 var videoloader = embed.videoloader;
                 videoloader && videoloader.showVideo();
-                if(embed.one('.intrinsic-inner')){
+                if (embed.one('.intrinsic-inner')) {
                     embed.one('.intrinsic-inner').addClass('aspect-16-9');
                 }
             }
@@ -161,7 +161,7 @@ window.Template.Controllers.WallController = function (element) {
     function initialize() {
         console.log('Wall init');
         wallGrid = Y.one('#wallGrid');
-        if(wallGrid){
+        if (wallGrid) {
             var mobileWall = wallGrid.one('.mobile-only');
             window.Template.Util.initShareButtons();
             if (animOnScroll) animOnScroll = null;
@@ -206,7 +206,7 @@ window.Template.Controllers.WallController = function (element) {
                                     mobileWall.prepend(upcomingMob.get('children'));
                                 }
                                 if (compiledFragment.one('.wallEvents-Past')) {
-                                    var pastMob =compiledFragment.one('.wallEvents-Past').cloneNode(!0);
+                                    var pastMob = compiledFragment.one('.wallEvents-Past').cloneNode(!0);
                                     mobileWall.append(pastMob.get('children'));
                                 }
                                 var events = Y.Node.create('<ul class="wallGrid wallEvents"></ul>');
@@ -215,8 +215,8 @@ window.Template.Controllers.WallController = function (element) {
                                 imagesReady();
                                 loadImages();
                                 Y.fire('getCurrentEvent');
-                                if(window.AjaxLoader){
-                                    Y.all('.wallGrid a').setAttribute('data-ajax-loader','ajax-loader-binded');
+                                if (window.AjaxLoader) {
+                                    Y.all('.wallGrid a').setAttribute('data-ajax-loader', 'ajax-loader-binded');
                                     //Y.all('.wallEvents a').setAttribute('data-ajax-loader','ajax-loader-binded');
                                 }
                             } else {
