@@ -335,7 +335,7 @@ window.Template.Controllers.CastController = function (element) {
             FB.XFBML.parse(castContainer._node);
             setTimeout(function () {
                 if(fbPlayer && fbPlayer._node){
-                    sitePlayer.addClass('initialized').addClass('no-events').removeClass('not-init');
+                    sitePlayer.addClass('initialized').addClass('no-events').addClass('played').removeClass('not-init');
                     mobilePlayButton.addClass('hidden');
                     if(mobile && Y.UA.ios){
                         fbPlayer.append('<a class="fb-app-ios-link" target="_blank" href="https://itunes.apple.com/app/facebook/id284882215?ref=m_embedded_video"></a>');
@@ -697,7 +697,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function setPlaying(playerType) {
-        sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
+        sitePlayer.addClass('playing').addClass('played').removeClass('paused').removeClass('stopped');
         castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
         !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
         setActivePlayer(playerType);
