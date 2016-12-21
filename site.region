@@ -62,11 +62,11 @@
                 <div class="site-player paused not-init">
                     <div class="site-player-wrapper">
                         <div id="fountainG">
-                            <div id="fountainG_1" class="fountainG"></div>
-                            <div id="fountainG_2" class="fountainG"></div>
-                            <div id="fountainG_3" class="fountainG"></div>
-                            <div id="fountainG_4" class="fountainG"></div>
-                            <div id="fountainG_5" class="fountainG"></div>
+                            <div class="fountainG fountainG_1"></div>
+                            <div class="fountainG fountainG_2"></div>
+                            <div class="fountainG fountainG_3"></div>
+                            <div class="fountainG fountainG_4"></div>
+                            <div class="fountainG fountainG_5"></div>
                         </div>
                         <div class="site-player-controls">
                             <a id="playButton">
