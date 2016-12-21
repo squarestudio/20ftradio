@@ -66,7 +66,7 @@ window.Template.Controllers.WallController = function (element) {
             if (embed.getAttribute('data-html').indexOf('<iframe') > -1) {
                 var videoloader = embed.videoloader;
                 console.log(videoloader)
-                videoloader && videoloader.showVideo();
+                //videoloader && videoloader.showVideo();
                 if (embed.one('.intrinsic-inner')) {
                     embed.one('.intrinsic-inner').addClass('aspect-16-9');
                 }
