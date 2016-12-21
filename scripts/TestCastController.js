@@ -349,7 +349,7 @@ window.Template.Controllers.TestCastController = function (element) {
             fbPlayer = Y.Node.create('<div id="fbPlayer" data-show-text="false"  data-height="' + castContainer.get('offsetHeight') + '" class="fb-video stream-player" data-allowfullscreen="false" data-href="' + facebookUrl + '"></div>');
         }
         castContainer.prepend(fbPlayer);
-       /* if (!window.FB) {
+        if (!window.FB) {
             (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
                 if (d.getElementById(id)) return;
@@ -358,7 +358,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=0&version=v2.8&appId=1313716692014044";
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
-        }*/
+        }
     }
 
     function pausePlayersExept(playerType) {
