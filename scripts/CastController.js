@@ -700,7 +700,6 @@ window.Template.Controllers.CastController = function (element) {
         sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
         castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
         !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
-        if (activePlayer) sitePlayer.addClass('played');
         setActivePlayer(playerType);
         pausePlayersExept(playerType);
     }
