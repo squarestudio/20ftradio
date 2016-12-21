@@ -392,7 +392,7 @@ window.Template.Controllers.CastController = function (element) {
             //offlineMessage();
             return;
         }
-        if (!userPaused) {
+        if (!userPaused && activePlayer !== 'facebook') {
             activePlayer = false;
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer && !notYoutube) {
@@ -648,6 +648,7 @@ window.Template.Controllers.CastController = function (element) {
             fbReady = true;
             pausePlayersExept('facebook');
             activePlayer = 'facebook';
+
         }
         else if (playerType == 'shoutcast' && youtubeReady) {
             if(!shoutCastReady){
