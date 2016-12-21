@@ -514,6 +514,7 @@ window.Template.Controllers.CastController = function (element) {
         else {
             liveIndicator.removeClass('active');
         }
+        if (activePlayer) sitePlayer.addClass('played');
         lastCheckTime = new Date().getTime();
     }
 
