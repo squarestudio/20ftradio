@@ -50,6 +50,7 @@
     .site-player-controls {
       .translate3d(0,0,0);
       max-height: 200px;
+      opacity: 1;
     }
   }
   &.playing {
@@ -109,7 +110,7 @@
     height: 32px;
     text-align: center;
     max-height: 0;
-    opacity: 1;
+    opacity: 0;
     .transition2(transform .8s, opacity 1s ease);
     .translate3d(0,200px,0);
   }
