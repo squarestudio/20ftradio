@@ -1,5 +1,6 @@
 window.Template.Controllers.TestCastController = function (element) {
     'use strict';
+    //console.log = function () {};
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
         youtubeUrl,
@@ -45,6 +46,10 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function refreshImages() {
+        if(Y.one('#fbPlayer')){
+            Y.one('#fbPlayer').setAttribute('data-width', castContainer.get('offsetWidth'));
+            Y.one('#fbPlayer').setAttribute('data-height', castContainer.get('offsetHeight'));
+        }
         castContainer.all('img').each(function (img) {
             img.removeAttribute('data-load');
             ImageLoader.load(img, {load: true});
@@ -330,14 +335,17 @@ window.Template.Controllers.TestCastController = function (element) {
             FB.XFBML.parse(castContainer._node);
             setTimeout(function () {
                 if(fbPlayer && fbPlayer._node){
-                    sitePlayer.addClass('initialized').addClass('no-events').removeClass('not-init');
+                    sitePlayer.addClass('initialized').addClass('no-events').addClass('played').removeClass('not-init');
                     mobilePlayButton.addClass('hidden');
+                    if(mobile && Y.UA.ios){
+                        fbPlayer.append('<a class="fb-app-ios-link" target="_blank" href="https://itunes.apple.com/app/facebook/id284882215?ref=m_embedded_video"></a>');
+                    }
                 }
-            }, 4000)
+            }, 5000)
         };
         fbPlayer = Y.one('#fbPlayer') || null;
         if (!fbPlayer) {
-            fbPlayer = Y.Node.create('<div id="fbPlayer" data-show-text="false" data-height="' + castContainer.get('offsetHeight') + '" class="fb-video stream-player" data-allowfullscreen="false" data-href="' + facebookUrl + '"></div>');
+            fbPlayer = Y.Node.create('<div id="fbPlayer" data-show-text="false"  data-height="' + castContainer.get('offsetHeight') + '" class="fb-video stream-player" data-allowfullscreen="false" data-href="' + facebookUrl + '"></div>');
         }
         castContainer.prepend(fbPlayer);
         if (!window.FB) {
@@ -506,6 +514,7 @@ window.Template.Controllers.TestCastController = function (element) {
         else {
             liveIndicator.removeClass('active');
         }
+        if (activePlayer) sitePlayer.addClass('played');
         lastCheckTime = new Date().getTime();
     }
 
