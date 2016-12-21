@@ -319,6 +319,7 @@ window.Template.Controllers.CastController = function (element) {
         window.fbAsyncInit = function () {
             console.log('FB init');
             FB.Event.subscribe('xfbml.ready', function (msg) {
+                console.log(msg)
                 if (msg.type === 'video' && msg.id === 'fbPlayer') {
                     fbPlayer = msg.instance;
                     fbPlayer.subscribe('startedPlaying', function () {
