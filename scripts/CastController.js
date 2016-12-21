@@ -648,7 +648,7 @@ window.Template.Controllers.CastController = function (element) {
             fbReady = true;
             pausePlayersExept('facebook');
             activePlayer = 'facebook';
-
+            checkStreams();
         }
         else if (playerType == 'shoutcast' && youtubeReady) {
             if(!shoutCastReady){
