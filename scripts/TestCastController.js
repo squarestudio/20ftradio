@@ -319,6 +319,7 @@ window.Template.Controllers.TestCastController = function (element) {
         window.fbAsyncInit = function () {
             console.log('FB init');
             FB.Event.subscribe('xfbml.ready', function (msg) {
+                console.log(msg)
                 if (msg.type === 'video' && msg.id === 'fbPlayer') {
                     fbPlayer = msg.instance;
                     fbPlayer.subscribe('startedPlaying', function () {
@@ -391,7 +392,7 @@ window.Template.Controllers.TestCastController = function (element) {
             //offlineMessage();
             return;
         }
-        if (!userPaused) {
+        if (!userPaused && activePlayer !== 'facebook') {
             activePlayer = false;
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer && !notYoutube) {
@@ -647,6 +648,7 @@ window.Template.Controllers.TestCastController = function (element) {
             fbReady = true;
             pausePlayersExept('facebook');
             activePlayer = 'facebook';
+            checkStreams();
         }
         else if (playerType == 'shoutcast' && youtubeReady) {
             if(!shoutCastReady){
