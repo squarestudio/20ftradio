@@ -1,6 +1,6 @@
 window.Template.Controllers.TestCastController = function (element) {
     'use strict';
-    //console.log = function () {};
+    console.log = function () {};
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
         youtubeUrl,
@@ -758,6 +758,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     url: collection_url + '?format=json',
                     data: {
                         view: 'list',
+                        time: new Date().getTime(),
                         offset: offset || ''
                     },
                     success: function (items) {
