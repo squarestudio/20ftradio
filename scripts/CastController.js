@@ -758,6 +758,7 @@ window.Template.Controllers.CastController = function (element) {
                     url: collection_url + '?format=json',
                     data: {
                         view: 'list',
+                        time: new Date().getTime(),
                         offset: offset || ''
                     },
                     success: function (items) {
