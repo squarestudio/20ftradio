@@ -269,7 +269,7 @@ window.Template.Controllers.CastController = function (element) {
                     players[activePlayer].setVolume(volume / 100);
                 } else if (activePlayer == 'shoutcast'){
                     console.log(players[activePlayer], players[activePlayer].volume)
-                    players[activePlayer].volume = volume;
+                    players[activePlayer].volume = volume/100;
                 } else {
                     players[activePlayer].setVolume(volume);
                 }
