@@ -254,7 +254,7 @@ window.Template.Controllers.CastController = function (element) {
         volumeControl.on(['change', 'input'], function (e) {
             e.halt();
             var volume = parseInt(e.currentTarget.get('value'));
-            console.log(volume)
+            console.log(players[activePlayer].volume)
             if (volume > 55) {
                 volumeIcon._node.className = 'icono-volumeHigh';
             } else if (volume < 55 && volume > 21) {
@@ -267,9 +267,6 @@ window.Template.Controllers.CastController = function (element) {
             if (activePlayer) {
                 if (activePlayer == 'soundcloud' || activePlayer == 'facebook') {
                     players[activePlayer].setVolume(volume / 100);
-                } else if (activePlayer == 'shoutcast'){
-                    console.log(players[activePlayer], players[activePlayer].volume)
-                    players[activePlayer].volume = volume/100;
                 } else {
                     players[activePlayer].setVolume(volume);
                 }
