@@ -268,7 +268,7 @@ window.Template.Controllers.CastController = function (element) {
                 if (activePlayer == 'soundcloud' || activePlayer == 'facebook') {
                     players[activePlayer].setVolume(volume / 100);
                 } else if (activePlayer == 'shoutcast'){
-                    console.log(players[activePlayer])
+                    console.log(players[activePlayer], players[activePlayer].volume)
                     players[activePlayer].volume = volume;
                 } else {
                     players[activePlayer].setVolume(volume);
