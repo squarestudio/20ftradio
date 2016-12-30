@@ -1,6 +1,6 @@
 window.Template.Controllers.CastController = function (element) {
     'use strict';
-    console.log = function () {};
+    //console.log = function () {};
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
         youtubeUrl,
@@ -23,7 +23,7 @@ window.Template.Controllers.CastController = function (element) {
         userPaused,
         players = {},
         activePlayer = false,
-        checkingTime = 2000,
+        checkingTime = 4000,
         streamCheckInterval,
         youtubePlayer = null,
         fbPlayer = null,
