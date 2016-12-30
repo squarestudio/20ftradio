@@ -252,9 +252,9 @@ window.Template.Controllers.CastController = function (element) {
             }
         });
         volumeControl.on(['change', 'input'], function (e) {
-            console.log(e.currentTarget.get('value'))
             e.halt();
             var volume = parseInt(e.currentTarget.get('value'));
+            console.log(volume)
             if (volume > 55) {
                 volumeIcon._node.className = 'icono-volumeHigh';
             } else if (volume < 55 && volume > 21) {
