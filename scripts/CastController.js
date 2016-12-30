@@ -1,6 +1,6 @@
 window.Template.Controllers.CastController = function (element) {
     'use strict';
-    console.log = function () {};
+    //console.log = function () {};
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
         youtubeUrl,
@@ -252,6 +252,7 @@ window.Template.Controllers.CastController = function (element) {
             }
         });
         volumeControl.on(['change', 'input'], function (e) {
+            console.log(e.currentTarget.get('value'))
             e.halt();
             var volume = parseInt(e.currentTarget.get('value'));
             if (volume > 55) {
