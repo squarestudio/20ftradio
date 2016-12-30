@@ -1,6 +1,6 @@
 window.Template.Controllers.CastController = function (element) {
     'use strict';
-    //console.log = function () {};
+    console.log = function () {};
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
         youtubeUrl,
@@ -254,7 +254,6 @@ window.Template.Controllers.CastController = function (element) {
         volumeControl.on(['change', 'input'], function (e) {
             e.halt();
             var volume = parseInt(e.currentTarget.get('value'));
-            console.log(players[activePlayer].volume)
             if (volume > 55) {
                 volumeIcon._node.className = 'icono-volumeHigh';
             } else if (volume < 55 && volume > 21) {
