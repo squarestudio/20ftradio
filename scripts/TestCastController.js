@@ -407,8 +407,6 @@ window.Template.Controllers.TestCastController = function (element) {
                     pausePlayersExept('youtube');
                     onPlayerStateChange('youtube');
                     return;
-                } else {
-                    retry = maxRetry + 1;
                 }
                 console.log('Youtube State == ' + state,  youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
             }
