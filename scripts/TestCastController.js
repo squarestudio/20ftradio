@@ -11,6 +11,7 @@ window.Template.Controllers.TestCastController = function (element) {
         maxRetry = 3,
         youtubeStatus = false,
         youtubeStatusLoad = false,
+        youtubeCheckInterval,
         notYoutube = false,
         youtubeReady = false,
         fbReady = false,
@@ -588,6 +589,12 @@ window.Template.Controllers.TestCastController = function (element) {
             youtubePlayer.playVideo();
             youtubeReady = true;
             pausePlayersExept('youtube');
+            if (!youtubeCheckInterval) {
+                youtubeCheckInterval = setInterval(function () {
+                    getYoutubeStatus()
+                }, checkingTime*2);
+                console.log('youtube check interval set')
+            }
         }
         else if (playerType == 'facebook') {
             fbPlayer.setVolume(0.5);
