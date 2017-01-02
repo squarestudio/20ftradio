@@ -402,12 +402,13 @@ window.Template.Controllers.TestCastController = function (element) {
             if (youtubePlayer && !notYoutube) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if(youtubeStatus){
-                    youtubePlayer.playVideo();
+                    if (state > 1) youtubePlayer.playVideo();
                     activePlayer = 'youtube';
                     pausePlayersExept('youtube');
                     onPlayerStateChange('youtube');
                 }
                 console.log('Youtube State == ' + state, youtubePlayer.getDuration());
+                return;
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (retry > maxRetry || notYoutube) {
