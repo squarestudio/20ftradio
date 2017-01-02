@@ -283,6 +283,7 @@ window.Template.Controllers.CastController = function (element) {
             if (!mobile) {
                 if (youtubeUrl) {
                     initYoutubeStream();
+                    getYoutubeStatus();
                 } else if (shoutCastUrl) {
                     initShoutCast();
                 } else if (soundCloudUrl) {
@@ -842,7 +843,7 @@ window.Template.Controllers.CastController = function (element) {
             }
         });
     }
-    
+
     function getShoutcastStatus() {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
