@@ -406,6 +406,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     activePlayer = 'youtube';
                     pausePlayersExept('youtube');
                     onPlayerStateChange('youtube');
+                    console.log(youtubeStatus)
                     return;
                 }
                 console.log('Youtube State == ' + state, youtubePlayer.getDuration());
