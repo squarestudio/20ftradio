@@ -411,7 +411,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 console.log('Youtube State == ' + state,  youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
-            if (retry > maxRetry || notYoutube) {
+            if (!youtubeStatus) {//retry > maxRetry || notYoutube
                 console.log('try another players', notShoutcast, notSoundcloud);
                 if (!activePlayer) {
                     if (shoutcastPlayer && !notShoutcast) {
