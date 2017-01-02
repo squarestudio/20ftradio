@@ -619,7 +619,7 @@ window.Template.Controllers.TestCastController = function (element) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
-                    checkStreams();
+                    getYoutubeStatus();
                 }, checkingTime);
                 console.log('stream check interval set')
             }
