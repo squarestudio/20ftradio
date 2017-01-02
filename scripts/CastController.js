@@ -500,11 +500,11 @@ window.Template.Controllers.CastController = function (element) {
                     }
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if (mobile && streamCheckInterval) {
+                /*if (mobile && streamCheckInterval) {
                     clearInterval(streamCheckInterval);
                     streamCheckInterval = null;
                     console.log('stream check interval reset')
-                }
+                }*/
             }
         }
         if (activePlayer && (activePlayer == 'youtube' || activePlayer == 'shoutcast')) {
