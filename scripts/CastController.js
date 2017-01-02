@@ -294,6 +294,7 @@ window.Template.Controllers.CastController = function (element) {
             }
             if (mobile) {
                 if (youtubeUrl) {
+                    getYoutubeStatus();
                     initYoutubeStream();
                 }
                 if (shoutCastUrl) {
