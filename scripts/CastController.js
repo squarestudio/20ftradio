@@ -398,7 +398,6 @@ window.Template.Controllers.CastController = function (element) {
             if (youtubePlayer && !notYoutube) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
-                    console.log('may play youtube');
                     if (state > 1) {//paused or buffering
                         youtubePlayer.playVideo();
                         pausePlayersExept('youtube');
