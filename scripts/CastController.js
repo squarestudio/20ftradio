@@ -832,6 +832,7 @@ window.Template.Controllers.CastController = function (element) {
             on: {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
+                        console.log('Youtube STREAM is:  --'+data.responseText);
                         return data.responseText == 'live';
                     }
                 },
