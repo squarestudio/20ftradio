@@ -440,13 +440,13 @@ window.Template.Controllers.CastController = function (element) {
                     console.log('no youtube data', retry);
                     activePlayer = false;
                     setActivePlayer();
-                    if (mobile && retry > 2 && retry < maxRetry) {
+                    /*if (mobile && retry > 2 && retry < maxRetry) {
                         retry = maxRetry;
                         notYoutube = true;
                         activePlayer = false;
                         checkStreams();
                         return false;
-                    }
+                    }*/
                 }
                 console.log('Youtube State == ' + state, youtubePlayer.getDuration());
             }
