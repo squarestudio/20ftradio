@@ -395,6 +395,7 @@ window.Template.Controllers.TestCastController = function (element) {
             preventLoops++;
         }
         if (preventLoops > maxRetry + 1) {
+            console.log('FFFFFF')
             //offlineMessage();
             return;
         }
