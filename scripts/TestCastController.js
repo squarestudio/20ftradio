@@ -408,6 +408,8 @@ window.Template.Controllers.TestCastController = function (element) {
                     onPlayerStateChange('youtube');
                     console.log(youtubeStatus)
                     return;
+                } else {
+                    retry = maxRetry+1;
                 }
                 console.log('Youtube State == ' + state, youtubePlayer.getDuration());
             }
