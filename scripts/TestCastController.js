@@ -399,7 +399,7 @@ window.Template.Controllers.TestCastController = function (element) {
         if (!userPaused && activePlayer !== 'facebook') {
             activePlayer = false;
             console.log("ACTIVE PLAYER = " + activePlayer);
-            if (youtubePlayer && !notYoutube) {
+            if (youtubePlayer && youtubeStatus) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubeStatus) {
                     if (state > 1 && !mobile) youtubePlayer.playVideo();
