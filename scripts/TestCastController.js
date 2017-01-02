@@ -481,22 +481,15 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function setActivePlayer(active) {
         castContainer.removeClass('shoutcast').removeClass('soundcloud').removeClass('youtube').removeClass('facebook').addClass(active);
+        castContainer.all('.stream-player').removeClass('active-player');
         if (active == 'youtube') {
             castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').addClass('active-player');
-            castContainer.one('#shoutcastPlayer') && castContainer.one('#shoutcastPlayer').removeClass('active-player');
-            castContainer.one('#soundcloudPlayer') && castContainer.one('#soundcloudPlayer').removeClass('active-player');
-            castContainer.one('#fbPlayer') && castContainer.one('#fbPlayer').removeClass('active-player');
         } else if (active == 'facebook') {
-            castContainer.addClass(active).removeClass('shoutcast').removeClass('soundcloud').removeClass('youtube');
             castContainer.one('#fbPlayer') && castContainer.one('#fbPlayer').addClass('active-player');
-            castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').removeClass('active-player');
-            castContainer.one('#shoutcastPlayer') && castContainer.one('#shoutcastPlayer').removeClass('active-player');
-            castContainer.one('#soundcloudPlayer') && castContainer.one('#soundcloudPlayer').removeClass('active-player');
-        }
-        else {
-            castContainer.removeClass('youtube').removeClass('facebook').addClass(active);
-            castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').removeClass('active-player');
-            castContainer.one('#fbPlayer') && castContainer.one('#fbPlayer').removeClass('active-player');
+        } else if (active == 'shoutcast') {
+            castContainer.one('#shoutcastPlayer') && castContainer.one('#shoutcastPlayer').addClass('active-player');
+        } else if (active == 'soundcloud') {
+            castContainer.one('#soundCloudPlayer') && castContainer.one('#soundCloudPlayer').addClass('active-player');
         }
     }
 
@@ -506,7 +499,7 @@ window.Template.Controllers.TestCastController = function (element) {
             if (soundCloudPlayer) {
                 soundCloudPlayer.play();
             } else {
-                soundCloudPlayer = Y.Node.create('<iframe id="soundCloudPlayer" src="https://w.soundcloud.com/player/?url=' + soundCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="soundcloud-stream"></iframe>');
+                soundCloudPlayer = Y.Node.create('<iframe id="soundCloudPlayer" src="https://w.soundcloud.com/player/?url=' + soundCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="stream-player soundcloud-stream"></iframe>');
                 castContainer.append(soundCloudPlayer);
                 soundCloudPlayer = soundCloudPlayer._node;
                 soundCloudPlayer = SC.Widget(soundCloudPlayer);
@@ -539,7 +532,7 @@ window.Template.Controllers.TestCastController = function (element) {
             console.log('shoutcast starting');
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
             if (!shoutcastPlayer) {
-                shoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" class="hidden" preload playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
+                shoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" class="stream-player hidden" preload playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
             }
             castContainer.append(shoutcastPlayer);
             shoutcastPlayer = shoutcastPlayer._node;
