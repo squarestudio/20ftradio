@@ -414,20 +414,18 @@ window.Template.Controllers.CastController = function (element) {
                                 console.log('need try another players')
                             }
                         }
-                        if (state == 1) {
-                            if (mobile) {
-                                notShoutcast = true;
-                                notSoundcloud = true;
-                                conole.log('shoutcast, souncloud false')
-                            }
-                            retry = maxRetry;
-                        }
                     } else {
                         console.log('try to play youtube');
                         if (state == 1) {//video playing
                             activePlayer = 'youtube';
                             pausePlayersExept('youtube');
                             onPlayerStateChange('youtube');
+                            if (mobile) {
+                                notShoutcast = true;
+                                notSoundcloud = true;
+                                conole.log('shoutcast, souncloud false')
+                            }
+                            retry = maxRetry;
                         }
                         retry = 0;
                         if (state == -1) {
