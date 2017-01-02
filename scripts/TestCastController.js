@@ -406,9 +406,9 @@ window.Template.Controllers.TestCastController = function (element) {
                     activePlayer = 'youtube';
                     pausePlayersExept('youtube');
                     onPlayerStateChange('youtube');
+                    return;
                 }
                 console.log('Youtube State == ' + state, youtubePlayer.getDuration());
-                return;
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (retry > maxRetry || notYoutube) {
