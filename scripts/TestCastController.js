@@ -401,56 +401,11 @@ window.Template.Controllers.TestCastController = function (element) {
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer && !notYoutube) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                if (youtubePlayer.getDuration && youtubePlayer.getDuration()) {
-                    if (state > 1) {//paused or buffering
-                        youtubePlayer.playVideo();
-                        pausePlayersExept('youtube');
-                        onPlayerStateChange('youtube');
-                        if (state == 3 && retry < maxRetry) {//buffering
-                            console.log('youtube buffering', retry);
-                            if (retry > maxRetry - 1) {
-                                activePlayer = false;
-                                if (mobile) {
-                                    notYoutube = true;
-                                }
-                                checkStreams();
-                                console.log('need try another players')
-                            }
-                        }
-                    } else {
-                        console.log('try to play youtube');
-                        if (state == 1) {//video playing
-                            activePlayer = 'youtube';
-                            pausePlayersExept('youtube');
-                            onPlayerStateChange('youtube');
-                            if (mobile) {
-                                notShoutcast = true;
-                                notSoundcloud = true;
-                                console.log('shoutcast, souncloud false');
-                                retry = maxRetry;
-                            }
-                        }
-                        retry = 0;
-                        if (state == -1) {
-                            activePlayer = false;
-                            retry = maxRetry;
-                            if (mobile) {
-                                notYoutube = true;
-                                checkStreams();
-                            }
-                        }
-                    }
-                } else {//no duration (probably no data to play)
-                    console.log('no youtube data', retry);
-                    activePlayer = false;
-                    setActivePlayer();
-                    /*if (mobile && retry > 2 && retry < maxRetry) {
-                     retry = maxRetry;
-                     notYoutube = true;
-                     activePlayer = false;
-                     checkStreams();
-                     return false;
-                     }*/
+                if(youtubeStatus){
+                    youtubePlayer.playVideo();
+                    activePlayer = 'youtube';
+                    pausePlayersExept('youtube');
+                    onPlayerStateChange('youtube');
                 }
                 console.log('Youtube State == ' + state, youtubePlayer.getDuration());
             }
