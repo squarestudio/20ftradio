@@ -532,7 +532,7 @@ window.Template.Controllers.TestCastController = function (element) {
             console.log('shoutcast starting');
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
             if (!shoutcastPlayer) {
-                shoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" class="stream-player hidden" preload playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
+                shoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" class="stream-player" preload playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
             }
             castContainer.append(shoutcastPlayer);
             shoutcastPlayer = shoutcastPlayer._node;
