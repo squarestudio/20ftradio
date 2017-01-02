@@ -426,6 +426,8 @@ window.Template.Controllers.CastController = function (element) {
                                 console.log('shoutcast, souncloud false')
                             }
                             retry = maxRetry;
+                            checkStreams();
+                            return false;
                         }
                         retry = 0;
                         if (state == -1) {
