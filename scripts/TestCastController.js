@@ -48,7 +48,7 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function refreshImages() {
-        if(Y.one('#fbPlayer')){
+        if (Y.one('#fbPlayer')) {
             Y.one('#fbPlayer').setAttribute('data-width', castContainer.get('offsetWidth'));
             Y.one('#fbPlayer').setAttribute('data-height', castContainer.get('offsetHeight'));
         }
@@ -339,10 +339,10 @@ window.Template.Controllers.TestCastController = function (element) {
             });
             FB.XFBML.parse(castContainer._node);
             setTimeout(function () {
-                if(fbPlayer && fbPlayer._node){
+                if (fbPlayer && fbPlayer._node) {
                     sitePlayer.addClass('initialized').addClass('no-events').addClass('played').removeClass('not-init');
                     mobilePlayButton.addClass('hidden');
-                    if(mobile && Y.UA.ios){
+                    if (mobile && Y.UA.ios) {
                         fbPlayer.append('<a class="fb-app-ios-link" target="_blank" href="https://itunes.apple.com/app/facebook/id284882215?ref=m_embedded_video"></a>');
                     }
                 }
@@ -401,7 +401,7 @@ window.Template.Controllers.TestCastController = function (element) {
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer && !notYoutube) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                if(youtubeStatus){
+                if (youtubeStatus) {
                     if (state > 1 && !mobile) youtubePlayer.playVideo();
                     activePlayer = 'youtube';
                     pausePlayersExept('youtube');
@@ -409,7 +409,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     console.log(youtubeStatus)
                     return;
                 } else {
-                    retry = maxRetry+1;
+                    retry = maxRetry + 1;
                 }
                 console.log('Youtube State == ' + state, youtubePlayer.getDuration());
             }
@@ -421,7 +421,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                         console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
                         if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1) {
-                           !mobile && shoutcastPlayer.play();
+                            !mobile && shoutcastPlayer.play();
                             activePlayer = 'shoutcast';
                             pausePlayersExept('shoutcast');
                             onPlayerStateChange('shoutcast');
@@ -445,7 +445,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     }
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if (!activePlayer && retry>maxRetry+4) {
+                if (!activePlayer && retry > maxRetry + 4) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
@@ -536,7 +536,7 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function initShoutCast() {
-        if (shoutCastUrl){
+        if (shoutCastUrl) {
             console.log('shoutcast starting');
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
             if (!shoutcastPlayer) {
@@ -603,7 +603,7 @@ window.Template.Controllers.TestCastController = function (element) {
             if (!mobile) {
                 fbPlayer.play();
             }
-            if (mobile){
+            if (mobile) {
                 mobilePlayButton.addClass('hidden');
             }
             fbReady = true;
@@ -612,7 +612,7 @@ window.Template.Controllers.TestCastController = function (element) {
             checkStreams();
         }
         else if (playerType == 'shoutcast' && youtubeReady) {
-            if(!shoutCastReady){
+            if (!shoutCastReady) {
                 shoutcastPlayer.play();
                 shoutcastPlayer.setVolume(50);
                 shoutCastReady = true;
@@ -620,7 +620,7 @@ window.Template.Controllers.TestCastController = function (element) {
             }
         } else if (playerType == 'soundcloud' && youtubeReady) {
             data && data.scSkipIndex && soundCloudPlayer.skip(data.scSkipIndex);
-            if(!mobile) soundCloudPlayer.play();
+            if (!mobile) soundCloudPlayer.play();
             soundCloudPlayer.setVolume(0.5);
             setActivePlayer();
         }
@@ -795,7 +795,7 @@ window.Template.Controllers.TestCastController = function (element) {
             on: {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
-                        console.log('Youtube STREAM is:  --'+data.responseText);
+                        console.log('Youtube STREAM is:  --' + data.responseText);
                         return data.responseText == 'live';
                     }
                 },
