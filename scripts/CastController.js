@@ -665,7 +665,7 @@ window.Template.Controllers.CastController = function (element) {
         }
         if ((youtubeReady || shoutCastReady) && retry < maxRetry) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
-            if (!streamCheckInterval && !mobile) {
+            if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
