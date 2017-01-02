@@ -423,11 +423,9 @@ window.Template.Controllers.CastController = function (element) {
                             if (mobile) {
                                 notShoutcast = true;
                                 notSoundcloud = true;
-                                console.log('shoutcast, souncloud false')
+                                console.log('shoutcast, souncloud false');
+                                retry = maxRetry;
                             }
-                            retry = maxRetry;
-                            checkStreams();
-                            return false;
                         }
                         retry = 0;
                         if (state == -1) {
