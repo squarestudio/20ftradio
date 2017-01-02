@@ -410,7 +410,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 } else {
                     retry = maxRetry + 1;
                 }
-                console.log('Youtube State == ' + state, youtubePlayer.getDuration(), youtubeStatus);
+                console.log('Youtube State == ' + state,  youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (retry > maxRetry || notYoutube) {
