@@ -371,7 +371,7 @@ window.Template.Controllers.TestCastController = function (element) {
             if (players.hasOwnProperty(player) && player !== playerType) {
                 console.log(player + ': Paused');
                 if (players[player].pauseVideo) {
-                    players[player].pauseVideo()
+                    players[player].pauseVideo();
                 } else if (players[player].pause) {
                     if (player == 'soundcloud') {
                         players[player].isPaused(function (paused) {
@@ -406,13 +406,11 @@ window.Template.Controllers.TestCastController = function (element) {
                     activePlayer = 'youtube';
                     pausePlayersExept('youtube');
                     onPlayerStateChange('youtube');
-                    console.log(youtubeStatus)
                     return;
                 } else {
-                    
                     retry = maxRetry + 1;
                 }
-                console.log('Youtube State == ' + state, youtubePlayer.getDuration());
+                console.log('Youtube State == ' + state, youtubePlayer.getDuration(), youtubeStatus);
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (retry > maxRetry || notYoutube) {
