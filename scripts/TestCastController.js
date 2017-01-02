@@ -793,7 +793,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         }
                     },
                     failure: function (e) {
-                        
+                        console.log(e);
                         resolve(false);
                     }
                 }
