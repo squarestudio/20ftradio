@@ -660,7 +660,7 @@ window.Template.Controllers.CastController = function (element) {
             }
         } else if (playerType == 'soundcloud' && youtubeReady) {
             data && data.scSkipIndex && soundCloudPlayer.skip(data.scSkipIndex);
-            soundCloudPlayer.play();
+            if(!mobile) soundCloudPlayer.play();
             soundCloudPlayer.setVolume(0.5);
             setActivePlayer();
         }
