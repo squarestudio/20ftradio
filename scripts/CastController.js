@@ -842,6 +842,7 @@ window.Template.Controllers.CastController = function (element) {
             }
         });
     }
+    
     function getShoutcastStatus() {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
