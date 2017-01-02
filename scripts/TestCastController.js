@@ -783,18 +783,21 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function getYoutubeStatus() {
-        Y.io('https://uploader.squarespacewebsites.com/20ft-radio-youtube-status.php', {
-            on: {
-                success: function (i, data) {
-                    if (data.status == 200 && data.readyState == 4) {
-                        console.log('Youtube STREAM is:  --' + data.responseText);
-                        return data.responseText == 'live';
+        return new Y.Promise(function (resolve) {
+            Y.io('https://uploader.squarespacewebsites.com/20ft-radio-youtube-status.php', {
+                on: {
+                    success: function (i, data) {
+                        if (data.status == 200 && data.readyState == 4) {
+                            console.log('Youtube STREAM is:  --' + data.responseText);
+                            resolve(data.responseText == 'live');
+                        }
+                    },
+                    failure: function (e) {
+                        
+                        resolve(false);
                     }
-                },
-                failure: function () {
-                    //err, 401
                 }
-            }
+            });
         });
     }
 
