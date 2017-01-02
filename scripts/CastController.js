@@ -827,6 +827,26 @@ window.Template.Controllers.CastController = function (element) {
         }
     }
 
+    function getYoutubeStatus() {
+        Y.io('https://ss.squarestudio.com/20ft-radio-youtube-status.php', {
+            on: {
+                success: function (i, data) {
+                    if (data.status == 200 && data.readyState == 4) {
+                        var status_html = Y.Node.create(data.responseText);
+                        var current_song = status_html.one('table[cellpadding=2] tr:last-child').get('text');
+                        console.log(current_song);
+                        if (trackName.get('text') !== current_song) {
+                            trackName.one('span').set('text', current_song);
+                            trackName.removeClass('scroll-track').addClass('scroll-track');
+                        }
+                    }
+                },
+                failure: function () {
+                    //err, 401
+                }
+            }
+        });
+    }
     function getShoutcastStatus() {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
