@@ -176,7 +176,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     } else if (player.play) {
                         player.play()
                     }
-                })
+                });
                 checkStreams();
             }
             if (!activePlayer) return;
