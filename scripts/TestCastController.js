@@ -463,6 +463,7 @@ window.Template.Controllers.TestCastController = function (element) {
                                 activePlayer = 'soundcloud';
                                 onPlayerStateChange('soundcloud');
                                 pausePlayersExept('soundcloud');
+                                status();
                             } else {
                                 retry = maxRetry;
                             }
