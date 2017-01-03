@@ -799,6 +799,8 @@ window.Template.Controllers.TestCastController = function (element) {
                         success: function (i, data) {
                             youtubeStatusLoad = false;
                             if (data.status == 200 && data.readyState == 4) {
+                                data = JSON.parse(data.responseText);
+                                data = data.pageInfo.totalResults > 0;
                                 console.log('Youtube STREAM is:  --' + data.responseText);
                                 youtubeStatus = data.responseText == 'live';
                                 checkStreams();
