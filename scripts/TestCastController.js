@@ -169,22 +169,6 @@ window.Template.Controllers.TestCastController = function (element) {
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             console.log(activePlayer, players);
-            if (mobile && !userClickPlay && players) {
-                console.log('OLOLOLO');
-                for (var player in players) {
-                    if (players.hasOwnProperty(player)) {
-                        console.log(player + ': Played');
-                        if (players[player].playVideo) {
-                            players[player].playVideo();
-                        } else if (players[player].play) {
-                            if (player == 'soundcloud') {
-                                soundCloudPlayer.play()
-                            }
-                        }
-                    }
-                }
-                checkStreams();
-            }
             if (!activePlayer) return;
             var state = null;
             if (activePlayer == 'youtube') {
