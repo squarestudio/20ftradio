@@ -455,6 +455,7 @@ window.Template.Controllers.CastController = function (element) {
                     }
                 } else {
                     initShoutCast();
+                    status();
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
                 if (retry > maxRetry + 2) {
@@ -473,14 +474,10 @@ window.Template.Controllers.CastController = function (element) {
                         });
                     } else {
                         initSoundCloud();
+                        status();
                     }
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                /*if (mobile && streamCheckInterval) {
-                 clearInterval(streamCheckInterval);
-                 streamCheckInterval = null;
-                 console.log('stream check interval reset')
-                 }*/
             }
         }
     }
