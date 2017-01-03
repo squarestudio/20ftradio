@@ -177,6 +177,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         player.play()
                     }
                 })
+                checkStreams();
             }
             if (!activePlayer) return;
             var state = null;
