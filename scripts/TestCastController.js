@@ -418,6 +418,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     activePlayer = 'youtube';
                     pausePlayersExept('youtube');
                     onPlayerStateChange('youtube');
+                    status();
                     return;
                 }
                 console.log('Youtube State == ' + state,  youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
@@ -439,6 +440,8 @@ window.Template.Controllers.TestCastController = function (element) {
                                     notYoutube = true;
                                 }
                             }
+                            status();
+                            return;
                         } else {
                             console.log('try to load shoutcast');
                             //shoutcastPlayer.load();
