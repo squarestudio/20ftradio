@@ -400,7 +400,6 @@ window.Template.Controllers.TestCastController = function (element) {
             return;
         }
         if (!userPaused && activePlayer !== 'facebook') {
-            activePlayer = false;
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer && youtubeStatus) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
@@ -416,7 +415,6 @@ window.Template.Controllers.TestCastController = function (element) {
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (!youtubeStatus) {//retry > maxRetry || notYoutube
                 console.log('try another players', notShoutcast, notSoundcloud);
-                if (!activePlayer) {
                     if (shoutcastPlayer && !notShoutcast) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                         console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
@@ -431,6 +429,7 @@ window.Template.Controllers.TestCastController = function (element) {
                                     notYoutube = true;
                                 }
                             }
+                            return;
                         } else {
                             console.log('try to load shoutcast');
                             shoutcastPlayer.load();
@@ -443,9 +442,8 @@ window.Template.Controllers.TestCastController = function (element) {
                     } else {
                         initShoutCast();
                     }
-                }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if (!activePlayer && retry > maxRetry + 4) {
+                if (retry > maxRetry + 4) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
