@@ -459,7 +459,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
                             if (paused) {
-                                soundCloudPlayer.play();
+                                !mobile && soundCloudPlayer.play();
                                 activePlayer = 'soundcloud';
                                 onPlayerStateChange('soundcloud');
                                 pausePlayersExept('soundcloud');
