@@ -564,7 +564,6 @@ window.Template.Controllers.TestCastController = function (element) {
         e.target.someError = e.type;
         if (mobile) {
             //notShoutcast = true;
-            retry = maxRetry;
         }
     }
 
