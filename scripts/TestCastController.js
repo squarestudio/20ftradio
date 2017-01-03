@@ -563,9 +563,8 @@ window.Template.Controllers.TestCastController = function (element) {
         console.log('shoutcast failed', e);
         e.target.someError = e.type;
         if (mobile) {
-            //notShoutcast = true;
+            notShoutcast = true;
             retry = maxRetry;
-            checkStreams();
         }
     }
 
