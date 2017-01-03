@@ -399,6 +399,16 @@ window.Template.Controllers.TestCastController = function (element) {
             //offlineMessage();
             return;
         }
+        var status = function () {
+            if (activePlayer && (activePlayer == 'youtube' || activePlayer == 'shoutcast')) {
+                liveIndicator.addClass('active');
+            }
+            else {
+                liveIndicator.removeClass('active');
+            }
+            if (activePlayer) sitePlayer.addClass('played');
+            lastCheckTime = new Date().getTime();
+        };
         if (!userPaused && activePlayer !== 'facebook') {
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (youtubePlayer && youtubeStatus) {
@@ -429,7 +439,7 @@ window.Template.Controllers.TestCastController = function (element) {
                                     notYoutube = true;
                                 }
                             }
-                        } else {  
+                        } else {
                             console.log('try to load shoutcast');
                             //shoutcastPlayer.load();
                             if (mobile) {
@@ -466,14 +476,6 @@ window.Template.Controllers.TestCastController = function (element) {
                  }*/
             }
         }
-        if (activePlayer && (activePlayer == 'youtube' || activePlayer == 'shoutcast')) {
-            liveIndicator.addClass('active');
-        }
-        else {
-            liveIndicator.removeClass('active');
-        }
-        if (activePlayer) sitePlayer.addClass('played');
-        lastCheckTime = new Date().getTime();
     }
 
     function setActivePlayer(active) {
