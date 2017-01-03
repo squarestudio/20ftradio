@@ -394,8 +394,8 @@ window.Template.Controllers.TestCastController = function (element) {
         if (now - lastCheckTime < checkingTime - 1000) {
             preventLoops++;
         }
-        if (preventLoops > maxRetry + 1) {
-            console.log('FFFFFF')
+        if (preventLoops > maxRetry * 3) {
+            console.log('FFFFFF');
             //offlineMessage();
             return;
         }
