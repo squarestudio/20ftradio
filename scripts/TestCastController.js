@@ -173,7 +173,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 console.log('OLOLOLO');
                 for (var player in players) {
                     if (players.hasOwnProperty(player)) {
-                        console.log(player + ': Paused');
+                        console.log(player + ': Played');
                         if (players[player].playVideo) {
                             players[player].playVideo();
                         } else if (players[player].play) {
