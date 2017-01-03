@@ -182,6 +182,7 @@ window.Template.Controllers.TestCastController = function (element) {
                             }
                         }
                     }
+                }
                 checkStreams();
             }
             if (!activePlayer) return;
