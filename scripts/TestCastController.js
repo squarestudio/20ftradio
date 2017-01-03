@@ -625,12 +625,12 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         if ((youtubeReady || shoutCastReady) && retry < maxRetry) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
-            if (!streamCheckInterval) {
+/*            if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
                 console.log('stream check interval set')
-            }
+            }*/
             console.log('check STREAMS');
             checkStreams();
             window.addEventListener('offline', offlineMessage);
