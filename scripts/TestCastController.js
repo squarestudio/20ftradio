@@ -169,8 +169,14 @@ window.Template.Controllers.TestCastController = function (element) {
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             console.log(activePlayer, players);
-            if (mobile && !userClickPlay){
-                
+            if (mobile && !userClickPlay && players.length > 0) {
+                players.forEach(function (player) {
+                    if (player.playVideo) {
+                        player.playVideo()
+                    } else if (player.play) {
+                        player.play()
+                    }
+                })
             }
             if (!activePlayer) return;
             var state = null;
@@ -424,34 +430,34 @@ window.Template.Controllers.TestCastController = function (element) {
                     status();
                     return;
                 }
-                console.log('Youtube State == ' + state,  youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
+                console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
             if (!youtubeStatus) {//retry > maxRetry || notYoutube
                 console.log('try another players', notShoutcast, notSoundcloud);
-                    if (shoutcastPlayer && !notShoutcast) {
-                        state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                        console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
-                        if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1) {
-                            !mobile && shoutcastPlayer.play();
-                            activePlayer = 'shoutcast';
-                            pausePlayersExept('shoutcast');
-                            onPlayerStateChange('shoutcast');
-                            if (state == false) {
-                                if (mobile) {
-                                    notSoundcloud = true;
-                                    notYoutube = true;
-                                }
+                if (shoutcastPlayer && !notShoutcast) {
+                    state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
+                    console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
+                    if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1) {
+                        !mobile && shoutcastPlayer.play();
+                        activePlayer = 'shoutcast';
+                        pausePlayersExept('shoutcast');
+                        onPlayerStateChange('shoutcast');
+                        if (state == false) {
+                            if (mobile) {
+                                notSoundcloud = true;
+                                notYoutube = true;
                             }
-                            status();
-                            return;
-                        } else {
-                            console.log('try to load shoutcast');
-                            shoutcastPlayer.load();
                         }
+                        status();
+                        return;
                     } else {
-                        initShoutCast();
+                        console.log('try to load shoutcast');
+                        shoutcastPlayer.load();
                     }
+                } else {
+                    initShoutCast();
+                }
                 console.log("ACTIVE PLAYER = " + activePlayer);
                 if (retry > maxRetry + 2) {
                     if (soundCloudPlayer && !notSoundcloud) {
@@ -657,7 +663,7 @@ window.Template.Controllers.TestCastController = function (element) {
     }
 
     function setPlaying(playerType) {
-        console.log('SET PLAYING: '+playerType);
+        console.log('SET PLAYING: ' + playerType);
         sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
         castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
         !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
@@ -790,7 +796,7 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function getYoutubeStatus() {
         return new Y.Promise(function (resolve) {
-            if(!youtubeStatusLoad){
+            if (!youtubeStatusLoad) {
                 youtubeStatusLoad = true;
                 Y.io('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo', {
                     on: {
