@@ -446,7 +446,7 @@ window.Template.Controllers.TestCastController = function (element) {
                             console.log('try to load shoutcast');
                             shoutcastPlayer.load();
                             if (mobile) {
-                                //notShoutcast = true;
+                                notShoutcast = true;
                                 checkStreams();
                             }
                         }
