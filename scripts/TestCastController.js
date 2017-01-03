@@ -707,7 +707,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             });
         }
-        checkStreams();
     }
 
     function getCollectionItems(collection_url) {
