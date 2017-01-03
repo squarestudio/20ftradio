@@ -169,7 +169,7 @@ window.Template.Controllers.TestCastController = function (element) {
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             console.log(activePlayer, players);
-            if (mobile && !userClickPlay && players.length > 0) {
+            if (mobile && !userClickPlay && players) {
                 console.log('OLOLOLO');
                 players.forEach(function (player) {
                     if (player.playVideo) {
