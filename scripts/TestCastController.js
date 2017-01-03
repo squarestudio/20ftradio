@@ -169,6 +169,9 @@ window.Template.Controllers.TestCastController = function (element) {
         sitePlayer.one('#playButton').on('click', function (e) {
             e.halt();
             console.log(activePlayer, players);
+            if (mobile && !userClickPlay){
+                
+            }
             if (!activePlayer) return;
             var state = null;
             if (activePlayer == 'youtube') {
