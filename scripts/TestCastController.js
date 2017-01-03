@@ -450,7 +450,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         initShoutCast();
                     }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if (retry > maxRetry + 4) {
+                if (retry > maxRetry + 2) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
