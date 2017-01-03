@@ -171,13 +171,17 @@ window.Template.Controllers.TestCastController = function (element) {
             console.log(activePlayer, players);
             if (mobile && !userClickPlay && players) {
                 console.log('OLOLOLO');
-                players.forEach(function (player) {
-                    if (player.playVideo) {
-                        player.playVideo()
-                    } else if (player.play) {
-                        player.play()
+                for (var player in players) {
+                    if (players.hasOwnProperty(player)) {
+                        console.log(player + ': Paused');
+                        if (players[player].playVideo) {
+                            players[player].playVideo();
+                        } else if (players[player].play) {
+                            if (player == 'soundcloud') {
+                                soundCloudPlayer.play()
+                            }
+                        }
                     }
-                });
                 checkStreams();
             }
             if (!activePlayer) return;
