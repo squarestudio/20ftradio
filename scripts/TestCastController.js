@@ -794,7 +794,7 @@ window.Template.Controllers.TestCastController = function (element) {
         return new Y.Promise(function (resolve) {
             if(!youtubeStatusLoad){
                 youtubeStatusLoad = true;
-                Y.io('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=', {
+                Y.io('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo', {
                     on: {
                         success: function (i, data) {
                             youtubeStatusLoad = false;
