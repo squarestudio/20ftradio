@@ -173,8 +173,13 @@ window.Template.Controllers.TestCastController = function (element) {
             var state = null;
             if (activePlayer == 'youtube') {
                 state = youtubePlayer.getPlayerState();
-                console.log('youtube video', state)
-                if (state === YT.PlayerState.PLAYING) {
+                console.log('youtube video', state, YT.PlayerState.PLAYING);
+                if (mobile && !userClickPlay) {
+                    youtubePlayer.playVideo();
+                    userPaused = false;
+                    checkStreams();
+                }
+                else if (state === YT.PlayerState.PLAYING) {
                     youtubePlayer.pauseVideo();
                     userPaused = true;
                 } else if (state === YT.PlayerState.PAUSED) {
@@ -188,8 +193,10 @@ window.Template.Controllers.TestCastController = function (element) {
             else if (activePlayer == 'facebook') {
                 if (castContainer.hasClass('paused')) {
                     fbPlayer.play();
+                    userPaused = false;
                 } else {
                     fbPlayer.pause();
+                    userPaused = true;
                 }
             }
             else if (activePlayer == 'shoutcast') {
@@ -198,7 +205,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     shoutcastPlayer.playVideo();
                     userPaused = false;
                 }
-                if (state) {
+                else if (state) {
                     shoutcastPlayer.playVideo();
                     userPaused = false;
                 } else {
@@ -417,7 +424,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     if (state > 1 && !mobile) youtubePlayer.playVideo();
                     activePlayer = 'youtube';
                     pausePlayersExept('youtube');
-                    onPlayerStateChange('youtube');
+                    onPlayerStateChange('youtube', state);
                     status();
                     return;
                 }
