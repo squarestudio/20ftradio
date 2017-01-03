@@ -424,7 +424,7 @@ window.Template.Controllers.CastController = function (element) {
                     if (state > 1 && !mobile) youtubePlayer.playVideo();
                     activePlayer = 'youtube';
                     pausePlayersExept('youtube');
-                    onPlayerStateChange('youtube');
+                    onPlayerStateChange('youtube', state);
                     status();
                     return;
                 }
