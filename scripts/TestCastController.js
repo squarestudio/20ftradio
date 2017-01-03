@@ -444,11 +444,11 @@ window.Template.Controllers.TestCastController = function (element) {
                             return;
                         } else {
                             console.log('try to load shoutcast');
-                            //shoutcastPlayer.load();
-                            if (mobile) {
+                            shoutcastPlayer.load();
+/*                            if (mobile) {
                                 notShoutcast = true;
                                 checkStreams();
-                            }
+                            }*/
                         }
                     } else {
                         initShoutCast();
