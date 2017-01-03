@@ -178,7 +178,7 @@ window.Template.Controllers.CastController = function (element) {
                     youtubePlayer.playVideo();
                     userPaused = false;
                 }
-                if (state === YT.PlayerState.PLAYING) {
+                else if (state === YT.PlayerState.PLAYING) {
                     youtubePlayer.pauseVideo();
                     userPaused = true;
                 } else if (state === YT.PlayerState.PAUSED) {
@@ -204,7 +204,7 @@ window.Template.Controllers.CastController = function (element) {
                     shoutcastPlayer.playVideo();
                     userPaused = false;
                 }
-                if (state) {
+                else if (state) {
                     shoutcastPlayer.playVideo();
                     userPaused = false;
                 } else {
