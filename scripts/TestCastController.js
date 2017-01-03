@@ -800,11 +800,11 @@ window.Template.Controllers.TestCastController = function (element) {
                             youtubeStatusLoad = false;
                             if (data.status == 200 && data.readyState == 4) {
                                 data = JSON.parse(data.responseText);
-                                data = data.pageInfo.totalResults > 0;
-                                console.log('Youtube STREAM is:  --' + data.responseText);
-                                youtubeStatus = data.responseText == 'live';
+                                var live = data.pageInfo.totalResults > 0;
+                                console.log('Youtube STREAM is:  --' + live);
+                                youtubeStatus = live;
                                 checkStreams();
-                                resolve(data.responseText == 'live');
+                                resolve(live);
                             }
                         },
                         failure: function (e) {
