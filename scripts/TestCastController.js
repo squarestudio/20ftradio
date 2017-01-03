@@ -590,12 +590,12 @@ window.Template.Controllers.TestCastController = function (element) {
             youtubePlayer.playVideo();
             youtubeReady = true;
             pausePlayersExept('youtube');
-            /*if (!youtubeCheckInterval) {
+            if (!youtubeCheckInterval) {
                 youtubeCheckInterval = setInterval(function () {
                     getYoutubeStatus()
-                }, checkingTime*2);
+                }, 60000);
                 console.log('youtube check interval set')
-            }*/
+            }
         }
         else if (playerType == 'facebook') {
             fbPlayer.setVolume(0.5);
