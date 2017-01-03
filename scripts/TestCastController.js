@@ -429,10 +429,9 @@ window.Template.Controllers.TestCastController = function (element) {
                                     notYoutube = true;
                                 }
                             }
-                            return;
-                        } else {
+                        } else {  
                             console.log('try to load shoutcast');
-                            shoutcastPlayer.load();
+                            //shoutcastPlayer.load();
                             if (mobile) {
                                 notShoutcast = true;
                                 checkStreams();
