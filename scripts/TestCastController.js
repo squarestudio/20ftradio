@@ -562,9 +562,6 @@ window.Template.Controllers.TestCastController = function (element) {
     function onShoutCastError(e) {
         console.log('shoutcast failed', e);
         e.target.someError = e.type;
-        if (mobile) {
-            //notShoutcast = true;
-        }
     }
 
     function onSoundCloudError(e) {
