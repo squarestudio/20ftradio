@@ -404,11 +404,6 @@ window.Template.Controllers.TestCastController = function (element) {
         if (now - lastCheckTime < checkingTime - 1000) {
             preventLoops++;
         }
-        if (preventLoops > maxRetry * 3) {
-            console.log('FFFFFF');
-            //offlineMessage();
-            return;
-        }
         var status = function () {
             if (activePlayer && (activePlayer == 'youtube' || activePlayer == 'shoutcast')) {
                 liveIndicator.addClass('active');
