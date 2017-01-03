@@ -631,6 +631,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 }, checkingTime);
                 console.log('stream check interval set')
             }*/
+            console.log('check STREAMS');
             checkStreams();
             window.addEventListener('offline', offlineMessage);
             window.addEventListener('online', onlineMessage);
