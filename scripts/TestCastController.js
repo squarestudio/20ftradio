@@ -794,7 +794,7 @@ window.Template.Controllers.TestCastController = function (element) {
         return new Y.Promise(function (resolve) {
             if(!youtubeStatusLoad){
                 youtubeStatusLoad = true;
-                Y.io('https://uploader.squarespacewebsites.com/20ft-radio-youtube-status.php', {
+                Y.io('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=', {
                     on: {
                         success: function (i, data) {
                             youtubeStatusLoad = false;
