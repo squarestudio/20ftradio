@@ -727,7 +727,7 @@ window.Template.Controllers.CastController = function (element) {
                                 content_items.upcoming = content_items.upcoming.concat(items.upcoming);
                             }
                             if (items.past) {
-                                //content_items.past = content_items.past.concat(items.past);
+                                content_items.past = content_items.past.concat(items.past);
                             }
                             if (items.pagination && items.pagination.nextPage) {
                                 getItems(collection_url, items.pagination.nextPage.toLowerCase());
