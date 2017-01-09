@@ -232,10 +232,11 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
             }
           }
         });
+        var body = Y.one('body');
         var scroll_funct = function () {
           if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
             console.warn(window.pageYOffset > window.innerHeight - bottomBar.height(), window.pageYOffset, window.innerHeight , bottomBar.height())
-            if (window.pageYOffset > window.innerHeight - bottomBar.height()) {
+            if (window.pageYOffset > body.get('offsetHeight') - bottomBar.height()) {
               bottomBar.addClass('viewable-on-scroll');
             } else {
               bottomBar.removeClass('viewable-on-scroll');
