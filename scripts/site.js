@@ -235,8 +235,8 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
         var body = Y.one('body');
         var scroll_funct = function () {
           if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
-            console.warn(window.pageYOffset + bottomBar.height(), window.innerHeight,body.get('innerHeight')-bottomBar.height())
-            if (window.pageYOffset+ bottomBar.height()> body.get('offsetHeight') - bottomBar.height() || window.innerHeight > body.get('innerHeight')- bottomBar.height()) {
+            console.warn(window.pageYOffset + bottomBar.height(), window.innerHeight,body.get('offsetHeight')-bottomBar.height())
+            if (window.pageYOffset+ bottomBar.height()> body.get('offsetHeight') - bottomBar.height() || window.innerHeight > body.get('offsetHeight')- bottomBar.height()) {
               bottomBar.addClass('viewable-on-scroll');
             } else {
               bottomBar.removeClass('viewable-on-scroll');
