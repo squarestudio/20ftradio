@@ -223,7 +223,6 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
         var bottomBar = Y.one('#bottomBar');
         var layoutNode = bottomBar.one('.sqs-layout');
         var hasSocialLinks = Y.Lang.isValue(bottomBar.one('.social-links'));
-
         Y.one(window).on('mousemove', function(e) {
           if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
             if (e.clientY > window.innerHeight - bottomBar.height()) {
@@ -236,10 +235,9 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
         Y.one(window).on('scroll', function(e) {
           if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
             if (window.pageYOffset > window.innerHeight - bottomBar.height()) {
-              console.warn(e)
-              bottomBar.addClass('viewable');
+              bottomBar.addClass('viewable-on-scroll');
             } else {
-              bottomBar.removeClass('viewable');
+              bottomBar.removeClass('viewable-on-scroll');
             }
           }
         });
