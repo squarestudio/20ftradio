@@ -236,7 +236,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
         Y.one(window).on('scroll', function(e) {
           console.warn(e)
           if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
-            if (e.clientY > window.innerHeight - bottomBar.height()) {
+            if (window.pageYOffset > window.innerHeight - bottomBar.height()) {
               bottomBar.addClass('viewable');
             } else {
               bottomBar.removeClass('viewable');
