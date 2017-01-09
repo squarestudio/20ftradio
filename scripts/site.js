@@ -232,7 +232,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
             }
           }
         });
-        Y.one(window).on('scroll', function(e) {
+        var scroll_funct = function () {
           if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
             if (window.pageYOffset > window.innerHeight - bottomBar.height()) {
               bottomBar.addClass('viewable-on-scroll');
@@ -240,7 +240,9 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
               bottomBar.removeClass('viewable-on-scroll');
             }
           }
-        });
+        };
+        scroll_funct();
+        Y.one(window).on('scroll', scroll_funct);
       }
     },
 
