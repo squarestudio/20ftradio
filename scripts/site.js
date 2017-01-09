@@ -234,6 +234,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
           }
         });
         Y.one(window).on('scroll', function(e) {
+          console.log(e) 
           if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
             if (e.clientY > window.innerHeight - bottomBar.height()) {
               bottomBar.addClass('viewable');
