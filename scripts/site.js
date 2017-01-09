@@ -467,7 +467,7 @@ Y.use('node','squarespace-gallery-ng', function(Y) {
           }
         }
 
-        if (Y.Squarespace.Template.getTweakValue('autohide-footer') + "" === "false" && Y.one('#bottomBar')) {
+        if (Y.Squarespace.Template.getTweakValue('autohide-footer') + "" === "true" && Y.one('#bottomBar')) {
           Y.one('#container').setStyle('marginBottom', Y.one('#bottomBar').get('offsetHeight'));
         }
       };
