@@ -8,7 +8,7 @@ window.Template.Controllers.CastController = function (element) {
         shoutCastUrl,
         soundCloudUrl,
         retry = 0,
-        maxRetry = 4,
+        maxRetry = 3,
         youtubeStatus = false,
         youtubeStatusLoad = false,
         youtubeCheckInterval,
@@ -27,7 +27,7 @@ window.Template.Controllers.CastController = function (element) {
         userPaused,
         players = {},
         activePlayer = false,
-        checkingTime = 1000,
+        checkingTime = 2000,
         streamCheckInterval,
         youtubePlayer = null,
         fbPlayer = null,
@@ -460,7 +460,7 @@ window.Template.Controllers.CastController = function (element) {
                     status();
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if (retry > maxRetry + 2) {
+                if (retry > maxRetry + 4) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
