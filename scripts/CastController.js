@@ -1,6 +1,6 @@
 window.Template.Controllers.CastController = function (element) {
     'use strict';
-    console.log = function () {};
+    //console.log = function () {};
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
         youtubeUrl,
@@ -453,7 +453,7 @@ window.Template.Controllers.CastController = function (element) {
                         return;
                     } else {
                         console.log('try to load shoutcast');
-                        shoutcastPlayer.load();
+                        //shoutcastPlayer.load();
                     }
                 } else {
                     initShoutCast();
