@@ -723,7 +723,6 @@ window.Template.Controllers.CastController = function (element) {
                     },
                     success: function (items) {
                         if ((items.past && items.past.length) || (items.upcoming&&items.upcoming.length)) {
-                            console.log(items)
                             if (items.upcoming) {
                                 content_items.upcoming = content_items.upcoming.concat(items.upcoming);
                             }
