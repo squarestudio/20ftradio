@@ -140,7 +140,7 @@ window.Template.Controllers.WallController = function (element) {
                             if (items.past) {
                                 content_items.past = content_items.past.concat(items.past);
                             }
-                            if (items.pagination && items.pagination.nextPage) {
+                            if (items.pagination && items.pagination.nextPage && offset !== items.pagination.nextPageUrl.split('offset=')[1]) {
                                 getItems(collection_url, items.pagination.nextPageUrl.split('offset=')[1]);
                             } else {
                                 resolve(content_items);
