@@ -8,7 +8,7 @@ window.Template.Controllers.TestCastController = function (element) {
         shoutCastUrl,
         soundCloudUrl,
         retry = 0,
-        maxRetry = 2,
+        maxRetry = 3,
         youtubeStatus = false,
         youtubeStatusLoad = false,
         youtubeCheckInterval,
@@ -41,7 +41,9 @@ window.Template.Controllers.TestCastController = function (element) {
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
             mobile = Y.UA.mobile;
-            initCast();
+            setTimeout(function () {
+                initCast();
+            }, 2000);
             Y.one(window).on('resize', refreshImages);
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
@@ -451,14 +453,14 @@ window.Template.Controllers.TestCastController = function (element) {
                         return;
                     } else {
                         console.log('try to load shoutcast');
-                        shoutcastPlayer.load();
+                        //shoutcastPlayer.load();
                     }
                 } else {
                     initShoutCast();
                     status();
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if (retry > maxRetry + 2) {
+                if (retry > maxRetry + 4) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
@@ -712,25 +714,23 @@ window.Template.Controllers.TestCastController = function (element) {
         return new Y.Promise(function (resolve) {
             var content_items = {past: [], upcoming: []};
             var offset = '';
-
             function getItems(collection_url, offset) {
                 Y.Data.get({
                     url: collection_url + '?format=json',
                     data: {
                         view: 'list',
-                        time: new Date().getTime(),
-                        offset: offset || ''
+                        time: new Date().getTime()
                     },
                     success: function (items) {
-                        if (items.past.length || items.upcoming.length) {
+                        if ((items.past && items.past.length) || (items.upcoming&&items.upcoming.length)) {
                             if (items.upcoming) {
                                 content_items.upcoming = content_items.upcoming.concat(items.upcoming);
                             }
                             if (items.past) {
                                 content_items.past = content_items.past.concat(items.past);
                             }
-                            if (items.pagination && items.pagination.nextPage) {
-                                getItems(collection_url, items.pagination.nextPage.toLowerCase());
+                            if (items.pagination && items.pagination.nextPage && offset !== items.pagination.nextPageUrl.split('offset=')[1]) {
+                                getItems(collection_url, items.pagination.nextPageUrl.split('offset=')[1]);
                             } else {
                                 resolve(content_items);
                             }
