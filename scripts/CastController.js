@@ -714,7 +714,6 @@ window.Template.Controllers.CastController = function (element) {
         return new Y.Promise(function (resolve) {
             var content_items = {past: [], upcoming: []};
             var offset = '';
-
             function getItems(collection_url, offset) {
                 Y.Data.get({
                     url: collection_url + '?format=json',
