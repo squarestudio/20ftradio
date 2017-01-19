@@ -732,7 +732,7 @@ window.Template.Controllers.CastController = function (element) {
                                 content_items.past = content_items.past.concat(items.past);
                             }
                             if (items.pagination && items.pagination.nextPage) {
-                                getItems(items.pagination.nextPageUrl);
+                                getItems(collection_url, items.pagination.nextPageUrl.split('offset=')[1]);
                             } else {
                                 resolve(content_items);
                             }
