@@ -453,15 +453,16 @@ window.Template.Controllers.CastController = function (element) {
                         return;
                     } else {
                         console.log('try to load shoutcast');
-                        if (retry)
-                        //shoutcastPlayer.load();
+                        if (retry > maxRetry + 3){
+                            shoutcastPlayer.load();
+                        }
                     }
                 } else {
                     initShoutCast();
                     status();
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if (retry > maxRetry + 4) {
+                if (retry > maxRetry + 5) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
