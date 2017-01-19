@@ -453,6 +453,7 @@ window.Template.Controllers.CastController = function (element) {
                         return;
                     } else {
                         console.log('try to load shoutcast');
+                        if (retry)
                         //shoutcastPlayer.load();
                     }
                 } else {
