@@ -452,10 +452,11 @@ window.Template.Controllers.CastController = function (element) {
                         status();
                         return;
                     } else {
-                        console.log('try to load shoutcast');
                         if (retry > maxRetry + 3){
                             console.log('try to load shoutcast');
                             shoutcastPlayer.load();
+                        } else {
+                            console.log('wait to load shoutcast');
                         }
                     }
                 } else {
