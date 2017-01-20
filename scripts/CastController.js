@@ -633,7 +633,7 @@ window.Template.Controllers.CastController = function (element) {
                 shoutCastReady = true;
                 setActivePlayer();
             }
-        } else if (playerType == 'soundcloud' && youtubeReady) {
+        } else if (playerType == 'soundcloud') {
             if(!soundCloudReady){
                 window.zz = soundCloudPlayer;
                 if (!mobile) soundCloudPlayer.play();
@@ -656,7 +656,7 @@ window.Template.Controllers.CastController = function (element) {
             window.addEventListener('online', onlineMessage);
         }
         sitePlayer && sitePlayer.addClass('initialized').removeClass('not-init').removeClass('no-events');
-        console.log(playerType, 'playerReady', youtubeReady);
+        console.log(playerType, 'playerReady');
     }
 
     function offlineMessage() {
