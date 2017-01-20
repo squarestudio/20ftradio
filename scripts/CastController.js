@@ -33,6 +33,7 @@ window.Template.Controllers.CastController = function (element) {
         fbPlayer = null,
         shoutcastPlayer = null,
         soundCloudPlayer = null,
+        soundCloudReady = false,
         eventStatusInterval,
         currentEvents,
         liveIndicator,
@@ -519,6 +520,7 @@ window.Template.Controllers.CastController = function (element) {
                 soundCloudPlayer = soundCloudPlayer._node;
                 soundCloudPlayer = SC.Widget(soundCloudPlayer);
                 soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
+                    soundCloudReady = true;
                     soundCloudPlayer.getSounds(function (sounds) {
                         var skipIndex = 0;
                         if (sounds && sounds.length) {
