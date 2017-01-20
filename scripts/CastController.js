@@ -477,7 +477,7 @@ window.Template.Controllers.CastController = function (element) {
                         soundCloudPlayer.isPaused(function (paused) {
                             if (soundCloudReady){
                                 if (paused) {
-                                    !mobile && soundCloudPlayer.play();
+                                    //!mobile && soundCloudPlayer.play();
                                     activePlayer = 'soundcloud';
                                     onPlayerStateChange('soundcloud');
                                     pausePlayersExept('soundcloud');
