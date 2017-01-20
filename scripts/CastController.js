@@ -471,11 +471,12 @@ window.Template.Controllers.CastController = function (element) {
                     }
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
-                if (retry > maxRetry + 5 ) {
+                if (retry > maxRetry + 5 || notShoutcast) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
                             if (soundCloudReady){
+                                console.log(soundCloudReady)
                                 if (paused) {
                                     !mobile && soundCloudPlayer.play();
                                     activePlayer = 'soundcloud';
