@@ -430,6 +430,7 @@ window.Template.Controllers.CastController = function (element) {
                     pausePlayersExept('youtube');
                     onPlayerStateChange('youtube', state);
                     status();
+                    retry = 1;
                     return;
                 }
                 console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
