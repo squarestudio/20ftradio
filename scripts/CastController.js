@@ -466,7 +466,7 @@ window.Template.Controllers.CastController = function (element) {
                         status();
                     } else {
                         notShoutcast = true;
-                        retry = maxRetry + 5;
+                        retry = maxRetry + 6;
                     }
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
