@@ -481,7 +481,7 @@ window.Template.Controllers.CastController = function (element) {
                                     onPlayerStateChange('soundcloud');
                                     pausePlayersExept('soundcloud');
                                 } else {
-                                    retry = maxRetry + 6;
+                                    //retry = maxRetry + 6;
                                 }
                             status();
                         });
