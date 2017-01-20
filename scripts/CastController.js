@@ -632,11 +632,13 @@ window.Template.Controllers.CastController = function (element) {
                 setActivePlayer();
             }
         } else if (playerType == 'soundcloud' && youtubeReady) {
-            data && data.scSkipIndex && soundCloudPlayer.skip(data.scSkipIndex);
-            if (!mobile) soundCloudPlayer.play();
-            soundCloudPlayer.setVolume(0.5);
-            soundCloudReady = true;
-            setActivePlayer();
+            if(!soundCloudReady){
+                data && data.scSkipIndex && soundCloudPlayer.skip(data.scSkipIndex);
+                if (!mobile) soundCloudPlayer.play();
+                soundCloudPlayer.setVolume(0.5);
+                soundCloudReady = true;
+                setActivePlayer();
+            }
         }
         if ((youtubeReady || shoutCastReady) && retry < maxRetry  || (youtubeReady && notShoutcast) || notShoutcast && notYoutube && soundCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
