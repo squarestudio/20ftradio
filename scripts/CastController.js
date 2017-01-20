@@ -634,8 +634,6 @@ window.Template.Controllers.CastController = function (element) {
             }
         } else if (playerType == 'soundcloud' && youtubeReady) {
             if(!soundCloudReady){
-                console.log("SKIPPPPPP",data.scSkipIndex)
-                data && data.scSkipIndex && soundCloudPlayer.skip(data.scSkipIndex);
                 if (!mobile) soundCloudPlayer.play();
                 soundCloudPlayer.setVolume(0.5);
                 soundCloudReady = true;
