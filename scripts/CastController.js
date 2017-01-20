@@ -435,7 +435,7 @@ window.Template.Controllers.CastController = function (element) {
                 console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
             }
             console.log("ACTIVE PLAYER = " + activePlayer);
-            if (!youtubeStatus && youtubeReady) {//retry > maxRetry || notYoutube
+            if (!youtubeStatus) {//retry > maxRetry || notYoutube
                 console.log('try another players', notShoutcast, notSoundcloud);
                 if (shoutcastPlayer && !notShoutcast) {
                     state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
@@ -462,7 +462,7 @@ window.Template.Controllers.CastController = function (element) {
                         }
                     }
                 } else {
-                    if(shoutCastUrl){
+                    if(shoutCastUrl && youtubeReady){
                         initShoutCast();
                         status();
                     } else {
