@@ -628,6 +628,7 @@ window.Template.Controllers.CastController = function (element) {
         }
         else if (playerType == 'shoutcast' && youtubeReady) {
             if (!shoutCastReady) {
+                window.zz = soundCloudPlayer;
                 shoutcastPlayer.play();
                 shoutcastPlayer.setVolume(50);
                 shoutCastReady = true;
