@@ -462,7 +462,7 @@ window.Template.Controllers.CastController = function (element) {
                         }
                     }
                 } else {
-                    if(shoutCastUrl && youtubeReady){
+                    if(shoutCastUrl){
                         initShoutCast();
                         status();
                     } else {
