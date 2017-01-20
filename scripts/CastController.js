@@ -475,7 +475,6 @@ window.Template.Controllers.CastController = function (element) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
-                            if (soundCloudReady){
                                 console.log(soundCloudReady)
                                 if (paused) {
                                     !mobile && soundCloudPlayer.play();
@@ -485,7 +484,6 @@ window.Template.Controllers.CastController = function (element) {
                                 } else {
                                     retry = maxRetry + 6;
                                 }
-                            }
                             status();
                         });
                     } else {
