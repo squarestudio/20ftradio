@@ -563,7 +563,6 @@ window.Template.Controllers.CastController = function (element) {
         } else {
             console.log('no shoutcast url to start');
             notShoutcast = true;
-            checkStreams();
         }
     }
 
