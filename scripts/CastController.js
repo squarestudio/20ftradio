@@ -475,13 +475,15 @@ window.Template.Controllers.CastController = function (element) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
-                            if (paused) {
-                                !mobile && soundCloudPlayer.play();
-                                activePlayer = 'soundcloud';
-                                onPlayerStateChange('soundcloud');
-                                pausePlayersExept('soundcloud');
-                            } else {
-                                retry = maxRetry;
+                            if (soundCloudReady){
+                                if (paused) {
+                                    !mobile && soundCloudPlayer.play();
+                                    activePlayer = 'soundcloud';
+                                    onPlayerStateChange('soundcloud');
+                                    pausePlayersExept('soundcloud');
+                                } else {
+                                    retry = maxRetry + 6;
+                                }
                             }
                             status();
                         });
