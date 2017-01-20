@@ -628,7 +628,6 @@ window.Template.Controllers.CastController = function (element) {
         }
         else if (playerType == 'shoutcast' && youtubeReady) {
             if (!shoutCastReady) {
-                window.zz = soundCloudPlayer;
                 shoutcastPlayer.play();
                 shoutcastPlayer.setVolume(50);
                 shoutCastReady = true;
@@ -636,6 +635,7 @@ window.Template.Controllers.CastController = function (element) {
             }
         } else if (playerType == 'soundcloud' && youtubeReady) {
             if(!soundCloudReady){
+                window.zz = soundCloudPlayer;
                 if (!mobile) soundCloudPlayer.play();
                 soundCloudPlayer.setVolume(0.5);
                 soundCloudReady = true;
