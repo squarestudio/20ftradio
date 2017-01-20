@@ -475,7 +475,6 @@ window.Template.Controllers.CastController = function (element) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
-                                console.log(soundCloudReady)
                                 if (paused) {
                                     !mobile && soundCloudPlayer.play();
                                     activePlayer = 'soundcloud';
@@ -528,7 +527,6 @@ window.Template.Controllers.CastController = function (element) {
                             console.log('SKIPSCINDEX == ' + skipIndex);
                             soundCloudPlayer.skip(skipIndex);
                             soundCloudPlayer.setVolume(50);
-                           if(!youtubeReady) soundCloudReady = true;
                         }
                         onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
                     })
