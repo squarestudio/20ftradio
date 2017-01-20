@@ -460,8 +460,10 @@ window.Template.Controllers.CastController = function (element) {
                         }
                     }
                 } else {
-                    initShoutCast();
-                    status();
+                    if(shoutCastUrl){
+                        initShoutCast();
+                        status();
+                    }
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
                 if (retry > maxRetry + 5) {
