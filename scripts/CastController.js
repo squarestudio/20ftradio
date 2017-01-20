@@ -562,6 +562,7 @@ window.Template.Controllers.CastController = function (element) {
             players['shoutcast'] = shoutcastPlayer;
         } else {
             console.log('no shoutcat url to start');
+            notShoutcast = true;
         }
     }
 
