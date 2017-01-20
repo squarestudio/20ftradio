@@ -464,6 +464,7 @@ window.Template.Controllers.CastController = function (element) {
                         initShoutCast();
                         status();
                     } else {
+                        notShoutcast = true;
                         retry = maxRetry + 6;
                     }
                 }
