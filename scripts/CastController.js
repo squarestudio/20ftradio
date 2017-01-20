@@ -463,6 +463,8 @@ window.Template.Controllers.CastController = function (element) {
                     if(shoutCastUrl){
                         initShoutCast();
                         status();
+                    } else {
+                        retry = maxRetry + 6;
                     }
                 }
                 console.log("ACTIVE PLAYER = " + activePlayer);
