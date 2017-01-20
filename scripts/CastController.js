@@ -528,7 +528,7 @@ window.Template.Controllers.CastController = function (element) {
                             console.log('SKIPSCINDEX == ' + skipIndex);
                             soundCloudPlayer.skip(skipIndex);
                             shoutcastPlayer.setVolume(50);
-                            shoutCastReady = true;
+                           if(!youtubeReady) shoutCastReady = true;
                         }
                         onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
                     })
