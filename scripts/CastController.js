@@ -523,11 +523,12 @@ window.Template.Controllers.CastController = function (element) {
                 soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
                     soundCloudPlayer.getSounds(function (sounds) {
                         var skipIndex = 0;
-                        console.log(sounds)
                         if (sounds && sounds.length) {
                             skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
-                            console.log('SKIPSCINDEX == ' + skipIndex)
+                            console.log('SKIPSCINDEX == ' + skipIndex);
                             soundCloudPlayer.skip(skipIndex);
+                            shoutcastPlayer.setVolume(50);
+                            shoutCastReady = true;
                         }
                         onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
                     })
