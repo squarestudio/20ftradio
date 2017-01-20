@@ -561,7 +561,7 @@ window.Template.Controllers.CastController = function (element) {
             shoutcastPlayer.addEventListener('emptied', onShoutCastError);
             players['shoutcast'] = shoutcastPlayer;
         } else {
-            console.log('no shoutcat url to start');
+            console.log('no shoutcast url to start');
             notShoutcast = true;
         }
     }
