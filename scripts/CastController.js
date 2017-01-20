@@ -647,7 +647,7 @@ window.Template.Controllers.CastController = function (element) {
             window.addEventListener('online', onlineMessage);
         }
         sitePlayer && sitePlayer.addClass('initialized').removeClass('not-init').removeClass('no-events');
-        console.log(playerType, 'playerReady');
+        console.log(playerType, 'playerReady', youtubeReady);
     }
 
     function offlineMessage() {
