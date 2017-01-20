@@ -633,7 +633,7 @@ window.Template.Controllers.CastController = function (element) {
                 shoutCastReady = true;
                 setActivePlayer();
             }
-        } else if (playerType == 'soundcloud') {
+        } else if (playerType == 'soundcloud' && youtubeReady || notYoutube && notShoutcast) {
             if(!soundCloudReady){
                 window.zz = soundCloudPlayer;
                 if (!mobile) soundCloudPlayer.play();
