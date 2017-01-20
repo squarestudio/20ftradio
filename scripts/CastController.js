@@ -634,7 +634,7 @@ window.Template.Controllers.CastController = function (element) {
             data && data.scSkipIndex && soundCloudPlayer.skip(data.scSkipIndex);
             if (!mobile) soundCloudPlayer.play();
             soundCloudPlayer.setVolume(0.5);
-            soundCloudReady = true;1
+            soundCloudReady = true;
             setActivePlayer();
         }
         if ((youtubeReady || shoutCastReady) && retry < maxRetry  || (youtubeReady && notShoutcast) || notShoutcast && notYoutube && soundCloudPlayer) {
