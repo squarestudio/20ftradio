@@ -637,7 +637,7 @@ window.Template.Controllers.CastController = function (element) {
             soundCloudPlayer.setVolume(0.5);
             setActivePlayer();
         }
-        if ((youtubeReady || shoutCastReady) && retry < maxRetry  || (youtubeReady && notShoutcast) || notShoutcast && notYoutube) {
+        if ((youtubeReady || shoutCastReady) && retry < maxRetry  || (youtubeReady && notShoutcast) || notShoutcast && notYoutube && soundCloudPlayer) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
