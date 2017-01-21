@@ -147,16 +147,6 @@ window.Template.Controllers.CastController = function (element) {
         console.log('init cast');
         Y.one('#castDiv').addClass('initialized');
         mobilePlayButton = castContainer.one('.mobile-play-button');
-        getCurrentEvent();
-        if (eventStatusInterval) {
-            clearInterval(eventStatusInterval);
-            console.log('Event status reset');
-            eventStatusInterval = null;
-        }
-        eventStatusInterval = setInterval(function () {
-            getCurrentEvent();
-        }, 10000);
-        Y.on('getCurrentEvent', getCurrentEvent);
         castContainer = Y.one('#castDiv');
         sitePlayer = Y.one('.site-player');
         liveIndicator = castContainer.one('.live-indicator');
@@ -416,6 +406,18 @@ window.Template.Controllers.CastController = function (element) {
             }
             else {
                 liveIndicator.removeClass('active');
+            }
+            if(activePlayer == 'shoutcast') {
+                getCurrentEvent();
+                if (eventStatusInterval) {
+                    clearInterval(eventStatusInterval);
+                    console.log('Event status reset');
+                    eventStatusInterval = null;
+                }
+                eventStatusInterval = setInterval(function () {
+                    getCurrentEvent();
+                }, 10000);
+                Y.on('getCurrentEvent', getCurrentEvent);
             }
             if (activePlayer) sitePlayer.addClass('played');
             lastCheckTime = new Date().getTime();
