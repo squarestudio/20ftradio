@@ -415,6 +415,18 @@ window.Template.Controllers.CastController = function (element) {
                     }, 10000);
                 }
             }
+            if (activePlayer == 'youtube'){
+                getCurrentEvent();
+                if (eventStatusInterval) {
+                    clearInterval(eventStatusInterval);
+                    console.log('Event status reset');
+                    eventStatusInterval = null;
+                }
+                eventStatusInterval = setInterval(function () {
+                    getCurrentEvent();
+                }, 10000);
+                Y.on('getCurrentEvent', getCurrentEvent);
+            }
             if (activePlayer) sitePlayer.addClass('played');
             lastCheckTime = new Date().getTime();
         };
