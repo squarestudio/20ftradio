@@ -408,22 +408,6 @@ window.Template.Controllers.CastController = function (element) {
             else {
                 liveIndicator.removeClass('active');
             }
-            if(activePlayer == 'shoutcast') {
-                if(!shoutcastStatusCheckInterval){
-                    if (eventStatusInterval) {
-                        clearInterval(eventStatusInterval);
-                        console.log('Event status reset');
-                        eventStatusInterval = null;
-                        Y.detach('getCurrentEvent', getCurrentEvent);
-                        trackName.one('span').set('text', '');
-                        trackName.removeClass('scroll-track');
-                    }
-                    getShoutcastStatus();
-                    shoutcastStatusCheckInterval = setInterval(function () {
-                        getShoutcastStatus();
-                    }, 10000);
-                }
-            }
             if (activePlayer == 'youtube' || activePlayer == 'facebook'){
                 if (shoutcastStatusCheckInterval) {
                     clearInterval(shoutcastStatusCheckInterval);
@@ -439,7 +423,37 @@ window.Template.Controllers.CastController = function (element) {
                     }, 10000);
                     Y.on('getCurrentEvent', getCurrentEvent);
                 }
+            } else if(activePlayer == 'shoutcast') {
+                if(!shoutcastStatusCheckInterval){
+                    if (eventStatusInterval) {
+                        clearInterval(eventStatusInterval);
+                        console.log('Event status reset');
+                        eventStatusInterval = null;
+                        Y.detach('getCurrentEvent', getCurrentEvent);
+                        trackName.one('span').set('text', '');
+                        trackName.removeClass('scroll-track');
+                    }
+                    getShoutcastStatus();
+                    shoutcastStatusCheckInterval = setInterval(function () {
+                        getShoutcastStatus();
+                    }, 10000);
+                }
+            } else {
+                if (eventStatusInterval) {
+                    clearInterval(eventStatusInterval);
+                    console.log('Event status reset');
+                    eventStatusInterval = null;
+                    Y.detach('getCurrentEvent', getCurrentEvent);
+                }
+                if (shoutcastStatusCheckInterval) {
+                    clearInterval(shoutcastStatusCheckInterval);
+                    console.log('Shoutcast status reset');
+                    eventStatusInterval = null;
+                }
+                trackName.one('span').set('text', '');
+                trackName.removeClass('scroll-track');
             }
+
             if (activePlayer) sitePlayer.addClass('played');
             lastCheckTime = new Date().getTime();
         };
