@@ -17,7 +17,7 @@ window.Template.Controllers.CastController = function (element) {
         fbReady = false,
         shoutCastReady = false,
         shoutcastStatus = false,
-        shoutcastStatusCheckInterval = false,
+        shoutcastStatusCheckInterval = null,
         notShoutcast = false,
         notSoundcloud = false,
         preventLoops = 0,
@@ -410,22 +410,29 @@ window.Template.Controllers.CastController = function (element) {
             }
             if(activePlayer == 'shoutcast') {
                 if(!shoutcastStatusCheckInterval){
+                    if (eventStatusInterval) {
+                        clearInterval(eventStatusInterval);
+                        console.log('Event status reset');
+                        eventStatusInterval = null;
+                    }
                     shoutcastStatusCheckInterval = setInterval(function () {
                         getShoutcastStatus();
                     }, 10000);
                 }
             }
-            if (activePlayer == 'youtube'){
+            if (activePlayer == 'youtube' || activePlayer == 'facebook'){
                 getCurrentEvent();
-                if (eventStatusInterval) {
-                    clearInterval(eventStatusInterval);
+                if (!eventStatusInterval) {
+                    eventStatusInterval = setInterval(function () {
+                        getCurrentEvent();
+                    }, 10000);
+                    Y.on('getCurrentEvent', getCurrentEvent);
+                }
+                if (shoutcastStatusCheckInterval) {
+                    clearInterval(shoutcastStatusCheckInterval);
                     console.log('Event status reset');
                     eventStatusInterval = null;
                 }
-                eventStatusInterval = setInterval(function () {
-                    getCurrentEvent();
-                }, 10000);
-                Y.on('getCurrentEvent', getCurrentEvent);
             }
             if (activePlayer) sitePlayer.addClass('played');
             lastCheckTime = new Date().getTime();
