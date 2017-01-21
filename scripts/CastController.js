@@ -420,6 +420,7 @@ window.Template.Controllers.CastController = function (element) {
                 if (!eventStatusInterval) {
                     eventStatusInterval = setInterval(function () {
                         getCurrentEvent();
+                        console.log('Event status set');
                     }, 10000);
                     Y.on('getCurrentEvent', getCurrentEvent);
                 }
@@ -436,6 +437,7 @@ window.Template.Controllers.CastController = function (element) {
                     getShoutcastStatus();
                     shoutcastStatusCheckInterval = setInterval(function () {
                         getShoutcastStatus();
+                        console.log('Shoutcast status interval set');
                     }, 10000);
                 }
             } else {
