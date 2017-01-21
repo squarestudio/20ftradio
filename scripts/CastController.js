@@ -454,7 +454,6 @@ window.Template.Controllers.CastController = function (element) {
                         }
                         status();
                         retry = maxRetry -1;
-                        getShoutcastStatus();
                         return;
                     } else {
                         if (retry > maxRetry + 3){
@@ -812,6 +811,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function getYoutubeStatus() {
+        getShoutcastStatus()
         return new Y.Promise(function (resolve) {
             if (!youtubeStatusLoad) {
                 youtubeStatusLoad = true;
