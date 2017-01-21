@@ -411,7 +411,7 @@ window.Template.Controllers.CastController = function (element) {
             if (activePlayer == 'youtube' || activePlayer == 'facebook'){
                 if (shoutcastStatusCheckInterval) {
                     clearInterval(shoutcastStatusCheckInterval);
-                    console.log('Event status reset');
+                    console.log('Shoutcast status reset');
                     eventStatusInterval = null;
                     trackName.one('span').set('text', '');
                     trackName.removeClass('scroll-track');
