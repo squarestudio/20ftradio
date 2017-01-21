@@ -454,6 +454,7 @@ window.Template.Controllers.CastController = function (element) {
                         }
                         status();
                         retry = maxRetry -1;
+                        getShoutcastStatus();
                         return;
                     } else {
                         if (retry > maxRetry + 3){
