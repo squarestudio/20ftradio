@@ -409,17 +409,12 @@ window.Template.Controllers.CastController = function (element) {
                 liveIndicator.removeClass('active');
             }
             if(activePlayer == 'shoutcast') {
-                getCurrentEvent();
-                if (eventStatusInterval) {
-                    clearInterval(eventStatusInterval);
-                    console.log('Event status reset');
-                    eventStatusInterval = null;
+                if(!shoutcastStatusCheckInterval){
+                    shoutcastStatusCheckInterval = setInterval(function () {
+                        getShoutcastStatus();
+                    }, 10000);
                 }
-                eventStatusInterval = setInterval(function () {
-                    getCurrentEvent();
-                }, 10000);
-                Y.on('getCurrentEvent', getCurrentEvent);
-            } else
+            }
             if (activePlayer) sitePlayer.addClass('played');
             lastCheckTime = new Date().getTime();
         };
