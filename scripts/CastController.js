@@ -453,6 +453,7 @@ window.Template.Controllers.CastController = function (element) {
                             }
                         }
                         status();
+                        retry = maxRetry -1;
                         return;
                     } else {
                         if (retry > maxRetry + 3){
