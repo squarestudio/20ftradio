@@ -416,8 +416,8 @@ window.Template.Controllers.CastController = function (element) {
                     trackName.one('span').set('text', '');
                     trackName.removeClass('scroll-track');
                 }
-                getCurrentEvent();
                 if (!eventStatusInterval) {
+                    getCurrentEvent();
                     eventStatusInterval = setInterval(function () {
                         getCurrentEvent();
                     }, 10000);
