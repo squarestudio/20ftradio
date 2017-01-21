@@ -420,15 +420,13 @@ window.Template.Controllers.CastController = function (element) {
                 if (!eventStatusInterval) {
                     eventStatusInterval = setInterval(function () {
                         getCurrentEvent();
-                        console.log('Event status set');
                     }, 10000);
                     Y.on('getCurrentEvent', getCurrentEvent);
+                    console.log('Event status set');
                 }
             }
             else if(activePlayer == 'shoutcast') {
-                console.log('SH = ', shoutcastStatusCheckInterval)
                 if(!shoutcastStatusCheckInterval){
-                    console.log(shoutcastStatusCheckInterval > 1)
                     if (eventStatusInterval) {
                         clearInterval(eventStatusInterval);
                         console.log('Event status reset');
@@ -440,8 +438,8 @@ window.Template.Controllers.CastController = function (element) {
                     getShoutcastStatus();
                     shoutcastStatusCheckInterval = setInterval(function () {
                         getShoutcastStatus();
-                        console.log('Shoutcast status interval set');
                     }, 10000);
+                    console.log('Shoutcast status interval set');
                 }
             }
             else {
