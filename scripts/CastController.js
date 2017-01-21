@@ -393,7 +393,7 @@ window.Template.Controllers.CastController = function (element) {
         var now = new Date().getTime();
         retry++;
         console.log('Retries: ' + retry, now - lastCheckTime);
-        if (now - lastCheckTime < checkingTime - 500) {
+        if (now - lastCheckTime < checkingTime - 1000) {
             preventLoops++;
         }
         if (preventLoops > maxRetry * 3) {
