@@ -17,6 +17,7 @@ window.Template.Controllers.CastController = function (element) {
         fbReady = false,
         shoutCastReady = false,
         shoutcastStatus = false,
+        shoutcastStatusCheckInterval = false,
         notShoutcast = false,
         notSoundcloud = false,
         preventLoops = 0,
@@ -418,7 +419,7 @@ window.Template.Controllers.CastController = function (element) {
                     getCurrentEvent();
                 }, 10000);
                 Y.on('getCurrentEvent', getCurrentEvent);
-            }
+            } else
             if (activePlayer) sitePlayer.addClass('played');
             lastCheckTime = new Date().getTime();
         };
