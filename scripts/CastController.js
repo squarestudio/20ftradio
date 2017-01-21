@@ -428,6 +428,7 @@ window.Template.Controllers.CastController = function (element) {
             else if(activePlayer == 'shoutcast') {
                 console.log('SH = ', shoutcastStatusCheckInterval)
                 if(!shoutcastStatusCheckInterval){
+                    console.log(shoutcastStatusCheckInterval > 1)
                     if (eventStatusInterval) {
                         clearInterval(eventStatusInterval);
                         console.log('Event status reset');
