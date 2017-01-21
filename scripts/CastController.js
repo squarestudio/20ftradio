@@ -887,6 +887,7 @@ window.Template.Controllers.CastController = function (element) {
                        var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
                         var current_song = status_html.one('.newscontent table[cellpadding=4] tr:last-child .streamdata').get('text');
+                        current_song = 'Now playing: ' + current_song;
                         console.log(current_song);
                         if (trackName.get('text') !== current_song) {
                             trackName.one('span').set('text', current_song);
