@@ -414,6 +414,7 @@ window.Template.Controllers.CastController = function (element) {
                         clearInterval(eventStatusInterval);
                         console.log('Event status reset');
                         eventStatusInterval = null;
+                        Y.detach('getCurrentEvent', getCurrentEvent);
                     }
                     shoutcastStatusCheckInterval = setInterval(function () {
                         getShoutcastStatus();
