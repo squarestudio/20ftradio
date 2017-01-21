@@ -886,6 +886,7 @@ window.Template.Controllers.CastController = function (element) {
                     if (data.status == 200 && data.readyState == 4) {
                        var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
+                        console.log(status_html.one('.newscontent table[cellpadding=4] tr:last-child .streamdata'))
                         var current_song = status_html.one('.newscontent table[cellpadding=4] tr:last-child .streamdata').get('text');
                         current_song = 'Now playing: ' + current_song;
                         console.log(current_song);
