@@ -416,6 +416,7 @@ window.Template.Controllers.CastController = function (element) {
                         eventStatusInterval = null;
                         Y.detach('getCurrentEvent', getCurrentEvent);
                     }
+                    getShoutcastStatus();
                     shoutcastStatusCheckInterval = setInterval(function () {
                         getShoutcastStatus();
                     }, 10000);
