@@ -811,7 +811,6 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function getYoutubeStatus() {
-        getShoutcastStatus()
         return new Y.Promise(function (resolve) {
             if (!youtubeStatusLoad) {
                 youtubeStatusLoad = true;
