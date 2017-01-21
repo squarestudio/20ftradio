@@ -462,7 +462,7 @@ window.Template.Controllers.CastController = function (element) {
             lastCheckTime = new Date().getTime();
         };
         if (!userPaused && activePlayer !== 'facebook') {
-            console.log("ACTIVE PLAYER = " + activePlayer);
+            console.log('CHECK Before Youtube');
             if (youtubePlayer && youtubeStatus) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubeStatus) {
@@ -476,7 +476,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
                 console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
             }
-            console.log("ACTIVE PLAYER = " + activePlayer);
+            console.log('CHECK After Youtube');
             if (!youtubeStatus) {//retry > maxRetry || notYoutube
                 console.log('try another players', notShoutcast, notSoundcloud);
                 if (shoutcastPlayer && !notShoutcast) {
@@ -504,7 +504,8 @@ window.Template.Controllers.CastController = function (element) {
                             console.log('wait to load shoutcast');
                         }
                     }
-                } else {
+                }
+                else {
                     if(shoutCastUrl){
                         initShoutCast();
                         status();
@@ -513,7 +514,7 @@ window.Template.Controllers.CastController = function (element) {
                         retry = maxRetry + 6;
                     }
                 }
-                console.log("ACTIVE PLAYER = " + activePlayer);
+                console.log('CHECK Before Soundcloud');
                 if (retry > maxRetry + 5 || notShoutcast) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
@@ -535,7 +536,7 @@ window.Template.Controllers.CastController = function (element) {
                         status();
                     }
                 }
-                console.log("ACTIVE PLAYER = " + activePlayer);
+                console.log('CHECK After Soundcloud');
             }
         }
     }
