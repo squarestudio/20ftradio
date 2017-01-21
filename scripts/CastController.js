@@ -426,6 +426,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
             }
             else if(activePlayer == 'shoutcast') {
+                console.log('SH = ', shoutcastStatusCheckInterval)
                 if(!shoutcastStatusCheckInterval){
                     if (eventStatusInterval) {
                         clearInterval(eventStatusInterval);
