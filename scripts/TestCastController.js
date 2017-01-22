@@ -599,13 +599,14 @@ window.Template.Controllers.TestCastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            window.top.Y.Get.js('https://squarewebsites.squarespace.com/assets/custom-fonts-min.js?t=' + new Date().getTime(), function (err, tx) {
+            window.top.Y.Get.js('https://widget.mixcloud.com/media/js/footerWidgetApi.js?t=' + new Date().getTime(), function (err, tx) {
                 if (err) {
                     Y.log('Error loading JS: ' + err[0].error, 'error');
                     return;
                 }
-                Y.log('custom-fonts.js loaded successfully!');
-                tx && tx.nodes[0].setAttribute('id', 'sqstp-script');
+                Y.log('mixcloud footer.js loaded successfully!');
+                tx && tx.nodes[0].setAttribute('id', 'mixcloud-footer-script');
+                
             });
 /*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
