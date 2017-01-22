@@ -239,7 +239,7 @@ window.Template.Controllers.TestCastController = function (element) {
                             mixCloudPlayer.play();
                             userPaused = false;
                         } else {
-                            soundCloudPlayer.pause();
+                            mixCloudPlayer.pause();
                             userPaused = true;
                         }
                     });
@@ -260,7 +260,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 console.log('volume - ' + activePlayer);
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
                     if (activePlayer) {
-                        if (activePlayer == 'soundcloud' || activePlayer == 'facebook') {
+                        if (activePlayer == 'soundcloud' || activePlayer == 'facebook' || activePlayer == 'mixcloud') {
                             players[activePlayer].setVolume(0.5);
                         } else {
                             players[activePlayer].setVolume(50);
@@ -290,7 +290,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 volumeIcon._node.className = 'icono-volumeMute';
             }
             if (activePlayer) {
-                if (activePlayer == 'soundcloud' || activePlayer == 'facebook') {
+                if (activePlayer == 'soundcloud' || activePlayer == 'facebook' || activePlayer == 'mixcloud') {
                     players[activePlayer].setVolume(volume / 100);
                 } else {
                     players[activePlayer].setVolume(volume);
