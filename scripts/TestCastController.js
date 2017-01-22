@@ -613,7 +613,9 @@ window.Template.Controllers.TestCastController = function (element) {
                 mixCloudPlayer.events.pause.on(function () {
                     onPlayerStateChange('mixcloud', 'pause')
                 });
-                //mixCloudPlayer.events.on(SC.Widget.Events.FINISH, onSoundCloudError());
+                mixCloudPlayer.events.error.on(function (e) {
+                    console.log('MixCloud Error', e);
+                });
                 onPlayerReady('mixcloud');
             });
 /*            mixCloudPlayer.bind(SC.Widget.Events.READY, function () {
