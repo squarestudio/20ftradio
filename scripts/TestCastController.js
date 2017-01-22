@@ -561,6 +561,7 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function initMixCloud() {
         console.log('MixCloud init');
+        'https://www.mixcloud.com/widget/iframe/?feed='
     }
 
     function initSoundCloud() {
