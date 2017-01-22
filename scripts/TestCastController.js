@@ -830,6 +830,14 @@ window.Template.Controllers.TestCastController = function (element) {
                     setPaused();
                 }
             });
+        } else if (playerType == 'mixcloud') {
+            mixCloudPlayer.getIsPaused().then(function (paused) {
+                if (!paused) {
+                    setPlaying(playerType);
+                } else {
+                    setPaused();
+                }
+            });
         }
     }
 
