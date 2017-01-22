@@ -618,6 +618,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 mixCloudPlayer.events.error.on(function (e) {
                     console.log('MixCloud Error', e);
                 });
+                window.zz = mixCloudPlayer;
                 onPlayerReady('mixcloud');
             });
 /*            mixCloudPlayer.bind(SC.Widget.Events.READY, function () {
