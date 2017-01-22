@@ -386,6 +386,12 @@ window.Template.Controllers.TestCastController = function (element) {
                                 soundCloudPlayer.pause()
                             }
                         });
+                    } else if (player == 'mixcloud') {
+                        players[player].getIsPaused().then(function (paused) {
+                            if (!paused) {
+                                mixCloudPlayer.pause()
+                            }
+                        });
                     }
                 }
             }
