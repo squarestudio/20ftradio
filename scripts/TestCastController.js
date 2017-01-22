@@ -599,7 +599,7 @@ window.Template.Controllers.TestCastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            window.top.Y.Get.js('https://widget.mixcloud.com/media/js/footerWidgetApi.js, function (err, tx) {
+            window.top.Y.Get.js('https://widget.mixcloud.com/media/js/footerWidgetApi.js', function (err, tx) {
                 if (err) {
                     Y.log('Error loading JS: ' + err[0].error, 'error');
                     return;
