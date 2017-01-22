@@ -581,13 +581,6 @@ window.Template.Controllers.TestCastController = function (element) {
                     onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
                 })
             });*/
-            mixCloudPlayer.events.play.on(function () {
-                onPlayerStateChange('mixcloud', 'play')
-            });
-            mixCloudPlayer.events.pause.on(function () {
-                onPlayerStateChange('mixcloud', 'pause')
-            });
-            //mixCloudPlayer.events.on(SC.Widget.Events.FINISH, onSoundCloudError());
             players['mixcloud'] = mixCloudPlayer;
         }
     }
