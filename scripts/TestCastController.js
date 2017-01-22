@@ -569,8 +569,9 @@ window.Template.Controllers.TestCastController = function (element) {
             castContainer.append(mixCloudPlayer);
             mixCloudPlayer = mixCloudPlayer._node;
             mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer);
-            mixCloudPlayer.ready.then(function() {
+            mixCloudPlayer.ready.then(function(e) {
                 // Put code that interacts with the widget here
+                onPlayerReady('mixcloud');
             });
             mixCloudPlayer = SC.Widget(soundCloudPlayer);
             mixCloudPlayer.bind(SC.Widget.Events.READY, function () {
