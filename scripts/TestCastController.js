@@ -533,19 +533,16 @@ window.Template.Controllers.TestCastController = function (element) {
                         });
                     } else if (mixCloudPlayer && !notMixcloud) {
                         activePlayer = 'mixcloud';
-                        mixCloudPlayer.getPosition().then(function(position) {
-                            // "position" is the current position
-                        });
-                        mixCloudPlayer.isPaused(function (paused) {
+                        mixCloudPlayer.getIsPaused.then(function (paused) {
                             if (paused) {
-                                !mobile && soundCloudPlayer.play();
-                                activePlayer = 'soundcloud';
-                                onPlayerStateChange('soundcloud');
-                                pausePlayersExept('soundcloud');
+                                !mobile && mixCloudPlayer.play();
+                                activePlayer = 'mixcloud';
+                                onPlayerStateChange('mixcloud');
+                                pausePlayersExept('mixcloud');
                             } else {
                                 //retry = maxRetry + 6;
                             }
-                            status();
+                            status()
                         });
                     }  else {
                         if(someCloudUrl && youtubeReady){
