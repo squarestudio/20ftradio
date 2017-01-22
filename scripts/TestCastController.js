@@ -531,6 +531,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         });
                     } else {
                         if(soundCloudUrl && youtubeReady){
+                            if ()
                             initSoundCloud();
                         }
                         status();
