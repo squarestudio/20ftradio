@@ -599,8 +599,15 @@ window.Template.Controllers.TestCastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-
-            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
+            window.top.Y.Get.js('https://squarewebsites.squarespace.com/assets/custom-fonts-min.js?t=' + new Date().getTime(), function (err, tx) {
+                if (err) {
+                    Y.log('Error loading JS: ' + err[0].error, 'error');
+                    return;
+                }
+                Y.log('custom-fonts.js loaded successfully!');
+                tx && tx.nodes[0].setAttribute('id', 'sqstp-script');
+            });
+/*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
             mixCloudPlayer = mixCloudPlayer._node;
             mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer);
@@ -621,19 +628,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 window.zz = mixCloudPlayer;
                 onPlayerReady('mixcloud');
             });
-/*            mixCloudPlayer.bind(SC.Widget.Events.READY, function () {
-                soundCloudPlayer.getSounds(function (sounds) {
-                    var skipIndex = 0;
-                    if (sounds && sounds.length) {
-                        skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
-                        console.log('SKIPSCINDEX == ' + skipIndex);
-                        soundCloudPlayer.skip(skipIndex);
-                        soundCloudPlayer.setVolume(50);
-                    }
-                    onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
-                })
-            });*/
-            players['mixcloud'] = mixCloudPlayer;
+            players['mixcloud'] = mixCloudPlayer;*/
         }
     }
     function initSoundCloud() {
