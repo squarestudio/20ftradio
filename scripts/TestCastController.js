@@ -17,6 +17,7 @@ window.Template.Controllers.TestCastController = function (element) {
         fbReady = false,
         shoutCastReady = false,
         shoutcastStatus = false,
+        shoutcastStatusCheckInterval = null,
         notShoutcast = false,
         notSoundcloud = false,
         preventLoops = 0,
@@ -33,6 +34,7 @@ window.Template.Controllers.TestCastController = function (element) {
         fbPlayer = null,
         shoutcastPlayer = null,
         soundCloudPlayer = null,
+        soundCloudReady = false,
         eventStatusInterval,
         currentEvents,
         liveIndicator,
@@ -116,6 +118,7 @@ window.Template.Controllers.TestCastController = function (element) {
             };
         } else {
             console.log("No data to init youtube");
+            notYoutube = true;
             onYoutubeError();
         }
     }
@@ -145,16 +148,6 @@ window.Template.Controllers.TestCastController = function (element) {
         console.log('init cast');
         Y.one('#castDiv').addClass('initialized');
         mobilePlayButton = castContainer.one('.mobile-play-button');
-        getCurrentEvent();
-        if (eventStatusInterval) {
-            clearInterval(eventStatusInterval);
-            console.log('Event status reset');
-            eventStatusInterval = null;
-        }
-        eventStatusInterval = setInterval(function () {
-            getCurrentEvent();
-        }, 10000);
-        Y.on('getCurrentEvent', getCurrentEvent);
         castContainer = Y.one('#castDiv');
         sitePlayer = Y.one('.site-player');
         liveIndicator = castContainer.one('.live-indicator');
@@ -400,7 +393,7 @@ window.Template.Controllers.TestCastController = function (element) {
         var now = new Date().getTime();
         retry++;
         console.log('Retries: ' + retry, now - lastCheckTime);
-        if (now - lastCheckTime < checkingTime - 500) {
+        if (now - lastCheckTime < checkingTime - 1000) {
             preventLoops++;
         }
         if (preventLoops > maxRetry * 3) {
@@ -415,11 +408,61 @@ window.Template.Controllers.TestCastController = function (element) {
             else {
                 liveIndicator.removeClass('active');
             }
+            if (activePlayer == 'youtube' || activePlayer == 'facebook'){
+                if (shoutcastStatusCheckInterval) {
+                    clearInterval(shoutcastStatusCheckInterval);
+                    console.log('Shoutcast status reset');
+                    eventStatusInterval = null;
+                    trackName.one('span').set('text', '');
+                    trackName.removeClass('scroll-track');
+                }
+                if (!eventStatusInterval) {
+                    getCurrentEvent();
+                    eventStatusInterval = setInterval(function () {
+                        getCurrentEvent();
+                    }, 10000);
+                    Y.on('getCurrentEvent', getCurrentEvent);
+                    console.log('Event status set');
+                }
+            }
+            else if(activePlayer == 'shoutcast') {
+                if(!shoutcastStatusCheckInterval){
+                    if (eventStatusInterval) {
+                        clearInterval(eventStatusInterval);
+                        console.log('Event status reset');
+                        eventStatusInterval = null;
+                        Y.detach('getCurrentEvent', getCurrentEvent);
+                        trackName.one('span').set('text', '');
+                        trackName.removeClass('scroll-track');
+                    }
+                    getShoutcastStatus();
+                    shoutcastStatusCheckInterval = setInterval(function () {
+                        getShoutcastStatus();
+                    }, 10000);
+                    console.log('Shoutcast status interval set');
+                }
+            }
+            else {
+                if (eventStatusInterval) {
+                    clearInterval(eventStatusInterval);
+                    console.log('Event status reset');
+                    eventStatusInterval = null;
+                    Y.detach('getCurrentEvent', getCurrentEvent);
+                }
+                if (shoutcastStatusCheckInterval) {
+                    clearInterval(shoutcastStatusCheckInterval);
+                    console.log('Shoutcast status reset');
+                    eventStatusInterval = null;
+                }
+                trackName.one('span').set('text', '');
+                trackName.removeClass('scroll-track');
+            }
+
             if (activePlayer) sitePlayer.addClass('played');
             lastCheckTime = new Date().getTime();
         };
         if (!userPaused && activePlayer !== 'facebook') {
-            console.log("ACTIVE PLAYER = " + activePlayer);
+            console.log('CHECK Before Youtube');
             if (youtubePlayer && youtubeStatus) {
                 var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                 if (youtubeStatus) {
@@ -428,11 +471,12 @@ window.Template.Controllers.TestCastController = function (element) {
                     pausePlayersExept('youtube');
                     onPlayerStateChange('youtube', state);
                     status();
+                    retry = 1;
                     return;
                 }
                 console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
             }
-            console.log("ACTIVE PLAYER = " + activePlayer);
+            console.log('CHECK After Youtube');
             if (!youtubeStatus) {//retry > maxRetry || notYoutube
                 console.log('try another players', notShoutcast, notSoundcloud);
                 if (shoutcastPlayer && !notShoutcast) {
@@ -450,17 +494,28 @@ window.Template.Controllers.TestCastController = function (element) {
                             }
                         }
                         status();
+                        retry = maxRetry -1;
                         return;
                     } else {
-                        console.log('try to load shoutcast');
-                        //shoutcastPlayer.load();
+                        if (retry > maxRetry + 3){
+                            console.log('try to load shoutcast');
+                            shoutcastPlayer.load();
+                        } else {
+                            console.log('wait to load shoutcast');
+                        }
                     }
-                } else {
-                    initShoutCast();
-                    status();
                 }
-                console.log("ACTIVE PLAYER = " + activePlayer);
-                if (retry > maxRetry + 4) {
+                else {
+                    if(shoutCastUrl){
+                        initShoutCast();
+                        status();
+                    } else {
+                        notShoutcast = true;
+                        retry = maxRetry + 6;
+                    }
+                }
+                console.log('CHECK Before Soundcloud');
+                if (retry > maxRetry + 5 || notShoutcast) {
                     if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
@@ -470,16 +525,18 @@ window.Template.Controllers.TestCastController = function (element) {
                                 onPlayerStateChange('soundcloud');
                                 pausePlayersExept('soundcloud');
                             } else {
-                                retry = maxRetry;
+                                //retry = maxRetry + 6;
                             }
                             status();
                         });
                     } else {
-                        initSoundCloud();
+                        if(soundCloudUrl && youtubeReady){
+                            initSoundCloud();
+                        }
                         status();
                     }
                 }
-                console.log("ACTIVE PLAYER = " + activePlayer);
+                console.log('CHECK After Soundcloud');
             }
         }
     }
@@ -513,7 +570,9 @@ window.Template.Controllers.TestCastController = function (element) {
                         var skipIndex = 0;
                         if (sounds && sounds.length) {
                             skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
-                            console.log('SKIPSCINDEX == ' + skipIndex)
+                            console.log('SKIPSCINDEX == ' + skipIndex);
+                            soundCloudPlayer.skip(skipIndex);
+                            soundCloudPlayer.setVolume(50);
                         }
                         onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
                     })
@@ -557,7 +616,8 @@ window.Template.Controllers.TestCastController = function (element) {
             shoutcastPlayer.addEventListener('emptied', onShoutCastError);
             players['shoutcast'] = shoutcastPlayer;
         } else {
-            console.log('no shoutcat url to start');
+            console.log('no shoutcast url to start');
+            notShoutcast = true;
         }
     }
 
@@ -617,12 +677,15 @@ window.Template.Controllers.TestCastController = function (element) {
                 setActivePlayer();
             }
         } else if (playerType == 'soundcloud' && youtubeReady) {
-            data && data.scSkipIndex && soundCloudPlayer.skip(data.scSkipIndex);
-            if (!mobile) soundCloudPlayer.play();
-            soundCloudPlayer.setVolume(0.5);
-            setActivePlayer();
+            if(!soundCloudReady){
+                window.zz = soundCloudPlayer;
+                if (!mobile) soundCloudPlayer.play();
+                soundCloudPlayer.setVolume(0.5);
+                soundCloudReady = true;
+                setActivePlayer();
+            }
         }
-        if ((youtubeReady || shoutCastReady) && retry < maxRetry) {
+        if ((youtubeReady || shoutCastReady) && retry < maxRetry  || (youtubeReady && notShoutcast) || notShoutcast && notYoutube && soundCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
@@ -822,8 +885,10 @@ window.Template.Controllers.TestCastController = function (element) {
             on: {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
-                        var status_html = Y.Node.create(data.responseText);
-                        var current_song = status_html.one('table[cellpadding=2] tr:last-child').get('text');
+                        var html = data.responseText.replace(/src=/g, 'data-href=');
+                        var status_html = Y.Node.create(html);
+                        var current_song = status_html.one('.newscontent table[cellpadding=4] tr:last-child td:last-child').get('text');
+                        current_song = 'Now playing: ' + current_song;
                         console.log(current_song);
                         if (trackName.get('text') !== current_song) {
                             trackName.one('span').set('text', current_song);
