@@ -531,11 +531,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         });
                     } else {
                         if(someCloudUrl && youtubeReady){
-                            if (someCloudUrl.indexOf('mixcloud') > -1){
-                                initMixCloud();
-                            } else if (someCloudUrl.indexOf('soundcloud') > -1){
-                                initSomeCloud();
-                            }
+                            initSomeCloud();
                         }
                         status();
                     }
@@ -625,7 +621,7 @@ window.Template.Controllers.TestCastController = function (element) {
             players['soundcloud'] = soundCloudPlayer;
         }
     }
-    
+
     function initSomeCloud() {
         if (someCloudUrl) {
             if (someCloudUrl.indexOf('mixcloud') > -1){
