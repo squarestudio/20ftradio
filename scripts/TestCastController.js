@@ -19,7 +19,8 @@ window.Template.Controllers.TestCastController = function (element) {
         shoutcastStatus = false,
         shoutcastStatusCheckInterval = null,
         notShoutcast = false,
-        notSoundcloud = false,
+        notSoundCloud = false,
+        notMixCloud = false,
         preventLoops = 0,
         lastCheckTime,
         mobile,
@@ -480,7 +481,7 @@ window.Template.Controllers.TestCastController = function (element) {
             }
             console.log('CHECK After Youtube');
             if (!youtubeStatus) {//retry > maxRetry || notYoutube
-                console.log('try another players', notShoutcast, notSoundcloud);
+                console.log('try another players', notShoutcast, notSoundCloud);
                 if (shoutcastPlayer && !notShoutcast) {
                     state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                     console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
@@ -491,7 +492,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         onPlayerStateChange('shoutcast');
                         if (state == false) {
                             if (mobile) {
-                                notSoundcloud = true;
+                                notSoundCloud = true;
                                 notYoutube = true;
                             }
                         }
@@ -518,7 +519,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
                 console.log('CHECK Before Soundcloud');
                 if (retry > maxRetry + 5 || notShoutcast) {
-                    if (soundCloudPlayer && !notSoundcloud) {
+                    if (soundCloudPlayer && !notSoundCloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
                             if (paused) {
@@ -531,7 +532,7 @@ window.Template.Controllers.TestCastController = function (element) {
                             }
                             status();
                         });
-                    } else if (mixCloudPlayer && !notMixcloud) {
+                    } else if (mixCloudPlayer && !notMixCloud) {
                         activePlayer = 'mixcloud';
                         mixCloudPlayer.getIsPaused.then(function (paused) {
                             if (paused) {
