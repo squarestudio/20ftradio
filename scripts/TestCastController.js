@@ -228,6 +228,23 @@ window.Template.Controllers.TestCastController = function (element) {
                     });
                 }
             }
+            else if (activePlayer == 'mixcloud') {
+                if (mobile && !userClickPlay) {
+                    mixCloudPlayer.play();
+                    userPaused = false;
+                    checkStreams();
+                } else {
+                    mixCloudPlayer.getIsPaused().then(function (state) {
+                        if (state) {
+                            mixCloudPlayer.play();
+                            userPaused = false;
+                        } else {
+                            soundCloudPlayer.pause();
+                            userPaused = true;
+                        }
+                    });
+                }
+            }
             mobile && activePlayer !== 'facebook' && checkStreams();
             userClickPlay = true;
         });
