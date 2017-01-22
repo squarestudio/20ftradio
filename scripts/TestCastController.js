@@ -532,8 +532,8 @@ window.Template.Controllers.TestCastController = function (element) {
                             status();
                         });
                     } else if (mixCloudPlayer && !notMixcloud) {
-                        activePlayer = 'soundcloud';
-                        soundCloudPlayer.isPaused(function (paused) {
+                        activePlayer = 'mixcloud';
+                        mixCloudPlayer.isPaused(function (paused) {
                             if (paused) {
                                 !mobile && soundCloudPlayer.play();
                                 activePlayer = 'soundcloud';
