@@ -606,7 +606,11 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
                 Y.log('mixcloud footer.js loaded successfully!');
                 tx && tx.nodes[0].setAttribute('id', 'mixcloud-footer-script');
-                
+                var promise = Mixcloud.FooterWidget('/username/show/');
+                promise.then(function(widget) {
+                    // Put code that interacts with the widget here e.g.
+                    widget.events.pause.on(pauseListener);
+                });
             });
 /*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
