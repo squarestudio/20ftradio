@@ -531,7 +531,9 @@ window.Template.Controllers.TestCastController = function (element) {
                         });
                     } else {
                         if(soundCloudUrl && youtubeReady){
-                            if ()
+                            if (soundCloudUrl.indexOf('mixcloud') > -1){
+
+                            } else if (soundCloudUrl.indexOf('soundcloud') > -1)
                             initSoundCloud();
                         }
                         status();
