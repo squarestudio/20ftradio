@@ -566,6 +566,7 @@ window.Template.Controllers.TestCastController = function (element) {
             mixCloudPlayer = mixCloudPlayer._node;
             mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer);
             mixCloudPlayer.ready.then(function(e) {
+                console.log(e)
                 // Put code that interacts with the widget here
                 mixCloudPlayer.events.play.on(function () {
                     onPlayerStateChange('mixcloud', 'play')
