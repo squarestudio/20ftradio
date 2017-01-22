@@ -533,6 +533,9 @@ window.Template.Controllers.TestCastController = function (element) {
                         });
                     } else if (mixCloudPlayer && !notMixcloud) {
                         activePlayer = 'mixcloud';
+                        mixCloudPlayer.getPosition().then(function(position) {
+                            // "position" is the current position
+                        });
                         mixCloudPlayer.isPaused(function (paused) {
                             if (paused) {
                                 !mobile && soundCloudPlayer.play();
