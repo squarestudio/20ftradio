@@ -6,7 +6,7 @@ window.Template.Controllers.TestCastController = function (element) {
         youtubeUrl,
         facebookUrl,
         shoutCastUrl,
-        soundCloudUrl,
+        someCloudUrl,
         retry = 0,
         maxRetry = 3,
         youtubeStatus = false,
@@ -154,7 +154,7 @@ window.Template.Controllers.TestCastController = function (element) {
         youtubeUrl = castContainer.getAttribute('data-url');
         facebookUrl = castContainer.getAttribute('data-facebook-url');
         shoutCastUrl = castContainer.getAttribute('data-shoutcast-url');
-        soundCloudUrl = castContainer.getAttribute('data-soundcloud-url');
+        someCloudUrl = castContainer.getAttribute('data-soundcloud-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
@@ -292,8 +292,8 @@ window.Template.Controllers.TestCastController = function (element) {
                     getYoutubeStatus();
                 } else if (shoutCastUrl) {
                     initShoutCast();
-                } else if (soundCloudUrl) {
-                    initSoundCloud();
+                } else if (someCloudUrl) {
+                    initSomeCloud();
                 } else {
                     console.log("No data to init");
                 }
@@ -306,11 +306,11 @@ window.Template.Controllers.TestCastController = function (element) {
                 if (shoutCastUrl) {
                     initShoutCast();
                 }
-                if (soundCloudUrl) {
-                    initSoundCloud();
+                if (someCloudUrl) {
+                    initSomeCloud();
                 }
             }
-            if (youtubeUrl || shoutCastUrl || soundCloudUrl) {
+            if (youtubeUrl || shoutCastUrl || someCloudUrl) {
                 if (!mobile) {
                     /*                streamCheckInterval = setInterval(function () {
                      checkStreams();
@@ -530,11 +530,11 @@ window.Template.Controllers.TestCastController = function (element) {
                             status();
                         });
                     } else {
-                        if(soundCloudUrl && youtubeReady){
-                            if (soundCloudUrl.indexOf('mixcloud') > -1){
+                        if(someCloudUrl && youtubeReady){
+                            if (someCloudUrl.indexOf('mixcloud') > -1){
                                 initMixCloud();
-                            } else if (soundCloudUrl.indexOf('soundcloud') > -1){
-                                initSoundCloud();
+                            } else if (someCloudUrl.indexOf('soundcloud') > -1){
+                                initSomeCloud();
                             }
                         }
                         status();
@@ -565,7 +565,7 @@ window.Template.Controllers.TestCastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + soundCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
+            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
             mixCloudPlayer = mixCloudPlayer._node;
             mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer);
@@ -595,38 +595,45 @@ window.Template.Controllers.TestCastController = function (element) {
             players['mixcloud'] = mixCloudPlayer;
         }
     }
-
     function initSoundCloud() {
-        if (soundCloudUrl) {
-            console.log('soundcloud loading');
-            if (soundCloudPlayer) {
-                soundCloudPlayer.play();
-            } else {
-                soundCloudPlayer = Y.Node.create('<iframe id="soundCloudPlayer" src="https://w.soundcloud.com/player/?url=' + soundCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="stream-player soundcloud-stream"></iframe>');
-                castContainer.append(soundCloudPlayer);
-                soundCloudPlayer = soundCloudPlayer._node;
-                soundCloudPlayer = SC.Widget(soundCloudPlayer);
-                soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
-                    soundCloudPlayer.getSounds(function (sounds) {
-                        var skipIndex = 0;
-                        if (sounds && sounds.length) {
-                            skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
-                            console.log('SKIPSCINDEX == ' + skipIndex);
-                            soundCloudPlayer.skip(skipIndex);
-                            soundCloudPlayer.setVolume(50);
-                        }
-                        onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
-                    })
-                });
-                soundCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
-                    onPlayerStateChange('soundcloud', 'play')
-                });
-                soundCloudPlayer.bind(SC.Widget.Events.PAUSE, function () {
-                    onPlayerStateChange('soundcloud', 'pause')
-                });
-                soundCloudPlayer.bind(SC.Widget.Events.FINISH, onSoundCloudError());
-                players['soundcloud'] = soundCloudPlayer;
+        if (soundCloudPlayer) {
+            soundCloudPlayer.play();
+        } else {
+            soundCloudPlayer = Y.Node.create('<iframe id="soundCloudPlayer" src="https://w.soundcloud.com/player/?url=' + someCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="stream-player soundcloud-stream"></iframe>');
+            castContainer.append(soundCloudPlayer);
+            soundCloudPlayer = soundCloudPlayer._node;
+            soundCloudPlayer = SC.Widget(soundCloudPlayer);
+            soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
+                soundCloudPlayer.getSounds(function (sounds) {
+                    var skipIndex = 0;
+                    if (sounds && sounds.length) {
+                        skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
+                        console.log('SKIPSCINDEX == ' + skipIndex);
+                        soundCloudPlayer.skip(skipIndex);
+                        soundCloudPlayer.setVolume(50);
+                    }
+                    onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
+                })
+            });
+            soundCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
+                onPlayerStateChange('soundcloud', 'play')
+            });
+            soundCloudPlayer.bind(SC.Widget.Events.PAUSE, function () {
+                onPlayerStateChange('soundcloud', 'pause')
+            });
+            soundCloudPlayer.bind(SC.Widget.Events.FINISH, onSoundCloudError());
+            players['soundcloud'] = soundCloudPlayer;
+        }
+    }
+    
+    function initSomeCloud() {
+        if (someCloudUrl) {
+            if (someCloudUrl.indexOf('mixcloud') > -1){
+                initMixCloud();
+            } else if (someCloudUrl.indexOf('soundcloud') > -1){
+                initSoundCloud();
             }
+            console.log('Some cloud loading');
         } else {
             console.log('no SoundCloud url')
         }
