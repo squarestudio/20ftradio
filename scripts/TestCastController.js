@@ -562,6 +562,39 @@ window.Template.Controllers.TestCastController = function (element) {
     function initMixCloud() {
         console.log('MixCloud init');
         'https://www.mixcloud.com/widget/iframe/?feed='
+        var widget = Mixcloud.PlayerWidget(document.getElementById('my-widget-iframe'));
+        widget.ready.then(function() {
+            // Put code that interacts with the widget here
+        });
+
+        if (mixCloudPlayer) {
+            mixCloudPlayer.play();
+        } else {
+            mixCloudPlayer = Y.Node.create('<iframe id="soundCloudPlayer" src="https://w.soundcloud.com/player/?url=' + soundCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="stream-player soundcloud-stream"></iframe>');
+            castContainer.append(soundCloudPlayer);
+            mixCloudPlayer = soundCloudPlayer._node;
+            mixCloudPlayer = SC.Widget(soundCloudPlayer);
+            mixCloudPlayer.bind(SC.Widget.Events.READY, function () {
+                soundCloudPlayer.getSounds(function (sounds) {
+                    var skipIndex = 0;
+                    if (sounds && sounds.length) {
+                        skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
+                        console.log('SKIPSCINDEX == ' + skipIndex);
+                        soundCloudPlayer.skip(skipIndex);
+                        soundCloudPlayer.setVolume(50);
+                    }
+                    onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
+                })
+            });
+            mixCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
+                onPlayerStateChange('soundcloud', 'play')
+            });
+            mixCloudPlayer.bind(SC.Widget.Events.PAUSE, function () {
+                onPlayerStateChange('soundcloud', 'pause')
+            });
+            mixCloudPlayer.bind(SC.Widget.Events.FINISH, onSoundCloudError());
+            players['mixcloud'] = mixCloudPlayer;
+        }
     }
 
     function initSoundCloud() {
