@@ -606,8 +606,10 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
                 Y.log('mixcloud footer.js loaded successfully!');
                 tx && tx.nodes[0].setAttribute('id', 'mixcloud-footer-script');
-                var promise = Mixcloud.FooterWidget('/username/show/');
+                var promise = Mixcloud.FooterWidget('/20ftradio/uploads/');
                 promise.then(function(widget) {
+                    mixCloudPlayer = widget;
+                    console.log(mixCloudPlayer);
                     // Put code that interacts with the widget here e.g.
                     widget.events.pause.on(pauseListener);
                 });
