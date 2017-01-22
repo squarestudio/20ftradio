@@ -610,8 +610,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 promise.then(function(widget) {
                     mixCloudPlayer = widget;
                     console.log(mixCloudPlayer);
-                    // Put code that interacts with the widget here e.g.
-                    widget.events.pause.on(pauseListener);
                 });
             });
 /*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
