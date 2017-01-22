@@ -602,7 +602,7 @@ window.Template.Controllers.TestCastController = function (element) {
             mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
             mixCloudPlayer = mixCloudPlayer._node;
-            mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer);
+            mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {disablePushstate: true});
             mixCloudPlayer.ready.then(function(e) {
                 console.log(e)
                 mixCloudPlayer.getCurrentKey().then(function (e) {
