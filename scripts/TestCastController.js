@@ -573,8 +573,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 // Put code that interacts with the widget here
                 onPlayerReady('mixcloud');
             });
-            mixCloudPlayer = SC.Widget(soundCloudPlayer);
-            mixCloudPlayer.bind(SC.Widget.Events.READY, function () {
+/*            mixCloudPlayer.bind(SC.Widget.Events.READY, function () {
                 soundCloudPlayer.getSounds(function (sounds) {
                     var skipIndex = 0;
                     if (sounds && sounds.length) {
@@ -585,14 +584,14 @@ window.Template.Controllers.TestCastController = function (element) {
                     }
                     onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
                 })
+            });*/
+            mixCloudPlayer.events.play.on(function () {
+                onPlayerStateChange('mixcloud', 'play')
             });
-            mixCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
-                onPlayerStateChange('soundcloud', 'play')
+            mixCloudPlayer.events.pause.on(function () {
+                onPlayerStateChange('mixcloud', 'pause')
             });
-            mixCloudPlayer.bind(SC.Widget.Events.PAUSE, function () {
-                onPlayerStateChange('soundcloud', 'pause')
-            });
-            mixCloudPlayer.bind(SC.Widget.Events.FINISH, onSoundCloudError());
+            //mixCloudPlayer.events.on(SC.Widget.Events.FINISH, onSoundCloudError());
             players['mixcloud'] = mixCloudPlayer;
         }
     }
