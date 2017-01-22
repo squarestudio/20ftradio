@@ -35,6 +35,8 @@ window.Template.Controllers.TestCastController = function (element) {
         shoutcastPlayer = null,
         soundCloudPlayer = null,
         soundCloudReady = false,
+        mixCloudPlayer = null,
+        mixCloudReady = false,
         eventStatusInterval,
         currentEvents,
         liveIndicator,
@@ -529,7 +531,20 @@ window.Template.Controllers.TestCastController = function (element) {
                             }
                             status();
                         });
-                    } else {
+                    } else if (mixCloudPlayer && !notMixcloud) {
+                        activePlayer = 'soundcloud';
+                        soundCloudPlayer.isPaused(function (paused) {
+                            if (paused) {
+                                !mobile && soundCloudPlayer.play();
+                                activePlayer = 'soundcloud';
+                                onPlayerStateChange('soundcloud');
+                                pausePlayersExept('soundcloud');
+                            } else {
+                                //retry = maxRetry + 6;
+                            }
+                            status();
+                        });
+                    }  else {
                         if(someCloudUrl && youtubeReady){
                             initSomeCloud();
                         }
@@ -557,7 +572,6 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function initMixCloud() {
         console.log('MixCloud init');
-        var mixCloudPlayer = null;
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
