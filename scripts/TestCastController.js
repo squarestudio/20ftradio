@@ -516,7 +516,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
                 console.log('CHECK Before Soundcloud');
                 if (retry > maxRetry + 5 || notShoutcast) {
-                    /*if (soundCloudPlayer && !notSoundcloud) {
+                    if (soundCloudPlayer && !notSoundcloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
                             if (paused) {
@@ -534,7 +534,7 @@ window.Template.Controllers.TestCastController = function (element) {
                             initSomeCloud();
                         }
                         status();
-                    }*/
+                    }
                 }
                 console.log('CHECK After Soundcloud');
             }
