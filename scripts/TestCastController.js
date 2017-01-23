@@ -600,21 +600,23 @@ window.Template.Controllers.TestCastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            var promise = Mixcloud.FooterWidget(someCloudUrl, {disableUnloadWarning : true, disableHotkeys: true});
-            promise.then(function(widget) {
-                mixCloudPlayer = widget;
-                mixCloudPlayer.events.play.on(function () {
-                    onPlayerStateChange('mixcloud', 'play')
+            if (!mixCloudReady) {
+                var promise = Mixcloud.FooterWidget(someCloudUrl, {disableUnloadWarning : true, disableHotkeys: true});
+                promise.then(function(widget) {
+                    mixCloudPlayer = widget;
+                    mixCloudPlayer.events.play.on(function () {
+                        onPlayerStateChange('mixcloud', 'play')
+                    });
+                    mixCloudPlayer.events.pause.on(function () {
+                        onPlayerStateChange('mixcloud', 'pause')
+                    });
+                    mixCloudPlayer.events.error.on(function (e) {
+                        console.log('MixCloud Error', e);
+                    });
+                    onPlayerReady('mixcloud');
+                    players['mixcloud'] = mixCloudPlayer;
                 });
-                mixCloudPlayer.events.pause.on(function () {
-                    onPlayerStateChange('mixcloud', 'pause')
-                });
-                mixCloudPlayer.events.error.on(function (e) {
-                    console.log('MixCloud Error', e);
-                });
-                onPlayerReady('mixcloud');
-                players['mixcloud'] = mixCloudPlayer;
-            });
+            }
         }
     }
     function initSoundCloud() {
