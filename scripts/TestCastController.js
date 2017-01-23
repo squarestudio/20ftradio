@@ -598,7 +598,7 @@ window.Template.Controllers.TestCastController = function (element) {
     function initMixCloud() {
         console.log('MixCloud init');
         if (mixCloudPlayer) {
-            mixCloudPlayer.play();
+            mixCloudPlayer.play && mixCloudPlayer.play();
         } else {
             if (!mixCloudReady) {
                 var promise = Mixcloud.FooterWidget(someCloudUrl, {disableUnloadWarning : true, disableHotkeys: true});
