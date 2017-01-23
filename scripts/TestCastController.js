@@ -425,7 +425,7 @@ window.Template.Controllers.TestCastController = function (element) {
         if (preventLoops > maxRetry * 3) {
             console.log('FFFFFF');
             //offlineMessage();
-            return;
+            //return;
         }
         var status = function () {
             if (activePlayer && (activePlayer == 'youtube' || activePlayer == 'shoutcast')) {
