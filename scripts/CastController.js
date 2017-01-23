@@ -6,7 +6,7 @@ window.Template.Controllers.CastController = function (element) {
         youtubeUrl,
         facebookUrl,
         shoutCastUrl,
-        soundCloudUrl,
+        someCloudUrl,
         retry = 0,
         maxRetry = 3,
         youtubeStatus = false,
@@ -19,7 +19,8 @@ window.Template.Controllers.CastController = function (element) {
         shoutcastStatus = false,
         shoutcastStatusCheckInterval = null,
         notShoutcast = false,
-        notSoundcloud = false,
+        notSoundCloud = false,
+        notMixCloud = false,
         preventLoops = 0,
         lastCheckTime,
         mobile,
@@ -28,13 +29,15 @@ window.Template.Controllers.CastController = function (element) {
         userPaused,
         players = {},
         activePlayer = false,
-        checkingTime = 2000,
+        checkingTime = 5000,
         streamCheckInterval,
         youtubePlayer = null,
         fbPlayer = null,
         shoutcastPlayer = null,
         soundCloudPlayer = null,
         soundCloudReady = false,
+        mixCloudPlayer = null,
+        mixCloudReady = false,
         eventStatusInterval,
         currentEvents,
         liveIndicator,
@@ -154,7 +157,7 @@ window.Template.Controllers.CastController = function (element) {
         youtubeUrl = castContainer.getAttribute('data-url');
         facebookUrl = castContainer.getAttribute('data-facebook-url');
         shoutCastUrl = castContainer.getAttribute('data-shoutcast-url');
-        soundCloudUrl = castContainer.getAttribute('data-soundcloud-url');
+        someCloudUrl = castContainer.getAttribute('data-soundcloud-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
@@ -225,6 +228,23 @@ window.Template.Controllers.CastController = function (element) {
                     });
                 }
             }
+            else if (activePlayer == 'mixcloud') {
+                if (mobile && !userClickPlay) {
+                    mixCloudPlayer.play();
+                    userPaused = false;
+                    checkStreams();
+                } else {
+                    mixCloudPlayer.getIsPaused().then(function (state) {
+                        if (state) {
+                            mixCloudPlayer.play();
+                            userPaused = false;
+                        } else {
+                            mixCloudPlayer.pause();
+                            userPaused = true;
+                        }
+                    });
+                }
+            }
             mobile && activePlayer !== 'facebook' && checkStreams();
             userClickPlay = true;
         });
@@ -240,7 +260,7 @@ window.Template.Controllers.CastController = function (element) {
                 console.log('volume - ' + activePlayer);
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
                     if (activePlayer) {
-                        if (activePlayer == 'soundcloud' || activePlayer == 'facebook') {
+                        if (activePlayer == 'soundcloud' || activePlayer == 'facebook' || activePlayer == 'mixcloud') {
                             players[activePlayer].setVolume(0.5);
                         } else {
                             players[activePlayer].setVolume(50);
@@ -270,7 +290,7 @@ window.Template.Controllers.CastController = function (element) {
                 volumeIcon._node.className = 'icono-volumeMute';
             }
             if (activePlayer) {
-                if (activePlayer == 'soundcloud' || activePlayer == 'facebook') {
+                if (activePlayer == 'soundcloud' || activePlayer == 'facebook' || activePlayer == 'mixcloud') {
                     players[activePlayer].setVolume(volume / 100);
                 } else {
                     players[activePlayer].setVolume(volume);
@@ -292,8 +312,8 @@ window.Template.Controllers.CastController = function (element) {
                     getYoutubeStatus();
                 } else if (shoutCastUrl) {
                     initShoutCast();
-                } else if (soundCloudUrl) {
-                    initSoundCloud();
+                } else if (someCloudUrl) {
+                    initSomeCloud();
                 } else {
                     console.log("No data to init");
                 }
@@ -306,11 +326,11 @@ window.Template.Controllers.CastController = function (element) {
                 if (shoutCastUrl) {
                     initShoutCast();
                 }
-                if (soundCloudUrl) {
-                    initSoundCloud();
+                if (someCloudUrl) {
+                    initSomeCloud();
                 }
             }
-            if (youtubeUrl || shoutCastUrl || soundCloudUrl) {
+            if (youtubeUrl || shoutCastUrl || someCloudUrl) {
                 if (!mobile) {
                     /*                streamCheckInterval = setInterval(function () {
                      checkStreams();
@@ -383,6 +403,12 @@ window.Template.Controllers.CastController = function (element) {
                                 soundCloudPlayer.pause()
                             }
                         });
+                    } else if (player == 'mixcloud') {
+                        players[player].getIsPaused().then(function (paused) {
+                            if (!paused) {
+                                mixCloudPlayer.pause()
+                            }
+                        });
                     }
                 }
             }
@@ -399,7 +425,7 @@ window.Template.Controllers.CastController = function (element) {
         if (preventLoops > maxRetry * 3) {
             console.log('FFFFFF');
             //offlineMessage();
-            return;
+            //return;
         }
         var status = function () {
             if (activePlayer && (activePlayer == 'youtube' || activePlayer == 'shoutcast')) {
@@ -458,8 +484,9 @@ window.Template.Controllers.CastController = function (element) {
                 trackName.removeClass('scroll-track');
             }
 
-            if (activePlayer) sitePlayer.addClass('played');
+            if (activePlayer) {sitePlayer.addClass('played');mobilePlayButton.addClass('visible');}
             lastCheckTime = new Date().getTime();
+            console.log('ACTIVE PLAYER ==== ' + activePlayer);
         };
         if (!userPaused && activePlayer !== 'facebook') {
             console.log('CHECK Before Youtube');
@@ -478,7 +505,7 @@ window.Template.Controllers.CastController = function (element) {
             }
             console.log('CHECK After Youtube');
             if (!youtubeStatus) {//retry > maxRetry || notYoutube
-                console.log('try another players', notShoutcast, notSoundcloud);
+                console.log('try another players', notShoutcast, notSoundCloud);
                 if (shoutcastPlayer && !notShoutcast) {
                     state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                     console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
@@ -489,7 +516,7 @@ window.Template.Controllers.CastController = function (element) {
                         onPlayerStateChange('shoutcast');
                         if (state == false) {
                             if (mobile) {
-                                notSoundcloud = true;
+                                notSoundCloud = true;
                                 notYoutube = true;
                             }
                         }
@@ -516,22 +543,35 @@ window.Template.Controllers.CastController = function (element) {
                 }
                 console.log('CHECK Before Soundcloud');
                 if (retry > maxRetry + 5 || notShoutcast) {
-                    if (soundCloudPlayer && !notSoundcloud) {
+                    if (soundCloudPlayer && !notSoundCloud) {
                         activePlayer = 'soundcloud';
                         soundCloudPlayer.isPaused(function (paused) {
-                                if (paused) {
-                                    !mobile && soundCloudPlayer.play();
-                                    activePlayer = 'soundcloud';
-                                    onPlayerStateChange('soundcloud');
-                                    pausePlayersExept('soundcloud');
-                                } else {
-                                    //retry = maxRetry + 6;
-                                }
+                            if (paused) {
+                                !mobile && soundCloudPlayer.play();
+                                activePlayer = 'soundcloud';
+                                onPlayerStateChange('soundcloud');
+                                pausePlayersExept('soundcloud');
+                            } else {
+                                //retry = maxRetry + 6;
+                            }
                             status();
                         });
-                    } else {
-                        if(soundCloudUrl && youtubeReady){
-                            initSoundCloud();
+                    } else if (mixCloudPlayer && !notMixCloud) {
+                        activePlayer = 'mixcloud';
+                        mixCloudPlayer.getIsPaused().then(function (paused) {
+                            if (paused) {
+                                !mobile && mixCloudPlayer.play();
+                                activePlayer = 'mixcloud';
+                                onPlayerStateChange('mixcloud');
+                                pausePlayersExept('mixcloud');
+                            } else {
+                                //retry = maxRetry + 6;
+                            }
+                            status()
+                        });
+                    }  else {
+                        if(someCloudUrl && youtubeReady){
+                            initSomeCloud();
                         }
                         status();
                     }
@@ -555,37 +595,91 @@ window.Template.Controllers.CastController = function (element) {
         }
     }
 
+    function initMixCloud() {
+        console.log('MixCloud init');
+        if (mixCloudPlayer) {
+            mixCloudPlayer.play();
+        } else {
+            var promise = Mixcloud.FooterWidget('/20ftradio/', {disablePushstate: true, disableUnloadWarning : true});
+            promise.then(function(widget) {
+                mixCloudPlayer = widget;
+                console.log(mixCloudPlayer);
+                mixCloudPlayer.events.play.on(function () {
+                    onPlayerStateChange('mixcloud', 'play')
+                });
+                mixCloudPlayer.events.pause.on(function () {
+                    onPlayerStateChange('mixcloud', 'pause')
+                });
+                mixCloudPlayer.events.error.on(function (e) {
+                    console.log('MixCloud Error', e);
+                });
+                window.zz = mixCloudPlayer;
+                onPlayerReady('mixcloud');
+                players['mixcloud'] = mixCloudPlayer;
+            });
+            /*mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
+             castContainer.append(mixCloudPlayer);
+             mixCloudPlayer = mixCloudPlayer._node;
+             mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {disablePushstate: true, disableUnloadWarning : true});
+             mixCloudPlayer.ready.then(function(e) {
+             console.log(e);
+             mixCloudPlayer.setOption('disableUnloadWarning', true).then(function (e) {
+             console.log(e)
+             });
+             mixCloudPlayer.events.play.on(function () {
+             onPlayerStateChange('mixcloud', 'play')
+             });
+             mixCloudPlayer.events.pause.on(function () {
+             onPlayerStateChange('mixcloud', 'pause')
+             });
+             mixCloudPlayer.events.error.on(function (e) {
+             console.log('MixCloud Error', e);
+             });
+             window.zz = mixCloudPlayer;
+             onPlayerReady('mixcloud');
+             });*/
+            players['mixcloud'] = mixCloudPlayer;
+        }
+    }
     function initSoundCloud() {
-        if (soundCloudUrl) {
-            console.log('soundcloud loading');
-            if (soundCloudPlayer) {
-                soundCloudPlayer.play();
-            } else {
-                soundCloudPlayer = Y.Node.create('<iframe id="soundCloudPlayer" src="https://w.soundcloud.com/player/?url=' + soundCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="stream-player soundcloud-stream"></iframe>');
-                castContainer.append(soundCloudPlayer);
-                soundCloudPlayer = soundCloudPlayer._node;
-                soundCloudPlayer = SC.Widget(soundCloudPlayer);
-                soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
-                    soundCloudPlayer.getSounds(function (sounds) {
-                        var skipIndex = 0;
-                        if (sounds && sounds.length) {
-                            skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
-                            console.log('SKIPSCINDEX == ' + skipIndex);
-                            soundCloudPlayer.skip(skipIndex);
-                            soundCloudPlayer.setVolume(50);
-                        }
-                        onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
-                    })
-                });
-                soundCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
-                    onPlayerStateChange('soundcloud', 'play')
-                });
-                soundCloudPlayer.bind(SC.Widget.Events.PAUSE, function () {
-                    onPlayerStateChange('soundcloud', 'pause')
-                });
-                soundCloudPlayer.bind(SC.Widget.Events.FINISH, onSoundCloudError());
-                players['soundcloud'] = soundCloudPlayer;
+        if (soundCloudPlayer) {
+            soundCloudPlayer.play();
+        } else {
+            soundCloudPlayer = Y.Node.create('<iframe id="soundCloudPlayer" src="https://w.soundcloud.com/player/?url=' + someCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="stream-player soundcloud-stream"></iframe>');
+            castContainer.append(soundCloudPlayer);
+            soundCloudPlayer = soundCloudPlayer._node;
+            soundCloudPlayer = SC.Widget(soundCloudPlayer);
+            soundCloudPlayer.bind(SC.Widget.Events.READY, function () {
+                soundCloudPlayer.getSounds(function (sounds) {
+                    var skipIndex = 0;
+                    if (sounds && sounds.length) {
+                        skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
+                        console.log('SKIPSCINDEX == ' + skipIndex);
+                        soundCloudPlayer.skip(skipIndex);
+                        soundCloudPlayer.setVolume(50);
+                    }
+                    onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
+                })
+            });
+            soundCloudPlayer.bind(SC.Widget.Events.PLAY, function () {
+                onPlayerStateChange('soundcloud', 'play')
+            });
+            soundCloudPlayer.bind(SC.Widget.Events.PAUSE, function () {
+                onPlayerStateChange('soundcloud', 'pause')
+            });
+            soundCloudPlayer.bind(SC.Widget.Events.FINISH, onSoundCloudError());
+            players['soundcloud'] = soundCloudPlayer;
+        }
+    }
+
+    function initSomeCloud() {
+        if (someCloudUrl) {
+            if (someCloudUrl.indexOf('mixcloud') > -1){
+                initMixCloud();
+            } else if (someCloudUrl.indexOf('soundcloud') > -1){
+                initSoundCloud();
             }
+            console.log('Some cloud loading');
         } else {
             console.log('no SoundCloud url')
         }
@@ -730,6 +824,7 @@ window.Template.Controllers.CastController = function (element) {
         setActivePlayer(playerType);
         pausePlayersExept(playerType);
         sitePlayer.addClass('played');
+        mobilePlayButton.addClass('visible');
     }
 
     function setPaused() {
@@ -764,6 +859,14 @@ window.Template.Controllers.CastController = function (element) {
             }
         } else if (playerType == 'soundcloud') {
             soundCloudPlayer.isPaused(function (paused) {
+                if (!paused) {
+                    setPlaying(playerType);
+                } else {
+                    setPaused();
+                }
+            });
+        } else if (playerType == 'mixcloud') {
+            mixCloudPlayer.getIsPaused().then(function (paused) {
                 if (!paused) {
                     setPlaying(playerType);
                 } else {
@@ -885,7 +988,7 @@ window.Template.Controllers.CastController = function (element) {
             on: {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
-                       var html = data.responseText.replace(/src=/g, 'data-href=');
+                        var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
                         var current_song = status_html.one('.newscontent table[cellpadding=4] tr:last-child td:last-child').get('text');
                         current_song = 'Now playing: ' + current_song;
