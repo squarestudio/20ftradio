@@ -607,7 +607,7 @@ window.Template.Controllers.TestCastController = function (element) {
             }
             Y.log('mixcloud footer.js loaded successfully!');
             tx && tx.nodes[0].setAttribute('id', 'mixcloud-footer-script');
-            var promise = Mixcloud.FooterWidget('/20ftradio/uploads/');
+            var promise = Mixcloud.FooterWidget('/20ftradio/uploads/', {disablePushstate: true, disableUnloadWarning : true});
             promise.then(function(widget) {
                 mixCloudPlayer = widget;
                 console.log(mixCloudPlayer);
