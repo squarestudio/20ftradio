@@ -235,6 +235,7 @@
     }
 
     function w(e) {
+        console.log(e, e.disableUnloadWarning)
         I.events.play.on(b), I.events.pause.on(x), I.events.buffering.on(x), I.events.ended.on(x), I.events.error.on(x), e.disableHotkeys || (o(n, "keydown", function (e) {
             I && g(e) && I.togglePlay()
         }), I.enableHotkeys()), e.disableUnloadWarning || o(t, "beforeunload", function (e) {
