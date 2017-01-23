@@ -524,7 +524,7 @@ window.Template.Controllers.CastController = function (element) {
                         retry = maxRetry -1;
                         return;
                     } else {
-                        if (retry > maxRetry + 3){
+                        if (retry > maxRetry + 3 && retry < maxRetry +){
                             console.log('try to load shoutcast');
                             shoutcastPlayer.load();
                         } else {
