@@ -607,7 +607,9 @@ window.Template.Controllers.CastController = function (element) {
                 disablePushstate: true,
                 disableUnloadWarning: true
             });
-            mixCloudPlayer.ready.then(function (e) {
+            mixCloudPlayer.ready.then(function (widget) {
+                mixCloudPlayer = widget;
+                console.log(mixCloudPlayer);
                 mixCloudPlayer.setOption('disableUnloadWarning', true).then(function (e) {
                     console.log(e)
                 });
