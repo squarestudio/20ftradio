@@ -484,7 +484,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 trackName.removeClass('scroll-track');
             }
 
-            if (activePlayer) sitePlayer.addClass('played');
+            if (activePlayer) {sitePlayer.addClass('played');mobilePlayButton.addClass('visible');}
             lastCheckTime = new Date().getTime();
             console.log('ACTIVE PLAYER ==== ' + activePlayer);
         };
@@ -824,6 +824,7 @@ window.Template.Controllers.TestCastController = function (element) {
         setActivePlayer(playerType);
         pausePlayersExept(playerType);
         sitePlayer.addClass('played');
+        mobilePlayButton.addClass('visible');
     }
 
     function setPaused() {
