@@ -600,10 +600,18 @@ window.Template.Controllers.CastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            var promise = Mixcloud.FooterWidget('/20ftradio/', {disablePushstate: true, disableUnloadWarning : true});
-            promise.then(function(widget) {
-                mixCloudPlayer = widget;
-                console.log(mixCloudPlayer);
+            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
+            castContainer.append(mixCloudPlayer);
+            mixCloudPlayer = mixCloudPlayer._node;
+            mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {
+                disablePushstate: true,
+                disableUnloadWarning: true
+            });
+            mixCloudPlayer.ready.then(function (e) {
+                console.log(e);
+                mixCloudPlayer.setOption('disableUnloadWarning', true).then(function (e) {
+                    console.log(e)
+                });
                 mixCloudPlayer.events.play.on(function () {
                     onPlayerStateChange('mixcloud', 'play')
                 });
@@ -615,29 +623,7 @@ window.Template.Controllers.CastController = function (element) {
                 });
                 window.zz = mixCloudPlayer;
                 onPlayerReady('mixcloud');
-                players['mixcloud'] = mixCloudPlayer;
             });
-            /*mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
-             castContainer.append(mixCloudPlayer);
-             mixCloudPlayer = mixCloudPlayer._node;
-             mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {disablePushstate: true, disableUnloadWarning : true});
-             mixCloudPlayer.ready.then(function(e) {
-             console.log(e);
-             mixCloudPlayer.setOption('disableUnloadWarning', true).then(function (e) {
-             console.log(e)
-             });
-             mixCloudPlayer.events.play.on(function () {
-             onPlayerStateChange('mixcloud', 'play')
-             });
-             mixCloudPlayer.events.pause.on(function () {
-             onPlayerStateChange('mixcloud', 'pause')
-             });
-             mixCloudPlayer.events.error.on(function (e) {
-             console.log('MixCloud Error', e);
-             });
-             window.zz = mixCloudPlayer;
-             onPlayerReady('mixcloud');
-             });*/
             players['mixcloud'] = mixCloudPlayer;
         }
     }
