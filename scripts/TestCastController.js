@@ -989,7 +989,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     if (data.status == 200 && data.readyState == 4) {
                         var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
-                        var current_song = 'sdfsdgregerhr uhuoyvuboyuvo u2gbyibfy8iwbf8ywebfweybw'//status_html.one('.newscontent table[cellpadding=4] tr:last-child td:last-child').get('text');
+                        var current_song = status_html.one('.newscontent table[cellpadding=4] tr:last-child td:last-child').get('text');
                         current_song = 'Now playing: ' + current_song;
                         console.log(current_song);
                         if (trackName.get('text') !== current_song) {
