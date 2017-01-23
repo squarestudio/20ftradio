@@ -611,6 +611,17 @@ window.Template.Controllers.TestCastController = function (element) {
             promise.then(function(widget) {
                 mixCloudPlayer = widget;
                 console.log(mixCloudPlayer);
+                mixCloudPlayer.events.play.on(function () {
+                    onPlayerStateChange('mixcloud', 'play')
+                });
+                mixCloudPlayer.events.pause.on(function () {
+                    onPlayerStateChange('mixcloud', 'pause')
+                });
+                mixCloudPlayer.events.error.on(function (e) {
+                    console.log('MixCloud Error', e);
+                });
+                window.zz = mixCloudPlayer;
+                onPlayerReady('mixcloud');
             });
         });
             /*mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
