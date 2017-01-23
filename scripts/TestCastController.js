@@ -600,13 +600,6 @@ window.Template.Controllers.TestCastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            window.top.Y.Get.js('https://widget.mixcloud.com/media/js/footerWidgetApi.js', function (err, tx) {
-            if (err) {
-                Y.log('Error loading JS: ' + err[0].error, 'error');
-                return;
-            }
-            Y.log('mixcloud footer.js loaded successfully!');
-            tx && tx.nodes[0].setAttribute('id', 'mixcloud-footer-script');
             var promise = Mixcloud.FooterWidget('/20ftradio/', {disablePushstate: true, disableUnloadWarning : true});
             promise.then(function(widget) {
                 mixCloudPlayer = widget;
@@ -624,7 +617,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 onPlayerReady('mixcloud');
                 players['mixcloud'] = mixCloudPlayer;
             });
-        });
             /*mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
             mixCloudPlayer = mixCloudPlayer._node;
