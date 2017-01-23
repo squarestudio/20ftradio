@@ -486,6 +486,7 @@ window.Template.Controllers.TestCastController = function (element) {
 
             if (activePlayer) sitePlayer.addClass('played');
             lastCheckTime = new Date().getTime();
+            console.log('ACTIVE PLAYER ==== ' + activePlayer);
         };
         if (!userPaused && activePlayer !== 'facebook') {
             console.log('CHECK Before Youtube');
