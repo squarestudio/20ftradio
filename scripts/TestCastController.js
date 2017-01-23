@@ -622,6 +622,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 });
                 window.zz = mixCloudPlayer;
                 onPlayerReady('mixcloud');
+                players['mixcloud'] = mixCloudPlayer;
             });
         });
             /*mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
