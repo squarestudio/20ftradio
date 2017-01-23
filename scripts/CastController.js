@@ -621,7 +621,6 @@ window.Template.Controllers.CastController = function (element) {
                 mixCloudPlayer.events.error.on(function (e) {
                     console.log('MixCloud Error', e);
                 });
-                window.zz = mixCloudPlayer;
                 onPlayerReady('mixcloud');
             });
             players['mixcloud'] = mixCloudPlayer;
