@@ -182,6 +182,7 @@
 <squarespace:script src="share-buttons.js" combo="true"/>
 <squarespace:script src="WallController.js" combo="true"/>
 <squarespace:script src="soundcloud-api-widget.js" combo="true"/>
+<squarespace:script src="mixcloud-api-widget.js" combo="true"/>
 <squarespace:script src="CastController.js" combo="true"/>
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
