@@ -605,10 +605,10 @@ window.Template.Controllers.TestCastController = function (element) {
             mixCloudPlayer = mixCloudPlayer._node;
             mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {disablePushstate: true, disableUnloadWarning : true});
             mixCloudPlayer.ready.then(function(e) {
-                console.log(e)
+                console.log(e);
                 mixCloudPlayer.setOption('disableUnloadWarning', true).then(function (e) {
                     console.log(e)
-                })
+                });
                 mixCloudPlayer.events.play.on(function () {
                     onPlayerStateChange('mixcloud', 'play')
                 });
