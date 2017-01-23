@@ -748,10 +748,16 @@ window.Template.Controllers.TestCastController = function (element) {
             }
         } else if (playerType == 'soundcloud' && youtubeReady) {
             if(!soundCloudReady){
-                window.zz = soundCloudPlayer;
                 if (!mobile) soundCloudPlayer.play();
                 soundCloudPlayer.setVolume(0.5);
                 soundCloudReady = true;
+                setActivePlayer();
+            }
+        }  else if (playerType == 'mixcloud' && youtubeReady) {
+            if(!mixCloudReady){
+                if (!mobile) mixCloudPlayer.play();
+                mixCloudPlayer.setVolume(0.5);
+                mixCloudReady = true;
                 setActivePlayer();
             }
         }
