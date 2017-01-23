@@ -600,7 +600,7 @@ window.Template.Controllers.TestCastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            var promise = Mixcloud.FooterWidget('/20ftradio/uploads/', {disablePushstate: true, disableUnloadWarning : true});
+            var promise = Mixcloud.FooterWidget('/20ftradio/', {disablePushstate: true, disableUnloadWarning : true});
             promise.then(function(widget) {
                 mixCloudPlayer = widget;
                 mixCloudPlayer.events.play.on(function () {
