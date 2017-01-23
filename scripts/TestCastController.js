@@ -602,7 +602,18 @@ window.Template.Controllers.TestCastController = function (element) {
         } else {
             var promise = Mixcloud.FooterWidget('/20ftradio/uploads/');
             promise.then(function(widget) {
-                widget.events.pause.on(pauseListener);
+                mixCloudPlayer = widget;
+                mixCloudPlayer.events.play.on(function () {
+                    onPlayerStateChange('mixcloud', 'play')
+                });
+                mixCloudPlayer.events.pause.on(function () {
+                    onPlayerStateChange('mixcloud', 'pause')
+                });
+                mixCloudPlayer.events.error.on(function (e) {
+                    console.log('MixCloud Error', e);
+                });
+                window.zz = mixCloudPlayer;
+                onPlayerReady('mixcloud');
             });
             /*mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
