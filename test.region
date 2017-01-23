@@ -19,6 +19,11 @@
             Controllers: {}
         }
     </script>
+    <style>
+        .mixcloud-footer-widget-container {
+            z-index: 10000!important;
+        }
+    </style>
 </head>
 
 <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
