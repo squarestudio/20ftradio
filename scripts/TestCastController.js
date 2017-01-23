@@ -600,7 +600,11 @@ window.Template.Controllers.TestCastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
+            var promise = Mixcloud.FooterWidget('/20ftradio/uploads/');
+            promise.then(function(widget) {
+                widget.events.pause.on(pauseListener);
+            });
+            /*mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
             mixCloudPlayer = mixCloudPlayer._node;
             mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {disablePushstate: true, disableUnloadWarning : true});
@@ -620,7 +624,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 });
                 window.zz = mixCloudPlayer;
                 onPlayerReady('mixcloud');
-            });
+            });*/
             players['mixcloud'] = mixCloudPlayer;
         }
     }
