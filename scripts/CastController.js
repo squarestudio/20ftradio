@@ -608,7 +608,6 @@ window.Template.Controllers.CastController = function (element) {
                 disableUnloadWarning: true
             });
             mixCloudPlayer.ready.then(function (e) {
-                console.log(e);
                 mixCloudPlayer.setOption('disableUnloadWarning', true).then(function (e) {
                     console.log(e)
                 });
