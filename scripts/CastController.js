@@ -584,7 +584,7 @@ window.Template.Controllers.CastController = function (element) {
                     console.log('CHECK After Soundcloud');
                 }
             } {
-                console.log('')
+                console.log('Still have no youtubee status load')
             }
         }
     }
