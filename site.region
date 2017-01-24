@@ -167,6 +167,7 @@
 {.or}
 
 {.end}
+<script type="text/javascript" src="cordova.js"></script>
 <squarespace:script src="json-template.js" combo="true"/>
 <squarespace:script src="core-0.2.0.min.js" combo="true"/>
 <squarespace:script src="sqs-controller.js" combo="true"/>
