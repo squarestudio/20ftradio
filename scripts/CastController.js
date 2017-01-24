@@ -300,7 +300,7 @@ window.Template.Controllers.CastController = function (element) {
         if (!facebookUrl) {
             if (!youtubeUrl) {
                 youtubeReady = true;
-                youtubeStatusLoad = false;
+                youtubeStatusLoad = true;
                 retry = maxRetry - 1;
             }
             if (!shoutCastUrl) {
@@ -494,93 +494,97 @@ window.Template.Controllers.CastController = function (element) {
         };
         if (!userPaused && activePlayer !== 'facebook') {
             console.log('CHECK Before Youtube');
-            if (youtubePlayer && youtubeStatus) {
-                var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                if (youtubeStatus) {
-                    if (state > 1 && !mobile) youtubePlayer.playVideo();
-                    activePlayer = 'youtube';
-                    pausePlayersExept('youtube');
-                    onPlayerStateChange('youtube', state);
-                    status();
-                    retry = 1;
-                    return;
-                }
-                console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
-            }
-            console.log('CHECK After Youtube');
-            if (!youtubeStatus) {//retry > maxRetry || notYoutube
-                console.log('try another players', notShoutcast, notSoundCloud);
-                if (shoutcastPlayer && !notShoutcast) {
-                    state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                    console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
-                    if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1) {
-                        !mobile && shoutcastPlayer.play();
-                        activePlayer = 'shoutcast';
-                        pausePlayersExept('shoutcast');
-                        onPlayerStateChange('shoutcast');
-                        if (state == false) {
-                            if (mobile) {
-                                notSoundCloud = true;
-                                notYoutube = true;
-                            }
-                        }
+            if (!youtubeStatusLoad){
+                if (youtubePlayer && youtubeStatus) {
+                    var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
+                    if (youtubeStatus) {
+                        if (state > 1 && !mobile) youtubePlayer.playVideo();
+                        activePlayer = 'youtube';
+                        pausePlayersExept('youtube');
+                        onPlayerStateChange('youtube', state);
                         status();
-                        retry = maxRetry - 1;
+                        retry = 1;
                         return;
-                    } else {
-                        if (retry > maxRetry + 3 && retry < maxRetry + 5) {
-                            console.log('try to load shoutcast');
-                            shoutcastPlayer.load();
-                        } else {
-                            console.log('wait to load shoutcast');
-                        }
                     }
+                    console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
                 }
-                else {
-                    if (shoutCastUrl) {
-                        initShoutCast();
-                        status();
-                    } else {
-                        notShoutcast = true;
-                        retry = maxRetry + 6;
-                    }
-                }
-                console.log('CHECK Before Soundcloud');
-                if (retry > maxRetry + 5 || notShoutcast) {
-                    if (soundCloudPlayer && !notSoundCloud) {
-                        activePlayer = 'soundcloud';
-                        soundCloudPlayer.isPaused(function (paused) {
-                            if (paused) {
-                                !mobile && soundCloudPlayer.play();
-                                activePlayer = 'soundcloud';
-                                onPlayerStateChange('soundcloud');
-                                pausePlayersExept('soundcloud');
-                            } else {
-                                //retry = maxRetry + 6;
+                console.log('CHECK After Youtube');
+                if (!youtubeStatus) {//retry > maxRetry || notYoutube
+                    console.log('try another players', notShoutcast, notSoundCloud);
+                    if (shoutcastPlayer && !notShoutcast) {
+                        state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
+                        console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
+                        if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1) {
+                            !mobile && shoutcastPlayer.play();
+                            activePlayer = 'shoutcast';
+                            pausePlayersExept('shoutcast');
+                            onPlayerStateChange('shoutcast');
+                            if (state == false) {
+                                if (mobile) {
+                                    notSoundCloud = true;
+                                    notYoutube = true;
+                                }
                             }
                             status();
-                        });
-                    } else if (mixCloudPlayer && !notMixCloud) {
-                        activePlayer = 'mixcloud';
-                        mixCloudPlayer.getIsPaused().then(function (paused) {
-                            if (paused) {
-                                !mobile && mixCloudPlayer.play();
-                                activePlayer = 'mixcloud';
-                                onPlayerStateChange('mixcloud');
-                                pausePlayersExept('mixcloud');
+                            retry = maxRetry - 1;
+                            return;
+                        } else {
+                            if (retry > maxRetry + 3 && retry < maxRetry + 5) {
+                                console.log('try to load shoutcast');
+                                shoutcastPlayer.load();
                             } else {
-                                //retry = maxRetry + 6;
+                                console.log('wait to load shoutcast');
                             }
-                            status()
-                        });
-                    } else {
-                        if (someCloudUrl && youtubeReady) {
-                            initSomeCloud();
                         }
-                        status();
                     }
+                    else {
+                        if (shoutCastUrl) {
+                            initShoutCast();
+                            status();
+                        } else {
+                            notShoutcast = true;
+                            retry = maxRetry + 6;
+                        }
+                    }
+                    console.log('CHECK Before Soundcloud');
+                    if (retry > maxRetry + 5 || notShoutcast) {
+                        if (soundCloudPlayer && !notSoundCloud) {
+                            activePlayer = 'soundcloud';
+                            soundCloudPlayer.isPaused(function (paused) {
+                                if (paused) {
+                                    !mobile && soundCloudPlayer.play();
+                                    activePlayer = 'soundcloud';
+                                    onPlayerStateChange('soundcloud');
+                                    pausePlayersExept('soundcloud');
+                                } else {
+                                    //retry = maxRetry + 6;
+                                }
+                                status();
+                            });
+                        } else if (mixCloudPlayer && !notMixCloud) {
+                            activePlayer = 'mixcloud';
+                            mixCloudPlayer.getIsPaused().then(function (paused) {
+                                if (paused) {
+                                    !mobile && mixCloudPlayer.play();
+                                    activePlayer = 'mixcloud';
+                                    onPlayerStateChange('mixcloud');
+                                    pausePlayersExept('mixcloud');
+                                } else {
+                                    //retry = maxRetry + 6;
+                                }
+                                status()
+                            });
+                        } else {
+                            if (someCloudUrl && youtubeReady) {
+                                initSomeCloud();
+                            }
+                            status();
+                        }
+                    }
+                    console.log('CHECK After Soundcloud');
                 }
-                console.log('CHECK After Soundcloud');
+            } {
+                console.log('')
             }
         }
     }
