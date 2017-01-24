@@ -585,7 +585,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 return;
             }
             Y.log('Cordova.js loaded successfully!');
-            tx && tx.nodes[0].setAttribute('id', 'cordova-script'); 
+            tx && tx.nodes[0].setAttribute('id', 'cordova-script');
         })
     });
 }());
