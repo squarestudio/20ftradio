@@ -434,7 +434,7 @@ window.Template.Controllers.CastController = function (element) {
             else {
                 liveIndicator.removeClass('active');
             }
-            if (activePlayer == 'youtube' || activePlayer == 'facebook'){
+            if (activePlayer == 'youtube' || activePlayer == 'facebook') {
                 if (shoutcastStatusCheckInterval) {
                     clearInterval(shoutcastStatusCheckInterval);
                     console.log('Shoutcast status reset');
@@ -451,8 +451,8 @@ window.Template.Controllers.CastController = function (element) {
                     console.log('Event status set');
                 }
             }
-            else if(activePlayer == 'shoutcast') {
-                if(!shoutcastStatusCheckInterval){
+            else if (activePlayer == 'shoutcast') {
+                if (!shoutcastStatusCheckInterval) {
                     if (eventStatusInterval) {
                         clearInterval(eventStatusInterval);
                         console.log('Event status reset');
@@ -484,7 +484,10 @@ window.Template.Controllers.CastController = function (element) {
                 trackName.removeClass('scroll-track');
             }
 
-            if (activePlayer) {sitePlayer.addClass('played');mobilePlayButton.addClass('visible');}
+            if (activePlayer) {
+                sitePlayer.addClass('played');
+                mobilePlayButton.addClass('visible');
+            }
             lastCheckTime = new Date().getTime();
             console.log('ACTIVE PLAYER ==== ' + activePlayer);
         };
@@ -521,10 +524,10 @@ window.Template.Controllers.CastController = function (element) {
                             }
                         }
                         status();
-                        retry = maxRetry -1;
+                        retry = maxRetry - 1;
                         return;
                     } else {
-                        if (retry > maxRetry + 3 && retry < maxRetry + 5){
+                        if (retry > maxRetry + 3 && retry < maxRetry + 5) {
                             console.log('try to load shoutcast');
                             shoutcastPlayer.load();
                         } else {
@@ -533,7 +536,7 @@ window.Template.Controllers.CastController = function (element) {
                     }
                 }
                 else {
-                    if(shoutCastUrl){
+                    if (shoutCastUrl) {
                         initShoutCast();
                         status();
                     } else {
@@ -569,8 +572,8 @@ window.Template.Controllers.CastController = function (element) {
                             }
                             status()
                         });
-                    }  else {
-                        if(someCloudUrl && youtubeReady){
+                    } else {
+                        if (someCloudUrl && youtubeReady) {
                             initSomeCloud();
                         }
                         status();
@@ -627,6 +630,7 @@ window.Template.Controllers.CastController = function (element) {
             players['mixcloud'] = mixCloudPlayer;
         }
     }
+
     function initSoundCloud() {
         if (soundCloudPlayer) {
             soundCloudPlayer.play();
@@ -660,9 +664,9 @@ window.Template.Controllers.CastController = function (element) {
 
     function initSomeCloud() {
         if (someCloudUrl) {
-            if (someCloudUrl.indexOf('mixcloud') > -1){
+            if (someCloudUrl.indexOf('mixcloud') > -1) {
                 initMixCloud();
-            } else if (someCloudUrl.indexOf('soundcloud') > -1){
+            } else if (someCloudUrl.indexOf('soundcloud') > -1) {
                 initSoundCloud();
             }
             console.log('Some cloud loading');
@@ -757,7 +761,7 @@ window.Template.Controllers.CastController = function (element) {
                 setActivePlayer();
             }
         } else if (playerType == 'soundcloud' && youtubeReady) {
-            if(!soundCloudReady){
+            if (!soundCloudReady) {
                 window.zz = soundCloudPlayer;
                 if (!mobile) soundCloudPlayer.play();
                 soundCloudPlayer.setVolume(0.5);
@@ -765,7 +769,7 @@ window.Template.Controllers.CastController = function (element) {
                 setActivePlayer();
             }
         }
-        if ((youtubeReady || shoutCastReady) && retry < maxRetry  || (youtubeReady && notShoutcast) || notShoutcast && notYoutube && soundCloudReady) {
+        if ((youtubeReady || shoutCastReady) && retry < maxRetry || (youtubeReady && notShoutcast) || notShoutcast && notYoutube && soundCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
@@ -866,6 +870,7 @@ window.Template.Controllers.CastController = function (element) {
         return new Y.Promise(function (resolve) {
             var content_items = {past: [], upcoming: []};
             var offset = '';
+
             function getItems(collection_url, offset) {
                 Y.Data.get({
                     url: collection_url + '?format=json',
@@ -874,7 +879,7 @@ window.Template.Controllers.CastController = function (element) {
                         time: new Date().getTime()
                     },
                     success: function (items) {
-                        if ((items.past && items.past.length) || (items.upcoming&&items.upcoming.length)) {
+                        if ((items.past && items.past.length) || (items.upcoming && items.upcoming.length)) {
                             if (items.upcoming) {
                                 content_items.upcoming = content_items.upcoming.concat(items.upcoming);
                             }
