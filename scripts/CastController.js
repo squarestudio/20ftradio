@@ -995,8 +995,9 @@ window.Template.Controllers.CastController = function (element) {
                                 trackName.one('span').set('text', current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                             }
+                            shoutcastStatus = true;
                         } else {
-                            
+                            shoutcastStatus = false;
                         }
                     }
                 },
