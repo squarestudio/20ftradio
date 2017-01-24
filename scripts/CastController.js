@@ -513,7 +513,7 @@ window.Template.Controllers.CastController = function (element) {
                     state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                     console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
                     if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1) {
-                        //!mobile && shoutcastPlayer.play();
+                        !mobile && shoutcastPlayer.play();
                         activePlayer = 'shoutcast';
                         pausePlayersExept('shoutcast');
                         onPlayerStateChange('shoutcast');
@@ -755,7 +755,7 @@ window.Template.Controllers.CastController = function (element) {
         }
         else if (playerType == 'shoutcast' && youtubeReady) {
             if (!shoutCastReady) {
-                //!mobile && shoutcastPlayer.play();
+                !mobile && shoutcastPlayer.play();
                 shoutcastPlayer.setVolume(50);
                 shoutCastReady = true;
                 setActivePlayer();
