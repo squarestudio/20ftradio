@@ -579,13 +579,5 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 Y.one('body').toggleClass('mobile-share-active');
             }, '.toggle-share-mobile');
         }
-        window.top.Y.Get.js('../cordova.js', function (err, tx) {
-            if (err) {
-                Y.log('Error loading JS: ' + err[0].error, 'error');
-                return;
-            }
-            Y.log('Cordova.js loaded successfully!');
-            tx && tx.nodes[0].setAttribute('id', 'cordova-script');
-        })
     });
 }());
