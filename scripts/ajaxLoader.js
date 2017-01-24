@@ -9,7 +9,7 @@
   var indexNextAnim = true;
 
   // This selector will prevent AjaxLoader from ajax loading the content of these links
-  var DEFAULT_ANCHORS = 'a[href]:not([href^="http"]):not([href^="#"]):not([href^="/#"]):not([href^="/commerce"]):not([href^="mailto"]):not([href^="tel"]):not([href^="javascript"])not([href^="ical"]):not(.nav-item-splash-page)';
+  var DEFAULT_ANCHORS = 'a[href]:not([href^="http"]):not([href^="#"]):not([href^="/#"]):not([href^="/commerce"]):not([href^="mailto"]):not([href^="tel"]):not([href^="javascript"])not([href*="ical"]):not(.nav-item-splash-page)';
 
   // if no history object, no querySelector method, or you're logged in, don't run AjaxLoader.
   // window.location.pathname.match(/\b(config)\b/g)
