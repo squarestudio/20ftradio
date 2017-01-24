@@ -742,7 +742,7 @@ window.Template.Controllers.CastController = function (element) {
             if (!youtubeCheckInterval) {
                 youtubeCheckInterval = setInterval(function () {
                     getYoutubeStatus()
-                }, 60000);
+                }, 80000);
                 console.log('youtube check interval set')
             }
         }
