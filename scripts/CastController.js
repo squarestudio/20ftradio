@@ -309,6 +309,7 @@ window.Template.Controllers.CastController = function (element) {
             }
             if (!mobile) {
                 if (youtubeUrl) {
+                    console.log('Have Youtube Url');
                     initYoutubeStream();
                     getYoutubeStatus();
                 } else if (shoutCastUrl) {
