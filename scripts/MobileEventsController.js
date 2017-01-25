@@ -45,48 +45,27 @@ window.Template.Controllers.MobileEventsController = function (element) {
     }
 
     function initialize() {
-        console.log('Wall init');
-        mobileEvents = Y.one('#wallGrid');
+        console.log('mobileEvents init');
+        mobileEvents = Y.one('#mobileEvents');
         if (mobileEvents) {
             var mobileWall = mobileEvents.one('.mobile-only');
             window.Template.Util.initShareButtons();
             if (animOnScroll) animOnScroll = null;
-            var imagesReady = function () {
-                imagesLoaded(document.getElementById("wallGrid"), function () {
-                    console.log('activated wall');
-                    initGalleries();
-                    initVideos();
-                    initTexts();
-                    animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
-                        minDuration: 1,
-                        maxDuration: 2,
-                        viewportFactor: 0.2
-                    });
-                    setTimeout(function () {
-                        simulateResize();
-                    }, 100);
-                });
-            };
-            if (Y.one('.wall-item-link')) {
+            animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
+                minDuration: 1,
+                maxDuration: 2,
+                viewportFactor: 0.2
+            });
+            if (Y.one('#mobile-events-query-template')) {
                 Y.use(['node', 'squarespace-json-template'], function (Y) {
-                    var template = Y.one(Y.one('.wall-item-link').getData('template')).getHTML().replace(/\^/g, '{');
+                    var template = Y.one('#mobile-events-query-template').getHTML().replace(/\^/g, '{');
                     mobileEvents.all('.wall-item-link').each(function (link) {
-                        var url = link.getAttribute('href'),
-                            order = link.getAttribute('data-first-order');
+                        var url = 'https://www.20ftradio.com/events/';
                         getCollectionItems(url).then(function (items) {
                             console.log(items);
                             if (items) {
                                 var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                                 var compiledFragment = Y.Node.create(compiled);
-                                /*                            if(order == 'true'){
-                                 var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
-                                 wallGrid.append(nodes);
-                                 wallGrid.prepend(getNodesOrderedByDate(compiledFragment.all('li')));
-                                 } else {
-                                 link.insert(compiledFragment, 'before');
-                                 nodes = getNodesOrderedByAdded(wallGrid.all('li'));
-                                 wallGrid.append(nodes);
-                                 }*/
                                 if (compiledFragment.one('.wallEvents-Upcoming')) {
                                     var upcomingMob = compiledFragment.one('.wallEvents-Upcoming').cloneNode(!0);
                                     mobileWall.prepend(upcomingMob.get('children'));
@@ -98,24 +77,16 @@ window.Template.Controllers.MobileEventsController = function (element) {
                                 var events = Y.Node.create('<ul class="wallGrid wallEvents"></ul>');
                                 mobileEvents.prepend(events.prepend(compiledFragment.all('li')));
                                 link.remove();
-                                imagesReady();
-                                loadImages();
                                 Y.fire('getCurrentEvent');
-                                if (window.AjaxLoader) {
+/*                                if (window.AjaxLoader) {
                                     Y.all('.wallGrid a').setAttribute('data-ajax-loader', 'ajax-loader-binded');
-                                    //Y.all('.wallEvents a').setAttribute('data-ajax-loader','ajax-loader-binded');
-                                }
+                                }*/
                             } else {
-                                link.remove();
-                                imagesReady();
-                                loadImages();
+                              console.log('MobileEvents: no results');
                             }
                         })
                     })
                 })
-            } else {
-                imagesReady();
-                loadImages();
             }
         }
     }
