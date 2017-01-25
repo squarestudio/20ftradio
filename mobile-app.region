@@ -62,7 +62,7 @@
         {.section items.0}
         <div class="castWrapper">
             <div id="castDiv" data-title="{title}" class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit slide-into-view"
-                 sqs-controller="Template.Controllers.CastController"
+                 sqs-controller="Template.Controllers.MobileCastController"
                  data-url="{oembed.url}"
                  data-facebook-url="{customContent.facebookUrl}"
                  data-soundcloud-url="{customContent.soundCloudUrl}"
