@@ -300,7 +300,7 @@ window.Template.Controllers.CastController = function (element) {
         if (!facebookUrl) {
             if (!youtubeUrl) {
                 youtubeReady = true;
-                youtubeStatusLoad = true;
+                youtubeStatusLoad = false;
                 retry = maxRetry - 1;
             }
             if (!shoutCastUrl) {
