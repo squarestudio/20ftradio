@@ -2,12 +2,7 @@
 <html class="no-js">
 <head>
     {squarespace-headers}
-    <script>
-        window.Template = {
-            Util: {},
-            Controllers: {}
-        }
-    </script>
+
 </head>
 
 <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
