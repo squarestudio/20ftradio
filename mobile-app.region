@@ -3,24 +3,6 @@
 <div id="navigator">
     {.section website}
     <header id="topBar" class="sqs-announcement-bar-dropzone">
-        <div data-content-field="site-title" class="siteTitle">
-
-            {.if logoImageUrl}
-            <a href="/">
-                <img id="logo" src="{logoImageUrl}?format=1500w" alt="{siteTitle}"/>
-            </a>
-            {.or}
-            <h1>
-                <a href="/">
-                    <span id="site-title">{siteTitle}</span>
-                </a>
-            </h1>
-            {.end}
-
-            {.section siteTagLine}
-            <h2 class="logo-subtitle">{@}</h2>
-            {.end}
-        </div>
         <div class="nav-container">
             <div id="mobileNav">
                 <div class="wrapper">
