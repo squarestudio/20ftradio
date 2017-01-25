@@ -101,7 +101,7 @@
                         </ul>
                         ^.end}
                         ^.if past}
-                        <ul class="mobileEvents-Past">
+                        <ul class="mobileEvents mobileEvents-Past">
                             ^.repeated section past}
                             <li class="event-item event-item-^id} eventlist-event--past" data-start-date="^startDate}" data-end-date="^endDate}">
                                 <div class="eventlist-column-date">
