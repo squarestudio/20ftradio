@@ -71,7 +71,9 @@
             <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}>
                 {.equal? collection.urlId "mobile-app"}
                     <div id="mobileEvents">
-                        
+                        <div class="tabs">
+                            a
+                        </div>
                     </div>
                     <script id="mobile-events-query-template" type="text/x-json-template">
                         ^.if upcoming}
