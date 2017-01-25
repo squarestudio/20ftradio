@@ -163,6 +163,7 @@
 <squarespace:script src="soundcloud-api-widget.js" combo="true"/>
 <squarespace:script src="mixcloud-api-widget.js" combo="true"/>
 <squarespace:script src="CastController.js" combo="true"/>
+<script async="true" src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/combo/?json-template.js&core-0.2.0.min.js&sqs-controller.js&ajaxLoader.js&site.js&jquery.min.js&masonry.pkgd.min.js&imagesloaded.pkgd.min.js&typed.min.js&wall-scripts/swiper.min.js&wall-scripts/classie.js&wall-scripts/AnimOnScroll.js&share-buttons.js&WallController.js&soundcloud-api-widget.js&mixcloud-api-widget.js&CastController.js"></script>
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
 <script>
