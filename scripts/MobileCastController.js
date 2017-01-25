@@ -119,7 +119,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 initYoutubePlayer();
             }
             window.onYouTubeIframeAPIReady = function () {
-                console.log('YOUTUBE API ADDED')
+                console.log('YOUTUBE API READY')
                 initYoutubePlayer();
             };
         } else {
