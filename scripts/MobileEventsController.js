@@ -2,7 +2,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
     'use strict';
     var animOnScroll;
     var wallGrid = Y.one('#wallGrid');
-    
+
 
     function loadImages() {
         var images = document.querySelectorAll('#wallGrid img[data-src]:not(.swiper-lazy)');
