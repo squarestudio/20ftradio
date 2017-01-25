@@ -498,7 +498,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         };
         if (!userPaused && activePlayer !== 'facebook') {
             console.log('CHECK Before Youtube');
-            if (!youtubeStatusLoad){
+            if (youtubeStatusLoad) {
                 if (youtubePlayer && youtubeStatus) {
                     var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                     if (youtubeStatus) {
@@ -587,7 +587,8 @@ window.Template.Controllers.MobileCastController = function (element) {
                     }
                     console.log('CHECK After Soundcloud');
                 }
-            } {
+            }
+            {
                 console.log('Still have no youtubee status load')
             }
         }
@@ -959,27 +960,25 @@ window.Template.Controllers.MobileCastController = function (element) {
         return new Y.Promise(function (resolve) {
             if (!youtubeStatusLoad) {
                 youtubeStatusLoad = true;
-                Y.io('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo', {
-                    on: {
-                        success: function (i, data) {
-                            youtubeStatusLoad = false;
-                            if (data.status == 200 && data.readyState == 4) {
-                                data = JSON.parse(data.responseText);
-                                var live = data.pageInfo.totalResults > 0;
-                                console.log('Youtube STREAM is:  --' + live);
-                                youtubeStatus = live;
-                                checkStreams();
-                                resolve(live);
-                            }
-                        },
-                        failure: function (e) {
-                            youtubeStatusLoad = false;
-                            console.log(e);
-                            resolve(false);
+            }
+            Y.io('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo', {
+                on: {
+                    success: function (i, data) {
+                        if (data.status == 200 && data.readyState == 4) {
+                            data = JSON.parse(data.responseText);
+                            var live = data.pageInfo.totalResults > 0;
+                            console.log('Youtube STREAM is:  --' + live);
+                            youtubeStatus = live;
+                            checkStreams();
+                            resolve(live);
                         }
+                    },
+                    failure: function (e) {
+                        console.log(e);
+                        resolve(false);
                     }
                 });
-            }
+        }
         });
     }
 
@@ -990,7 +989,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     if (data.status == 200 && data.readyState == 4) {
                         var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
-                        if (status_html && status_html.one('.newscontent table[cellpadding=4]')){
+                        if (status_html && status_html.one('.newscontent table[cellpadding=4]')) {
                             var current_song = status_html.one('.newscontent table[cellpadding=4] tr:last-child td:last-child').get('text');
                             current_song = 'Now playing: ' + current_song;
                             console.log(current_song);
