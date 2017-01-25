@@ -142,5 +142,6 @@
     </footer>
     {.end}
 </div>
+<div id="loadMobileEventsController" data-src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/MobileEventsController.js"></div>
 <div id="loadMobileCastController" data-src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/MobileCastController.js"></div>
 </body>
