@@ -72,7 +72,7 @@
                 {.equal? collection.urlId "mobile-app"}
                     <div id="mobileEvents">
                         <div class="tabs clear">
-                            <a href="#mobile-events-upcoming">Schedule</a>
+                            <a href="#mobile-events-upcoming active">Schedule</a>
                             <a href="#mobile-events-past">Archive</a>
                         </div>
                     </div>
