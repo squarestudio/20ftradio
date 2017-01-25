@@ -519,7 +519,7 @@ window.Template.Controllers.CastController = function (element) {
                             !mobile && shoutcastPlayer.play();
                             activePlayer = 'shoutcast';
                             pausePlayersExept('shoutcast');
-                            onPlayerStateChange('shoutcast');
+                            //onPlayerStateChange('shoutcast');
                             if (state == false) {
                                 if (mobile) {
                                     notSoundCloud = true;
@@ -820,7 +820,7 @@ window.Template.Controllers.CastController = function (element) {
         !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
         setActivePlayer(playerType);
         pausePlayersExept(playerType);
-        !mobile && sitePlayer.addClass('played');
+        mobile && sitePlayer.addClass('played');
         mobilePlayButton.addClass('visible');
     }
 
