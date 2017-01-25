@@ -95,25 +95,7 @@
             <div class="fountainG fountainG_5"></div>
         </div>
         <div id="container-content" data-content-field="main-content" role="main">
-        {.section collection}{.equal? typeName "products"}{.section categories}
-        <div id="categoryNav">
-            <input type="checkbox" name="category-nav-toggle" id="categoryNavToggle"
-                   class="category-nav-toggle hidden"/>
-            <label for="categoryNavToggle" class="category-nav-toggle-label" onclick></label>
-            <nav class="category-nav">
-                <ul class="category-nav-links">
-                    <li class="filter"><a>Filter{.if categoryFilter}: {categoryFilter}{.end}</a></li>
-                    <li
-                    {.if categoryFilter}{.or} class="active-link all"{.end}><a href="{fullUrl}">All</a></li>
-                    {.repeated section @}
-                    <li
-                    {.equal? categoryFilter @} class="active-link"{.end}><a
-                        href="{fullUrl}?category={@|url-encode}">{@}</a></li>
-                    {.end}
-                </ul>
-            </nav>
-        </div>
-        {.end}{.end}{.end}
+
         <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.end}>
             {squarespace.main-content}
         </div>
