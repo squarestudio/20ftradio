@@ -42,7 +42,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         currentEvents,
         liveIndicator,
         castContainer = Y.one('#castDiv');
-
+        Y && Y.fire('appready');
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
             mobile = Y.UA.mobile;
