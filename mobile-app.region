@@ -69,7 +69,7 @@
             <div class="fountainG fountainG_4"></div>
             <div class="fountainG fountainG_5"></div>
         </div>
-        <div id="container-content" {.equal? collection.urlId "mobile-app"}class="small-padding"{.end} data-content-field="main-content" role="main">
+        <div id="container-content" class="clear {.equal? collection.urlId "mobile-app"}small-padding{.end}" data-content-field="main-content" role="main">
             <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
                 {.equal? collection.urlId "mobile-app"}
                     <div id="mobileEvents">
