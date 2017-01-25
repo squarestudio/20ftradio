@@ -59,22 +59,20 @@ window.Template.Controllers.MobileEventsController = function (element) {
             if (Y.one('#mobile-events-query-template')) {
                 Y.use(['node', 'squarespace-json-template'], function (Y) {
                     var template = Y.one('#mobile-events-query-template').getHTML().replace(/\^/g, '{');
-                    mobileEvents.all('.wall-item-link').each(function (link) {
-                        var url = 'https://www.20ftradio.com/events/';
-                        getCollectionItems(url).then(function (items) {
-                            console.log(items);
-                            if (items) {
-                                var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
-                                var compiledFragment = Y.Node.create(compiled);
-                                mobileEvents.append(compiledFragment);
-                                Y.fire('getCurrentEvent');
-/*                                if (window.AjaxLoader) {
-                                    Y.all('.wallGrid a').setAttribute('data-ajax-loader', 'ajax-loader-binded');
-                                }*/
-                            } else {
-                              console.log('MobileEvents: no results');
-                            }
-                        })
+                    var url = 'https://www.20ftradio.com/events/';
+                    getCollectionItems(url).then(function (items) {
+                        console.log(items);
+                        if (items) {
+                            var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
+                            var compiledFragment = Y.Node.create(compiled);
+                            mobileEvents.append(compiledFragment);
+                            Y.fire('getCurrentEvent');
+                            /*                                if (window.AjaxLoader) {
+                             Y.all('.wallGrid a').setAttribute('data-ajax-loader', 'ajax-loader-binded');
+                             }*/
+                        } else {
+                            console.log('MobileEvents: no results');
+                        }
                     })
                 })
             }
