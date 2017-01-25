@@ -107,6 +107,6 @@
             <squarespace:block-field id="footerBlock" class="footer-block" columns="12" label="Footer Content"/>
     </footer>
     {.end}
-</div> 
+</div>
 <div id="loadMobileCastController" data-src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/MobileCastController.js"></div>
 </body>
