@@ -820,7 +820,7 @@ window.Template.Controllers.CastController = function (element) {
         !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
         setActivePlayer(playerType);
         pausePlayersExept(playerType);
-        sitePlayer.addClass('played');
+        !mobile && sitePlayer.addClass('played');
         mobilePlayButton.addClass('visible');
     }
 
