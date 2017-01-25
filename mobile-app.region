@@ -133,11 +133,6 @@
     </footer>
     {.end}
 </div>
-<script>
-    Y.use('squarespace-ui-base', function (Y) {
-        Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1").plug(Y.Squarespace.TextShrink);
-    });
-</script>
 <squarespace:script src="json-template.js" combo="false"/>
 <squarespace:script src="core-0.2.0.min.js" combo="false"/>
 <squarespace:script src="sqs-controller.js" combo="false"/>
@@ -155,26 +150,4 @@
 <squarespace:script src="mixcloud-api-widget.js" combo="false"/>
 <squarespace:script src="CastController.js" combo="false"/>
 <!--<script async="true" src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/combo/?json-template.js&core-0.2.0.min.js&sqs-controller.js&ajaxLoader.js&site.js&masonry.pkgd.min.js&imagesloaded.pkgd.min.js&typed.min.js&wall-scripts/swiper.min.js&wall-scripts/classie.js&wall-scripts/AnimOnScroll.js&share-buttons.js&WallController.js&soundcloud-api-widget.js&mixcloud-api-widget.js&CastController.js"></script>-->
-{.if template.mobileStylesEnabled}{.or}
-<script>
-    Y.use('node', function () {
-        Y.on('domready', function () {
-            var move;
-            Y.all('.subnav a').each(function (a) {
-                a.on('touchstart', function () {
-                    move = false;
-                });
-                a.on('touchmove', function () {
-                    move = true;
-                });
-                a.on('touchend', function () {
-                    if (move === false) {
-                        window.location = a.getAttribute('href');
-                    }
-                });
-            });
-        });
-    });
-</script>
-{.end}
 </body>
