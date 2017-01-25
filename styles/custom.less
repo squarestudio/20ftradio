@@ -658,20 +658,24 @@ body {
     pointer-events: none;
     opacity: 0;
     z-index: -1;
+    &.show-current {
+      z-index: 110 !important;
+      opacity: 1;
+    }
   }
-}
-.cordova-app .site-player {
-  position: relative;
-  top: auto;
-  left: auto;
-  margin: 5px auto;
-  transform: none;
-  -webkit-transform: none;
-}
-.cordova-app  .site-player .site-player-controls {
-  display: none;
-}
-.cordova-app .site-player .track-name.scroll-track {
-  position: relative;
-  bottom: auto;
+  .site-player {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 5px auto;
+    transform: none;
+    -webkit-transform: none;
+    .site-player-controls {
+      display: none;
+    }
+    .track-name.scroll-track {
+      position: relative;
+      bottom: auto;
+    }
+  }
 }
