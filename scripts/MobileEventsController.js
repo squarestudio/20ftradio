@@ -51,7 +51,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             var mobileWall = mobileEvents.one('.mobile-only');
             window.Template.Util.initShareButtons();
             if (animOnScroll) animOnScroll = null;
-            animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
+            animOnScroll = new AnimOnScroll(document.getElementById("mobileEvents"), {
                 minDuration: 1,
                 maxDuration: 2,
                 viewportFactor: 0.2
