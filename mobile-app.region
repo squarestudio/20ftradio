@@ -1,3 +1,4 @@
+<div>
 <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
 <div id="navigator">
     {.section website}
@@ -178,3 +179,4 @@
 </script>
 {.end}
 </body>
+</div>
