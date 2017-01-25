@@ -42,6 +42,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         currentEvents,
         liveIndicator,
         castContainer = Y.one('#castDiv');
+
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
             mobile = Y.UA.mobile;
@@ -152,7 +153,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     function initCast() {
         console.log('init cast');
         Y.one('#castDiv').addClass('initialized');
-        mobilePlayButton = castContainer.one('.mobile-play-button');
+        mobilePlayButton = castContainer.one('.mobile-trigger');
         castContainer = Y.one('#castDiv');
         sitePlayer = Y.one('.site-player');
         liveIndicator = castContainer.one('.live-indicator');
