@@ -48,8 +48,6 @@ window.Template.Controllers.MobileEventsController = function (element) {
         console.log('mobileEvents init');
         mobileEvents = Y.one('#mobileEvents');
         if (mobileEvents) {
-            var mobileWall = mobileEvents.one('.mobile-only');
-            window.Template.Util.initShareButtons();
 /*            if (animOnScroll) animOnScroll = null;
             animOnScroll = new AnimOnScroll(document.getElementById("mobileEvents"), {
                 minDuration: 1,
