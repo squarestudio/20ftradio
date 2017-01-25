@@ -685,6 +685,10 @@ body {
         padding: 2%;
         text-align: center;
         text-transform: uppercase;
+        .transition(color .2s ease-in-out);
+        &.active {
+          color: @navActiveColor;
+        }
       }
     }
     .mobileEvents {
