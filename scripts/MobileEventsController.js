@@ -50,12 +50,12 @@ window.Template.Controllers.MobileEventsController = function (element) {
         if (mobileEvents) {
             var mobileWall = mobileEvents.one('.mobile-only');
             window.Template.Util.initShareButtons();
-            if (animOnScroll) animOnScroll = null;
+/*            if (animOnScroll) animOnScroll = null;
             animOnScroll = new AnimOnScroll(document.getElementById("mobileEvents"), {
                 minDuration: 1,
                 maxDuration: 2,
                 viewportFactor: 0.2
-            });
+            });*/
             if (Y.one('#mobile-events-query-template')) {
                 Y.use(['node', 'squarespace-json-template'], function (Y) {
                     var template = Y.one('#mobile-events-query-template').getHTML().replace(/\^/g, '{');
