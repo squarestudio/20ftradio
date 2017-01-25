@@ -588,7 +588,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     console.log('CHECK After Soundcloud');
                 }
             }
-            {
+            else {
                 console.log('Still have no youtubee status load')
             }
         }
