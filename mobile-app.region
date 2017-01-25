@@ -68,9 +68,11 @@
             <div class="fountainG fountainG_5"></div>
         </div>
         <div id="container-content" data-content-field="main-content" role="main">
-
         <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.end}>
             {squarespace.main-content}
+            <squarespace:query collection="events" limit="100">
+
+            </squarespace:query>
         </div>
         </div>
     </section>
