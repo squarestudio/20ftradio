@@ -303,7 +303,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         if (!facebookUrl) {
             if (!youtubeUrl) {
                 youtubeReady = true;
-                youtubeStatusLoad = true;
+                youtubeStatusLoad = false;
                 retry = maxRetry - 1;
             }
             if (!shoutCastUrl) {
