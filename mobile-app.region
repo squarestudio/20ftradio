@@ -71,7 +71,7 @@
             <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}>
                 {.equal? collection.urlId "mobile-app"}
                     <div id="mobileEvents">
-                        <div class="tabs">
+                        <div class="tabs clear">
                             <a href="#mobile-events-upcoming">Schedule</a>
                             <a href="#mobile-events-past">Archive</a>
                         </div>
