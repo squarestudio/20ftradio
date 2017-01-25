@@ -68,7 +68,7 @@
             <div class="fountainG fountainG_5"></div>
         </div>
         <div id="container-content" data-content-field="main-content" role="main">
-            <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}>
+            <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
                 {.equal? collection.urlId "mobile-app"}
                     <div id="mobileEvents">
                         <div class="tabs clear">
