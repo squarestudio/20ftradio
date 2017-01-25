@@ -632,3 +632,50 @@ body {
     max-height: @logoSize;
   }
 }
+
+//___CORDOVA APP STYLES____//
+.cordova-app {
+  #castDiv .mobile-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -1px;
+    bottom: -1px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("file:///img/play-image.jpg");
+  }
+  #castDiv .mobile-image .trigger {
+    position: absolute;
+    height: 64px;
+    width: 64px;
+  }
+  #castDiv.playing .mobile-image {
+    background-image: url("file:///img/pause-image.jpg");
+  }
+  #castDiv .stream-player.active-player {
+    pointer-events: none;
+    opacity: 0;
+    z-index: -1;
+  }
+}
+.cordova-app #castDiv .stream-player.active-player.show-current {
+  z-index: 110 !important;
+  opacity: 1;
+}
+.cordova-app .site-player {
+  position: relative;
+  top: auto;
+  left: auto;
+  margin: 5px auto;
+  transform: none;
+  -webkit-transform: none;
+}
+.cordova-app  .site-player .site-player-controls {
+  display: none;
+}
+.cordova-app .site-player .track-name.scroll-track {
+  position: relative;
+  bottom: auto;
+}
