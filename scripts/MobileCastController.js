@@ -977,8 +977,8 @@ window.Template.Controllers.MobileCastController = function (element) {
                         console.log(e);
                         resolve(false);
                     }
-                });
-        }
+                }
+            });
         });
     }
 
