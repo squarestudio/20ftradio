@@ -1,13 +1,8 @@
-window.Template.Controllers.WallController = function (element) {
+window.Template.Controllers.MobileEventsController = function (element) {
     'use strict';
     var animOnScroll;
     var wallGrid = Y.one('#wallGrid');
-
-    function simulateResize() {
-        window.top.innerWidth = window.top.innerWidth - 1;
-        Y.one(window.top).simulate('resize');
-        window.top.innerWidth = window.top.innerWidth + 1;
-    }
+    
 
     function loadImages() {
         var images = document.querySelectorAll('#wallGrid img[data-src]:not(.swiper-lazy)');
