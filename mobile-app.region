@@ -70,32 +70,32 @@
         <div id="container-content" data-content-field="main-content" role="main">
             <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}>
                 {.equal? collection.urlId "mobile-app"}
-                    <script id="wall-item-link-query-template" type="text/x-json-template">
+                    <script id="mobile=events-query-template" type="text/x-json-template">
                         ^.if upcoming}
                         <ul class="mobileEvents-Upcoming">
                             ^.repeated section upcoming}
                             <li class="event-item event-item-^id} eventlist-event--upcoming" data-start-date="^startDate}" data-end-date="^endDate}">
-                                        <div class="eventlist-column-date">
-                                            <div class="eventlist-datetag">
-                                                <div class="eventlist-datetag-inner">
-                                                    <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
-                                                    <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
-                                                    <div class="eventlist-datetag-time">
-                                                        <span class="event-time-12hr">^startDate|date %I:%M %p}</span>
-                                                        <span class="event-time-24hr">^startDate|date %H:%M}</span>
-                                                    </div>
-                                                    <div class="eventlist-datetag-status"></div>
-                                                </div>
+                                <div class="eventlist-column-date">
+                                    <div class="eventlist-datetag">
+                                        <div class="eventlist-datetag-inner">
+                                            <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
+                                            <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
+                                            <div class="eventlist-datetag-time">
+                                                <span class="event-time-12hr">^startDate|date %I:%M %p}</span>
+                                                <span class="event-time-24hr">^startDate|date %H:%M}</span>
                                             </div>
+                                            <div class="eventlist-datetag-status"></div>
                                         </div>
-                                    <div class="event-descr">
-                                        ^.if title}<h2>^title}</h2>^.end}
-                                        ^.if excerpt}
-                                        <div class="descr">^excerpt}</div>
-                                        ^.or}
-                                        <div class="descr">^body}</div>
-                                        ^.end}
                                     </div>
+                                </div>
+                                <div class="event-descr">
+                                    ^.if title}<h2>^title}</h2>^.end}
+                                    ^.if excerpt}
+                                    <div class="descr">^excerpt}</div>
+                                    ^.or}
+                                    <div class="descr">^body}</div>
+                                    ^.end}
+                                </div>
                             </li>
                             ^.end}
                         </ul>
