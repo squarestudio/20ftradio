@@ -83,10 +83,10 @@ window.Template.Controllers.MobileEventsController = function (element) {
     }
     function createEvent(e, title, descr, location, startDate, endDate) {
         e.halt();
-        var startDate = new Date(2015,2,15,18,30,0,0,0); // beware: month 0 = january, 11 = december
-        var endDate = new Date(2015,2,15,19,30,0,0,0);
-        var title = "My nice event";
-        var eventLocation = "Home";
+        var startDate = new Date(e.currentTarget.getAttribute('data-start-date')); // beware: month 0 = january, 11 = december
+        var endDate = new Date(e.currentTarget.getAttribute('data-end-date'));
+        var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
+        var eventLocation = e.currentTarget.getAttribute('data-location') || "20FTRadio";
         var notes = "Some notes about this event.";
         var success = function(message) { alert("Success: " + JSON.stringify(message)); };
         var error = function(message) { alert("Error: " + message); };
