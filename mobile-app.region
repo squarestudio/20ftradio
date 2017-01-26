@@ -21,7 +21,7 @@
         {.if items}
         {.section items.0}
         <div class="castWrapper">
-            <div id="castDiv" data-title="{title}" class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit slide-into-view"
+            <div id="castDiv" data-title="{title}" class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit"
                  sqs-controller="Template.Controllers.MobileCastController"
                  data-url="{oembed.url}"
                  data-facebook-url="{customContent.facebookUrl}"
