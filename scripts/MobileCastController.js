@@ -46,8 +46,10 @@ window.Template.Controllers.MobileCastController = function (element) {
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
             mobile = Y.UA.mobile;
-            Y.one('#castDiv').addClass('slide-into-view');
+            Site && Site._setupPositioning();
+            refreshImages();
             setTimeout(function () {
+                Y.one('#castDiv').addClass('slide-into-view');
                 Site && Site._setupPositioning();
             }, 500);
             setTimeout(function () {
