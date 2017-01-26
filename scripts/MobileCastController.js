@@ -53,7 +53,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             }, 500);
             setTimeout(function () {
                 initCast();
-            }, 2200);
+            }, 2500);
             Y.one(window).on('resize', refreshImages);
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
