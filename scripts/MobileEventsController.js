@@ -81,7 +81,15 @@ window.Template.Controllers.MobileEventsController = function (element) {
             Y.one(id).addClass('active');
         })
     }
-
+    function createEvent(title, descr, location, startDate, endDate) {
+        var startDate = new Date(2015,2,15,18,30,0,0,0); // beware: month 0 = january, 11 = december
+        var endDate = new Date(2015,2,15,19,30,0,0,0);
+        var title = "My nice event";
+        var eventLocation = "Home";
+        var notes = "Some notes about this event.";
+        var success = function(message) { alert("Success: " + JSON.stringify(message)); };
+        var error = function(message) { alert("Error: " + message); };
+    }
     function initialize() {
         console.log('mobileEvents init');
         mobileEvents = Y.one('#mobileEvents');
