@@ -46,6 +46,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
             mobile = Y.UA.mobile;
+            simulateResize();
             setTimeout(function () {
                 initCast();
             }, 2000);
