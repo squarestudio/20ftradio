@@ -1,4 +1,5 @@
 {.section items}
+<script>console.log({@|json})</script>
 <!--MOBILE-->
 <nav id="mobile-navigation">
   <div id="mobile-navigation-label"></div>
