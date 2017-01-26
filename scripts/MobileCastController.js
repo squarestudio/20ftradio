@@ -49,7 +49,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             Y.one('#castDiv').addClass('slide-into-view');
             setTimeout(function () {
                 Site && Site._setupPositioning();
-            }, 300);
+            }, 500);
             setTimeout(function () {
                 initCast();
             }, 2200);
