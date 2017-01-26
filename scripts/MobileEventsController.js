@@ -81,6 +81,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             Y.one(id).addClass('active');
         })
     }
+
     function createEvent(e) {
         e.halt();
         var currentTime = new Date();
@@ -102,14 +103,20 @@ window.Template.Controllers.MobileEventsController = function (element) {
         console.log(title,eventLocation,notes,startDate,endDate,calOptions);
         window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title,eventLocation,notes,startDate,endDate,calOptions,success,error);
     }
+
     function initCalendarClick() {
         mobileEvents.all('.schedule-event').on('click', createEvent)
     }
+
     function initEventClick() {
+        mobileEvents.all('li').removeClass('active');
         mobileEvents.all('li').on('click', function (e) {
-            e.currentTarget
+            if(e.currentTarget.one('.event-descr')) {
+                e.currentTarget.one('.event-descr').addClass('active');
+            }
         })
     }
+    
     function initialize() {
         console.log('mobileEvents init');
         mobileEvents = Y.one('#mobileEvents');
