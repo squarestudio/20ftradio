@@ -46,9 +46,12 @@ window.Template.Controllers.CastController = function (element) {
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
             mobile = Y.UA.mobile;
+            Site && Site._setupPositioning();
+            Y.one('#castDiv').addClass('slide-into-view');
             setTimeout(function () {
+                Site && Site._setupPositioning();
                 initCast();
-            }, 2000);
+            }, 1000);
             Y.one(window).on('resize', refreshImages);
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
