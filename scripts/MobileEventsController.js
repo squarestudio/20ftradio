@@ -57,16 +57,19 @@ window.Template.Controllers.MobileEventsController = function (element) {
             e.currentTarget.addClass('active');
             var id = e.currentTarget.getAttribute('href');
             if(e.currentTarget.hasClass('tab-1')){
+                setTimeout(function () {
+                    mobileEvents.one('.mobileEvents-Past').removeClass('active');
+                }, 360)
                 eventTabsContainer.setStyles({
                     'transform' : 'translate3d(0,0,0)'
                 });
                 eventTabsBorder.setStyles({
                     'transform' : 'translate3d(0,0,0)'
                 });
-                setTimeout(function () {
-                    
-                }, 360)
             } else {
+                setTimeout(function () {
+                    mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
+                }, 360)
                 eventTabsContainer.setStyles({
                     'transform' : 'translate3d(-50%,0,0)'
                 });
