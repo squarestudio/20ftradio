@@ -714,6 +714,7 @@ body {
       .tab-border {
         height: 2px;
         width: 50%;
+        .translate3d(0, 0, 0);
         background-color: @navActiveColor;
         position: absolute;
         bottom: 0;
@@ -722,7 +723,7 @@ body {
     }
     .mobileEvents-wrapper {
       position: relative;
-      .translate(0, 0);
+      .translate3d(0, 0, 0);
       width: 200vw;
       transition: transform 0.3s ease-in-out;
     }
