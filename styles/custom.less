@@ -722,16 +722,21 @@ body {
     }
     .mobileEvents-wrapper {
       position: relative;
-      .transform(0, 0);
+      .translate(0, 0);
+      width: 200vw;
+      transition: transform 0.3s ease-in-out;
     }
     .mobileEvents {
       margin: 0;
       padding: 0 5%;
       list-style: none;
       font-size: 1.6em;
-      display: none;
+      box-sizing: border-box;
+      float: left;
+      display: block;
+      width: 50%;
       &.active {
-        display: block;
+
       }
       li {
         position: relative;
