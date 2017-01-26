@@ -2,6 +2,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
     'use strict';
     var animOnScroll;
     var mobileEvents = Y.one('#mobileEvents');
+    var eventsTabs = Y.all('#mobileEvents .tabs a');
 
     function getCollectionItems(collection_url) {
         return new Y.Promise(function (resolve) {
@@ -44,6 +45,34 @@ window.Template.Controllers.MobileEventsController = function (element) {
         })
     }
 
+    function initTabs() {
+        Y.one('#mobileEvents .tabs').addClass('tabs-active');
+        eventsTabs = Y.all('#mobileEvents .tabs a');
+        var eventTabsContainer = Y.one('#mobileEvents .mobileEvents-wrapper');
+        var eventTabsBorder = Y.one('#mobileEvents .tab-border');
+        eventsTabs.on('click', function (e) {
+            e.halt();
+            eventsTabs.removeClass('active');
+            e.currentTarget.addClass('active');
+            var id = e.currentTarget.getAttribute('href');
+            if(e.currentTarget.hasClass('tab-1')){
+                eventTabsContainer.setStyles({
+                    'transform' : 'translate3d(0,0,0)'
+                });
+                eventTabsBorder.setStyles({
+                    'transform' : 'translate3d(0,0,0)'
+                })
+            } else {
+                eventTabsContainer.setStyles({
+                    'transform' : 'translate3d(-50%,0,0)'
+                });
+                eventTabsBorder.setStyles({
+                    'transform' : 'translate3d(50%,0,0)'
+                })
+            }
+        })
+    }
+
     function initialize() {
         console.log('mobileEvents init');
         mobileEvents = Y.one('#mobileEvents');
@@ -74,6 +103,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                     })
                 })
             }
+            initTabs();
         }
     }
 
