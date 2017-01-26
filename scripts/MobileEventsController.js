@@ -97,9 +97,6 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             var compiledFragment = Y.Node.create(compiled);
                             mobileEvents.append(compiledFragment);
                             Y.fire('getCurrentEvent');
-                            /*                                if (window.AjaxLoader) {
-                             Y.all('.wallGrid a').setAttribute('data-ajax-loader', 'ajax-loader-binded');
-                             }*/
                             initTabs();
                         } else {
                             initTabs();
