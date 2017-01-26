@@ -13,7 +13,7 @@
             {.repeated section items}
               {.collection?}
                 <li class="{collection.typeLabel}-collection{.section active} active-link{.end}">
-                  <a href="{collection.fullUrl}" class="transition-link{.if homepage} home-link{.end}">{collection.navigationTitle}</a>
+                  <a href="{collection.fullUrl}" class="transition-link{.if collection.homepage} home-link{.end}">{collection.navigationTitle}</a>
                 </li>
               {.end}
               {.section externalLink}
