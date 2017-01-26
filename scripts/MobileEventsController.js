@@ -116,7 +116,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                     img.removeAttribute('data-load');
                     ImageLoader.load(img, {load: true});
                 });
-                e.currentTarget.one('.event-descr').addClass('active');
+                e.currentTarget.addClass('active');
             }
         })
     }
