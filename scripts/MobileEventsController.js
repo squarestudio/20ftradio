@@ -87,9 +87,9 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         //new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime();
-        console.log(e.currentTarget.getAttribute('data-start-date'), e.currentTarget.getAttribute('data-end-date'))
-        var startDate = new Date(e.currentTarget.getAttribute('data-start-date')); // beware: month 0 = january, 11 = december
-        var endDate = new Date(e.currentTarget.getAttribute('data-end-date'));
+        console.log(parseInt(e.currentTarget.getAttribute('data-start-date')), parseInt(e.currentTarget.getAttribute('data-end-date')))
+        var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date'))); // beware: month 0 = january, 11 = december
+        var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')));
         var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
         var eventLocation = e.currentTarget.getAttribute('data-location') || "20FTRadio";
         var notes = e.currentTarget.getAttribute('data-descr')|| "Listen 20FTRadio";
