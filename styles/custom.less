@@ -1,10 +1,12 @@
 .slide-into-view {
   animation: slideintoview 2s;
 }
-html.touch{
+
+html.touch {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
 }
+
 body {
   overflow-x: hidden;
   a {
@@ -708,10 +710,13 @@ body {
       bottom: auto;
     }
   }
-  #container-content .controller{
-    padding: 8px 10px;
-    &[sqs-controller="Template.Controllers.MobileEventsController"]{
-      padding: 8px 0px;
+  #container-content {
+    padding: 0;
+    .controller {
+      padding: 8px 10px;
+      &[sqs-controller="Template.Controllers.MobileEventsController"] {
+        padding: 8px 0px;
+      }
     }
   }
   #mobileEvents {
