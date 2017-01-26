@@ -855,8 +855,14 @@ body {
         }
         .event-descr {
           max-height: 0;
-          display: none;
+          height: 0;
+          //display: none;
           opacity: 0;
+          &.active {
+            max-height: 1000px;
+            height: auto;
+            opacity: 1;
+          }
         }
       }
     }
