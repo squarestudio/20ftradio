@@ -81,8 +81,8 @@
                     </div>
                     <script id="mobile-events-query-template" type="text/x-json-template">
                         <div class="mobileEvents-wrapper">
-                        ^.if upcoming}
                         <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active">
+                            ^.if upcoming}
                             ^.repeated section upcoming}
                             <li class="event-item event-item-^id} eventlist-event--upcoming clear" data-start-date="^startDate}" data-end-date="^endDate}">
                                 <div class="event-main">
@@ -110,10 +110,12 @@
                                 </div>
                             </li>
                             ^.end}
+                            ^.or}
+                                <p class="no-events-message">No Results</p>
+                            ^.end}
                         </ul>
-                        ^.end}
-                        ^.if past}
                         <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
+                            ^.if past}
                             ^.repeated section past}
                             <li class="event-item event-item-^id} eventlist-event--past clear" data-start-date="^startDate}" data-end-date="^endDate}">
                                 <div class="event-main">
@@ -141,8 +143,10 @@
                                 </div>
                             </li>
                             ^.end}
+                            ^.or}
+                                <p class="no-events-message">No Results</p>
+                            ^.end}
                         </ul>
-                        ^.end}
                         </div>
                     </script>
                 {.end}
