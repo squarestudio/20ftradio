@@ -262,7 +262,8 @@ window.Template.Controllers.MobileCastController = function (element) {
             mobile && activePlayer !== 'facebook' && checkStreams();
             userClickPlay = true;
         });
-        mobilePlayButton.on('click', function () {
+        mobilePlayButton.on('click', function (e) {
+            e.halt()
             sitePlayer.one('#playButton').simulate('click')
         });
         videoYoutubazing();
