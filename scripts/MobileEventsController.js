@@ -83,6 +83,9 @@ window.Template.Controllers.MobileEventsController = function (element) {
     }
     function createEvent(e) {
         e.halt();
+        var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
+        var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
+        //new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime();
         console.log(e.currentTarget.getAttribute('data-start-date'), e.currentTarget.getAttribute('data-end-date'))
         var startDate = new Date(e.currentTarget.getAttribute('data-start-date')); // beware: month 0 = january, 11 = december
         var endDate = new Date(e.currentTarget.getAttribute('data-end-date'));
