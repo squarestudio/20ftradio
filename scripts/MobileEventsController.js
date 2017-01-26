@@ -59,7 +59,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             if(e.currentTarget.hasClass('tab-1')){
                 setTimeout(function () {
                     mobileEvents.one('.mobileEvents-Past').removeClass('active');
-                }, 360)
+                }, 360);
                 eventTabsContainer.setStyles({
                     'transform' : 'translate3d(0,0,0)'
                 });
@@ -69,7 +69,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             } else {
                 setTimeout(function () {
                     mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
-                }, 360)
+                }, 360);
                 eventTabsContainer.setStyles({
                     'transform' : 'translate3d(-50%,0,0)'
                 });
