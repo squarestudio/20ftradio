@@ -105,6 +105,11 @@ window.Template.Controllers.MobileEventsController = function (element) {
     function initCalendarClick() {
         mobileEvents.all('.schedule-event').on('click', createEvent)
     }
+    function initEventClick() {
+        mobileEvents.all('li').on('click', function (e) {
+            e.currentTarget
+        })
+    }
     function initialize() {
         console.log('mobileEvents init');
         mobileEvents = Y.one('#mobileEvents');
