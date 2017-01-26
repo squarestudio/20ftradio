@@ -499,8 +499,11 @@ body {
   }
 
   .mobile-share-active {
-    #navigator footer#bottomBar .socialaccountlinks-v2-block .sqs-block-content {
-      .scale(1, 1);
+    #navigator footer#bottomBar .socialaccountlinks-v2-block {
+      display: block;
+      .sqs-block-content {
+        .scale(1, 1);
+      }
     }
   }
 
@@ -617,6 +620,7 @@ body {
     position: absolute;
     bottom: -20px;
   }
+
   .toggle-share-mobile {
     background-size: 20px;
   }
