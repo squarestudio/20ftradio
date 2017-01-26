@@ -101,7 +101,7 @@
                                         </div>
                                     </div>
                                     ^.if title}<h4 class="event-title">^title}</h4>^.end}
-                                    <a href="#" data-id="^id}" data-url="^fullUrl}" data-tags="^tags}" data-start-date="^startDate}" data-end-date="^endDate}" data-title="^title}" data-descr="^excerpt}" class="schedule-event"></a>
+                                    <a href="#" data-id="^id}" data-url="^fullUrl}" data-tags="^tags}" data-start-date="^startDate}" data-end-date="^endDate}" data-title="^title}" class="schedule-event"></a>
                                 </div>
                                 <div class="event-descr">
                                     ^.if excerpt}
