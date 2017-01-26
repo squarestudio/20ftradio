@@ -57,6 +57,12 @@ window.Template.Controllers.MobileCastController = function (element) {
         }
     }
 
+    function simulateResize() {
+        window.top.innerWidth = window.top.innerWidth - 1;
+        Y.one(window.top).simulate('resize');
+        window.top.innerWidth = window.top.innerWidth + 1;
+    }
+
     function refreshImages() {
         if (Y.one('#fbPlayer')) {
             Y.one('#fbPlayer').setAttribute('data-width', castContainer.get('offsetWidth'));
