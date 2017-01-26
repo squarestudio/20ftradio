@@ -50,6 +50,8 @@ window.Template.Controllers.CastController = function (element) {
             Y.one('#castDiv').addClass('slide-into-view');
             setTimeout(function () {
                 Site && Site._setupPositioning();
+            }, 500);
+            setTimeout(function () {
                 initCast();
             }, 2200);
             Y.one(window).on('resize', refreshImages);
