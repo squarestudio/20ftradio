@@ -91,7 +91,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date'))+siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
         var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date'))+siteTimezoneOffset + userTimezoneOffset);
         var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
-        var eventLocation = e.currentTarget.getAttribute('data-location') || "https://www.20ftradio.com/";
+        var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
         var notes = e.currentTarget.getAttribute('data-descr')|| "Listen 20FTRadio";
         var success = function(message) { console.log(JSON.stringify(message))};
         var error = function(message) { console.log("Error: " + message); };
