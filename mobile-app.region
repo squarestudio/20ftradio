@@ -30,7 +30,7 @@
                  data-shoutcast-url="{customContent.shoutcastUrl}">
                 <div class="mobile-image">
                     <div class="mobile-trigger-wrapper">
-                        <a class="mobile-trigger"></a>
+                        <a href="#" class="mobile-trigger"></a>
                     </div>
                 </div>
                 <div class="live-indicator">● Live</div>
