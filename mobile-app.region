@@ -150,8 +150,9 @@
                         </ul>
                         </div>
                     </script>
+                {.or}
+                    {squarespace.main-content}
                 {.end}
-                {squarespace.main-content}
             </div>
         </div>
     </section>
