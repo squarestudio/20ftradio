@@ -1,4 +1,5 @@
 <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
+<title>{collection.navigationTitle}</title>
 <link rel="stylesheet" type="text/css" href="https://www.20ftradio.com/site.css?rev={squarespace.template-revision|json}">
 <div id="navigator">
     {.section website}
