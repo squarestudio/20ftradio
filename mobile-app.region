@@ -74,8 +74,8 @@
                 {.equal? collection.urlId "mobile-app"}
                     <div id="mobileEvents">
                         <div class="tabs clear">
-                            <a href="#mobile-events-upcoming" class="active">Schedule</a>
-                            <a href="#mobile-events-past">Archive</a>
+                            <a href="#mobile-events-upcoming" class="tab-1 active">Schedule</a>
+                            <a href="#mobile-events-past" class="tab-2">Archive</a>
                             <div class="tab-border"></div>
                         </div>
                     </div>
