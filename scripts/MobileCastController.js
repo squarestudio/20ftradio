@@ -257,7 +257,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             }
             mobile && activePlayer !== 'facebook' && checkStreams();
             userClickPlay = true;
-        }
+        };
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
             load: true,
             fill: true
