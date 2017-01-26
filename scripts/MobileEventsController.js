@@ -81,7 +81,8 @@ window.Template.Controllers.MobileEventsController = function (element) {
             Y.one(id).addClass('active');
         })
     }
-    function createEvent(title, descr, location, startDate, endDate) {
+    function createEvent(e, title, descr, location, startDate, endDate) {
+        e.halt();
         var startDate = new Date(2015,2,15,18,30,0,0,0); // beware: month 0 = january, 11 = december
         var endDate = new Date(2015,2,15,19,30,0,0,0);
         var title = "My nice event";
@@ -91,7 +92,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var error = function(message) { alert("Error: " + message); };
     }
     function initCalendarClick() {
-        mobileEvents.all('')
+        mobileEvents.all('.schedule-event').on('click', createEvent)
     }
     function initialize() {
         console.log('mobileEvents init');
