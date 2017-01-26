@@ -100,13 +100,15 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             /*                                if (window.AjaxLoader) {
                              Y.all('.wallGrid a').setAttribute('data-ajax-loader', 'ajax-loader-binded');
                              }*/
+                            initTabs();
                         } else {
+                            initTabs();
+                            mobileEvents.append(' <div class="mobileEvents-wrapper">');
                             console.log('MobileEvents: no results');
                         }
                     })
                 })
             }
-            initTabs();
         }
     }
 
