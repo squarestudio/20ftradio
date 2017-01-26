@@ -708,8 +708,11 @@ body {
       bottom: auto;
     }
   }
-  #container-content.small-padding {
-    padding: 8px 0;
+  #container-content .controller{
+    padding: 8px 10px;
+    &[sqs-controller="Template.Controllers.MobileEventsController"]{
+      padding: 8px 0px;
+    }
   }
   #mobileEvents {
     .tabs {
