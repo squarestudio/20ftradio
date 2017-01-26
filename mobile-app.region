@@ -76,6 +76,7 @@
                         <div class="tabs clear">
                             <a href="#mobile-events-upcoming" class="active">Schedule</a>
                             <a href="#mobile-events-past">Archive</a>
+                            <div class="tab-border"></div>
                         </div>
                     </div>
                     <script id="mobile-events-query-template" type="text/x-json-template">
