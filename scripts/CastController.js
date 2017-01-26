@@ -166,11 +166,7 @@ window.Template.Controllers.CastController = function (element) {
         someCloudUrl = castContainer.getAttribute('data-soundcloud-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
-        castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
-            load: true,
-            fill: true
-        });
-        sitePlayer.one('#playButton').on('click', function (e) {
+        var playButtonClick = function (e) {
             e.halt();
             console.log(activePlayer, players);
             if (!activePlayer) return;
@@ -253,10 +249,13 @@ window.Template.Controllers.CastController = function (element) {
             }
             mobile && activePlayer !== 'facebook' && checkStreams();
             userClickPlay = true;
+        };
+        castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
+            load: true,
+            fill: true
         });
-        mobilePlayButton.on('click', function () {
-            sitePlayer.one('#playButton').simulate('click')
-        });
+        sitePlayer.one('#playButton').on('click', playButtonClick);
+        mobilePlayButton.on('click', playButtonClick);
         videoYoutubazing();
         volumeIcon.on('click', function (e) {
             e.halt();
