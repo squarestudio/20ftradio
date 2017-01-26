@@ -80,6 +80,7 @@
                         </div>
                     </div>
                     <script id="mobile-events-query-template" type="text/x-json-template">
+                        <div class="mobileEvents-wrapper">
                         ^.if upcoming}
                         <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active">
                             ^.repeated section upcoming}
@@ -142,6 +143,7 @@
                             ^.end}
                         </ul>
                         ^.end}
+                        </div>
                     </script>
                 {.end}
                 {squarespace.main-content}
