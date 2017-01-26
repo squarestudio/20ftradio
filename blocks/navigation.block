@@ -4,7 +4,7 @@
     <li class="{.section collection}{typeLabel}-collection{.end}{.section active} active-link{.end}{.if collection.folder} folder{.end}{.if folderActive} active-link active-folder{.end}{.section externalLink} external-link{.end}">
     {.index?}
       {.section collection}
-        <a href="{fullUrl}" rel="{typeName}" class="transition-link">{navigationTitle}</a>
+        <a href="{fullUrl}" rel="{typeName}" class="{.if homepage} home-link{.end}transition-link">{navigationTitle}</a>
       {.end}
     {.or folder?}
       <a href="{collection.fullUrl}">{collection.navigationTitle}</a>
@@ -13,7 +13,7 @@
             {.repeated section items}
               {.collection?}
                 <li class="{collection.typeLabel}-collection{.section active} active-link{.end}">
-                  <a href="{collection.fullUrl}" class="transition-link">{collection.navigationTitle}</a>
+                  <a href="{collection.fullUrl}" class="transition-link{.if homepage} home-link{.end}">{collection.navigationTitle}</a>
                 </li>
               {.end}
               {.section externalLink}
@@ -26,7 +26,7 @@
         </div>
     {.or}
       {.section collection}
-        <a href="{fullUrl}" rel="{typeName}" class="transition-link">{navigationTitle}</a>
+        <a href="{fullUrl}" rel="{typeName}" class="transition-link{.if homepage} home-link{.end}">{navigationTitle}</a>
       {.end}
       {.section externalLink}
         <a href="{url}"{.section newWindow} target="_blank"{.end}>{title}</a>
