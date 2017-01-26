@@ -83,6 +83,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
     }
     function createEvent(e) {
         e.halt();
+        var currentTime = new Date();
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         //new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime();
