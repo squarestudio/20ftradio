@@ -112,11 +112,15 @@ window.Template.Controllers.MobileEventsController = function (element) {
         mobileEvents.all('li').removeClass('active');
         mobileEvents.all('li').on('click', function (e) {
             if(e.currentTarget.one('.event-descr')) {
+                e.currentTarget.all('img').each(function (img) {
+                    img.removeAttribute('data-load');
+                    ImageLoader.load(img, {load: true});
+                });
                 e.currentTarget.one('.event-descr').addClass('active');
             }
         })
     }
-    
+
     function initialize() {
         console.log('mobileEvents init');
         mobileEvents = Y.one('#mobileEvents');
@@ -140,6 +144,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             Y.fire('getCurrentEvent');
                             initTabs();
                             initCalendarClick();
+                            initEventClick();
                         } else {
                             mobileEvents.append(' <div class="mobileEvents-wrapper"><ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active"><p class="no-events-message">No Results</p></ul><ul id="mobile-events-past" class="mobileEvents mobileEvents-Past"><p class="no-events-message">No Results</p></ul></div>');
                             console.log('MobileEvents: no results');
