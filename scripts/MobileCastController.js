@@ -263,7 +263,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             userClickPlay = true;
         });
         mobilePlayButton.on('click', function (e) {
-            e.halt()
+            e.halt();
             sitePlayer.one('#playButton').simulate('click')
         });
         videoYoutubazing();
