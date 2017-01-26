@@ -109,8 +109,8 @@ window.Template.Controllers.MobileEventsController = function (element) {
     }
 
     function initEventClick() {
-        mobileEvents.all('li').removeClass('active');
         mobileEvents.all('li').on('click', function (e) {
+            mobileEvents.all('li').removeClass('active');
             if(e.currentTarget.one('.event-descr')) {
                 e.currentTarget.all('img').each(function (img) {
                     img.removeAttribute('data-load');
