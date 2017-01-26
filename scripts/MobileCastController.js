@@ -174,17 +174,96 @@ window.Template.Controllers.MobileCastController = function (element) {
         someCloudUrl = castContainer.getAttribute('data-soundcloud-url');
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
-        var playButtonClick =
+        var playButtonClick = function (e) {
+            e.halt();
+            console.log(activePlayer, players);
+            if (!activePlayer) return;
+            var state = null;
+            if (activePlayer == 'youtube') {
+                state = youtubePlayer.getPlayerState();
+                console.log('youtube video', state, YT.PlayerState.PLAYING);
+                if (mobile && !userClickPlay) {
+                    youtubePlayer.playVideo();
+                    userPaused = false;
+                    checkStreams();
+                }
+                else if (state === YT.PlayerState.PLAYING) {
+                    youtubePlayer.pauseVideo();
+                    userPaused = true;
+                } else if (state === YT.PlayerState.PAUSED) {
+                    youtubePlayer.playVideo();
+                    userPaused = false;
+                } else {
+                    youtubePlayer.playVideo();
+                    userPaused = false;
+                }
+            }
+            else if (activePlayer == 'facebook') {
+                if (castContainer.hasClass('paused')) {
+                    fbPlayer.play();
+                    userPaused = false;
+                } else {
+                    fbPlayer.pause();
+                    userPaused = true;
+                }
+            }
+            else if (activePlayer == 'shoutcast') {
+                state = shoutcastPlayer.getPlayerState();
+                if (mobile && !userClickPlay) {
+                    shoutcastPlayer.playVideo();
+                    userPaused = false;
+                }
+                else if (state) {
+                    shoutcastPlayer.playVideo();
+                    userPaused = false;
+                } else {
+                    shoutcastPlayer.pauseVideo();
+                    userPaused = true;
+                }
+            }
+            else if (activePlayer == 'soundcloud') {
+                if (mobile && !userClickPlay) {
+                    soundCloudPlayer.play();
+                    userPaused = false;
+                    checkStreams();
+                } else {
+                    soundCloudPlayer.isPaused(function (state) {
+                        if (state) {
+                            soundCloudPlayer.play();
+                            userPaused = false;
+                        } else {
+                            soundCloudPlayer.pause();
+                            userPaused = true;
+                        }
+                    });
+                }
+            }
+            else if (activePlayer == 'mixcloud') {
+                if (mobile && !userClickPlay) {
+                    mixCloudPlayer.play();
+                    userPaused = false;
+                    checkStreams();
+                } else {
+                    mixCloudPlayer.getIsPaused().then(function (state) {
+                        if (state) {
+                            mixCloudPlayer.play();
+                            userPaused = false;
+                        } else {
+                            mixCloudPlayer.pause();
+                            userPaused = true;
+                        }
+                    });
+                }
+            }
+            mobile && activePlayer !== 'facebook' && checkStreams();
+            userClickPlay = true;
+        }
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
             load: true,
             fill: true
         });
-        sitePlayer.one('#playButton').on('click', 
-        });
-        mobilePlayButton.on('click', function (e) {
-            e.halt();
-            sitePlayer.one('#playButton').simulate('click')
-        });
+        sitePlayer.one('#playButton').on('click', playButtonClick);
+        mobilePlayButton.on('click', playButtonClick);
         videoYoutubazing();
         volumeIcon.on('click', function (e) {
             e.halt();
