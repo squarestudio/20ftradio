@@ -63,6 +63,9 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 eventTabsBorder.setStyles({
                     'transform' : 'translate3d(0,0,0)'
                 });
+                setTimeout(function () {
+                    
+                }, 360)
             } else {
                 eventTabsContainer.setStyles({
                     'transform' : 'translate3d(-50%,0,0)'
