@@ -45,6 +45,7 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
+            Y.one('#castDiv').addClass('slide-into-view');
             mobile = Y.UA.mobile;
             Site && Site._setupPositioning();
             setTimeout(function () {
