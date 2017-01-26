@@ -81,15 +81,16 @@ window.Template.Controllers.MobileEventsController = function (element) {
             Y.one(id).addClass('active');
         })
     }
-    function createEvent(e, title, descr, location, startDate, endDate) {
+    function createEvent(e) {
         e.halt();
         var startDate = new Date(e.currentTarget.getAttribute('data-start-date')); // beware: month 0 = january, 11 = december
         var endDate = new Date(e.currentTarget.getAttribute('data-end-date'));
         var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
         var eventLocation = e.currentTarget.getAttribute('data-location') || "20FTRadio";
-        var notes = "Some notes about this event.";
-        var success = function(message) { alert("Success: " + JSON.stringify(message)); };
-        var error = function(message) { alert("Error: " + message); };
+        var notes = e.currentTarget.getAttribute('data-descr')|| "Listen 20FTRadio";
+        var success = function(message) { console.log(JSON.stringify(message))};
+        var error = function(message) { console.log("Error: " + message); };
+
     }
     function initCalendarClick() {
         mobileEvents.all('.schedule-event').on('click', createEvent)
