@@ -766,13 +766,14 @@ body {
       font-size: 1.6em;
       box-sizing: border-box;
       float: left;
+      max-height: 100px;
       width: 50%;
       -webkit-overflow-scrolling: touch;
       overflow-x: hidden;
       overflow-y: auto;
       display: none;
       &.active {
-        display: block;
+        max-height: none;
       }
       li {
         position: relative;
