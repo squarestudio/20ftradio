@@ -110,13 +110,12 @@ window.Template.Controllers.MobileEventsController = function (element) {
 
     function initEventClick() {
         mobileEvents.all('li').on('click', function (e) {
-            mobileEvents.all('li').removeClass('active');
             if(e.currentTarget.one('.event-descr')) {
                 e.currentTarget.all('img').each(function (img) {
                     img.removeAttribute('data-load');
                     ImageLoader.load(img, {load: true});
                 });
-                e.currentTarget.addClass('active');
+                e.currentTarget.toggleClass('active');
             }
         })
     }
