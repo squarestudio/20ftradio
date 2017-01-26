@@ -68,7 +68,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                     'transform' : 'translate3d(-50%,0,0)'
                 });
                 eventTabsBorder.setStyles({
-                    'transform' : 'translate3d(50%,0,0)'
+                    'transform' : 'translate3d(100%,0,0)'
                 });
             }
             eventTabsLists.removeClass('active');
