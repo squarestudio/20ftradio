@@ -98,7 +98,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
         calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
         calOptions.secondReminderMinutes = 5;
-        calOptions.url = "https://www.20ftradio.com/";
+        calOptions.url = "https://www.20ftradio.com" + e.currentTarget.getAttribute('data-url');
         console.log(title,eventLocation,notes,startDate,endDate,calOptions);
         window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title,eventLocation,notes,startDate,endDate,calOptions,success,error);
     }
