@@ -90,6 +90,9 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var success = function(message) { alert("Success: " + JSON.stringify(message)); };
         var error = function(message) { alert("Error: " + message); };
     }
+    function initCalendarClick() {
+        mobileEvents.all('')
+    }
     function initialize() {
         console.log('mobileEvents init');
         mobileEvents = Y.one('#mobileEvents');
@@ -112,6 +115,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             mobileEvents.append(compiledFragment);
                             Y.fire('getCurrentEvent');
                             initTabs();
+                            initCalendarClick();
                         } else {
                             mobileEvents.append(' <div class="mobileEvents-wrapper"><ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active"><p class="no-events-message">No Results</p></ul><ul id="mobile-events-past" class="mobileEvents mobileEvents-Past"><p class="no-events-message">No Results</p></ul></div>');
                             console.log('MobileEvents: no results');
