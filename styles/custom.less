@@ -168,6 +168,10 @@ body {
   -webkit-transform: translateY(250px);
   -ms-transform: translateY(250px);
   transform: translateY(250px);
+  animation-fill-mode: forwards;
+  &.slide-into-view {
+    .transform(none);
+  }
   iframe, video, .fb-video {
     .transition(opacity .2s);
   }
