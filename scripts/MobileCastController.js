@@ -453,7 +453,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 if (shoutcastStatusCheckInterval) {
                     clearInterval(shoutcastStatusCheckInterval);
                     console.log('Shoutcast status reset');
-                    eventStatusInterval = null;
+                    shoutcastStatusCheckInterval = null;
                     trackName.one('span').set('text', '');
                     trackName.removeClass('scroll-track');
                 }
@@ -493,7 +493,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 if (shoutcastStatusCheckInterval) {
                     clearInterval(shoutcastStatusCheckInterval);
                     console.log('Shoutcast status reset');
-                    eventStatusInterval = null;
+                    shoutcastStatusCheckInterval = null;
                 }
                 trackName.one('span').set('text', '');
                 trackName.removeClass('scroll-track');
