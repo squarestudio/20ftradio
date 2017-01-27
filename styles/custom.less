@@ -1,5 +1,6 @@
 .slide-into-view {
   animation: slideintoview 2s;
+  -webkit-animation: slideintoview 2s;
 }
 
 html.touch {
@@ -171,6 +172,7 @@ body {
   -ms-transform: translateY(250px);
   transform: translateY(250px);
   animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
   opacity: 0;
   &.slide-into-view {
     opacity: 1;
@@ -241,6 +243,7 @@ body {
     z-index: 1000;
     font-weight: 700;
     animation: blinking 2s ease-out infinite;
+    -webkit-animation: blinking 2s ease-out infinite;
     box-sizing: border-box;
     display: none;
   }
