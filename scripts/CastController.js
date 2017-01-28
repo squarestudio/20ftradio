@@ -30,7 +30,7 @@ window.Template.Controllers.CastController = function (element) {
         players = {},
         activePlayer = false,
         checkingTime = 2000,
-        streamCheckInterval,
+        streamCheckInterval = false,
         youtubePlayer = null,
         fbPlayer = null,
         shoutcastPlayer = null,
