@@ -496,7 +496,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     console.log('Shoutcast status reset');
                     shoutcastStatusCheckInterval = null;
                 }
-                trackName.one('span').set('text', '');
+                trackName.one('span').set('text', '   ');
                 trackName.removeClass('scroll-track');
             }
 
@@ -956,7 +956,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
                 }
             } else {
-                trackName.one('span').set('text', '');
+                trackName.one('span').set('text', '  ');
                 trackName.removeClass('scroll-track');
                 console.log('no current event');
                 if (Y.one('.event-on-air')) {
