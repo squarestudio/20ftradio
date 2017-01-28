@@ -186,7 +186,11 @@
             this.toggleLoadingAttr('add');
             // this.toggleWillChange(document.querySelector(this.SITE_CONTAINER), ['transform', 'opacity']);
             if (url.indexOf('/') > -1) {
-
+                this.animations.fadeOut(this.SITE_CONTAINER, 0.12, function () {
+                    this.modifyLinkState(url);
+                    this.destroySqsBlocks();
+                    this.ajax(url);
+                }.bind(this));
             } else if (currentEvent.type == 'click') {
 
                 if (this.isPageTransitionEnabled() && this.hasSomeParentTheClass(currentTarget, this.pageTransition.animLink)) {
