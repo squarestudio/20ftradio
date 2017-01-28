@@ -782,7 +782,6 @@ window.Template.Controllers.MobileCastController = function (element) {
             }
         } else if (playerType == 'soundcloud') {
             if (!soundCloudReady) {
-                window.zz = soundCloudPlayer;
                 soundCloudPlayer.setVolume(0.5);
                 soundCloudReady = true;
                 setActivePlayer();
