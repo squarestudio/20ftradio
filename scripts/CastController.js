@@ -792,12 +792,12 @@ window.Template.Controllers.CastController = function (element) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
-                console.log('stream check interval set')
+                console.log('stream check interval set');
+                window.addEventListener('offline', offlineMessage);
+                window.addEventListener('online', onlineMessage);
             }
             console.log('check STREAMS');
             checkStreams();
-            window.addEventListener('offline', offlineMessage);
-            window.addEventListener('online', onlineMessage);
         }
         sitePlayer && sitePlayer.addClass('initialized').removeClass('not-init').removeClass('no-events');
         console.log(playerType, 'playerReady');
