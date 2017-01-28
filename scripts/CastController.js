@@ -525,7 +525,7 @@ window.Template.Controllers.CastController = function (element) {
                             !mobile && shoutcastPlayer.play();
                             activePlayer = 'shoutcast';
                             pausePlayersExept('shoutcast');
-                            //onPlayerStateChange('shoutcast');
+                            onPlayerStateChange('shoutcast');
                             if (state == false) {
                                 if (mobile) {
                                     notSoundCloud = true;
