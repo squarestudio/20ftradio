@@ -790,8 +790,10 @@ window.Template.Controllers.MobileCastController = function (element) {
                 setActivePlayer();
             }
         }
+        console.log('streamCheckIntervalstreamCheckInterval', streamCheckInterval)
         if ((youtubeReady || shoutCastReady) && retry < maxRetry || (youtubeReady && notShoutcast) || notShoutcast && notYoutube && soundCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
+            console.log('streamCheckIntervalstreamCheckInterval', streamCheckInterval)
             if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
