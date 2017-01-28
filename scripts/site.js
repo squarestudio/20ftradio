@@ -528,7 +528,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
 });
 (function () {
     'use strict';
-    new AjaxLoader({
+    window.aj = new AjaxLoader({
         sqsController: true,
         timeout: 6000,
         siteContainer: '#container-content',
