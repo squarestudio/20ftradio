@@ -26,11 +26,11 @@ window.Template.Controllers.MobileCastController = function (element) {
         mobile,
         mobilePlayButton,
         userClickPlay = false,
-        userPaused,
+        userPaused = false,
         players = {},
         activePlayer = false,
         checkingTime = 2000,
-        streamCheckInterval=null,
+        streamCheckInterval = null,
         youtubePlayer = null,
         fbPlayer = null,
         shoutcastPlayer = null,
@@ -797,7 +797,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 setActivePlayer();
             }
         }
-        console.log('streamCheckIntervalstreamCheckInterval',streamCheckInterval)
+        console.log('streamCheckIntervalstreamCheckInterval', streamCheckInterval)
         if (youtubeReady || shoutCastReady || soundCloudReady || mixCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (!streamCheckInterval) {
