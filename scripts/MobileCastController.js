@@ -789,8 +789,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 soundCloudReady = true;
                 setActivePlayer();
             }
-        }
-        else if (playerType == 'mixcloud' && youtubeReady) {
+        } else if (playerType == 'mixcloud' && youtubeReady) {
             if (!mixCloudReady) {
                 if (!mobile) mixCloudPlayer.play();
                 mixCloudPlayer.setVolume(0.5);
