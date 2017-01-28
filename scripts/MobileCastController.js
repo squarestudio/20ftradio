@@ -774,20 +774,20 @@ window.Template.Controllers.MobileCastController = function (element) {
             activePlayer = 'facebook';
             checkStreams();
         }
-        else if (playerType == 'shoutcast' && youtubeReady) {
+        else if (playerType == 'shoutcast') {
             if (!shoutCastReady) {
                 shoutcastPlayer.setVolume(50);
                 shoutCastReady = true;
                 setActivePlayer();
             }
-        } else if (playerType == 'soundcloud' && youtubeReady) {
+        } else if (playerType == 'soundcloud') {
             if (!soundCloudReady) {
                 window.zz = soundCloudPlayer;
                 soundCloudPlayer.setVolume(0.5);
                 soundCloudReady = true;
                 setActivePlayer();
             }
-        } else if (playerType == 'mixcloud' && youtubeReady) {
+        } else if (playerType == 'mixcloud') {
             if (!mixCloudReady) {
                 mixCloudPlayer.setVolume(0.5);
                 mixCloudReady = true;
