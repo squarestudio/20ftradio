@@ -934,6 +934,9 @@ window.Template.Controllers.CastController = function (element) {
             if (eventOnAir) {
                 trackName.one('span').set('text', eventOnAir.title);
                 trackName.addClass('scroll-track');
+                if(trackName.one('span').get('offsetWidth') > trackName.get('offsetWidth')){
+                    trackName.addClass('scrolling');
+                }
                 if (Y.one('.event-item-' + eventOnAir.id)) {
                     Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
                 }
