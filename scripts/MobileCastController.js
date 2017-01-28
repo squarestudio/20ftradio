@@ -17,7 +17,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         fbReady = false,
         shoutCastReady = false,
         shoutcastStatus = false,
-        shoutcastStatusCheckInterval = null,
+        shoutcastStatusCheckInterval,
         notShoutcast = false,
         notSoundCloud = false,
         notMixCloud = false,
@@ -38,7 +38,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         soundCloudReady = false,
         mixCloudPlayer = null,
         mixCloudReady = false,
-        eventStatusInterval = null,
+        eventStatusInterval,
         currentEvents,
         liveIndicator,
         castContainer = Y.one('#castDiv');
@@ -797,7 +797,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 setActivePlayer();
             }
         }
-        console.log('streamCheckIntervalstreamCheckInterval', !streamCheckInterval)
+        console.log('streamCheckIntervalstreamCheckInterval', streamCheckInterval)
         if (youtubeReady || shoutCastReady || soundCloudReady || mixCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (!streamCheckInterval) {
