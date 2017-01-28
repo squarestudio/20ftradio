@@ -781,6 +781,11 @@ body {
       .transition(transform 0.3s ease-in-out);
       .transition-webkit(-webkit-transform 0.3s ease-in-out);
     }
+    .mobileEvents-container{
+      height: 100%;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
     .mobileEvents {
       margin: 0;
       padding: 0 10px;
@@ -789,12 +794,9 @@ body {
       box-sizing: border-box;
       float: left;
       display: block;
-      max-height: 60vh;
       width: 50%;
-      height: 100%;
-      -webkit-overflow-scrolling: touch;
-      overflow-x: hidden;
-      overflow-y: auto;
+      height: auto;
+      overflow: hidden;
       &.active {
         max-height: none;
       }
