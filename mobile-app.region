@@ -1,171 +1,176 @@
-<body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
-<title class="hidden">{collection.navigationTitle}</title>
-<link rel="stylesheet" type="text/css" href="https://www.20ftradio.com/site.css?rev={squarespace.template-revision|json}">
-<div id="navigator">
-    {.section website}
-    <header id="topBar" class="sqs-announcement-bar-dropzone">
-        <div class="nav-container">
-            <div id="mobileNav">
-                <div class="wrapper">
-                    <squarespace:navigation navigationId="pages" template="mobile-navigation"/>
-                </div>
-            </div>
-            <squarespace:navigation navigationId="pages" template="navigation"/>
-            <div class="header-block">
-                <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content" annotation-alignment="bottom"/>
-            </div>
-        </div>
-    </header>
-    {.end}
-    <div class="sqs-cart-dropzone"></div>
-    <squarespace:query collection="cast" limit="2">
-        {.if items}
-        {.section items.0}
-        <div class="castWrapper">
-            <div id="castDiv" data-title="{title}" class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit"
-                 sqs-controller="Template.Controllers.MobileCastController"
-                 data-url="{oembed.url}"
-                 data-facebook-url="{customContent.facebookUrl}"
-                 data-soundcloud-url="{customContent.soundCloudUrl}"
-                 data-shoutcast-url="{customContent.shoutcastUrl}">
-                <div class="mobile-image">
-                    <div class="mobile-trigger-wrapper">
-                        <a href="#" class="mobile-trigger"></a>
+<html>
+    <head>
+
+    </head>
+    <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
+    <title class="hidden">{collection.navigationTitle}</title>
+    <link rel="stylesheet" type="text/css" href="https://www.20ftradio.com/site.css?rev={squarespace.template-revision|json}">
+    <div id="navigator">
+        {.section website}
+        <header id="topBar" class="sqs-announcement-bar-dropzone">
+            <div class="nav-container">
+                <div id="mobileNav">
+                    <div class="wrapper">
+                        <squarespace:navigation navigationId="pages" template="mobile-navigation"/>
                     </div>
                 </div>
-                <div class="live-indicator">● Live</div>
+                <squarespace:navigation navigationId="pages" template="navigation"/>
+                <div class="header-block">
+                    <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content" annotation-alignment="bottom"/>
+                </div>
             </div>
-        </div>
+        </header>
         {.end}
-        {.end}
-    </squarespace:query>
-    <section id="container">
-        <div class="site-player-block">
-            <div class="site-player paused not-init">
-                <div class="site-player-wrapper">
-                    <div id="fountainG">
-                        <div class="fountainG fountainG_1"></div>
-                        <div class="fountainG fountainG_2"></div>
-                        <div class="fountainG fountainG_3"></div>
-                        <div class="fountainG fountainG_4"></div>
-                        <div class="fountainG fountainG_5"></div>
+        <div class="sqs-cart-dropzone"></div>
+        <squarespace:query collection="cast" limit="2">
+            {.if items}
+            {.section items.0}
+            <div class="castWrapper">
+                <div id="castDiv" data-title="{title}" class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit"
+                     sqs-controller="Template.Controllers.MobileCastController"
+                     data-url="{oembed.url}"
+                     data-facebook-url="{customContent.facebookUrl}"
+                     data-soundcloud-url="{customContent.soundCloudUrl}"
+                     data-shoutcast-url="{customContent.shoutcastUrl}">
+                    <div class="mobile-image">
+                        <div class="mobile-trigger-wrapper">
+                            <a href="#" class="mobile-trigger"></a>
+                        </div>
                     </div>
-                    <div class="site-player-controls">
-                        <a id="playButton">
-                            <i class="icono-"></i>
-                        </a>
-                        <a id="volumeButton">
-                            <i class="icono-volumeMedium"></i>
-                        </a>
-                        <input id="volControl" class="volume-control" type="range" min="0" max="100" step="1"></input>
-                    </div>
-                    <div class="track-name"><span>Now playing: </span></div>
+                    <div class="live-indicator">● Live</div>
                 </div>
             </div>
-        </div>
-        <div class="content-loader">
-            <div class="fountainG fountainG_1"></div>
-            <div class="fountainG fountainG_2"></div>
-            <div class="fountainG fountainG_3"></div>
-            <div class="fountainG fountainG_4"></div>
-            <div class="fountainG fountainG_5"></div>
-        </div>
-        <div id="container-content" class="clear" data-content-field="main-content" role="main">
-            <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
+            {.end}
+            {.end}
+        </squarespace:query>
+        <section id="container">
+            <div class="site-player-block">
+                <div class="site-player paused not-init">
+                    <div class="site-player-wrapper">
+                        <div id="fountainG">
+                            <div class="fountainG fountainG_1"></div>
+                            <div class="fountainG fountainG_2"></div>
+                            <div class="fountainG fountainG_3"></div>
+                            <div class="fountainG fountainG_4"></div>
+                            <div class="fountainG fountainG_5"></div>
+                        </div>
+                        <div class="site-player-controls">
+                            <a id="playButton">
+                                <i class="icono-"></i>
+                            </a>
+                            <a id="volumeButton">
+                                <i class="icono-volumeMedium"></i>
+                            </a>
+                            <input id="volControl" class="volume-control" type="range" min="0" max="100" step="1"></input>
+                        </div>
+                        <div class="track-name"><span>Now playing: </span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-loader">
+                <div class="fountainG fountainG_1"></div>
+                <div class="fountainG fountainG_2"></div>
+                <div class="fountainG fountainG_3"></div>
+                <div class="fountainG fountainG_4"></div>
+                <div class="fountainG fountainG_5"></div>
+            </div>
+            <div id="container-content" class="clear" data-content-field="main-content" role="main">
+                <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
                 {.equal? collection.urlId "mobile-app"}
-                    <div id="mobileEvents">
-                        <div class="tabs clear">
-                            <a href="#mobile-events-upcoming" class="tab-1 active">Schedule</a>
-                            <a href="#mobile-events-past" class="tab-2">Archive</a>
-                            <div class="tab-border"></div>
+                <div id="mobileEvents">
+                    <div class="tabs clear">
+                        <a href="#mobile-events-upcoming" class="tab-1 active">Schedule</a>
+                        <a href="#mobile-events-past" class="tab-2">Archive</a>
+                        <div class="tab-border"></div>
+                    </div>
+                </div>
+                <script id="mobile-events-query-template" type="text/x-json-template">
+                    <div class="mobileEvents-wrapper">
+                        <div class="mobileEvents-container">
+                            <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active">
+                                ^.if upcoming}
+                                ^.repeated section upcoming}
+                                <li class="event-item event-item-^id} eventlist-event--upcoming clear" data-start-date="^startDate}" data-end-date="^endDate}">
+                                    <div class="event-main">
+                                        <div class="eventlist-column-date">
+                                            <div class="eventlist-datetag">
+                                                <div class="eventlist-datetag-inner">
+                                                    <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
+                                                    <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
+                                                    <div class="eventlist-datetag-time">
+                                                        <span class="event-time-12hr">^startDate|date %I:%M %p}</span>
+                                                        <span class="event-time-24hr">^startDate|date %H:%M}</span>
+                                                    </div>
+                                                    <div class="eventlist-datetag-status"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        ^.if title}<h4 class="event-title">^title}</h4>^.end}
+                                        <a href="#" data-id="^id}" data-url="^fullUrl}" data-tags="^tags}" data-start-date="^startDate}" data-end-date="^endDate}" data-title="^title}" class="schedule-event"></a>
+                                    </div>
+                                    <div class="event-descr">
+                                        ^.if excerpt}
+                                        <div class="descr">^excerpt}</div>
+                                        ^.or}
+                                        <div class="descr">^body}</div>
+                                        ^.end}
+                                    </div>
+                                </li>
+                                ^.end}
+                                ^.or}
+                                <p class="no-events-message">No Results</p>
+                                ^.end}
+                            </ul>
+                            <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
+                                ^.if past}
+                                ^.repeated section past}
+                                <li class="event-item event-item-^id} eventlist-event--past clear" data-start-date="^startDate}" data-end-date="^endDate}">
+                                    <div class="event-main">
+                                        <div class="eventlist-column-date">
+                                            <div class="eventlist-datetag">
+                                                <div class="eventlist-datetag-inner">
+                                                    <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
+                                                    <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
+                                                    <div class="eventlist-datetag-time">
+                                                        <span class="event-time-12hr">^startDate|date %I:%M %p}</span>
+                                                        <span class="event-time-24hr">^startDate|date %H:%M}</span>
+                                                    </div>
+                                                    <div class="eventlist-datetag-status"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        ^.if title}<h4 class="event-title">^title}</h4>^.end}
+                                    </div>
+                                    <div class="event-descr">
+                                        ^.if excerpt}
+                                        <div class="descr">^excerpt}</div>
+                                        ^.or}
+                                        <div class="descr">^body}</div>
+                                        ^.end}
+                                    </div>
+                                </li>
+                                ^.end}
+                                ^.or}
+                                <p class="no-events-message">No Results</p>
+                                ^.end}
+                            </ul>
                         </div>
                     </div>
-                    <script id="mobile-events-query-template" type="text/x-json-template">
-                        <div class="mobileEvents-wrapper">
-                            <div class="mobileEvents-container">
-                                <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active">
-                                    ^.if upcoming}
-                                    ^.repeated section upcoming}
-                                    <li class="event-item event-item-^id} eventlist-event--upcoming clear" data-start-date="^startDate}" data-end-date="^endDate}">
-                                        <div class="event-main">
-                                            <div class="eventlist-column-date">
-                                                <div class="eventlist-datetag">
-                                                    <div class="eventlist-datetag-inner">
-                                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
-                                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
-                                                        <div class="eventlist-datetag-time">
-                                                            <span class="event-time-12hr">^startDate|date %I:%M %p}</span>
-                                                            <span class="event-time-24hr">^startDate|date %H:%M}</span>
-                                                        </div>
-                                                        <div class="eventlist-datetag-status"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            ^.if title}<h4 class="event-title">^title}</h4>^.end}
-                                            <a href="#" data-id="^id}" data-url="^fullUrl}" data-tags="^tags}" data-start-date="^startDate}" data-end-date="^endDate}" data-title="^title}" class="schedule-event"></a>
-                                        </div>
-                                        <div class="event-descr">
-                                            ^.if excerpt}
-                                            <div class="descr">^excerpt}</div>
-                                            ^.or}
-                                            <div class="descr">^body}</div>
-                                            ^.end}
-                                        </div>
-                                    </li>
-                                    ^.end}
-                                    ^.or}
-                                    <p class="no-events-message">No Results</p>
-                                    ^.end}
-                                </ul>
-                                <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
-                                    ^.if past}
-                                    ^.repeated section past}
-                                    <li class="event-item event-item-^id} eventlist-event--past clear" data-start-date="^startDate}" data-end-date="^endDate}">
-                                        <div class="event-main">
-                                            <div class="eventlist-column-date">
-                                                <div class="eventlist-datetag">
-                                                    <div class="eventlist-datetag-inner">
-                                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
-                                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
-                                                        <div class="eventlist-datetag-time">
-                                                            <span class="event-time-12hr">^startDate|date %I:%M %p}</span>
-                                                            <span class="event-time-24hr">^startDate|date %H:%M}</span>
-                                                        </div>
-                                                        <div class="eventlist-datetag-status"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            ^.if title}<h4 class="event-title">^title}</h4>^.end}
-                                        </div>
-                                        <div class="event-descr">
-                                            ^.if excerpt}
-                                            <div class="descr">^excerpt}</div>
-                                            ^.or}
-                                            <div class="descr">^body}</div>
-                                            ^.end}
-                                        </div>
-                                    </li>
-                                    ^.end}
-                                    ^.or}
-                                    <p class="no-events-message">No Results</p>
-                                    ^.end}
-                                </ul>
-                            </div>
-                        </div>
-                    </script>
+                </script>
                 {.or}
-                    {squarespace.main-content}
+                {squarespace.main-content}
                 {.end}
             </div>
-        </div>
+    </div>
     </section>
     {.section website}
     <footer id="bottomBar">
-            <div class="footer-h-content"></div>
-            <squarespace:block-field id="footerBlock" class="footer-block" columns="12" label="Footer Content"/>
+        <div class="footer-h-content"></div>
+        <squarespace:block-field id="footerBlock" class="footer-block" columns="12" label="Footer Content"/>
     </footer>
     {.end}
-</div>
-<div id="loadMobileEventsController" data-src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/MobileEventsController.js"></div>
-<div id="loadMobileCastController" data-src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/MobileCastController.js"></div>
-</body>
+    </div>
+    <div id="loadMobileEventsController" data-src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/MobileEventsController.js"></div>
+    <div id="loadMobileCastController" data-src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/MobileCastController.js"></div>
+    </body>
+</html>
