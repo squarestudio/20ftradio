@@ -780,20 +780,21 @@ window.Template.Controllers.MobileCastController = function (element) {
                 shoutCastReady = true;
                 setActivePlayer();
             }
-        } else if (playerType == 'soundcloud') {
+        }
+        else if (playerType == 'soundcloud') {
             if (!soundCloudReady) {
                 soundCloudPlayer.setVolume(0.5);
                 soundCloudReady = true;
                 setActivePlayer();
             }
-        } else if (playerType == 'mixcloud') {
+        }
+        else if (playerType == 'mixcloud') {
             if (!mixCloudReady) {
                 mixCloudPlayer.setVolume(0.5);
                 mixCloudReady = true;
                 setActivePlayer();
             }
         }
-        console.log('streamCheckIntervalstreamCheckInterval', streamCheckInterval == false)
         if (youtubeReady || shoutCastReady || soundCloudReady || mixCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (streamCheckInterval == false) {
