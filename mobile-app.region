@@ -3,8 +3,8 @@
         {squarespace-headers}
     </head>
     <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
-    <link rel="stylesheet" type="text/css" href="https://www.20ftradio.com/site.css?rev={squarespace.template-revision|json}">
     <div id="navigator">
+        <link rel="stylesheet" type="text/css" href="https://www.20ftradio.com/site.css?rev={squarespace.template-revision|json}">
         {.section website}
         <header id="topBar" class="sqs-announcement-bar-dropzone">
             <div class="nav-container">
