@@ -797,6 +797,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 setActivePlayer();
             }
         }
+        console.log('streamCheckIntervalstreamCheckInterval',streamCheckInterval)
         if (youtubeReady || shoutCastReady || soundCloudReady || mixCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (!streamCheckInterval) {
