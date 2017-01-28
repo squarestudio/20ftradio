@@ -936,6 +936,8 @@ window.Template.Controllers.CastController = function (element) {
                 trackName.addClass('scroll-track');
                 if(trackName.one('span').get('offsetWidth') > trackName.get('offsetWidth')){
                     trackName.addClass('scrolling');
+                } else {
+                    trackName.removeClass('scrolling');
                 }
                 if (Y.one('.event-item-' + eventOnAir.id)) {
                     Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
@@ -1001,6 +1003,11 @@ window.Template.Controllers.CastController = function (element) {
                             if (trackName.get('text') !== current_song) {
                                 trackName.one('span').set('text', current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
+                                if(trackName.one('span').get('offsetWidth') > trackName.get('offsetWidth')){
+                                    trackName.addClass('scrolling');
+                                } else {
+                                    trackName.removeClass('scrolling');
+                                }
                             }
                             shoutcastStatus = true;
                         } else {
