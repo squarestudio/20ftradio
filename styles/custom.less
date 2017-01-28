@@ -6,7 +6,7 @@
 html.touch {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -721,9 +721,11 @@ body {
     .site-player-controls {
       display: none;
     }
-    .track-name.scroll-track {
-      position: relative;
-      bottom: auto;
+    .track-name {
+      .scroll-track {
+        position: relative;
+        bottom: auto;
+      }
     }
   }
   #container-content {
@@ -780,7 +782,7 @@ body {
       .transition(transform 0.3s ease-in-out);
       .transition-webkit(-webkit-transform 0.3s ease-in-out);
     }
-    .mobileEvents-container{
+    .mobileEvents-container {
       height: 100%;
       max-height: 60vh;
       overflow: auto;
