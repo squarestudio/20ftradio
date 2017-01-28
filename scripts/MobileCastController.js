@@ -320,7 +320,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 shoutCastReady = true;
                 retry = maxRetry - 1;
             }
-            if (!mobile) {
+            if (!mobile || window.cor) {
                 if (youtubeUrl) {
                     console.log('Have Youtube Url');
                     initYoutubeStream();
@@ -333,7 +333,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     console.log("No data to init");
                 }
             }
-            if (mobile) {
+            if (mobile ) {
                 if (youtubeUrl) {
                     getYoutubeStatus();
                     initYoutubeStream();
