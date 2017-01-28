@@ -822,7 +822,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function setPlaying(playerType) {
-        console.log('SET PLAYING: ' + playerType);
+        console.log('SET PLAYING: ' + playerType); 
         sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
         castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
         !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
