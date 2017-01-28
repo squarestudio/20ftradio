@@ -77,6 +77,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             img.removeAttribute('data-load');
             ImageLoader.load(img, {load: true});
         });
+        checkTrackNameOverflow();
     }
 
     function initYoutubePlayer() {
