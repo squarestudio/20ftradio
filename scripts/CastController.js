@@ -30,7 +30,7 @@ window.Template.Controllers.CastController = function (element) {
         players = {},
         activePlayer = false,
         checkingTime = 2000,
-        streamCheckInterval = false,
+        streamCheckInterval,
         youtubePlayer = null,
         fbPlayer = null,
         shoutcastPlayer = null,
@@ -786,19 +786,18 @@ window.Template.Controllers.CastController = function (element) {
                 setActivePlayer();
             }
         }
-        console.log('streamCheckIntervalstreamCheckInterval', !streamCheckInterval)
         if (youtubeReady || shoutCastReady || soundCloudReady || mixCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
-                console.log('stream check interval set');
-                window.addEventListener('offline', offlineMessage);
-                window.addEventListener('online', onlineMessage);
+                console.log('stream check interval set')
             }
             console.log('check STREAMS');
             checkStreams();
+            window.addEventListener('offline', offlineMessage);
+            window.addEventListener('online', onlineMessage);
         }
         sitePlayer && sitePlayer.addClass('initialized').removeClass('not-init').removeClass('no-events');
         console.log(playerType, 'playerReady');
