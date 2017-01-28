@@ -776,7 +776,6 @@ window.Template.Controllers.MobileCastController = function (element) {
         }
         else if (playerType == 'shoutcast' && youtubeReady) {
             if (!shoutCastReady) {
-                !mobile && shoutcastPlayer.play();
                 shoutcastPlayer.setVolume(50);
                 shoutCastReady = true;
                 setActivePlayer();
@@ -784,14 +783,12 @@ window.Template.Controllers.MobileCastController = function (element) {
         } else if (playerType == 'soundcloud' && youtubeReady) {
             if (!soundCloudReady) {
                 window.zz = soundCloudPlayer;
-                if (!mobile) soundCloudPlayer.play();
                 soundCloudPlayer.setVolume(0.5);
                 soundCloudReady = true;
                 setActivePlayer();
             }
         } else if (playerType == 'mixcloud' && youtubeReady) {
             if (!mixCloudReady) {
-                if (!mobile) mixCloudPlayer.play();
                 mixCloudPlayer.setVolume(0.5);
                 mixCloudReady = true;
                 setActivePlayer();
