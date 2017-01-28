@@ -38,7 +38,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         soundCloudReady = false,
         mixCloudPlayer = null,
         mixCloudReady = false,
-        eventStatusInterval,
+        eventStatusInterval = null,
         currentEvents,
         liveIndicator,
         castContainer = Y.one('#castDiv');
