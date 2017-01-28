@@ -790,21 +790,26 @@ window.Template.Controllers.MobileCastController = function (element) {
                 setActivePlayer();
             }
         }
-        console.log('streamCheckIntervalstreamCheckInterval', streamCheckInterval)
-        if ((youtubeReady || shoutCastReady) && retry < maxRetry || (youtubeReady && notShoutcast) || notShoutcast && notYoutube && soundCloudReady) {
+        else if (playerType == 'mixcloud' && youtubeReady) {
+            if (!mixCloudReady) {
+                if (!mobile) mixCloudPlayer.play();
+                mixCloudPlayer.setVolume(0.5);
+                mixCloudReady = true;
+                setActivePlayer();
+            }
+        }
+        if (youtubeReady || shoutCastReady || soundCloudReady || mixCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
-            console.log('streamCheckIntervalstreamCheckInterval', streamCheckInterval)
-            console.log('streamCheckIntervalstreamCheckInterval', streamCheckInterval)
             if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
-                console.log('stream check interval set')
+                console.log('stream check interval set');
+                window.addEventListener('offline', offlineMessage);
+                window.addEventListener('online', onlineMessage);
             }
             console.log('check STREAMS');
             checkStreams();
-            window.addEventListener('offline', offlineMessage);
-            window.addEventListener('online', onlineMessage);
         }
         sitePlayer && sitePlayer.addClass('initialized').removeClass('not-init').removeClass('no-events');
         console.log(playerType, 'playerReady');
@@ -931,7 +936,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function checkTrackNameOverflow() {
-        if(trackName.one('span').get('offsetWidth') > trackName.get('offsetWidth')){
+        if (trackName.one('span').get('offsetWidth') > trackName.get('offsetWidth')) {
             trackName.addClass('scrolling');
         } else {
             trackName.removeClass('scrolling');
