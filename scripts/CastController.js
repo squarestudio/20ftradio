@@ -488,7 +488,7 @@ window.Template.Controllers.CastController = function (element) {
                     console.log('Shoutcast status reset');
                     shoutcastStatusCheckInterval = null;
                 }
-                trackName.one('span').set('text', '');
+                trackName.one('span').set('text', '  ');
                 trackName.removeClass('scroll-track');
             }
 
