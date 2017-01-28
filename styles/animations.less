@@ -16,7 +16,18 @@
     transform: translateY(-1000px);
   }
 }
-
+@-webkit-keyframes moveup {
+  from {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+  to {
+    -webkit-transform: translateY(-1000px);
+    -ms-transform: translateY(-1000px);
+    transform: translateY(-1000px);
+  }
+}
 
 
 // (slide into view)
@@ -35,6 +46,7 @@
     transform: translateY(0px);
   }
 }
+
 @-webkit-keyframes slideintoview {
   from {
     opacity: 0;
@@ -101,7 +113,14 @@
     .translate3d(0px, 0px, 0px);
   }
 }
-
+@-webkit-keyframes slideInProjectImage {
+  from {
+    .translate3d(0px, 120px, 0px);
+  }
+  to {
+    .translate3d(0px, 0px, 0px);
+  }
+}
 
 // Default reveal opacity on scroll
 .project-slide {
@@ -263,6 +282,15 @@
 
 // project image cascade on mobile scroll
 @keyframes mobileSlideInProjectImage {
+  from {
+    .translate3d(0px, 60px, 0px);
+  }
+  to {
+    .translate3d(0px, 0px, 0px);
+  }
+}
+
+@-webkit-keyframes mobileSlideInProjectImage {
   from {
     .translate3d(0px, 60px, 0px);
   }
