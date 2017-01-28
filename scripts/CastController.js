@@ -466,7 +466,7 @@ window.Template.Controllers.CastController = function (element) {
                         console.log('Event status reset');
                         eventStatusInterval = null;
                         Y.detach('getCurrentEvent', getCurrentEvent);
-                        trackName.one('span').set('text', '');
+                        trackName.one('span').set('text', '  ');
                         trackName.removeClass('scroll-track');
                     }
                     getShoutcastStatus();
