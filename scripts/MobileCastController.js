@@ -926,6 +926,14 @@ window.Template.Controllers.MobileCastController = function (element) {
         })
     }
 
+    function checkTrackNameOverflow() {
+        if(trackName.one('span').get('offsetWidth') > trackName.get('offsetWidth')){
+            trackName.addClass('scrolling');
+        } else {
+            trackName.removeClass('scrolling');
+        }
+    }
+
     function getCurrentEvent() {
         var checkEvents = function () {
             var currentTime = new Date();
@@ -942,11 +950,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             if (eventOnAir) {
                 trackName.one('span').set('text', eventOnAir.title);
                 trackName.addClass('scroll-track');
-                if(trackName.one('span').get('offsetWidth') > trackName.get('offsetWidth')){
-                    trackName.addClass('scrolling');
-                } else {
-                    trackName.removeClass('scrolling');
-                }
+                checkTrackNameOverflow();
                 if (Y.one('.event-item-' + eventOnAir.id)) {
                     Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
                 }
