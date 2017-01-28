@@ -312,7 +312,7 @@ window.Template.Controllers.CastController = function (element) {
                 shoutCastReady = true;
                 retry = maxRetry - 1;
             }
-            if (!mobile) {
+            if (!mobile || window.cordova) {
                 if (youtubeUrl) {
                     console.log('Have Youtube Url');
                     initYoutubeStream();
@@ -325,7 +325,7 @@ window.Template.Controllers.CastController = function (element) {
                     console.log("No data to init");
                 }
             }
-            if (mobile) {
+            if (mobile && !window.cordova) {
                 if (youtubeUrl) {
                     getYoutubeStatus();
                     initYoutubeStream();
