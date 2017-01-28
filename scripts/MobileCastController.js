@@ -819,7 +819,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         console.log('offline');
         if (streamCheckInterval) {
             clearInterval(streamCheckInterval);
-            streamCheckInterval = null;
+            streamCheckInterval = false;
             preventLoops = 0;
             lastCheckTime = 0;
         }
