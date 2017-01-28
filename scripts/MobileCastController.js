@@ -800,7 +800,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         console.log('streamCheckIntervalstreamCheckInterval', streamCheckInterval == false)
         if (youtubeReady || shoutCastReady || soundCloudReady || mixCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
-            if (!streamCheckInterval) {
+            if (streamCheckInterval == false) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
@@ -827,7 +827,7 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function onlineMessage() {
         console.log('online');
-        if (!streamCheckInterval) {
+        if (streamCheckInterval == false) {
             streamCheckInterval = setInterval(function () {
                 checkStreams();
             }, checkingTime);
