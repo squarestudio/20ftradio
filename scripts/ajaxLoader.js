@@ -186,7 +186,7 @@
       this.toggleLoadingAttr('add');
       // this.toggleWillChange(document.querySelector(this.SITE_CONTAINER), ['transform', 'opacity']);
 
-      if(currentEvent && currentEvent.type == 'click' || url.indexOf('/mobile-app') > -1 ) {
+      if(currentEvent && currentEvent.type == 'click' || url.indexOf('/') > -1 ) {
 
         if(this.isPageTransitionEnabled() && this.hasSomeParentTheClass(currentTarget, this.pageTransition.animLink) ) {
           // Index link click, with Page Transition Animation Enabled
