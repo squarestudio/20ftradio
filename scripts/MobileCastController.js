@@ -320,7 +320,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 shoutCastReady = true;
                 retry = maxRetry - 1;
             }
-            if (!mobile || window.cor) {
+            if (!mobile || window.cordova) {
                 if (youtubeUrl) {
                     console.log('Have Youtube Url');
                     initYoutubeStream();
