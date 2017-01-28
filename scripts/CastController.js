@@ -626,9 +626,6 @@ window.Template.Controllers.CastController = function (element) {
             mixCloudPlayer.ready.then(function (widget) {
                 mixCloudPlayer = widget;
                 console.log(mixCloudPlayer);
-                mixCloudPlayer.setOption('disableUnloadWarning', true).then(function (e) {
-                    console.log(e)
-                });
                 mixCloudPlayer.events.play.on(function () {
                     onPlayerStateChange('mixcloud', 'play')
                 });
@@ -775,14 +772,21 @@ window.Template.Controllers.CastController = function (element) {
             }
         } else if (playerType == 'soundcloud' && youtubeReady) {
             if (!soundCloudReady) {
-                window.zz = soundCloudPlayer;
                 if (!mobile) soundCloudPlayer.play();
                 soundCloudPlayer.setVolume(0.5);
                 soundCloudReady = true;
                 setActivePlayer();
             }
         }
-        if ((youtubeReady || shoutCastReady) && retry < maxRetry || (youtubeReady && notShoutcast) || notShoutcast && notYoutube && soundCloudReady) {
+        else if (playerType == 'mixcloud' && youtubeReady) {
+            if (!mixCloudReady) {
+                if (!mobile) mixCloudPlayer.play();
+                mixCloudPlayer.setVolume(0.5);
+                mixCloudReady = true;
+                setActivePlayer();
+            }
+        }
+        if (youtubeReady || shoutCastReady || soundCloudReady || mixCloudReady) {
             !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
             if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
