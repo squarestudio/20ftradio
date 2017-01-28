@@ -6,6 +6,7 @@
 html.touch {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 body {
@@ -541,6 +542,7 @@ body {
         .sqs-svg-icon--wrapper {
           margin: 12px;
           .transform(rotate(-90deg));
+          .transform(-webkit-rotate(-90deg));
         }
       }
     }
@@ -575,6 +577,7 @@ body {
         .volume-control {
           opacity: 1;
           .transition2(transform .2s ease-in, opacity 0.2s 0.1s);
+          .transition2(-webkit-transform .2s ease-in, opacity 0.2s 0.1s);
           .transform(rotate(-90deg), scaleX(1));
         }
       }
@@ -592,6 +595,7 @@ body {
         margin-left: -24px;
         opacity: 0;
         .transition2(transform .2s 0.1s ease-in, opacity 0.2s);
+        .transition2(-webkit-transform .2s 0.1s ease-in, opacity 0.2s);
         .transform-origin(right, top);
         .transform(rotate(-90deg), scaleX(0.6));
       }
