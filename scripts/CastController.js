@@ -763,24 +763,24 @@ window.Template.Controllers.CastController = function (element) {
             activePlayer = 'facebook';
             checkStreams();
         }
-        else if (playerType == 'shoutcast' && youtubeReady) {
+        else if (playerType == 'shoutcast') {
             if (!shoutCastReady) {
-                !mobile && shoutcastPlayer.play();
+                //!mobile && shoutcastPlayer.play();
                 shoutcastPlayer.setVolume(50);
                 shoutCastReady = true;
                 setActivePlayer();
             }
-        } else if (playerType == 'soundcloud' && youtubeReady) {
+        } else if (playerType == 'soundcloud') {
             if (!soundCloudReady) {
-                if (!mobile) soundCloudPlayer.play();
+                //if (!mobile) soundCloudPlayer.play();
                 soundCloudPlayer.setVolume(0.5);
                 soundCloudReady = true;
                 setActivePlayer();
             }
         }
-        else if (playerType == 'mixcloud' && youtubeReady) {
+        else if (playerType == 'mixcloud') {
             if (!mixCloudReady) {
-                if (!mobile) mixCloudPlayer.play();
+                //if (!mobile) mixCloudPlayer.play();
                 mixCloudPlayer.setVolume(0.5);
                 mixCloudReady = true;
                 setActivePlayer();
