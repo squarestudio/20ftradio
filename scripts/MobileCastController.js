@@ -1015,11 +1015,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                             if (trackName.get('text') !== current_song) {
                                 trackName.one('span').set('text', current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
-                                if(trackName.one('span').get('offsetWidth') > trackName.get('offsetWidth')){
-                                    trackName.addClass('scrolling');
-                                } else {
-                                    trackName.removeClass('scrolling');
-                                }
+                                checkTrackNameOverflow();
                             }
                             shoutcastStatus = true;
                         } else {
