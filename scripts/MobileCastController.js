@@ -30,7 +30,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         players = {},
         activePlayer = false,
         checkingTime = 2000,
-        streamCheckInterval = null,
+        streamCheckInterval,
         youtubePlayer = null,
         fbPlayer = null,
         shoutcastPlayer = null,
