@@ -333,7 +333,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     console.log("No data to init");
                 }
             }
-            if (mobile ) {
+            if (mobile && !window.cordova) {
                 if (youtubeUrl) {
                     getYoutubeStatus();
                     initYoutubeStream();
