@@ -796,8 +796,8 @@ window.Template.Controllers.MobileCastController = function (element) {
             }
         }
         if (youtubeReady || shoutCastReady || soundCloudReady || mixCloudReady) {
-            !castContainer.hasClass && castContainer.addClass('initialized');//checkStreams
-            if (streamCheckInterval == false) {
+            !castContainer.hasClass && castContainer.addClass('initialized');
+            if (!streamCheckInterval) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
