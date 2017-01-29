@@ -42,6 +42,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         currentEvents,
         liveIndicator,
         localNotification = false,
+        useNotifications = true,
         castContainer = Y.one('#castDiv');
 
     function initialize() {
@@ -1008,12 +1009,14 @@ window.Template.Controllers.MobileCastController = function (element) {
             });
         });
     }
+
     function isAndroid() {
-        return Y.UA.mobile.indexOf('droid')>-1 || device.platform.indexOf('droid')>-1;
+        return Y.UA.mobile.indexOf('droid') > -1 || device.platform.indexOf('droid') > -1;
     }
-    function setLocalNotification(text){
-        if (useNotifications){
-            if(!localNotification){
+
+    function setLocalNotification(text) {
+        if (useNotifications) {
+            if (!localNotification) {
                 cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
                     id: 1,
                     title: '20FTRadio',
