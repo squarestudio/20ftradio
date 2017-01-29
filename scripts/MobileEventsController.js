@@ -18,7 +18,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                         offset: offset || ''
                     },
                     success: function (items) {
-                        if ((items.past && items.past.length) || (items.upcoming&&items.upcoming.length)) {
+                        if ((items.past && items.past.length) || (items.upcoming && items.upcoming.length)) {
                             if (items.upcoming) {
                                 content_items.upcoming = content_items.upcoming.concat(items.upcoming);
                             }
@@ -56,25 +56,25 @@ window.Template.Controllers.MobileEventsController = function (element) {
             eventsTabs.removeClass('active');
             e.currentTarget.addClass('active');
             var id = e.currentTarget.getAttribute('href');
-            if(e.currentTarget.hasClass('tab-1')){
+            if (e.currentTarget.hasClass('tab-1')) {
                 setTimeout(function () {
                     mobileEvents.one('.mobileEvents-Past').removeClass('active');
                 }, 360);
                 eventTabsContainer.setStyles({
-                    'transform' : 'translate3d(0,0,0)'
+                    'transform': 'translate3d(0,0,0)'
                 });
                 eventTabsBorder.setStyles({
-                    'transform' : 'translate3d(0,0,0)'
+                    'transform': 'translate3d(0,0,0)'
                 });
             } else {
                 setTimeout(function () {
                     mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
                 }, 360);
                 eventTabsContainer.setStyles({
-                    'transform' : 'translate3d(-50%,0,0)'
+                    'transform': 'translate3d(-50%,0,0)'
                 });
                 eventTabsBorder.setStyles({
-                    'transform' : 'translate3d(100%,0,0)'
+                    'transform': 'translate3d(100%,0,0)'
                 });
             }
             eventTabsLists.removeClass('active');
@@ -89,15 +89,22 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         //new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime();
         console.log(parseInt(e.currentTarget.getAttribute('data-start-date')), parseInt(e.currentTarget.getAttribute('data-end-date')))
-        var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date'))+siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
-        var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date'))+siteTimezoneOffset + userTimezoneOffset);
+        var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
+        var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
         var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
         var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
         var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
-        var success = function(message) {
+        var success = function (message) {
             console.warn(JSON.stringify(message))
+            window.plugins.calendar.findEvent(title, eventLocation, notes, startDate, endDate, success, error);
         };
-        var error = function(message) {
+        var successCreate = function (data) {
+            console.warn(data)
+        }
+        var errorCreate = function (data) {
+            console.error(data)
+        }
+        var error = function (message) {
             console.error("Error: " + message);
         };
         var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
@@ -105,7 +112,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         calOptions.secondReminderMinutes = 5;
         calOptions.url = "https://www.20ftradio.com" + e.currentTarget.getAttribute('data-url');
         console.log(title, eventLocation, notes, startDate, endDate, calOptions);
-        window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title,eventLocation,notes,startDate,endDate,calOptions,success,error);
+        window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
     }
 
     function initCalendarClick() {
@@ -114,7 +121,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
 
     function initEventClick() {
         mobileEvents.all('li').on('click', function (e) {
-            if(e.currentTarget.one('.event-descr')) {
+            if (e.currentTarget.one('.event-descr')) {
                 e.currentTarget.all('img').each(function (img) {
                     img.removeAttribute('data-load');
                     ImageLoader.load(img, {load: true});
