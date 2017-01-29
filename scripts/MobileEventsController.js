@@ -100,14 +100,14 @@ window.Template.Controllers.MobileEventsController = function (element) {
             console.error("Error: " + message);
             setTimeout(function () {
                 checkScheduledEvents();
-            }, 700);
+            }, 100);
         };
         var success = function (message) {
             console.log(message);
             e.currentTarget.ancestor('.event-item').hasClass('scheduled');
             setTimeout(function () {
                 checkScheduledEvents();
-            }, 700);
+            }, 100);
         };
         var askToDelete = function (buttonIndex) {
             if (buttonIndex == 1) {
