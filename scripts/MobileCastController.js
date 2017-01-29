@@ -1018,13 +1018,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     });
                 }
             } else {
-                cordova.plugins.notification.local && cordova.plugins.notification.local.clear({
-                    id: 1,
-                    title: '20FTRadio',
-                    text: text,
-                    sound: null,
-                    icon: "https://www.20ftradio.com/assets/icon.png"
-                });
+                cordova.plugins.notification.local && cordova.plugins.notification.local.cancel(1);
             }
         }
     }
