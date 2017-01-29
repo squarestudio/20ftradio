@@ -737,7 +737,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             youtubePlayer.playVideo();
             youtubeReady = true;
             pausePlayersExept('youtube');
-            if (!youtubeCheckInterval) {
+            if (!youtubeCheckInterval && (!youtubeStatusLoad) {
                 youtubeCheckInterval = setInterval(function () {
                     getYoutubeStatus()
                 }, 80000);
