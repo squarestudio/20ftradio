@@ -1,6 +1,5 @@
 window.Template.Controllers.MobileEventsController = function (element) {
     'use strict';
-    var animOnScroll;
     var mobileEvents = Y.one('#mobileEvents');
     var eventsTabs = mobileEvents.all('.tabs a');
 
