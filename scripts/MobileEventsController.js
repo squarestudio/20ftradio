@@ -155,10 +155,10 @@ window.Template.Controllers.MobileEventsController = function (element) {
                         var title = e.getAttribute('data-title') || "Listen 20FTRadio";
                         var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
                         var notes = e.getAttribute('data-tags') || "Listen 20FTRadio";
-                        if (event.title == title &&  !e.ancestor('.event-item').hasClass('scheduled')){
-                            e.ancestor('.event-item').addClass('scheduled');
+                        if (event.title !== title){//&&  !e.ancestor('.event-item').hasClass('scheduled')
+                            e.ancestor('.event-item').removeClass('scheduled');
                         } else {
-                           //e.ancestor('.event-item').addClass('scheduled');
+                           e.ancestor('.event-item').addClass('scheduled');
                         }
                     })
                 })
