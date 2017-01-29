@@ -43,6 +43,7 @@
             {.end}
         </squarespace:query>
         <section id="container">
+            <img src="file:///img/logo.png" alt=""/>
             <div class="site-player-block">
                 <div class="site-player paused not-init">
                     <div class="site-player-wrapper">
