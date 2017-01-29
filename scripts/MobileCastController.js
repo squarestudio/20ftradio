@@ -86,6 +86,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     function initYoutubePlayer() {
         if (youtubeUrl.indexOf('watch') > -1) {
             youtubeUrl = youtubeUrl.split('=')[1];
+            youtubeStatus = youtubeStatusLoad = true;
         } else if (youtubeUrl.indexOf('live_stream') > -1) {
             var channel = youtubeUrl.split('channel=')[1];
             youtubeUrl = 'live_stream';
@@ -326,7 +327,6 @@ window.Template.Controllers.MobileCastController = function (element) {
             }
             if (youtubeUrl) {
                 console.log('Have Youtube Url');
-                getYoutubeStatus();
                 initYoutubeStream();
             } else if (shoutCastUrl) {
                 initShoutCast();
