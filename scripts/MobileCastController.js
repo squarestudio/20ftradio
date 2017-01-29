@@ -1013,7 +1013,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         if(!localNotification){
             cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
                 id: 1,
-                title: '20FTRadio'
+                title: '20FTRadio',
                 text: text,
                 sound: null,
                 icon: "file://img/logo.png"
@@ -1021,7 +1021,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         } else {
             cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
                 id: 1,
-                title: '20FTRadio'
+                title: '20FTRadio',
                 text: text,
                 sound: null,
                 icon: "file://img/logo.png"
