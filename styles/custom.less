@@ -914,7 +914,6 @@ body {
           //display: none;
           opacity: 0;
           .transition(opacity .5s);
-          will-change: height;
           padding: 0 10px;
           overflow: hidden;
           .descr {
@@ -923,6 +922,7 @@ body {
             transform: translateY(70px);
             .transition(transform 1s ease-in-out);
             .transition-webkit(transform 1s ease-in-out);
+            will-change: transition;
           }
         }
         &.active .event-descr {
