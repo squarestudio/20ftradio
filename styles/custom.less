@@ -913,7 +913,7 @@ body {
           height: 0;
           //display: none;
           opacity: 0;
-          .transition2(opacity .5s, max-height .3s);
+          .transition(opacity .5s);
           will-change: height;
           padding: 0 10px;
           overflow: hidden;
@@ -921,8 +921,7 @@ body {
             -webkit-transform: translateY(250px);
             -ms-transform: translateY(250px);
             transform: translateY(250px);
-            animation-fill-mode: forwards;
-            -webkit-animation-fill-mode: forwards;
+            .transition(transform .5s)
           }
         }
         &.active .event-descr {
@@ -930,8 +929,9 @@ body {
           height: auto;
           opacity: 1;
           .descr {
-            animation: slideintoview 2s;
-            -webkit-animation: slideintoview 2s;
+            -webkit-transform: translateY(0);
+            -ms-transform: translateY(0);
+            transform: translateY(0);
           }
         }
       }
