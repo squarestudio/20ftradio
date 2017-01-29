@@ -1009,7 +1009,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
     function setLocalNotification(text){
         if(!localNitification){
-            cordova.plugins.notification.local.schedule({
+            cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
                 id: 1,
                 title: '20FTRadio'
                 text: text,
@@ -1017,7 +1017,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 data: { secret:key }
             });
         } else {
-            cordova.plugins.notification.local.schedule({
+            cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
                 id: 1,
                 title: '20FTRadio'
                 text: text,
