@@ -999,16 +999,26 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function setLocalNotification(text) {
         if (useNotifications) {
-            if (!localNotification) {
-                cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
-                    id: 1,
-                    title: '20FTRadio',
-                    text: text,
-                    sound: null,
-                    icon: "https://www.20ftradio.com/assets/icon.png"
-                });
+            if (text){
+                if (!localNotification) {
+                    cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
+                        id: 1,
+                        title: '20FTRadio',
+                        text: text,
+                        sound: null,
+                        icon: "https://www.20ftradio.com/assets/icon.png"
+                    });
+                } else {
+                    cordova.plugins.notification.local && cordova.plugins.notification.local.update({
+                        id: 1,
+                        title: '20FTRadio',
+                        text: text,
+                        sound: null,
+                        icon: "https://www.20ftradio.com/assets/icon.png"
+                    });
+                }
             } else {
-                cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
+                cordova.plugins.notification.local && cordova.plugins.notification.local.clear({
                     id: 1,
                     title: '20FTRadio',
                     text: text,
