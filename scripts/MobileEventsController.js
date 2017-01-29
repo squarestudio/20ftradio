@@ -98,7 +98,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             console.warn(JSON.stringify(message))
         };
         var error = function(message) {
-            console.warn("Error: " + message);
+            console.error("Error: " + message);
         };
         var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
         calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
