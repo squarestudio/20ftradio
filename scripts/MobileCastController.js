@@ -1008,7 +1008,9 @@ window.Template.Controllers.MobileCastController = function (element) {
             });
         });
     }
-
+    function isAndroid() {
+        return Y.UA.mobile.indexOf('droid')>-1 || device.platform.indexOf('droid')>-1;
+    }
     function setLocalNotification(text){
         if(!localNotification){
             cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
@@ -1016,7 +1018,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 title: '20FTRadio',
                 text: text,
                 sound: null,
-                icon: "file:///android_asset/www/img/logo.jpg"
+                icon: isAndroid() ? "file:///android_asset/www/img/logo.jpg" : null
             });
         } else {
             cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
@@ -1024,7 +1026,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 title: '20FTRadio',
                 text: text,
                 sound: null,
-                icon: "file:///img/logo.png"
+                icon: isAndroid() ? "file:///android_asset/www/img/logo.jpg" : null
             });
         }
     }
