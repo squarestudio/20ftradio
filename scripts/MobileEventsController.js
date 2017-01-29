@@ -115,7 +115,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             calOptions.secondReminderMinutes = 5;
             calOptions.url = "https://www.20ftradio.com" + e.currentTarget.getAttribute('data-url');
             console.log(title, eventLocation, notes, startDate, endDate, calOptions);
-            window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
+            window.plugins.calendar && window.plugins.calendar.createEventWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
         } else {
             navigator.notification && navigator.notification.confirm(
                 title + ' already scheduled',  // message
