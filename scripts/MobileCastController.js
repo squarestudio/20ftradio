@@ -1013,8 +1013,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 id: 1,
                 title: '20FTRadio'
                 text: text,
-                sound: false,
-                data: { secret:key }
+                sound: false
             });
         } else {
             cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
