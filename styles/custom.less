@@ -921,7 +921,8 @@ body {
             -webkit-transform: translateY(250px);
             -ms-transform: translateY(250px);
             transform: translateY(250px);
-            .transition(transform .5s)
+            .transition(transform .5s ease-in);
+            .transition-webkit(transform .5s ease-in);
           }
         }
         &.active .event-descr {
