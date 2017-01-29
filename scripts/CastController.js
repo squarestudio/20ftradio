@@ -316,7 +316,6 @@ window.Template.Controllers.CastController = function (element) {
             if (youtubeUrl) {
                 console.log('Have Youtube Url');
                 initYoutubeStream();
-                getYoutubeStatus();
             } else if (shoutCastUrl) {
                 initShoutCast();
             } else if (someCloudUrl) {
