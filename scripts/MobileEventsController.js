@@ -155,13 +155,9 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 if (data.length) {
                     data.forEach(function (event) {
                         scheduleEvents.each(function (e) {
-                            var startDate = new Date(parseInt(e.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
-                            var endDate = new Date(parseInt(e.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
                             var title = e.getAttribute('data-title') || "Listen 20FTRadio";
                             var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
-                            var notes = e.getAttribute('data-tags') || "Listen 20FTRadio";
-                            console.log(startDate.getTime(), event.startDate, new Date(event.startDate), new Date(event.startDate).getTime())
-                            if (event.title == title){
+                            if (event.title == title && event.location == eventLocation){
                                 planedEvents.push(e.ancestor('.event-item'))
                             }
                         })
