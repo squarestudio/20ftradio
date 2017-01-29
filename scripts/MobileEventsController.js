@@ -84,35 +84,37 @@ window.Template.Controllers.MobileEventsController = function (element) {
 
     function createEvent(e) {
         e.halt();
-        var currentTime = new Date();
-        var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
-        var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
-        //new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime();
-        console.log(parseInt(e.currentTarget.getAttribute('data-start-date')), parseInt(e.currentTarget.getAttribute('data-end-date')))
-        var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
-        var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
-        var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
-        var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
-        var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
-        var success = function (message) {
-            console.warn(JSON.stringify(message))
-            window.plugins.calendar.findEvent(title, eventLocation, notes, startDate, endDate, successCreate, errorCreate);
-        };
-        var successCreate = function (data) {
-            console.warn(data)
+        if(!e.currentTarget.hasClass('scheduled')){
+            var currentTime = new Date();
+            var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
+            var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
+            //new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime();
+            console.log(parseInt(e.currentTarget.getAttribute('data-start-date')), parseInt(e.currentTarget.getAttribute('data-end-date')))
+            var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
+            var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
+            var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
+            var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
+            var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
+            var success = function (message) {
+                console.warn(JSON.stringify(message))
+                window.plugins.calendar.findEvent(title, eventLocation, notes, startDate, endDate, successCreate, errorCreate);
+            };
+            var successCreate = function (data) {
+                console.warn(data)
+            }
+            var errorCreate = function (data) {
+                console.error(data)
+            }
+            var error = function (message) {
+                console.error("Error: " + message);
+            };
+            var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
+            calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
+            calOptions.secondReminderMinutes = 5;
+            calOptions.url = "https://www.20ftradio.com" + e.currentTarget.getAttribute('data-url');
+            console.log(title, eventLocation, notes, startDate, endDate, calOptions);
+            window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
         }
-        var errorCreate = function (data) {
-            console.error(data)
-        }
-        var error = function (message) {
-            console.error("Error: " + message);
-        };
-        var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
-        calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
-        calOptions.secondReminderMinutes = 5;
-        calOptions.url = "https://www.20ftradio.com" + e.currentTarget.getAttribute('data-url');
-        console.log(title, eventLocation, notes, startDate, endDate, calOptions);
-        window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
     }
 
     function initCalendarClick() {
