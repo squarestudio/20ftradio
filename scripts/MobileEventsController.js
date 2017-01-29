@@ -144,25 +144,28 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var currentTime = new Date();
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
+        var scheduleEvents = mobileEvents.all('.schedule-event');
         window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, currentTime, null, function (data) {
             console.log(data);
             if (data.length) {
-                
-                e.ancestor('.event-item').addClass('scheduled');
+                data.forEach(function (event) {
+                    scheduleEvents.each(function (e) {
+                        var startDate = new Date(parseInt(e.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
+                        var endDate = new Date(parseInt(e.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
+                        var title = e.getAttribute('data-title') || "Listen 20FTRadio";
+                        var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
+                        var notes = e.getAttribute('data-tags') || "Listen 20FTRadio";
+                        if (event.title == title){
+                            e.ancestor('.event-item').addClass('scheduled');
+                        }
+                    })
+                })
             } else {
                 e.ancestor('.event-item').removeClass('scheduled');
             }
         }, function (err) {
             console.error(err);
         });
-        mobileEvents.all('.schedule-event').each(function (e) {
-            var startDate = new Date(parseInt(e.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
-            var endDate = new Date(parseInt(e.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
-            var title = e.getAttribute('data-title') || "Listen 20FTRadio";
-            var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
-            var notes = e.getAttribute('data-tags') || "Listen 20FTRadio";
-
-        })
     }
 
     function initEventClick() {
