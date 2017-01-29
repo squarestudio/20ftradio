@@ -814,6 +814,17 @@ body {
         &:last-child {
           margin-bottom: 0;
         }
+        &.scheduled {
+          .eventlist-datetag {
+            position: relative;
+            top: auto;
+            left: auto;
+            min-height: 10px;
+            width: 100%;
+            background-color: contrast(@background);
+            color: @background;
+          }
+        }
         .eventlist-datetag-status {
           height: 100%;
           left: 50%;
@@ -860,7 +871,7 @@ body {
         .event-title {
           .v-align;
           position: absolute;
-          display: inline-block;
+          display: block;
           font-size: 50%;
           max-width: 65%;
           margin: 0 5%;
