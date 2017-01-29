@@ -1,6 +1,6 @@
 window.Template.Controllers.MobileCastController = function (element) {
     'use strict';
-   var dontCheck = true;
+   var dontCheck = false;
     //console.log = function () {};
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
