@@ -94,13 +94,17 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
         var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
         var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
-        var success = function(message) { console.log(JSON.stringify(message))};
-        var error = function(message) { console.log("Error: " + message); };
+        var success = function(message) {
+            console.log(JSON.stringify(message))
+        };
+        var error = function(message) {
+            console.log("Error: " + message);
+        };
         var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
         calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
         calOptions.secondReminderMinutes = 5;
         calOptions.url = "https://www.20ftradio.com" + e.currentTarget.getAttribute('data-url');
-        console.log(title,eventLocation,notes,startDate,endDate,calOptions);
+        console.log(title, eventLocation, notes, startDate, endDate, calOptions);
         window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title,eventLocation,notes,startDate,endDate,calOptions,success,error);
     }
 
