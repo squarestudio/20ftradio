@@ -128,8 +128,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
             var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
             var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
-            var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
-            window.plugins.calendar.findEvent(title,eventLocation,notes,startDate,endDate,success,error);
+            window.plugins.calendar.findEvent(title,eventLocation,'',startDate,endDate,success,error);
         })
     }
 
