@@ -120,17 +120,17 @@ window.Template.Controllers.MobileEventsController = function (element) {
         };
         if (!e.currentTarget.ancestor('.event-item').hasClass('scheduled')) {
             navigator.notification && navigator.notification.confirm(
-                'Schedule '+title + '?',  // message
-                askToCreate,         // callback
-                'Schedule show',            // title
-                ['Cancel','Schedule']                  // buttonName
+                'Schedule '+title + ' show?',
+                askToCreate,
+                'Schedule show',
+                ['Cancel','Schedule']
             );
         } else {
             navigator.notification && navigator.notification.confirm(
-                title + ' already scheduled',  // message
-                askToDelete,         // callback
-                'Schedule show',            // title
-                ['Delete','OK']                  // buttonName
+                title + ' already scheduled.',
+                askToDelete,
+                'Schedule show',
+                ['Delete','OK']
             );
         }
     }
