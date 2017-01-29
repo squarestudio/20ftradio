@@ -145,7 +145,8 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         var scheduleEvents = mobileEvents.all('.schedule-event');
-        var planed
+        var upcoming = mobileEvents.all(' ')
+        var planedEvents = [];
         if (scheduleEvents._nodes.length){
             var startDate = new Date(parseInt(scheduleEvents.item(0).getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset);
             var endDate = new Date(parseInt(scheduleEvents.item(scheduleEvents._nodes.length).getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
@@ -160,15 +161,17 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
                             var notes = e.getAttribute('data-tags') || "Listen 20FTRadio";
                             if (event.title !== title){//&&  !e.ancestor('.event-item').hasClass('scheduled')
-                                e.ancestor('.event-item').removeClass('scheduled');
-                            } else {
-                                e.ancestor('.event-item').addClass('scheduled');
+                                planedEvents.push(e.ancestor('.event-item'))
                             }
                         })
                     })
                 } else {
                     //e.ancestor('.event-item').removeClass('scheduled');
                 }
+
+                planedEvents.forEach(function (event_item) {
+                    event_item.addClass('scheduled');
+                })
             }, function (err) {
                 console.error(err);
             });
