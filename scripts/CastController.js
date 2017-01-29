@@ -313,38 +313,16 @@ window.Template.Controllers.CastController = function (element) {
                 shoutCastReady = true;
                 retry = maxRetry - 1;
             }
-            if (!mobile || window.cordova) {
-                if (youtubeUrl) {
-                    console.log('Have Youtube Url');
-                    initYoutubeStream();
-                    getYoutubeStatus();
-                } else if (shoutCastUrl) {
-                    initShoutCast();
-                } else if (someCloudUrl) {
-                    initSomeCloud();
-                } else {
-                    console.log("No data to init");
-                }
-            }
-            if (mobile && !window.cordova) {
-                if (youtubeUrl) {
-                    getYoutubeStatus();
-                    initYoutubeStream();
-                }
-                if (shoutCastUrl) {
-                    initShoutCast();
-                }
-                if (someCloudUrl) {
-                    initSomeCloud();
-                }
-            }
-            if (youtubeUrl || shoutCastUrl || someCloudUrl) {
-                if (!mobile) {
-                    /*                streamCheckInterval = setInterval(function () {
-                     checkStreams();
-                     }, checkingTime);
-                     console.log('stream check interval set')*/
-                }
+            if (youtubeUrl) {
+                console.log('Have Youtube Url');
+                initYoutubeStream();
+                getYoutubeStatus();
+            } else if (shoutCastUrl) {
+                initShoutCast();
+            } else if (someCloudUrl) {
+                initSomeCloud();
+            } else {
+                console.log("No data to init");
             }
         } else {
             initFBPlayer();
