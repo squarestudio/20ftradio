@@ -1016,7 +1016,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 title: '20FTRadio',
                 text: text,
                 sound: null,
-                icon: "file:///img/logo.png"
+                icon: "file:///android_asset/www/img/logo.jpg"
             });
         } else {
             cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
