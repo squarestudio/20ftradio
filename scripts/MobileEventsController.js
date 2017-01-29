@@ -84,28 +84,15 @@ window.Template.Controllers.MobileEventsController = function (element) {
 
     function createEvent(e) {
         e.halt();
+        var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
+        var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
+        var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
         if (!e.currentTarget.ancestor('.event-item').hasClass('scheduled')) {
             var currentTime = new Date();
             var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
             var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
             var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
             var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
-            var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
-            var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
-            var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
-            /*var success = function (message) {
-                console.warn(JSON.stringify(message));
-                window.plugins.calendar.findEvent(title, eventLocation, notes, startDate, endDate, successCreate, errorCreate);
-            };
-            var successCreate = function (data) {
-                if (data.length) {
-                    e.currentTarget.addClass('scheduled');
-                }
-                console.warn(data)
-            };
-            var errorCreate = function (data) {
-                console.error(data)
-            };*/
             var error = function (message) {
                 console.error("Error: " + message);
                 checkScheduledEvents();
@@ -117,7 +104,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             console.log(title, eventLocation, notes, startDate, endDate, calOptions);
             window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, checkScheduledEvents, error);
         } else {
-            navigator.notification && navigator.notification.alert(
+            navigator.notification && navigator.notification.confirm(
                 'This already scheduled show.',  // message
                 null,         // callback
                 'Schedule show',            // title
