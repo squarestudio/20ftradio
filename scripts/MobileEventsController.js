@@ -94,11 +94,19 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
         var error = function (message) {
             console.error("Error: " + message);
-            checkScheduledEvents();
+            setTimeout(function () {
+                checkScheduledEvents();
+            }, 300);
+        };
+        var success = function (message) {
+            console.log(message);
+            setTimeout(function () {
+                checkScheduledEvents();
+            }, 300);
         };
         var askToDelete = function (buttonIndex) {
             if (buttonIndex == 1) {
-                window.plugins.calendar && window.plugins.calendar.deleteEvent(title,eventLocation,notes,startDate,endDate,checkScheduledEvents,error);
+                window.plugins.calendar && window.plugins.calendar.deleteEvent(title,eventLocation,notes,startDate,endDate,success,error);
             }
         };
         if (!e.currentTarget.ancestor('.event-item').hasClass('scheduled')) {
@@ -107,7 +115,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             calOptions.secondReminderMinutes = 5;
             calOptions.url = "https://www.20ftradio.com" + e.currentTarget.getAttribute('data-url');
             console.log(title, eventLocation, notes, startDate, endDate, calOptions);
-            window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, checkScheduledEvents, error);
+            window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
         } else {
             navigator.notification && navigator.notification.confirm(
                 title + ' already scheduled',  // message
