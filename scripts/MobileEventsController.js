@@ -149,7 +149,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             var title = e.getAttribute('data-title') || "Listen 20FTRadio";
             var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
             var notes = e.getAttribute('data-tags') || "Listen 20FTRadio";
-            window.plugins.calendar && window.plugins.calendar.findEvent(title, eventLocation, '', startDate, endDate, function (data) {
+            window.plugins.calendar && window.plugins.calendar.findEvent(title, null, null, startDate, endDate, function (data) {
                 console.log(data);
                 if (data.length) {
                     e.ancestor('.event-item').addClass('scheduled');
