@@ -168,7 +168,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 } else {
                     //e.ancestor('.event-item').removeClass('scheduled');
                 }
-
+                upcoming.removeClass('scheduled');
                 planedEvents.forEach(function (event_item) {
                     event_item.addClass('scheduled');
                 })
