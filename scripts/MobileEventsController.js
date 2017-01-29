@@ -98,7 +98,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         };
         var askToDelete = function (buttonIndex) {
             if (buttonIndex == 1) {
-                window.plugins.calendar && window.plugins.calendar.deleteEvent(title,eventLocation,notes,startDate,endDate,success,error);
+                window.plugins.calendar && window.plugins.calendar.deleteEvent(title,eventLocation,notes,startDate,endDate,checkScheduledEvents,error);
             }
         };
         if (!e.currentTarget.ancestor('.event-item').hasClass('scheduled')) {
