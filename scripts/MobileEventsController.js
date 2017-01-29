@@ -150,8 +150,10 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             Y.fire('getCurrentEvent');
                             initTabs();
                             checkScheduled();
-                            initCalendarClick();
-                            initEventClick();
+                            setTimeout(function () {
+                                initCalendarClick();
+                                initEventClick();
+                            },300);
                         } else {
                             mobileEvents.append(' <div class="mobileEvents-wrapper"><ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active"><p class="no-events-message">No Results</p></ul><ul id="mobile-events-past" class="mobileEvents mobileEvents-Past"><p class="no-events-message">No Results</p></ul></div>');
                             console.log('MobileEvents: no results');
