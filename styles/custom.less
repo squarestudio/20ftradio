@@ -916,11 +916,21 @@ body {
           .transition2(opacity .5s, max-height .3s);
           will-change: height;
           padding: 0 10px;
+          .descr {
+            -webkit-transform: translateY(250px);
+            -ms-transform: translateY(250px);
+            transform: translateY(250px);
+            animation-fill-mode: forwards;
+            -webkit-animation-fill-mode: forwards;
+          }
         }
         &.active .event-descr {
           max-height: 1000px;
           height: auto;
           opacity: 1;
+          .descr {
+
+          }
         }
       }
     }
