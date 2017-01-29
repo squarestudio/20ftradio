@@ -1008,6 +1008,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             });
         });
     }
+
     function setLocalNotification(text){
         if(!localNotification){
             cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
@@ -1025,6 +1026,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             });
         }
     }
+    
     function getShoutcastStatus() {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
