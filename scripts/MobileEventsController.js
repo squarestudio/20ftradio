@@ -121,7 +121,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         if (!e.currentTarget.ancestor('.event-item').hasClass('scheduled')) {
             navigator.notification && navigator.notification.confirm(
                 title + ' already scheduled',  // message
-                askToDelete,         // callback
+                askToCreate,         // callback
                 'Schedule show',            // title
                 ['Cancel','Schedule']                  // buttonName
             );
