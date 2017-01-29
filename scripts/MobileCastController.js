@@ -349,14 +349,6 @@ window.Template.Controllers.MobileCastController = function (element) {
                     initSomeCloud();
                 }
             }
-            if (youtubeUrl || shoutCastUrl || someCloudUrl) {
-                if (!mobile) {
-                    /*                streamCheckInterval = setInterval(function () {
-                     checkStreams();
-                     }, checkingTime);
-                     console.log('stream check interval set')*/
-                }
-            }
         } else {
             initFBPlayer();
         }
