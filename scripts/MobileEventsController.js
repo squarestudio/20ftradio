@@ -158,7 +158,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                         if (event.title == title &&  !e.ancestor('.event-item').hasClass('scheduled')){
                             e.ancestor('.event-item').addClass('scheduled');
                         } else {
-                            e.ancestor('.event-item').addClass('scheduled');
+                           //e.ancestor('.event-item').addClass('scheduled');
                         }
                     })
                 })
