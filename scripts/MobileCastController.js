@@ -741,6 +741,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     getYoutubeStatus()
                 }, 80000);
                 console.log('youtube check interval set')
+                getYoutubeStatus();
             }
         }
         else if (playerType == 'facebook') {
