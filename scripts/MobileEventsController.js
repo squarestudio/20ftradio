@@ -145,6 +145,8 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 console.log(data)
                 if (data.length) {
                     e.ancestor('.event-item').addClass('scheduled');
+                } else {
+                    e.ancestor('.event-item').removeClass('scheduled');
                 }
             }, function (err) {
                 console.error(err);
