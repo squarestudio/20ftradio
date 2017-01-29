@@ -121,7 +121,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 title + ' already scheduled',  // message
                 askToDelete,         // callback
                 'Schedule show',            // title
-                'Delete,OK'                  // buttonName
+                ['Delete','OK']                  // buttonName
             );
         }
     }
