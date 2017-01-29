@@ -104,6 +104,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         };
         var success = function (message) {
             console.log(message);
+            e.currentTarget.ancestor('.event-item').hasClass('scheduled');
             setTimeout(function () {
                 checkScheduledEvents();
             }, 700);
