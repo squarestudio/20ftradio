@@ -1012,22 +1012,24 @@ window.Template.Controllers.MobileCastController = function (element) {
         return Y.UA.mobile.indexOf('droid')>-1 || device.platform.indexOf('droid')>-1;
     }
     function setLocalNotification(text){
-        if(!localNotification){
-            cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
-                id: 1,
-                title: '20FTRadio',
-                text: text,
-                sound: false,
-                icon: isAndroid() ? "https://www.20ftradio.com/assets/icon.png" : null
-            });
-        } else {
-            cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
-                id: 1,
-                title: '20FTRadio',
-                text: text,
-                sound: false,
-                icon: isAndroid() ? "https://www.20ftradio.com/assets/icon.png" : null
-            });
+        if (useNotifications){
+            if(!localNotification){
+                cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
+                    id: 1,
+                    title: '20FTRadio',
+                    text: text,
+                    sound: false,
+                    icon: isAndroid() ? "https://www.20ftradio.com/assets/icon.png" : null
+                });
+            } else {
+                cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
+                    id: 1,
+                    title: '20FTRadio',
+                    text: text,
+                    sound: false,
+                    icon: isAndroid() ? "https://www.20ftradio.com/assets/icon.png" : null
+                });
+            }
         }
     }
 
