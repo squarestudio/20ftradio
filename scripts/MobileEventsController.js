@@ -147,6 +147,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, currentTime, null, function (data) {
             console.log(data);
             if (data.length) {
+                
                 e.ancestor('.event-item').addClass('scheduled');
             } else {
                 e.ancestor('.event-item').removeClass('scheduled');
