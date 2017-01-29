@@ -134,7 +134,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 initYoutubePlayer();
             }
             window.onYouTubeIframeAPIReady = function () {
-                console.log('YOUTUBE API READY')
+                console.log('YOUTUBE API READY');
                 initYoutubePlayer();
             };
         } else {
@@ -327,8 +327,8 @@ window.Template.Controllers.MobileCastController = function (element) {
             if (!mobile || window.cordova) {
                 if (youtubeUrl) {
                     console.log('Have Youtube Url');
-                    initYoutubeStream();
                     getYoutubeStatus();
+                    initYoutubeStream();
                 } else if (shoutCastUrl) {
                     initShoutCast();
                 } else if (someCloudUrl) {
