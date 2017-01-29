@@ -115,7 +115,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         };
         var askToCreate = function (buttonIndex) {
             if (buttonIndex == 2) {
-                window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
+                window.plugins.calendar && window.plugins.calendar.createEventWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
             }
         };
         if (!e.currentTarget.ancestor('.event-item').hasClass('scheduled')) {
