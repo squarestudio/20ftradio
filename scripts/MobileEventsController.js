@@ -120,10 +120,10 @@ window.Template.Controllers.MobileEventsController = function (element) {
     }
 
     function checkScheduledEvents() {
+        var currentTime = new Date();
+        var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
+        var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         mobileEvents.all('.schedule-event').each(function (e) {
-            var currentTime = new Date();
-            var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
-            var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
             var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
             var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
             var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
