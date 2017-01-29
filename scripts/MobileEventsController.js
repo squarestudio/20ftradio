@@ -95,10 +95,10 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
         var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
         var success = function(message) {
-            console.log(JSON.stringify(message))
+            console.warn(JSON.stringify(message))
         };
         var error = function(message) {
-            console.log("Error: " + message);
+            console.warn("Error: " + message);
         };
         var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
         calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
