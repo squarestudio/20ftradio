@@ -92,6 +92,10 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
         var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
+        var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
+        calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
+        calOptions.secondReminderMinutes = 5;
+        calOptions.url = "https://www.20ftradio.com" + e.currentTarget.getAttribute('data-url');
         var error = function (message) {
             console.error("Error: " + message);
             setTimeout(function () {
@@ -109,12 +113,18 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 window.plugins.calendar && window.plugins.calendar.deleteEvent(title,eventLocation,notes,startDate,endDate,success,error);
             }
         };
+        var askToDelete = function (buttonIndex) {
+            if (buttonIndex == 1) {
+                window.plugins.calendar && window.plugins.calendar.deleteEvent(title,eventLocation,notes,startDate,endDate,success,error);
+            }
+        };
         if (!e.currentTarget.ancestor('.event-item').hasClass('scheduled')) {
-            var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
-            calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
-            calOptions.secondReminderMinutes = 5;
-            calOptions.url = "https://www.20ftradio.com" + e.currentTarget.getAttribute('data-url');
-            console.log(title, eventLocation, notes, startDate, endDate, calOptions);
+            navigator.notification && navigator.notification.confirm(
+                title + ' already scheduled',  // message
+                askToDelete,         // callback
+                'Schedule show',            // title
+                ['Cancel','Schedule']                  // buttonName
+            );
             window.plugins.calendar && window.plugins.calendar.createEventWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
         } else {
             navigator.notification && navigator.notification.confirm(
