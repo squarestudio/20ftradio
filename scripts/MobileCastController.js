@@ -102,6 +102,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 'controls': 0,
                 'modestbranding': 0,
                 'rel': 0,
+                'origin': 'file://'
                 'showinfo': 0,
                 'channel': channel || '',
                 'playsinline': 1,
