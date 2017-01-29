@@ -145,7 +145,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         var scheduleEvents = mobileEvents.all('.schedule-event');
-        var upcoming = mobileEvents.all(' ')
+        var upcoming = mobileEvents.all('#mobile-events-upcoming li');
         var planedEvents = [];
         if (scheduleEvents._nodes.length){
             var startDate = new Date(parseInt(scheduleEvents.item(0).getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset);
