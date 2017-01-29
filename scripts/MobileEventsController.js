@@ -96,7 +96,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
             var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
             var success = function (message) {
-                console.warn(JSON.stringify(message))
+                console.warn(JSON.stringify(message));
                 window.plugins.calendar.findEvent(title, eventLocation, notes, startDate, endDate, successCreate, errorCreate);
             };
             var successCreate = function (data) {
@@ -119,6 +119,12 @@ window.Template.Controllers.MobileEventsController = function (element) {
 
     function initCalendarClick() {
         mobileEvents.all('.schedule-event').on('click', createEvent)
+    }
+
+    function checkScheduledEvents() {
+        mobileEvents.all('.schedule-event').each(function (e) {
+
+        })
     }
 
     function initEventClick() {
@@ -149,7 +155,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             mobileEvents.append(compiledFragment);
                             Y.fire('getCurrentEvent');
                             initTabs();
-                            checkScheduled();
+                            checkScheduledEvents();
                             setTimeout(function () {
                                 initCalendarClick();
                                 initEventClick();
