@@ -1008,7 +1008,22 @@ window.Template.Controllers.MobileCastController = function (element) {
         });
     }
     function setLocalNotification(text){
-        
+        if(!localNitification){
+            cordova.plugins.notification.local.schedule({
+                id: 1,
+                title: '20FTRadio'
+                text: text,
+                sound: false,
+                data: { secret:key }
+            });
+        } else {
+            cordova.plugins.notification.local.schedule({
+                id: 1,
+                title: '20FTRadio'
+                text: text,
+                sound: false
+            });
+        }
     }
     function getShoutcastStatus() {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
