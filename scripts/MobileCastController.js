@@ -937,10 +937,12 @@ window.Template.Controllers.MobileCastController = function (element) {
                 }
             });
             if (eventOnAir) {
-                trackName.one('span').set('text', eventOnAir.title);
-                trackName.addClass('scroll-track');
-                setLocalNotification(eventOnAir.title);
-                checkTrackNameOverflow();
+                if (trackName.get('text') !== eventOnAir.title) {
+                    trackName.one('span').set('text', current_song);
+                    trackName.removeClass('scroll-track').addClass('scroll-track');
+                    setLocalNotification(eventOnAir.title);
+                    checkTrackNameOverflow();
+                }
                 if (Y.one('.event-item-' + eventOnAir.id)) {
                     Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
                 }
