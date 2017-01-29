@@ -514,7 +514,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         if (!userPaused && activePlayer !== 'facebook') {
             console.log('CHECK Before Youtube');
             if (youtubeStatusLoad) {
-                if (youtubePlayer && youtubeStatus) {
+                if (youtubePlayer && youtubeReady) {
                     var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                     if (youtubeStatus) {
                         if (state > 1 && !mobile) youtubePlayer.playVideo();
