@@ -96,7 +96,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
         var success = function (message) {
             console.warn(JSON.stringify(message))
-            window.plugins.calendar.findEvent(title, eventLocation, notes, startDate, endDate, success, error);
+            window.plugins.calendar.findEvent(title, eventLocation, notes, startDate, endDate, successCreate, errorCreate);
         };
         var successCreate = function (data) {
             console.warn(data)
