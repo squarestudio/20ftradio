@@ -148,7 +148,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         if (scheduleEvents._nodes.length){
             var startDate = new Date(parseInt(scheduleEvents.item(0).getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset);
             var endDate = new Date(parseInt(scheduleEvents.item(scheduleEvents._nodes.length).getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
-            window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, currentTime, null, function (data) {
+            window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, startDate, endDate, function (data) {
                 console.log(data);
                 if (data.length) {
                     data.forEach(function (event) {
