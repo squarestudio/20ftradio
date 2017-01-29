@@ -137,7 +137,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
     }
 
     function initCalendarClick() {
-        mobileEvents.all('.schedule-event').on('click', createEvent);
+        mobileEvents.one('.schedule-event') && mobileEvents.all('.schedule-event').on('click', createEvent);
     }
 
     function checkScheduledEvents() {
@@ -145,29 +145,33 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         var scheduleEvents = mobileEvents.all('.schedule-event');
-        window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, currentTime, null, function (data) {
-            console.log(data);
-            if (data.length) {
-                data.forEach(function (event) {
-                    scheduleEvents.each(function (e) {
-                        var startDate = new Date(parseInt(e.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
-                        var endDate = new Date(parseInt(e.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
-                        var title = e.getAttribute('data-title') || "Listen 20FTRadio";
-                        var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
-                        var notes = e.getAttribute('data-tags') || "Listen 20FTRadio";
-                        if (event.title !== title){//&&  !e.ancestor('.event-item').hasClass('scheduled')
-                            e.ancestor('.event-item').removeClass('scheduled');
-                        } else {
-                           e.ancestor('.event-item').addClass('scheduled');
-                        }
+        if (scheduleEvents._nodes.length){
+            var startDate = new Date(parseInt(scheduleEvents.item(0).getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset);
+            var endDate = new Date(parseInt(e.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
+            window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, currentTime, null, function (data) {
+                console.log(data);
+                if (data.length) {
+                    data.forEach(function (event) {
+                        scheduleEvents.each(function (e) {
+                            var startDate = new Date(parseInt(e.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
+                            var endDate = new Date(parseInt(e.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
+                            var title = e.getAttribute('data-title') || "Listen 20FTRadio";
+                            var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
+                            var notes = e.getAttribute('data-tags') || "Listen 20FTRadio";
+                            if (event.title !== title){//&&  !e.ancestor('.event-item').hasClass('scheduled')
+                                e.ancestor('.event-item').removeClass('scheduled');
+                            } else {
+                                e.ancestor('.event-item').addClass('scheduled');
+                            }
+                        })
                     })
-                })
-            } else {
-                //e.ancestor('.event-item').removeClass('scheduled');
-            }
-        }, function (err) {
-            console.error(err);
-        });
+                } else {
+                    //e.ancestor('.event-item').removeClass('scheduled');
+                }
+            }, function (err) {
+                console.error(err);
+            });
+        }
     }
 
     function initEventClick() {
