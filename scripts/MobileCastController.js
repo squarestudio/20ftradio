@@ -89,8 +89,8 @@ window.Template.Controllers.MobileCastController = function (element) {
         } else if (youtubeUrl.indexOf('live_stream') > -1) {
             var channel = youtubeUrl.split('channel=')[1];
             youtubeUrl = 'live_stream';
-            console.log(youtubeUrl, channel)
         }
+        console.log(youtubeUrl, channel);
         youtubePlayer = new YT.Player('youtubePlayer', {
             height: '720',
             width: '1280',
