@@ -956,6 +956,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             if (eventOnAir) {
                 trackName.one('span').set('text', eventOnAir.title);
                 trackName.addClass('scroll-track');
+                setLocalNotification(eventOnAir.title);
                 checkTrackNameOverflow();
                 if (Y.one('.event-item-' + eventOnAir.id)) {
                     Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
@@ -1006,7 +1007,9 @@ window.Template.Controllers.MobileCastController = function (element) {
             });
         });
     }
-
+    function setLocalNotification(text){
+        
+    }
     function getShoutcastStatus() {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
@@ -1020,6 +1023,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                             console.log(current_song);
                             if (trackName.get('text') !== current_song) {
                                 trackName.one('span').set('text', current_song);
+                                setLocalNotification(current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                                 checkTrackNameOverflow();
                             }
