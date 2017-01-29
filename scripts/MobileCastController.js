@@ -1015,14 +1015,16 @@ window.Template.Controllers.MobileCastController = function (element) {
                 id: 1,
                 title: '20FTRadio'
                 text: text,
-                sound: null
+                sound: null,
+                icon: "file://img/logo.png"
             });
         } else {
             cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
                 id: 1,
                 title: '20FTRadio'
                 text: text,
-                sound: null
+                sound: null,
+                icon: "file://img/logo.png"
             });
         }
     }
