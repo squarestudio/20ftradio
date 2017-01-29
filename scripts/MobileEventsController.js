@@ -160,7 +160,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             var title = e.getAttribute('data-title') || "Listen 20FTRadio";
                             var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
                             var notes = e.getAttribute('data-tags') || "Listen 20FTRadio";
-                            console.log(startDate.getTime(), new Date(event.startDate).getTime())
+                            console.log(startDate.getTime(), (new Date(event.startDate)).getTime())
                             if (event.title == title){
                                 planedEvents.push(e.ancestor('.event-item'))
                             }
