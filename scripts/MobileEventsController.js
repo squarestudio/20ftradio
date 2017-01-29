@@ -105,8 +105,8 @@ window.Template.Controllers.MobileEventsController = function (element) {
             window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, checkScheduledEvents, error);
         } else {
             navigator.notification && navigator.notification.confirm(
-                'This already scheduled show.',  // message
-                null,         // callback
+                title + ' already scheduled',  // message
+                askToDelete,         // callback
                 'Schedule show',            // title
                 'OK'                  // buttonName
             );
