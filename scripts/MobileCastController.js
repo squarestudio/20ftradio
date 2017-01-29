@@ -434,6 +434,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function checkStreams() {
+        if(dontCheck) return;
         var now = new Date().getTime();
         retry++;
         console.log('Retries: ' + retry, now - lastCheckTime);
