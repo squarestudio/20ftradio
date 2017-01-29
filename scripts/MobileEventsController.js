@@ -93,7 +93,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
             var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
             var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
-            var success = function (message) {
+            /*var success = function (message) {
                 console.warn(JSON.stringify(message));
                 window.plugins.calendar.findEvent(title, eventLocation, notes, startDate, endDate, successCreate, errorCreate);
             };
@@ -105,7 +105,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             };
             var errorCreate = function (data) {
                 console.error(data)
-            };
+            };*/
             var error = function (message) {
                 console.error("Error: " + message);
             };
