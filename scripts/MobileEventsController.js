@@ -87,21 +87,21 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
         var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
         var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
+        var currentTime = new Date();
+        var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
+        var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
+        var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
+        var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
+        var error = function (message) {
+            console.error("Error: " + message);
+            checkScheduledEvents();
+        };
         var askToDelete = function (buttonIndex) {
             if (buttonIndex == 1) {
-
+                window.plugins.calendar && window.plugins.calendar.deleteEvent(title,eventLocation,notes,startDate,endDate,success,error);
             }
         };
         if (!e.currentTarget.ancestor('.event-item').hasClass('scheduled')) {
-            var currentTime = new Date();
-            var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
-            var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
-            var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
-            var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
-            var error = function (message) {
-                console.error("Error: " + message);
-                checkScheduledEvents();
-            };
             var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
             calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
             calOptions.secondReminderMinutes = 5;
