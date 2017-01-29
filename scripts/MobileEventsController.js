@@ -84,7 +84,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
 
     function createEvent(e) {
         e.halt();
-        if (!e.currentTarget.hasClass('scheduled')) {
+        if (!e.currentTarget.ancestor('.event-item').hasClass('scheduled')) {
             var currentTime = new Date();
             var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
             var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
@@ -115,6 +115,8 @@ window.Template.Controllers.MobileEventsController = function (element) {
             calOptions.url = "https://www.20ftradio.com" + e.currentTarget.getAttribute('data-url');
             console.log(title, eventLocation, notes, startDate, endDate, calOptions);
             window.plugins.calendar && window.plugins.calendar.createEventInteractivelyWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
+        } else {
+            navigator.
         }
     }
 
@@ -133,7 +135,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
             window.plugins.calendar && window.plugins.calendar.findEvent(title, eventLocation, '', startDate, endDate, function (data) {
                 if (data.length) {
-                    e.addClass('scheduled');
+                    e.ancestor('.event-item').addClass('scheduled');
                 }
             }, function (err) {
                 console.error(err);
