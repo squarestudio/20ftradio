@@ -84,7 +84,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
 
     function createEvent(e) {
         e.halt();
-        if(!e.currentTarget.hasClass('scheduled')){
+        if (!e.currentTarget.hasClass('scheduled')) {
             var currentTime = new Date();
             var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
             var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
@@ -98,11 +98,14 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 window.plugins.calendar.findEvent(title, eventLocation, notes, startDate, endDate, successCreate, errorCreate);
             };
             var successCreate = function (data) {
+                if (data.length) {
+                    e.currentTarget.addClass('scheduled');
+                }
                 console.warn(data)
-            }
+            };
             var errorCreate = function (data) {
                 console.error(data)
-            }
+            };
             var error = function (message) {
                 console.error("Error: " + message);
             };
@@ -124,11 +127,17 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         mobileEvents.all('.schedule-event').each(function (e) {
-            var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
-            var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
-            var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
-            var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
-            window.plugins.calendar.findEvent(title,eventLocation,'',startDate,endDate,success,error);
+            var startDate = new Date(parseInt(e.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
+            var endDate = new Date(parseInt(e.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
+            var title = e.getAttribute('data-title') || "Listen 20FTRadio";
+            var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
+            window.plugins.calendar.findEvent(title, eventLocation, '', startDate, endDate, function (data) {
+                if (data.length) {
+                    e.addClass('scheduled');
+                }
+            }, function (err) {
+                console.error(err);
+            });
         })
     }
 
@@ -164,7 +173,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             setTimeout(function () {
                                 initCalendarClick();
                                 initEventClick();
-                            },300);
+                            }, 300);
                         } else {
                             mobileEvents.append(' <div class="mobileEvents-wrapper"><ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active"><p class="no-events-message">No Results</p></ul><ul id="mobile-events-past" class="mobileEvents mobileEvents-Past"><p class="no-events-message">No Results</p></ul></div>');
                             console.log('MobileEvents: no results');
