@@ -4,7 +4,7 @@
     return;
   }
 
-  var DEBUG = false;
+  var DEBUG = true;
 
   /**
    * Cached array of live controllers.
