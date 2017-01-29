@@ -1017,7 +1017,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 id: 1,
                 title: '20FTRadio',
                 text: text,
-                sound: null,
+                sound: false,
                 icon: isAndroid() ? "file:///android_asset/www/img/logo.png" : null
             });
         } else {
@@ -1025,7 +1025,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 id: 1,
                 title: '20FTRadio',
                 text: text,
-                sound: null,
+                sound: false,
                 icon: isAndroid() ? "file:///android_asset/www/img/logo.png" : null
             });
         }
