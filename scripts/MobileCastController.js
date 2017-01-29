@@ -458,6 +458,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                         Y.detach('getCurrentEvent', getCurrentEvent);
                         trackName.one('span').set('text', '');
                         trackName.removeClass('scroll-track');
+                        setLocalNotification();
                     }
                     getShoutcastStatus();
                     shoutcastStatusCheckInterval = setInterval(function () {
@@ -478,7 +479,8 @@ window.Template.Controllers.MobileCastController = function (element) {
                     console.log('Shoutcast status reset');
                     shoutcastStatusCheckInterval = null;
                 }
-                trackName.one('span').set('text', '   ');
+                trackName.one('span').set('text', '');
+                setLocalNotification();
                 trackName.removeClass('scroll-track');
             }
 
