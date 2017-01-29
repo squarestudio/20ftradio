@@ -149,6 +149,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             mobileEvents.append(compiledFragment);
                             Y.fire('getCurrentEvent');
                             initTabs();
+                            checkScheduled();
                             initCalendarClick();
                             initEventClick();
                         } else {
