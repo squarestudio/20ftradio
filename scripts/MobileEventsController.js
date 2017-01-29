@@ -144,7 +144,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var currentTime = new Date();
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
-        window.plugins.calendar && window.plugins.calendar.findEvent(title, null, null, startDate, endDate, function (data) {
+        window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, startDate, endDate, function (data) {
             console.log(data);
             if (data.length) {
                 e.ancestor('.event-item').addClass('scheduled');
