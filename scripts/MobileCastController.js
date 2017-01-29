@@ -439,6 +439,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     shoutcastStatusCheckInterval = null;
                     trackName.one('span').set('text', '');
                     trackName.removeClass('scroll-track');
+                    setLocalNotification();
                 }
                 if (!eventStatusInterval) {
                     getCurrentEvent();
