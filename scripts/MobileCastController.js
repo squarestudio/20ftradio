@@ -1015,18 +1015,18 @@ window.Template.Controllers.MobileCastController = function (element) {
                 id: 1,
                 title: '20FTRadio'
                 text: text,
-                sound: false
+                sound: null
             });
         } else {
             cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
                 id: 1,
                 title: '20FTRadio'
                 text: text,
-                sound: false
+                sound: null
             });
         }
     }
-    
+
     function getShoutcastStatus() {
         Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
             on: {
