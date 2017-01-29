@@ -124,12 +124,6 @@ window.Template.Controllers.MobileEventsController = function (element) {
         console.log('mobileEvents init');
         mobileEvents = Y.one('#mobileEvents');
         if (mobileEvents) {
-/*            if (animOnScroll) animOnScroll = null;
-            animOnScroll = new AnimOnScroll(document.getElementById("mobileEvents"), {
-                minDuration: 1,
-                maxDuration: 2,
-                viewportFactor: 0.2
-            });*/
             if (Y.one('#mobile-events-query-template')) {
                 Y.use(['node', 'squarespace-json-template'], function (Y) {
                     var template = Y.one('#mobile-events-query-template').getHTML().replace(/\^/g, '{');
