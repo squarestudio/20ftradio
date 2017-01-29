@@ -88,8 +88,6 @@ window.Template.Controllers.MobileEventsController = function (element) {
             var currentTime = new Date();
             var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
             var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
-            //new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime();
-            console.log(parseInt(e.currentTarget.getAttribute('data-start-date')), parseInt(e.currentTarget.getAttribute('data-end-date')))
             var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
             var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
             var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
@@ -118,12 +116,20 @@ window.Template.Controllers.MobileEventsController = function (element) {
     }
 
     function initCalendarClick() {
-        mobileEvents.all('.schedule-event').on('click', createEvent)
+        mobileEvents.all('.schedule-event').on('click', createEvent);
     }
 
     function checkScheduledEvents() {
         mobileEvents.all('.schedule-event').each(function (e) {
-
+            var currentTime = new Date();
+            var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
+            var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
+            var startDate = new Date(parseInt(e.currentTarget.getAttribute('data-start-date')) + siteTimezoneOffset + userTimezoneOffset); // beware: month 0 = january, 11 = december
+            var endDate = new Date(parseInt(e.currentTarget.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset);
+            var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
+            var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
+            var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
+            window.plugins.calendar.findEvent(title,eventLocation,notes,startDate,endDate,success,error);
         })
     }
 
