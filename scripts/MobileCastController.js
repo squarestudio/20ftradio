@@ -41,6 +41,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         eventStatusInterval,
         currentEvents,
         liveIndicator,
+        localNotification = false,
         castContainer = Y.one('#castDiv');
 
     function initialize() {
@@ -1008,7 +1009,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         });
     }
     function setLocalNotification(text){
-        if(!localNitification){
+        if(!localNotification){
             cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
                 id: 1,
                 title: '20FTRadio'
