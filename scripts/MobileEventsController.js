@@ -163,7 +163,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                     })
                 })
             } else {
-                e.ancestor('.event-item').removeClass('scheduled');
+                //e.ancestor('.event-item').removeClass('scheduled');
             }
         }, function (err) {
             console.error(err);
