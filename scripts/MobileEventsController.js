@@ -87,6 +87,9 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var title = e.currentTarget.getAttribute('data-title') || "Listen 20FTRadio";
         var eventLocation = e.currentTarget.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
         var notes = e.currentTarget.getAttribute('data-tags') || "Listen 20FTRadio";
+        var askToDelete = function () {
+
+        };
         if (!e.currentTarget.ancestor('.event-item').hasClass('scheduled')) {
             var currentTime = new Date();
             var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
