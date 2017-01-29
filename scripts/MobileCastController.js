@@ -1021,16 +1021,16 @@ window.Template.Controllers.MobileCastController = function (element) {
                     id: 1,
                     title: '20FTRadio',
                     text: text,
-                    sound: false,
-                    icon: isAndroid() ? "https://www.20ftradio.com/assets/icon.png" : null
+                    sound: null,
+                    icon: "https://www.20ftradio.com/assets/icon.png"
                 });
             } else {
                 cordova.plugins.notification.local && cordova.plugins.notification.local.schedule({
                     id: 1,
                     title: '20FTRadio',
                     text: text,
-                    sound: false,
-                    icon: isAndroid() ? "https://www.20ftradio.com/assets/icon.png" : null
+                    sound: null,
+                    icon: "https://www.20ftradio.com/assets/icon.png"
                 });
             }
         }
