@@ -77,6 +77,7 @@ window.Template.Controllers.CastController = function (element) {
     function initYoutubePlayer() {
         if (youtubeUrl.indexOf('watch') > -1) {
             youtubeUrl = youtubeUrl.split('=')[1];
+            youtubeStatus = youtubeStatusLoad = true;
         } else if (youtubeUrl.indexOf('live_stream') > -1) {
             var channel = youtubeUrl.split('channel=')[1];
             youtubeUrl = 'live_stream';
