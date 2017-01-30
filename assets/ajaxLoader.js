@@ -393,7 +393,7 @@
                     y: window.scrollY
                 }
             };
-            console.log(parser.pathname + parser.search)
+            console.warn(parser.pathname + parser.search)
             window.history.pushState(state, docTitle, parser.pathname + parser.search);
         },
 
@@ -407,6 +407,7 @@
                     y: window.scrollY
                 }
             }, document.title, window.location.pathname + window.location.search);
+            console.warn(window.location.pathname + window.location.search)
         },
 
         bindPopState: function (e) {
@@ -416,6 +417,7 @@
                 // because Safari treats initial page load as a popstate.
             } else if (!ajaxFired) {
                 currentEvent = e;
+                console.warn(e.state.url + e.state.search)
                 this.fireRequest(e.state.url + e.state.search);
             } else {
                 console.log('uh oh something wrong with bindPopState');
