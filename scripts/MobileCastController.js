@@ -942,7 +942,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             });
             if (eventOnAir) {
                 if (trackName.get('text') !== eventOnAir.title) {
-                    trackName.one('span').set('text', current_song);
+                    trackName.one('span').set('text', eventOnAir.title);
                     trackName.removeClass('scroll-track').addClass('scroll-track');
                     setLocalNotification(eventOnAir.title);
                     checkTrackNameOverflow();
