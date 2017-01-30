@@ -108,7 +108,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             }, 100);
         };
         var askToDelete = function (buttonIndex) {
-            if (buttonIndex == 1) {
+            if (buttonIndex == 2) {
                 window.plugins.calendar && window.plugins.calendar.deleteEvent(title,eventLocation,notes,startDate,endDate,success,error);
             }
         };
@@ -128,8 +128,8 @@ window.Template.Controllers.MobileEventsController = function (element) {
             navigator.notification && navigator.notification.confirm(
                 title + ' already scheduled.',
                 askToDelete,
-                'Schedule show',
-                ['Delete','OK']
+                'Delete Scheduled show',
+                ['Cancel','Delete']
             );
         }
     }
