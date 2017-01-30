@@ -117,7 +117,7 @@
                     this.fireRequest(url)
                 }
             } else {
-                if (link.getAttribute('href').indexOf('http') == 0 && link.getAttribute('href').indexOf('.20ftradio') < 0){
+                if (link && link.getAttribute('href').indexOf('http') == 0 && link.getAttribute('href').indexOf('.20ftradio') < 0){
                     e.preventDefault();
                     cordova.InAppBrowser && cordova.InAppBrowser.open(link.href, '_system');
                 } else {
