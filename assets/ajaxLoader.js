@@ -393,6 +393,7 @@
                     y: window.scrollY
                 }
             };
+            console.log(parser.pathname + parser.search)
             window.history.pushState(state, docTitle, parser.pathname + parser.search);
         },
 
