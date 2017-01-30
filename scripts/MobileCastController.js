@@ -588,6 +588,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 console.log('Still have no youtubee status load')
             }
         }
+        window.plrz = players;
     }
 
     function setActivePlayer(active) {
