@@ -261,6 +261,7 @@
                         this.handleTimeout(url);
                     } else {
                         // if the clicked link is the same as current page, don't update the history
+                        console.warn(url, window.location.pathname)
                         if (url !== window.location.pathname) {
                             this.replaceHistory();
                             this.updateHistory(url, document.querySelector('title').textContent);
