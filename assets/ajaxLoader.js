@@ -190,9 +190,11 @@
         fireRequest: function (url) {
             ajaxFired = true;
             // this.destroySqsBlocks();
+            console.warn(url)
             if(url.indexOf(window.serverURL) < 0 && url.indexOf('/') == 0){
                 url = window.serverURL+url;
             }
+            console.warn(url)
             this.toggleLoadingAttr('add');
             // this.toggleWillChange(document.querySelector(this.SITE_CONTAINER), ['transform', 'opacity']);
             if (url.indexOf('/mobile-app/') > -1) {
