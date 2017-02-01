@@ -10,6 +10,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         someCloudUrl,
         retry = 0,
         maxRetry = 3,
+        youtubeRetry = maxRetry,
         youtubeStatus = false,
         youtubeStatusLoad = false,
         youtubeCheckInterval,
