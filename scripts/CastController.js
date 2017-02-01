@@ -487,8 +487,9 @@ window.Template.Controllers.CastController = function (element) {
                     if (youtubeStatus) {
                         if(state == 3) {
                             youtubeRetry++;
+                            if
                         } else {
-                            youtubeRetry =
+                            youtubeRetry = 0;
                         }
                         if (state > 1 && !mobile) youtubePlayer.playVideo();
                         activePlayer = 'youtube';
