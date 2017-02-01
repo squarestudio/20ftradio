@@ -500,6 +500,19 @@ window.Template.Controllers.MobileCastController = function (element) {
                     var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                     if (youtubeStatus) {
                         if (state > 1 && !mobile) youtubePlayer.playVideo();
+                        if (state == 3) {
+                            youtubeRetry++;
+                            if (youtubeRetry > maxRetry) {
+                                retry = maxRetry;
+                                youtubeStatus = false;
+                                return;
+                            }
+                        } else {
+                            youtubeRetry = 0;
+                        }
+                        if (state == 1) {
+                            youtubeStatus = true;
+                        }
                         activePlayer = 'youtube';
                         pausePlayersExept('youtube');
                         onPlayerStateChange('youtube', state);
