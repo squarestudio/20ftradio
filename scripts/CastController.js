@@ -496,6 +496,7 @@ window.Template.Controllers.CastController = function (element) {
                         } else {
                             youtubeRetry = 0;
                         }
+                        
                         activePlayer = 'youtube';
                         pausePlayersExept('youtube');
                         onPlayerStateChange('youtube', state);
