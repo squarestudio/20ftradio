@@ -9,7 +9,7 @@ window.Template.Controllers.CastController = function (element) {
         someCloudUrl,
         retry = 0,
         maxRetry = 3,
-        youtubeRetry = maxRetry,
+        youtubeRetry = 0,
         youtubeStatus = false,
         youtubeStatusLoad = false,
         youtubeCheckInterval,
@@ -486,7 +486,9 @@ window.Template.Controllers.CastController = function (element) {
                     var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                     if (youtubeStatus) {
                         if(state == 3) {
-                            
+                            youtubeRetry++;
+                        } else {
+                            youtubeRetry =
                         }
                         if (state > 1 && !mobile) youtubePlayer.playVideo();
                         activePlayer = 'youtube';
