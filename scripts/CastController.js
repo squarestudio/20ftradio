@@ -487,7 +487,11 @@ window.Template.Controllers.CastController = function (element) {
                     if (youtubeStatus) {
                         if(state == 3) {
                             youtubeRetry++;
-                            if
+                            if (youtubeRetry > maxRetry){
+                                retry = maxRetry;
+                                youtubeStatus = false;
+                                return;
+                            }
                         } else {
                             youtubeRetry = 0;
                         }
