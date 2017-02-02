@@ -971,7 +971,7 @@ window.Template.Controllers.CastController = function (element) {
                             console.log('Youtube STREAM is:  --' + live);
                             youtubeStatus = live;
                             checkStreams();
-                            resolve(live);
+                            resolve(false);
                         }
                     },
                     failure: function (e) {
