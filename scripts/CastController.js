@@ -484,7 +484,6 @@ window.Template.Controllers.CastController = function (element) {
             if (youtubeStatusLoad) {
                 if (youtubePlayer && youtubeReady) {
                     var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                    if (youtubeStatus) {
                         if (state > 1 && !mobile) youtubePlayer.playVideo();
                         if (state == 3) {
                             youtubeRetry++;
@@ -505,7 +504,6 @@ window.Template.Controllers.CastController = function (element) {
                         status();
                         retry = 1;
                         return;
-                    }
                     console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
                 }
                 console.log('CHECK After Youtube');
