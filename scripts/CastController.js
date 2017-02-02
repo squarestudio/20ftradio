@@ -967,7 +967,7 @@ window.Template.Controllers.CastController = function (element) {
                             data = JSON.parse(data.responseText);
                             var live = data.pageInfo.totalResults > 0;
                             console.log('Youtube STREAM is:  --' + live);
-                            youtubeStatus = live;
+                            youtubeStatus = false;
                             checkStreams();
                             resolve(live);
                         }
