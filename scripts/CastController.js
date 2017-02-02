@@ -509,7 +509,7 @@ window.Template.Controllers.CastController = function (element) {
                     console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
                 }
                 console.log('CHECK After Youtube');
-                if (!youtubeStatus) {//retry > maxRetry || notYoutube
+                if (!youtubeStatus && retry > maxRetry) {//retry > maxRetry || notYoutube
                     console.log('try another players', notShoutcast, notSoundCloud);
                     if (shoutcastPlayer && !notShoutcast) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
