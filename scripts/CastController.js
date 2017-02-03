@@ -496,13 +496,13 @@ window.Template.Controllers.CastController = function (element) {
                         }
                         if (state == 1) {
                             youtubeStatus = true;
+                            activePlayer = 'youtube';
+                            pausePlayersExept('youtube');
+                            onPlayerStateChange('youtube', state);
+                            status();
+                            retry = 1;
+                            return;
                         }
-                        activePlayer = 'youtube';
-                        pausePlayersExept('youtube');
-                        onPlayerStateChange('youtube', state);
-                        status();
-                        retry = 1;
-                        return;
                     console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
                 }
                 console.log('CHECK After Youtube');
