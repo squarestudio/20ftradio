@@ -834,7 +834,7 @@ window.Template.Controllers.CastController = function (element) {
         if (playerType == 'youtube') {
             console.log('youtube player change', state);
             if (youtubePlayer && state) {
-                if (state == YT.PlayerState.PLAYING || state == YT.PlayerState.) {
+                if (state == YT.PlayerState.PLAYING || state == 5) {
                     setPlaying(playerType);
                 } else if (state == YT.PlayerState.PAUSED) {
                     setPaused();
