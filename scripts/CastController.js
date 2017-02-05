@@ -484,25 +484,25 @@ window.Template.Controllers.CastController = function (element) {
             if (youtubeStatusLoad) {
                 if (youtubePlayer && youtubeReady) {
                     var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                        if (state > 1 && !mobile) youtubePlayer.playVideo();
-                        if (state == 3) {
-                            youtubeRetry++;
-                            if (youtubeRetry > maxRetry) {
-                                retry = maxRetry+1;
-                                youtubeStatus = false;
-                            }
-                        } else {
-                            youtubeRetry = 0;
+                    if (state > 1 && !mobile) youtubePlayer.playVideo();
+                    if (state == 3) {
+                        youtubeRetry++;
+                        if (youtubeRetry > maxRetry) {
+                            retry = maxRetry + 1;
+                            youtubeStatus = false;
                         }
-                        if (state == 1) {
-                            youtubeStatus = true;
-                            activePlayer = 'youtube';
-                            pausePlayersExept('youtube');
-                            onPlayerStateChange('youtube', state);
-                            status();
-                            retry = 1;
-                            return;
-                        }
+                    } else {
+                        youtubeRetry = 0;
+                    }
+                    youtubeStatus = true;
+                    activePlayer = 'youtube';
+                    pausePlayersExept('youtube');
+                    onPlayerStateChange('youtube', state);
+                    status();
+                    retry = 1;
+                    if (state == 1) {
+                        return;
+                    }
                     console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
                 }
                 console.log('CHECK After Youtube');
