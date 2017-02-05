@@ -494,13 +494,13 @@ window.Template.Controllers.CastController = function (element) {
                     } else {
                         youtubeRetry = 0;
                     }
+                    activePlayer = 'youtube';
                     pausePlayersExept('youtube');
                     onPlayerStateChange('youtube', state);
                     status();
                     retry = 1;
                     if (state == 1) {
                         youtubeStatus = true;
-                        activePlayer = 'youtube';
                         return;
                     }
                     console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
@@ -834,7 +834,7 @@ window.Template.Controllers.CastController = function (element) {
         if (playerType == 'youtube') {
             console.log('youtube player change', state);
             if (youtubePlayer && state) {
-                if (state == YT.PlayerState.PLAYING || state == 5) {
+                if (state == YT.PlayerState.PLAYING) {
                     setPlaying(playerType);
                 } else if (state == YT.PlayerState.PAUSED) {
                     setPaused();
