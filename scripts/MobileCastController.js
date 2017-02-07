@@ -489,6 +489,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             if (activePlayer) {
                 sitePlayer.addClass('played');
                 mobilePlayButton.addClass('visible');
+                navigator.splashscreen && navigator.splashscreen.hide();
             }
             lastCheckTime = new Date().getTime();
             console.log('ACTIVE PLAYER ==== ' + activePlayer);
