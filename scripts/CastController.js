@@ -484,6 +484,7 @@ window.Template.Controllers.CastController = function (element) {
             if (youtubeStatusLoad) {
                 if (youtubePlayer && youtubeReady) {
                     var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
+                    console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
                     if (state > 1 && !mobile) youtubePlayer.playVideo();
                     if (state == 3) {
                         youtubeRetry++;
@@ -503,7 +504,6 @@ window.Template.Controllers.CastController = function (element) {
                         retry = 1;
                         return;
                     }
-                    console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
                 }
                 console.log('CHECK After Youtube');
                 if (!youtubeStatus && retry > maxRetry) {//retry > maxRetry || notYoutube
