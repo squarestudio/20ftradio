@@ -486,7 +486,7 @@ window.Template.Controllers.CastController = function (element) {
                     var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
                     console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
                     if (state > 1 && !mobile) youtubePlayer.playVideo();
-                    if (state == 3) {
+                    if (state == 3 && youtubeRetry <= maxRetry) {
                         youtubeRetry++;
                         if (youtubeRetry > maxRetry) {
                             retry = maxRetry + 1;
