@@ -1001,7 +1001,7 @@ window.Template.Controllers.CastController = function (element) {
                             var current_song = status_html.one('.newscontent table[cellpadding=4] tr:last-child td:last-child').get('text');
                             current_song = 'Now playing: ' + current_song;
                             console.log(current_song);
-                            if (trackName.get('text') !== current_song) {
+                            if (trackName.get('text') !== current_song && current_song !== 'Now playing: ') {
                                 trackName.one('span').set('text', current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                                 checkTrackNameOverflow();
