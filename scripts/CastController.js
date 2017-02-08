@@ -1005,6 +1005,8 @@ window.Template.Controllers.CastController = function (element) {
                                 trackName.one('span').set('text', current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                                 checkTrackNameOverflow();
+                            } else {
+                                Y.fire()
                             }
                             shoutcastStatus = true;
                         } else {
