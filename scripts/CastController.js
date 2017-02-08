@@ -527,7 +527,7 @@ window.Template.Controllers.CastController = function (element) {
                             retry = maxRetry - 1;
                             return;
                         } else {
-                            if (retry > maxRetry + 3 && retry < maxRetry + 7) {
+                            if (retry > maxRetry + 3 && retry < maxRetry + 5) {
                                 console.log('try to load shoutcast');
                                 shoutcastPlayer.load();
                             } else {
@@ -542,11 +542,11 @@ window.Template.Controllers.CastController = function (element) {
                             status();
                         } else {
                             notShoutcast = true;
-                            retry = maxRetry + 7;
+                            retry = maxRetry + 6;
                         }
                     }
                     console.log('CHECK Before Soundcloud');
-                    if (retry > maxRetry + 7 || notShoutcast) {
+                    if (retry > maxRetry + 6 || notShoutcast) {
                         if (soundCloudPlayer && !notSoundCloud) {
                             activePlayer = 'soundcloud';
                             soundCloudPlayer.isPaused(function (paused) {
