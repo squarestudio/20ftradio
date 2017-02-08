@@ -1006,7 +1006,7 @@ window.Template.Controllers.CastController = function (element) {
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                                 checkTrackNameOverflow();
                             } else {
-                                Y.fire()
+                                getCurrentEvent();
                             }
                             shoutcastStatus = true;
                         } else {
