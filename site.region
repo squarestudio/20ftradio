@@ -184,6 +184,7 @@
 <squarespace:script src="soundcloud-api-widget.js" combo="true"/>
 <squarespace:script src="mixcloud-api-widget.js" combo="true"/>
 <squarespace:script src="CastController.js" combo="true"/>
+<squarespace:script src="ProjectController.js" combo="true"/>
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
 <script>
