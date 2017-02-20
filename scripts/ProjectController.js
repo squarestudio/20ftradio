@@ -2,6 +2,7 @@ window.Template.Controllers.ProjectController = function (element) {
     'use strict';
 
     function initialize() {
+        console.log(Y.one('#grid'))
         if(Site && Y.one('#grid')){
             Site.gridEl = Y.one('#grid');
             Site._setupGrid();
