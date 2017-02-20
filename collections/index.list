@@ -1,7 +1,7 @@
 {.section collection}
 
   <!-- Project Detail -->
-  <div id="project" data-controller="ProjectController">
+  <div id="project" sqs-controller="Template.Controllers.ProjectController">
 
   {.repeated section collections}
     <div class="project-item clearfix visually-hidden" data-dynamic-href="/{urlId}/" data-type-name="{typeName}" {.if passwordProtected}data-type-protected{.end}>
