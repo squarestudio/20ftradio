@@ -235,23 +235,6 @@ window.Template.Controllers.WallController = function (element) {
         }
     }
 
-    function getNodesOrderedByDate(nodes) {
-        var now = (new Date()).getTime();
-        nodes._nodes.sort(function (a, b) {
-            var bigger = parseInt(b.getAttribute('data-start-date')) - parseInt(a.getAttribute('data-start-date'));
-            console.log(bigger);
-            return bigger - now;
-        });
-        return nodes;
-    }
-
-    function getNodesOrderedByAdded(nodes) {
-        nodes._nodes.sort(function (a, b) {
-            return +b.getAttribute('data-added-on') - +a.getAttribute('data-added-on');
-        });
-        return nodes;
-    }
-
     initialize();
 
     return {
