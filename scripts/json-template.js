@@ -14,6 +14,7 @@ Y.use(['node'], function (a) {
                     return c.A[a.getDay()]
                 },
                 b: function (a, c) {
+                    console.log(a.c)
                     return c.b[a.getMonth()]
                 },
                 B: function (a, c) {
