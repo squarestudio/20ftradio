@@ -154,20 +154,7 @@ Y.use(['node'], function (a) {
     a.mix(a.namespace("Date"), d);
     a.namespace("DataType");
     a.DataType.Date = a.Date
-})
-YUI.add("lang/datatype-date-format_en", function(a) {
-    a.Intl.add("datatype-date-format", "en", {
-        a: "Sun Mon Tue Wed Thu Fri Sat".split(" "),
-        A: "Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),
-        b: "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "),
-        B: "January February March April May June July August September October November December".split(" "),
-        c: "%a, %b %d, %Y %l:%M:%S %p %Z",
-        p: ["AM", "PM"],
-        P: ["am", "pm"],
-        x: "%m/%d/%y",
-        X: "%l:%M:%S %p"
-    })
-}, "3.17.2")
+});
 YUI.add("squarespace-date-utils", function(a) {
     function f(d) {
         d = a.Intl.get("datatype-date-format")[d];
@@ -652,8 +639,7 @@ YUI.add("squarespace-json-template", function (a) {
             } else c = -parseInt(Static.SQUARESPACE_CONTEXT.website.timeZoneOffset, 10) / 6E4, k = (new Date).getTimezoneOffset(), f = c - k;
             b = new Date(b - 6E4 * f);
             e = e.join(" ");
-            console.log(a.DataType.Date.format(b, {format: e}))
-            //return a.DataType.Date.format(b, {format: e})
+            return a.DataType.Date.format(b, {format: e})
         }
     }, {
         name: "image",
