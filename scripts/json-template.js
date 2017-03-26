@@ -1,3 +1,121 @@
+YUI.add("datatype-date-format", function(a, e) {
+    var c = function(a, c, d) { "undefined" === typeof d && (d = 10);
+            for (c += ""; parseInt(a, 10) < d && 1 < d; d /= 10) a = c + a;
+            return a.toString() },
+        d = {
+            formats: {
+                a: function(a, c) {
+                    console.log(a,c)
+                    return c.a[a.getDay()] },
+                A: function(a, c) {
+                    return c.A[a.getDay()] },
+                b: function(a, c) {
+                    return c.b[a.getMonth()] },
+                B: function(a, c) {
+                    return c.B[a.getMonth()] },
+                C: function(a) {
+                    return c(parseInt(a.getFullYear() / 100, 10), 0) },
+                d: ["getDate", "0"],
+                e: ["getDate", " "],
+                g: function(a) {
+                    return c(parseInt(d.formats.G(a) % 100, 10), 0) },
+                G: function(a) {
+                    var c = a.getFullYear(),
+                        e = parseInt(d.formats.V(a), 10);
+                    a = parseInt(d.formats.W(a), 10);
+                    a > e ? c++ : 0 === a && 52 <= e && c--;
+                    return c },
+                H: ["getHours", "0"],
+                I: function(a) { a = a.getHours() % 12;
+                    return c(0 === a ? 12 : a, 0) },
+                j: function(a) {
+                    var d = new Date("" + a.getFullYear() + "/1/1 GMT");
+                    a = new Date("" + a.getFullYear() + "/" + (a.getMonth() + 1) + "/" + a.getDate() + " GMT") - d;
+                    a =
+                        parseInt(a / 6E4 / 60 / 24, 10) + 1;
+                    return c(a, 0, 100)
+                },
+                k: ["getHours", " "],
+                l: function(a) { a = a.getHours() % 12;
+                    return c(0 === a ? 12 : a, " ") },
+                m: function(a) {
+                    return c(a.getMonth() + 1, 0) },
+                M: ["getMinutes", "0"],
+                p: function(a, c) {
+                    return c.p[12 <= a.getHours() ? 1 : 0] },
+                P: function(a, c) {
+                    return c.P[12 <= a.getHours() ? 1 : 0] },
+                s: function(a, c) {
+                    return parseInt(a.getTime() / 1E3, 10) },
+                S: ["getSeconds", "0"],
+                u: function(a) { a = a.getDay();
+                    return 0 === a ? 7 : a },
+                U: function(a) {
+                    var g = parseInt(d.formats.j(a), 10);
+                    a = 6 - a.getDay();
+                    g = parseInt((g + a) / 7, 10);
+                    return c(g,
+                        0)
+                },
+                V: function(a) {
+                    var g = parseInt(d.formats.W(a), 10),
+                        e = (new Date("" + a.getFullYear() + "/1/1")).getDay(),
+                        g = g + (4 < e || 1 >= e ? 0 : 1);
+                    53 === g && 4 > (new Date("" + a.getFullYear() + "/12/31")).getDay() ? g = 1 : 0 === g && (g = d.formats.V(new Date("" + (a.getFullYear() - 1) + "/12/31")));
+                    return c(g, 0) },
+                w: "getDay",
+                W: function(a) {
+                    var g = parseInt(d.formats.j(a), 10);
+                    a = 7 - d.formats.u(a);
+                    g = parseInt((g + a) / 7, 10);
+                    return c(g, 0, 10) },
+                y: function(a) {
+                    return c(a.getFullYear() % 100, 0) },
+                Y: "getFullYear",
+                z: function(a) {
+                    a = a.getTimezoneOffset();
+                    var d = c(parseInt(Math.abs(a /
+                            60), 10), 0),
+                        e = c(Math.abs(a % 60), 0);
+                    return (0 < a ? "-" : "+") + d + e
+                },
+                Z: function(a) {
+                    var c = a.toString().replace(/^.*:\d\d( GMT[+-]\d+)? \(?([A-Za-z ]+)\)?\d*$/, "$2").replace(/[a-z ]/g, "");
+                    4 < c.length && (c = d.formats.z(a));
+                    return c },
+                "%": function(a) {
+                    return "%" }
+            },
+            aggregates: { c: "locale", D: "%m/%d/%y", F: "%Y-%m-%d", h: "%b", n: "\n", r: "%I:%M:%S %p", R: "%H:%M", t: "\t", T: "%H:%M:%S", x: "locale", X: "locale" },
+            format: function(b, g) {
+                g = g || {};
+                if (!a.Lang.isDate(b)) return a.Lang.isValue(b) ? b : "";
+                var e, l;
+                e = g.format || "%Y-%m-%d";
+                l = a.Intl.get("datatype-date-format");
+                for (var k = function(a, b) {
+                    var c = d.aggregates[b];
+                    console.log(c)
+                    return "locale" === c ? l[b] : c }, f = function(k, g) {
+                    var e = d.formats[g];
+                    switch (a.Lang.type(e)) {
+                        case "string":
+                            return b[e]();
+                        case "function":
+                            return e.call(b, b, l);
+                        case "array":
+                            if ("string" === a.Lang.type(e[0])) return c(b[e[0]](), e[1]);
+                        default:
+                            return g } }; e.match(/%[cDFhnrRtTxX]/);) e = e.replace(/%([cDFhnrRtTxX])/g, k);
+                e = e.replace(/%([aAbBCdegGHIjklmMpPsSuUVwWyYzZ%])/g, f);
+                k = f = void 0;
+                return e
+            }
+        };
+    a.mix(a.namespace("Date"), d);
+    a.namespace("DataType");
+    a.DataType.Date = a.Date
+}, "3.17.2", { lang: "ar ar-JO ca ca-ES da da-DK de de-AT de-DE el el-GR en en-AU en-CA en-GB en-IE en-IN en-JO en-MY en-NZ en-PH en-SG en-US es es-AR es-BO es-CL es-CO es-EC es-ES es-MX es-PE es-PY es-US es-UY es-VE fi fi-FI fr fr-BE fr-CA fr-FR hi hi-IN hu id id-ID it it-IT ja ja-JP ko ko-KR ms ms-MY nb nb-NO nl nl-BE nl-NL pl pl-PL pt pt-BR ro ro-RO ru ru-RU sv sv-SE th th-TH tr tr-TR vi vi-VN zh-Hans zh-Hans-CN zh-Hant zh-Hant-HK zh-Hant-TW".split(" ") })
 
 YUI.add("squarespace-json-template", function (a) {
     function f(a) {
@@ -283,6 +401,7 @@ YUI.add("squarespace-json-template", function (a) {
     }, {
         name: "date",
         func: function (b, c, e) {
+            console.log(b,c,e)
             var f = 0,
                 f = (new Date(b)).getTimezoneOffset();
             if (!a.Lang.isNumber(b)) return "Invalid date.";
