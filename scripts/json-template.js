@@ -153,26 +153,7 @@ Y.use(['node'], function (a) {
         };
     a.mix(a.namespace("Date"), d);
     a.namespace("DataType");
-    a.DataType.Date = a.Date
-})
-YUI.add("lang/datatype-date-format_en", function(a) {
-    a.Intl.add("datatype-date-format", "en", {
-        a: "Sun Mon Tue Wed Thu Fri Sat".split(" "),
-        A: "Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),
-        b: "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "),
-        B: "January February March April May June July August September October November December".split(" "),
-        c: "%a, %b %d, %Y %l:%M:%S %p %Z",
-        p: ["AM", "PM"],
-        P: ["am", "pm"],
-        x: "%m/%d/%y",
-        X: "%l:%M:%S %p"
-    })
-}, "3.17.2")
-YUI.add("datatype-date-format", function (a, e) {
-    console.log(a, e)
-
-}, "3.17.2", {lang: "ar ar-JO ca ca-ES da da-DK de de-AT de-DE el el-GR en en-AU en-CA en-GB en-IE en-IN en-JO en-MY en-NZ en-PH en-SG en-US es es-AR es-BO es-CL es-CO es-EC es-ES es-MX es-PE es-PY es-US es-UY es-VE fi fi-FI fr fr-BE fr-CA fr-FR hi hi-IN hu id id-ID it it-IT ja ja-JP ko ko-KR ms ms-MY nb nb-NO nl nl-BE nl-NL pl pl-PL pt pt-BR ro ro-RO ru ru-RU sv sv-SE th th-TH tr tr-TR vi vi-VN zh-Hans zh-Hans-CN zh-Hant zh-Hant-HK zh-Hant-TW".split(" ")})
-YUI.add("squarespace-date-utils", function(a) {
+    a.DataType.Date = a.Date;
     function f(d) {
         d = a.Intl.get("datatype-date-format")[d];
         return { monday: d[1], tuesday: d[2], wednesday: d[3], thursday: d[4], friday: d[5], saturday: d[6], sunday: d[0] }
@@ -356,7 +337,7 @@ YUI.add("squarespace-date-utils", function(a) {
             return { year: d, month: c, week: e, day: f - 7 * e }
         }
     }
-}, "1.0", { requires: ["intl", "lang/datatype-date-format_en", "squarespace-beforeunload"] });
+});
 YUI.add("squarespace-json-template", function (a) {
     function f(a) {
         return a.replace(/([\{\}\(\)\[\]\|\^\$\-\+\?])/g,
