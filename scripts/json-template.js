@@ -156,7 +156,191 @@ YUI.add("datatype-date-format", function (a, e) {
     a.namespace("DataType");
     a.DataType.Date = a.Date
 }, "3.17.2", {lang: "ar ar-JO ca ca-ES da da-DK de de-AT de-DE el el-GR en en-AU en-CA en-GB en-IE en-IN en-JO en-MY en-NZ en-PH en-SG en-US es es-AR es-BO es-CL es-CO es-EC es-ES es-MX es-PE es-PY es-US es-UY es-VE fi fi-FI fr fr-BE fr-CA fr-FR hi hi-IN hu id id-ID it it-IT ja ja-JP ko ko-KR ms ms-MY nb nb-NO nl nl-BE nl-NL pl pl-PL pt pt-BR ro ro-RO ru ru-RU sv sv-SE th th-TH tr tr-TR vi vi-VN zh-Hans zh-Hans-CN zh-Hant zh-Hant-HK zh-Hant-TW".split(" ")})
-
+YUI.add("squarespace-date-utils", function(a) {
+    function f(d) {
+        d = a.Intl.get("datatype-date-format")[d];
+        return { monday: d[1], tuesday: d[2], wednesday: d[3], thursday: d[4], friday: d[5], saturday: d[6], sunday: d[0] }
+    }
+    var d = a.namespace("Squarespace").DateUtils = {
+        LANG: { days: { full: f.call(null, "A"), abbreviated: f.call(null, "a") } },
+        humanizeAllDates: function(d) {
+            a.all(d).each(function(d) {
+                var c =
+                    parseInt(d.getAttribute("data-date"), 10);
+                a.Lang.isNumber(c) ? d.set("innerHTML", a.Squarespace.DateUtils.humanizeDate(c)) : console.warn("Invalid date on node: ", d)
+            })
+        },
+        humanizeDate: function(d, c) {
+            a.Lang.isDate(d) && (d = d.getTime());
+            a.Lang.isString(d) && (d = parseInt(d, 10));
+            var f = Date.now() - d,
+                m = Math.floor(f / 31536E6),
+                p = Math.floor(f / 2592E6),
+                q = Math.floor(f / 6048E5),
+                r = Math.floor(f / 864E5),
+                s = Math.floor(f / 36E5),
+                u = Math.floor(f / 6E4),
+                f = Math.floor(f / 1E3),
+                g = function(a, b) {
+                    var d = "";
+                    return d = (1 == a ? d + (("hour" === b ? "An " : "A ") +
+                        b) : d + (a + " " + b + "s")) + " ago"
+                };
+            return 0 < m ? g(m, "year") : 0 < p ? g(p, "month") : 0 < q ? g(q, "week") : 0 < r ? g(r, "day") : 0 < s ? g(s, "hour") : 0 < u ? g(u, "minute") : c ? g(f, "second") : e("Just now")
+        },
+        humanizeDuration: function(a) {
+            var b = Math.round(a / 1E3);
+            a = Math.floor(b / 60);
+            b -= 60 * a;
+            return a + ":" + ((10 > b ? "0" : "") + b)
+        },
+        getContextualDate: function(d) {
+            var c = a.Squarespace.DateUtils.dateFormat,
+                f = new Date,
+                m = c(new Date(d)),
+                f = c(f),
+                p = Date.now(),
+                q = this.getOptimizedTime(d);
+            return d > p + 6048E5 ? c(d, { format: "%b %e, %Y" }) : d > p + 864E5 ? c(d, { format: "%A" }) + " " + q :
+                f === m ? e("Today ") + q : d > p ? e("Tomorrow ") + q : 864E5 > Date.now() - d ? e("Yesterday ") + q : 6048E5 > Date.now() - d ? c(d, { format: "%A" }) + " " + q : 31536E6 > Date.now() - d ? c(d, { format: "%b %e" }) : c(d, { format: "%b %e, %Y" })
+        },
+        getOptimizedTime: function(d) {
+            var c = a.Squarespace.DateUtils.dateFormat;
+            return "00" === c(d, { format: "%M" }) ? c(d, { format: "%l%P" }) : c(d, { format: "%l:%M%P" })
+        },
+        dateFormat: function(h, f) {
+            f = f || {};
+            f.format = f.format || "%B %e, %Y";
+            if (h)
+                if (!a.Lang.isDate(h) && (a.Lang.isNumber(h) || a.Lang.isString(h))) h = new Date(h);
+                else {
+                    if (isNaN(h.getTime())) return e("Invalid Date")
+                }
+            else h =
+                new Date;
+            if (!a.Lang.isValue(a.Object.getValue(Static, ["SQUARESPACE_CONTEXT", "tzData"]))) return a.DataType.Date.format(h, f);
+            var n = c(h),
+                m = new Date(h.getTime()),
+                p = m.getTimezoneOffset() + n.utcOffset;
+            m.setMinutes(m.getMinutes() + p);
+            a.Lang.isString(a.Object.getValue(f, ["format"])) && (n.abbreviation && (f.format = f.format.replace(/%Z/g, n.abbreviation.replace("%s", ""))), f.format = d.fixYUIFormatForMissingDate(h, f.format, n));
+            return a.DataType.Date.format(m, f)
+        },
+        fixYUIFormatForMissingDate: function(a, b, d) {
+            var c = new Date(a);
+            c.setMinutes(c.getMinutes() + (d.utcOffset + c.getTimezoneOffset()));
+            var f = new Date(a.getTime() + 6E4 * d.utcOffset);
+            if (c.getHours() == f.getUTCHours()) return b;
+            var e = {
+                e: function() {
+                    return f.getUTCDate()
+                },
+                l: function() {
+                    var a = f.getUTCHours() % 12;
+                    return 0 === a ? 12 : a
+                },
+                k: function() {
+                    return f.getUTCHours()
+                },
+                H: function() {
+                    var a = e.k();
+                    return 10 > a ? "0" + a : a
+                },
+                I: function() {
+                    var a = e.l();
+                    return 10 > a ? "0" + a : a
+                },
+                p: function() {
+                    return 12 > f.getUTCHours() ? "AM" : "PM"
+                },
+                P: function() {
+                    return e.p().toLowerCase()
+                },
+                r: function() {
+                    return "%I:%M:%S %p"
+                },
+                T: function() {
+                    return "%H:%M:%S"
+                },
+                Z: function() {
+                    return d.abbreviation
+                }
+            };
+            for (a = function(a) {
+                a = a.substr(1, 1);
+                return e[a].call(this).toString()
+            }; b.match(/%[elkHIpPrTZ]/);) b = b.replace(/%[elkHIpPrTZ]/g, a);
+            return b
+        },
+        getTimeOffsetToWebsiteTimezone: a.cached(function(d) {
+            if (a.Lang.isDate(d)) d = d.getTime();
+            else if (!a.Lang.isNumber(d)) throw Error("Invalid argument");
+            var f = -(new Date(d)).getTimezoneOffset();
+            return c(d).utcOffset - f
+        }),
+        createWebsiteDate: function() {
+            var a = new Date(Date.UTC.apply(this, arguments)),
+                b = c(a.getTime()),
+                b = b.standardUTCOffset,
+                b = c(a.getTime() - 6E4 * b),
+                b = b.utcOffset;
+            a.setMinutes(a.getMinutes() - b);
+            return a
+        },
+        shiftForWebsiteTimezoneDisplay: function(d) {
+            if (!a.Lang.isValue(d)) return null;
+            if (!a.Lang.isValue(a.Object.getValue(Static, ["SQUARESPACE_CONTEXT", "tzData"]))) return new Date(d);
+            d = new Date(d);
+            var c = a.Squarespace.DateUtils.getTimeOffsetToWebsiteTimezone(d);
+            d.setMinutes(d.getMinutes() + c);
+            return d
+        },
+        calculateFullDayOffset: function(c, f) {
+            if (!a.Lang.isValue(c) || !a.Lang.isValue(f)) return null;
+            var e = function(a) {
+                    a =
+                        d.shiftForWebsiteTimezoneDisplay(a);
+                    a.set({ hour: 0, minute: 0, second: 0, millisecond: 0 });
+                    return Math.floor(a.getTime() / 864E5)
+                },
+                m = e(c);
+            return e(f) - m
+        },
+        getEnglishDateWithOrdinal: function(a) {
+            a = this.shiftForWebsiteTimezoneDisplay(a);
+            a = a.getDate();
+            var b;
+            if (10 < a && 20 > a) return a + "th";
+            switch (a % 10) {
+                case 1:
+                    b = "st";
+                    break;
+                case 2:
+                    b = "nd";
+                    break;
+                case 3:
+                    b = "rd";
+                    break;
+                default:
+                    b = "th"
+            }
+            return a + b
+        },
+        calculateDateDiff: function(a, b) {
+            if (b < a) return this.calculateDateDiff(b, a);
+            var d = b.getFullYear() - a.getFullYear();
+            b.getMonth() < a.getMonth() &&
+            d--;
+            var c = (b.getMonth() - a.getMonth() + 12) % 12;
+            if (b.getDate() < a.getDate()) {
+                c--;
+                var f = (new Date(a.getYear(), a.getMonth() + 1, 0)).getDate() - a.getDate() + b.getDate()
+            } else f = b.getDate() - a.getDate();
+            var e = Math.floor(f / 7);
+            return { year: d, month: c, week: e, day: f - 7 * e }
+        }
+    }
+}, "1.0", { requires: ["intl", "lang/datatype-date-format_en", "squarespace-beforeunload"] })
 YUI.add("squarespace-json-template", function (a) {
     function f(a) {
         return a.replace(/([\{\}\(\)\[\]\|\^\$\-\+\?])/g,
