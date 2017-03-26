@@ -611,7 +611,7 @@ window.Template.Controllers.CastController = function (element) {
             mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
             mixCloudPlayer = mixCloudPlayer._node;
-            mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {
+            /*mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {
                 disablePushstate: true,
                 disableUnloadWarning: true
             });
@@ -628,7 +628,7 @@ window.Template.Controllers.CastController = function (element) {
                     console.log('MixCloud Error', e);
                 });
                 onPlayerReady('mixcloud');
-            });
+            });*/
             players['mixcloud'] = mixCloudPlayer;
             var promise = Mixcloud.FooterWidget(someCloudUrl, {disableUnloadWarning : true, disableHotkeys: false});
             promise.then(function(widget) {
