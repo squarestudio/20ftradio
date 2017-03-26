@@ -43,6 +43,7 @@ window.Template.Controllers.CastController = function (element) {
         currentEvents,
         liveIndicator,
         castContainer = Y.one('#castDiv');
+    var DEBUG = false;
 
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
@@ -84,7 +85,7 @@ window.Template.Controllers.CastController = function (element) {
             youtubeUrl = 'live_stream';
             getYoutubeStatus();
         }
-        console.log(youtubeUrl, channel)
+        DEBUG&&console.log(youtubeUrl, channel)
         youtubePlayer = new YT.Player('youtubePlayer', {
             height: '720',
             width: '1280',
@@ -114,7 +115,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function initYoutubeStream() {
         if (youtubeUrl) {
-            console.log('init youtube');
+            DEBUG&&console.log('init youtube');
             if (!castContainer.one('#youtubePlayer')) {
                 castContainer.prepend('<div id="youtubePlayer" class="stream-player"></div>');
             }
@@ -130,7 +131,7 @@ window.Template.Controllers.CastController = function (element) {
                 initYoutubePlayer();
             };
         } else {
-            console.log("No data to init youtube");
+            DEBUG&&console.log("No data to init youtube");
             notYoutube = true;
             onYoutubeError();
         }
@@ -158,7 +159,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initCast() {
-        console.log('init cast');
+        DEBUG&&console.log('init cast');
         Y.one('#castDiv').addClass('initialized');
         mobilePlayButton = castContainer.one('.mobile-play-button');
         castContainer = Y.one('#castDiv');
@@ -172,12 +173,12 @@ window.Template.Controllers.CastController = function (element) {
         var volumeControl = sitePlayer.one('#volControl');
         var playButtonClick = function (e) {
             e.halt();
-            console.log(activePlayer, players);
+            DEBUG&&console.log(activePlayer, players);
             if (!activePlayer) return;
             var state = null;
             if (activePlayer == 'youtube') {
                 state = youtubePlayer.getPlayerState();
-                console.log('youtube video', state, YT.PlayerState.PLAYING);
+                DEBUG&&console.log('youtube video', state, YT.PlayerState.PLAYING);
                 if (mobile && !userClickPlay) {
                     youtubePlayer.playVideo();
                     userPaused = false;
@@ -266,7 +267,7 @@ window.Template.Controllers.CastController = function (element) {
             if (castContainer.get('offsetWidth') < 430) {
                 sitePlayer.toggleClass('volume-range-visible');
             } else {
-                console.log('volume - ' + activePlayer);
+                DEBUG&&console.log('volume - ' + activePlayer);
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
                     if (activePlayer) {
                         if (activePlayer == 'soundcloud' || activePlayer == 'facebook' || activePlayer == 'mixcloud') {
@@ -317,14 +318,14 @@ window.Template.Controllers.CastController = function (element) {
                 retry = maxRetry - 1;
             }
             if (youtubeUrl) {
-                console.log('Have Youtube Url');
+                DEBUG&&console.log('Have Youtube Url');
                 initYoutubeStream();
             } else if (shoutCastUrl) {
                 initShoutCast();
             } else if (someCloudUrl) {
                 initSomeCloud();
             } else {
-                console.log("No data to init");
+                DEBUG&&console.log("No data to init");
             }
         } else {
             initFBPlayer();
@@ -333,9 +334,9 @@ window.Template.Controllers.CastController = function (element) {
 
     function initFBPlayer() {
         window.fbAsyncInit = function () {
-            console.log('FB init');
+            DEBUG&&console.log('FB init');
             FB.Event.subscribe('xfbml.ready', function (msg) {
-                console.log(msg)
+                DEBUG&&console.log(msg)
                 if (msg.type === 'video' && msg.id === 'fbPlayer') {
                     fbPlayer = msg.instance;
                     fbPlayer.subscribe('startedPlaying', function () {
@@ -381,7 +382,7 @@ window.Template.Controllers.CastController = function (element) {
         playerType = playerType || false;
         for (var player in players) {
             if (players.hasOwnProperty(player) && player !== playerType) {
-                console.log(player + ': Paused');
+                DEBUG&&console.log(player + ': Paused');
                 if (players[player].pauseVideo) {
                     players[player].pauseVideo();
                 } else if (players[player].pause) {
@@ -406,12 +407,12 @@ window.Template.Controllers.CastController = function (element) {
     function checkStreams() {
         var now = new Date().getTime();
         retry++;
-        console.log('Retries: ' + retry, now - lastCheckTime);
+        DEBUG&&console.log('Retries: ' + retry, now - lastCheckTime);
         if (now - lastCheckTime < checkingTime - 1000) {
             preventLoops++;
         }
         if (preventLoops > maxRetry * 3) {
-            console.log('FFFFFF');
+            DEBUG&&console.log('FFFFFF');
             //offlineMessage();
             //return;
         }
@@ -425,7 +426,7 @@ window.Template.Controllers.CastController = function (element) {
             if (activePlayer == 'youtube' || activePlayer == 'facebook') {
                 if (shoutcastStatusCheckInterval) {
                     clearInterval(shoutcastStatusCheckInterval);
-                    console.log('Shoutcast status reset');
+                    DEBUG&&console.log('Shoutcast status reset');
                     shoutcastStatusCheckInterval = null;
                     trackName.one('span').set('text', '');
                     trackName.removeClass('scroll-track');
@@ -436,14 +437,14 @@ window.Template.Controllers.CastController = function (element) {
                         getCurrentEvent();
                     }, 10000);
                     Y.on('getCurrentEvent', getCurrentEvent);
-                    console.log('Event status set');
+                    DEBUG&&console.log('Event status set');
                 }
             }
             else if (activePlayer == 'shoutcast') {
                 if (!shoutcastStatusCheckInterval) {
                     if (eventStatusInterval) {
                         clearInterval(eventStatusInterval);
-                        console.log('Event status reset');
+                        DEBUG&&console.log('Event status reset');
                         eventStatusInterval = null;
                         Y.detach('getCurrentEvent', getCurrentEvent);
                         trackName.one('span').set('text', '  ');
@@ -453,19 +454,19 @@ window.Template.Controllers.CastController = function (element) {
                     shoutcastStatusCheckInterval = setInterval(function () {
                         getShoutcastStatus();
                     }, 10000);
-                    console.log('Shoutcast status interval set');
+                    DEBUG&&console.log('Shoutcast status interval set');
                 }
             }
             else {
                 if (eventStatusInterval) {
                     clearInterval(eventStatusInterval);
-                    console.log('Event status reset');
+                    DEBUG&&console.log('Event status reset');
                     eventStatusInterval = null;
                     Y.detach('getCurrentEvent', getCurrentEvent);
                 }
                 if (shoutcastStatusCheckInterval) {
                     clearInterval(shoutcastStatusCheckInterval);
-                    console.log('Shoutcast status reset');
+                    DEBUG&&console.log('Shoutcast status reset');
                     shoutcastStatusCheckInterval = null;
                 }
                 trackName.one('span').set('text', '  ');
@@ -477,14 +478,14 @@ window.Template.Controllers.CastController = function (element) {
                 mobilePlayButton.addClass('visible');
             }
             lastCheckTime = new Date().getTime();
-            console.log('ACTIVE PLAYER ==== ' + activePlayer);
+            DEBUG&&console.log('ACTIVE PLAYER ==== ' + activePlayer);
         };
         if (!userPaused && activePlayer !== 'facebook') {
-            console.log('CHECK Before Youtube');
+            DEBUG&&console.log('CHECK Before Youtube');
             if (youtubeStatusLoad) {
                 if (youtubePlayer && youtubeReady) {
                     var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                    console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
+                    DEBUG&&console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
                     if (state > 1 && !mobile) youtubePlayer.playVideo();
                     if (state == 3 && youtubeRetry <= maxRetry && youtubeStatus) {
                         youtubeRetry++;
@@ -506,12 +507,12 @@ window.Template.Controllers.CastController = function (element) {
                         return;
                     }
                 }
-                console.log('CHECK After Youtube');
+                DEBUG&&console.log('CHECK After Youtube');
                 if (!youtubeStatus && retry > maxRetry) {//retry > maxRetry || notYoutube
-                    console.log('try another players', notShoutcast, notSoundCloud);
+                    DEBUG&&console.log('try another players', notShoutcast, notSoundCloud);
                     if (shoutcastPlayer && !notShoutcast) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                        console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
+                        DEBUG&&console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
                         if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
                             !mobile && shoutcastPlayer.play();
                             activePlayer = 'shoutcast';
@@ -528,10 +529,10 @@ window.Template.Controllers.CastController = function (element) {
                             return;
                         } else {
                             if (retry > maxRetry + 3 && retry < maxRetry + 5) {
-                                console.log('try to load shoutcast');
+                                DEBUG&&console.log('try to load shoutcast');
                                 shoutcastPlayer.load();
                             } else {
-                                console.log('wait to load shoutcast');
+                                DEBUG&&console.log('wait to load shoutcast');
                                 retry++;
                             }
                         }
@@ -545,7 +546,7 @@ window.Template.Controllers.CastController = function (element) {
                             retry = maxRetry + 6;
                         }
                     }
-                    console.log('CHECK Before Soundcloud');
+                    DEBUG&&console.log('CHECK Before Soundcloud');
                     if (retry > maxRetry + 6 || notShoutcast) {
                         if (soundCloudPlayer && !notSoundCloud) {
                             activePlayer = 'soundcloud';
@@ -580,11 +581,11 @@ window.Template.Controllers.CastController = function (element) {
                             status();
                         }
                     }
-                    console.log('CHECK After Soundcloud');
+                    DEBUG&&console.log('CHECK After Soundcloud');
                 }
             }
             else {
-                console.log('Still have no youtubee status load')
+                DEBUG&&console.log('Still have no youtubee status load')
             }
         }
     }
@@ -604,7 +605,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function initMixCloud() {
-        console.log('MixCloud init');
+        DEBUG&&console.log('MixCloud init');
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
@@ -617,7 +618,7 @@ window.Template.Controllers.CastController = function (element) {
             });
             mixCloudPlayer.ready.then(function (widget) {
                 mixCloudPlayer = widget;
-                console.log(mixCloudPlayer);
+                DEBUG&&console.log(mixCloudPlayer);
                 mixCloudPlayer.events.play.on(function () {
                     onPlayerStateChange('mixcloud', 'play')
                 });
@@ -625,7 +626,7 @@ window.Template.Controllers.CastController = function (element) {
                     onPlayerStateChange('mixcloud', 'pause')
                 });
                 mixCloudPlayer.events.error.on(function (e) {
-                    console.log('MixCloud Error', e);
+                    DEBUG&&console.log('MixCloud Error', e);
                 });
                 onPlayerReady('mixcloud');
             });
@@ -646,7 +647,7 @@ window.Template.Controllers.CastController = function (element) {
                     var skipIndex = 0;
                     if (sounds && sounds.length) {
                         skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
-                        console.log('SKIPSCINDEX == ' + skipIndex);
+                        DEBUG&&console.log('SKIPSCINDEX == ' + skipIndex);
                         soundCloudPlayer.skip(skipIndex);
                         soundCloudPlayer.setVolume(50);
                     }
@@ -671,15 +672,15 @@ window.Template.Controllers.CastController = function (element) {
             } else if (someCloudUrl.indexOf('soundcloud') > -1) {
                 initSoundCloud();
             }
-            console.log('Some cloud loading');
+            DEBUG&&console.log('Some cloud loading');
         } else {
-            console.log('no SoundCloud url')
+            DEBUG&&console.log('no SoundCloud url')
         }
     }
 
     function initShoutCast() {
         if (shoutCastUrl) {
-            console.log('shoutcast starting');
+            DEBUG&&console.log('shoutcast starting');
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
             if (!shoutcastPlayer) {
                 shoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" class="stream-player" preload playsinline -webkit-playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
@@ -702,22 +703,22 @@ window.Template.Controllers.CastController = function (element) {
             shoutcastPlayer.addEventListener('emptied', onShoutCastError);
             players['shoutcast'] = shoutcastPlayer;
         } else {
-            console.log('no shoutcast url to start');
+            DEBUG&&console.log('no shoutcast url to start');
             notShoutcast = true;
         }
     }
 
     function onShoutCastError(e) {
-        console.log('shoutcast failed', e);
+        DEBUG&&console.log('shoutcast failed', e);
         e.target.someError = e.type;
     }
 
     function onSoundCloudError(e) {
-        console.log('soundcloud error', e);
+        DEBUG&&console.log('soundcloud error', e);
     }
 
     function onYoutubeError(event) {
-        console.log('youtube error');
+        DEBUG&&console.log('youtube error');
         if (mobile) {
             notYoutube = true;
             retry = maxRetry;
@@ -726,7 +727,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onFBError(e) {
-        console.log('FB failed - ', e);
+        DEBUG&&console.log('FB failed - ', e);
     }
 
     function onPlayerReady(playerType, data) {
@@ -739,7 +740,7 @@ window.Template.Controllers.CastController = function (element) {
                 youtubeCheckInterval = setInterval(function () {
                     getYoutubeStatus()
                 }, 70000);
-                console.log('youtube check interval set')
+                DEBUG&&console.log('youtube check interval set')
             }
         }
         else if (playerType == 'facebook') {
@@ -784,19 +785,19 @@ window.Template.Controllers.CastController = function (element) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
-                console.log('stream check interval set')
+                DEBUG&&console.log('stream check interval set')
             }
-            console.log('check STREAMS');
+            DEBUG&&console.log('check STREAMS');
             checkStreams();
             window.addEventListener('offline', offlineMessage);
             window.addEventListener('online', onlineMessage);
         }
         sitePlayer && sitePlayer.addClass('initialized').removeClass('not-init').removeClass('no-events');
-        console.log(playerType, 'playerReady');
+        DEBUG&&console.log(playerType, 'playerReady');
     }
 
     function offlineMessage() {
-        console.log('offline');
+        DEBUG&&console.log('offline');
         if (streamCheckInterval) {
             clearInterval(streamCheckInterval);
             streamCheckInterval = null;
@@ -806,17 +807,17 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function onlineMessage() {
-        console.log('online');
+        DEBUG&&console.log('online');
         if (!streamCheckInterval) {
             streamCheckInterval = setInterval(function () {
                 checkStreams();
             }, checkingTime);
-            console.log('stream check interval set')
+            DEBUG&&console.log('stream check interval set')
         }
     }
 
     function setPlaying(playerType) {
-        console.log('SET PLAYING: ' + playerType);
+        DEBUG&&console.log('SET PLAYING: ' + playerType);
         sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
         castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
         !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
@@ -834,7 +835,7 @@ window.Template.Controllers.CastController = function (element) {
     function onPlayerStateChange(playerType, state) {
         //if (mobile && !userClickPlay) return;
         if (playerType == 'youtube') {
-            console.log('youtube player change', state);
+            DEBUG&&console.log('youtube player change', state);
             if (youtubePlayer && state) {
                 if (state == YT.PlayerState.PLAYING) {
                     setPlaying(playerType);
@@ -925,7 +926,7 @@ window.Template.Controllers.CastController = function (element) {
             currentEvents.upcoming.forEach(function (event) {
                 if (currentTime >= new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()) {
                     eventOnAir = event;
-                    console.log(event.title);
+                    DEBUG&&console.log(event.title);
                 }
             });
             if (eventOnAir) {
@@ -938,7 +939,7 @@ window.Template.Controllers.CastController = function (element) {
             } else {
                 trackName.one('span').set('text', '');
                 trackName.removeClass('scroll-track');
-                console.log('no current event');
+                DEBUG&&console.log('no current event');
                 if (Y.one('.event-on-air')) {
                     Y.all('.event-on-air').removeClass('event-on-air');
                 }
@@ -967,14 +968,14 @@ window.Template.Controllers.CastController = function (element) {
                         if (data.status == 200 && data.readyState == 4) {
                             data = JSON.parse(data.responseText);
                             var live = data.pageInfo.totalResults > 0;
-                            console.log('Youtube STREAM is:  --' + live);
+                            DEBUG&&console.log('Youtube STREAM is:  --' + live);
                             youtubeStatus = live;
                             checkStreams();
                             resolve(live);
                         }
                     },
                     failure: function (e) {
-                        console.log(e);
+                        DEBUG&&console.log(e);
                         resolve(false);
                     }
                 }
@@ -1000,7 +1001,7 @@ window.Template.Controllers.CastController = function (element) {
                         if (status_html && status_html.one('.newscontent table[cellpadding=4]')) {
                             var current_song = status_html.one('.newscontent table[cellpadding=4] tr:last-child td:last-child').get('text');
                             current_song = 'Now playing: ' + current_song;
-                            console.log(current_song);
+                            DEBUG&&console.log(current_song);
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ') {
                                 trackName.one('span').set('text', current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
@@ -1028,7 +1029,7 @@ window.Template.Controllers.CastController = function (element) {
             initialize();
         },
         destroy: function () {
-            console.log('destroy cast');
+            DEBUG&&console.log('destroy cast');
             Y.one(window).detach('resize', refreshImages);
             Y.detach('getCurrentEvent', getCurrentEvent);
         }
