@@ -1,4 +1,5 @@
 YUI.add("datatype-date-format", function(a, e) {
+    console.log(a, e)
     var c = function(a, c, d) { "undefined" === typeof d && (d = 10);
             for (c += ""; parseInt(a, 10) < d && 1 < d; d /= 10) a = c + a;
             return a.toString() },
