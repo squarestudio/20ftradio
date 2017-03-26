@@ -417,7 +417,7 @@ YUI.add("squarespace-json-template", function (a) {
             b = new Date(b - 6E4 * f);
             e = e.join(" ");
             console.log(a.DataType.Date.format(b, {format: e}))
-            return a.DataType.Date.format(b, {format: e})
+            //return a.DataType.Date.format(b, {format: e})
         }
     }, {
         name: "image",
