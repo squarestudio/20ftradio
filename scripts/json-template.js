@@ -1,4 +1,4 @@
-Y.use(['node'], function (a) {
+Y.use(['node', 'intl'], function (a) {
     var c = function (a, c, d) {
             "undefined" === typeof d && (d = 10);
             for (c += ""; parseInt(a, 10) < d && 1 < d; d /= 10) a = c + a;
