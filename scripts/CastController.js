@@ -608,10 +608,10 @@ window.Template.Controllers.CastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '" class="stream-player mixcloud-stream"></iframe>');
+            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
             mixCloudPlayer = mixCloudPlayer._node;
-            /*mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {
+            mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {
                 disablePushstate: true,
                 disableUnloadWarning: true
             });
@@ -628,22 +628,8 @@ window.Template.Controllers.CastController = function (element) {
                     console.log('MixCloud Error', e);
                 });
                 onPlayerReady('mixcloud');
-            });*/
-            var promise = Mixcloud.FooterWidget(someCloudUrl, {disableUnloadWarning : true, disableHotkeys: false});
-            promise.then(function(widget) {
-                mixCloudPlayer = widget;
-                mixCloudPlayer.events.play.on(function () {
-                    onPlayerStateChange('mixcloud', 'play')
-                });
-                mixCloudPlayer.events.pause.on(function () {
-                    onPlayerStateChange('mixcloud', 'pause')
-                });
-                mixCloudPlayer.events.error.on(function (e) {
-                    console.log('MixCloud Error', e);
-                });
-                onPlayerReady('mixcloud');
-                players['mixcloud'] = mixCloudPlayer;
             });
+            players['mixcloud'] = mixCloudPlayer;
         }
     }
 
