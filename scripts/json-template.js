@@ -1,3 +1,16 @@
+YUI.add("lang/datatype-date-format_en", function(a) {
+    a.Intl.add("datatype-date-format", "en", {
+        a: "Sun Mon Tue Wed Thu Fri Sat".split(" "),
+        A: "Sunday Monday Tuesday Wednesday Thursday Friday Saturday".split(" "),
+        b: "Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec".split(" "),
+        B: "January February March April May June July August September October November December".split(" "),
+        c: "%a, %b %d, %Y %l:%M:%S %p %Z",
+        p: ["AM", "PM"],
+        P: ["am", "pm"],
+        x: "%m/%d/%y",
+        X: "%l:%M:%S %p"
+    })
+}, "3.17.2")
 YUI.add("datatype-date-format", function (a, e) {
     console.log(a, e)
     var c = function (a, c, d) {
@@ -340,7 +353,7 @@ YUI.add("squarespace-date-utils", function(a) {
             return { year: d, month: c, week: e, day: f - 7 * e }
         }
     }
-}, "1.0", { requires: ["intl", "lang/datatype-date-format_en", "squarespace-beforeunload"] })
+}, "1.0", { requires: ["intl", "lang/datatype-date-format_en", "squarespace-beforeunload"] });
 YUI.add("squarespace-json-template", function (a) {
     function f(a) {
         return a.replace(/([\{\}\(\)\[\]\|\^\$\-\+\?])/g,
