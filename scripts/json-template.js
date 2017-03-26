@@ -592,4 +592,4 @@ YUI.add("squarespace-json-template", function (a) {
     a.JSONTemplate.evaluateJsonTemplate = function (b, c, e) {
         return "string" != typeof b ? "JSON Template Error: Processing failed because no input was provided. (type: " + typeof b + ", template: " + JSON.stringify(b) + ", dictionary: " + JSON.stringify(c) + ", partials: " + JSON.stringify(e) + ")" : (new a.JSONTemplate.Template(b, {partials: e})).expand(c)
     }
-}, "1.0", {requires: "lang/datatype-date-format json squarespace-common squarespace-date-utils squarespace-escaping-utils squarespace-rendering squarespace-template-helpers squarespace-util".split(" "), use: ['squarespace-date-utils']})
+}, "1.0", {requires: "lang/datatype-date-format json squarespace-common squarespace-date-utils squarespace-escaping-utils squarespace-rendering squarespace-template-helpers squarespace-util".split(" ")})
