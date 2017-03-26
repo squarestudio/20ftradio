@@ -154,7 +154,7 @@ Y.use(['node'], function (a) {
     a.mix(a.namespace("Date"), d);
     a.namespace("DataType");
     a.DataType.Date = a.Date;
-    var d = a.namespace("Squarespace").DateUtils = {
+    a.namespace("Squarespace").DateUtils = {
         LANG: { days: { full: f.call(null, "A"), abbreviated: f.call(null, "a") } },
         humanizeAllDates: function(d) {
             a.all(d).each(function(d) {
