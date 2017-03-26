@@ -630,6 +630,21 @@ window.Template.Controllers.CastController = function (element) {
                 onPlayerReady('mixcloud');
             });
             players['mixcloud'] = mixCloudPlayer;
+            var promise = Mixcloud.FooterWidget(someCloudUrl, {disableUnloadWarning : true, disableHotkeys: false});
+            promise.then(function(widget) {
+                mixCloudPlayer = widget;
+                mixCloudPlayer.events.play.on(function () {
+                    onPlayerStateChange('mixcloud', 'play')
+                });
+                mixCloudPlayer.events.pause.on(function () {
+                    onPlayerStateChange('mixcloud', 'pause')
+                });
+                mixCloudPlayer.events.error.on(function (e) {
+                    console.log('MixCloud Error', e);
+                });
+                onPlayerReady('mixcloud');
+                players['mixcloud'] = mixCloudPlayer;
+            });
         }
     }
 
