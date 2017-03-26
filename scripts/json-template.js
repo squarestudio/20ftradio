@@ -154,10 +154,6 @@ Y.use(['node'], function (a) {
     a.mix(a.namespace("Date"), d);
     a.namespace("DataType");
     a.DataType.Date = a.Date;
-    function f(d) {
-        d = a.Intl.get("datatype-date-format")[d];
-        return { monday: d[1], tuesday: d[2], wednesday: d[3], thursday: d[4], friday: d[5], saturday: d[6], sunday: d[0] }
-    }
     var d = a.namespace("Squarespace").DateUtils = {
         LANG: { days: { full: f.call(null, "A"), abbreviated: f.call(null, "a") } },
         humanizeAllDates: function(d) {
