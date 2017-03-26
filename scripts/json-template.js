@@ -415,7 +415,7 @@ YUI.add("squarespace-json-template", function (a) {
                 f = (isNaN(k.getTimezoneOffset()) ? 0 : k.getTimezoneOffset()) - f
             } else c = -parseInt(Static.SQUARESPACE_CONTEXT.website.timeZoneOffset, 10) / 6E4, k = (new Date).getTimezoneOffset(), f = c - k;
             b = new Date(b - 6E4 * f);
-            //e = e.join(" ");
+            e = e.join(" ");
             console.log(a.DataType.Date.format(b, {format: e}))
             //return a.DataType.Date.format(b, {format: e})
         }
