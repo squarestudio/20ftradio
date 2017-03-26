@@ -9,6 +9,7 @@ YUI.add("datatype-date-format", function(a, e) {
                 A: function(a, c) {
                     return c.A[a.getDay()] },
                 b: function(a, c) {
+                    console.log(a, c)
                     return c.b[a.getMonth()] },
                 B: function(a, c) {
                     return c.B[a.getMonth()] },
