@@ -645,6 +645,9 @@ body {
 
 @media only screen and (max-width: 375px) {
   @logoSize: 64px;
+  #castDiv .mobile-image {
+    top: -@logoSize;
+  }
   #navigator footer#bottomBar .socialaccountlinks-v2-block {
     margin: -@logoSize 0 0 0;
   }
@@ -679,7 +682,9 @@ body {
     max-height: @logoSize;
   }
 }
-
+#castDiv .mobile-image {
+  top: -@logoSize;
+}
 ////___CORDOVA APP STYLES____//
 .cordova-app {
   #navigator {
@@ -713,7 +718,6 @@ body {
     position: absolute;
     height: 145vh;
     width: 100%;
-    top: -@logoSize;
     bottom: 0;
     z-index: 100;
     background-size: contain;
