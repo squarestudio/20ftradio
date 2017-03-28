@@ -682,6 +682,15 @@ body {
 
 ////___CORDOVA APP STYLES____//
 .cordova-app {
+  #navigator {
+    &:before{
+      position: absolute;
+      top: 0;
+      width: 3px;
+      background-color: #fff;
+      height: 100%;
+    }
+  }
   &:not(.stream-founds){
     header, #container, footer {
       opacity: 0;
