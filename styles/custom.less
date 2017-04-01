@@ -641,6 +641,7 @@ body {
   .cordova-app .site-player-block {
     font-size: 13px;
   }
+
   #castDiv .mobile-image {
     top: -@logoSize;
   }
@@ -651,6 +652,7 @@ body {
   #castDiv .mobile-image {
     top: -@logoSize;
   }
+
   #navigator footer#bottomBar .socialaccountlinks-v2-block {
     margin: -@logoSize 0 0 0;
   }
@@ -685,14 +687,16 @@ body {
     max-height: @logoSize;
   }
 }
+
 #castDiv .mobile-image {
   top: -@logoSize;
 }
+
 ////___CORDOVA APP STYLES____//
 .cordova-app {
   #navigator {
     opacity: 1;
-    &:before{
+    &:before {
       position: absolute;
       top: 0;
       width: 3px;
@@ -700,13 +704,13 @@ body {
       height: 100%;
     }
   }
-  &:not(.stream-found){
+  &:not(.stream-found) {
     header, #container, footer {
       opacity: 0;
     }
   }
   &.stream-found {
-    #castDiv .mobile-image{
+    #castDiv .mobile-image {
       .translate(0, -60%);
     }
   }
@@ -717,14 +721,14 @@ body {
       text-align: right;
     }
   }
-  .castWrapper{
+  .castWrapper {
     overflow: visible;
   }
   #castDiv {
     height: 40vh;
     opacity: 1;
     .transform(none);
-    &.initialized{
+    &.initialized {
       .transition(transform .3s ease-in);
     }
   }
