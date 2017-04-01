@@ -1009,6 +1009,7 @@ window.Template.Controllers.CastController = function (element) {
                                 getCurrentEvent();
                             }
                             shoutcastStatus = true;
+                            console.log('SHOUTCAST STATUS ')
                         } else {
                             shoutcastStatus = false;
                         }
