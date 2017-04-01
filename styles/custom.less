@@ -696,27 +696,21 @@ body {
 .cordova-app {
   #navigator {
     opacity: 1;
-    &:before {
-      position: absolute;
-      top: 0;
-      width: 3px;
-      background-color: #fff;
-      height: 100%;
+    &:not(.stream-found) {
+      header, #container, footer {
+        opacity: 0;
+      }
+    }
+    &.stream-found {
+      #castDiv .mobile-image {
+        .translate(0, -85vh)!important;
+      }
     }
   }
   header, #container, footer {
     .transition(opacity 0.3s 0.4s ease-in);
   }
-  &:not(.stream-found) {
-    header, #container, footer {
-      opacity: 0;
-    }
-  }
-  &.stream-found {
-    #castDiv .mobile-image {
-      .translate(0, -85vh)!important;
-    }
-  }
+
   #navigator .nav-container #mobileNav #mobile-navigation {
     #mobile-navigation-label, ul li {
       box-sizing: border-box;
