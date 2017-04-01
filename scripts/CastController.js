@@ -1,6 +1,5 @@
 window.Template.Controllers.CastController = function (element) {
     'use strict';
-    //console.log = function () {};
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
         youtubeUrl,
@@ -43,7 +42,7 @@ window.Template.Controllers.CastController = function (element) {
         currentEvents,
         liveIndicator,
         castContainer = Y.one('#castDiv');
-    var DEBUG = false;
+    var DEBUG = true;
 
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
