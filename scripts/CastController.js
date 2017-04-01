@@ -329,6 +329,7 @@ window.Template.Controllers.CastController = function (element) {
         } else {
             initFBPlayer();
         }
+        getShoutcastStatus();
     }
 
     function initFBPlayer() {
