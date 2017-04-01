@@ -724,6 +724,9 @@ body {
     height: 40vh;
     opacity: 1;
     .transform(none);
+    &.initialized{
+      .transition(transform .3s ease-in);
+    }
   }
   #castDiv .mobile-image {
     position: absolute;
