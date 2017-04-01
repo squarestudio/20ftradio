@@ -29,7 +29,7 @@ window.Template.Controllers.CastController = function (element) {
         userPaused,
         players = {},
         activePlayer = false,
-        checkingTime = 2000,
+        checkingTime = 1000,
         streamCheckInterval,
         youtubePlayer = null,
         fbPlayer = null,
