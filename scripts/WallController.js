@@ -223,6 +223,7 @@ window.Template.Controllers.WallController = function (element) {
                                 }
                             } else {
                                 wallGrid.addClass('no-upcoming');
+                                console.log('olo')
                                 link.remove();
                                 imagesReady();
                                 loadImages();
