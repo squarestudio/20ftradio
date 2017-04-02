@@ -190,7 +190,7 @@ window.Template.Controllers.WallController = function (element) {
                             order = link.getAttribute('data-first-order');
                         getCollectionItems(url).then(function (items) {
                             console.log(items);
-                            if (items && items.upcoming) {
+                            if (items && items.upcoming.length) {
                                 wallGrid.removeClass('no-upcoming');
                                 var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                                 var compiledFragment = Y.Node.create(compiled);
