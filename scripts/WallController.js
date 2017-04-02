@@ -190,7 +190,8 @@ window.Template.Controllers.WallController = function (element) {
                             order = link.getAttribute('data-first-order');
                         getCollectionItems(url).then(function (items) {
                             console.log(items);
-                            if (items) {
+                            if (items && items.upcoming) {
+                                wallGrid.removeClass('no-upcoming');
                                 var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                                 var compiledFragment = Y.Node.create(compiled);
                                 /*                            if(order == 'true'){
@@ -221,6 +222,7 @@ window.Template.Controllers.WallController = function (element) {
                                     //Y.all('.wallEvents a').setAttribute('data-ajax-loader','ajax-loader-binded');
                                 }
                             } else {
+                                wallGrid.addClass('no-upcoming');
                                 link.remove();
                                 imagesReady();
                                 loadImages();
