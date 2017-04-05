@@ -331,7 +331,12 @@ window.Template.Controllers.CastController = function (element) {
             initFBPlayer();
         }
         getShoutcastStatus();
-        if (castContainer.one('stream-'))
+        if (castContainer.one('.stream-gallery')){
+            var streamSwiper = new Swiper ('.stream-gallery', {
+                direction: 'vertical',
+                loop: true
+            })
+        }
     }
 
     function initFBPlayer() {
