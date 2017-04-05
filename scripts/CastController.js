@@ -41,6 +41,7 @@ window.Template.Controllers.CastController = function (element) {
         eventStatusInterval,
         currentEvents,
         liveIndicator,
+        streamSwiper,
         castContainer = Y.one('#castDiv');
     var DEBUG = false;
 
@@ -332,7 +333,7 @@ window.Template.Controllers.CastController = function (element) {
         }
         getShoutcastStatus();
         if (castContainer.one('.stream-gallery')){
-            var streamSwiper = new Swiper ('.stream-gallery .swiper-container', {
+            streamSwiper = new Swiper ('.stream-gallery .swiper-container', {
                 loop: true,
                 paginationClickable: true,
                 pagination: '.swiper-pagination',
