@@ -103,7 +103,7 @@
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 {.repeated section customContent.gallery}
-                                    <div class="swiper-slide content-fit"><a href="{.if clickthroughUrl}{clickthroughUrl}"><img {@|image-meta} data-load="false"/></a></div>
+                                    <div class="swiper-slide content-fit"><a href="{.if clickthroughUrl}{clickthroughUrl}{.end}"><img {@|image-meta} data-load="false"/></a></div>
                                 {.end}
                             </div>
                            <!-- <div class="swiper-pagination"></div>-->
