@@ -75,6 +75,10 @@ window.Template.Controllers.CastController = function (element) {
             ImageLoader.load(img, {load: true});
         });
         setTimeout(function () {
+            if (Y.one('#fbPlayer')) {
+                Y.one('#fbPlayer').setAttribute('data-width', castContainer.get('offsetWidth'));
+                Y.one('#fbPlayer').setAttribute('data-height', castContainer.get('offsetHeight'));
+            }
             castContainer.all('img').each(function (img) {
                 ImageLoader.load(img, {load: true});
             });
