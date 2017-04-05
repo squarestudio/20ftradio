@@ -302,16 +302,57 @@ body {
     float: none;
   }
 }
+
 .stream-gallery {
   position: relative;
   height: 100%;
   .swiper-container {
     height: 100%;
-    .swiper-slide{
+    .swiper-slide {
       height: 100%;
     }
   }
+  .arrow-butt {
+    z-index: 100;
+    background-image: none;
+    width: auto;
+    height: auto;
+    padding: 8px;
+    margin-top: -24px;
+    font-size: 38px;
+    color: #eee;
+    .transition(color .2s);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    &:hover {
+      color: #fff;
+    }
+    &.swiper-button-next {
+      right: 0;
+      &:before {
+        content: "\e02d";
+      }
+    }
+    &.swiper-button-prev {
+      left: 0;
+      &:before {
+        content: "\e02c";
+      }
+    }
+    &:before {
+      font-family: 'squarespace-ui-font';
+      font-style: normal;
+      speak: none;
+      font-weight: normal;
+      -webkit-font-smoothing: antialiased;
+      text-align: center;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  }
 }
+
 #mobile-navigation {
   #mobile-navigation-label, ul a {
     color: @navTextColor;
@@ -573,7 +614,7 @@ body {
 @media only screen and (max-width: 430px) {
   .wallGrid {
     width: 100%;
-    &:not(.wallEvents){
+    &:not(.wallEvents) {
       display: none;
     }
     li {
@@ -714,7 +755,7 @@ body {
     }
     &.stream-found {
       #castDiv .mobile-image {
-        .translate(0, -85vh)!important;
+        .translate(0, -85vh) !important;
       }
     }
   }
@@ -907,9 +948,9 @@ body {
         }
         &.event-on-air {
           .schedule-event {
-            background-image: none!important;
+            background-image: none !important;
             text-align: center;
-            &:before{
+            &:before {
               content: '';
               display: inline-block;
               width: 18px;
