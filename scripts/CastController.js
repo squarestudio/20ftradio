@@ -66,18 +66,18 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function refreshImages() {
-        Y.Squarespace.debounce(function () {
-            if (Y.one('#fbPlayer')) {
-                Y.one('#fbPlayer').setAttribute('data-width', castContainer.get('offsetWidth'));
-                Y.one('#fbPlayer').setAttribute('data-height', castContainer.get('offsetHeight'));
-            }
-            castContainer.all('img').each(function (img) {
-                img.removeAttribute('data-load');
-                ImageLoader.load(img, {load: true});
-            });
-            checkTrackNameOverflow();
-            console.log('images refresh')
-        }, 2000, !0, !0)
+        if (Y.one('#fbPlayer')) {
+            Y.one('#fbPlayer').setAttribute('data-width', castContainer.get('offsetWidth'));
+            Y.one('#fbPlayer').setAttribute('data-height', castContainer.get('offsetHeight'));
+        }
+        castContainer.all('img').each(function (img) {
+            img.removeAttribute('data-load');
+            ImageLoader.load(img, {load: true});
+        });
+        setTimeout(function () {
+
+        }, 200);
+        checkTrackNameOverflow();
     }
 
     function initYoutubePlayer() {
