@@ -100,7 +100,7 @@
                  data-shoutcast-url="{customContent.shoutcastUrl}">
                 {.if customContent.gallery}
                     <div class="stream-gallery hidden">
-                        
+                        <script>console.log({@|json-pretty})</script>
                     </div>
                 {.or}
                     <img {@|image-meta} data-load="false"/>
