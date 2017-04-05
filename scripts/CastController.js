@@ -333,7 +333,11 @@ window.Template.Controllers.CastController = function (element) {
         getShoutcastStatus();
         if (castContainer.one('.stream-gallery')){
             var streamSwiper = new Swiper ('.stream-gallery .swiper-container', {
-                loop: true
+                loop: true,
+                paginationClickable: true,
+                pagination: '.swiper-pagination',
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev'
             })
         }
     }
