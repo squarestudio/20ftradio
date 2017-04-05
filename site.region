@@ -106,7 +106,7 @@
                                     <div class="swiper-slide content-fit"><img {@|image-meta} data-load="false"/></div>
                                 {.end}
                             </div>
-                            <div class="swiper-pagination"></div>
+                           <!-- <div class="swiper-pagination"></div>-->
                             <div class="swiper-button-prev arrow-butt"></div>
                             <div class="swiper-button-next arrow-butt"></div>
                         </div>
