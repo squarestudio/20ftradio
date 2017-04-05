@@ -103,7 +103,7 @@
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 {.repeated section customContent.gallery}
-                                <div class="swiper-slide"><img {@|image-meta} data-load="false"/></div>
+                                    <div class="swiper-slide"><img {@|image-meta} data-load="false"/></div>
                                 {.end}
                             </div>
                             <div class="swiper-pagination"></div>
