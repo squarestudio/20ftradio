@@ -107,8 +107,8 @@
                                 {.end}
                             </div>
                             <div class="swiper-pagination"></div>
-                            <div class="swiper-button-prev"></div>
-                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev arrow-butt"></div>
+                            <div class="swiper-button-next arrow-butt"></div>
                         </div>
                     </div>
                 {.or}
