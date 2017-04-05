@@ -99,7 +99,7 @@
                  data-soundcloud-url="{customContent.soundCloudUrl}"
                  data-shoutcast-url="{customContent.shoutcastUrl}">
                 {.if customContent.gallery}
-                    <div class=" hidden">
+                    <div class="streams-gallery hidden">
 
                     </div>
                 {.or}
