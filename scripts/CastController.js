@@ -345,6 +345,8 @@ window.Template.Controllers.CastController = function (element) {
             streamSwiper = new Swiper('.stream-gallery .swiper-container', {
                 loop: true,
                 paginationClickable: true,
+                autoplay: 4000,
+                speed: 500,
                 //pagination: '.swiper-pagination',
                 nextButton: '.swiper-button-next',
                 prevButton: '.swiper-button-prev'
