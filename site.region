@@ -99,7 +99,7 @@
                  data-soundcloud-url="{customContent.soundCloudUrl}"
                  data-shoutcast-url="{customContent.shoutcastUrl}"> <script>console.log({@|json-pretty})</script>
                 {.if customContent.gallery && customContent.showGallery}
-                    <div class="stream-gallery hidde">
+                    <div class="stream-gallery hidden">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
                                 {.repeated section customContent.gallery}
