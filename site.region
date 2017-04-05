@@ -98,7 +98,13 @@
                  data-facebook-url="{customContent.facebookUrl}"
                  data-soundcloud-url="{customContent.soundCloudUrl}"
                  data-shoutcast-url="{customContent.shoutcastUrl}">
-                <img {@|image-meta} data-load="false"/>
+                {.if customContent.gallery}
+                    <div class=" hidden">
+
+                    </div>
+                {.or}
+                    <img {@|image-meta} data-load="false"/>
+                {.end}
                 <div class="mobile-play-button">
                     <svg version="1.1" x="0px" y="0px"
                          viewBox="0 0 60 60" fill="#{colorData.centerAverage}">
