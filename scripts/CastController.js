@@ -332,7 +332,7 @@ window.Template.Controllers.CastController = function (element) {
         }
         getShoutcastStatus();
         if (castContainer.one('.stream-gallery')){
-            var streamSwiper = new Swiper ('.stream-gallery', {
+            var streamSwiper = new Swiper ('.stream-gallery .swiper-container', {
                 direction: 'vertical',
                 loop: true
             })
