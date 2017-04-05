@@ -77,7 +77,7 @@ window.Template.Controllers.CastController = function (element) {
             });
             checkTrackNameOverflow();
             console.log('images refresh')
-        }, 2000, !1, !0)
+        }, 2000, !0, !0)
     }
 
     function initYoutubePlayer() {
