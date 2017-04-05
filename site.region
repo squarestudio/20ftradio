@@ -100,9 +100,16 @@
                  data-shoutcast-url="{customContent.shoutcastUrl}"> <script>console.log({@|json-pretty})</script>
                 {.if customContent.gallery && customContent.showGallery}
                     <div class="stream-gallery hidden">
-                        {.repeated section customContent.gallery}
-
-                        {.end}
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                {.repeated section customContent.gallery}
+                                <div class="swiper-slide"><img {@|image-meta} data-load="false"/></div>
+                                {.end}
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
                     </div>
                 {.or}
                     <img {@|image-meta} data-load="false"/>
