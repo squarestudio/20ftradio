@@ -75,7 +75,9 @@ window.Template.Controllers.CastController = function (element) {
             ImageLoader.load(img, {load: true});
         });
         setTimeout(function () {
-
+            Y.all('img').each(function (img) {
+                ImageLoader.load(img, {load: true});
+            });
         }, 200);
         checkTrackNameOverflow();
     }
