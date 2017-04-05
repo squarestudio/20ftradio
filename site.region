@@ -101,7 +101,7 @@
                 {.if customContent.gallery && customContent.showGallery}
                     <div class="stream-gallery hidden">
                         <div class="swiper-container">
-                            <div class="swiper-wrapper">
+                            <div class="swiper-wrapper content-fit">
                                 {.repeated section customContent.gallery}
                                     <div class="swiper-slide"><img {@|image-meta} /></div>
                                 {.end}
