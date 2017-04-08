@@ -585,7 +585,8 @@ window.Template.Controllers.CastController = function (element) {
                             });
                         } else if (mixCloudPlayer && !notMixCloud) {
                             activePlayer = 'mixcloud';
-                            mixCloudPlayer.getIsPaused().then(function (paused) {
+                            console.log(mixCloudPlayer)
+                            mixCloudPlayer && mixCloudPlayer.getIsPaused().then(function (paused) {
                                 if (paused) {
                                     !mobile && mixCloudPlayer.play();
                                     activePlayer = 'mixcloud';
