@@ -219,10 +219,10 @@ window.Template.Controllers.WallController = function (element) {
                                 Y.fire('getCurrentEvent');
                                 if (window.AjaxLoader) {
                                     Y.all('.wallGrid a').each(function (link) {
-                                        if(link.getAttribute('href').indexOf(h))
+                                        if(link.getAttribute('href').indexOf('http')<0){
+                                            link.setAttribute('data-ajax-loader', 'ajax-loader-binded');
+                                        }
                                     })
-                                    Y.all('.wallGrid a:not[href*="http"]').setAttribute('data-ajax-loader', 'ajax-loader-binded');
-                                    //Y.all('.wallEvents a').setAttribute('data-ajax-loader','ajax-loader-binded');
                                 }
                             } else {
                                 wallGrid.addClass('no-upcoming');
