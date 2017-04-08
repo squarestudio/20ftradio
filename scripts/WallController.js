@@ -132,7 +132,7 @@ window.Template.Controllers.WallController = function (element) {
                         offset: offset || ''
                     },
                     success: function (items) {
-                        if ((items.past && items.past.length) || (items.upcoming&&items.upcoming.length)) {
+                        if ((items.past && items.past.length) || (items.upcoming && items.upcoming.length)) {
                             if (items.upcoming) {
                                 content_items.upcoming = content_items.upcoming.concat(items.upcoming);
                             }
@@ -219,7 +219,7 @@ window.Template.Controllers.WallController = function (element) {
                                 Y.fire('getCurrentEvent');
                                 if (window.AjaxLoader) {
                                     Y.all('.wallGrid a').each(function (link) {
-                                        if(link.getAttribute('href').indexOf('http')<0){
+                                        if (link.getAttribute('href').indexOf('http') < 0) {
                                             link.setAttribute('data-ajax-loader', 'ajax-loader-binded');
                                         }
                                     })
