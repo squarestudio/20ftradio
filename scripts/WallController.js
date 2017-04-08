@@ -218,7 +218,7 @@ window.Template.Controllers.WallController = function (element) {
                                 loadImages();
                                 Y.fire('getCurrentEvent');
                                 if (window.AjaxLoader) {
-                                    Y.all('.wallGrid a:not[href^="http"]').setAttribute('data-ajax-loader', 'ajax-loader-binded');
+                                    Y.all('.wallGrid a:not[href*="http"]').setAttribute('data-ajax-loader', 'ajax-loader-binded');
                                     //Y.all('.wallEvents a').setAttribute('data-ajax-loader','ajax-loader-binded');
                                 }
                             } else {
