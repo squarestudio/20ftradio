@@ -163,8 +163,8 @@
         <squarespace:block-field id="footerBlock" class="footer-block" columns="12" label="Footer Content"/>
     </footer>
     {.end}
-    <div id="loadMobileEventsController" data-src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/MobileEventsController.js"></div>
-    <div id="loadMobileCastController" data-src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/MobileCastController.js"></div>
+<!--    <div id="loadMobileEventsController" data-src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/MobileEventsController.js"></div>
+    <div id="loadMobileCastController" data-src="https://static1.squarespace.com/static/ta/{website.id}/{squarespace.template-revision|json}/scripts/MobileCastController.js"></div>-->
     </div>
     </body>
 </html>
