@@ -3,7 +3,6 @@
         {squarespace-headers}
     </head>
     <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
-    <div class="loading-overlay"><div class="line"></div></div>
     <div id="navigator">
         {.section website}
         <header id="topBar" class="sqs-announcement-bar-dropzone">
