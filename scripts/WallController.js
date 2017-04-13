@@ -188,7 +188,6 @@ window.Template.Controllers.WallController = function (element) {
                     wallGrid.all('.wall-item-link').each(function (link) {
                         var url = link.getAttribute('href'),
                             order = link.getAttribute('data-first-order');
-                        console.log(url);
                         getCollectionItems(url).then(function (items) {
                             console.log(items);
                             if (items && items.upcoming.length) {
