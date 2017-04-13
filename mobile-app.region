@@ -85,6 +85,7 @@
                             </ul>
                         </squarespace:query>
                     </div>
+                </div>
                     <script id="mobile-events-query-template" type="text/x-json-template">
                                 <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active">
                                     ^.if upcoming}
@@ -157,7 +158,6 @@
                     {.or}
                     {squarespace.main-content}
                     {.end}
-                </div>
             </div>
     </section>
     {.section website}
