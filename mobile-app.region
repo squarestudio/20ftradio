@@ -78,7 +78,7 @@
                         </div>
                         <div class="mobileEvents-wrapper">
                             <div class="mobileEvents-container">
-                                <squarespace:query collection="events" limit="100">
+                                <squarespace:query collection="shows" limit="100">
                                     <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
 
                                     </ul>
