@@ -73,7 +73,7 @@
                     <div id="mobileEvents">
                         <div class="tabs clear">
                             <a href="#mobile-events-upcoming" class="tab-1 active">Schedule</a>
-                            <a href="#mobile-events-past" class="tab-2">Archive</a>
+                            <a href="#mobile-events-past" class="tab-2">Shows</a>
                             <div class="tab-border"></div>
                         </div>
                         <div class="mobileEvents-wrapper">
