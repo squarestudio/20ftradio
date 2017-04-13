@@ -76,16 +76,16 @@
                             <a href="#mobile-events-past" class="tab-2">Archive</a>
                             <div class="tab-border"></div>
                         </div>
-                    </div>
-                <div class="mobileEvents-wrapper">
-                    <div class="mobileEvents-container">
-                        <squarespace:query collection="events" limit="100">
-                            <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
+                        <div class="mobileEvents-wrapper">
+                            <div class="mobileEvents-container">
+                                <squarespace:query collection="events" limit="100">
+                                    <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
 
-                            </ul>
-                        </squarespace:query>
+                                    </ul>
+                                </squarespace:query>
+                            </div>
+                        </div>
                     </div>
-                </div>
                     <script id="mobile-events-query-template" type="text/x-json-template">
                                 <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active">
                                     ^.if upcoming}
