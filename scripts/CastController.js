@@ -968,7 +968,7 @@ window.Template.Controllers.CastController = function (element) {
             }
         };
         if (!currentEvents) {
-            getCollectionItems('https://www.20ftradio.com/events').then(function (events) {
+            getCollectionItems('/events').then(function (events) {
                 if (events && events.upcoming) {
                     currentEvents = events;
                     checkEvents();
