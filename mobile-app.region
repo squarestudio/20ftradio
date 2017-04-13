@@ -114,10 +114,10 @@
                                     <p class="no-events-message">No Results</p>
                                     ^.end}
                                 </ul>
-                                <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
+<!--                                <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
                                     ^.if past}
                                     ^.repeated section past}
-                                    <li class="event-item event-item-^id} eventlist-event--past clear" data-start-date="^startDate}" data-end-date="^endDate}">
+                                    <li class="event-item event-item-^id} eventlist-event&#45;&#45;past clear" data-start-date="^startDate}" data-end-date="^endDate}">
                                         <div class="event-main">
                                             <div class="eventlist-column-date">
                                                 <div class="eventlist-datetag">
@@ -146,7 +146,7 @@
                                     ^.or}
                                     <p class="no-events-message">No Results</p>
                                     ^.end}
-                                </ul>
+                                </ul>-->
                             </div>
                         </div>
                     </script>
