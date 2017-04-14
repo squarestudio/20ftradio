@@ -78,11 +78,9 @@
                         </div>
                         <div class="mobileEvents-wrapper">
                             <div class="mobileEvents-container">
-                                <squarespace:query collection="shows" limit="100"><script>console.log({@|json-pretty})</script>
                                     <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
 
                                     </ul>
-                                </squarespace:query>
                             </div>
                         </div>
                     </div>
