@@ -43,7 +43,7 @@ window.Template.Controllers.CastController = function (element) {
         liveIndicator,
         streamSwiper,
         castContainer = Y.one('#castDiv');
-    var DEBUG = true;
+    var DEBUG = false;
 
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
