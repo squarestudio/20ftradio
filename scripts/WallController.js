@@ -194,15 +194,6 @@ window.Template.Controllers.WallController = function (element) {
                                 wallGrid.removeClass('no-upcoming');
                                 var compiled = Y.JSONTemplate.evaluateJsonTemplate(template, items); //compile template with received data
                                 var compiledFragment = Y.Node.create(compiled);
-                                /*                            if(order == 'true'){
-                                 var nodes = getNodesOrderedByAdded(wallGrid.all('li'));
-                                 wallGrid.append(nodes);
-                                 wallGrid.prepend(getNodesOrderedByDate(compiledFragment.all('li')));
-                                 } else {
-                                 link.insert(compiledFragment, 'before');
-                                 nodes = getNodesOrderedByAdded(wallGrid.all('li'));
-                                 wallGrid.append(nodes);
-                                 }*/
                                 if (compiledFragment.one('.wallEvents-Upcoming')) {
                                     var upcomingMob = compiledFragment.one('.wallEvents-Upcoming').cloneNode(!0);
                                     mobileWall.prepend(upcomingMob.get('children'));
@@ -226,7 +217,6 @@ window.Template.Controllers.WallController = function (element) {
                                 }
                             } else {
                                 wallGrid.addClass('no-upcoming');
-                                console.log('olo')
                                 link.remove();
                                 imagesReady();
                                 loadImages();
