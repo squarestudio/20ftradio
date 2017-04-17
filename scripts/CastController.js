@@ -1014,7 +1014,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function getShoutcastStatus() {
-        Y.io('https://uploader.squarespacewebsites.com/20ft-radio-status.php', {
+        Y.io('http://20ftradio.esy.es/20ft-radioboss-status.php', {
             on: {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
