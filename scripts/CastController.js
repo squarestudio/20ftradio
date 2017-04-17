@@ -1023,7 +1023,7 @@ window.Template.Controllers.CastController = function (element) {
                         if (status_html && status_html.one('table[cellpadding=2]')) {
                             var current_song = status_html.one('table[cellpadding=2] tr:last-child td:last-child').get('text');
                             current_song = 'Now playing: ' + current_song;
-                            DEBUG && console.log(current_song, activePlayer);
+                            console.log(current_song, activePlayer);
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
                                 trackName.one('span').set('text', current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
