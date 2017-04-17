@@ -1021,7 +1021,7 @@ window.Template.Controllers.CastController = function (element) {
                         var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
                         if (status_html && status_html.one('table[cellpadding=2]')) {
-                            var current_song = status_html.one('table[cellpadding=2] tr:last-child td:last-child').get('text');
+                            var current_song = status_html.one('table[cellpadding=2] a[href*="currentsong"]').get('text');
                             current_song = 'Now playing: ' + current_song;
                             console.log(current_song, activePlayer);
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
