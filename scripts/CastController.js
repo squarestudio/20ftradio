@@ -1020,8 +1020,8 @@ window.Template.Controllers.CastController = function (element) {
                     if (data.status == 200 && data.readyState == 4) {
                         var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
-                        if (status_html && status_html.one('.newscontent table[cellpadding=4]')) {
-                            var current_song = status_html.one('.newscontent table[cellpadding=4] tr:last-child td:last-child').get('text');
+                        if (status_html && status_html.one('table[cellpadding=2]')) {
+                            var current_song = status_html.one('table[cellpadding=2] tr:last-child td:last-child').get('text');
                             current_song = 'Now playing: ' + current_song;
                             DEBUG && console.log(current_song, activePlayer);
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
