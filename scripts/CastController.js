@@ -1015,22 +1015,6 @@ window.Template.Controllers.CastController = function (element) {
             trackName.removeClass('scrolling');
         }
     }
-    function getDifference(a, b)
-    {
-        var i = 0;
-        var j = 0;
-        var result = "";
-
-        while (j < b.length)
-        {
-            if (a[i] != b[j] || i == a.length)
-                result += b[j];
-            else
-                i++;
-            j++;
-        }
-        return result;
-    }
     function getShoutcastStatus() {
         shoutcastStatusFactor = true;
         Y.io('https://app.20ft.xyz/20ft-radiobossfm-status.php', {
@@ -1042,7 +1026,7 @@ window.Template.Controllers.CastController = function (element) {
                         if (status_html && status_html.one('table[cellpadding=2]')) {
                             var current_song = status_html.one('table[cellpadding=2] a[href*="currentsong"]').get('text');
                             current_song = 'Now playing: ' + current_song;
-                            console.log(getDifference(current_song, trackName.get('text')).length, trackName.get('text') !== current_song, activePlayer);
+                            console.log(current_song, trackName.get('text'), trackName.get('text') !== current_song, activePlayer);
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
                                 trackName.one('span').set('text', current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
