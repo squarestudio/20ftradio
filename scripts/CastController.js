@@ -475,7 +475,9 @@ window.Template.Controllers.CastController = function (element) {
                     }
                     getShoutcastStatus();
                     shoutcastStatusCheckInterval = setInterval(function () {
-                        getShoutcastStatus();
+                        if(!shoutcastStatusFactor){
+                            getShoutcastStatus();
+                        }
                     }, 10000);
                     DEBUG && console.log('Shoutcast status interval set');
                 }
@@ -1015,6 +1017,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function getShoutcastStatus() {
+
         Y.io('https://app.20ft.xyz/20ft-radiobossfm-status.php', {
             on: {
                 success: function (i, data) {
