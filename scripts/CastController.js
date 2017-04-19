@@ -989,12 +989,12 @@ window.Template.Controllers.CastController = function (element) {
             if (!youtubeStatusLoad) {
                 youtubeStatusLoad = true;
             }
-            Y.io('https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo', {
+            Y.io('https://app.20ft.xyz/20ft-radio-youtube-status.php', {//https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo
                 on: {
                     success: function (i, data) {
                         if (data.status == 200 && data.readyState == 4) {
                             data = JSON.parse(data.responseText);
-                            var live = data.pageInfo.totalResults > 0;
+                            var live = data.responseText;
                             DEBUG && console.log('Youtube STREAM is:  --' + live);
                             youtubeStatus = live;
                             checkStreams();
