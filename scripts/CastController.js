@@ -941,7 +941,7 @@ window.Template.Controllers.CastController = function (element) {
         })
     }
 
-    function getCurrentEvent() {
+    function getCurrentEvent(shoutcast) {
         var checkEvents = function () {
             var currentTime = new Date();
             var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
@@ -962,8 +962,10 @@ window.Template.Controllers.CastController = function (element) {
                     Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
                 }
             } else {
-                trackName.one('span').set('text', '');
-                trackName.removeClass('scroll-track');
+                if(!shoutcast){
+                    trackName.one('span').set('text', '');
+                    trackName.removeClass('scroll-track');
+                }
                 DEBUG && console.log('no current event');
                 if (Y.one('.event-on-air')) {
                     Y.all('.event-on-air').removeClass('event-on-air');
