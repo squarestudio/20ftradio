@@ -543,17 +543,14 @@ window.Template.Controllers.MobileCastController = function (element) {
                     console.log('try another players', notShoutcast, notSoundCloud);
                     if (shoutcastPlayer && !notShoutcast) {
                         state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                        console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
+                        console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastStatus);
                         if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
                             autoplay && shoutcastPlayer.play();
                             activePlayer = 'shoutcast';
                             pausePlayersExept('shoutcast');
                             onPlayerStateChange('shoutcast');
                             if (state == false) {
-                                if (mobile) {
-                                    notSoundCloud = true;
-                                    notYoutube = true;
-                                }
+
                             }
                             status();
                             retry = maxRetry - 1;
@@ -759,7 +756,6 @@ window.Template.Controllers.MobileCastController = function (element) {
     function onYoutubeError(event) {
         console.log('youtube error');
         if (mobile) {
-            notYoutube = true;
             retry = maxRetry;
             checkStreams();
         }
