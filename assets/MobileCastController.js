@@ -1092,10 +1092,9 @@ window.Template.Controllers.MobileCastController = function (element) {
                                     hasNext: false,
                                     hasClose: false,
                                     // iOS only, optional
-                                    album: 'Absolution',     // optional, default: ''
-                                    duration: 60, // optional, default: 0
-                                    elapsed: 10, // optional, default: 0
-
+                                    //album: 'Absolution',
+                                    duration: 60,
+                                    elapsed: 10,
                                     // Android only, optional
                                     // text displayed in the status bar when the notification (and the ticker) are updated
                                     ticker: current_song
