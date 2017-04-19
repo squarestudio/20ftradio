@@ -763,7 +763,9 @@ window.Template.Controllers.CastController = function (element) {
             pausePlayersExept('youtube');
             if (!youtubeCheckInterval) {
                 youtubeCheckInterval = setInterval(function () {
-                    getYoutubeStatus()
+                    if(!youtubeStatusFactor){
+                        getYoutubeStatus()
+                    }
                 }, 70000);
                 DEBUG && console.log('youtube check interval set')
             }
