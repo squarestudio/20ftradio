@@ -119,39 +119,6 @@
                                     <p class="no-events-message">No Results</p>
                                     ^.end}
                                 </ul>
-<!--                                <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
-                                    ^.if past}
-                                    ^.repeated section past}
-                                    <li class="event-item event-item-^id} eventlist-event&#45;&#45;past clear" data-start-date="^startDate}" data-end-date="^endDate}">
-                                        <div class="event-main">
-                                            <div class="eventlist-column-date">
-                                                <div class="eventlist-datetag">
-                                                    <div class="eventlist-datetag-inner">
-                                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;month">^startDate|date %b}</div>
-                                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate&#45;&#45;day">^startDate|date %d}</div>
-                                                        <div class="eventlist-datetag-time">
-                                                            <span class="event-time-12hr">^startDate|date %I:%M %p}</span>
-                                                            <span class="event-time-24hr">^startDate|date %H:%M}</span>
-                                                        </div>
-                                                        <div class="eventlist-datetag-status"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            ^.if title}<h4 class="event-title">^title}</h4>^.end}
-                                        </div>
-                                        <div class="event-descr">
-                                            ^.if excerpt}
-                                            <div class="descr">^excerpt}</div>
-                                            ^.or}
-                                            <div class="descr">^body}</div>
-                                            ^.end}
-                                        </div>
-                                    </li>
-                                    ^.end}
-                                    ^.or}
-                                    <p class="no-events-message">No Results</p>
-                                    ^.end}
-                                </ul>-->
                     </script>
                     {.or}
                     {squarespace.main-content}
