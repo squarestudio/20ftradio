@@ -1017,7 +1017,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function getShoutcastStatus() {
-
+        shoutcastStatusFactor = true;
         Y.io('https://app.20ft.xyz/20ft-radiobossfm-status.php', {
             on: {
                 success: function (i, data) {
@@ -1043,9 +1043,10 @@ window.Template.Controllers.CastController = function (element) {
                             shoutcastStatus = false;
                         }
                     }
+                    shoutcastStatusFactor = false;
                 },
                 failure: function () {
-                    //err, 401
+                    shoutcastStatusFactor = false;
                 }
             }
         });
