@@ -1081,6 +1081,8 @@ window.Template.Controllers.MobileCastController = function (element) {
                                 trackName.one('span').set('text', current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                                 checkTrackNameOverflow();
+                                
+                                //setLocalNotification(current_song)
                             } else {
                                 getCurrentEvent(true);
                             }
