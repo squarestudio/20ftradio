@@ -1083,8 +1083,8 @@ window.Template.Controllers.MobileCastController = function (element) {
                                 checkTrackNameOverflow();
                                 MusicControls && MusicControls.create({
                                     track       : status_html.one('table[cellpadding=2] a[href*="currentsong"]').get('text'),		// optional, default : ''
-                                    artist      : 'Muse',						// optional, default : ''
-                                    cover       : 'albums/absolution.jpg',		// optional, default : nothing
+                                    artist      : '20ft Radio',						// optional, default : ''
+                                    cover       : '',		// optional, default : nothing
                                     // cover can be a local path (use fullpath 'file:///storage/emulated/...', or only 'my_image.jpg' if my_image.jpg is in the www folder of your app)
                                     //			 or a remote url ('http://...', 'https://...', 'ftp://...')
                                     isPlaying   : true,							// optional, default : true
