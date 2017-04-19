@@ -996,7 +996,6 @@ window.Template.Controllers.CastController = function (element) {
                 on: {
                     success: function (i, data) {
                         if (data.status == 200 && data.readyState == 4) {
-                            data = JSON.parse(data.responseText);
                             var live = data.responseText == 'online';
                             console.log('Youtube STREAM is:  --' + live);
                             youtubeStatus = live;
