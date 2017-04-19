@@ -474,7 +474,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     }
                     getShoutcastStatus();
                     shoutcastStatusCheckInterval = setInterval(function () {
-                        if(!shoutcastStatusFactor){
+                        if (!shoutcastStatusFactor) {
                             getShoutcastStatus();
                         }
                     }, 10000);
@@ -773,7 +773,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             pausePlayersExept('youtube');
             if (!youtubeCheckInterval && !youtubeStatusLoad) {
                 youtubeCheckInterval = setInterval(function () {
-                    if(!youtubeStatusFactor){
+                    if (!youtubeStatusFactor) {
                         getYoutubeStatus();
                     }
                 }, 30000);
@@ -984,7 +984,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
                 }
             } else {
-                if(!shoutcast){
+                if (!shoutcast) {
                     trackName.one('span').set('text', '');
                     setLocalNotification();
                     trackName.removeClass('scroll-track');
@@ -1076,29 +1076,29 @@ window.Template.Controllers.MobileCastController = function (element) {
                         if (status_html && status_html.one('table[cellpadding=2]')) {
                             var current_song = status_html.one('table[cellpadding=2] a[href*="currentsong"]').get('text');
                             current_song = 'Now playing: ' + current_song;
-                            console.log(current_song,trackName.get('text'),trackName.get('text') !== current_song, activePlayer);
+                            console.log(current_song, trackName.get('text'), trackName.get('text') !== current_song, activePlayer);
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
                                 trackName.one('span').set('text', current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                                 checkTrackNameOverflow();
                                 MusicControls && MusicControls.destroy();
                                 MusicControls && MusicControls.create({
-                                    track       : status_html.one('table[cellpadding=2] a[href*="currentsong"]').get('text'),
-                                    artist      : '20ft Radio',
-                                    cover       : 'https://www.20ftradio.com/assets/icon.png',
-                                    isPlaying   : true,							// optional, default : true
-                                    dismissable : true,
-                                    hasPrev   : false,
-                                    hasNext   : false,
-                                    hasClose  : true,
+                                    track: status_html.one('table[cellpadding=2] a[href*="currentsong"]').get('text'),
+                                    artist: '20ft Radio',
+                                    cover: 'https://www.20ftradio.com/assets/icon.png',
+                                    isPlaying: true,							// optional, default : true
+                                    dismissable: true,
+                                    hasPrev: false,
+                                    hasNext: false,
+                                    hasClose: true,
                                     // iOS only, optional
-                                    album       : 'Absolution',     // optional, default: ''
-                                    duration : 60, // optional, default: 0
-                                    elapsed : 10, // optional, default: 0
+                                    album: 'Absolution',     // optional, default: ''
+                                    duration: 60, // optional, default: 0
+                                    elapsed: 10, // optional, default: 0
 
                                     // Android only, optional
                                     // text displayed in the status bar when the notification (and the ticker) are updated
-                                    ticker	  : current_song
+                                    ticker: current_song
                                 });
                                 //setLocalNotification(current_song)
                             } else {
