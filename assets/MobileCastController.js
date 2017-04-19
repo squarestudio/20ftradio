@@ -1098,7 +1098,7 @@ window.Template.Controllers.MobileCastController = function (element) {
 
                                     // Android only, optional
                                     // text displayed in the status bar when the notification (and the ticker) are updated
-                                    ticker	  : current_song,
+                                    ticker	  : current_song
                                 });
                                 //setLocalNotification(current_song)
                             } else {
