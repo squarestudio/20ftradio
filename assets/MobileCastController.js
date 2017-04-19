@@ -780,7 +780,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     if(!youtubeStatusFactor){
                         getYoutubeStatus();
                     }
-                }, 70000);
+                }, 30000);
                 console.log('youtube check interval set');
                 getYoutubeStatus();
             }
