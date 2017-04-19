@@ -1035,7 +1035,7 @@ window.Template.Controllers.CastController = function (element) {
                                 checkTrackNameOverflow();
                             } else {
                                 console.log('get Event')
-                                //getCurrentEvent();
+                                getCurrentEvent(true);
                             }
                             shoutcastStatus = true;
                             console.log('SHOUTCAST STATUS TRUE');
