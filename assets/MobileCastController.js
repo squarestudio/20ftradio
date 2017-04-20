@@ -1081,6 +1081,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                                 trackName.one('span').set('text', current_song);
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                                 checkTrackNameOverflow();
+                                shoutcastPlayer.title = current_song;
                                 MusicControls && MusicControls.destroy();
                                 MusicControls && MusicControls.create({
                                     track: status_html.one('table[cellpadding=2] a[href*="currentsong"]').get('text'),
