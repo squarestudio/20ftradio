@@ -1076,6 +1076,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                             console.log(current_song, trackName.get('text'), trackName.get('text') !== current_song, activePlayer);
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
                                 trackName.one('span').set('text', current_song);
+                                shoutcastPlayer.title = current_song;
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                                 checkTrackNameOverflow();
                                 shoutcastPlayer.title = current_song;
