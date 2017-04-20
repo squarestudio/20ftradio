@@ -1089,9 +1089,9 @@ window.Template.Controllers.MobileCastController = function (element) {
                                     cover: 'https://www.20ftradio.com/assets/icon.png',
                                     isPlaying: true,							// optional, default : true
                                     dismissable: true,
-                                    hasPrev: false,
+                                    hasPrev: true,
                                     hasNext: false,
-                                    hasClose: false,
+                                    hasClose: true,
                                     // iOS only, optional
                                     //album: 'Absolution',
                                     duration: 60,
