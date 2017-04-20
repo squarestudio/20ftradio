@@ -1034,6 +1034,7 @@ window.Template.Controllers.CastController = function (element) {
                             current_song = 'Now playing: ' + current_song;
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
                                 trackName.one('span').set('text', current_song);
+                                shoutcastPlayer.title = current_song;
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                                 checkTrackNameOverflow();
                             } else {
