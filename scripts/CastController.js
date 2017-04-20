@@ -7,7 +7,7 @@ window.Template.Controllers.CastController = function (element) {
         shoutCastUrl,
         someCloudUrl,
         retry = 0,
-        maxRetry = 3,
+        maxRetry = 5,
         youtubeRetry = 0,
         youtubeStatus = false,
         youtubeStatusLoad = false,
