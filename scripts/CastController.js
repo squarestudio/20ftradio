@@ -531,76 +531,76 @@ window.Template.Controllers.CastController = function (element) {
                         retry = 1;
                         return;
                     }
-                    DEBUG && console.log('CHECK After Youtube');
-                    if (!youtubeStatus && retry > maxRetry) {//retry > maxRetry || notYoutube
-                        DEBUG && console.log('try another players', notShoutcast, notSoundCloud);
-                        if (shoutcastPlayer) {
-                            state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                            DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
-                            if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
-                                !mobile && shoutcastPlayer.play();
-                                activePlayer = 'shoutcast';
-                                pausePlayersExept('shoutcast');
-                                onPlayerStateChange('shoutcast');
-                                status();
-                                retry = maxRetry - 1;
-                                return;
+                }
+                DEBUG && console.log('CHECK After Youtube');
+                if (!youtubeStatus && retry > maxRetry) {//retry > maxRetry || notYoutube
+                    DEBUG && console.log('try another players', notShoutcast, notSoundCloud);
+                    if (shoutcastPlayer) {
+                        state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
+                        DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
+                        if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
+                            !mobile && shoutcastPlayer.play();
+                            activePlayer = 'shoutcast';
+                            pausePlayersExept('shoutcast');
+                            onPlayerStateChange('shoutcast');
+                            status();
+                            retry = maxRetry - 1;
+                            return;
+                        } else {
+                            if (retry > maxRetry + 3 && retry < maxRetry + 5) {
+                                DEBUG && console.log('try to load shoutcast');
+                                shoutcastPlayer.load();
                             } else {
-                                if (retry > maxRetry + 3 && retry < maxRetry + 5) {
-                                    DEBUG && console.log('try to load shoutcast');
-                                    shoutcastPlayer.load();
-                                } else {
-                                    DEBUG && console.log('wait to load shoutcast');
-                                    retry++;
-                                }
+                                DEBUG && console.log('wait to load shoutcast');
+                                retry++;
                             }
                         }
-                        else {
-                            if (shoutCastUrl) {
-                                initShoutCast();
-                                status();
-                            } else {
-                                notShoutcast = true;
-                                retry = maxRetry + 6;
-                            }
-                        }
-                        DEBUG && console.log('CHECK Before Soundcloud');
-                        if (retry > maxRetry + 6 || notShoutcast) {
-                            if (soundCloudPlayer && !notSoundCloud) {
-                                activePlayer = 'soundcloud';
-                                soundCloudPlayer.isPaused(function (paused) {
-                                    if (paused) {
-                                        !mobile && soundCloudPlayer.play();
-                                        activePlayer = 'soundcloud';
-                                        onPlayerStateChange('soundcloud');
-                                        pausePlayersExept('soundcloud');
-                                    } else {
-                                        //retry = maxRetry + 6;
-                                    }
-                                    status();
-                                });
-                            } else if (mixCloudPlayer && !notMixCloud) {
-                                activePlayer = 'mixcloud';
-                                mixCloudPlayer && mixCloudPlayer.getIsPaused().then(function (paused) {
-                                    if (paused) {
-                                        !mobile && mixCloudPlayer.play();
-                                        activePlayer = 'mixcloud';
-                                        onPlayerStateChange('mixcloud');
-                                        pausePlayersExept('mixcloud');
-                                    } else {
-                                        //retry = maxRetry + 6;
-                                    }
-                                    status()
-                                });
-                            } else {
-                                if (someCloudUrl && youtubeReady) {
-                                    initSomeCloud();
-                                }
-                                status();
-                            }
-                        }
-                        DEBUG && console.log('CHECK After Soundcloud');
                     }
+                    else {
+                        if (shoutCastUrl) {
+                            initShoutCast();
+                            status();
+                        } else {
+                            notShoutcast = true;
+                            retry = maxRetry + 6;
+                        }
+                    }
+                    DEBUG && console.log('CHECK Before Soundcloud');
+                    if (retry > maxRetry + 6 || notShoutcast) {
+                        if (soundCloudPlayer && !notSoundCloud) {
+                            activePlayer = 'soundcloud';
+                            soundCloudPlayer.isPaused(function (paused) {
+                                if (paused) {
+                                    !mobile && soundCloudPlayer.play();
+                                    activePlayer = 'soundcloud';
+                                    onPlayerStateChange('soundcloud');
+                                    pausePlayersExept('soundcloud');
+                                } else {
+                                    //retry = maxRetry + 6;
+                                }
+                                status();
+                            });
+                        } else if (mixCloudPlayer && !notMixCloud) {
+                            activePlayer = 'mixcloud';
+                            mixCloudPlayer && mixCloudPlayer.getIsPaused().then(function (paused) {
+                                if (paused) {
+                                    !mobile && mixCloudPlayer.play();
+                                    activePlayer = 'mixcloud';
+                                    onPlayerStateChange('mixcloud');
+                                    pausePlayersExept('mixcloud');
+                                } else {
+                                    //retry = maxRetry + 6;
+                                }
+                                status()
+                            });
+                        } else {
+                            if (someCloudUrl && youtubeReady) {
+                                initSomeCloud();
+                            }
+                            status();
+                        }
+                    }
+                    DEBUG && console.log('CHECK After Soundcloud');
                 }
             }
             else {
