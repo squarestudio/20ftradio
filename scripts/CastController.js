@@ -534,7 +534,7 @@ window.Template.Controllers.CastController = function (element) {
                     DEBUG && console.log('CHECK After Youtube');
                     if (!youtubeStatus && retry > maxRetry) {//retry > maxRetry || notYoutube
                         DEBUG && console.log('try another players', notShoutcast, notSoundCloud);
-                        if (shoutcastPlayer && !notShoutcast) {
+                        if (shoutcastPlayer) {
                             state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
                             DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
                             if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
@@ -779,14 +779,12 @@ window.Template.Controllers.CastController = function (element) {
         }
         else if (playerType == 'shoutcast') {
             if (!shoutCastReady) {
-                //!mobile && shoutcastPlayer.play();
                 shoutcastPlayer.setVolume(50);
                 shoutCastReady = true;
                 setActivePlayer();
             }
         } else if (playerType == 'soundcloud') {
             if (!soundCloudReady) {
-                //if (!mobile) soundCloudPlayer.play();
                 soundCloudPlayer.setVolume(0.5);
                 soundCloudReady = true;
                 setActivePlayer();
@@ -794,7 +792,6 @@ window.Template.Controllers.CastController = function (element) {
         }
         else if (playerType == 'mixcloud') {
             if (!mixCloudReady) {
-                //if (!mobile) mixCloudPlayer.play();
                 mixCloudPlayer.setVolume(0.5);
                 mixCloudReady = true;
                 setActivePlayer();
