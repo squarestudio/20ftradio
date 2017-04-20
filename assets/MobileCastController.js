@@ -549,9 +549,6 @@ window.Template.Controllers.MobileCastController = function (element) {
                             activePlayer = 'shoutcast';
                             pausePlayersExept('shoutcast');
                             onPlayerStateChange('shoutcast');
-                            if (state == false) {
-
-                            }
                             status();
                             retry = maxRetry - 1;
                             return;
