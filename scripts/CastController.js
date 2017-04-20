@@ -1032,7 +1032,7 @@ window.Template.Controllers.CastController = function (element) {
                                 getCurrentEvent(true);
                             }
                             shoutcastStatus = true;
-                            if(!shoutcastPlayer){initShoutCast()};
+                            if(!shoutcastPlayer){initShoutCast()}
                             DEBUG&&console.log('SHOUTCAST STATUS TRUE');
                         } else {
                             DEBUG&&console.log('SHOUTCAST STATUS FALSE');
