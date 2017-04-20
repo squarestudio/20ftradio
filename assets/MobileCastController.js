@@ -1097,6 +1097,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                                     // text displayed in the status bar when the notification (and the ticker) are updated
                                     ticker: current_song
                                 });
+                                if(!shoutcastPlayer){initShoutCast()}
                                 //setLocalNotification(current_song)
                             } else {
                                 getCurrentEvent(true);
