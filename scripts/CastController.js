@@ -816,6 +816,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function offlineMessage() {
         DEBUG && console.log('offline');
+        pausePlayersExept('all');
         if (streamCheckInterval) {
             clearInterval(streamCheckInterval);
             streamCheckInterval = null;
@@ -826,6 +827,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function onlineMessage() {
         DEBUG && console.log('online');
+        shoutcastPlayer && shoutcastPlayer.load();
         if (!streamCheckInterval) {
             streamCheckInterval = setInterval(function () {
                 checkStreams();
