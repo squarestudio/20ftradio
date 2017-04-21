@@ -76,6 +76,13 @@
                             <a href="#mobile-events-past" class="tab-2">Shows</a>
                             <div class="tab-border"></div>
                         </div>
+                        <div class="content-loader">
+                            <div class="fountainG fountainG_1"></div>
+                            <div class="fountainG fountainG_2"></div>
+                            <div class="fountainG fountainG_3"></div>
+                            <div class="fountainG fountainG_4"></div>
+                            <div class="fountainG fountainG_5"></div>
+                        </div>
                         <div class="mobileEvents-wrapper">
                             <div class="mobileEvents-container">
                                     <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
