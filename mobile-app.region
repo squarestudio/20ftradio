@@ -76,7 +76,7 @@
                             <a href="#mobile-events-past" class="tab-2">Shows</a>
                             <div class="tab-border"></div>
                         </div>
-                        <div class="content-loader">
+                        <div class="content-loader" style="display:block;">
                             <div class="fountainG fountainG_1"></div>
                             <div class="fountainG fountainG_2"></div>
                             <div class="fountainG fountainG_3"></div>
