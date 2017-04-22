@@ -757,22 +757,24 @@ body {
 }
 
 ////___CORDOVA APP STYLES____//
-&.video-player {
-  .video-toggle {
-    display: block;
+html{
+  &.video-player {
+    .video-toggle {
+      display: block;
+    }
   }
-}
-.video-toggle {
-  display: none;
-  position: absolute;
-  right: 0;
-  padding: 0 16px;
-  text-transform: uppercase;
-  .v-align;
-  color: #fff;
-  font-size: 13px;
-  &.active {
+  .video-toggle {
+    display: none;
+    position: absolute;
+    right: 0;
+    padding: 0 16px;
+    text-transform: uppercase;
+    .v-align;
     color: #fff;
+    font-size: 13px;
+    &.active {
+      color: #fff;
+    }
   }
 }
 .cordova-app {
