@@ -65,7 +65,7 @@
 <!--JS-->
 
 <script>
-    if (Y) {
+    if (window.Y) { 
         Y.use('node', function (Y) {
             Y.on('domready', function () {
                 var nav = Y.one('#mobile-navigation');
