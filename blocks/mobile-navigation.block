@@ -1,89 +1,93 @@
 {.section items}
 <!--MOBILE-->
 <nav id="mobile-navigation">
-  <div id="mobile-navigation-label"></div>
-  <ul data-content-field="navigation-mobileNav">
-    {.repeated section @}
-      {.index?}
+    <div id="mobile-navigation-label"></div>
+    <ul data-content-field="navigation-mobileNav">
+        {.repeated section @}
+        {.index?}
         {.section collection}
-          <li class="{.if active} active-link{.end}"><a href="{fullUrl}" class="{.if homepage} home-link{.end}">{navigationTitle}</a></li>
+        <li class="{.if active} active-link{.end}"><a href="{fullUrl}" class="{.if homepage} home-link{.end}">{navigationTitle}</a>
+        </li>
         {.end}
-      {.or folder?}
+        {.or folder?}
         <li class="folder{.if folderActive} active-folder{.end}">
 
             <!--FOLDER-->
 
             <div class="folder-parent">
-              <a>{collection.navigationTitle}</a>
-              <div class="folder-child-wrapper">
-                <ul class="folder-child">
+                <a>{collection.navigationTitle}</a>
+                <div class="folder-child-wrapper">
+                    <ul class="folder-child">
 
-                  {.repeated section items}
+                        {.repeated section items}
 
-                    {.collection?}
-                      <li class="{.section active} active-link{.end}">
-                        <a href="{collection.fullUrl}" class="{.if collection.homepage} home-link{.end}">
-                          {collection.navigationTitle}
-                        </a>
-                      </li>
-                    {.end}
+                        {.collection?}
+                        <li class="{.section active} active-link{.end}">
+                            <a href="{collection.fullUrl}" class="{.if collection.homepage} home-link{.end}">
+                                {collection.navigationTitle}
+                            </a>
+                        </li>
+                        {.end}
 
-                    {.section externalLink}
-                      <li>
-                        <a href="{url}"{.section newWindow} target="_blank"{.end}>
-                          {title}
-                        </a>
-                      </li>
-                    {.end}
-                  {.end}
+                        {.section externalLink}
+                        <li>
+                            <a href="{url}" {.section newWindow} target="_blank" {.end}>
+                                {title}
+                            </a>
+                        </li>
+                        {.end}
+                        {.end}
 
-                </ul>
-              </div>
+                    </ul>
+                </div>
             </div>
-          </li>
-      {.or}
+        </li>
+        {.or}
 
         {.section collection}
-          <li class="{.if active} active-link{.end}"><a href="{fullUrl}" class="{.if homepage} home-link{.end}">{navigationTitle}</a></li>
+        <li class="{.if active} active-link{.end}"><a href="{fullUrl}" class="{.if homepage} home-link{.end}">{navigationTitle}</a>
+        </li>
         {.end}
 
         {.section externalLink}
-          <li class="{.if active} active-link{.end}"><a href="{url}"{.section newWindow} target="_blank"{.end}>
+        <li class="{.if active} active-link{.end}"><a href="{url}" {.section newWindow} target="_blank" {.end}>
             {title}
-          </a></li>
+        </a></li>
         {.end}
 
-      {.end}
-        
-    {.end}
-  </ul>
+        {.end}
+
+        {.end}
+    </ul>
 </nav>
 {.end}
 
 <!--JS-->
 
 <script>
-  Y.use('node', function(Y) {
-    Y.on('domready', function() {
-      var nav = Y.one('#mobile-navigation');
-      var doc = Y.one('html');
-      var body = Y.one('body');
-      if (nav) {
-        if(doc.hasClass('touch')){
-          nav.on('click', function(e) {
-            nav.toggleClass('sqs-mobile-nav-open');
-            Y.one('body').toggleClass('sqs-mobile-nav-open');
-          });
-        } else {
-          nav.on('hover', function(e) {
-            nav.addClass('sqs-mobile-nav-open');
-            body.addClass('sqs-mobile-nav-open');
-          }, function () {
-            nav.removeClass('sqs-mobile-nav-open');
-            body.removeClass('sqs-mobile-nav-open');
-          });
-        }
-      }
-    });
-  });
+    if (Y) {
+        Y.use('node', function (Y) {
+            Y.on('domready', function () {
+                var nav = Y.one('#mobile-navigation');
+                var doc = Y.one('html');
+                var body = Y.one('body');
+                if (nav) {
+                    if (doc.hasClass('touch')) {
+                        nav.on('click', function (e) {
+                            nav.toggleClass('sqs-mobile-nav-open');
+                            Y.one('body').toggleClass('sqs-mobile-nav-open');
+                        });
+                    } else {
+                        nav.on('hover', function (e) {
+                            nav.addClass('sqs-mobile-nav-open');
+                            body.addClass('sqs-mobile-nav-open');
+                        }, function () {
+                            nav.removeClass('sqs-mobile-nav-open');
+                            body.removeClass('sqs-mobile-nav-open');
+                        });
+                    }
+                }
+            });
+        });
+    }
 </script>
