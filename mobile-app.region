@@ -1,6 +1,5 @@
 <html>
     <head>
-        <script type="text/javascript" src="cordova.js"></script>
         {squarespace-headers}
     </head>
     <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
