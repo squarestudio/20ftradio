@@ -227,8 +227,8 @@ body {
       z-index: 110 !important;
       opacity: 1;
       pointer-events: all;
-      &#youtubePlayer{
-        z-index: 140!important;
+      &#youtubePlayer {
+        z-index: 140 !important;
       }
     }
   }
@@ -515,7 +515,8 @@ body {
       width: 50% !important;
     }
   }
-  #grid .item a div.wrapper div.project-title{
+
+  #grid .item a div.wrapper div.project-title {
     display: block;
   }
 }
@@ -621,7 +622,8 @@ body {
   .header-block-content > .sqs-row .sqs-donate-button, .header-block-content > .sqs-row .sqs-block-button-element {
     font-size: 11px;
   }
-  #grid .item a div.wrapper div.project-title h2{
+
+  #grid .item a div.wrapper div.project-title h2 {
     font-size: 26px;
   }
 }
@@ -757,7 +759,7 @@ body {
 }
 
 ////___CORDOVA APP STYLES____//
-html{
+html {
   &.video-player {
     .video-toggle {
       display: block;
@@ -777,6 +779,7 @@ html{
     }
   }
 }
+
 .cordova-app {
   .loading-overlay {
     position: fixed;
@@ -830,7 +833,7 @@ html{
       padding: 0 24.2%;
       text-align: right;
     }
-    ul{
+    ul {
       top: 50px;
     }
   }
@@ -850,7 +853,7 @@ html{
     height: 40vh;
     min-height: 228px;
     opacity: 1;
-    margin: 0!important;
+    margin: 0 !important;
     .transform(none);
     &.initialized {
       .transition(transform .3s ease-in);
@@ -891,15 +894,18 @@ html{
     opacity: 0;
     .transition(opacity .3s ease-in-out);
   }
-  &.show-current-player #castDiv {
-    .mobile-image {
-      opacity: 0;
-      z-index: 120;
-    }
-    .stream-player.active-player {
-      z-index: 310 !important;
-      opacity: 1;
-      pointer-events: all;
+  &.show-current-player {
+    
+    #castDiv {
+      .mobile-image {
+        opacity: 0;
+        z-index: 120;
+      }
+      .stream-player.active-player {
+        z-index: 310 !important;
+        opacity: 1;
+        pointer-events: all;
+      }
     }
   }
   .site-player-block {
@@ -982,8 +988,8 @@ html{
       .transition(transform 0.5s ease-in-out);
       .transition-webkit(-webkit-transform 0.5s ease-in-out);
     }
-    &.overflow-auto{
-      .mobileEvents-container{
+    &.overflow-auto {
+      .mobileEvents-container {
         overflow: auto;
       }
     }
