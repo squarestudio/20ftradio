@@ -951,6 +951,13 @@ html {
     }
   }
   #mobileEvents {
+    &[data-tab-active="#mobile-events-past"]{
+      .mobileEvents-wrapper{
+        .mobileEvents-wrapper{
+          height: 77vh;
+        }
+      }
+    }
     .tabs {
       margin: 4% 0;
       position: relative;
@@ -996,9 +1003,6 @@ html {
       .transition-webkit(-webkit-transform 0.5s ease-in-out);
     }
     &.overflow-auto {
-      .mobileEvents-wrapper{
-        height: 77vh;
-      }
       .mobileEvents-container {
         overflow: auto;
         max-height: 77vh;
