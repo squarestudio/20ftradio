@@ -122,6 +122,9 @@
                                         </div>
                                     </li>
                                     ^.end}
+                                    ^.or}
+                                    <p class="no-events-message">No Results</p>
+                                    ^.end}
                                 </ul>
                     </script>
                     {.or}
