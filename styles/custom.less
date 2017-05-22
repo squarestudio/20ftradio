@@ -1031,8 +1031,8 @@ html {
       width: 50%;
       height: auto;
       overflow: hidden;
-      min-height:1px;
-      max-height:1px;
+      min-height: 1px;
+      max-height: 1px;
       opacity: 0;
       &.active {
         max-height: none;
@@ -1176,23 +1176,27 @@ html {
     }
   }
 }
+
 @media only screen and (min-width: 768px) {
   .cordova-app .site-player-block {
     line-height: @logoSize;
-    .site-player{
+    .site-player {
       max-width: none;
     }
   }
-  .cordova-app #castDiv{
+
+  .cordova-app #castDiv {
     height: 50vh;
-    .mobile-image .mobile-trigger{
+    .mobile-image .mobile-trigger {
       left: 50%;
     }
   }
-  .cordova-app #mobileEvents.tab-mobile-events-past .mobileEvents-wrapper{
+
+  .cordova-app #mobileEvents.tab-mobile-events-past .mobileEvents-wrapper {
     height: 82vh;
   }
 }
+
 @media only screen and (max-width: 375px) {
   #mobileEvents .mobileEvents li .schedule-event {
     background-size: 18px;
