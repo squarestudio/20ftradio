@@ -93,7 +93,7 @@
                     </div>
                     <script id="mobile-events-query-template" type="text/x-json-template">
                                 <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active">
-                                    <p class="no-shows-message">No shows</p>
+                                    <p class="no-shows-message">No Upcoming Shows</p>
                                     ^.if upcoming}
                                     ^.repeated section upcoming}
                                     <li class="event-item event-item-^id} eventlist-event--upcoming clear" data-start-date="^startDate}" data-end-date="^endDate}">
