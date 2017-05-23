@@ -275,7 +275,7 @@ window.Template.Controllers.CastController = function (element) {
         videoYoutubazing();
         volumeIcon.on('click', function (e) {
             e.halt();
-            if (castContainer.get('offsetWidth') < 430) {
+            if (castContainer.get('offsetWidth') < 641) {
                 sitePlayer.toggleClass('volume-range-visible');
             } else {
                 DEBUG && console.log('volume - ' + activePlayer);
