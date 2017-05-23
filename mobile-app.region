@@ -122,6 +122,8 @@
                                         </div>
                                     </li>
                                     ^.end}
+                                    ^.or}
+                                    <p class="no-shows-message">No Upcoming Shows</p>
                                     ^.end}
                                 </ul>
                     </script>
