@@ -225,7 +225,7 @@ window.Template.Controllers.WallController = function (element) {
                     })
                 })
             } else {
-                wallGrid.addClass('no-events');
+                Y.one('body').addClass('no-upcoming');
                 imagesReady();
                 loadImages();
             }
