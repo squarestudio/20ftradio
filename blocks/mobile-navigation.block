@@ -6,7 +6,7 @@
         {.repeated section @}
         {.index?}
         {.section collection}
-        <li class="{.if active} active-link{.end} {collection.typeName}"><a href="{fullUrl}" class="{.if homepage} home-link{.end}">{navigationTitle}</a>
+        <li class="{.if active} active-link{.end} link-{collection.typeName}"><a href="{fullUrl}" class="{.if homepage} home-link{.end}">{navigationTitle}</a>
         </li>
         {.end}
         {.or folder?}
@@ -22,7 +22,7 @@
                         {.repeated section items}
 
                         {.collection?}
-                        <li class="{.section active} active-link{.end}">
+                        <li class="{.section active} active-link{.end} link-{collection.typeName}">
                             <a href="{collection.fullUrl}" class="{.if collection.homepage} home-link{.end}">
                                 {collection.navigationTitle}
                             </a>
@@ -45,7 +45,7 @@
         {.or}
 
         {.section collection}
-        <li class="{.if active} active-link{.end}"><a href="{fullUrl}" class="{.if homepage} home-link{.end}">{navigationTitle}</a>
+        <li class="{.if active} active-link{.end} link-{collection.typeName}"><a href="{fullUrl}" class="{.if homepage} home-link{.end}">{navigationTitle}</a>
         </li>
         {.end}
 
