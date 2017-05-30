@@ -83,7 +83,14 @@ body {
     .scale(1);
   }
 }
-
+.event-on-air{
+  .eventlist-datetag-inner {
+    &:after {
+      display: block;
+      animation: blinking 1.8s infinite ease-in;
+    }
+  }
+}
 .header-block-content {
   min-width: 60px;
   float: left;
