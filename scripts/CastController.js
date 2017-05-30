@@ -475,7 +475,7 @@ window.Template.Controllers.CastController = function (element) {
                     }
                     getShoutcastStatus();
                     shoutcastStatusCheckInterval = setInterval(function () {
-                        if(!shoutcastStatusFactor){
+                        if (!shoutcastStatusFactor) {
                             getShoutcastStatus();
                         }
                     }, 10000);
@@ -757,7 +757,7 @@ window.Template.Controllers.CastController = function (element) {
             pausePlayersExept('youtube');
             if (!youtubeCheckInterval) {
                 youtubeCheckInterval = setInterval(function () {
-                    if(!youtubeStatusFactor){
+                    if (!youtubeStatusFactor) {
                         getYoutubeStatus();
                     }
                 }, 30000);
@@ -953,12 +953,14 @@ window.Template.Controllers.CastController = function (element) {
                 trackName.one('span').set('text', eventOnAir.title);
                 trackName.addClass('scroll-track');
                 checkTrackNameOverflow();
-                if(Y.all('.eventlist-event').size()){
+                if (Y.all('.eventlist-event').size()) {
                     Y.all('.eventlist-event').each(function (item) {
-                        if(item.one('a').getAttribute('href').indexOf(eventOnAir.fullUrl)>-1){
+                        if (item.one('a').getAttribute('href').indexOf(eventOnAir.fullUrl) > -1) {
                             item.addClass('event-on-air');
                         } else {
-                            item.hasClass('event-on-air')&& item.removeClass('event-on-air');
+                            if (item.hasClass('event-on-air')) {
+                                item.removeClass('event-on-air');
+                            }
                         }
                     })
                 }
@@ -966,7 +968,7 @@ window.Template.Controllers.CastController = function (element) {
                     Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
                 }
             } else {
-                if(!shoutcast){
+                if (!shoutcast) {
                     trackName.one('span').set('text', '');
                     trackName.removeClass('scroll-track');
                 }
@@ -1023,6 +1025,7 @@ window.Template.Controllers.CastController = function (element) {
             trackName.removeClass('scrolling');
         }
     }
+
     function getShoutcastStatus() {
         shoutcastStatusFactor = true;
         Y.io('https://app.20ft.xyz/20ft-radiobossfm-status.php', {
@@ -1043,10 +1046,12 @@ window.Template.Controllers.CastController = function (element) {
                                 getCurrentEvent(true);
                             }
                             shoutcastStatus = true;
-                            if(!shoutcastPlayer){initShoutCast()}
-                            DEBUG&&console.log('SHOUTCAST STATUS TRUE');
+                            if (!shoutcastPlayer) {
+                                initShoutCast()
+                            }
+                            DEBUG && console.log('SHOUTCAST STATUS TRUE');
                         } else {
-                            DEBUG&&console.log('SHOUTCAST STATUS FALSE');
+                            DEBUG && console.log('SHOUTCAST STATUS FALSE');
                             shoutcastStatus = false;
                         }
                     }
