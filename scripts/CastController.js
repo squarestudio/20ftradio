@@ -953,7 +953,13 @@ window.Template.Controllers.CastController = function (element) {
                 trackName.one('span').set('text', eventOnAir.title);
                 trackName.addClass('scroll-track');
                 checkTrackNameOverflow();
-                if(Y.all('.'))
+                if(Y.all('.eventlist-event').size()){
+                    Y.all('.eventlist-event').each(function (item) {
+                        if(item.get('innerText').indexOf(event.fullUrl)>-1){
+                            item.addClass('event-on-air');
+                        }
+                    })
+                }
                 if (Y.one('.event-item-' + eventOnAir.id)) {
                     Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
                 }
