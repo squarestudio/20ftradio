@@ -957,6 +957,8 @@ window.Template.Controllers.CastController = function (element) {
                     Y.all('.eventlist-event').each(function (item) {
                         if(item.one('a').getAttribute('href').indexOf(eventOnAir.fullUrl)>-1){
                             item.addClass('event-on-air');
+                        } else {
+                            item.hasClass('event-on-air')&& item.removeClass('event-on-air');
                         }
                     })
                 }
