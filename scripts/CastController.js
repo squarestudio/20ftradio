@@ -953,9 +953,10 @@ window.Template.Controllers.CastController = function (element) {
                 trackName.one('span').set('text', eventOnAir.title);
                 trackName.addClass('scroll-track');
                 checkTrackNameOverflow();
+                console.log(eventOnAir)
                 if(Y.all('.eventlist-event').size()){
                     Y.all('.eventlist-event').each(function (item) {
-                        if(item.get('innerText').indexOf(event.fullUrl)>-1){
+                        if(item.get('innerText').indexOf(eventOnAir.fullUrl)>-1){
                             item.addClass('event-on-air');
                         }
                     })
