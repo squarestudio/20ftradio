@@ -960,6 +960,9 @@ window.Template.Controllers.CastController = function (element) {
                         } else {
                             if (item.hasClass('event-on-air')) {
                                 item.removeClass('event-on-air');
+                                setTimeout(function () {
+                                    item.hide(true)
+                                })
                             }
                         }
                     })
