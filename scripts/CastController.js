@@ -282,11 +282,11 @@ window.Template.Controllers.CastController = function (element) {
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
                     if (activePlayer) {
                         if (activePlayer == 'soundcloud' || activePlayer == 'facebook' || activePlayer == 'mixcloud') {
-                            players[activePlayer].setVolume(0.5);
+                            players[activePlayer].setVolume(1);
                         } else {
-                            players[activePlayer].setVolume(50);
+                            players[activePlayer].setVolume(100);
                         }
-                        volumeControl.set('value', 50);
+                        volumeControl.set('value', 100);
                         volumeIcon._node.className = 'icono-volumeMedium';
                     }
                 } else {
@@ -668,7 +668,7 @@ window.Template.Controllers.CastController = function (element) {
                         skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
                         DEBUG && console.log('SKIPSCINDEX == ' + skipIndex);
                         soundCloudPlayer.skip(skipIndex);
-                        soundCloudPlayer.setVolume(50);
+                        soundCloudPlayer.setVolume(100);
                     }
                     onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
                 })
@@ -751,7 +751,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function onPlayerReady(playerType, data) {
         if (playerType == 'youtube') {
-            youtubePlayer.setVolume(50);
+            youtubePlayer.setVolume(100);
             !mobile && youtubePlayer.playVideo();
             youtubeReady = true;
             pausePlayersExept('youtube');
@@ -765,7 +765,7 @@ window.Template.Controllers.CastController = function (element) {
             }
         }
         else if (playerType == 'facebook') {
-            fbPlayer.setVolume(0.5);
+            fbPlayer.setVolume(1);
             if (!mobile) {
                 fbPlayer.play();
             }
@@ -779,20 +779,20 @@ window.Template.Controllers.CastController = function (element) {
         }
         else if (playerType == 'shoutcast') {
             if (!shoutCastReady) {
-                shoutcastPlayer.setVolume(50);
+                shoutcastPlayer.setVolume(100);
                 shoutCastReady = true;
                 setActivePlayer();
             }
         } else if (playerType == 'soundcloud') {
             if (!soundCloudReady) {
-                soundCloudPlayer.setVolume(0.5);
+                soundCloudPlayer.setVolume(1);
                 soundCloudReady = true;
                 setActivePlayer();
             }
         }
         else if (playerType == 'mixcloud') {
             if (!mixCloudReady) {
-                mixCloudPlayer.setVolume(0.5);
+                mixCloudPlayer.setVolume(1);
                 mixCloudReady = true;
                 setActivePlayer();
             }
