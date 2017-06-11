@@ -95,7 +95,7 @@
                     <script id="mobile-events-query-template" type="text/x-json-template">
                                     ^.if upcoming}
                                     ^.repeated section upcoming}
-                                    <li class="event-item event-item-^id} eventlist-event--upcoming clear" data-start-date="^startDate}" data-end-date="^endDate}">
+                                    <li id="^id}" class="event-item event-item-^id} eventlist-event--upcoming clear" data-start-date="^startDate}" data-end-date="^endDate}">
                                         <div class="event-main clear">
                                             <div class="eventlist-column-date">
                                                 <div class="eventlist-datetag">
