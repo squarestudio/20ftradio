@@ -1,7 +1,8 @@
 <div class="sqs-events-collection-list">
     {.if upcoming}
     <div class="eventlist eventlist--upcoming">
-        <article class="eventlist-event eventlist-event--upcoming event-on-air" id="yui_3_17_2_1_1497165316449_408">
+        {.reapeted section upcoming}
+        <article class="eventlist-event eventlist-event--upcoming">
 
             <a href="/test-events/2017/6/10/ivan-derbastler-wf5cb-75k9a" class="eventlist-column-thumbnail content-fill"
                data-ajax-loader="ajax-loader-binded"></a>
@@ -98,6 +99,7 @@
             <div class="clear" id="yui_3_17_2_1_1497165316449_544"></div>
 
         </article>
+        {.end}
     </div>
     {.or}
         <p>There are no upcoming events</p>
