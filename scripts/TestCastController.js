@@ -1,4 +1,4 @@
-window.Template.Controllers.CastController = function (element) {
+window.Template.Controllers.TestCastController = function (element) {
     'use strict';
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
