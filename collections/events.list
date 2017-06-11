@@ -1,7 +1,7 @@
 <div class="sqs-events-collection-list">
     {.if upcoming}
     <div class="eventlist eventlist--upcoming">
-        {.reapeted section upcoming}
+        {.repeated section upcoming}
         <article class="eventlist-event eventlist-event--upcoming">
 
             <a href="{fullUrl}" class="eventlist-column-thumbnail content-fill">
