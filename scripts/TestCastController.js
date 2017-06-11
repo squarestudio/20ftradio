@@ -946,7 +946,7 @@ window.Template.Controllers.TestCastController = function (element) {
             currentEvents.upcoming.forEach(function (event) {
                 if (currentTime >= new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()) {
                     eventOnAir = event;
-                    DEBUG && console.log(event.title);
+                    console.log(event.title);
                 }
             });
             if (eventOnAir) {
@@ -975,7 +975,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     trackName.one('span').set('text', '');
                     trackName.removeClass('scroll-track');
                 }
-                DEBUG && console.log('no current event');
+                console.log('no current event');
                 if (Y.one('.event-on-air')) {
                     Y.all('.event-on-air').removeClass('event-on-air');
                 }
