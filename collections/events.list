@@ -77,4 +77,3 @@
         document.querySelector('body').classList.remove('event-thumbnails');
     }
 </script>
-</div>
