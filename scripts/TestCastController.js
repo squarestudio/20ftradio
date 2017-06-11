@@ -977,7 +977,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
                 console.log('no current event');
                 if (Y.one('.event-on-air')) {
-                    Y.all('.event-on-air').removeClass('event-on-air');
+                    Y.all('.event-on-air').removeClass('event-on-air').hide(true);
                 }
             }
         };
