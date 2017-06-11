@@ -44,8 +44,7 @@
               </span>
                     </li>
                     <li class="eventlist-meta-item eventlist-meta-export event-meta-item">
-                        <a href="http://www.google.com/calendar/event?action=TEMPLATE&amp;text=Copy+of+Copy+of+Ivan+Derbastler&amp;dates=20170611T071500Z/20170611T072500Z"
-                           class="eventlist-meta-export-google"></a>
+                        <a href="{@|google-calendar-url}" class="eventlist-meta-export-google"></a>
                         <span class="eventlist-meta-export-divider"></span>
                         <a href="{fullUrl}?format=ical" class="eventlist-meta-export-ical"></a>
                     </li>
