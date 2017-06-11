@@ -955,7 +955,7 @@ window.Template.Controllers.CastController = function (element) {
                 checkTrackNameOverflow();
                 if (Y.all('.eventlist-event').size()) {
                     Y.all('.eventlist-event').each(function (item) {
-                        if (item.one('a').getAttribute('href').indexOf(eventOnAir.fullUrl) > -1) {
+                        if (item.one('a').getAttribute('href') == eventOnAir.fullUrl) {
                             item.addClass('event-on-air');
                         } else {
                             if (item.hasClass('event-on-air')) {
