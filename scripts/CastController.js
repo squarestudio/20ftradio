@@ -955,29 +955,30 @@ window.Template.Controllers.CastController = function (element) {
                 checkTrackNameOverflow();
                 if (Y.all('.eventlist-event').size()) {
                     Y.all('.eventlist-event').each(function (item) {
-                        if (item.one('a').getAttribute('href') == eventOnAir.fullUrl) {
+                        if (item.getAttribute('id') == eventOnAir.id) {
                             item.addClass('event-on-air');
                         } else {
                             if (item.hasClass('event-on-air')) {
                                 item.removeClass('event-on-air');
+                                item.hide(true);
                                 setTimeout(function () {
-                                    item.hide(true)
-                                })
+                                    item.remove();
+                                },300)
                             }
                         }
                     })
-                }
-                if (Y.one('.event-item-' + eventOnAir.id)) {
-                    Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
                 }
             } else {
                 if (!shoutcast) {
                     trackName.one('span').set('text', '');
                     trackName.removeClass('scroll-track');
                 }
-                DEBUG && console.log('no current event');
+                console.log('no current event');
                 if (Y.one('.event-on-air')) {
-                    Y.all('.event-on-air').removeClass('event-on-air');
+                    Y.one('.event-on-air').removeClass('event-on-air').hide(true);
+                    setTimeout(function () {
+                        Y.one('.event-on-air').remove();
+                    },300)
                 }
             }
         };
