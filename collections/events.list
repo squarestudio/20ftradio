@@ -4,9 +4,8 @@
         {.repeated section upcoming}
         <article id="{id}" class="eventlist-event eventlist-event--upcoming">
             <a href="{fullUrl}" class="eventlist-column-thumbnail content-fill">
-                {.image?}
                     <img {@|image-meta} data-fixed-ratio="true"/>
-                {.end}
+                
             </a>
             <a href="{fullUrl}" class="eventlist-column-date">
                 <div class="eventlist-datetag">
