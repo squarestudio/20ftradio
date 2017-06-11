@@ -959,15 +959,13 @@ window.Template.Controllers.TestCastController = function (element) {
                         } else {
                             if (item.hasClass('event-on-air')) {
                                 item.removeClass('event-on-air');
+                                item.hide(true);
                                 setTimeout(function () {
-                                    item.hide(true)
-                                })
+                                    item.remove();
+                                },300)
                             }
                         }
                     })
-                }
-                if (Y.one('.event-item-' + eventOnAir.id)) {
-                    Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
                 }
             } else {
                 if (!shoutcast) {
@@ -976,7 +974,10 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
                 console.log('no current event');
                 if (Y.one('.event-on-air')) {
-                    Y.all('.event-on-air').removeClass('event-on-air').hide(true);
+                    Y.one('.event-on-air').removeClass('event-on-air').hide(true);
+                    setTimeout(function () {
+                        Y.one('.event-on-air').remove();
+                    },300)
                 }
             }
         };
