@@ -962,7 +962,7 @@ window.Template.Controllers.TestCastController = function (element) {
                                 item.hide(true);
                                 setTimeout(function () {
                                     item.remove();
-                                },300)
+                                }, 300)
                             }
                         }
                     })
@@ -978,7 +978,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     curr_event.removeClass('event-on-air').hide(true);
                     setTimeout(function () {
                         curr_event.remove();
-                    },300)
+                    }, 300)
                 }
             }
         };
