@@ -982,7 +982,7 @@ window.Template.Controllers.TestCastController = function (element) {
             }
         };
         if (!currentEvents) {
-            getCollectionItems('/events').then(function (events) {
+            getCollectionItems('/test-events').then(function (events) {
                 if (events && events.upcoming) {
                     currentEvents = events;
                     checkEvents();
