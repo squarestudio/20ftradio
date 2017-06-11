@@ -70,8 +70,6 @@
 </div>
 
 <script>
-    // if no thumbnails have been uploaded, but the thumbnails tweak is enabled, manually remove the tweak class.
-    // it just looks nicer.
     if (document.querySelectorAll('.eventlist--upcoming .eventlist-thumbnail').length === 0 &&
             document.querySelectorAll('.event-show-past-events .eventlist--past .eventlist-thumbnail').length === 0) {
         document.querySelector('body').classList.remove('event-thumbnails');
