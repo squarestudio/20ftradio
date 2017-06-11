@@ -4,71 +4,50 @@
         {.reapeted section upcoming}
         <article class="eventlist-event eventlist-event--upcoming">
 
-            <a href="/test-events/2017/6/10/ivan-derbastler-wf5cb-75k9a" class="eventlist-column-thumbnail content-fill"
-               data-ajax-loader="ajax-loader-binded"></a>
+            <a href="{fullUrl}" class="eventlist-column-thumbnail content-fill">
+                {.image?}
 
-            <a href="/test-events/2017/6/10/ivan-derbastler-wf5cb-75k9a" class="eventlist-column-date"
-               data-ajax-loader="ajax-loader-binded">
-
+                {.end}
+            </a>
+            <a href="{fullUrl}" class="eventlist-column-date">
                 <div class="eventlist-datetag">
-
                     <div class="eventlist-datetag-inner">
-
                         <div class="eventlist-datetag-startdate eventlist-datetag-startdate--month">Jun</div>
                         <div class="eventlist-datetag-startdate eventlist-datetag-startdate--day">11</div>
-
-
-                        <div class="eventlist-datetag-time"><span class="event-time-12hr">10:15 am</span><span
-                                class="event-time-24hr">10:15</span></div>
-
-
+                        <div class="eventlist-datetag-time"><span class="event-time-12hr">10:15 am</span><span class="event-time-24hr">10:15</span></div>
                         <div class="eventlist-datetag-status"></div>
-
                     </div>
-
                 </div>
-
             </a>
 
-            <div class="eventlist-column-info" id="yui_3_17_2_1_1497165316449_528">
-
-
+            <div class="eventlist-column-info">
                 <div class="eventlist-cats">
-                    <a href="?category=Test" data-ajax-loader="ajax-loader-binded">Test</a>
+                    <a href="?category=Test">Test</a>
                 </div>
-
-
-                <h1 class="eventlist-title" id="yui_3_17_2_1_1497165316449_527"><a
-                        href="/test-events/2017/6/10/ivan-derbastler-wf5cb-75k9a" class="eventlist-title-link"
-                        data-ajax-loader="ajax-loader-binded">Copy of Copy of Ivan Derbastler</a></h1>
+                <h1 class="eventlist-title"><a
+                        href="{fullUrl}" class="eventlist-title-link">{title}</a></h1>
 
                 <ul class="eventlist-meta event-meta">
-
-
                     <li class="eventlist-meta-item eventlist-meta-date event-meta-item">
                         <time class="event-date" datetime="2017-06-11">Sunday, June 11, 2017</time>
                     </li>
-
                     <li class="eventlist-meta-item eventlist-meta-time event-meta-item">
               <span class="event-time-12hr">
-                <time class="event-time-12hr-start" datetime="2017-06-11">10:15am</time>
+                <time class="event-time-12hr-start" datetime="2017-06-11">{startDate|date %I:%M %p}</time>
                 <span class="event-datetime-divider"></span>
-                <time class="event-time-12hr-end" datetime="2017-06-11">10:25am</time>
+                <time class="event-time-12hr-end" datetime="2017-06-11">{endDate|date %I:%M %p}</time>
               </span>
                         <span class="event-time-24hr">
-                <time class="event-time-24hr-start" datetime="2017-06-11">10:15</time>
+                <time class="event-time-24hr-start" datetime="2017-06-11">{startDate|date %H:%M}</time>
                 <span class="event-datetime-divider"></span>
-                <time class="event-time-12hr-end" datetime="2017-06-11">10:25</time>
+                <time class="event-time-12hr-end" datetime="2017-06-11">{endDate|date %H:%M}</time>
               </span>
                     </li>
-
-
                     <li class="eventlist-meta-item eventlist-meta-export event-meta-item">
                         <a href="http://www.google.com/calendar/event?action=TEMPLATE&amp;text=Copy+of+Copy+of+Ivan+Derbastler&amp;dates=20170611T071500Z/20170611T072500Z"
                            class="eventlist-meta-export-google"></a>
                         <span class="eventlist-meta-export-divider"></span>
-                        <a href="/test-events/2017/6/10/ivan-derbastler-wf5cb-75k9a?format=ical"
-                           class="eventlist-meta-export-ical"></a>
+                        <a href="{fullUrl}?format=ical" class="eventlist-meta-export-ical"></a>
                     </li>
 
                 </ul>
