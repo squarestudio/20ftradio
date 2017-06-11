@@ -20,9 +20,16 @@
             </a>
 
             <div class="eventlist-column-info">
+                {.section categories}
                 <div class="eventlist-cats">
-                    <a href="?category=Test">Test</a>
+                    {.repeated section @}<p rel="tag">{@}</p>{.alternates with}, {.end}
                 </div>
+                {.end}
+                {.section tags}
+                <div class="eventlist-tags">
+                    {.repeated section @}<p rel="tag">{@}</p>{.alternates with}, {.end}
+                </div>
+                {.end}
                 <h1 class="eventlist-title"><a
                         href="{fullUrl}" class="eventlist-title-link">{title}</a></h1>
 
