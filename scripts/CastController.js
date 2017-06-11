@@ -963,7 +963,7 @@ window.Template.Controllers.CastController = function (element) {
                                 item.hide(true);
                                 setTimeout(function () {
                                     item.remove();
-                                }, 300)
+                                },300)
                             }
                         }
                     })
@@ -975,10 +975,11 @@ window.Template.Controllers.CastController = function (element) {
                 }
                 console.log('no current event');
                 if (Y.one('.event-on-air')) {
-                    Y.one('.event-on-air').removeClass('event-on-air').hide(true);
+                    var curr_event = Y.one('.event-on-air');
+                    curr_event.removeClass('event-on-air').hide(true);
                     setTimeout(function () {
-                        Y.one('.event-on-air').remove();
-                    }, 300)
+                        curr_event.remove();
+                    },300)
                 }
             }
         };
