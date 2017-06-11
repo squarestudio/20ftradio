@@ -50,32 +50,12 @@
                     </li>
 
                 </ul>
-
-
-                <a href="/test-events/2017/6/10/ivan-derbastler-wf5cb-75k9a"
-                   class="eventlist-button sqs-editable-button" data-ajax-loader="ajax-loader-binded"></a>
-
                 <div class="eventlist-actions">
-  <span class="sqs-simple-like" data-item-id="593ce8943e00be288f6e84e9" data-like-count="0"
-        id="yui_3_17_2_1_1497165316449_234">
-    <span class="like-icon"></span>
-    <span class="like-count">0 Likes</span>
-  </span>
-
-                    <span class="squarespace-social-buttons inline-style" data-system-data-id=""
-                          data-asset-url="https://static1.squarespace.com/static/581c4615197aeaf96c67e33c/585843a11b631b04652b3ce7/593ce8943e00be288f6e84e9/1497164797714/"
-                          data-record-type="12" data-full-url="/test-events/2017/6/10/ivan-derbastler-wf5cb-75k9a"
-                          data-title="Copy of Copy of Ivan Derbastler"><div id="social-yui_3_17_2_1_1497165316449_245"
-                                                                            class="yui3-widget yui3-socialbutton"><div
-                            id="yui_3_17_2_1_1497165316449_254" class="yui3-socialbutton-content"><div
-                            class="ss-social-button-wrapper"><div class="ss-social-button"><span
-                            class="ss-social-button-icon"></span>Share</div></div><div class="ss-social-list-wrapper"><div
-                            class="ss-social-button-list"></div></div></div></div></span></div>
-
+                    <div class="social-like">{@|like-button}
+                        {@|social-button-inline}</div>
+                </div>
             </div>
-
-            <div class="clear" id="yui_3_17_2_1_1497165316449_544"></div>
-
+            <div class="clear"></div>
         </article>
         {.end}
     </div>
