@@ -65,7 +65,7 @@
         {.end}
     </div>
     {.or}
-      
+        <p>There are no upcoming events</p>
     {.end}
 </div>
 
