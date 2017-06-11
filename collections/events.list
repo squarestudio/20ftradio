@@ -34,7 +34,7 @@
                 {.end}
                 <ul class="eventlist-meta event-meta">
                     <li class="eventlist-meta-item eventlist-meta-date event-meta-item">
-                        <time class="event-date" datetime="{startDate}">{startDate|date %I:%M %p}</time>
+                        <time class="event-date" datetime="{startDate}">Sunday, June 11, 2017 {startDate|date %D, %B %b, %Y}</time>
                     </li>
                     <li class="eventlist-meta-item eventlist-meta-time event-meta-item">
               <span class="event-time-12hr">
