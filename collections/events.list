@@ -2,8 +2,7 @@
     {.if upcoming}
     <div class="eventlist eventlist--upcoming">
         {.repeated section upcoming}
-        <article class="eventlist-event eventlist-event--upcoming">
-
+        <article id="{id}" class="eventlist-event eventlist-event--upcoming">
             <a href="{fullUrl}" class="eventlist-column-thumbnail content-fill">
                 {.image?}
 
