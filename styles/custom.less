@@ -2,12 +2,14 @@
   animation: slideintoview 2s;
   -webkit-animation: slideintoview 2s;
 }
+
 .homepage {
-  .sqs-events-collection-list{
+  .sqs-events-collection-list {
     margin: auto;
     max-width: 48%;
   }
 }
+
 html.touch {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
@@ -83,23 +85,30 @@ body {
     .scale(1);
   }
 }
-.sqs-events-collection-list .event-on-air{
-  .eventlist-datetag-inner {
-    div:first-child{
-      border-top: 1px solid;
-      padding-top: 7px;
-    }
-    &:before{
-      content: 'On Air';
-      display: block;
-      animation: blinking 1.8s infinite ease-in;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 10px 0;
-      color: red;
+
+.sqs-events-collection-list {
+  .eventlist:empty{
+    content: 'There are no upcoming events';
+  }
+  .event-on-air {
+    .eventlist-datetag-inner {
+      div:first-child {
+        border-top: 1px solid;
+        padding-top: 7px;
+      }
+      &:before {
+        content: 'On Air';
+        display: block;
+        animation: blinking 1.8s infinite ease-in;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 10px 0;
+        color: red;
+      }
     }
   }
 }
+
 .header-block-content {
   min-width: 60px;
   float: left;
@@ -540,8 +549,9 @@ body {
   #grid .item a div.wrapper div.project-title {
     display: block;
   }
+
   .homepage {
-    .sqs-events-collection-list{
+    .sqs-events-collection-list {
       max-width: 100%;
     }
   }
@@ -732,7 +742,7 @@ body {
 
   .toggle-share-mobile {
     background-size: 18px;
-    border: 2px solid #0e9a95!important;
+    border: 2px solid #0e9a95 !important;
     height: 28px;
   }
 
@@ -810,7 +820,7 @@ html {
 }
 
 .cordova-app {
-  .link-wall-index{
+  .link-wall-index {
     display: none;
   }
   .loading-overlay {
@@ -1052,7 +1062,7 @@ html {
         opacity: 0.7;
       }
     }
-    .mobileEvents-Upcoming .no-shows-message{
+    .mobileEvents-Upcoming .no-shows-message {
       margin: 4% auto;
       padding: 5%;
       box-sizing: border-box;
@@ -1216,20 +1226,24 @@ html {
     }
   }
 }
-@media only screen and (max-width: 1360px){
-  .header-block .social-icons-size-medium.social-icons-style-regular.social-icon-alignment-right .sqs-svg-icon--wrapper{
+
+@media only screen and (max-width: 1360px) {
+  .header-block .social-icons-size-medium.social-icons-style-regular.social-icon-alignment-right .sqs-svg-icon--wrapper {
     width: 22px;
     height: 22px;
   }
 }
-@media only screen and (max-width: 1600px){
-  .header-block .social-icons-size-medium.social-icons-style-regular.social-icon-alignment-right .sqs-svg-icon--list{
+
+@media only screen and (max-width: 1600px) {
+  .header-block .social-icons-size-medium.social-icons-style-regular.social-icon-alignment-right .sqs-svg-icon--list {
     text-align: left;
   }
-  .header-block .social-icons-size-medium.social-icons-style-regular.social-icon-alignment-right .sqs-svg-icon--wrapper{
+
+  .header-block .social-icons-size-medium.social-icons-style-regular.social-icon-alignment-right .sqs-svg-icon--wrapper {
     margin: 0 0 0 10px;
   }
 }
+
 @media only screen and (min-width: 768px) {
   .cordova-app .site-player-block {
     line-height: @logoSize;
