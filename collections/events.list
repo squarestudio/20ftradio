@@ -20,6 +20,8 @@
             </a>
 
             <div class="eventlist-column-info">
+                <h1 class="eventlist-title"><a
+                        href="{fullUrl}" class="eventlist-title-link">{title}</a></h1>
                 {.section categories}
                 <div class="eventlist-cats">
                     {.repeated section @}<p rel="tag">{@}</p>{.alternates with}, {.end}
@@ -30,9 +32,6 @@
                     {.repeated section @}<p rel="tag">{@}</p>{.alternates with}, {.end}
                 </div>
                 {.end}
-                <h1 class="eventlist-title"><a
-                        href="{fullUrl}" class="eventlist-title-link">{title}</a></h1>
-
                 <ul class="eventlist-meta event-meta">
                     <li class="eventlist-meta-item eventlist-meta-date event-meta-item">
                         <time class="event-date" datetime="2017-06-11">Sunday, June 11, 2017</time>
