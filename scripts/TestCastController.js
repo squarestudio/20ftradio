@@ -956,7 +956,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 if (Y.all('.eventlist-event').size()) {
                     Y.all('.eventlist-event').each(function (item) {
                         console.log(item.one('a').getAttribute('href'))
-                        if (item.one('a').getAttribute('href')==eventOnAir.fullUrl) {
+                        if (item.one('a').getAttribute('href') == eventOnAir.fullUrl) {
                             item.addClass('event-on-air');
                         } else {
                             if (item.hasClass('event-on-air')) {
