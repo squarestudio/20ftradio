@@ -946,7 +946,6 @@ window.Template.Controllers.TestCastController = function (element) {
             currentEvents.upcoming.forEach(function (event) {
                 if (currentTime >= new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime() && !eventOnAir) {
                     eventOnAir = event;
-                    console.log(event.title);
                 }
             });
             if (eventOnAir) {
