@@ -85,7 +85,7 @@
                         </div>
                         <div class="mobileEvents-wrapper">
                             <div class="mobileEvents-container">
-                                <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active">
+                                <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active" style="opacity: 0">
                                     <p class="no-shows-message">No Upcoming Shows</p>
                                 </ul>
                                 <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past"></ul>
