@@ -948,7 +948,7 @@ window.Template.Controllers.CastController = function (element) {
                     if (Y.one('#' + event.id)) {
                         Y.one('#' + event.id).hide(!0);
                         setTimeout(function () {
-                            Y.one('#' + event.id).remove();
+                            Y.one('#' + event.id)&&Y.one('#' + event.id).remove();
                         }, 400)
                     }
                 }
