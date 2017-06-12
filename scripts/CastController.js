@@ -945,7 +945,12 @@ window.Template.Controllers.CastController = function (element) {
             var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
                 if(currentTime >= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()){
-                    Y.one('#'+event.id)&&Y.one('#'+event.id).remove();
+                    if(Y.one('#'+event.id)){
+                        Y.one('#'+event.id).hide(!0);
+                        setTimeout(function () {
+                            Y.one('#'+event.id).remove();
+                        }, 400)
+                    }
                 }
                 if (currentTime >= new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime() && !eventOnAir) {
                     eventOnAir = event;
