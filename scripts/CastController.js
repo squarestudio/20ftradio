@@ -62,7 +62,18 @@ window.Template.Controllers.CastController = function (element) {
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
-
+        }
+        var currentTime = new Date();
+        var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
+        var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
+        currentTime = currentTime.getTime();
+        var events = Array.prototype.splice(document.querySelectorAll('.eventlist--upcoming .eventlist-event'));
+        if(events.length){
+            events.forEach(function (event) {
+                if (currentTime >= new Date(event.getAttribute('data-end-date') + siteTimezoneOffset + userTimezoneOffset).getTime()) {
+                    document.body.removeChild(event);
+                }
+            })
         }
     }
 
