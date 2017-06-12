@@ -970,7 +970,7 @@ window.Template.Controllers.CastController = function (element) {
                                 item.removeClass('event-on-air');
                                 item.hide(true);
                                 setTimeout(function () {
-                                    item.remove();
+                                    item&&item.remove();
                                 }, 400)
                             }
                         }
