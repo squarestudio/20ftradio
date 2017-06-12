@@ -944,11 +944,11 @@ window.Template.Controllers.CastController = function (element) {
             currentTime = currentTime.getTime();
             var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
-                if(currentTime >= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()){
-                    if(Y.one('#'+event.id)){
-                        Y.one('#'+event.id).hide(!0);
+                if (currentTime >= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()) {
+                    if (Y.one('#' + event.id)) {
+                        Y.one('#' + event.id).hide(!0);
                         setTimeout(function () {
-                            Y.one('#'+event.id).remove();
+                            Y.one('#' + event.id).remove();
                         }, 400)
                     }
                 }
