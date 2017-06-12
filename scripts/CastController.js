@@ -71,7 +71,7 @@ window.Template.Controllers.CastController = function (element) {
         if(events.length){
             events.forEach(function (event) {
                 if (currentTime >= new Date(event.getAttribute('data-end-date') + siteTimezoneOffset + userTimezoneOffset).getTime()) {
-                    document.body.removeChild(event);
+                    event&&document.body.removeChild(event);
                 }
             })
         }
