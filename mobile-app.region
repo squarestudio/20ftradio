@@ -128,15 +128,6 @@
                     {squarespace.main-content}
                     {.end}
             </div>
-            <script>
-                Y.use('node', function () {
-                    Y.on('domready', function () {
-                        if(Y.one('footer')){
-                            Y.one('footer').hide()
-                        }
-                    });
-                });
-            </script>
     </section>
     {.section website}
     <footer id="bottomBar">
