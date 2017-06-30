@@ -130,7 +130,6 @@ Y.use(['node'], function (a) {
                 l = a.Intl.get("datatype-date-format");
                 for (var k = function (a, b) {
                     var c = d.aggregates[b];
-                    console.log(c)
                     return "locale" === c ? l[b] : c
                 }, f = function (k, g) {
                     var e = d.formats[g];
