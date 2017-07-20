@@ -490,7 +490,7 @@ window.Template.Controllers.CastController = function (element) {
                         if (!shoutcastStatusFactor) {
                             getShoutcastStatus();
                         }
-                    }, 10000);
+                    }, 30000);
                     DEBUG && console.log('Shoutcast status interval set');
                 }
             }
@@ -772,7 +772,7 @@ window.Template.Controllers.CastController = function (element) {
                     if (!youtubeStatusFactor) {
                         getYoutubeStatus();
                     }
-                }, 30000);
+                }, 60000);
                 DEBUG && console.log('youtube check interval set')
             }
         }
