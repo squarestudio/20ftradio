@@ -222,6 +222,10 @@
                 });
             });
         });
+        Y.all('[date-format]').each(function (time) {
+            var format = time.getAttribute('date-format');
+            var value = time.getAttribute('datetime');
+        })
     });
 </script>
 {.end}
