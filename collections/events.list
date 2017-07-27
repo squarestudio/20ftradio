@@ -13,7 +13,7 @@
                     <div class="eventlist-datetag-inner">
                         <div class="eventlist-datetag-startdate eventlist-datetag-startdate--month">{startDate|date %b}</div>
                         <div class="eventlist-datetag-startdate eventlist-datetag-startdate--day">{startDate|date %d}</div>
-                        <div class="eventlist-datetag-time"><span class="event-time-12hr" datetime="{startDate}, ''">{startDate|date %I:%M %p}</span><span class="event-time-24hr" datetime="{startDate}>{startDate|date %H:%M}</span></div>
+                        <div class="eventlist-datetag-time"><span class="event-time-12hr" datetime="{startDate}" date-format="">{startDate|date %I:%M %p}</span><span class="event-time-24hr" datetime="{startDate}>{startDate|date %H:%M}</span></div>
                         <div class="eventlist-datetag-status"></div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                 {.end}
                 <ul class="eventlist-meta event-meta">
                     <li class="eventlist-meta-item eventlist-meta-date event-meta-item">
-                        <time class="event-date" datetime="{startDate}">{startDate|date %A, %B %d, %Y}</time>
+                        <time class="event-date" datetime="{startDate}" date-format="">{startDate|date %A, %B %d, %Y}</time>
                     </li>
                     <li class="eventlist-meta-item eventlist-meta-time event-meta-item">
               <span class="event-time-12hr">
