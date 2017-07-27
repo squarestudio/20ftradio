@@ -223,8 +223,9 @@
             });
         });
         Y.all('[date-format]').each(function (time) {
-            var format = time.getAttribute('date-format');
+            var format = time.getAttribute('date-format')||'LLLL';
             var value = time.getAttribute('datetime');
+            console.log(moment(value).format(format))
         })
     });
 </script>
