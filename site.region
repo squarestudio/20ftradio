@@ -205,6 +205,7 @@
 {squarespace-footers}
 <script>
     Y.use('node', function () {
+        moment.locale()
         Y.all('[date-format]').each(function (time) {
             var format = time.getAttribute('date-format')||'LLLL';
             var value = parseInt(time.getAttribute('datetime'));
