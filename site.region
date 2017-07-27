@@ -203,6 +203,16 @@
 <squarespace:script src="CastController.js" combo="false"/>
 <squarespace:script src="ProjectController.js" combo="false"/>
 {squarespace-footers}
+<script>
+    Y.use('node', function () {
+        Y.all('[date-format]').each(function (time) {
+            console.log(time)
+            var format = time.getAttribute('date-format')||'LLLL';
+            var value = time.getAttribute('datetime');
+            console.log(moment(value).format(format))
+        })
+    });
+</script>
 {.if template.mobileStylesEnabled}{.or}
 <script>
     Y.use('node', function () {
