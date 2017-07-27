@@ -62,7 +62,19 @@ window.Template.Controllers.TestCastController = function (element) {
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
-
+        }
+        var currentTime = new Date();
+        var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
+        var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
+        currentTime = currentTime.getTime();
+        var events = Array.prototype.splice(document.querySelectorAll('.eventlist--upcoming .eventlist-event'));
+        if(events.length){
+            events.forEach(function (event) {
+                if (currentTime >= new Date(event.getAttribute('data-end-date') + siteTimezoneOffset + userTimezoneOffset).getTime()) {
+                    event&&document.body.removeChild(event);
+                    console.log('removed')
+                }
+            })
         }
     }
 
@@ -478,7 +490,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         if (!shoutcastStatusFactor) {
                             getShoutcastStatus();
                         }
-                    }, 10000);
+                    }, 30000);
                     DEBUG && console.log('Shoutcast status interval set');
                 }
             }
@@ -751,6 +763,7 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function onPlayerReady(playerType, data) {
         if (playerType == 'youtube') {
+            window.yy =youtubePlayer;
             youtubePlayer.setVolume(100);
             !mobile && youtubePlayer.playVideo();
             youtubeReady = true;
@@ -760,7 +773,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     if (!youtubeStatusFactor) {
                         getYoutubeStatus();
                     }
-                }, 30000);
+                }, 60000);
                 DEBUG && console.log('youtube check interval set')
             }
         }
@@ -944,8 +957,17 @@ window.Template.Controllers.TestCastController = function (element) {
             currentTime = currentTime.getTime();
             var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
+                if (currentTime >= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()) {
+                    if (Y.one('#' + event.id)) {
+                        Y.one('#' + event.id).hide(!0);
+                        setTimeout(function () {
+                            Y.one('#' + event.id)&&Y.one('#' + event.id).remove();
+                        }, 400)
+                    }
+                }
                 if (currentTime >= new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime() && !eventOnAir) {
                     eventOnAir = event;
+                    DEBUG && console.log(event.title);
                 }
             });
             if (eventOnAir) {
@@ -961,8 +983,8 @@ window.Template.Controllers.TestCastController = function (element) {
                                 item.removeClass('event-on-air');
                                 item.hide(true);
                                 setTimeout(function () {
-                                    item.remove();
-                                }, 300)
+                                    item&&item.remove();
+                                }, 400)
                             }
                         }
                     })
@@ -972,18 +994,18 @@ window.Template.Controllers.TestCastController = function (element) {
                     trackName.one('span').set('text', '');
                     trackName.removeClass('scroll-track');
                 }
-                console.log('no current event');
+                DEBUG && console.log('no current event');
                 if (Y.one('.event-on-air')) {
                     var curr_event = Y.one('.event-on-air');
                     curr_event.removeClass('event-on-air').hide(true);
                     setTimeout(function () {
                         curr_event.remove();
-                    }, 300)
+                    }, 400)
                 }
             }
         };
         if (!currentEvents) {
-            getCollectionItems('/test-events').then(function (events) {
+            getCollectionItems('/events').then(function (events) {
                 if (events && events.upcoming) {
                     currentEvents = events;
                     checkEvents();
