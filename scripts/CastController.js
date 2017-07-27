@@ -763,7 +763,6 @@ window.Template.Controllers.CastController = function (element) {
 
     function onPlayerReady(playerType, data) {
         if (playerType == 'youtube') {
-            window.yy =youtubePlayer;
             youtubePlayer.setVolume(100);
             !mobile && youtubePlayer.playVideo();
             youtubeReady = true;
@@ -795,6 +794,7 @@ window.Template.Controllers.CastController = function (element) {
                 shoutcastPlayer.setVolume(100);
                 shoutCastReady = true;
                 setActivePlayer();
+                window.sh =shoutcastPlayer;
             }
         } else if (playerType == 'soundcloud') {
             if (!soundCloudReady) {
