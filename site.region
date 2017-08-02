@@ -206,12 +206,12 @@
 {squarespace-footers}
 <script>
     Y.use('node', function () {
-        //moment.locale(navigator.language);
-        /*Y.all('[date-format]').each(function (time) {
+        moment.locale(navigator.language);
+        Y.all('[date-format]').each(function (time) {
             var format = time.getAttribute('date-format')||'LLLL';
             var value = parseInt(time.getAttribute('datetime'));
             console.log(moment(value).format(format))
-        })*/
+        })
     });
 </script>
 {.if template.mobileStylesEnabled}{.or}
