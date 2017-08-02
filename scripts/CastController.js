@@ -957,7 +957,6 @@ window.Template.Controllers.CastController = function (element) {
             currentTime = moment().valueOf();
             var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
-                console.log(currentTime-event.startDate)
                 /*if (currentTime >= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()) {
                     if (Y.one('#' + event.id)) {
                         Y.one('#' + event.id).hide(!0);
