@@ -954,6 +954,8 @@ window.Template.Controllers.CastController = function (element) {
             var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
             var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
             currentTime = currentTime.getTime();
+            currentTime = moment().unix();
+            console.log(currentTime)
             var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
                 if (currentTime >= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()) {
