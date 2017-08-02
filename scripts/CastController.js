@@ -966,10 +966,14 @@ window.Template.Controllers.CastController = function (element) {
                         }, 400)
                     }
                 }
-                if (currentTime >= new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime() && !eventOnAir) {
+                if (currentTime >= event.startDate && currentTime <= event.endDate && !eventOnAir) {
                     eventOnAir = event;
                     DEBUG && console.log(event.title);
                 }
+               /* if (currentTime >= new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime() && !eventOnAir) {
+                    eventOnAir = event;
+                    DEBUG && console.log(event.title);
+                }*/
             });
             if (eventOnAir) {
                 trackName.one('span').set('text', eventOnAir.title);
