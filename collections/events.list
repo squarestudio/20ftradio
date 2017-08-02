@@ -38,14 +38,14 @@
                     </li>
                     <li class="eventlist-meta-item eventlist-meta-time event-meta-item">
               <span class="event-time-12hr">
-                <time class="event-time-12hr-start" datetime="{startDate}">{startDate|date %I:%M %p}</time>
+                <time class="event-time-12hr-start" datetime="{startDate}" date-format="LT">{startDate|date %I:%M %p}</time>
                 <span class="event-datetime-divider"></span>
-                <time class="event-time-12hr-end" datetime="{endDate}">{endDate|date %I:%M %p}</time>
+                <time class="event-time-12hr-end" datetime="{endDate}" date-format="LT">{endDate|date %I:%M %p}</time>
               </span>
                         <span class="event-time-24hr">
-                <time class="event-time-24hr-start" datetime="{startDate}">{startDate|date %H:%M}</time>
+                <time class="event-time-24hr-start" datetime="{startDate}" date-format="LT">{startDate|date %H:%M}</time>
                 <span class="event-datetime-divider"></span>
-                <time class="event-time-12hr-end" datetime="{endDate}">{endDate|date %H:%M}</time>
+                <time class="event-time-12hr-end" datetime="{endDate}" date-format="LT">{endDate|date %H:%M}</time>
               </span>
                     </li>
                     <li class="eventlist-meta-item eventlist-meta-export event-meta-item">
