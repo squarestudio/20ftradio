@@ -951,20 +951,10 @@ window.Template.Controllers.CastController = function (element) {
     function getCurrentEvent(shoutcast) {
         var checkEvents = function () {
             var currentTime = new Date();
-            var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
-            var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
             currentTime = currentTime.getTime();
             currentTime = moment().valueOf();
             var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
-                /*if (currentTime >= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()) {
-                    if (Y.one('#' + event.id)) {
-                        Y.one('#' + event.id).hide(!0);
-                        setTimeout(function () {
-                            Y.one('#' + event.id)&&Y.one('#' + event.id).remove();
-                        }, 400)
-                    }
-                }*/
                 if (currentTime >= event.endDate) {
                     if (Y.one('#' + event.id)) {
                         Y.one('#' + event.id).hide(!0);
@@ -977,10 +967,6 @@ window.Template.Controllers.CastController = function (element) {
                     eventOnAir = event;
                     DEBUG && console.log(event.title);
                 }
-               /* if (currentTime >= new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime() && !eventOnAir) {
-                    eventOnAir = event;
-                    DEBUG && console.log(event.title);
-                }*/
             });
             if (eventOnAir) {
                 trackName.one('span').set('text', eventOnAir.title);
