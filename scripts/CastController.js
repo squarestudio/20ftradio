@@ -950,9 +950,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function getCurrentEvent(shoutcast) {
         var checkEvents = function () {
-            var currentTime = new Date();
-            currentTime = currentTime.getTime();
-            currentTime = moment().valueOf();
+            var currentTime = moment().valueOf();
             var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
                 if (currentTime >= event.endDate) {
