@@ -44,7 +44,7 @@ window.Template.Controllers.CastController = function (element) {
         streamSwiper,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
-    var DEBUG = true;
+    var DEBUG = false;
 
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
@@ -534,7 +534,7 @@ window.Template.Controllers.CastController = function (element) {
                     } else {
                         youtubeRetry = 0;
                     }
-                    if (state == 1) {
+                    if (state == 1) {//5
                         youtubeStatus = true;
                         activePlayer = 'youtube';
                         pausePlayersExept('youtube');
