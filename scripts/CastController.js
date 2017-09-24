@@ -229,6 +229,7 @@ window.Template.Controllers.CastController = function (element) {
             }
             else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
+                console.log(state)
                 if (mobile && !userClickPlay) {
                     shoutcastPlayer.playVideo();
                     userPaused = false;
