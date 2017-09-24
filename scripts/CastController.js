@@ -44,7 +44,7 @@ window.Template.Controllers.CastController = function (element) {
         streamSwiper,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
-    var DEBUG = false;
+    var DEBUG = true;
 
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
@@ -229,7 +229,6 @@ window.Template.Controllers.CastController = function (element) {
             }
             else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
-                console.log(state)
                 if (mobile && !userClickPlay) {
                     shoutcastPlayer.playVideo();
                     userPaused = false;
