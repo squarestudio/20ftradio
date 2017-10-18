@@ -94,7 +94,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var calOptions = window.plugins.calendar.getCalendarOptions(); // grab the defaults
         calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
         calOptions.secondReminderMinutes = 5;
-        calOptions.url = "https://www.20ftradio.com" + e.currentTarget.getAttribute('data-url');
+        calOptions.url = "https://www.20ftradio.net" + e.currentTarget.getAttribute('data-url');
         var error = function (message) {
             console.error("Error: " + message);
             setTimeout(function () {
@@ -192,7 +192,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             if (Y.one('#mobile-events-query-template')) {
                 Y.use(['node', 'squarespace-json-template'], function (Y) {
                     var template = Y.one('#mobile-events-query-template').getHTML().replace(/\^/g, '{');
-                    var url = 'https://www.20ftradio.com/events/';
+                    var url = 'https://www.20ftradio.net/events/';
                     getCollectionItems(url).then(function (items) {
                         console.log(items);
                         if (items) {
