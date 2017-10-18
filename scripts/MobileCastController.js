@@ -1000,7 +1000,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             }
         };
         if (!currentEvents) {
-            getCollectionItems('https://www.20ftradio.com/events').then(function (events) {
+            getCollectionItems('https://www.20ftradio.net/events').then(function (events) {
                 if (events && events.upcoming) {
                     currentEvents = events;
                     checkEvents();
@@ -1017,7 +1017,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 youtubeStatusLoad = true;
             }
             youtubeStatusFactor = true;
-            Y.io('https://app.20ft.xyz/20ft-radio-youtube-status.php', {//https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo
+            Y.io('https://app.20ftradio.net/20ft-radio-youtube-status.php', {//https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo
                 on: {
                     success: function (i, data) {
                         if (data.status == 200 && data.readyState == 4) {
@@ -1052,7 +1052,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                         title: '20FTRadio',
                         text: text,
                         sound: null,
-                        icon: "https://www.20ftradio.com/assets/icon.png"
+                        icon: "https://www.20ftradio.net/assets/icon.png"
                     });
                 } else {
                     cordova.plugins.notification.local && cordova.plugins.notification.local.update({
@@ -1060,7 +1060,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                         title: '20FTRadio',
                         text: text,
                         sound: null,
-                        icon: "https://www.20ftradio.com/assets/icon.png"
+                        icon: "https://www.20ftradio.net/assets/icon.png"
                     });
                 }
             } else {
@@ -1071,7 +1071,7 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function getShoutcastStatus() {
         shoutcastStatusFactor = true;
-        Y.io('https://app.20ft.xyz/20ft-radiobossfm-status.php', {
+        Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php', {
             on: {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
