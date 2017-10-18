@@ -714,7 +714,7 @@ window.Template.Controllers.TestCastController = function (element) {
             DEBUG && console.log('shoutcast starting');
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
             if (!shoutcastPlayer) {
-                shoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" title="20FT Radio" class="stream-player" poster="https://www.20ftradio.com/assets/icon.png" preload playsinline -webkit-playsinline name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
+                shoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" title="20FT Radio" class="stream-player" poster="https://www.20ftradio.net/assets/icon.png" preload playsinline -webkit-playsinline name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
             }
             castContainer.append(shoutcastPlayer);
             shoutcastPlayer = shoutcastPlayer._node;
@@ -1022,7 +1022,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 youtubeStatusLoad = true;
             }
             youtubeStatusFactor = true;
-            Y.io('https://app.20ft.xyz/20ft-radio-youtube-status.php', {//https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo
+            Y.io('https://app.20ftradio.net/20ft-radio-youtube-status.php', {//https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo
                 on: {
                     success: function (i, data) {
                         if (data.status == 200 && data.readyState == 4) {
@@ -1054,7 +1054,7 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function getShoutcastStatus() {
         shoutcastStatusFactor = true;
-        Y.io('https://app.20ft.xyz/20ft-radiobossfm-status.php', {
+        Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php', {
             on: {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
