@@ -401,6 +401,7 @@ window.Template.Controllers.CastController = function (element) {
             fbPlayer = Y.Node.create('<div id="fbPlayer" data-show-text="false"  data-height="' + castContainer.get('offsetHeight') + '" class="fb-video stream-player" data-allowfullscreen="false" data-href="' + facebookUrl + '"></div>');
         }
         castContainer.prepend(fbPlayer);
+        youtubeStatusLoad = true;
         if (!window.FB) {
             (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
