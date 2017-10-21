@@ -402,7 +402,6 @@ window.Template.Controllers.CastController = function (element) {
         }
         castContainer.prepend(fbPlayer);
         youtubeStatusLoad = true;
-        activePlayer='facebook';
         if (!window.FB) {
             (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
