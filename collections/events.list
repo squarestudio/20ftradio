@@ -22,7 +22,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sqs-col-10"></div>
+                    <div class="sqs-col-10 items-container"></div>
             </div>
         </article>
         {.end}
