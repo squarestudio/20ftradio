@@ -1,4 +1,7 @@
 <div class="sqs-events-collection-list">
+    <div class="new-events-schedule">
+
+    </div>
     {.if upcoming}
     <div class="eventlist eventlist--upcoming">
         {.repeated section upcoming}
