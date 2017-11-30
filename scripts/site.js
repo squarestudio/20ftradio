@@ -576,4 +576,17 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
             Y.one('body').toggleClass('mobile-share-active');
         }, '.toggle-share-mobile');
     }
+    Y.config.win.Squarespace.onInitialize(Y, function() {
+        var body = Y.one('body');
+        if(body.one('.new-events-schedule')){
+            var new_schedule = body.one('.new-events-schedule');
+            var existing_dates = [];
+            if(new_schedule.one('.date-container')){
+                new_schedule.all('.date-container').each(function (date_container) {
+                    var date_attr = date_container.getAttribute('data-date-attr');
+                    
+                })
+            }
+        }
+    })
 }());
