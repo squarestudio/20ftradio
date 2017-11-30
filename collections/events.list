@@ -97,9 +97,9 @@
                                     <div class="eventlist-datetag-startdate eventlist-datetag-startdate--day"
                                          datetime="{startDate}" date-format="ddd">{startDate|date %d}
                                     </div>
-                                    <div class="eventlist-datetag-time"><span class="" datetime="{startDate}"
+                                    <div class="eventlist-datetag-time"><span class="event-month" datetime="{startDate}"
                                                                               date-format="MMMM">{startDate|date %b}</span><span
-                                            class="" datetime="{startDate}" date-format="D">{startDate|date %d}</span>
+                                            class="event-day" datetime="{startDate}" date-format="D">{startDate|date %d}</span>
                                     </div>
                                     <div class="eventlist-datetag-status"></div>
                                 </div>
