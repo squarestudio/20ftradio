@@ -119,7 +119,9 @@
                                     <span class="eventlist-title-link">{title}</span>
                                 </h1>
                                 {.if excerpt}
+                                <div class="event-excerpt">
                                     {excerpt}
+                                </div>
                                 {.end}
                             </div>
                         </div>
