@@ -22,28 +22,27 @@
                             </div>
                         </div>
                     </div>
-                    <div class="sqs-col-10">
-                        <div id="{id}" class="event-item event-item-{id} clear">
-                            <div class="sqs-col-4">
-                                <div class="eventlist-column-info">
-                                    <span class="event-time" datetime="{startDate}" date-format="LT">{startDate|date %I:%M %p}</span><span class="event-time event-time-end" datetime="{endDate}" date-format="LT">{endDate|date %I:%M %p}</span>
-                                </div>
-                            </div>
-                            <div class="sqs-col-6">
-                                <h1 class="eventlist-title">
-                                    <span class="eventlist-title-link">{title}</span>
-                                </h1>
-                                {.if excerpt}
-                                <div class="event-excerpt">
-                                    {excerpt}
-                                </div>
-                                {.end}
-                            </div>
-                        </div>
-                    </div>
+                    <div class="sqs-col-10"></div>
             </div>
         </article>
         {.end}
+        <div id="{id}" class="event-item event-item-{id} clear">
+            <div class="sqs-col-4">
+                <div class="eventlist-column-info">
+                    <span class="event-time" datetime="{startDate}" date-format="LT">{startDate|date %I:%M %p}</span><span class="event-time event-time-end" datetime="{endDate}" date-format="LT">{endDate|date %I:%M %p}</span>
+                </div>
+            </div>
+            <div class="sqs-col-6">
+                <h1 class="eventlist-title">
+                    <span class="eventlist-title-link">{title}</span>
+                </h1>
+                {.if excerpt}
+                <div class="event-excerpt">
+                    {excerpt}
+                </div>
+                {.end}
+            </div>
+        </div>
     </div>
     {.or}
     <p>There are no upcoming events</p>
