@@ -80,6 +80,10 @@
                             <div class="eventlist-datetag-time"><span class="event-time-12hr" datetime="{startDate}" date-format="LT">{startDate|date %I:%M %p}</span><span class="event-time-24hr" datetime="{startDate}" date-format="LT">{startDate|date %H:%M}</span></div>
                             <div class="eventlist-datetag-status"></div>
                         </div>
+                        <div class="eventlist-datetag-inner">
+                            <div class="eventlist-datetag-time"><div class="eventlist-datetag-startdate--month" date-format="MMM">{startDate|date %b}</div><div class="eventlist-datetag-startdate--day"  date-format="D">{startDate|date %d}</div></div>
+                            <div class="eventlist-datetag-status"></div>
+                        </div>
                     </div>
                 </a>
                 <div class="eventlist-column-info">
