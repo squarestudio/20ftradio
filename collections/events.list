@@ -83,8 +83,8 @@
                 </div>
                 <div class="eventlist-column-info">
                     <div class="event-item">
-                        <div class="event-time">
                             <span class="event-time" datetime="{startDate}" date-format="LT">{startDate|date %I:%M %p}</span> - <span class="event-time-12hr" datetime="{endDate}" date-format="LT">{endDate|date %I:%M %p}</span>
+                        <h1 class="eventlist-title"><span class="eventlist-title-link">{title}</span></h1>
                     </div>
                 </div>
                 <div class="clear"></div>
