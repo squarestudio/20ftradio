@@ -588,6 +588,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                         date_container.remove();
                     } else {
                         existing_dates.push(date_attr);
+                        new_schedule.all('.'+date_attr)
                     }
                 })
             }
