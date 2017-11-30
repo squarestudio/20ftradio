@@ -114,8 +114,13 @@
                                     - <span class="event-time-12hr" datetime="{endDate}" date-format="LT">{endDate|date %I:%M %p}</span>
                                 </div>
                             </div>
-                            <div class="sqs-col-6"><h1 class="eventlist-title"><span
-                                    class="eventlist-title-link">{title}</span></h1>
+                            <div class="sqs-col-6">
+                                <h1 class="eventlist-title">
+                                    <span class="eventlist-title-link">{title}</span>
+                                </h1>
+                                {.if excerpt}
+                                    {excerpt}
+                                {.end}
                             </div>
                         </div>
                     </div>
