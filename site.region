@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html {.if authenticatedAccount} authenticated {.end}>
 <html class="no-js">
 <head>
     {.if template.mobileStylesEnabled}
