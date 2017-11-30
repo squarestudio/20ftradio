@@ -77,7 +77,7 @@
                         <div class="eventlist-datetag-inner">
 
                             <div class="eventlist-datetag-startdate eventlist-datetag-startdate--day" datetime="{startDate}" date-format="D">{startDate|date %d}</div>
-                            <span class="eventlist-datetag-time"><span class="eventlist-datetag-startdate--month" datetime="{startDate}" date-format="MMM">{startDate|date %b}</span><span class="eventlist-datetag-startdate--day" datetime="{startDate}" date-format="D">{startDate|date %d}</span></span>
+                            <span class="eventlist-datetag-time"><span class="" datetime="{startDate}" date-format="MMM">{startDate|date %b}</span><span class="" datetime="{startDate}" date-format="D">{startDate|date %d}</span></span>
                             <div class="eventlist-datetag-status"></div>
                         </div>
                     </div>
