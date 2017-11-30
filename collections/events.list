@@ -1,30 +1,4 @@
 <div class="sqs-events-collection-list">
-    <div class="new-events-schedule">
-        {.if upcoming}
-        <div class="eventlist eventlist--upcoming">
-            {.repeated section upcoming}
-            <article id="{id}" class="eventlist-event eventlist-event--upcoming date-{startDate|date %b|slugify}" data-start-date="{startDate}" data-end-date="{endDate}">
-                <a href="{fullUrl}" class="eventlist-column-date">
-                    <div class="eventlist-datetag">
-                        <div class="eventlist-datetag-inner">
-                            <div class="eventlist-datetag-startdate eventlist-datetag-startdate--month" datetime="{startDate}" date-format="MMM">{startDate|date %b}</div>
-                            <div class="eventlist-datetag-startdate eventlist-datetag-startdate--day" datetime="{startDate}" date-format="D">{startDate|date %d}</div>
-                            <div class="eventlist-datetag-time"><span class="event-time-12hr" datetime="{startDate}" date-format="LT">{startDate|date %I:%M %p}</span><span class="event-time-24hr" datetime="{startDate}" date-format="LT">{startDate|date %H:%M}</span></div>
-                            <div class="eventlist-datetag-status"></div>
-                        </div>
-                    </div>
-                </a>
-                <div class="eventlist-column-info">
-
-                </div>
-                <div class="clear"></div>
-            </article>
-            {.end}
-        </div>
-        {.or}
-        <p>There are no upcoming events</p>
-        {.end}
-    </div>
     {.if upcoming}
     <div class="eventlist eventlist--upcoming">
         {.repeated section upcoming}
@@ -93,6 +67,32 @@
     {.or}
         <p>There are no upcoming events</p>
     {.end}
+    <div class="new-events-schedule">
+        {.if upcoming}
+        <div class="eventlist eventlist--upcoming">
+            {.repeated section upcoming}
+            <article id="{id}" class="eventlist-event eventlist-event--upcoming date-{startDate|date %b|slugify}" data-start-date="{startDate}" data-end-date="{endDate}">
+                <a href="{fullUrl}" class="eventlist-column-date">
+                    <div class="eventlist-datetag">
+                        <div class="eventlist-datetag-inner">
+                            <div class="eventlist-datetag-startdate eventlist-datetag-startdate--month" datetime="{startDate}" date-format="MMM">{startDate|date %b}</div>
+                            <div class="eventlist-datetag-startdate eventlist-datetag-startdate--day" datetime="{startDate}" date-format="D">{startDate|date %d}</div>
+                            <div class="eventlist-datetag-time"><span class="event-time-12hr" datetime="{startDate}" date-format="LT">{startDate|date %I:%M %p}</span><span class="event-time-24hr" datetime="{startDate}" date-format="LT">{startDate|date %H:%M}</span></div>
+                            <div class="eventlist-datetag-status"></div>
+                        </div>
+                    </div>
+                </a>
+                <div class="eventlist-column-info">
+
+                </div>
+                <div class="clear"></div>
+            </article>
+            {.end}
+        </div>
+        {.or}
+        <p>There are no upcoming events</p>
+        {.end}
+    </div>
 </div>
 
 <script>
