@@ -3,7 +3,7 @@
         {.if upcoming}
         <div class="eventlist eventlist--upcoming">
             {.repeated section upcoming}
-            <article id="{id}" class="eventlist-event eventlist-event--upcoming" data-start-date="{startDate}" data-end-date="{endDate}">
+            <article id="{id}" class="eventlist-event eventlist-event--upcoming day" data-start-date="{startDate}" data-end-date="{endDate}">
                 <a href="{fullUrl}" class="eventlist-column-thumbnail content-fill">
                     {.image?}
                     <img {@|image-meta}/>
