@@ -105,7 +105,7 @@
                         </div>
                     </div>
                     <div class="sqs-col-10">
-                        <div class="event-item">
+                        <div class="event-item event-item-id="{id}">
                             <div class="sqs-col-5">
                                 <div class="eventlist-column-info">
                                     <span class="event-time" datetime="{startDate}" date-format="LT">{startDate|date %I:%M %p}</span> - <span class="event-time-12hr" datetime="{endDate}" date-format="LT">{endDate|date %I:%M %p}</span>
