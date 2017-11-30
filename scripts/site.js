@@ -586,6 +586,8 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                     var date_attr = date_container.getAttribute('data-date-attr');
                     if(existing_dates.indexOf(date_attr)>-1){
                         date_container.remove();
+                    } else {
+                        existing_dates.push(date_attr);
                     }
                 })
             }
