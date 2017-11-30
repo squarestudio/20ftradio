@@ -26,6 +26,7 @@
             </div>
         </article>
         {.end}
+        {.repeated section upcoming}
         <div id="{id}" class="event-item event-item-{id} clear">
             <div class="sqs-col-4">
                 <div class="eventlist-column-info">
@@ -43,6 +44,7 @@
                 {.end}
             </div>
         </div>
+        {.end}
     </div>
     {.or}
     <p>There are no upcoming events</p>
