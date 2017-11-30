@@ -106,16 +106,15 @@
                     </div>
                 </div>
                 <div class="sqs-col-10">
-                    <div class="sqs-row">
-                        <div class="event-item event-item-{id}">
-                            <div class="sqs-col-5">
-                                <div class="eventlist-column-info">
-                                    <span class="event-time" datetime="{startDate}" date-format="LT">{startDate|date %I:%M %p}</span>
-                                    - <span class="event-time-12hr" datetime="{endDate}" date-format="LT">{endDate|date %I:%M %p}</span>
-                                </div>
+                    <div class="sqs-row event-item event-item-{id}">
+                        <div class="sqs-col-5">
+                            <div class="eventlist-column-info">
+                                <span class="event-time" datetime="{startDate}" date-format="LT">{startDate|date %I:%M %p}</span>
+                                - <span class="event-time-12hr" datetime="{endDate}" date-format="LT">{endDate|date %I:%M %p}</span>
                             </div>
-                            <div class="sqs-col-7"><h1 class="eventlist-title"><span class="eventlist-title-link">{title}</span></h1>
-                            </div>
+                        </div>
+                        <div class="sqs-col-7"><h1 class="eventlist-title"><span
+                                class="eventlist-title-link">{title}</span></h1>
                         </div>
                     </div>
                 </div>
