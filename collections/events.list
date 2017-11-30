@@ -35,7 +35,7 @@
             </div>
             <div class="sqs-col-6">
                 <h1 class="eventlist-title">
-                    <span class="eventlist-title-link">{title}</span>
+                    <a href="{fullUrl}" class="eventlist-title-link">{title}</a>
                 </h1>
                 {.if excerpt}
                 <div class="event-excerpt">
