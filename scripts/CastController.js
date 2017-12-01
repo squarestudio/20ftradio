@@ -962,7 +962,7 @@ window.Template.Controllers.CastController = function (element) {
                             var parent = event_item.ancestor('.date-container');
                             event_item&&event_item.remove();
                             if(!parent.one('.event-item')){
-                                //parent.remove();
+                                parent.remove();
                             }
                         }, 400)
                     }
