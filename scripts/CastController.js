@@ -956,12 +956,13 @@ window.Template.Controllers.CastController = function (element) {
             currentEvents.upcoming.forEach(function (event) {
                 if (currentTime >= event.endDate) {
                     if (Y.one('#' + event.id)) {
-                        Y.one('#' + event.id).hide(!0);
+                        var event_item = Y.one('#' + event.id);
+                        event_item.hide(!0);
                         setTimeout(function () {
-                            var parent = Y.one('#' + event.id).ancestor('.date-container');
-                            Y.one('#' + event.id)&&Y.one('#' + event.id).remove();
-                            if(!parent.one()){
-                                
+                            var parent = event_item.ancestor('.date-container');
+                            event_item&&event_item.remove();
+                            if(!parent.one('.event-item')){
+                                parent.remove();
                             }
                         }, 400)
                     }
