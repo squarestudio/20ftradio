@@ -958,8 +958,11 @@ window.Template.Controllers.CastController = function (element) {
                     if (Y.one('#' + event.id)) {
                         Y.one('#' + event.id).hide(!0);
                         setTimeout(function () {
-                            var parent = Y.one('#' + event.id).ancestor()
+                            var parent = Y.one('#' + event.id).ancestor('.date-container');
                             Y.one('#' + event.id)&&Y.one('#' + event.id).remove();
+                            if(!parent.one()){
+                                
+                            }
                         }, 400)
                     }
                 }
