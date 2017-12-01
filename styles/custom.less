@@ -91,20 +91,14 @@ body {
     content: 'There are no upcoming shows';
   }
   .event-on-air {
-    .eventlist-datetag-inner {
-      div:first-child {
-        border-top: 1px solid;
-        padding-top: 7px;
-      }
-      &:before {
-        content: 'On Air';
-        display: block;
-        animation: blinking 1.8s infinite ease-in;
-        font-size: 13px;
-        font-weight: 700;
-        padding: 10px 0;
-        color: red;
-      }
+    &:before {
+      content: 'On Air';
+      display: block;
+      animation: blinking 1.8s infinite ease-in;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 10px 0;
+      color: red;
     }
   }
 }
