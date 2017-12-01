@@ -92,14 +92,17 @@ body {
   }
   .event-on-air {
     position: relative;
-    .eventlist-column-info:before {
-      content: '•';
-      display: inline-block;
-      animation: blinking 1.8s infinite ease-in;
-      font-size: 80px;
-      font-weight: 700;
-      padding: 0;
-      color: red;
+    .eventlist-column-info {
+      padding: 0 0 0 40px;
+      &:before {
+        content: '•';
+        display: inline-block;
+        animation: blinking 1.8s infinite ease-in;
+        font-size: 80px;
+        font-weight: 700;
+        padding: 0;
+        color: red;
+      }
     }
   }
 }
@@ -853,11 +856,13 @@ body {
     margin-bottom: 20px;
   }
 }
+
 body.auth {
   .new-events-schedule {
     display: block;
   }
 }
+
 ////___CORDOVA APP STYLES____//
 html {
   &.video-player {
