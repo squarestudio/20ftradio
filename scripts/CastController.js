@@ -971,8 +971,8 @@ window.Template.Controllers.CastController = function (element) {
                 trackName.one('span').set('text', eventOnAir.title);
                 trackName.addClass('scroll-track');
                 checkTrackNameOverflow();
-                if (Y.all('.eventlist-event').size()) {
-                    Y.all('.eventlist-event').each(function (item) {
+                if (Y.all('.event-item').size()) {
+                    Y.all('.event-item').each(function (item) {
                         if (item.getAttribute('id') == eventOnAir.id) {
                             item.addClass('event-on-air');
                         } else {
