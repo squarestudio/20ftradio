@@ -14,7 +14,7 @@
                                          datetime="{startDate}" date-format="ddd">{startDate|date %d}
                                     </div>
                                     <div class="eventlist-datetag-time"><span class="event-month" datetime="{startDate}"
-                                                                              date-format="MMMM">{startDate|date %b}</span><span
+                                                                              date-format="MMMM">{startDate|date %B}</span><span
                                             class="event-day" datetime="{startDate}" date-format="D">{startDate|date %d}</span>
                                     </div>
                                     <div class="eventlist-datetag-status"></div>
