@@ -586,7 +586,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 if(format === 'LT' && navigator.language === 'en'){
                     format= 'hA';
                 }
-                //time.set('textContent', moment(value).format(format));
+                time.set('textContent', moment(value).format(format));
             })
         });
         if (body.one('.new-events-schedule')) {
