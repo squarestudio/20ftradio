@@ -625,7 +625,6 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                         min_width_time = item.width();
                     }
                 });
-                console.log(min_width_time);
                 new_schedule.all('.event-time-wrapper').setStyles({minWidth: min_width_time+'px'})
             }
         }
