@@ -583,10 +583,10 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
             Y.all('[date-format]').each(function (time) {
                 var format = time.getAttribute('date-format')||'LLLL';
                 var value = parseInt(time.getAttribute('datetime'));
-                if(value === 'LT' && navigator.language === 'en'){
-                    value = 'h A';
+                if(format === 'LT' && navigator.language === 'en'){
+                    format= 'h A';
                 }
-                console.log(value)
+                console.log(format)
                 time.set('textContent', moment(value).format(format));
             })
         });
