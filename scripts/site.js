@@ -578,6 +578,14 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
     }
     Y.config.win.Squarespace.onInitialize(Y, function () {
         var body = Y.one('body');
+        Y.use('node', function () {
+            moment.locale(navigator.language);
+            Y.all('[date-format]').each(function (time) {
+                var format = time.getAttribute('date-format')||'LLLL';
+                var value = parseInt(time.getAttribute('datetime'));
+                time.set('textContent', moment(value).format(format));
+            })
+        });
         if (body.one('.new-events-schedule')) {
             var new_schedule = body.one('.new-events-schedule');
             var existing_dates = [];
