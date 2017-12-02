@@ -30,7 +30,7 @@
         <div id="{id}" class="event-item event-item-{id} clear date-{startDate|date %B|slugify}-{startDate|date %d|slugify}">
             <div class="sqs-col-4">
                     <div class="eventlist-column-info">
-                        <span class="event-time" datetime="{startDate}" date-format="LT">{startDate|date %l:%M %p}</span><span class="event-time event-time-end" datetime="{endDate}" date-format="LT">{endDate|date %I:%M %p}</span>
+                        <span class="event-time" datetime="{startDate}" date-format="LT">{startDate|date %l %p}</span><span class="event-time event-time-end" datetime="{endDate}" date-format="LT">{endDate|date %l %p}</span>
                     </div>
             </div>
             <div class="sqs-col-6">
