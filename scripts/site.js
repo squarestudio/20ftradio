@@ -594,7 +594,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
             Y.all('[date-format]').each(function (time) {
                 var format = time.getAttribute('date-format') || 'LLLL';
                 var value = parseInt(time.getAttribute('datetime'));
-                if (format === 'LT' ) {
+                if (format === 'LT' && navigator.language === 'en') {
                     format = 'hA';
                 }
                 var textContent = moment(value).format(format);
