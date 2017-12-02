@@ -601,7 +601,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 if (format === 'ddd' && isToday(value)) {
                     textContent = navigator.language === 'ru'? 'Сегодня': navigator.language === 'ua'? 'Сьогоднi' : 'Today';
                 }
-                time.set('textContent', textContent);
+                //time.set('textContent', textContent);
             })
         });
         if (body.one('.new-events-schedule')) {
