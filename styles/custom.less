@@ -689,7 +689,7 @@ body {
       color: #fff;
     }
     .eventlist-column-date {
-      padding: 0!important;
+      padding: 0 !important;
     }
   }
 
@@ -899,7 +899,7 @@ body {
   max-width: 66.6%;
   .date-container {
     margin-bottom: 40px;
-    [class*="sqs-col"]{
+    [class*="sqs-col"] {
       box-sizing: border-box;
     }
     &:last-child {
@@ -922,7 +922,7 @@ body {
       width: 100%;
       float: none;
       line-height: 1;
-      padding: 0 36px 0 0!important;
+      padding: 0 36px 0 0 !important;
     }
     .eventlist-datetag-startdate--day {
       margin: 16px 0;
@@ -942,7 +942,7 @@ body {
     .eventlist-title {
       vertical-align: top;
       font-size: 16px !important;
-      margin-bottom: 5px!important;
+      margin-bottom: 5px !important;
     }
     .event-time-end {
       &:before {
@@ -972,12 +972,15 @@ body {
   }
   .event-item {
     margin-bottom: 16px;
-    background: rgba(255,255,255,.02);
+    background: rgba(255, 255, 255, .02);
     padding: 20px;
     white-space: nowrap;
     .event-excerpt, .event-excerpt p {
       //color: #c1292e;
       margin: 0;
+    }
+    .event-time-wrapper {
+      max-width: 30%;
     }
     .event-time-wrapper, .event-details-wrapper {
       display: inline-block;
