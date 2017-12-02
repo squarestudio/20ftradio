@@ -576,19 +576,30 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
             Y.one('body').toggleClass('mobile-share-active');
         }, '.toggle-share-mobile');
     }
+
+    function isToday(inputDate) {
+        var today = new Date();
+        if (today.setHours(0, 0, 0, 0) === new Date(inputDate).setHours(0, 0, 0, 0)) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
     Y.config.win.Squarespace.onInitialize(Y, function () {
         var body = Y.one('body');
         Y.use('node', function () {
             moment.locale(navigator.language);
             Y.all('[date-format]').each(function (time) {
-                var format = time.getAttribute('date-format')||'LLLL';
+                var format = time.getAttribute('date-format') || 'LLLL';
                 var value = parseInt(time.getAttribute('datetime'));
-                if(format === 'LT' && navigator.language === 'en'){
-                    format= 'hA';
+                if (format === 'LT' && navigator.language === 'en') {
+                    format = 'hA';
                 }
-                var textContent =  moment(value).format(format);
-                if(format === 'ddd' && ){
-                    navigator.language === 'en';
+                var textContent = moment(value).format(format);
+                if (format === 'ddd' && isToday(value)) {
+                    textContent = navigator.language === 'ru'? 'Сегодня': navigator.language === 'ua'? 'Сьогоднi' : 'Today';
                 }
                 time.set('textContent', textContent);
             })
