@@ -599,7 +599,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 }
                 var textContent = moment(value).format(format);
                 if (format === 'ddd' && isToday(value)) {
-                    textContent =  'Today';
+                    textContent = navigator.language === 'ru'? 'Сегодня': navigator.language === 'ua'? 'Сьогоднi' : 'Today';
                 }
                 time.set('textContent', textContent);
             })
