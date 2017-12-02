@@ -618,7 +618,15 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                             date_container.one('.items-container').append(new_schedule.all('.' + date_attr))
                         }
                     }
-                })
+                });
+                var min_width_time = 0;
+                new_schedule.all('.event-time-wrapper').each(function (item) {
+                    if(item.width()>min_width_time){
+                        min_width_time = item.width();
+                    }
+                });
+                console.log(min_width_time);
+                new_schedule.all('.event-time-wrapper').setStyles({minWidth: min_width_time+'px'})
             }
         }
     })
