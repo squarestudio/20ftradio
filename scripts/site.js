@@ -583,7 +583,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
             Y.all('[date-format]').each(function (time) {
                 var format = time.getAttribute('date-format')||'LLLL';
                 var value = parseInt(time.getAttribute('datetime'));
-                //time.set('textContent', moment(value).format(format));
+                time.set('textContent', moment(value).format(format));
             })
         });
         if (body.one('.new-events-schedule')) {
