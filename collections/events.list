@@ -139,7 +139,4 @@
         document.querySelectorAll('.event-show-past-events .eventlist--past .eventlist-thumbnail').length === 0) {
         document.querySelector('body').classList.remove('event-thumbnails');
     }
-    if(localStorage.getItem('me')){
-        document.body.className += ' auth';
-    }
 </script>
