@@ -86,32 +86,6 @@ body {
   }
 }
 
-.sqs-events-collection-list, .new-events-schedule {
-  .eventlist--upcoming:empty:before {
-    content: 'There are no upcoming shows';
-  }
-  .event-on-air {
-    position: relative;
-    .eventlist-column-info {
-      position: relative;
-      &:before {
-        content: '•';
-        display: inline-block;
-        animation: blinking 1.8s infinite ease-in;
-        font-size: 52px;
-        font-weight: 700;
-        padding: 0;
-        color: red;
-        position: absolute;
-        left: -22%;
-        margin-top: -2px;
-        line-height: 14px;
-        .v-align;
-      }
-    }
-  }
-}
-
 .header-block-content {
   min-width: 60px;
   float: left;
@@ -506,6 +480,32 @@ body {
       vertical-align: top;
       box-sizing: border-box;
       max-width: 70%;
+    }
+  }
+}
+
+.sqs-events-collection-list, .new-events-schedule {
+  .eventlist--upcoming:empty:before {
+    content: 'There are no upcoming shows';
+  }
+  .event-on-air {
+    position: relative;
+    .eventlist-column-info {
+      position: relative;
+      &:before {
+        content: '•';
+        display: inline-block;
+        animation: blinking 1.8s infinite ease-in;
+        font-size: 52px;
+        font-weight: 700;
+        padding: 0;
+        color: red;
+        position: absolute;
+        left: -22%;
+        margin-top: -2px;
+        line-height: 14px;
+        .v-align;
+      }
     }
   }
 }
