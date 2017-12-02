@@ -1010,11 +1010,11 @@ window.Template.Controllers.CastController = function (element) {
             getCollectionItems('/events').then(function (events) {
                 if (events && events.upcoming) {
                     currentEvents = events;
-                    //checkEvents();
+                    checkEvents();
                 }
             })
         } else {
-            //checkEvents();
+            checkEvents();
         }
     }
 
