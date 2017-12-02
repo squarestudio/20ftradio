@@ -584,7 +584,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 var format = time.getAttribute('date-format')||'LLLL';
                 var value = parseInt(time.getAttribute('datetime'));
                 if(format === 'LT' ){
-                    format= 'h A';
+                    format= 'hA';
                     console.log(format)
                 }
                 time.set('textContent', moment(value).format(format));
