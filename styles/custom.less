@@ -408,6 +408,108 @@ body {
   }
 }
 
+//New Features
+.new-events-schedule {
+  margin: 20px auto;
+  max-width: 66.6%;
+  .date-container {
+    margin-bottom: 40px;
+    [class*="sqs-col"] {
+      box-sizing: border-box;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .items-container {
+      padding-left: 3%;
+    }
+    .eventlist-column-date {
+      width: 100%;
+      float: none;
+      padding-right: 30px;
+      box-sizing: border-box;
+      .eventlist-datetag {
+        width: 100%;
+        min-height: 110px;
+      }
+    }
+    .eventlist-column-info {
+      width: 100%;
+      float: none;
+      line-height: 1;
+      padding: 0 36px 0 0 !important;
+    }
+    .eventlist-datetag-startdate--day {
+      margin: 16px 0;
+    }
+    .eventlist-datetag-time {
+      font-size: 12px;
+      padding-top: 14px;
+    }
+    .event-day {
+      margin-left: 4px;
+    }
+    .event-time {
+      font-size: 1.1em;
+      vertical-align: top;
+      letter-spacing: 1px;
+    }
+    .eventlist-title {
+      vertical-align: top;
+      font-size: 16px !important;
+      margin-bottom: 5px !important;
+    }
+    .event-time-end {
+      &:before {
+        display: inline-block;
+        margin: 0 5px;
+        content: '-';
+      }
+    }
+    .event-time-wrapper {
+      width: auto;
+      white-space: nowrap;
+    }
+    .eventlist-title-link {
+      &:after {
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 6px;
+        content: ' ';
+        width: 11px;
+        height: 1em;
+        background-image: url('../assets/arrow-right.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: left center;
+      }
+    }
+  }
+  .event-item {
+    margin-bottom: 16px;
+    background: rgba(255, 255, 255, .02);
+    padding: 20px;
+    white-space: nowrap;
+    position: relative;
+    * {
+      box-sizing: border-box;
+    }
+    .event-excerpt, .event-excerpt p {
+      //color: #c1292e;
+      margin: 0;
+    }
+    .event-details-wrapper {
+      white-space: normal;
+    }
+    .event-time-wrapper, .event-details-wrapper {
+      display: inline-block;
+      vertical-align: top;
+      box-sizing: border-box;
+      max-width: 70%;
+    }
+  }
+}
+
 @media only screen and (max-width: 1800px) {
   .nav-container .header-block .sqs-layout > .sqs-row .sqs-donate-button {
     font-size: 11px;
@@ -450,6 +552,7 @@ body {
   .new-events-schedule {
     max-width: 80%;
   }
+
   #mobile-navigation {
     .main-nav-font;
     font-size: 15px;
@@ -892,108 +995,6 @@ body {
         padding: 18px;
         box-sizing: border-box;
       }
-    }
-  }
-}
-
-//New Features
-.new-events-schedule {
-  margin: 20px auto;
-  max-width: 66.6%;
-  .date-container {
-    margin-bottom: 40px;
-    [class*="sqs-col"] {
-      box-sizing: border-box;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
-    .items-container {
-      padding-left: 3%;
-    }
-    .eventlist-column-date {
-      width: 100%;
-      float: none;
-      padding-right: 30px;
-      box-sizing: border-box;
-      .eventlist-datetag {
-        width: 100%;
-        min-height: 110px;
-      }
-    }
-    .eventlist-column-info {
-      width: 100%;
-      float: none;
-      line-height: 1;
-      padding: 0 36px 0 0 !important;
-    }
-    .eventlist-datetag-startdate--day {
-      margin: 16px 0;
-    }
-    .eventlist-datetag-time {
-      font-size: 12px;
-      padding-top: 14px;
-    }
-    .event-day {
-      margin-left: 4px;
-    }
-    .event-time {
-      font-size: 1.1em;
-      vertical-align: top;
-      letter-spacing: 1px;
-    }
-    .eventlist-title {
-      vertical-align: top;
-      font-size: 16px !important;
-      margin-bottom: 5px !important;
-    }
-    .event-time-end {
-      &:before {
-        display: inline-block;
-        margin: 0 5px;
-        content: '-';
-      }
-    }
-    .event-time-wrapper {
-      width: auto;
-      white-space: nowrap;
-    }
-    .eventlist-title-link {
-      &:after {
-        display: inline-block;
-        vertical-align: top;
-        margin-left: 6px;
-        content: ' ';
-        width: 11px;
-        height: 1em;
-        background-image: url('../assets/arrow-right.svg');
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: left center;
-      }
-    }
-  }
-  .event-item {
-    margin-bottom: 16px;
-    background: rgba(255, 255, 255, .02);
-    padding: 20px;
-    white-space: nowrap;
-    position: relative;
-    * {
-      box-sizing: border-box;
-    }
-    .event-excerpt, .event-excerpt p {
-      //color: #c1292e;
-      margin: 0;
-    }
-    .event-details-wrapper {
-      white-space: normal;
-    }
-    .event-time-wrapper, .event-details-wrapper {
-      display: inline-block;
-      vertical-align: top;
-      box-sizing: border-box;
-      max-width: 70%;
     }
   }
 }
