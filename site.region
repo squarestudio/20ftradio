@@ -182,8 +182,8 @@
 {.or}
 
 {.end}
-<squarespace:script src="moment.js" combo="false"/>
-<squarespace:script src="moment-timezone.js" combo="false"/>
+<squarespace:script src="moment.js" combo="true"/>
+<squarespace:script src="moment-timezone.js" combo="true"/>
 <squarespace:script src="json-template.js" combo="false"/>
 <squarespace:script src="core-0.2.0.min.js" combo="false"/>
 <squarespace:script src="sqs-controller.js" combo="false"/>
