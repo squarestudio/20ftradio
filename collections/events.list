@@ -2,7 +2,7 @@
     {.if upcoming}
     <div class="eventlist eventlist--upcoming">
         {.repeated section upcoming}
-        <article class="eventlist-event--upcoming date-container sqs-layout"
+        <article class="eventlist-event--upcoming date-container"
                  data-date-attr="date-{startDate|date %B|slugify}-{startDate|date %d|slugify}"
                  data-start-date="{startDate}" data-end-date="{endDate}">
             <div class="sqs-row">
