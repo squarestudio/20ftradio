@@ -590,7 +590,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
     Y.config.win.Squarespace.onInitialize(Y, function () {
         var body = Y.one('body');
         Y.use('node', function () {
-            moment.locale(navigator.language);
+            //moment.locale(navigator.language);
             Y.all('[date-format]').each(function (time) {
                 var format = time.getAttribute('date-format') || 'LLLL';
                 var value = parseInt(time.getAttribute('datetime'));
