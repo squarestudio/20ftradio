@@ -32,7 +32,12 @@
                     {.or}
                     <div class="grid-slide-video {.section customContent.autoplay}grid-slide-video-autoplay{.end}">
                         {@|video}
-                        
+                        {.section title}
+                            <div class="video-title">{@}</div>
+                        {.end}
+                        {.section excerpt}
+                        <div class="video-excerpt">{@}</div>
+                        {.end}
                     </div>
                     {.end}
                 {.end}
