@@ -57,7 +57,7 @@ window.Template.Controllers.CastController = function (element) {
             }, 300);
             setTimeout(function () {
                 initCast();
-            }, 2800);
+            }, 800);
             Y.one(window).on('resize', refreshImages);
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
