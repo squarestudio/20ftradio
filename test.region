@@ -193,6 +193,9 @@
 <squarespace:script src="mixcloud-api-widget.js" combo="true"/>
 <squarespace:script src="ProjectController.js" combo="true"/>
 <squarespace:script src="TestCastController.js" combo="false"/>
+<script src="//widget.mixcloud.com/media/js/footerWidgetApi.js" async>
+    {"feed": "20ftradio"}
+</script>
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
 <script>
