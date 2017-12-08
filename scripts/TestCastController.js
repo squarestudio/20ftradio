@@ -644,7 +644,7 @@ window.Template.Controllers.TestCastController = function (element) {
 /*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
             mixCloudPlayer = mixCloudPlayer._node;*/
-            mixCloudPlayer = Mixcloud.FooterWidget('/20ftradio/lovely-songs-for-lovers-iii-w-uliana-20ft-radio-03122017/', {
+/*            mixCloudPlayer = Mixcloud.FooterWidget('/20ftradio/lovely-songs-for-lovers-iii-w-uliana-20ft-radio-03122017/', {
                 disablePushstate: true,
                 disableUnloadWarning: true
             });
@@ -662,7 +662,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 });
                 onPlayerReady('mixcloud');
             });
-            players['mixcloud'] = mixCloudPlayer;
+            players['mixcloud'] = mixCloudPlayer;*/
         }
     }
 
