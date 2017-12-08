@@ -648,7 +648,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 disablePushstate: true,
                 disableUnloadWarning: true
             });
-            mixCloudPlayer.ready.then(function (widget) {
+            mixCloudPlayer.then(function (widget) {
                 mixCloudPlayer = widget;
                 DEBUG && console.log(mixCloudPlayer);
                 mixCloudPlayer.events.play.on(function () {
