@@ -194,7 +194,7 @@
 <squarespace:script src="ProjectController.js" combo="true"/>
 <squarespace:script src="TestCastController.js" combo="false"/>
 <script src="//widget.mixcloud.com/media/js/footerWidgetApi.js" async>
-    {"feed": "20ftradio"}
+    {"feed": "20ftradio/stream/"}
 </script>
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
