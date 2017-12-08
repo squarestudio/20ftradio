@@ -67,7 +67,7 @@ window.Template.Controllers.TestCastController = function (element) {
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         currentTime = currentTime.getTime();
-        var events = Array.prototype.splice(document.querySelectorAll('.eventlist--upcoming .eventlist-event'));
+        var events = Array.prototype.splice(document.querySelectorAll('.eventlist--upcoming .event-item'));
         if(events.length){
             events.forEach(function (event) {
                 if (currentTime >= new Date(event.getAttribute('data-end-date') + siteTimezoneOffset + userTimezoneOffset).getTime()) {
@@ -401,6 +401,7 @@ window.Template.Controllers.TestCastController = function (element) {
             fbPlayer = Y.Node.create('<div id="fbPlayer" data-show-text="false"  data-height="' + castContainer.get('offsetHeight') + '" class="fb-video stream-player" data-allowfullscreen="false" data-href="' + facebookUrl + '"></div>');
         }
         castContainer.prepend(fbPlayer);
+        youtubeStatusLoad = true;
         if (!window.FB) {
             (function (d, s, id) {
                 var js, fjs = d.getElementsByTagName(s)[0];
@@ -534,7 +535,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     } else {
                         youtubeRetry = 0;
                     }
-                    if (state == 1 || state == 5) {
+                    if (state == 1) {//5
                         youtubeStatus = true;
                         activePlayer = 'youtube';
                         pausePlayersExept('youtube');
@@ -763,7 +764,6 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function onPlayerReady(playerType, data) {
         if (playerType == 'youtube') {
-            window.yy =youtubePlayer;
             youtubePlayer.setVolume(100);
             !mobile && youtubePlayer.playVideo();
             youtubeReady = true;
@@ -951,21 +951,23 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function getCurrentEvent(shoutcast) {
         var checkEvents = function () {
-            var currentTime = new Date();
-            var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
-            var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
-            currentTime = currentTime.getTime();
+            var currentTime = moment().valueOf();
             var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
-                if (currentTime >= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()) {
+                if (currentTime >= event.endDate) {
                     if (Y.one('#' + event.id)) {
-                        Y.one('#' + event.id).hide(!0);
+                        var event_item = Y.one('#' + event.id);
+                        event_item.hide(!0);
                         setTimeout(function () {
-                            Y.one('#' + event.id)&&Y.one('#' + event.id).remove();
+                            var parent = event_item.ancestor('.date-container');
+                            event_item&&event_item.remove();
+                            if(!parent.one('.event-item')){
+                                parent.remove();
+                            }
                         }, 400)
                     }
                 }
-                if (currentTime >= new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime() && !eventOnAir) {
+                if (currentTime >= event.startDate && currentTime <= event.endDate && !eventOnAir) {
                     eventOnAir = event;
                     DEBUG && console.log(event.title);
                 }
@@ -974,8 +976,8 @@ window.Template.Controllers.TestCastController = function (element) {
                 trackName.one('span').set('text', eventOnAir.title);
                 trackName.addClass('scroll-track');
                 checkTrackNameOverflow();
-                if (Y.all('.eventlist-event').size()) {
-                    Y.all('.eventlist-event').each(function (item) {
+                if (Y.all('.event-item').size()) {
+                    Y.all('.event-item').each(function (item) {
                         if (item.getAttribute('id') == eventOnAir.id) {
                             item.addClass('event-on-air');
                         } else {
