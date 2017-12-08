@@ -641,9 +641,9 @@ window.Template.Controllers.TestCastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
-            //castContainer.append(mixCloudPlayer);
-            mixCloudPlayer = mixCloudPlayer._node;
+/*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
+            castContainer.append(mixCloudPlayer);
+            mixCloudPlayer = mixCloudPlayer._node;*/
             mixCloudPlayer = Mixcloud.FooterWidget('20ftradio', {
                 disablePushstate: true,
                 disableUnloadWarning: true
