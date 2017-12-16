@@ -651,8 +651,8 @@ window.Template.Controllers.TestCastController = function (element) {
             mixCloudFooterPlayer.then(function (widget) {
                 mixCloudFooterPlayer = widget;
                 DEBUG && console.log(mixCloudPlayer);
+                pausePlayersExept('all');
                 mixCloudFooterPlayer.events.play.on(function () {
-                    pausePlayersExept('all')
                     onPlayerStateChange('mixcloud', 'play')
                 });
                 mixCloudFooterPlayer.events.pause.on(function () {
