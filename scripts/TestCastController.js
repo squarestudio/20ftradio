@@ -653,7 +653,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 mixCloudPlayer = widget;
                 DEBUG && console.log(mixCloudPlayer);
                 mixCloudPlayer.events.play.on(function () {
-                    pausePlayersExept('all')
+                    //pausePlayersExept('all')
                     onPlayerStateChange('mixcloud', 'play')
                 });
                 mixCloudPlayer.events.pause.on(function () {
