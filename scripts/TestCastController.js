@@ -804,8 +804,8 @@ window.Template.Controllers.TestCastController = function (element) {
                 setActivePlayer();
             }
         }
-        else if (playerType == 'mixcloud') {
-            if (!mixCloudReady) {
+        else if (playerType == 'mixcloud'&&mixCloudPlayer) {
+            if (!mixCloudReady&&mixCloudPlayer) {
                 mixCloudPlayer.setVolume(1);
                 mixCloudReady = true;
                 setActivePlayer();
@@ -899,7 +899,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     setPaused();
                 }
             });
-        } else if (playerType == 'mixcloud') {
+        } else if (playerType == 'mixcloud'&&mixCloudPlayer) {
             mixCloudPlayer.getIsPaused().then(function (paused) {
                 if (!paused) {
                     setPlaying(playerType);
