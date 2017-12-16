@@ -496,11 +496,6 @@ window.Template.Controllers.TestCastController = function (element) {
                         trackName.removeClass('scroll-track');
                     }
                     getShoutcastStatus();
-                    shoutcastStatusCheckInterval = setInterval(function () {
-                        if (!shoutcastStatusFactor) {
-                            getShoutcastStatus();
-                        }
-                    }, 30000);
                     DEBUG && console.log('Shoutcast status interval set');
                 }
             }
