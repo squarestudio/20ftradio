@@ -43,6 +43,7 @@ window.Template.Controllers.TestCastController = function (element) {
         liveIndicator,
         streamSwiper,
         mixCloudFooterPlayer,
+        mixCloudEmbeds = [],
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
     var DEBUG = false;
@@ -77,6 +78,13 @@ window.Template.Controllers.TestCastController = function (element) {
                 }
             })
         }
+        Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
+            var widget = Mixcloud.PlayerWidget(iframe);
+            widget.events.pause.on(function(){
+
+            });
+            mixCloudEmbeds.push(widget);
+        })
     }
 
     function refreshImages() {
