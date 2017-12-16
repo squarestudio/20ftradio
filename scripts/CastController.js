@@ -79,7 +79,7 @@ window.Template.Controllers.CastController = function (element) {
             })
         }
         Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
-            var widget = Mixcloud.PlayerWidget(iframe);
+            var widget = Mixcloud.PlayerWidget(iframe._node);
             widget.events.play.on(function(){
                 pausePlayersExept('all');
             });
