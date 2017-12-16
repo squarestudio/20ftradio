@@ -809,6 +809,8 @@ window.Template.Controllers.TestCastController = function (element) {
                 mixCloudPlayer.setVolume(1);
                 mixCloudReady = true;
                 setActivePlayer();
+            } else {
+                setActivePlayer();
             }
         }
         if (youtubeReady || shoutCastReady || soundCloudReady || mixCloudReady) {
