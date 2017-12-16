@@ -804,7 +804,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 setActivePlayer();
             }
         }
-        else if (playerType == 'mixcloud'&&mixCloudPlayer) {
+        else if (playerType == 'mixcloud') {
             if (!mixCloudReady&&mixCloudPlayer) {
                 mixCloudPlayer.setVolume(1);
                 mixCloudReady = true;
