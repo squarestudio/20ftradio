@@ -370,7 +370,7 @@ window.Template.Controllers.TestCastController = function (element) {
             if (!streamsStatusFactor) {
                 getStreamsStatus();
             }
-        }, 60000);
+        }, 30000);
     }
 
     function initFBPlayer() {
