@@ -61,7 +61,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
         }
-        getStreamsStatus().then(function (value) {
+        getStreamsStatus().then(function () {
             initCast();
         });
         var currentTime = new Date();
