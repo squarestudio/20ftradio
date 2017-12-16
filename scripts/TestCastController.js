@@ -1028,12 +1028,13 @@ window.Template.Controllers.TestCastController = function (element) {
                 on: {
                     success: function (i, data) {
                         if (data.status == 200 && data.readyState == 4) {
-                            var live = data.responseText == 'online';
-                            console.log('Youtube STREAM is:  --' + live);
-                            youtubeStatus = live;
-                            checkStreams();
-                            youtubeStatusFactor = false;
-                            resolve(live);
+                            try{
+                                var data = JSON.parse(data.responseText);
+                            } catch(e){
+                                console.log(e);
+                            }
+                        } else {
+
                         }
                     },
                     failure: function (e) {
