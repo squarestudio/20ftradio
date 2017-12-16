@@ -1023,6 +1023,9 @@ window.Template.Controllers.TestCastController = function (element) {
             if (!youtubeStatusLoad) {
                 youtubeStatusLoad = true;
             }
+            if(!shoutcastStatusFactor){
+                shoutcastStatusFactor = true;
+            }
             youtubeStatusFactor = true;
             Y.io('https://app.20ftradio.net/stream-status.php', {
                 on: {
