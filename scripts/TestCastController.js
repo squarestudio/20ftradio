@@ -1022,17 +1022,19 @@ window.Template.Controllers.TestCastController = function (element) {
             Y.io('https://app.20ftradio.net/stream-status.php', {
                 on: {
                     success: function (i, data) {
+                        var json = {youtube: false, shoutcast: {live:false, track:''}};
                         if (data.status == 200 && data.readyState == 4) {
-                            try{
-                                var json = JSON.parse(data.responseText);
+                            try {
+                                json = JSON.parse(data.responseText);
                                 console.log(json);
-                                resolve(true)
+                               
                             } catch(e){
                                 console.log(e);
                             }
                         } else {
 
                         }
+                        resolve(true)
                     },
                     failure: function (e) {
                         DEBUG && console.log(e);
