@@ -664,7 +664,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 });
                 onPlayerReady('mixcloud');
             });
-            //players['mixcloud'] = mixCloudPlayer;
+            players['mixcloud'] = mixCloudPlayer;
         }
     }
 
