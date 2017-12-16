@@ -652,17 +652,18 @@ window.Template.Controllers.TestCastController = function (element) {
                 mixCloudPlayer = widget;
                 DEBUG && console.log(mixCloudPlayer);
                 mixCloudPlayer.events.play.on(function () {
-                    onPlayerStateChange('mixcloud', 'play')
+                    pausePlayersExept('all')
+                    //onPlayerStateChange('mixcloud', 'play')
                 });
                 mixCloudPlayer.events.pause.on(function () {
-                    onPlayerStateChange('mixcloud', 'pause')
+                    //onPlayerStateChange('mixcloud', 'pause')
                 });
                 mixCloudPlayer.events.error.on(function (e) {
                     DEBUG && console.log('MixCloud Error', e);
                 });
                 onPlayerReady('mixcloud');
             });
-            players['mixcloud'] = mixCloudPlayer;
+            //players['mixcloud'] = mixCloudPlayer;
         }
     }
 
