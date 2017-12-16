@@ -1019,6 +1019,10 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function getStreamsStatus() {
         return new Y.Promise(function (resolve) {
+            if (!youtubeStatusLoad) {
+                youtubeStatusLoad = true;
+            }
+            youtubeStatusFactor = true;
             Y.io('https://app.20ftradio.net/stream-status.php', {
                 on: {
                     success: function (i, data) {
@@ -1042,7 +1046,7 @@ window.Template.Controllers.TestCastController = function (element) {
             });
         });
     }
-    
+
     function getYoutubeStatus() {
         return new Y.Promise(function (resolve) {
             if (!youtubeStatusLoad) {
