@@ -875,7 +875,7 @@ window.Template.Controllers.CastController = function (element) {
         pausePlayersExept(playerType);
         mobile && sitePlayer.addClass('played');
         mobilePlayButton.addClass('visible');
-        if(mixCloudEmbeds&&mixCloudEmbeds.length){
+        if(mixCloudEmbeds&&mixCloudEmbeds.length&&!userPaused){
             mixCloudEmbeds.forEach(function (widget) {
                 widget.pause&&widget.pause();
             })
