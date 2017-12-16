@@ -1029,7 +1029,8 @@ window.Template.Controllers.TestCastController = function (element) {
                     success: function (i, data) {
                         if (data.status == 200 && data.readyState == 4) {
                             try{
-                                var data = JSON.parse(data.responseText);
+                                var json = JSON.parse(data.responseText);
+                                
                             } catch(e){
                                 console.log(e);
                             }
