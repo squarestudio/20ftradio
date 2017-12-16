@@ -874,7 +874,7 @@ window.Template.Controllers.CastController = function (element) {
         mobilePlayButton.addClass('visible');
         if(mixCloudEmbeds&&mixCloudEmbeds.length){
             mixCloudEmbeds.forEach(function (widget) {
-                widget.pause();
+                widget.pause&&widget.pause();
             })
         }
     }
