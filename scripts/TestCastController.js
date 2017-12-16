@@ -42,6 +42,7 @@ window.Template.Controllers.TestCastController = function (element) {
         currentEvents,
         liveIndicator,
         streamSwiper,
+        streamsData,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
     var DEBUG = false;
