@@ -366,14 +366,16 @@ window.Template.Controllers.TestCastController = function (element) {
                 prevButton: '.swiper-button-prev'
             })
         }
-        streamStatusInterval = setInterval(function () {
-            if (!streamsStatusFactor) {
-                getStreamsStatus().then(function () {
-                    console.log('Checking Status', streamsData);
-                    checkStreams();
-                });
-            }
-        }, 5000);
+        if(youtubeUrl||shoutCastUrl){
+            streamStatusInterval = setInterval(function () {
+                if (!streamsStatusFactor) {
+                    getStreamsStatus().then(function () {
+                        console.log('Checking Status', streamsData);
+                        checkStreams();
+                    });
+                }
+            }, 5000);
+        }
     }
 
     function initFBPlayer() {
