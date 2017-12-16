@@ -107,9 +107,8 @@ window.Template.Controllers.TestCastController = function (element) {
         } else if (youtubeUrl.indexOf('live_stream') > -1) {
             var channel = youtubeUrl.split('channel=')[1];
             youtubeUrl = 'live_stream';
-            getYoutubeStatus();
         }
-        DEBUG && console.log(youtubeUrl, channel)
+        DEBUG && console.log(youtubeUrl, channel);
         youtubePlayer = new YT.Player('youtubePlayer', {
             height: '720',
             width: '1280',
@@ -1033,6 +1032,8 @@ window.Template.Controllers.TestCastController = function (element) {
                         if (data.status === 200 && data.readyState === 4) {
                             try {
                                 streamsData = JSON.parse(data.responseText);
+                                youtubeStatus = streamsData.youtube;
+                                shoutcastStatus = streamsData.shoutcast.live;
                             } catch (e) {
                                 console.log(e);
                             }
