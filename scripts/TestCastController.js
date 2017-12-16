@@ -1042,6 +1042,7 @@ window.Template.Controllers.TestCastController = function (element) {
             });
         });
     }
+    
     function getYoutubeStatus() {
         return new Y.Promise(function (resolve) {
             if (!youtubeStatusLoad) {
