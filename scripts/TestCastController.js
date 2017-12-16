@@ -661,6 +661,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     DEBUG && console.log('MixCloud Error', e);
                 });
                 onPlayerReady('mixcloud');
+                pausePlayersExept('all');
             });
             //players['mixcloud'] = mixCloudPlayer;
         }
