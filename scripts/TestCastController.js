@@ -1019,7 +1019,7 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function getStreamsStatus() {
         return new Y.Promise(function (resolve) {
-            Y.io('http://app.20ftradio.net/stream-status.php', {
+            Y.io('https://app.20ftradio.net/stream-status.php', {
                 on: {
                     success: function (i, data) {
                         var json = {youtube: false, shoutcast: {live:false, track:''}};
