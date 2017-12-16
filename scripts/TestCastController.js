@@ -69,10 +69,10 @@ window.Template.Controllers.TestCastController = function (element) {
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         currentTime = currentTime.getTime();
         var events = Array.prototype.splice(document.querySelectorAll('.eventlist--upcoming .event-item'));
-        if(events.length){
+        if (events.length) {
             events.forEach(function (event) {
                 if (currentTime >= new Date(event.getAttribute('data-end-date') + siteTimezoneOffset + userTimezoneOffset).getTime()) {
-                    event&&document.body.removeChild(event);
+                    event && document.body.removeChild(event);
                     console.log('removed')
                 }
             })
@@ -962,8 +962,8 @@ window.Template.Controllers.TestCastController = function (element) {
                         event_item.hide(!0);
                         setTimeout(function () {
                             var parent = event_item.ancestor('.date-container');
-                            event_item&&event_item.remove();
-                            if(!parent.one('.event-item')){
+                            event_item && event_item.remove();
+                            if (!parent.one('.event-item')) {
                                 parent.remove();
                             }
                         }, 400)
@@ -987,7 +987,7 @@ window.Template.Controllers.TestCastController = function (element) {
                                 item.removeClass('event-on-air');
                                 item.hide(true);
                                 setTimeout(function () {
-                                    item&&item.remove();
+                                    item && item.remove();
                                 }, 400)
                             }
                         }
@@ -1029,11 +1029,11 @@ window.Template.Controllers.TestCastController = function (element) {
             Y.io('https://app.20ftradio.net/stream-status.php', {
                 on: {
                     success: function (i, data) {
-                        streamsData = {youtube: false, shoutcast: {live:false, track:''}};
+                        streamsData = {youtube: false, shoutcast: {live: false, track: ''}};
                         if (data.status === 200 && data.readyState === 4) {
                             try {
                                 streamsData = JSON.parse(data.responseText);
-                            } catch(e){
+                            } catch (e) {
                                 console.log(e);
                             }
                         }
