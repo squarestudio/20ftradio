@@ -1019,6 +1019,7 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function getStreamsStatus() {
         return new Y.Promise(function (resolve) {
+            console.log('Checking Status');
             if (!youtubeStatusLoad) {
                 youtubeStatusLoad = true;
             }
