@@ -368,7 +368,9 @@ window.Template.Controllers.TestCastController = function (element) {
         }
         streamStatusInterval = setInterval(function () {
             if (!streamsStatusFactor) {
-                getStreamsStatus();
+                getStreamsStatus().then(function () {
+                    console.log('Checking Status', streamsData);
+                });
             }
         }, 30000);
     }
@@ -1019,7 +1021,6 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function getStreamsStatus() {
         return new Y.Promise(function (resolve) {
-            console.log('Checking Status');
             if (!youtubeStatusLoad) {
                 youtubeStatusLoad = true;
             }
