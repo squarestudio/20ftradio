@@ -42,9 +42,6 @@ window.Template.Controllers.TestCastController = function (element) {
         currentEvents,
         liveIndicator,
         streamSwiper,
-        streamsData,
-        streamStatusInterval,
-        streamsStatusFactor,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
     var DEBUG = false;
@@ -58,23 +55,23 @@ window.Template.Controllers.TestCastController = function (element) {
                 Y.one('#castDiv').addClass('slide-into-view');
                 Site && Site._setupPositioning();
             }, 300);
+            setTimeout(function () {
+                initCast();
+            }, 800);
             Y.one(window).on('resize', refreshImages);
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
         }
-        getStreamsStatus().then(function () {
-            initCast();
-        });
         var currentTime = new Date();
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
         currentTime = currentTime.getTime();
         var events = Array.prototype.splice(document.querySelectorAll('.eventlist--upcoming .event-item'));
-        if (events.length) {
+        if(events.length){
             events.forEach(function (event) {
                 if (currentTime >= new Date(event.getAttribute('data-end-date') + siteTimezoneOffset + userTimezoneOffset).getTime()) {
-                    event && document.body.removeChild(event);
+                    event&&document.body.removeChild(event);
                     console.log('removed')
                 }
             })
@@ -109,8 +106,9 @@ window.Template.Controllers.TestCastController = function (element) {
         } else if (youtubeUrl.indexOf('live_stream') > -1) {
             var channel = youtubeUrl.split('channel=')[1];
             youtubeUrl = 'live_stream';
+            getYoutubeStatus();
         }
-        DEBUG && console.log(youtubeUrl, channel);
+        DEBUG && console.log(youtubeUrl, channel)
         youtubePlayer = new YT.Player('youtubePlayer', {
             height: '720',
             width: '1280',
@@ -355,6 +353,7 @@ window.Template.Controllers.TestCastController = function (element) {
         } else {
             initFBPlayer();
         }
+        getShoutcastStatus();
         if (castContainer.one('.stream-gallery')) {
             streamSwiper = new Swiper('.stream-gallery .swiper-container', {
                 loop: true,
@@ -365,16 +364,6 @@ window.Template.Controllers.TestCastController = function (element) {
                 nextButton: '.swiper-button-next',
                 prevButton: '.swiper-button-prev'
             })
-        }
-        if(youtubeUrl||shoutCastUrl){
-            streamStatusInterval = setInterval(function () {
-                if (!streamsStatusFactor) {
-                    getStreamsStatus().then(function () {
-                        console.log('Checking Status', streamsData);
-                        checkStreams();
-                    });
-                }
-            }, 5000);
         }
     }
 
@@ -498,6 +487,11 @@ window.Template.Controllers.TestCastController = function (element) {
                         trackName.removeClass('scroll-track');
                     }
                     getShoutcastStatus();
+                    shoutcastStatusCheckInterval = setInterval(function () {
+                        if (!shoutcastStatusFactor) {
+                            getShoutcastStatus();
+                        }
+                    }, 30000);
                     DEBUG && console.log('Shoutcast status interval set');
                 }
             }
@@ -507,6 +501,11 @@ window.Template.Controllers.TestCastController = function (element) {
                     DEBUG && console.log('Event status reset');
                     eventStatusInterval = null;
                     Y.detach('getCurrentEvent', getCurrentEvent);
+                }
+                if (shoutcastStatusCheckInterval) {
+                    clearInterval(shoutcastStatusCheckInterval);
+                    DEBUG && console.log('Shoutcast status reset');
+                    shoutcastStatusCheckInterval = null;
                 }
                 trackName.one('span').set('text', '  ');
                 trackName.removeClass('scroll-track');
@@ -642,22 +641,21 @@ window.Template.Controllers.TestCastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            /*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
-                        castContainer.append(mixCloudPlayer);
-                        mixCloudPlayer = mixCloudPlayer._node;*/
-            mixCloudPlayer = Mixcloud.FooterWidget(someCloudUrl, {
+            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
+            castContainer.append(mixCloudPlayer);
+            mixCloudPlayer = mixCloudPlayer._node;
+            mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {
                 disablePushstate: true,
                 disableUnloadWarning: true
             });
-            mixCloudPlayer.then(function (widget) {
+            mixCloudPlayer.ready.then(function (widget) {
                 mixCloudPlayer = widget;
                 DEBUG && console.log(mixCloudPlayer);
                 mixCloudPlayer.events.play.on(function () {
-                    //pausePlayersExept('all')
                     onPlayerStateChange('mixcloud', 'play')
                 });
                 mixCloudPlayer.events.pause.on(function () {
-                    //onPlayerStateChange('mixcloud', 'pause')
+                    onPlayerStateChange('mixcloud', 'pause')
                 });
                 mixCloudPlayer.events.error.on(function (e) {
                     DEBUG && console.log('MixCloud Error', e);
@@ -770,6 +768,14 @@ window.Template.Controllers.TestCastController = function (element) {
             !mobile && youtubePlayer.playVideo();
             youtubeReady = true;
             pausePlayersExept('youtube');
+            if (!youtubeCheckInterval) {
+                youtubeCheckInterval = setInterval(function () {
+                    if (!youtubeStatusFactor) {
+                        getYoutubeStatus();
+                    }
+                }, 60000);
+                DEBUG && console.log('youtube check interval set')
+            }
         }
         else if (playerType == 'facebook') {
             fbPlayer.setVolume(1);
@@ -954,8 +960,8 @@ window.Template.Controllers.TestCastController = function (element) {
                         event_item.hide(!0);
                         setTimeout(function () {
                             var parent = event_item.ancestor('.date-container');
-                            event_item && event_item.remove();
-                            if (!parent.one('.event-item')) {
+                            event_item&&event_item.remove();
+                            if(!parent.one('.event-item')){
                                 parent.remove();
                             }
                         }, 400)
@@ -979,7 +985,7 @@ window.Template.Controllers.TestCastController = function (element) {
                                 item.removeClass('event-on-air');
                                 item.hide(true);
                                 setTimeout(function () {
-                                    item && item.remove();
+                                    item&&item.remove();
                                 }, 400)
                             }
                         }
@@ -1010,38 +1016,6 @@ window.Template.Controllers.TestCastController = function (element) {
         } else {
             checkEvents();
         }
-    }
-
-    function getStreamsStatus() {
-        return new Y.Promise(function (resolve) {
-            if (!youtubeStatusLoad) {
-                youtubeStatusLoad = true;
-            }
-            streamsStatusFactor = true;
-            Y.io('https://app.20ftradio.net/stream-status.php', {
-                on: {
-                    success: function (i, data) {
-                        streamsData = {youtube: false, shoutcast: {live: false, track: ''}};
-                        if (data.status === 200 && data.readyState === 4) {
-                            try {
-                                streamsData = JSON.parse(data.responseText);
-                                youtubeStatus = streamsData.youtube;
-                                shoutcastStatus = streamsData.shoutcast.live;
-                            } catch (e) {
-                                console.log(e);
-                            }
-                        }
-                        streamsStatusFactor = false;
-                        resolve(true);
-                    },
-                    failure: function (e) {
-                        streamsStatusFactor = false;
-                        DEBUG && console.log(e);
-                        resolve(false);
-                    }
-                }
-            });
-        });
     }
 
     function getYoutubeStatus() {
@@ -1080,28 +1054,6 @@ window.Template.Controllers.TestCastController = function (element) {
         }
     }
 
-    function checkPlayerTrack(){
-        if (streamsData.shoutcast && streamsData.shoutcast.live) {
-            var current_song = streamsData.shoutcast.track.trim();
-            current_song = 'Now playing: ' + current_song;
-            if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
-                trackName.one('span').set('text', current_song);
-                shoutcastPlayer.title = current_song;
-                trackName.removeClass('scroll-track').addClass('scroll-track');
-                checkTrackNameOverflow();
-            } else {
-                getCurrentEvent(true);
-            }
-            shoutcastStatus = true;
-            if (!shoutcastPlayer) {
-                initShoutCast()
-            }
-            DEBUG && console.log('SHOUTCAST STATUS TRUE');
-        } else {
-            DEBUG && console.log('SHOUTCAST STATUS FALSE');
-            shoutcastStatus = false;
-        }
-    }
     function getShoutcastStatus() {
         shoutcastStatusFactor = true;
         Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php', {
