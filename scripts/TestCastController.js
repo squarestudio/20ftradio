@@ -43,6 +43,8 @@ window.Template.Controllers.TestCastController = function (element) {
         liveIndicator,
         streamSwiper,
         streamsData,
+        streamStatusInterval,
+        streamsStatusFactor,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
     var DEBUG = false;
@@ -364,6 +366,11 @@ window.Template.Controllers.TestCastController = function (element) {
                 prevButton: '.swiper-button-prev'
             })
         }
+        streamStatusInterval = setInterval(function () {
+            if (!streamsStatusFactor) {
+                getStreamsStatus();
+            }
+        }, 60000);
     }
 
     function initFBPlayer() {
@@ -1015,10 +1022,7 @@ window.Template.Controllers.TestCastController = function (element) {
             if (!youtubeStatusLoad) {
                 youtubeStatusLoad = true;
             }
-            if(!shoutcastStatusFactor){
-                shoutcastStatusFactor = true;
-            }
-            youtubeStatusFactor = true;
+            streamsStatusFactor = true;
             Y.io('https://app.20ftradio.net/stream-status.php', {
                 on: {
                     success: function (i, data) {
@@ -1032,9 +1036,11 @@ window.Template.Controllers.TestCastController = function (element) {
                                 console.log(e);
                             }
                         }
-                        resolve(true)
+                        streamsStatusFactor = false;
+                        resolve(true);
                     },
                     failure: function (e) {
+                        streamsStatusFactor = false;
                         DEBUG && console.log(e);
                         resolve(false);
                     }
