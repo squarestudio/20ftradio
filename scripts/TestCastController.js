@@ -370,6 +370,7 @@ window.Template.Controllers.TestCastController = function (element) {
             if (!streamsStatusFactor) {
                 getStreamsStatus().then(function () {
                     console.log('Checking Status', streamsData);
+                    checkStreams();
                 });
             }
         }, 30000);
