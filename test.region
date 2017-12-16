@@ -94,7 +94,7 @@
     </header>
     {.end}
     <div class="sqs-cart-dropzone"></div>
-    <squarespace:query collection="cast" limit="2">
+    <squarespace:query collection="test-cast" limit="2">
         {.if items}
         {.section items.0}
         <div class="castWrapper">
