@@ -353,7 +353,6 @@ window.Template.Controllers.TestCastController = function (element) {
         } else {
             initFBPlayer();
         }
-        getShoutcastStatus();
         if (castContainer.one('.stream-gallery')) {
             streamSwiper = new Swiper('.stream-gallery .swiper-container', {
                 loop: true,
