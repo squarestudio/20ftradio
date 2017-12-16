@@ -82,7 +82,7 @@ window.Template.Controllers.CastController = function (element) {
             var widget = Mixcloud.PlayerWidget(iframe._node);
             widget.ready.then(function (widget) {
                 widget.events.play.on(function(){
-                    userPaused = false;
+                    userPaused = true;
                     pausePlayersExept('all');
                 });
                 mixCloudEmbeds.push(widget);
