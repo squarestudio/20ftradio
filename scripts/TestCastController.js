@@ -644,21 +644,21 @@ window.Template.Controllers.TestCastController = function (element) {
             /*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
                         castContainer.append(mixCloudPlayer);
                         mixCloudPlayer = mixCloudPlayer._node;*/
-            mixCloudPlayer = Mixcloud.FooterWidget(someCloudUrl, {
+            var mixCloudFooterPlayer = Mixcloud.FooterWidget(someCloudUrl, {
                 disablePushstate: true,
                 disableUnloadWarning: true
             });
-            mixCloudPlayer.then(function (widget) {
-                mixCloudPlayer = widget;
+            mixCloudFooterPlayer.then(function (widget) {
+                mixCloudFooterPlayer = widget;
                 DEBUG && console.log(mixCloudPlayer);
-                mixCloudPlayer.events.play.on(function () {
+                mixCloudFooterPlayer.events.play.on(function () {
                     pausePlayersExept('all')
                     onPlayerStateChange('mixcloud', 'play')
                 });
-                mixCloudPlayer.events.pause.on(function () {
+                mixCloudFooterPlayer.events.pause.on(function () {
                     //onPlayerStateChange('mixcloud', 'pause')
                 });
-                mixCloudPlayer.events.error.on(function (e) {
+                mixCloudFooterPlayer.events.error.on(function (e) {
                     DEBUG && console.log('MixCloud Error', e);
                 });
                 onPlayerReady('mixcloud');
