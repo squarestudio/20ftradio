@@ -768,14 +768,6 @@ window.Template.Controllers.TestCastController = function (element) {
             !mobile && youtubePlayer.playVideo();
             youtubeReady = true;
             pausePlayersExept('youtube');
-            if (!youtubeCheckInterval) {
-                youtubeCheckInterval = setInterval(function () {
-                    if (!youtubeStatusFactor) {
-                        getYoutubeStatus();
-                    }
-                }, 60000);
-                DEBUG && console.log('youtube check interval set')
-            }
         }
         else if (playerType == 'facebook') {
             fbPlayer.setVolume(1);
@@ -1086,6 +1078,7 @@ window.Template.Controllers.TestCastController = function (element) {
             trackName.removeClass('scrolling');
         }
     }
+
     function checkPlayerTrack(){
         if (streamsData.shoutcast && streamsData.shoutcast.live) {
             var current_song = streamsData.shoutcast.track.trim();
