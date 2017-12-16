@@ -61,7 +61,7 @@ window.Template.Controllers.TestCastController = function (element) {
             }
         }
         getStreamsStatus().then(function (value) {
-            
+            initCast();
         });
         var currentTime = new Date();
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
