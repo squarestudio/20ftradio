@@ -1,4 +1,4 @@
-window.Template.Controllers.CastController = function (element) {
+window.Template.Controllers.TestCastController = function (element) {
     'use strict';
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
@@ -57,7 +57,7 @@ window.Template.Controllers.CastController = function (element) {
             }, 300);
             setTimeout(function () {
                 initCast();
-            }, 800);
+            }, 2800);
             Y.one(window).on('resize', refreshImages);
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
@@ -641,14 +641,14 @@ window.Template.Controllers.CastController = function (element) {
         if (mixCloudPlayer) {
             mixCloudPlayer.play();
         } else {
-            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
+/*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
-            mixCloudPlayer = mixCloudPlayer._node;
-            mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {
+            mixCloudPlayer = mixCloudPlayer._node;*/
+            mixCloudPlayer = Mixcloud.FooterWidget(someCloudUrl, {
                 disablePushstate: true,
                 disableUnloadWarning: true
             });
-            mixCloudPlayer.ready.then(function (widget) {
+            mixCloudPlayer.then(function (widget) {
                 mixCloudPlayer = widget;
                 DEBUG && console.log(mixCloudPlayer);
                 mixCloudPlayer.events.play.on(function () {
