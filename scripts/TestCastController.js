@@ -1037,7 +1037,7 @@ window.Template.Controllers.TestCastController = function (element) {
                                 console.log(e);
                             }
                         }
-                        resolve(json)
+                        resolve(true)
                     },
                     failure: function (e) {
                         DEBUG && console.log(e);
