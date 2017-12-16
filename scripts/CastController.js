@@ -664,7 +664,8 @@ window.Template.Controllers.CastController = function (element) {
                 mixCloudFooterPlayer = widget;
                 DEBUG && console.log(mixCloudPlayer);
                 mixCloudFooterPlayer.events.play.on(function () {
-                    onPlayerStateChange('mixcloud', 'play')
+                    userPaused = true;
+                    pausePlayersExept('all');
                 });
                 mixCloudFooterPlayer.events.pause.on(function () {
                     //onPlayerStateChange('mixcloud', 'pause')
