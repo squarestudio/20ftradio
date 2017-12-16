@@ -1037,7 +1037,6 @@ window.Template.Controllers.TestCastController = function (element) {
                         }
                     },
                     failure: function (e) {
-                        youtubeStatusFactor = false;
                         DEBUG && console.log(e);
                         resolve(false);
                     }
