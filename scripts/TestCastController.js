@@ -506,11 +506,6 @@ window.Template.Controllers.TestCastController = function (element) {
                     eventStatusInterval = null;
                     Y.detach('getCurrentEvent', getCurrentEvent);
                 }
-                if (shoutcastStatusCheckInterval) {
-                    clearInterval(shoutcastStatusCheckInterval);
-                    DEBUG && console.log('Shoutcast status reset');
-                    shoutcastStatusCheckInterval = null;
-                }
                 trackName.one('span').set('text', '  ');
                 trackName.removeClass('scroll-track');
             }
