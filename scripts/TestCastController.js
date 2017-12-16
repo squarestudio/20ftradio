@@ -638,8 +638,8 @@ window.Template.Controllers.TestCastController = function (element) {
 
     function initMixCloud() {
         DEBUG && console.log('MixCloud init');
-        if (mixCloudPlayer) {
-            mixCloudPlayer.play();
+        if (mixCloudFooterPlayer) {
+            mixCloudFooterPlayer.play();
         } else {
             /*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
                         castContainer.append(mixCloudPlayer);
