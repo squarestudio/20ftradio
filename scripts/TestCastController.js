@@ -1023,7 +1023,7 @@ window.Template.Controllers.TestCastController = function (element) {
                 on: {
                     success: function (i, data) {
                         var json = {youtube: false, shoutcast: {live:false, track:''}};
-                        if (data.status == 200 && data.readyState == 4) {
+                        if (data.status === 200 && data.readyState === 4) {
                             try {
                                 json = JSON.parse(data.responseText);
                                 console.log(json);
@@ -1034,7 +1034,7 @@ window.Template.Controllers.TestCastController = function (element) {
                         } else {
 
                         }
-                        resolve(true)
+                        resolve(json)
                     },
                     failure: function (e) {
                         DEBUG && console.log(e);
