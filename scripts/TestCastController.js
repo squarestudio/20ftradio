@@ -60,7 +60,9 @@ window.Template.Controllers.TestCastController = function (element) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
         }
-        getStreamsStatus();
+        getStreamsStatus().then(function (value) {
+            
+        });
         var currentTime = new Date();
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
         var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
