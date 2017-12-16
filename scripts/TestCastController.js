@@ -373,7 +373,7 @@ window.Template.Controllers.TestCastController = function (element) {
                     checkStreams();
                 });
             }
-        }, 30000);
+        }, 5000);
     }
 
     function initFBPlayer() {
