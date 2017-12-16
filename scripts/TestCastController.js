@@ -1083,7 +1083,28 @@ window.Template.Controllers.TestCastController = function (element) {
             trackName.removeClass('scrolling');
         }
     }
-
+    function checkPlayerTrack(){
+        if (streamsData.shoutcast && streamsData.shoutcast.live) {
+            var current_song = streamsData.shoutcast.track.trim();
+            current_song = 'Now playing: ' + current_song;
+            if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
+                trackName.one('span').set('text', current_song);
+                shoutcastPlayer.title = current_song;
+                trackName.removeClass('scroll-track').addClass('scroll-track');
+                checkTrackNameOverflow();
+            } else {
+                getCurrentEvent(true);
+            }
+            shoutcastStatus = true;
+            if (!shoutcastPlayer) {
+                initShoutCast()
+            }
+            DEBUG && console.log('SHOUTCAST STATUS TRUE');
+        } else {
+            DEBUG && console.log('SHOUTCAST STATUS FALSE');
+            shoutcastStatus = false;
+        }
+    }
     function getShoutcastStatus() {
         shoutcastStatusFactor = true;
         Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php', {
