@@ -42,6 +42,8 @@ window.Template.Controllers.CastController = function (element) {
         currentEvents,
         liveIndicator,
         streamSwiper,
+        mixCloudFooterPlayer,
+        mixCloudEmbeds = [],
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
     var DEBUG = false;
@@ -76,6 +78,13 @@ window.Template.Controllers.CastController = function (element) {
                 }
             })
         }
+        Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
+            var widget = Mixcloud.PlayerWidget(iframe);
+            widget.events.play.on(function(){
+                pausePlayersExept('all');
+            });
+            mixCloudEmbeds.push(widget);
+        })
     }
 
     function refreshImages() {
@@ -638,31 +647,34 @@ window.Template.Controllers.CastController = function (element) {
 
     function initMixCloud() {
         DEBUG && console.log('MixCloud init');
-        if (mixCloudPlayer) {
-            mixCloudPlayer.play();
+        if (mixCloudFooterPlayer) {
+
         } else {
-            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
-            castContainer.append(mixCloudPlayer);
-            mixCloudPlayer = mixCloudPlayer._node;
-            mixCloudPlayer = Mixcloud.PlayerWidget(mixCloudPlayer, {
+            /*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
+                        castContainer.append(mixCloudPlayer);
+                        mixCloudPlayer = mixCloudPlayer._node;*/
+            mixCloudFooterPlayer = Mixcloud.FooterWidget(someCloudUrl, {
                 disablePushstate: true,
                 disableUnloadWarning: true
             });
-            mixCloudPlayer.ready.then(function (widget) {
-                mixCloudPlayer = widget;
+            mixCloudFooterPlayer.then(function (widget) {
+                mixCloudFooterPlayer = widget;
                 DEBUG && console.log(mixCloudPlayer);
-                mixCloudPlayer.events.play.on(function () {
+                mixCloudFooterPlayer.events.play.on(function () {
                     onPlayerStateChange('mixcloud', 'play')
                 });
-                mixCloudPlayer.events.pause.on(function () {
-                    onPlayerStateChange('mixcloud', 'pause')
+                mixCloudFooterPlayer.events.pause.on(function () {
+                    //onPlayerStateChange('mixcloud', 'pause')
                 });
-                mixCloudPlayer.events.error.on(function (e) {
+                mixCloudFooterPlayer.events.error.on(function (e) {
                     DEBUG && console.log('MixCloud Error', e);
                 });
                 onPlayerReady('mixcloud');
+                pausePlayersExept('all');
+                mixCloudFooterPlayer.play();
+                sitePlayer.addClass('played');
             });
-            players['mixcloud'] = mixCloudPlayer;
+            //players['mixcloud'] = mixCloudPlayer;
         }
     }
 
@@ -804,9 +816,11 @@ window.Template.Controllers.CastController = function (element) {
             }
         }
         else if (playerType == 'mixcloud') {
-            if (!mixCloudReady) {
+            if (!mixCloudReady&&mixCloudPlayer) {
                 mixCloudPlayer.setVolume(1);
                 mixCloudReady = true;
+                setActivePlayer();
+            } else {
                 setActivePlayer();
             }
         }
@@ -858,6 +872,11 @@ window.Template.Controllers.CastController = function (element) {
         pausePlayersExept(playerType);
         mobile && sitePlayer.addClass('played');
         mobilePlayButton.addClass('visible');
+        if(mixCloudEmbeds&&mixCloudEmbeds.length){
+            mixCloudEmbeds.forEach(function (widget) {
+                widget.pause();
+            })
+        }
     }
 
     function setPaused() {
@@ -898,7 +917,7 @@ window.Template.Controllers.CastController = function (element) {
                     setPaused();
                 }
             });
-        } else if (playerType == 'mixcloud') {
+        } else if (playerType == 'mixcloud'&&mixCloudPlayer) {
             mixCloudPlayer.getIsPaused().then(function (paused) {
                 if (!paused) {
                     setPlaying(playerType);
@@ -1102,6 +1121,7 @@ window.Template.Controllers.CastController = function (element) {
             DEBUG && console.log('destroy cast');
             Y.one(window).detach('resize', refreshImages);
             Y.detach('getCurrentEvent', getCurrentEvent);
+            mixCloudEmbeds = [];
         }
     };
 };
