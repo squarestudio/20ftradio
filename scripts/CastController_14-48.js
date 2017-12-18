@@ -26,6 +26,7 @@ window.Template.Controllers.CastController = function (element) {
         eventStatusInterval,
         currentEvents,
         liveIndicator,
+        cast,
         castContainer = Y.one('#castDiv');
 
     function initialize() {
@@ -36,6 +37,17 @@ window.Template.Controllers.CastController = function (element) {
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
+        }
+        cast = $('.castWrapper').innerHeight();
+        cast = cast - 63;
+
+        if(!sessionStorage.getItem('20ft'))
+        {
+            sessionStorage.setItem('20ft', 'session');
+        }else {
+            $('html, body').animate({
+                scrollTop: cast
+            }, 1000);
         }
     }
 
