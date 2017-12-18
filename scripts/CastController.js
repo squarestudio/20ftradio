@@ -108,6 +108,7 @@ window.Template.Controllers.CastController = function (element) {
                 sessionStorage.setItem('20ft', 'session');
             }else {
                 $('.castWrapper').hide();
+                $('#navigator').style('padding-top', '63px');
             }
         }
     }
