@@ -98,7 +98,7 @@ window.Template.Controllers.CastController = function (element) {
         if(!sessionStorage.getItem('20ft'))
         {
             sessionStorage.setItem('20ft', 'session');
-        }else {
+        }else if(sessionStorage.getItem('20ft') && $('html, body').scrollTop() > 0 ) {
             $('html, body').animate({
                 scrollTop: cast
             }, 1000);
