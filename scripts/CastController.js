@@ -98,8 +98,8 @@ window.Template.Controllers.CastController = function (element) {
         page = window.location.pathname;
 
         if(page === '/'){
-            $('.castWrapper').hide();
-            $('#navigator').css('padding-top', '63px');
+            $('.castWrapper').show();
+            $('#navigator').css('padding-top', '0');
         }else
         {
             if(!sessionStorage.getItem('20ft'))
