@@ -93,7 +93,7 @@ window.Template.Controllers.CastController = function (element) {
 
 
         cast = $('.castWrapper').innerHeight();
-        console.log(cast);
+        cast = cast - 63;
 
         if(!sessionStorage.getItem('20ft'))
         {
