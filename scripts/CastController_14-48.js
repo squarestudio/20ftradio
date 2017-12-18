@@ -38,14 +38,7 @@ window.Template.Controllers.CastController = function (element) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
         }
-        if(!sessionStorage.getItem('20ft'))
-        {
-            sessionStorage.setItem('20ft', 'session');
-        }else if(sessionStorage.getItem('20ft') && $('html, body').scrollTop() === 0 ) {
-            $('html, body').animate({
-                scrollTop: cast
-            }, 1000);
-        }
+        
     }
 
     function refreshImages() {
