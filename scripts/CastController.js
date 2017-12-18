@@ -102,7 +102,7 @@ window.Template.Controllers.CastController = function (element) {
             setTimeout(function(){
                 $('html, body').animate({
                     scrollTop: cast
-                }, 1000);
+                }, 500);
             }, 100)
         }
     }
