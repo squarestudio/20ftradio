@@ -97,7 +97,11 @@ window.Template.Controllers.CastController = function (element) {
         cast = cast - 63;
         page = window.location.pathname;
 
-        if(page !== '/'){
+        if(page === '/'){
+            $('.castWrapper').hide();
+            $('#navigator').css('padding-top', '63px');
+        }else
+        {
             if(!sessionStorage.getItem('20ft'))
             {
                 setTimeout(function(){
