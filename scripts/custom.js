@@ -6,7 +6,7 @@ $(function(){
             var cast = $('.castWrapper').innerHeight();
             $('html, body').animate({
                 scrollTop: cast
-            }, 100);
+            }, 1000);
         }else {
 
         }
