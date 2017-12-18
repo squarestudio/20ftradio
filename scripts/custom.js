@@ -6,6 +6,6 @@ $(function(){
     }else {
         $('html, body').animate({
             scrollTop: cast
-        }, 500);
+        }, 300);
     }
 });
