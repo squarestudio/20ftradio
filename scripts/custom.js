@@ -4,7 +4,7 @@ $(function(){
         var cast = $('.castWrapper').innerHeight();
         $('html, body').animate({
             scrollTop: cast
-        }, 1000);
+        }, 500);
     }else {
 
     }
