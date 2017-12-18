@@ -3,7 +3,7 @@ $(function(){
 
         if(!sessionStorage.getItem('20ft'))
         {
-            var cast = $('#castDiv').height();
+            var cast = $('.castWrapper').innerHeight();
             console.log(cast);
         }else {
 
