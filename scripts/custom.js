@@ -4,7 +4,9 @@ $(function(){
         if(!sessionStorage.getItem('20ft'))
         {
             var cast = $('.castWrapper').innerHeight();
-            console.log(cast);
+            $('html, body').animate({
+                scrollTop: cast
+            }, 1000);
         }else {
 
         }
