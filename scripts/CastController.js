@@ -97,8 +97,7 @@ window.Template.Controllers.CastController = function (element) {
         cast = cast - 63;
         page = window.location.pathname;
 
-        if(page === '/'){
-        }else{
+        if(page === '/'){}else{
             alert('not home!');
         }
 
