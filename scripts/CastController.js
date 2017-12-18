@@ -44,6 +44,7 @@ window.Template.Controllers.CastController = function (element) {
         streamSwiper,
         mixCloudFooterPlayer,
         mixCloudEmbeds = [],
+        cast,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
     var DEBUG = false;
@@ -87,7 +88,19 @@ window.Template.Controllers.CastController = function (element) {
                 });
                 mixCloudEmbeds.push(widget);
             });
-        })
+        });
+
+
+
+        cast = $('.castWrapper').innerHeight();
+        if(!sessionStorage.getItem('20ft'))
+        {
+            sessionStorage.setItem('20ft', 'session');
+        }else {
+            $('html, body').animate({
+                scrollTop: cast
+            }, 300);
+        }
     }
 
     function refreshImages() {
