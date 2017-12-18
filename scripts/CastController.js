@@ -45,6 +45,7 @@ window.Template.Controllers.CastController = function (element) {
         mixCloudFooterPlayer,
         mixCloudEmbeds = [],
         cast,
+        page,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
     var DEBUG = false;
@@ -94,17 +95,23 @@ window.Template.Controllers.CastController = function (element) {
 
         cast = $('.castWrapper').innerHeight();
         cast = cast - 63;
+        page = window.location.pathname;
 
-        if(!sessionStorage.getItem('20ft'))
-        {
-            sessionStorage.setItem('20ft', 'session');
-        }else {
-            setTimeout(function(){
-                $('html, body').animate({
-                    scrollTop: cast
-                }, 500);
-            }, 100)
+        if(page === '/'){
+        }else{
+            alert('not home!');
         }
+
+        // if(!sessionStorage.getItem('20ft'))
+        // {
+        //     sessionStorage.setItem('20ft', 'session');
+        // }else {
+        //     setTimeout(function(){
+        //         $('html, body').animate({
+        //             scrollTop: cast
+        //         }, 500);
+        //     }, 100)
+        // }
     }
 
     function refreshImages() {
