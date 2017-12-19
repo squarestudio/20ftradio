@@ -98,6 +98,7 @@ window.Template.Controllers.CastController = function (element) {
         page = window.location.pathname;
 
         if(page === '/'){
+            $('#castDiv').show();
         }else
         {
             if(!sessionStorage.getItem('20ft'))
