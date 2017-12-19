@@ -99,6 +99,7 @@ window.Template.Controllers.CastController = function (element) {
 
         if(page === '/'){
             $('#castDiv').show();
+            $('#navigation').css('padding-top', '0');
         }else
         {
             if(!sessionStorage.getItem('20ft'))
@@ -113,6 +114,7 @@ window.Template.Controllers.CastController = function (element) {
                 }, 2000);
             }else {
                 $('#castDiv').hide();
+                $('#navigation').css('padding-top', '63px');
             }
         }
     }
