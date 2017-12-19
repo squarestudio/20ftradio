@@ -114,7 +114,7 @@ window.Template.Controllers.CastController = function (element) {
                 }, 2000);
             }else {
                 $('#castDiv').hide();
-                $('#navigation').css('padding-top', '63px');
+                $('#navigator').css('padding-top', '63px');
             }
         }
     }
