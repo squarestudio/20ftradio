@@ -108,13 +108,18 @@ window.Template.Controllers.CastController = function (element) {
                     $('html, body').animate({
                         scrollTop: cast
                     }, 500);
-                }, 100);
+                }, 1000);
                 setTimeout(function(){
                     sessionStorage.setItem('20ft', 'session');
-                }, 2000);
+                }, 3000);
             }else {
                 $('#castDiv').hide();
                 $('#navigator').css('padding-top', '63px');
+
+                setTimeout(function(){
+                    $('#castDiv').show();
+                    $('#navigator').css('padding-top', '0');
+                }, 1000);
             }
         }
     }
