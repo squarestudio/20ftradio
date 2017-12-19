@@ -102,7 +102,17 @@ window.Template.Controllers.CastController = function (element) {
             $('#navigator').css('padding-top', '0');
         }else
         {
-            if(!sessionStorage.getItem('20ft'))
+            if(!sessionStorage.getItem('20ft') && page === '/year-of-20ft/')
+            {
+                setTimeout(function(){
+                    $('html, body').animate({
+                        scrollTop: cast
+                    }, 500);
+                }, 5000);
+                setTimeout(function(){
+                    sessionStorage.setItem('20ft', 'session');
+                }, 6000);
+            }else if(!sessionStorage.getItem('20ft') && page !== '/year-of-20ft/')
             {
                 setTimeout(function(){
                     $('html, body').animate({
