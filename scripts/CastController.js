@@ -106,8 +106,8 @@ window.Template.Controllers.CastController = function (element) {
                     $('html, body').animate({
                         scrollTop: cast
                     }, 500);
+                    sessionStorage.setItem('20ft', 'session');
                 }, 100);
-                sessionStorage.setItem('20ft', 'session');
             }else {
                 // $('html, body').scrollTop(cast);
             }
