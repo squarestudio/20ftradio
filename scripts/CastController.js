@@ -98,22 +98,27 @@ window.Template.Controllers.CastController = function (element) {
         page = window.location.pathname;
 
         if(page === '/'){
-            $('.castWrapper').show();
-            $('#navigator').css('padding-top', '0');
+            // $('.castWrapper').show();
+            // $('#navigator').css('padding-top', '0');
         }else
         {
-            if(!sessionStorage.getItem('20ft'))
-            {
-                setTimeout(function(){
-                    $('html, body').animate({
-                        scrollTop: cast
-                    }, 500);
-                }, 100);
-                sessionStorage.setItem('20ft', 'session');
-            }else {
-                $('.castWrapper').hide();
-                $('#navigator').css('padding-top', '63px');
-            }
+            // if(!sessionStorage.getItem('20ft'))
+            // {
+            //     setTimeout(function(){
+            //         $('html, body').animate({
+            //             scrollTop: cast
+            //         }, 500);
+            //     }, 100);
+            //     sessionStorage.setItem('20ft', 'session');
+            // }else {
+            //     $('.castWrapper').hide();
+            //     $('#navigator').css('padding-top', '63px');
+            // }
+            setTimeout(function(){
+                $('html, body').animate({
+                    scrollTop: cast
+                }, 500);
+            }, 100);
         }
     }
 
