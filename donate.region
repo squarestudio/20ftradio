@@ -257,7 +257,7 @@
         signature: signature,
         embedTo: "#liqpay_checkout",
         language: "ru",
-        mode: "popup" // embed || popup
+        mode: "embed" // embed || popup
         }).on("liqpay.callback", function(data){
             console.log(data.status);
             console.log(data);
