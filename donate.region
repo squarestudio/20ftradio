@@ -25,48 +25,6 @@
 <body class="ft-donate page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
 
 <div id="liqpay_checkout"></div>
-<script>
-        var public_key = 'i27357705397';
-        var private_key = 'chWzY6P4DCi94NDVngzJ9teTCKy0qlLyZhsu4fWv';
-        var html = {
-            'public_key'     : 'i27357705397',
-            'action'         : 'pay',
-            'amount'         : '50',
-            'currency'       : 'UAH',
-            'description'    : 'description text',
-            'order_id'       : 'order_id_1',
-            'version'        : '3'
-        };
-
-        var json = JSON.stringify(html);
-        var data = base64_encode(json);
-        var str = private_key + data + private_key;
-        var signature = b64_sha1(str) + '=';
-
-        console.log(json);
-        console.log(data);
-        console.log(str);
-        console.log(signature);
-        console.log(b64_sha1(str) + '=');
-
-        window.LiqPayCheckoutCallback = function() {
-        LiqPayCheckout.init({
-        data: data,
-        signature: signature,
-        embedTo: "#liqpay_checkout",
-        language: "ru",
-        mode: "popup" // embed || popup
-        }).on("liqpay.callback", function(data){
-            console.log(data.status);
-            console.log(data);
-        }).on("liqpay.ready", function(data){
-            // ready
-        }).on("liqpay.close", function(data){
-            // close
-        });
-    };
-    </script>
-    <script src="http://static.liqpay.ua/libjs/checkout.js" async></script>
 
 <div id="navigator">
     {.section website}
@@ -269,6 +227,48 @@
         });
     });
 </script>
+<script>
+        var public_key = 'i27357705397';
+        var private_key = 'chWzY6P4DCi94NDVngzJ9teTCKy0qlLyZhsu4fWv';
+        var html = {
+            'public_key'     : 'i27357705397',
+            'action'         : 'pay',
+            'amount'         : '50',
+            'currency'       : 'UAH',
+            'description'    : 'description text',
+            'order_id'       : 'order_id_1',
+            'version'        : '3'
+        };
+
+        var json = JSON.stringify(html);
+        var data = base64_encode(json);
+        var str = private_key + data + private_key;
+        var signature = b64_sha1(str) + '=';
+
+        console.log(json);
+        console.log(data);
+        console.log(str);
+        console.log(signature);
+        console.log(b64_sha1(str) + '=');
+
+        window.LiqPayCheckoutCallback = function() {
+        LiqPayCheckout.init({
+        data: data,
+        signature: signature,
+        embedTo: "#liqpay_checkout",
+        language: "ru",
+        mode: "popup" // embed || popup
+        }).on("liqpay.callback", function(data){
+            console.log(data.status);
+            console.log(data);
+        }).on("liqpay.ready", function(data){
+            // ready
+        }).on("liqpay.close", function(data){
+            // close
+        });
+    };
+    </script>
+    <script src="http://static.liqpay.ua/libjs/checkout.js" async></script>
 {.end}
 </body>
 </html>
