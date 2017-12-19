@@ -1029,29 +1029,6 @@ html {
   }
 }
 
-#liqpay_checkout
-{
-  opacity: 0;
-  visibility: hidden;
-  z-index: 9999;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  max-width: 400px;
-  width: 100%;
-
-  -webkit-transition: all .3s linear;
-  transition: all .3s linear;
-}
-
-.ft-donate.liqpay #liqpay_checkout
-{
-  opacity: 1;
-  visibility: visible;
-}
-
 .cordova-app {
   .link-wall-index {
     display: none;
@@ -1463,6 +1440,41 @@ html {
       .sqs-col-3:first-child {
         display: none;
       }
+    }
+  }
+}
+
+#liqpay_checkout
+{
+  opacity: 0;
+  visibility: hidden;
+  z-index: 9999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  width: 100%;
+
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+}
+
+.ft-donate.liqpay #liqpay_checkout
+{
+  opacity: 1;
+  visibility: visible;
+}
+
+.ft-donate
+{
+  #container-content .sqs-layout
+  {
+    .sqs-col-12 > div:nth-child(2) > div:nth-child(2) a
+    {
+      padding-left: 21px;
+      padding-right: 21px;
     }
   }
 }
