@@ -112,6 +112,7 @@ window.Template.Controllers.CastController = function (element) {
                 }, 1000);
             }else {
                 $(window).scrollTop(cast)
+                alert('lala');
             }
         }
     }
