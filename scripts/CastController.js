@@ -109,7 +109,7 @@ window.Template.Controllers.CastController = function (element) {
                 }, 100);
                 setTimeout(function(){
                     sessionStorage.setItem('20ft', 'session');
-                }, 1000);
+                }, 2000);
             }else {
                 $(window).scrollTop(cast)
                 alert('lala');
