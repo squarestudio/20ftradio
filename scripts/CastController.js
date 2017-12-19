@@ -99,7 +99,7 @@ window.Template.Controllers.CastController = function (element) {
 
         if(page === '/'){
             $('#castDiv').show();
-            $('#navigation').css('padding-top', '0');
+            $('#navigator').css('padding-top', '0');
         }else
         {
             if(!sessionStorage.getItem('20ft'))
