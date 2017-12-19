@@ -111,9 +111,7 @@ window.Template.Controllers.CastController = function (element) {
                     sessionStorage.setItem('20ft', 'session');
                 }, 2000);
             }else {
-                setTimeout(function(){
-                    $(window).scrollTop(cast);
-                }, 50);
+                $(window).scrollTop(cast);
             }
         }
     }
