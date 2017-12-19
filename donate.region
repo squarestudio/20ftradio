@@ -24,7 +24,7 @@
 
 <body class="ft-donate page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
 
-<div id="liqpay_checkout"></div>
+<div id="liqpay_checkout"><div class="liqpay_close"></div></div>
 
 <div id="navigator">
     {.section website}
