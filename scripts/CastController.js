@@ -112,7 +112,7 @@ window.Template.Controllers.CastController = function (element) {
                 }, 2000);
             }else {
                 setTimeout(function(){
-                    $(window).scrollTop(cast);
+                    $(window).scrollTop(500);
                     alert('Lala');
                 }, 100);
             }
