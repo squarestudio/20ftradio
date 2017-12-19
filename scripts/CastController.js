@@ -122,28 +122,9 @@ window.Template.Controllers.CastController = function (element) {
                 setTimeout(function(){
                     sessionStorage.setItem('20ft', 'session');
                 }, 2000);
-            }else if(sessionStorage.getItem('20ft') && page === '/year-of-20ft/') {
-                $('#castDiv').hide();
-                $('#navigator').css('padding-top', '63px');
-
-                setTimeout(function(){
-                    $('#castDiv').show();
-                    $('#navigator').css('padding-top', '0');
-                }, 5000);
-                setTimeout(function(){
-                    $(window).scrollTop(cast);
-                }, 5001);
             }else {
                 $('#castDiv').hide();
                 $('#navigator').css('padding-top', '63px');
-
-                setTimeout(function(){
-                    $('#castDiv').show();
-                    $('#navigator').css('padding-top', '0');
-                }, 1000);
-                setTimeout(function(){
-                    $(window).scrollTop(cast);
-                }, 1001);
             }
         }
     }
