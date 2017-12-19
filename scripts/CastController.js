@@ -129,7 +129,6 @@ window.Template.Controllers.CastController = function (element) {
                 setTimeout(function(){
                     $('#castDiv').show();
                     $('#navigator').css('padding-top', '0');
-                    // $(window).scrollTop(cast);
                 }, 5000);
                 setTimeout(function(){
                     $(window).scrollTop(cast);
@@ -141,7 +140,6 @@ window.Template.Controllers.CastController = function (element) {
                 setTimeout(function(){
                     $('#castDiv').show();
                     $('#navigator').css('padding-top', '0');
-                    // $(window).scrollTop(cast);
                 }, 1000);
                 setTimeout(function(){
                     $(window).scrollTop(cast);
