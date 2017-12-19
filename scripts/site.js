@@ -630,3 +630,9 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
         }
     })
 }());
+
+$(function(){
+    $('.ft-donate').find('#container-content .sqs-layout .sqs-col-12 > div:nth-child(2) > div:nth-child(4) a').on('click', function (e) {
+        e.preventDefault();
+    })
+});
