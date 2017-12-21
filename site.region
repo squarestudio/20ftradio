@@ -195,7 +195,6 @@
 <squarespace:script src="site.js" combo="true"/>
 <squarespace:script src="wall-scripts/swiper.min.js" combo="true"/>
 <squarespace:script src="wall-scripts/classie.js" combo="true"/>
-<squarespace:script src="wall-scripts/AnimOnScroll.js" combo="true"/>
 <squarespace:script src="share-buttons.js" combo="true"/>
 <squarespace:script src="WallController.js" combo="true"/>
 <squarespace:script src="soundcloud-api-widget.js" combo="true"/>
