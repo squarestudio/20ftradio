@@ -197,6 +197,7 @@
                       // close
                   });
               }();
+              $('#liqpay_checkout').slideDown();
           }
           else {
               alert('Wrong data!');
