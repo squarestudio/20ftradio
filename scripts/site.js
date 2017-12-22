@@ -639,10 +639,10 @@ $(function(){
         e.preventDefault();
         $('#liqpay_checkout').slideDown();
     });
-    $('.liqpay_close').on('click', function () {
-        $('#liqpay_checkout').slideUp();
-        setTimeout(function () {
-            $('#liqpay_checkout iframe').remove();
-        },1000)
-    });
+    // $('.liqpay_close').on('click', function () {
+    //     $('#liqpay_checkout').slideUp();
+    //     setTimeout(function () {
+    //         $('#liqpay_checkout iframe').remove();
+    //     },1000)
+    // });
 });
