@@ -639,7 +639,7 @@ $(function(){
         e.preventDefault();
         $('#liqpay_checkout').slideDown();
     });
-    $('.liqpay_close').on('click', function () {
-        $('#liqpay_checkout').slideUp();
-    });
+    // $('.liqpay_close').on('click', function () {
+    //     $('#liqpay_checkout').slideUp();
+    // });
 });
