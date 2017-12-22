@@ -197,13 +197,15 @@
                       // close
                   });
               }();
-              $('#liqpay_checkout').slideDown();
+              setTimeout(function(){
+                $('#liqpay_checkout').slideDown();
+              },1000);
           }
           else {
               alert('Wrong data!');
           }
       });
-      
+
     $('.liqpay_close').on('click', function () {
         $('#liqpay_checkout').slideUp();
         setTimeout(function () {
