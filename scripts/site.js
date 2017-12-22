@@ -632,17 +632,17 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
 }());
 
 $(function(){
-    // $('.ft-donate').find('#container-content .sqs-layout .sqs-col-12 > div:nth-child(2) > div:nth-child(4) p').on('click', function (e) {
-    //     $('#liqpay_checkout').fadeIn();
-    // });
+    $('.ft-donate').find('#container-content .sqs-layout .sqs-col-12 > div:nth-child(2) > div:nth-child(4) p').on('click', function (e) {
+        $('#liqpay_checkout').fadeIn();
+    });
     // $('#payVal').find('input[type="submit"]').on('click', function (e) {
     //     e.preventDefault();
     //     $('#liqpay_checkout').slideDown();
     // });
-    // $('.liqpay_close').on('click', function () {
-    //     $('#liqpay_checkout').slideUp();
-    //     setTimeout(function () {
-    //         $('#liqpay_checkout iframe').remove();
-    //     },1000)
-    // });
+    $('.liqpay_close').on('click', function () {
+        $('#liqpay_checkout').slideUp();
+        setTimeout(function () {
+            $('#liqpay_checkout iframe').remove();
+        },1000)
+    });
 });
