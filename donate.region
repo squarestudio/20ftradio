@@ -24,8 +24,6 @@
 
 <body class="ft-donate page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
 
-<div id="liqpay_checkout"><div class="liqpay_close"></div></div>
-
 <div id="navigator">
     {.section website}
     <header id="topBar" class="sqs-announcement-bar-dropzone">
@@ -176,47 +174,67 @@
     {.end}
 </div>
 <script>
-        var public_key = 'i27357705397';
-        var private_key = 'chWzY6P4DCi94NDVngzJ9teTCKy0qlLyZhsu4fWv';
-        var html = {
-            'public_key'     : 'i27357705397',
-            'action'         : 'pay',
-            'amount'         : '50',
-            'currency'       : 'UAH',
-            'description'    : 'description text',
-            'order_id'       : 'order_id_1',
-            'version'        : '3'
-        };
+  var val;
+  $(function(){
+      $('#payVal').on('submit',function(e){
+          e.preventDefault();
+          val = $(this).find('input[name=payment_value]').val();
+          if($.isNumeric(val)) {
+              var callbackArr = initLiqpayCall(val);
+              window.LiqPayCheckoutCallback = function() {
+                  LiqPayCheckout.init({
+                      data: callbackArr['data'],
+                      signature: callbackArr['signature'],
+                      embedTo: "#liqpay_checkout",
+                      language: "ru",
+                      mode: "embed" // embed || popup
+                  }).on("liqpay.callback", function(data){
+                      console.log(data.status);
+                      console.log(data);
+                  }).on("liqpay.ready", function(data){
+                      // ready
+                  }).on("liqpay.close", function(data){
+                      // close
+                  });
+              }();
+              setTimeout(function(){
+                $('#liqpay_checkout').slideDown();
+              },1000);
+          }
+          else {
+              alert('Wrong data!');
+          }
+      });
 
-        var json = JSON.stringify(html);
-        var data = base64_encode(json);
-        var str = private_key + data + private_key;
-        var signature = b64_sha1(str) + '=';
+    $('.liqpay_close').on('click', function () {
+        $('#liqpay_checkout').slideUp();
+        setTimeout(function () {
+            $('#liqpay_checkout iframe').remove();
+        },1000)
+    });
+  });
 
-        console.log(json);
-        console.log(data);
-        console.log(str);
-        console.log(signature);
-        console.log(b64_sha1(str) + '=');
-
-        window.LiqPayCheckoutCallback = function() {
-        LiqPayCheckout.init({
-        data: data,
-        signature: signature,
-        embedTo: "#liqpay_checkout",
-        language: "ru",
-        mode: "embed" // embed || popup
-        }).on("liqpay.callback", function(data){
-            console.log(data.status);
-            console.log(data);
-        }).on("liqpay.ready", function(data){
-            // ready
-        }).on("liqpay.close", function(data){
-            // close
-        });
-    };
-    </script>
-    <script src="https://static.liqpay.ua/libjs/checkout.js" async></script>
+  function initLiqpayCall(value) {
+      var public_key = 'i27357705397';
+      var private_key = 'chWzY6P4DCi94NDVngzJ9teTCKy0qlLyZhsu4fWv';
+      var html = {
+          'public_key'     : 'i27357705397',
+          'action'         : 'pay',
+          'amount'         : value,
+          'currency'       : 'UAH',
+          'description'    : 'Your donation amount. thank\'s for supporting us!',
+          'order_id'       : 'order_id_1',
+          'version'        : '3'
+      };
+      var dataArr = [];
+      var json = JSON.stringify(html);
+      dataArr['data'] = base64_encode(json);
+      var str = private_key + dataArr['data'] + private_key;
+      dataArr['signature'] = b64_sha1(str) + '=';
+      return dataArr;
+  }
+</script>
+<script src="https://static.liqpay.ua/libjs/checkout.js" async></script>
 <script>
     Y.use('squarespace-ui-base', function (Y) {
         Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1").plug(Y.Squarespace.TextShrink);
