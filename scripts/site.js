@@ -639,6 +639,6 @@ $(function(){
         $('#liqpay_checkout').fadeIn();
     });
     $('.liqpay_close').on('click', function () {
-        $('#liqpay_checkout').fadeOut();
+        $('#liqpay_checkout').slideUp();
     });
 });
