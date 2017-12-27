@@ -176,9 +176,9 @@
 <script>
   var val;
   $(function(){
-      $('#payVal').on('submit',function(e){
+      $('#payVal .submit').on('click',function(e){
           e.preventDefault();
-          val = $(this).find('input[name=payment_value]').val();
+          val = $('#payVal').find('input[name=payment_value]').val();
           if($.isNumeric(val)) {
               var callbackArr = initLiqpayCall(val);
               window.LiqPayCheckoutCallback = function() {
