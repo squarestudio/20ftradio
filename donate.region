@@ -214,6 +214,7 @@
         $('#liqpay_checkout').slideUp();
         setTimeout(function () {
             $('#liqpay_checkout iframe').remove();
+            isInitialized = false;
         },1000)
     });
   });
