@@ -175,6 +175,7 @@
 </div>
 <script>
   var val;
+  var isInitialized = false;
   $(function(){
       $('#payVal .submit').on('click',function(e){
           e.preventDefault();
