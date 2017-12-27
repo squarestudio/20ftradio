@@ -199,6 +199,7 @@
                       // close
                   });
               }();
+              isInitialized = true;
               setTimeout(function(){
                 $('#liqpay_checkout').slideDown();
               },1000);
