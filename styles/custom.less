@@ -1599,9 +1599,19 @@ html {
 }
 
 @media only screen and (max-width: 767px) {
-  .liqpay_form
+  .ft-donate
   {
-    display: none;
+    .liqpay_form
+    {
+      display: none;
+    }
+    #container-content
+    {
+      .sqs-col-12 > div:nth-child(1) p:last-child
+      {
+        display: none;
+      }
+    }
   }
 }
 
