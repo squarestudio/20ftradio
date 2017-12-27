@@ -182,6 +182,7 @@
               var val = $('#payVal').find('input[name=payment_value]').val();
               if($.isNumeric(val)) {
                  if(!isInitialized) {
+                 console.log(isInitialized);
                      var callbackArr = initLiqpayCall(val);
                      window.LiqPayCheckoutCallback = function() {
                          LiqPayCheckout.init({
