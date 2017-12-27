@@ -181,6 +181,7 @@
           e.preventDefault();
           val = $('#payVal').find('input[name=payment_value]').val();
           if($.isNumeric(val)) {
+            if(!isInitialized) {
               var callbackArr = initLiqpayCall(val);
               window.LiqPayCheckoutCallback = function() {
                   LiqPayCheckout.init({
@@ -201,6 +202,7 @@
               setTimeout(function(){
                 $('#liqpay_checkout').slideDown();
               },1000);
+            }
           }
           else {
               alert('Wrong data!');
