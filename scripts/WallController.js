@@ -181,6 +181,7 @@ window.Template.Controllers.WallController = function (element) {
                         simulateResize();
                     }, 100);
                 });
+                $('.grid-container #fountainG').fadeOut();
             };
             if (Y.one('.wall-item-link')) {
                 Y.use(['node', 'squarespace-json-template'], function (Y) {
