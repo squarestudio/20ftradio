@@ -176,39 +176,6 @@
     </footer>
     {.end}
 </div>
-<script>
-    function initLiqpayCall(value) {
-      var public_key = 'i27357705397';
-      var private_key = 'chWzY6P4DCi94NDVngzJ9teTCKy0qlLyZhsu4fWv';
-      var html = {
-          'public_key'     : 'i27357705397',
-          'action'         : 'pay',
-          'amount'         : value,
-          'currency'       : 'UAH',
-          'description'    : 'Your donation amount. thank\'s for supporting us!',
-          'order_id'       : 'order_id_1',
-          'version'        : '3'
-      };
-      var dataArr = [];
-      var json = JSON.stringify(html);
-      dataArr['data'] = base64_encode(json);
-      var str = private_key + dataArr['data'] + private_key;
-      dataArr['signature'] = b64_sha1(str) + '=';
-      return dataArr;
-    }
-    $('.liqpay_close').on('click', function () {
-        $('#liqpay_checkout').slideUp();
-        if($('#collection-58539c5203596e91230afa83').length)
-        {
-            $('.sqs-col-12 > div:nth-child(1) p:last-child').slideUp();
-            $('.sqs-col-12 > div:nth-child(5)').slideUp();
-        }
-        $('.sqs-col-12 > .code-block').addClass('empty');
-        setTimeout(function () {
-            $('#liqpay_checkout iframe').remove();
-        },1000)
-    });
-</script>
 <script src="https://static.liqpay.ua/libjs/checkout.js" async></script>
 <script>
     Y.use('squarespace-ui-base', function (Y) {
