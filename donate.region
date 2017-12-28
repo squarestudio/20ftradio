@@ -176,6 +176,8 @@
     </footer>
     {.end}
 </div>
+
+<script src="https://static.liqpay.ua/libjs/checkout.js" async></script>
 <script>
     Y.use('squarespace-ui-base', function (Y) {
         Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1").plug(Y.Squarespace.TextShrink);
