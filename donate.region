@@ -199,6 +199,7 @@
     $('.liqpay_close').on('click', function () {
         $('#liqpay_checkout').slideUp();
         $('.sqs-col-12 > div:nth-child(1) p:last-child').hide();
+        $('.sqs-col-12 > div:nth-child(5)').hide();
         setTimeout(function () {
             $('#liqpay_checkout iframe').remove();
         },1000)
