@@ -631,9 +631,9 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
     })
 }());
 
-$(function(){
-
-    $(window).on('load', function () {
-        $('#collection-582da30ebebafb4e0ab73dfc').find('.grid-container #fountainG').fadeOut();
-    });
-});
+// $(function(){
+//
+//     $(window).on('load', function () {
+//         $('#collection-582da30ebebafb4e0ab73dfc').find('.grid-container #fountainG').fadeOut();
+//     });
+// });
