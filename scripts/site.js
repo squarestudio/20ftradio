@@ -632,5 +632,8 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
 }());
 
 $(function(){
-    $('#collection-582da30ebebafb4e0ab73dfc').find('.grid-container #fountainG').fadeOut();
+
+    $(window).on('load', function () {
+        $('#collection-582da30ebebafb4e0ab73dfc').find('.grid-container #fountainG').fadeOut();
+    });
 });
