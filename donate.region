@@ -22,7 +22,6 @@
     </script>
     <script>
       var val;
-      var isInitialized = false;
     </script>
 </head>
 
@@ -261,3 +260,30 @@
 {.end}
 </body>
 </html>
+
+
+<script>
+  val = $('.form-block .form-item.number').find('input').val();
+  if($.isNumeric(val)) {
+      var callbackArr = initLiqpayCall(val);
+      window.LiqPayCheckoutCallback = function() {
+          LiqPayCheckout.init({
+              data: callbackArr['data'],
+              signature: callbackArr['signature'],
+              embedTo: "#liqpay_checkout",
+              language: "ru",
+              mode: "embed" // embed || popup
+          }).on("liqpay.callback", function(data){
+              console.log(data.status);
+              console.log(data);
+          }).on("liqpay.ready", function(data){
+              // ready
+          }).on("liqpay.close", function(data){
+              // close
+          });
+      }();
+      setTimeout(function(){
+        $('#liqpay_checkout').slideDown();
+      },1000);
+  }
+</script>
