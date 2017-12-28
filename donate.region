@@ -198,8 +198,11 @@
     }
     $('.liqpay_close').on('click', function () {
         $('#liqpay_checkout').slideUp();
-        $('.sqs-col-12 > div:nth-child(1) p:last-child').slideUp();
-        $('.sqs-col-12 > div:nth-child(5)').slideUp();
+        if($('#collection-58539c5203596e91230afa83').length)
+        {
+            $('.sqs-col-12 > div:nth-child(1) p:last-child').slideUp();
+            $('.sqs-col-12 > div:nth-child(5)').slideUp();
+        }
         $('.sqs-col-12 > .code-block').addClass('empty');
         setTimeout(function () {
             $('#liqpay_checkout iframe').remove();
