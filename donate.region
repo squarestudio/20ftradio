@@ -200,6 +200,7 @@
         $('#liqpay_checkout').slideUp();
         $('.sqs-col-12 > div:nth-child(1) p:last-child').slideUp();
         $('.sqs-col-12 > div:nth-child(5)').slideUp();
+        $('.sqs-col-12 > .code-block').addClass('empty');
         setTimeout(function () {
             $('#liqpay_checkout iframe').remove();
         },1000)
