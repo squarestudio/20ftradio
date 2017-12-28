@@ -20,6 +20,10 @@
             Controllers: {}
         }
     </script>
+    <script>
+      var val;
+      var isInitialized = false;
+    </script>
 </head>
 
 <body class="ft-donate page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
@@ -174,52 +178,7 @@
     {.end}
 </div>
 <script>
-  var val;
-  var isInitialized = false;
-  $(function(){
-      $('#payVal .submit').on('click',function(e){
-          e.preventDefault();
-          val = $('#payVal').find('input[name=payment_value]').val();
-          if($.isNumeric(val)) {
-            if(!isInitialized) {
-              var callbackArr = initLiqpayCall(val);
-              window.LiqPayCheckoutCallback = function() {
-                  LiqPayCheckout.init({
-                      data: callbackArr['data'],
-                      signature: callbackArr['signature'],
-                      embedTo: "#liqpay_checkout",
-                      language: "ru",
-                      mode: "embed" // embed || popup
-                  }).on("liqpay.callback", function(data){
-                      console.log(data.status);
-                      console.log(data);
-                  }).on("liqpay.ready", function(data){
-                      // ready
-                  }).on("liqpay.close", function(data){
-                      // close
-                  });
-              }();
-              isInitialized = true;
-              setTimeout(function(){
-                $('#liqpay_checkout').slideDown();
-              },1000);
-            }
-          }
-          else {
-              alert('Wrong data!');
-          }
-      });
-
-    $('.liqpay_close').on('click', function () {
-        $('#liqpay_checkout').slideUp();
-        setTimeout(function () {
-            $('#liqpay_checkout iframe').remove();
-            isInitialized = false;
-        },1000)
-    });
-  });
-
-  function initLiqpayCall(value) {
+    function initLiqpayCall(value) {
       var public_key = 'i27357705397';
       var private_key = 'chWzY6P4DCi94NDVngzJ9teTCKy0qlLyZhsu4fWv';
       var html = {
@@ -237,7 +196,14 @@
       var str = private_key + dataArr['data'] + private_key;
       dataArr['signature'] = b64_sha1(str) + '=';
       return dataArr;
-  }
+    }
+    $('.liqpay_close').on('click', function () {
+        $('#liqpay_checkout').slideUp();
+        setTimeout(function () {
+            $('#liqpay_checkout iframe').remove();
+            isInitialized = false;
+        },1000)
+    });
 </script>
 <script src="https://static.liqpay.ua/libjs/checkout.js" async></script>
 <script>
