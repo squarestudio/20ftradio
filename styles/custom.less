@@ -1561,6 +1561,7 @@ html {
 
   iframe
   {
+    position: relative;
     width: 385px !important;
     margin: 0 auto;
     display: block;
@@ -1601,6 +1602,16 @@ html {
 
   .cordova-app #mobileEvents.tab-mobile-events-past .mobileEvents-wrapper {
     height: 82vh;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #liqpay_checkout
+  {
+    iframe
+    {
+      left: -5px;
+    }
   }
 }
 
