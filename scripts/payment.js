@@ -55,7 +55,7 @@ function initLiqpayCall(value,name,surname) {
         'amount'         : value,
         'currency'       : 'UAH',
         'description'    : 'Your donation amount. thank\'s for supporting us!',
-        'order_id'       : 'order_id_3',
+        'order_id'       : base64_encode(getRandomArbitrary(0,1000000) + ' ' +Date.now()),
         'version'        : '3',
         'sandbox'        : '1',
     };
