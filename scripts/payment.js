@@ -18,6 +18,14 @@ $(function(){
         var value = $(this).val();
         localStorage.setItem('paymentSumm', value);
     });
+    $('.ft-donate .form-block form .field-list > div:nth-child(2) input').on('blur', function () {
+        var email = $(this).val();
+        localStorage.setItem('payerEmail', email);
+    });
+    $('.ft-donate .form-block form .field-list > div:nth-child(3) input').on('blur', function () {
+        var address = $(this).val();
+        localStorage.setItem('payerAddress', address);
+    });
 });
 
 function getRandomArbitrary(min, max) {
