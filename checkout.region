@@ -190,6 +190,35 @@
 {.or}
 
 {.end}
+
+<script>
+    var name = localStorage.getItem('payerName');
+    var surname = localStorage.getItem('payerSurname');
+    var val = parseInt(localStorage.getItem('paymentSumm'));
+    console.log(localStorage.getItem('paymentSumm'));
+    console.log(localStorage.getItem('payerSurname'));
+    console.log(localStorage.getItem('payerName'));
+    if(!isInitialized) {
+        var callbackArr = initLiqpayCall(val, name, surname);
+        window.LiqPayCheckoutCallback = function () {
+            LiqPayCheckout.init({
+                data: callbackArr['data'],
+                signature: callbackArr['signature'],
+                embedTo: "#liqpay_checkout",
+                language: "ru",
+                mode: "embed" // embed || popup
+            }).on("liqpay.callback", function (data) {
+                console.log(data.status);
+                console.log(data);
+            }).on("liqpay.ready", function (data) {
+                // ready
+            }).on("liqpay.close", function (data) {
+                // close
+            });
+        }();
+        isInitialized = true;
+    }
+</script>
 <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
 <squarespace:script src="imagesloaded.pkgd.min.js" combo="false"/>
 <squarespace:script src="moment.js" combo="true"/>
