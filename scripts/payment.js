@@ -15,8 +15,6 @@ $(function(){
             localStorage.setItem('payerName', name);
             localStorage.setItem('payerSurname', surname);
             localStorage.setItem('paymentSumm', val);
-        } else {
-            alert('Wrong data!');
         }
     });
 });
