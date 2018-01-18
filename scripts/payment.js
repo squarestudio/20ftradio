@@ -48,7 +48,7 @@ function transliterate(word){
     return answer;
 }
 
-function initLiqpayCall(value,name,surname) {
+function initLiqpayCall(value,name,surname,email,address) {
     var public_key = 'i27357705397';
     var private_key = 'chWzY6P4DCi94NDVngzJ9teTCKy0qlLyZhsu4fWv';
     var html = {
