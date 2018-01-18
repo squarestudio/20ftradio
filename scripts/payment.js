@@ -20,6 +20,10 @@ $(function(){
     });
 });
 
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
 function transliterate(word){
     var answer = ""
         , a = {};
