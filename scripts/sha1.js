@@ -31,7 +31,7 @@ function str_hmac_sha1(key, data){ return binb2str(core_hmac_sha1(key, data));}
  */
 function sha1_vm_test()
 {
-	return hex_sha1("abc") == "a9993e364706816aba3e25717850c26c9cd0d89d";
+    return hex_sha1("abc") == "a9993e364706816aba3e25717850c26c9cd0d89d";
 }
 
 /*
@@ -39,44 +39,44 @@ function sha1_vm_test()
  */
 function core_sha1(x, len)
 {
-	/* append padding */
-	x[len >> 5] |= 0x80 << (24 - len % 32);
-	x[((len + 64 >> 9) << 4) + 15] = len;
+    /* append padding */
+    x[len >> 5] |= 0x80 << (24 - len % 32);
+    x[((len + 64 >> 9) << 4) + 15] = len;
 
-	var w = Array(80);
-	var a =  1732584193;
-	var b = -271733879;
-	var c = -1732584194;
-	var d =  271733878;
-	var e = -1009589776;
+    var w = Array(80);
+    var a =  1732584193;
+    var b = -271733879;
+    var c = -1732584194;
+    var d =  271733878;
+    var e = -1009589776;
 
-	for (var i = 0; i < x.length; i += 16)
-	{
-		var olda = a;
-		var oldb = b;
-		var oldc = c;
-		var oldd = d;
-		var olde = e;
+    for (var i = 0; i < x.length; i += 16)
+    {
+        var olda = a;
+        var oldb = b;
+        var oldc = c;
+        var oldd = d;
+        var olde = e;
 
-		for (var j = 0; j < 80; j++)
-		{
-			if (j < 16) w[j] = x[i + j];
-			else w[j] = rol(w[j-3] ^ w[j-8] ^ w[j-14] ^ w[j-16], 1);
-			var t = safe_add(safe_add(rol(a, 5), sha1_ft(j, b, c, d)), safe_add(safe_add(e, w[j]), sha1_kt(j)));
-			e = d;
-			d = c;
-			c = rol(b, 30);
-			b = a;
-			a = t;
-		}
+        for (var j = 0; j < 80; j++)
+        {
+            if (j < 16) w[j] = x[i + j];
+            else w[j] = rol(w[j-3] ^ w[j-8] ^ w[j-14] ^ w[j-16], 1);
+            var t = safe_add(safe_add(rol(a, 5), sha1_ft(j, b, c, d)), safe_add(safe_add(e, w[j]), sha1_kt(j)));
+            e = d;
+            d = c;
+            c = rol(b, 30);
+            b = a;
+            a = t;
+        }
 
-		a = safe_add(a, olda);
-		b = safe_add(b, oldb);
-		c = safe_add(c, oldc);
-		d = safe_add(d, oldd);
-		e = safe_add(e, olde);
-	}
-	return Array(a, b, c, d, e);
+        a = safe_add(a, olda);
+        b = safe_add(b, oldb);
+        c = safe_add(c, oldc);
+        d = safe_add(d, oldd);
+        e = safe_add(e, olde);
+    }
+    return Array(a, b, c, d, e);
 }
 
 /*
@@ -85,10 +85,10 @@ function core_sha1(x, len)
  */
 function sha1_ft(t, b, c, d)
 {
-	if (t < 20) return (b & c) | ((~b) & d);
-	if (t < 40) return b ^ c ^ d;
-	if (t < 60) return (b & c) | (b & d) | (c & d);
-	return b ^ c ^ d;
+    if (t < 20) return (b & c) | ((~b) & d);
+    if (t < 40) return b ^ c ^ d;
+    if (t < 60) return (b & c) | (b & d) | (c & d);
+    return b ^ c ^ d;
 }
 
 /*
@@ -96,8 +96,8 @@ function sha1_ft(t, b, c, d)
  */
 function sha1_kt(t)
 {
-	return	(t < 20) ?  1518500249 : (t < 40) ? 1859775393 :
-			(t < 60) ? -1894007588 : -899497514;
+    return	(t < 20) ?  1518500249 : (t < 40) ? 1859775393 :
+        (t < 60) ? -1894007588 : -899497514;
 }
 
 /*
@@ -105,18 +105,18 @@ function sha1_kt(t)
  */
 function core_hmac_sha1(key, data)
 {
-	var bkey = str2binb(key);
-	if (bkey.length > 16) bkey = core_sha1(bkey, key.length * chrsz);
+    var bkey = str2binb(key);
+    if (bkey.length > 16) bkey = core_sha1(bkey, key.length * chrsz);
 
-	var ipad = Array(16), opad = Array(16);
-	for (var i = 0; i < 16; i++)
-	{
-		ipad[i] = bkey[i] ^ 0x36363636;
-		opad[i] = bkey[i] ^ 0x5C5C5C5C;
-	}
+    var ipad = Array(16), opad = Array(16);
+    for (var i = 0; i < 16; i++)
+    {
+        ipad[i] = bkey[i] ^ 0x36363636;
+        opad[i] = bkey[i] ^ 0x5C5C5C5C;
+    }
 
-	var hash = core_sha1(ipad.concat(str2binb(data)), 512 + data.length * chrsz);
-	return core_sha1(opad.concat(hash), 512 + 160);
+    var hash = core_sha1(ipad.concat(str2binb(data)), 512 + data.length * chrsz);
+    return core_sha1(opad.concat(hash), 512 + 160);
 }
 
 /*
@@ -125,9 +125,9 @@ function core_hmac_sha1(key, data)
  */
 function safe_add(x, y)
 {
-	var lsw = (x & 0xFFFF) + (y & 0xFFFF);
-	var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
-	return (msw << 16) | (lsw & 0xFFFF);
+    var lsw = (x & 0xFFFF) + (y & 0xFFFF);
+    var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+    return (msw << 16) | (lsw & 0xFFFF);
 }
 
 /*
@@ -135,7 +135,7 @@ function safe_add(x, y)
  */
 function rol(num, cnt)
 {
-	return (num << cnt) | (num >>> (32 - cnt));
+    return (num << cnt) | (num >>> (32 - cnt));
 }
 
 /*
@@ -144,15 +144,15 @@ function rol(num, cnt)
  */
 function str2binb(str)
 {
-	var bin = Array();
+    var bin = Array();
 
-	for (var i = 0, n = 1 + ((str.length * chrsz) >> 5); i < n; i++)
-		bin[i] = 0;
+    for (var i = 0, n = 1 + ((str.length * chrsz) >> 5); i < n; i++)
+        bin[i] = 0;
 
-	var mask = (1 << chrsz) - 1;
-	for (var i = 0; i < str.length * chrsz; i += chrsz)
-		bin[i >> 5] |= (str.charCodeAt(i / chrsz) & mask) << (24 - i % 32);
-	return bin;
+    var mask = (1 << chrsz) - 1;
+    for (var i = 0; i < str.length * chrsz; i += chrsz)
+        bin[i >> 5] |= (str.charCodeAt(i / chrsz) & mask) << (24 - i % 32);
+    return bin;
 }
 
 /*
@@ -160,11 +160,11 @@ function str2binb(str)
  */
 function binb2str(bin)
 {
-	var str = "";
-	var mask = (1 << chrsz) - 1;
-	for (var i = 0; i < bin.length * 32; i += chrsz)
-		str += String.fromCharCode((bin[i>>5] >>> (24 - i%32)) & mask);
-	return str;
+    var str = "";
+    var mask = (1 << chrsz) - 1;
+    for (var i = 0; i < bin.length * 32; i += chrsz)
+        str += String.fromCharCode((bin[i>>5] >>> (24 - i%32)) & mask);
+    return str;
 }
 
 /*
@@ -172,14 +172,14 @@ function binb2str(bin)
  */
 function binb2hex(binarray)
 {
-	var hex_tab = hexcase ? "0123456789ABCDEF" : "0123456789abcdef";
-	var str = "";
-	for (var i = 0; i < binarray.length * 4; i++)
-	{
-		str += hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8+4)) & 0xF) +
-			   hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8  )) & 0xF);
-	}
-	return str;
+    var hex_tab = hexcase ? "0123456789ABCDEF" : "0123456789abcdef";
+    var str = "";
+    for (var i = 0; i < binarray.length * 4; i++)
+    {
+        str += hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8+4)) & 0xF) +
+            hex_tab.charAt((binarray[i>>2] >> ((3 - i%4)*8  )) & 0xF);
+    }
+    return str;
 }
 
 /*
@@ -187,77 +187,77 @@ function binb2hex(binarray)
  */
 function binb2b64(binarray)
 {
-	var tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-	var str = "";
-	for (var i = 0; i < binarray.length * 4; i += 3)
-	{
-		var triplet = (((binarray[i   >> 2] >> 8 * (3 -  i   %4)) & 0xFF) << 16)
-					| (((binarray[i+1 >> 2] >> 8 * (3 - (i+1)%4)) & 0xFF) << 8 )
-					|  ((binarray[i+2 >> 2] >> 8 * (3 - (i+2)%4)) & 0xFF);
-		for (var j = 0; j < 4; j++)
-		{
-			if (i * 8 + j * 6 > binarray.length * 32) str += b64pad;
-			else str += tab.charAt((triplet >> 6*(3-j)) & 0x3F);
-		}
-	}
-	return str;
+    var tab = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    var str = "";
+    for (var i = 0; i < binarray.length * 4; i += 3)
+    {
+        var triplet = (((binarray[i   >> 2] >> 8 * (3 -  i   %4)) & 0xFF) << 16)
+            | (((binarray[i+1 >> 2] >> 8 * (3 - (i+1)%4)) & 0xFF) << 8 )
+            |  ((binarray[i+2 >> 2] >> 8 * (3 - (i+2)%4)) & 0xFF);
+        for (var j = 0; j < 4; j++)
+        {
+            if (i * 8 + j * 6 > binarray.length * 32) str += b64pad;
+            else str += tab.charAt((triplet >> 6*(3-j)) & 0x3F);
+        }
+    }
+    return str;
 }
 function utf8_encode ( str_data ) {	// Encodes an ISO-8859-1 string to UTF-8
-		// 
-		// +   original by: Webtoolkit.info (http://www.webtoolkit.info/)
+    //
+    // +   original by: Webtoolkit.info (http://www.webtoolkit.info/)
 
-		str_data = str_data.replace(/\r\n/g,"\n");
-		var utftext = "";
+    str_data = str_data.replace(/\r\n/g,"\n");
+    var utftext = "";
 
-		for (var n = 0; n < str_data.length; n++) {
-			var c = str_data.charCodeAt(n);
-			if (c < 128) {
-				utftext += String.fromCharCode(c);
-			} else if((c > 127) && (c < 2048)) {
-				utftext += String.fromCharCode((c >> 6) | 192);
-				utftext += String.fromCharCode((c & 63) | 128);
-			} else {
-				utftext += String.fromCharCode((c >> 12) | 224);
-				utftext += String.fromCharCode(((c >> 6) & 63) | 128);
-				utftext += String.fromCharCode((c & 63) | 128);
-			}
-		}
+    for (var n = 0; n < str_data.length; n++) {
+        var c = str_data.charCodeAt(n);
+        if (c < 128) {
+            utftext += String.fromCharCode(c);
+        } else if((c > 127) && (c < 2048)) {
+            utftext += String.fromCharCode((c >> 6) | 192);
+            utftext += String.fromCharCode((c & 63) | 128);
+        } else {
+            utftext += String.fromCharCode((c >> 12) | 224);
+            utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+            utftext += String.fromCharCode((c & 63) | 128);
+        }
+    }
 
-		return utftext;
-	}
+    return utftext;
+}
 
-	function base64_encode( data ) {	// Encodes data with MIME base64
-		// 
-		// +   original by: Tyler Akins (http://rumkin.com)
-		// +   improved by: Bayron Guevara
+function base64_encode( data ) {	// Encodes data with MIME base64
+    //
+    // +   original by: Tyler Akins (http://rumkin.com)
+    // +   improved by: Bayron Guevara
 
-		var b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
-		var o1, o2, o3, h1, h2, h3, h4, bits, i=0, enc='';
+    var b64 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    var o1, o2, o3, h1, h2, h3, h4, bits, i=0, enc='';
 
-		do { // pack three octets into four hexets
-			o1 = data.charCodeAt(i++);
-			o2 = data.charCodeAt(i++);
-			o3 = data.charCodeAt(i++);
+    do { // pack three octets into four hexets
+        o1 = data.charCodeAt(i++);
+        o2 = data.charCodeAt(i++);
+        o3 = data.charCodeAt(i++);
 
-			bits = o1<<16 | o2<<8 | o3;
+        bits = o1<<16 | o2<<8 | o3;
 
-			h1 = bits>>18 & 0x3f;
-			h2 = bits>>12 & 0x3f;
-			h3 = bits>>6 & 0x3f;
-			h4 = bits & 0x3f;
+        h1 = bits>>18 & 0x3f;
+        h2 = bits>>12 & 0x3f;
+        h3 = bits>>6 & 0x3f;
+        h4 = bits & 0x3f;
 
-			// use hexets to index into b64, and append result to encoded string
-			enc += b64.charAt(h1) + b64.charAt(h2) + b64.charAt(h3) + b64.charAt(h4);
-		} while (i < data.length);
+        // use hexets to index into b64, and append result to encoded string
+        enc += b64.charAt(h1) + b64.charAt(h2) + b64.charAt(h3) + b64.charAt(h4);
+    } while (i < data.length);
 
-		switch( data.length % 3 ){
-			case 1:
-				enc = enc.slice(0, -2) + '==';
-			break;
-			case 2:
-				enc = enc.slice(0, -1) + '=';
-			break;
-		}
+    switch( data.length % 3 ){
+        case 1:
+            enc = enc.slice(0, -2) + '==';
+            break;
+        case 2:
+            enc = enc.slice(0, -1) + '=';
+            break;
+    }
 
-		return enc;
-	}
+    return enc;
+}
