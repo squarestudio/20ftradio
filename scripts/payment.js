@@ -1,20 +1,20 @@
-var val;
+var value;
 var isInitialized = false;
 $(function(){
-    $('#payVal').on('submit',function(e){
-        var val = $(this).find('input[name=payment_value]').val();
-        var name = transliterate($('#payVal input[name="first_name"]').val());
+    $('.ft-donate .form-block form').on('submit',function(e){
+        value = $(this).find('input[name=payment_value]').val();
+        var name = transliterate($('.ft-donate .form-block form input[name="fname"]').val());
         if(name.length == 0) {
             name = "John";
         }
-        var surname = transliterate($('#payVal input[name="last_name"]').val());
+        var surname = transliterate($('.ft-donate .form-block form input[name="lname"]').val());
         if(surname.length == 0) {
             surname = "Smith";
         }
-        if($.isNumeric(val)) {
+        if($.isNumeric(value)) {
             localStorage.setItem('payerName', name);
             localStorage.setItem('payerSurname', surname);
-            localStorage.setItem('paymentSumm', val);
+            localStorage.setItem('paymentSumm', value);
         }
     });
 });
