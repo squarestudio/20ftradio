@@ -28,7 +28,7 @@ $(function(){
     }else
     {
         $('.ft-donate .form-block form .field-list > div:nth-last-child(2) input').on('blur', function () {
-            var address = $(this).val();
+            var address = transliterate($(this).val());
             localStorage.setItem('payerAddress', address);
         });
     }
