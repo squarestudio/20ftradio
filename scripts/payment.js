@@ -22,7 +22,7 @@ $(function(){
         var email = $(this).val();
         localStorage.setItem('payerEmail', email);
     });
-    if(window.location.pathname === '/sticker-pack')
+    if(window.location.pathname === '/sticker-pack' || window.location.pathname === '/checkout-page')
     {
         $('.ft-donate .form-block form .field-list > div:nth-last-child(2) input').on('blur', function () {
             var address = $(this).val();
