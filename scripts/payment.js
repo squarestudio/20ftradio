@@ -22,7 +22,7 @@ $(function(){
         var email = $(this).val();
         localStorage.setItem('payerEmail', email);
     });
-    $('.ft-donate .form-block form .field-list > div:nth-child(3) input').on('blur', function () {
+    $('.ft-donate .form-block form .field-list > div:nth-last-child(2) input').on('blur', function () {
         var address = $(this).val();
         localStorage.setItem('payerAddress', address);
     });
