@@ -195,9 +195,6 @@
     var name = localStorage.getItem('payerName');
     var surname = localStorage.getItem('payerSurname');
     var val = parseInt(localStorage.getItem('paymentSumm'));
-    console.log(localStorage.getItem('paymentSumm'));
-    console.log(localStorage.getItem('payerSurname'));
-    console.log(localStorage.getItem('payerName'));
     if(!isInitialized) {
         var callbackArr = initLiqpayCall(val, name, surname);
         window.LiqPayCheckoutCallback = function () {
