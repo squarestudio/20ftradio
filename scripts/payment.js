@@ -22,17 +22,11 @@ $(function(){
         var email = $(this).val();
         localStorage.setItem('payerEmail', email);
     });
-    if(window.location.pathname === '/sticker-pack')
-    {
-        alert('YES!');
-        $('.ft-donate .form-block form .field-list > div:nth-last-child(2) input').on('blur', function () {
-            var address = $(this).val();
-            localStorage.setItem('payerAddress', address);
-        });
-    }else
-    {
-        localStorage.setItem('payerAddress', '');
-    }
+
+    $('.ft-donate .form-block form .field-list > div:nth-last-child(2) input').on('blur', function () {
+        var address = $(this).val();
+        localStorage.setItem('payerAddress', address);
+    });
 });
 
 function getRandomArbitrary(min, max) {
