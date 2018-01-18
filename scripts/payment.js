@@ -1,20 +1,22 @@
 var isInitialized = false;
 $(function(){
-    $('.ft-donate .form-block form').on('submit',function(e){
-        var value = $(this).find('input[name=payment_value]').val();
+    $('.ft-donate .form-block form input[name="fname"]').on('blur', function () {
         var name = transliterate($('.ft-donate .form-block form input[name="fname"]').val());
         if(name.length == 0) {
             name = "John";
         }
+        localStorage.setItem('payerName', name);
+    });
+    $('.ft-donate .form-block form input[name="lname"]').on('blur', function () {
         var surname = transliterate($('.ft-donate .form-block form input[name="lname"]').val());
         if(surname.length == 0) {
             surname = "Smith";
         }
-        if($.isNumeric(value)) {
-            localStorage.setItem('payerName', name);
-            localStorage.setItem('payerSurname', surname);
-            localStorage.setItem('paymentSumm', value);
-        }
+        localStorage.setItem('payerSurname', surname);
+    });
+    $('.ft-donate .form-block form .field-list > div:last-child input').on('blur', function () {
+        var value = $(this).val();
+        localStorage.setItem('paymentSumm', value);
     });
 });
 
