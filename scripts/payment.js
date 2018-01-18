@@ -1,8 +1,7 @@
-var value;
 var isInitialized = false;
 $(function(){
     $('.ft-donate .form-block form').on('submit',function(e){
-        value = $(this).find('input[name=payment_value]').val();
+        var value = $(this).find('input[name=payment_value]').val();
         var name = transliterate($('.ft-donate .form-block form input[name="fname"]').val());
         if(name.length == 0) {
             name = "John";
