@@ -1181,11 +1181,16 @@ window.Template.Controllers.CastController = function (element) {
                 var email = $(this).val();
                 localStorage.setItem('payerEmail', email);
             });
-
-            $('.ft-donate .form-block form .field-list > div:nth-last-child(2) input').on('blur', function () {
-                var address = $(this).val();
-                localStorage.setItem('payerAddress', address);
-            });
+            if(window.location.pathname === '/sticker-pack')
+            {
+                $('.ft-donate .form-block form .field-list > div:nth-last-child(2) input').on('blur', function () {
+                    var address = $(this).val();
+                    localStorage.setItem('payerAddress', address);
+                });
+            }else
+            {
+                localStorage.setItem('payerAddress', '');
+            }
         },
         destroy: function () {
             DEBUG && console.log('destroy cast');
