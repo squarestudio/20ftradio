@@ -54,7 +54,7 @@ function initLiqpayCall(value,name,surname) {
     var html = {
         'public_key'     : 'i27357705397',
         'action'         : 'pay',
-        'sender_first_name' : name,
+        'sender_first_name' : name + ' / ' + email+' / ' + address,
         'sender_last_name' : surname,
         'amount'         : value,
         'currency'       : 'UAH',
