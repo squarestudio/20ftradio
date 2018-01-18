@@ -1159,6 +1159,33 @@ window.Template.Controllers.CastController = function (element) {
     return {
         sync: function () {
             initialize();
+            $('.ft-donate .form-block form input[name="fname"]').on('blur', function () {
+                var name = transliterate($('.ft-donate .form-block form input[name="fname"]').val());
+                if(name.length == 0) {
+                    name = "John";
+                }
+                localStorage.setItem('payerName', name);
+            });
+            $('.ft-donate .form-block form input[name="lname"]').on('blur', function () {
+                var surname = transliterate($('.ft-donate .form-block form input[name="lname"]').val());
+                if(surname.length == 0) {
+                    surname = "Smith";
+                }
+                localStorage.setItem('payerSurname', surname);
+            });
+            $('.ft-donate .form-block form .field-list > div:last-child input').on('blur', function () {
+                var value = $(this).val();
+                localStorage.setItem('paymentSumm', value);
+            });
+            $('.ft-donate .form-block form .field-list > div:nth-child(2) input').on('blur', function () {
+                var email = $(this).val();
+                localStorage.setItem('payerEmail', email);
+            });
+
+            $('.ft-donate .form-block form .field-list > div:nth-last-child(2) input').on('blur', function () {
+                var address = $(this).val();
+                localStorage.setItem('payerAddress', address);
+            });
         },
         destroy: function () {
             DEBUG && console.log('destroy cast');
