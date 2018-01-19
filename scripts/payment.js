@@ -76,8 +76,8 @@ function initLiqpayCall(value,name,surname,email,address) {
         'order_id'       : base64_encode(getRandomArbitrary(0,1000000) + ' ' +Date.now()),
         'version'        : '3',
         'sandbox'        : '1',
-        'info'           : 'tram-param',
-        'product_description'           : 'product_description'
+        'info'           : 'tram param',
+        'product_description'           : 'product description'
     };
     var dataArr = [];
     var json = JSON.stringify(html);
