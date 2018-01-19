@@ -64,8 +64,7 @@ function initLiqpayCall(value,name,surname,email) {
         'currency'       : 'UAH',
         'description'    : 'Your donation amount. thank\'s for supporting us!',
         'order_id'       : base64_encode(getRandomArbitrary(0,1000000) + ' ' +Date.now()),
-        'version'        : '3',
-        'sandbox'        : '1'
+        'version'        : '3'
     };
     var dataArr = [];
     var json = JSON.stringify(html);
