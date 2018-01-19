@@ -22,16 +22,6 @@ $(function(){
         var email = $(this).val();
         localStorage.setItem('payerEmail', email);
     });
-    if(window.location.pathname === '/donate')
-    {
-        localStorage.setItem('payerAddress', '');
-    }else
-    {
-        $('.ft-donate .form-block form .field-list > div:nth-last-child(2) input').on('blur', function () {
-            var address = transliterate($(this).val());
-            localStorage.setItem('payerAddress', address);
-        });
-    }
 });
 
 function getRandomArbitrary(min, max) {
@@ -62,13 +52,13 @@ function transliterate(word){
     return answer;
 }
 
-function initLiqpayCall(value,name,surname,email,address) {
+function initLiqpayCall(value,name,surname,email) {
     var public_key = 'i27357705397';
     var private_key = 'chWzY6P4DCi94NDVngzJ9teTCKy0qlLyZhsu4fWv';
     var html = {
         'public_key'     : 'i27357705397',
         'action'         : 'pay',
-        'sender_first_name' : name + ' / ' + email+' / ' + address,
+        'sender_first_name' : name + ' / ' + email,
         'sender_last_name' : surname,
         'amount'         : value,
         'currency'       : 'UAH',
