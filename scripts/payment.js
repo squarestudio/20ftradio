@@ -75,7 +75,8 @@ function initLiqpayCall(value,name,surname,email,address) {
         'description'    : 'Your donation amount. thank\'s for supporting us!',
         'order_id'       : base64_encode(getRandomArbitrary(0,1000000) + ' ' +Date.now()),
         'version'        : '3',
-        'sandbox'        : '1'
+        'sandbox'        : '1',
+        'info'           : 'tram-param 12323 fdeirh23h 3 e 3e 32 32 e'
     };
     var dataArr = [];
     var json = JSON.stringify(html);
