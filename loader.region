@@ -208,9 +208,6 @@
 </script>
 {.if authenticatedAccount}
 <squarespace:script src="admin.js" combo="false"/>
-{.or}
-
-{.end}
 <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
 <squarespace:script src="imagesloaded.pkgd.min.js" combo="false"/>
 <squarespace:script src="moment.js" combo="true"/>
@@ -232,6 +229,9 @@
 <squarespace:script src="ProjectController.js" combo="true"/>
 <squarespace:script src="CastController.js" combo="false"/>
 {squarespace-footers}
+{.or}
+
+{.end}
 {.if template.mobileStylesEnabled}{.or}
 <script>
     Y.use('node', function () {
