@@ -44,8 +44,6 @@ window.Template.Controllers.CastController = function (element) {
         streamSwiper,
         mixCloudFooterPlayer,
         mixCloudEmbeds = [],
-        cast,
-        page,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
     var DEBUG = false;
@@ -89,44 +87,7 @@ window.Template.Controllers.CastController = function (element) {
                 });
                 mixCloudEmbeds.push(widget);
             });
-        });
-
-
-
-        cast = $('.castWrapper').innerHeight();
-        cast = cast - 63;
-        page = window.location.pathname;
-
-        if(page === '/'){
-            $('#castDiv').show();
-            $('#navigator').css('padding-top', '0');
-        }else
-        {
-            if(!sessionStorage.getItem('20ft') && page === '/year-of-20ft/')
-            {
-                setTimeout(function(){
-                    $('html, body').animate({
-                        scrollTop: cast
-                    }, 500);
-                }, 5000);
-                setTimeout(function(){
-                    sessionStorage.setItem('20ft', 'session');
-                }, 6000);
-            }else if(!sessionStorage.getItem('20ft') && page !== '/year-of-20ft/')
-            {
-                setTimeout(function(){
-                    $('html, body').animate({
-                        scrollTop: cast
-                    }, 500);
-                }, 1000);
-                setTimeout(function(){
-                    sessionStorage.setItem('20ft', 'session');
-                }, 2000);
-            }else {
-                $('#castDiv').hide();
-                $('#navigator').css('padding-top', '63px');
-            }
-        }
+        })
     }
 
     function refreshImages() {
@@ -393,7 +354,11 @@ window.Template.Controllers.CastController = function (element) {
             }
             if (youtubeUrl) {
                 DEBUG && console.log('Have Youtube Url');
-                initYoutubeStream();
+                //not starting youtube
+                //initYoutubeStream();
+                youtubeReady = true;
+                youtubeStatusLoad = true;
+                retry = maxRetry - 1;
             } else if (shoutCastUrl) {
                 initShoutCast();
             } else if (someCloudUrl) {
@@ -1159,38 +1124,6 @@ window.Template.Controllers.CastController = function (element) {
     return {
         sync: function () {
             initialize();
-            $('.ft-donate .form-block form input[name="fname"]').on('blur', function () {
-                var name = transliterate($('.ft-donate .form-block form input[name="fname"]').val());
-                if(name.length == 0) {
-                    name = "John";
-                }
-                localStorage.setItem('payerName', name);
-            });
-            $('.ft-donate .form-block form input[name="lname"]').on('blur', function () {
-                var surname = transliterate($('.ft-donate .form-block form input[name="lname"]').val());
-                if(surname.length == 0) {
-                    surname = "Smith";
-                }
-                localStorage.setItem('payerSurname', surname);
-            });
-            $('.ft-donate .form-block form .field-list > div:last-child input').on('blur', function () {
-                var value = $(this).val();
-                localStorage.setItem('paymentSumm', value);
-            });
-            $('.ft-donate .form-block form .field-list > div:nth-child(2) input').on('blur', function () {
-                var email = $(this).val();
-                localStorage.setItem('payerEmail', email);
-            });
-            if(window.location.pathname === '/sticker-pack')
-            {
-                $('.ft-donate .form-block form .field-list > div:nth-last-child(2) input').on('blur', function () {
-                    var address = $(this).val();
-                    localStorage.setItem('payerAddress', address);
-                });
-            }else
-            {
-                localStorage.setItem('payerAddress', '');
-            }
         },
         destroy: function () {
             DEBUG && console.log('destroy cast');
