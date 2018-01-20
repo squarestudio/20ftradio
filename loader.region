@@ -12,7 +12,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="{website.logoImageUrl}">
     <link rel="apple-touch-icon" sizes="152x152" href="{website.logoImageUrl}">
     <link rel="apple-touch-startup-image" href="{website.logoImageUrl}">
-    {squarespace-headers}
+    
     <script>
         window.Template = {
             Util: {},
