@@ -230,7 +230,13 @@
 <squarespace:script src="CastController.js" combo="false"/>
 {squarespace-footers}
 {.or}
-
+<noscript id="loaderThings">
+    <div id="header">{squarespace-headers}</div>
+    <div id="footer">{squarespace-footers}</div>
+    <div id="templateRevision">
+        <squarespace:script src="t.js"/>
+    </div>
+</noscript>
 {.end}
 {.if template.mobileStylesEnabled}{.or}
 <script>
