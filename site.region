@@ -98,7 +98,7 @@
                  data-facebook-url="{customContent.facebookUrl}"
                  data-soundcloud-url="{customContent.soundCloudUrl}"
                  data-shoutcast-url="{customContent.shoutcastUrl}">
-                {.if customContent.gallery && customContent.showGallery}
+                <!--{.if customContent.gallery && customContent.showGallery}
                     <div class="stream-gallery">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
@@ -106,14 +106,14 @@
                                     <div class="swiper-slide content-fit"><a class="content-fill" href="{.if clickthroughUrl}{clickthroughUrl}{.end}"><img {@|image-meta} data-load="false"/></a></div>
                                 {.end}
                             </div>
-                           <!-- <div class="swiper-pagination"></div>-->
+                           &lt;!&ndash; <div class="swiper-pagination"></div>&ndash;&gt;
                             <div class="swiper-button-prev arrow-butt"></div>
                             <div class="swiper-button-next arrow-butt"></div>
                         </div>
                     </div>
                 {.or}
                     <img {@|image-meta} data-load="false"/>
-                {.end}
+                {.end}-->
                 <div class="mobile-play-button">
                     <svg version="1.1" x="0px" y="0px"
                          viewBox="0 0 60 60" fill="#{colorData.centerAverage}">
