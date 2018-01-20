@@ -1,9 +1,7 @@
 <!DOCTYPE html {.if authenticatedAccount} authenticated {.end}>
 <html class="no-js">
 <head>
-    {.if template.mobileStylesEnabled}
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0"/>
-    {.end}
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
@@ -12,13 +10,44 @@
     <link rel="apple-touch-icon" sizes="120x120" href="{website.logoImageUrl}">
     <link rel="apple-touch-icon" sizes="152x152" href="{website.logoImageUrl}">
     <link rel="apple-touch-startup-image" href="{website.logoImageUrl}">
-    
+    {.if authenticatedAccount}
+    {squarespace-headers}
+    {.or}
+    <title>{.if item}{item.title} — {website.siteTitle}{.or}{.if collection}{collection.title} — {website.siteTitle}{.or}{website.siteTitle}{.end}{.end}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+    <link rel="canonical" href="{.if item}{website.baseUrl}{item.fullUrl}{.or}{.if collection}{.if collection.homepage}{website.baseUrl}/{.or}{website.baseUrl}{collection.fullUrl}{.end}{.end}{.end}"/>
+    {.equal? item.recordTypeLabel "text"}{.if websiteSettings.ampEnabled}<link rel="amphtml" href="{website.baseUrl}{item.fullUrl}?format=amp">{.end}{.end}
+    {.section collection}{.collectionTypeNameEquals? blog}<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="{website.baseUrl}{fullUrl}?format=RSS"/>{.end}{.end}
+    <meta property="og:site_name" content="{website.siteTitle}"/>
+    <meta property="og:title" content="{.if item}{item.title} — {website.siteTitle}{.or}{.if collection}{collection.title} — {website.siteTitle}{.or}{website.siteTitle}{.end}{.end}"/>
+    <meta property="og:url" content="{.if item}{website.baseUrl}{item.fullUrl}{.or}{.if collection}{.if collection.homepage}{website.baseUrl}/{.or}{website.baseUrl}{collection.fullUrl}{.end}{.end}{.end}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="{.if item}{item.assetUrl}?format=1000w{.or}{.if collection}{.if collection.mainImage}{collection.mainImage.assetUrl}?format=1000w{.or}{website.logoImageUrl}?format=1000w{.end}{.end}{.end}"/>
+    <meta property="og:description" content="{.if item}{item.excerpt|safe|htmlattr}{.or}{.if collection}{collection.description|safe|htmlattr}{.or}{website.siteDescription|safe|htmlattr}{.end}{.end}"/>
+    <meta itemprop="name" content="{.if item}{item.title} — {website.siteTitle}{.or}{.if collection}{collection.title} — {website.siteTitle}{.or}{website.siteTitle}{.end}{.end}"/>
+    <meta itemprop="url" content="{.if item}{website.baseUrl}{item.fullUrl}{.or}{.if collection}{.if collection.homepage}{website.baseUrl}/{.or}{website.baseUrl}{collection.fullUrl}{.end}{.end}{.end}"/>
+    <meta itemprop="image" content="{.if item}{item.assetUrl}?format=1000w{.or}{.if collection}{.if collection.mainImage}{collection.mainImage.assetUrl}?format=1000w{.or}{website.logoImageUrl}?format=1000w{.end}{.end}{.end}">
+    <meta itemprop="thumbnailUrl" content="{.if item}{item.assetUrl}?format=1000w{.or}{.if collection}{.if collection.mainImage}{collection.mainImage.assetUrl}?format=1000w{.or}{website.logoImageUrl}?format=1000w{.end}{.end}{.end}">
+    <meta itemprop="description" content="{.if item}{item.excerpt|safe|htmlattr}{.or}{.if collection}{collection.description|safe|htmlattr}{.or}{website.siteDescription|safe|htmlattr}{.end}{.end}"/>
+    <link rel="image_src" href="{.if item}{item.assetUrl}?format=1000w{.or}{.if collection}{.if collection.mainImage}{collection.mainImage.assetUrl}?format=1000w{.or}{website.logoImageUrl}?format=1000w{.end}{.end}{.end}">
+    <meta name="twitter:title" content="{.if item}{item.title} — {website.siteTitle}{.or}{.if collection}{collection.title} — {website.siteTitle}{.or}{website.siteTitle}{.end}{.end}"/>
+    <meta name="twitter:image" content="{.if item}{item.assetUrl}?format=1000w{.or}{.if collection}{.if collection.mainImage}{collection.mainImage.assetUrl}?format=1000w{.or}{website.logoImageUrl}?format=1000w{.end}{.end}{.end}">
+    <meta name="twitter:url" content="{.if item}{website.baseUrl}{item.fullUrl}{.or}{.if collection}{.if collection.homepage}{website.baseUrl}/{.or}{website.baseUrl}{collection.fullUrl}{.end}{.end}{.end}"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="{.if item}{item.excerpt|safe|htmlattr}{.or}{.if collection}{collection.description|safe|htmlattr}{.or}{website.siteDescription|safe|htmlattr}{.end}{.end}"/>
+    <meta name="description" content="{.if item}{item.excerpt|safe|htmlattr}{.or}{.if collection}{collection.description|safe|htmlattr}{.or}{website.siteDescription|safe|htmlattr}{.end}{.end}"/>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"WebSite","url":"{website.baseUrl}","name":"{website.siteTitle}","description":"{website.siteDescription}","image":"{website.logoImageUrl}"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"Organization","legalName":"{websiteSettings.storeSettings.businessName}","address":"","email":"{websiteSettings.contactEmail}","telephone":"{websiteSettings.contactPhoneNumber}"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"LocalBusiness","address":"{websiteSettings.storeSettings.contactLocation.addressLine1}, {websiteSettings.storeSettings.contactLocation.addressLine2}, {websiteSettings.storeSettings.contactLocation.addressCountry}","image":"{website.logoImageUrl}","name":"{websiteSettings.storeSettings.businessName}"}</script>
     <script>
+        SQUARESPACE_ROLLUPS = {};
+        window.Static = {SQUARESPACE_CONTEXT:{websiteSettings: {websiteSettings|json}}};
         window.Template = {
             Util: {},
             Controllers: {}
         }
     </script>
+    {.end}
 </head>
 
 <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
