@@ -94,23 +94,6 @@
             var self = this;
             this.walls.forEach(function (wall) {
                 // initialize masonry
-                var Ywall = Y.one(wall);
-/*                k = new Y.Squarespace.Gallery2({
-                    container: Ywall,
-                    slides: "li",
-                    autoplay: !1,
-                    lazyLoad: !0,
-                    loaderOptions: { mode:  "" },
-                    design: "autocolumns",
-                    designOptions: {
-                        lightbox: !1,
-                        clickBehavior: "auto",
-                        gutter: 10,
-                        columnWidth: Ywall.one('li').get('offsetWidth')||300,
-                        aspectRatio: 0
-                    },
-                    historyHash: !1
-                });*/
                 new Masonry(wall, {
                     itemSelector: 'li',
                     transitionDuration: 300
