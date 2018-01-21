@@ -54,7 +54,7 @@
 
 <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
 
-<div id="navigator" style="opacity: 1">
+<div id="navigator" style="opacity: 0">
     {.section website}
     <header id="topBar" class="sqs-announcement-bar-dropzone">
         <div data-content-field="site-title" class="siteTitle">
