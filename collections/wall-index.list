@@ -1,5 +1,4 @@
 <div class="grid-container">
-    <div class="ololo"></div>
     {.repeated section items}
         {.if customContent.featured}
             {@|apply featured-video.block}
