@@ -46,7 +46,7 @@ window.Template.Controllers.CastController = function (element) {
         mixCloudEmbeds = [],
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
-    var DEBUG = true;
+    var DEBUG = false;
 
     function initialize() {
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
