@@ -167,6 +167,7 @@ window.Template.Controllers.WallController = function (element) {
             window.Template.Util.initShareButtons();
             if (animOnScroll) animOnScroll = null;
             var imagesReady = function () {
+                loadImages();
                 console.log('activated wall');
                 initGalleries();
                 initVideos();
