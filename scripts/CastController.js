@@ -337,33 +337,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
             }
         });
-        if (!facebookUrl) {
-            if (!youtubeUrl) {
-                youtubeReady = true;
-                youtubeStatusLoad = true;
-                retry = maxRetry - 1;
-            }
-            if (!shoutCastUrl) {
-                shoutCastReady = true;
-                retry = maxRetry - 1;
-            }
-            if (youtubeUrl) {
-                DEBUG && console.log('Have Youtube Url');
-                //not starting youtube
-                //initYoutubeStream();
-                youtubeReady = true;
-                youtubeStatusLoad = true;
-                retry = maxRetry - 1;
-            } else if (shoutCastUrl) {
-                initShoutCast();
-            } else if (someCloudUrl) {
-                initSomeCloud();
-            } else {
-                DEBUG && console.log("No data to init");
-            }
-        } else {
-            initFBPlayer();
-        }
+        initShoutCast();
         getShoutcastStatus();
         if (castContainer.one('.stream-gallery')) {
             streamSwiper = new Swiper('.stream-gallery .swiper-container', {
