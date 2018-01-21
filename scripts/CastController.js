@@ -511,7 +511,7 @@ window.Template.Controllers.CastController = function (element) {
         if (!userPaused) {
             if (shoutcastPlayer) {
                 state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
+                DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError,shoutcastStatus);
                 if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
                     !mobile && shoutcastPlayer.play();
                     activePlayer = 'shoutcast';
