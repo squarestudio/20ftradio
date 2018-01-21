@@ -9,16 +9,13 @@ if (document.querySelector('.new-events-schedule')) {
             } else {
                 existing_dates.push(date_attr);
                 if (new_schedule.querySelector('.' + date_attr)) {
-                    date_container.querySelector('.items-container').appendChild(new_schedule.all('.' + date_attr))
+                    var items = new_schedule.querySelectorAll('.' + date_attr);
+                    for (i = 0; i < items.length; i++) {
+                        date_container.querySelector('.items-container').appendChild(items[i])
+                    }
                 }
             }
         });
-        var min_width_time = 0;
-        new_schedule.all('.event-time-wrapper').each(function (item) {
-            if(item.width()>min_width_time){
-                min_width_time = item.width();
-            }
-        });
-        new_schedule.all('.event-time-wrapper').setStyles({minWidth: min_width_time+'px'})
+        
     }
 }
