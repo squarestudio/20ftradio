@@ -1,11 +1,5 @@
 <div class="grid-container">
-    <div id="fountainG">
-        <div class="fountainG fountainG_1"></div>
-        <div class="fountainG fountainG_2"></div>
-        <div class="fountainG fountainG_3"></div>
-        <div class="fountainG fountainG_4"></div>
-        <div class="fountainG fountainG_5"></div>
-    </div>
+    <div class="ololo"></div>
     {.repeated section items}
         {.if customContent.featured}
             {@|apply featured-video.block}
