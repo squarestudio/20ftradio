@@ -181,8 +181,6 @@ window.Template.Controllers.WallController = function (element) {
                 }, 100);
                 var imgLoad = imagesLoaded(document.getElementById("wallGrid"));
                 imgLoad.on( 'progress', function( instance, image ) {
-                    var result = image.isLoaded ? 'loaded' : 'broken';
-                    console.log( 'image is ' + result + ' for ' + image.img.src );
                     simulateResize();
                 });
             };
