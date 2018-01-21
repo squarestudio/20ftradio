@@ -95,8 +95,8 @@
             this.walls.forEach(function (wall) {
                 // initialize masonry
                 k = new Y.Squarespace.Gallery2({
-                    container: wall,
-                    slides: ".wall-item",
+                    container: Y.one(wall),
+                    slides: "li",
                     autoplay: !1,
                     lazyLoad: !0,
                     loaderOptions: { mode:  "none" },
