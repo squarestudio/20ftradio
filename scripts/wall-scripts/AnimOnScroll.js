@@ -94,8 +94,9 @@
             var self = this;
             this.walls.forEach(function (wall) {
                 // initialize masonry
+                var Ywall = Y.one(wall);
                 k = new Y.Squarespace.Gallery2({
-                    container: Y.one(wall),
+                    container: Ywall,
                     slides: "li",
                     autoplay: !1,
                     lazyLoad: !0,
@@ -105,7 +106,7 @@
                         lightbox: !1,
                         clickBehavior: "auto",
                         gutter: 10,
-                        //columnWidth: 300,
+                        columnWidth: Ywall.one('li').get('outerWidth'),
                         aspectRatio: 0
                     },
                     historyHash: !1
