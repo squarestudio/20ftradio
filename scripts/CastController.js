@@ -337,6 +337,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
             }
         });
+        youtubeUrl = false;
         youtubeReady = true;
         youtubeStatusLoad = true;
         retry = maxRetry - 1;
