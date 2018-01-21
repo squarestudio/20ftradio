@@ -430,6 +430,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function checkStreams() {
+        var state
         var now = new Date().getTime();
         retry++;
         DEBUG && console.log('Retries: ' + retry, now - lastCheckTime);
@@ -507,106 +508,36 @@ window.Template.Controllers.CastController = function (element) {
             lastCheckTime = new Date().getTime();
             DEBUG && console.log('ACTIVE PLAYER ==== ' + activePlayer);
         };
-        if (!userPaused && activePlayer !== 'facebook') {
-            DEBUG && console.log('CHECK Before Youtube');
-            if (youtubeStatusLoad) {
-                if (youtubePlayer && youtubeReady) {
-                    var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                    DEBUG && console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
-                    if (state > 1 && !mobile) youtubePlayer.playVideo();
-                    if (state == 3 && youtubeRetry <= maxRetry && youtubeStatus) {
-                        youtubeRetry++;
-                        if (youtubeRetry > maxRetry) {
-                            retry = maxRetry + 1;
-                            youtubeStatus = false;
-                            youtubeRetry = 0;
-                        }
+        if (!userPaused) {
+            if (shoutcastPlayer) {
+                state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
+                DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
+                if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
+                    !mobile && shoutcastPlayer.play();
+                    activePlayer = 'shoutcast';
+                    pausePlayersExept('shoutcast');
+                    onPlayerStateChange('shoutcast');
+                    status();
+                    retry = maxRetry - 1;
+                    return;
+                } else {
+                    if (retry > maxRetry + 3 && retry < maxRetry + 5) {
+                        DEBUG && console.log('try to load shoutcast');
+                        shoutcastPlayer.load();
                     } else {
-                        youtubeRetry = 0;
+                        DEBUG && console.log('wait to load shoutcast');
+                        retry++;
                     }
-                    if (state == 1) {//5
-                        youtubeStatus = true;
-                        activePlayer = 'youtube';
-                        pausePlayersExept('youtube');
-                        onPlayerStateChange('youtube', state);
-                        status();
-                        retry = 1;
-                        return;
-                    }
-                }
-                DEBUG && console.log('CHECK After Youtube');
-                if (!youtubeStatus && retry > maxRetry) {//retry > maxRetry || notYoutube
-                    DEBUG && console.log('try another players', notShoutcast, notSoundCloud);
-                    if (shoutcastPlayer) {
-                        state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                        DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
-                        if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
-                            !mobile && shoutcastPlayer.play();
-                            activePlayer = 'shoutcast';
-                            pausePlayersExept('shoutcast');
-                            onPlayerStateChange('shoutcast');
-                            status();
-                            retry = maxRetry - 1;
-                            return;
-                        } else {
-                            if (retry > maxRetry + 3 && retry < maxRetry + 5) {
-                                DEBUG && console.log('try to load shoutcast');
-                                shoutcastPlayer.load();
-                            } else {
-                                DEBUG && console.log('wait to load shoutcast');
-                                retry++;
-                            }
-                        }
-                    }
-                    else {
-                        if (shoutCastUrl) {
-                            initShoutCast();
-                            status();
-                        } else {
-                            notShoutcast = true;
-                            retry = maxRetry + 6;
-                        }
-                    }
-                    DEBUG && console.log('CHECK Before Soundcloud');
-                    if (retry > maxRetry + 6 || notShoutcast) {
-                        if (soundCloudPlayer && !notSoundCloud) {
-                            activePlayer = 'soundcloud';
-                            soundCloudPlayer.isPaused(function (paused) {
-                                if (paused) {
-                                    !mobile && soundCloudPlayer.play();
-                                    activePlayer = 'soundcloud';
-                                    onPlayerStateChange('soundcloud');
-                                    pausePlayersExept('soundcloud');
-                                } else {
-                                    //retry = maxRetry + 6;
-                                }
-                                status();
-                            });
-                        } else if (mixCloudPlayer && !notMixCloud) {
-                            activePlayer = 'mixcloud';
-                            mixCloudPlayer && mixCloudPlayer.getIsPaused().then(function (paused) {
-                                if (paused) {
-                                    !mobile && mixCloudPlayer.play();
-                                    activePlayer = 'mixcloud';
-                                    onPlayerStateChange('mixcloud');
-                                    pausePlayersExept('mixcloud');
-                                } else {
-                                    //retry = maxRetry + 6;
-                                }
-                                status()
-                            });
-                        } else {
-                            if (someCloudUrl && youtubeReady) {
-                                initSomeCloud();
-                            }
-                            status();
-                        }
-                    }
-                    DEBUG && console.log('CHECK After Soundcloud');
                 }
             }
             else {
-                DEBUG && console.log('Still have no youtubee status load')
+                if (shoutCastUrl) {
+                    initShoutCast();
+                    status();
+                } else {
+                    notShoutcast = true;
+                    retry = maxRetry + 6;
+                }
             }
         }
     }
