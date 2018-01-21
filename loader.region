@@ -47,6 +47,7 @@
             Controllers: {}
         }
     </script>
+    <style type="text/css">@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/03ff77/00000000000000003b9b0934/27/l?subset_id=2&fvd=n4&v=3) format("woff2"),url(https://use.typekit.net/af/03ff77/00000000000000003b9b0934/27/d?subset_id=2&fvd=n4&v=3) format("woff"),url(https://use.typekit.net/af/03ff77/00000000000000003b9b0934/27/a?subset_id=2&fvd=n4&v=3) format("opentype");font-weight:400;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/75f50f/00000000000000003b9b093b/27/l?subset_id=2&fvd=n7&v=3) format("woff2"),url(https://use.typekit.net/af/75f50f/00000000000000003b9b093b/27/d?subset_id=2&fvd=n7&v=3) format("woff"),url(https://use.typekit.net/af/75f50f/00000000000000003b9b093b/27/a?subset_id=2&fvd=n7&v=3) format("opentype");font-weight:700;font-style:normal;}@font-face{font-family:proxima-nova;src:url(https://use.typekit.net/af/1b4419/00000000000000003b9b093f/27/l?subset_id=2&fvd=n9&v=3) format("woff2"),url(https://use.typekit.net/af/1b4419/00000000000000003b9b093f/27/d?subset_id=2&fvd=n9&v=3) format("woff"),url(https://use.typekit.net/af/1b4419/00000000000000003b9b093f/27/a?subset_id=2&fvd=n9&v=3) format("opentype");font-weight:900;font-style:normal;}</style>
     {.end}
 </head>
 
