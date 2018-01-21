@@ -105,7 +105,7 @@
                         lightbox: !1,
                         clickBehavior: "auto",
                         gutter: 10,
-                        columnWidth: 300,
+                        //columnWidth: 300,
                         aspectRatio: 0
                     },
                     historyHash: !1
