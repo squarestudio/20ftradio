@@ -106,7 +106,7 @@
                         lightbox: !1,
                         clickBehavior: "auto",
                         gutter: 10,
-                        columnWidth: Ywall.one('li').get('outerWidth'),
+                        columnWidth: Ywall.one('li').get('offsetWidth')||300,
                         aspectRatio: 0
                     },
                     historyHash: !1
