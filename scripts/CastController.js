@@ -337,6 +337,9 @@ window.Template.Controllers.CastController = function (element) {
                 }
             }
         });
+        youtubeReady = true;
+        youtubeStatusLoad = true;
+        retry = maxRetry - 1;
         initShoutCast();
         getShoutcastStatus();
         if (castContainer.one('.stream-gallery')) {
