@@ -707,11 +707,11 @@ window.Template.Controllers.CastController = function (element) {
         if (shoutCastUrl) {
             DEBUG && console.log('shoutcast starting');
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
+            var YshoutcastPlayer;
             if (!shoutcastPlayer) {
-                shoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" title="20FT Radio" class="stream-player" autoplay poster="https://www.20ftradio.net/assets/icon.png" preload playsinline -webkit-playsinline name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
+                YshoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" title="20FT Radio" class="stream-player" autoplay poster="https://www.20ftradio.net/assets/icon.png" preload playsinline -webkit-playsinline name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
             }
-            castContainer.append(shoutcastPlayer);
-            shoutcastPlayer = shoutcastPlayer._node;
+            shoutcastPlayer = YshoutcastPlayer._node;
             shoutcastPlayer.addEventListener('loadstart', function () {
                 onPlayerReady('shoutcast');
             });
@@ -727,6 +727,7 @@ window.Template.Controllers.CastController = function (element) {
             shoutcastPlayer.addEventListener('suspend', onShoutCastError);
             shoutcastPlayer.addEventListener('emptied', onShoutCastError);
             players['shoutcast'] = shoutcastPlayer;
+            castContainer.append(YshoutcastPlayer);
         } else {
             DEBUG && console.log('no shoutcast url to start');
             notShoutcast = true;
