@@ -94,10 +94,26 @@
             var self = this;
             this.walls.forEach(function (wall) {
                 // initialize masonry
-                new Masonry(wall, {
+                k = new Y.Squarespace.Gallery2({
+                    container: wall,
+                    slides: ".wall-item",
+                    autoplay: !1,
+                    lazyLoad: !0,
+                    loaderOptions: { mode:  "none" },
+                    design: "autocolumns",
+                    designOptions: {
+                        lightbox: !1,
+                        clickBehavior: "auto",
+                        gutter: 10,
+                        columnWidth: 300,
+                        aspectRatio: 0
+                    },
+                    historyHash: !1
+                });
+/*                new Masonry(wall, {
                     itemSelector: 'li',
                     transitionDuration: 300
-                });
+                });*/
             });
 
             if (Modernizr.cssanimations) {
