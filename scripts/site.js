@@ -586,7 +586,9 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
             return false;
         }
     }
-
+    Y.use('squarespace-ui-base', function (Y) {
+        Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1").plug(Y.Squarespace.TextShrink);
+    });
     Y.config.win.Squarespace.onInitialize(Y, function () {
         var body = Y.one('body');
         Y.use('node', function () {
@@ -630,10 +632,3 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
         }
     })
 }());
-
-$(function(){
-
-    $(window).on('load', function () {
-        $('#collection-582da30ebebafb4e0ab73dfc').find('.grid-container #fountainG').fadeOut();
-    });
-});
