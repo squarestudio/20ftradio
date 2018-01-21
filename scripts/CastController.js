@@ -642,6 +642,7 @@ window.Template.Controllers.CastController = function (element) {
             if (!shoutcastPlayer) {
                 YshoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" title="20FT Radio" class="stream-player"  poster="https://www.20ftradio.net/assets/icon.png" preload playsinline -webkit-playsinline name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
             }
+            shoutcastStatus = true;
             shoutcastPlayer = YshoutcastPlayer._node;
             shoutcastPlayer.addEventListener('loadstart', function () {
                 onPlayerReady('shoutcast');
