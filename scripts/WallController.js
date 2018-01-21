@@ -8,7 +8,21 @@ window.Template.Controllers.WallController = function (element) {
         evt.initEvent('resize', true, false);
         window.dispatchEvent(evt);
     }
-
+    function debounce(wait, func, immediate) {
+        var timeout;
+        return function() {
+            var context = this,
+                args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
     function loadImages() {
         var images = document.querySelectorAll('#wallGrid img[data-src]:not(.swiper-lazy)');
         for (var i = 0; i < images.length; i++) {
