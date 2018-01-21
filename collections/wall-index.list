@@ -1,9 +1,5 @@
 <div class="grid-container">
-    {.repeated section items}
-        {.if customContent.featured}
-            {@|apply featured-video.block}
-        {.end}
-    {.end}
+    {.repeated section items}{.if customContent.featured}{@|apply featured-video.block}{.end}{.end}
     <div id="wallGrid">
         <ul class="wallGrid">
             {.repeated section items}
