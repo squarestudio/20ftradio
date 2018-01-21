@@ -53,13 +53,8 @@ window.Template.Controllers.CastController = function (element) {
             mobile = Y.UA.mobile;
             Site && Site._setupPositioning();
             refreshImages();
-            setTimeout(function () {
-                Y.one('#castDiv').addClass('slide-into-view');
-                Site && Site._setupPositioning();
-            }, 300);
-            setTimeout(function () {
-                initCast();
-            }, 800);
+            Site && Site._setupPositioning();
+            initCast();
             Y.one(window).on('resize', refreshImages);
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
