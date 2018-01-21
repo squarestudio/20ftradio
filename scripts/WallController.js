@@ -179,9 +179,9 @@ window.Template.Controllers.WallController = function (element) {
                 setTimeout(function () {
                     simulateResize();
                 }, 100);
-/*                imagesLoaded(document.getElementById("wallGrid"), function () {
+                imagesLoaded(document.getElementById("wallGrid"), function () {
                     loadImages();
-                });*/
+                });
             };
             if (Y.one('.wall-item-link')) {
                 Y.use(['node', 'squarespace-json-template'], function (Y) {
