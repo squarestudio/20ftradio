@@ -167,19 +167,20 @@ window.Template.Controllers.WallController = function (element) {
             window.Template.Util.initShareButtons();
             if (animOnScroll) animOnScroll = null;
             var imagesReady = function () {
+                console.log('activated wall');
+                initGalleries();
+                initVideos();
+                initTexts();
+                animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
+                    minDuration: 1,
+                    maxDuration: 2,
+                    viewportFactor: 0.2
+                });
+                setTimeout(function () {
+                    simulateResize();
+                }, 100);
                 imagesLoaded(document.getElementById("wallGrid"), function () {
-                    console.log('activated wall');
-                    initGalleries();
-                    initVideos();
-                    initTexts();
-                    animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
-                        minDuration: 1,
-                        maxDuration: 2,
-                        viewportFactor: 0.2
-                    });
-                    setTimeout(function () {
-                        simulateResize();
-                    }, 100);
+
                 });
             };
             if (Y.one('.wall-item-link')) {
