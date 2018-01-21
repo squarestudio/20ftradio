@@ -183,9 +183,9 @@ window.Template.Controllers.WallController = function (element) {
                 var imgLoad = imagesLoaded(document.getElementById("wallGrid"));
                 imgLoad.on( 'progress', function( instance, image ) {
                     wallGrids.each(function (grid) {
-                        console.log(grid.masonry);
-                      if(grid.masonry){
-                          grid.masonry.layout();
+                      if(grid._node.masonry){
+                          console.log(grid._node.masonry);
+                          grid._node.masonry.layout();
                       }
                     })
                 });
