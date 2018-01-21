@@ -4,9 +4,9 @@ window.Template.Controllers.WallController = function (element) {
     var wallGrid = Y.one('#wallGrid');
 
     function simulateResize() {
-        window.top.innerWidth = window.top.innerWidth - 1;
-        Y.one(window.top).simulate('resize');
-        window.top.innerWidth = window.top.innerWidth + 1;
+        var evt = document.createEvent("HTMLEvents");
+        evt.initEvent('resize', true, false);
+        window.dispatchEvent(evt);
     }
 
     function loadImages() {
