@@ -180,7 +180,7 @@ window.Template.Controllers.WallController = function (element) {
                     simulateResize();
                 }, 100);
                 imagesLoaded(document.getElementById("wallGrid"), function () {
-
+                    loadImages();
                 });
             };
             if (Y.one('.wall-item-link')) {
