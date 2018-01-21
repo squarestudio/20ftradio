@@ -340,8 +340,8 @@ window.Template.Controllers.CastController = function (element) {
         youtubeReady = true;
         youtubeStatusLoad = true;
         retry = maxRetry - 1;
-        initShoutCast();
         getShoutcastStatus();
+        initShoutCast();
         if (castContainer.one('.stream-gallery')) {
             streamSwiper = new Swiper('.stream-gallery .swiper-container', {
                 loop: true,
