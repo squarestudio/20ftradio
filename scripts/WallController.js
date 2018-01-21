@@ -184,7 +184,6 @@ window.Template.Controllers.WallController = function (element) {
                 imgLoad.on( 'progress', function( instance, image ) {
                     wallGrids.each(function (grid) {
                       if(grid._node.masonry){
-                          console.log(grid._node.masonry);
                           grid._node.masonry.layout();
                       }
                     })
