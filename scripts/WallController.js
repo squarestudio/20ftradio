@@ -171,12 +171,12 @@ window.Template.Controllers.WallController = function (element) {
                 initGalleries();
                 initVideos();
                 initTexts();
-                animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
-                    minDuration: 1,
-                    maxDuration: 2,
-                    viewportFactor: 0.2
-                });
                 setTimeout(function () {
+                    animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
+                        minDuration: 1,
+                        maxDuration: 2,
+                        viewportFactor: 0.2
+                    });
                     simulateResize();
                 }, 100);
                 imagesLoaded(document.getElementById("wallGrid"), function () {
