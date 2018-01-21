@@ -141,7 +141,7 @@
             <div class="fountainG fountainG_5"></div>
         </div>
         <div id="container-content" data-content-field="main-content" role="main">
-            {.section collection}{.equal? typeName "products"}{.section categories}
+<!--            {.section collection}{.equal? typeName "products"}{.section categories}
             <div id="categoryNav">
                 <input type="checkbox" name="category-nav-toggle" id="categoryNavToggle"
                        class="category-nav-toggle hidden"/>
@@ -159,8 +159,8 @@
                     </ul>
                 </nav>
             </div>
-            {.end}{.end}{.end}
-            <div class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.end}>
+            {.end}{.end}{.end}-->
+            <div class="controller"{.equal? collection.typeName "wall-index"} sqs-controller="Template.Controllers.WallController"{.end}>
                 {squarespace.main-content}
             </div>
         </div>
