@@ -95,7 +95,7 @@
             this.walls.forEach(function (wall) {
                 // initialize masonry
                 var Ywall = Y.one(wall);
-                k = new Y.Squarespace.Gallery2({
+/*                k = new Y.Squarespace.Gallery2({
                     container: Ywall,
                     slides: "li",
                     autoplay: !1,
@@ -110,11 +110,11 @@
                         aspectRatio: 0
                     },
                     historyHash: !1
-                });
-/*                new Masonry(wall, {
+                });*/
+                new Masonry(wall, {
                     itemSelector: 'li',
                     transitionDuration: 300
-                });*/
+                });
             });
 
             if (Modernizr.cssanimations) {
