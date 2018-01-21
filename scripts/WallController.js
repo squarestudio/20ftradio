@@ -167,7 +167,6 @@ window.Template.Controllers.WallController = function (element) {
             window.Template.Util.initShareButtons();
             if (animOnScroll) animOnScroll = null;
             var imagesReady = function () {
-                loadImages();
                 console.log('activated wall');
                 initGalleries();
                 initVideos();
@@ -228,8 +227,8 @@ window.Template.Controllers.WallController = function (element) {
                 })
             } else {
                 wallGrid.addClass('no-upcoming');
-                imagesReady();
                 loadImages();
+                imagesReady();
             }
         }
     }
