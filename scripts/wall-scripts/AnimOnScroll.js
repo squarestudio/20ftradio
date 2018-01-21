@@ -94,7 +94,7 @@
             var self = this;
             this.walls.forEach(function (wall) {
                 // initialize masonry
-                new Masonry(wall, {
+               wall.masonry = new Masonry(wall, {
                     itemSelector: 'li',
                     transitionDuration: 300
                 });
