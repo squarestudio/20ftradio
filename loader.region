@@ -203,11 +203,6 @@
     </footer>
     {.end}
 </div>
-<script>
-    Y.use('squarespace-ui-base', function (Y) {
-        Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1").plug(Y.Squarespace.TextShrink);
-    });
-</script>
 {.if authenticatedAccount}
 <squarespace:script src="admin.js" combo="false"/>
 <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
