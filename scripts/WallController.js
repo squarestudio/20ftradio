@@ -185,6 +185,7 @@ window.Template.Controllers.WallController = function (element) {
                     wallGrids.each(function (grid) {
                       if(grid.masonry){
                           console.log(grid.masonry);
+                          grid.masonry.layout();
                       }
                     })
                 });
