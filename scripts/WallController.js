@@ -162,6 +162,7 @@ window.Template.Controllers.WallController = function (element) {
     function initialize() {
         console.log('Wall init');
         wallGrid = Y.one('#wallGrid');
+        var wallGrids = wallGrid.all('.wallGrid');
         if (wallGrid) {
             var mobileWall = wallGrid.one('.mobile-only');
             window.Template.Util.initShareButtons();
@@ -181,7 +182,11 @@ window.Template.Controllers.WallController = function (element) {
                 }, 100);
                 var imgLoad = imagesLoaded(document.getElementById("wallGrid"));
                 imgLoad.on( 'progress', function( instance, image ) {
-                    simulateResize();
+                    wallGrids.each(function (grid) {
+                      if(grid.masonry){
+                          console.log(grid.masonry);
+                      }
+                    })
                 });
             };
             if (Y.one('.wall-item-link')) {
