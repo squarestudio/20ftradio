@@ -430,7 +430,7 @@ window.Template.Controllers.CastController = function (element) {
     }
 
     function checkStreams() {
-        var state
+        var state;
         var now = new Date().getTime();
         retry++;
         DEBUG && console.log('Retries: ' + retry, now - lastCheckTime);
