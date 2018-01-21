@@ -195,13 +195,13 @@ window.Template.Controllers.WallController = function (element) {
                     simulateResize();
                 }, 100);
                 var imgLoad = imagesLoaded(document.getElementById("wallGrid"));
-                imgLoad.on( 'progress', function() {
+                var masonryRefresh = debounce(200,function() {
                     wallGrids.each(function (grid) {
-                      if(grid._node.masonry){
-                          grid._node.masonry.layout();
-                      }
-                    })
-                });
+                        if(grid._node.masonry){
+                            grid._node.masonry.layout();
+                        }
+                    })},!1);
+                imgLoad.on( 'progress',masonryRefresh);
             };
             if (Y.one('.wall-item-link')) {
                 Y.use(['node', 'squarespace-json-template'], function (Y) {
