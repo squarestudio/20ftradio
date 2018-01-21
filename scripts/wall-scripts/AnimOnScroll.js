@@ -100,7 +100,7 @@
                     slides: "li",
                     autoplay: !1,
                     lazyLoad: !0,
-                    loaderOptions: { mode:  "fill" },
+                    loaderOptions: { mode:  "fit" },
                     design: "autocolumns",
                     designOptions: {
                         lightbox: !1,
