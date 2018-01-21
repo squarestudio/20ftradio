@@ -198,6 +198,7 @@ window.Template.Controllers.WallController = function (element) {
                 var masonryRefresh = debounce(200,function() {
                     wallGrids.each(function (grid) {
                         if(grid._node.masonry){
+                            console.log(grid._node.masonry)
                             grid._node.masonry.layout();
                         }
                     })},!1);
