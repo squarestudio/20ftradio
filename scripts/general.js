@@ -16,6 +16,6 @@ if (document.querySelector('.new-events-schedule')) {
                 }
             }
         });
-        
+
     }
 }
