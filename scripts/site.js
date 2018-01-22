@@ -587,8 +587,8 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
         }
     }
     Y.use('squarespace-ui-base', function (Y) {
-        Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1").plug(Y.Squarespace.TextShrink);
-        Y.one(".siteTitle h1").plug(Y.Squarespace.TextShrink, {
+        Y.one(".project-item .meta h1")&&Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1").plug(Y.Squarespace.TextShrink);
+        Y.one(".siteTitle h1")&&Y.one(".siteTitle h1").plug(Y.Squarespace.TextShrink, {
             triggerWidth: 640
         });
     });
