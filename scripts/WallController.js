@@ -203,7 +203,7 @@ window.Template.Controllers.WallController = function (element) {
                 imgLoad.on( 'progress', masonryRefresh);
                 setTimeout(function () {
                     simulateResize();
-                }, 100);
+                }, 300);
             };
             if (Y.one('.wall-item-link')) {
                 Y.use(['node', 'squarespace-json-template'], function (Y) {
