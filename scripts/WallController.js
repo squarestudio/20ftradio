@@ -186,23 +186,23 @@ window.Template.Controllers.WallController = function (element) {
                 initGalleries();
                 initVideos();
                 initTexts();
-                animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
-                    minDuration: 1,
-                    maxDuration: 2,
-                    viewportFactor: 0.2
-                });
-                setTimeout(function () {
-                    simulateResize();
-                }, 100);
-                var imgLoad = imagesLoaded(document.getElementById("wallGrid"));
                 var masonryRefresh = debounce(100,function() {
-                    console.log('layout')
                     wallGrids.each(function (grid) {
                         if(grid._node.masonry){
                             grid._node.masonry.layout();
                         }
                     })},!1);
+                animOnScroll = new AnimOnScroll(document.getElementById("wallGrid"), {
+                    minDuration: 1,
+                    maxDuration: 2,
+                    viewportFactor: 0.2
+                });
+                masonryRefresh();
+                var imgLoad = imagesLoaded(document.getElementById("wallGrid"));
                 imgLoad.on( 'progress', masonryRefresh);
+                setTimeout(function () {
+                    simulateResize();
+                }, 100);
             };
             if (Y.one('.wall-item-link')) {
                 Y.use(['node', 'squarespace-json-template'], function (Y) {
