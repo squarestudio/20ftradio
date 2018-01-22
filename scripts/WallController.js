@@ -195,7 +195,7 @@ window.Template.Controllers.WallController = function (element) {
                     simulateResize();
                 }, 100);
                 var imgLoad = imagesLoaded(document.getElementById("wallGrid"));
-                var masonryRefresh = debounce(200,function() {
+                var masonryRefresh = debounce(100,function() {
                     wallGrids.each(function (grid) {
                         if(grid._node.masonry){
                             grid._node.masonry.layout();
