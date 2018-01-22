@@ -187,6 +187,7 @@ window.Template.Controllers.WallController = function (element) {
                 initVideos();
                 initTexts();
                 var masonryRefresh = debounce(100,function() {
+                    console.log('layout')
                     wallGrids.each(function (grid) {
                         if(grid._node.masonry){
                             grid._node.masonry.layout();
