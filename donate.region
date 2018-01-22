@@ -44,15 +44,7 @@
                     <span id="site-title">{siteTitle}</span>
                 </a>
             </h1>
-            <script>
-                Y.use('squarespace-ui-base', function (Y) {
-                    Y.one(".siteTitle h1").plug(Y.Squarespace.TextShrink, {
-                        triggerWidth: 640
-                    });
-                });
-            </script>
             {.end}
-
             {.section siteTagLine}
             <h2 class="logo-subtitle">{@}</h2>
             {.end}
@@ -180,11 +172,7 @@
 </div>
 
 <script src="https://static.liqpay.ua/libjs/checkout.js" async></script>
-<script>
-    Y.use('squarespace-ui-base', function (Y) {
-        Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1").plug(Y.Squarespace.TextShrink);
-    });
-</script>
+
 {.if authenticatedAccount}
 <squarespace:script src="admin.js" combo="false"/>
 {.or}
