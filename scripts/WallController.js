@@ -202,7 +202,7 @@ window.Template.Controllers.WallController = function (element) {
                 var imgLoad = imagesLoaded(document.getElementById("wallGrid"));
                 imgLoad.on( 'progress', masonryRefresh);
                 setTimeout(function () {
-                    simulateResize();
+                    masonryRefresh();
                 }, 300);
             };
             if (Y.one('.wall-item-link')) {
