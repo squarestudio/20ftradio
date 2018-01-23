@@ -1029,6 +1029,19 @@ html {
       color: #fff;
     }
   }
+  &.full-mode-active {
+    overflow-y: visible !important;
+    #castDiv {
+      transform: translateY(-12%) scale(0.8);
+      -webkit-transform: translateY(-12%) scale(0.8);
+    }
+    #container {
+      opacity: 1;
+      pointer-events: all;
+      //transform: translateY(-12%);
+      .transition(all 0.3s 0.3s ease-in);
+    }
+  }
 }
 
 .cordova-app {
@@ -1038,19 +1051,6 @@ html {
   }
   &.cordova-new-app {
     overflow: hidden !important;
-    &.full-mode-active {
-      overflow-y: visible !important;
-      #castDiv {
-        transform: translateY(-12%) scale(0.8);
-        -webkit-transform: translateY(-12%) scale(0.8);
-      }
-      #container {
-        opacity: 1;
-        pointer-events: all;
-        //transform: translateY(-12%);
-        .transition(all 0.3s 0.3s ease-in);
-      }
-    }
     #castDiv {
       height: 70vh;
       padding: 0 !important;
