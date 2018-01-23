@@ -2,7 +2,7 @@
     <head>
         {squarespace-headers}
     </head>
-    <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
+    <body class="cordova-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
     <div id="navigator">
         {.section website}
         <header id="topBar" class="sqs-announcement-bar-dropzone">
@@ -132,7 +132,9 @@
     {.section website}
     <footer id="bottomBar">
         <div class="footer-h-content">
-
+            <a href="#" class="menu-button"></a>
+            <a href="#" class="mode-button"></a>
+            <a href="#" class="follow-button"></a>
             <!--<squarespace:block-field id="mobileFooterBlock" class="footer-block" columns="12" label="Mobile Footer Content"/>-->
         </div>
     </footer>
