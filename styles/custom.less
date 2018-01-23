@@ -1042,6 +1042,7 @@ html {
       #castDiv {
         transform: translateY(-10%) scale(0.8);
         -webkit-transform: translateY(-10%) scale(0.8);
+        .transition(opacity 0.3s 0.4s ease-in);
       }
       #container {
         opacity: 1;
@@ -1060,6 +1061,7 @@ html {
       margin-top: -40%;
       opacity: 0;
       pointer-events: none;
+      .transition(opacity 0.3s 0s ease-in);
     }
     .site-player .track-name.scroll-track.scrolling span {
       text-shadow: 2px 4px 2px #000;
@@ -1155,7 +1157,7 @@ html {
       }
     }
   }
-  header, footer {
+  header, #container, footer {
     .transition(opacity 0.3s 0.4s ease-in);
   }
   .eventlist-actions .squarespace-social-buttons {
