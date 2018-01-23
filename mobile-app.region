@@ -131,8 +131,9 @@
     </section>
     {.section website}
     <footer id="bottomBar">
-        <div class="footer-h-content"></div>
-        <squarespace:block-field id="footerBlock" class="footer-block" columns="12" label="Footer Content"/>
+        <div class="footer-h-content">
+            <squarespace:block-field id="mobileFooterBlock" class="footer-block" columns="12" label="Mobile Footer Content"/>
+        </div>
     </footer>
     {.end}
     </div>
