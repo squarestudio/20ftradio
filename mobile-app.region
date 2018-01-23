@@ -138,11 +138,6 @@
     {.end}
     </div>
     <div id="bottomContainer">
-        <div class="new-footer-content">
-            <a href="#" class="menu-button footer-button">Menu</a>
-            <a href="#" class="mode-button footer-button">Mode</a>
-            <a href="#" class="follow-button footer-button">Follow</a>
-        </div>
         <script>
             Y.use('squarespace-ui-base', function (Y) {
                 Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1").plug(Y.Squarespace.TextShrink);
