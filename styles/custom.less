@@ -1038,11 +1038,14 @@ html {
   &.cordova-new-app {
     overflow: hidden !important;
     &.full-mode-active {
+      #castDiv {
+        transform: scale(0.8);
+      }
     }
     #castDiv {
       height: 58vh;
       padding: 0!important;
-      
+      transform-origin: top center;
       .mobile-image {
         background-size: 84%;
       }
