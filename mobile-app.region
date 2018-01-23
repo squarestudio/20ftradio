@@ -131,7 +131,7 @@
     </section>
     {.section website}
     <footer id="bottomBar">
-        <div class="new-footer-content">
+        <div class="new-footer-content" style="display: none">
             <a href="#" class="menu-button">Menu</a>
             <a href="#" class="mode-button">Mode</a>
             <a href="#" class="follow-button">Follow</a>
