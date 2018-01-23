@@ -132,7 +132,8 @@
     {.section website}
     <footer id="bottomBar">
         <div class="footer-h-content">
-            <squarespace:block-field id="mobileFooterBlock" class="footer-block" columns="12" label="Mobile Footer Content"/>
+
+            <!--<squarespace:block-field id="mobileFooterBlock" class="footer-block" columns="12" label="Mobile Footer Content"/>-->
         </div>
     </footer>
     {.end}
