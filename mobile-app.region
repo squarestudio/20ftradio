@@ -132,9 +132,9 @@
     {.section website}
     <footer id="bottomBar">
         <div class="new-footer-content">
-            <a href="#" class="menu-button">Menu</a>
-            <a href="#" class="mode-button">Mode</a>
-            <a href="#" class="follow-button">Follow</a>
+            <a href="#" class="menu-button footer-button">Menu</a>
+            <a href="#" class="mode-button footer-button">Mode</a>
+            <a href="#" class="follow-button footer-button">Follow</a>
         </div>
         <div class="footer-h-content">
             <!--<squarespace:block-field id="mobileFooterBlock" class="footer-block" columns="12" label="Mobile Footer Content"/>-->
