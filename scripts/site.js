@@ -654,21 +654,7 @@ function donateWithLiqPay(val, name, surname, email) {
             }
         }
         if(Y.one('#liqpay_checkout')){
-            var initLiqPayForm = function () {
-                var name = localStorage.getItem('payerName');
-                var surname = localStorage.getItem('payerSurname');
-                var val = parseInt(localStorage.getItem('paymentSumm'));
-                var email = localStorage.getItem('payerEmail');
-            }
             if(!Y.one('#liqpayAPI')){
-                formSubmitEvent =  Y.Global.on('form:submitSuccess', function(e){
-                    var form = Y.one('#container form');
-                    var name = form.one('.first-name input').get('value');
-                    var surname = form.one('.last-name input').get('value');
-                    var val = parseInt(form.one('.field input[placeholder*="UAH"]').get('value'));
-                    var email = form.one('.email input').get('value');
-                    console.log(name,surname,email,val)
-                });
                 window.Y.Get.js('https://static.liqpay.ua/libjs/checkout.js', function (err, tx) {
                     if (err) {
                         Y.log('Error loading Lazy Summaries JS: ' + err[0].error, 'error');
@@ -677,9 +663,15 @@ function donateWithLiqPay(val, name, surname, email) {
                     tx && tx.nodes[0].setAttribute('id', 'liqpayAPI');
 
                 });
-            } else {
-
             }
+            formSubmitEvent =  Y.Global.on('form:submitSuccess', function(e){
+                var form = Y.one('#container form');
+                var name = form.one('.first-name input').get('value');
+                var surname = form.one('.last-name input').get('value');
+                var val = parseInt(form.one('.field input[placeholder*="UAH"]').get('value'));
+                var email = form.one('.email input').get('value');
+                console.log(name,surname,email,val)
+            });
         }
     })
     Y.config.win.Squarespace.onDestroy(Y, function () {
