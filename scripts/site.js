@@ -653,6 +653,12 @@ function donateWithLiqPay(val, name, surname, email) {
             }
         }
         if(Y.one('#liqpay_checkout')){
+            var initLiqPayForm = function () {
+                var name = localStorage.getItem('payerName');
+                var surname = localStorage.getItem('payerSurname');
+                var val = parseInt(localStorage.getItem('paymentSumm'));
+                var email = localStorage.getItem('payerEmail');
+            }
             if(!Y.one('#liqpayAPI')){
                 window.Y.Get.js('https://static.liqpay.ua/libjs/checkout.js', function (err, tx) {
                     if (err) {
@@ -660,15 +666,11 @@ function donateWithLiqPay(val, name, surname, email) {
                         return;
                     }
                     tx && tx.nodes[0].setAttribute('id', 'liqpayAPI');
+
                 });
             } else {
 
             }
-            var name = localStorage.getItem('payerName');
-            var surname = localStorage.getItem('payerSurname');
-            var val = parseInt(localStorage.getItem('paymentSumm'));
-            var email = localStorage.getItem('payerEmail');
-
         }
     })
 }());
