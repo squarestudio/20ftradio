@@ -673,7 +673,7 @@ function donateWithLiqPay(val, name, surname, email) {
                 donateWithLiqPay(val,name,surname,email);
             });
         }
-    })
+    });
     Y.config.win.Squarespace.onDestroy(Y, function () {
         formSubmitEvent&&formSubmitEvent.detach();
     })
