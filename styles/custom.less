@@ -1117,15 +1117,17 @@ html {
         padding: 0;
         margin: 0;
       }
+      .date-container {
+        .eventlist-column-date .eventlist-datetag {
+          min-height: 0;
+        }
+      }
       .event-item {
         display: flex;
         align-content: space-between;
         align-self: flex-start;
         .eventlist-datetag-inner {
           display: block;
-        }
-        .eventlist-column-date .eventlist-datetag {
-          min-height: 0;
         }
         .event-details-wrapper {
           width: 70%;
