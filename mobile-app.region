@@ -92,38 +92,6 @@
                             </div>
                         </div>
                     </div>
-                    <script id="mobile-events-query-template" type="text/x-json-template">
-                                    ^.if upcoming}
-                                    ^.repeated section upcoming}
-                                    <li id="^id}" class="event-item event-item-^id} eventlist-event--upcoming clear" data-start-date="^startDate}" data-end-date="^endDate}">
-                                        <div class="event-main clear">
-                                            <div class="eventlist-column-date">
-                                                <div class="eventlist-datetag">
-                                                    <div class="eventlist-datetag-inner">
-                                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate--month" datetime="^startDate}" date-format="MMM">^startDate|date %b}</div>
-                                                        <div class="eventlist-datetag-startdate eventlist-datetag-startdate--day" datetime="^startDate}" date-format="D">^startDate|date %d}</div>
-                                                        <div class="eventlist-datetag-time">
-                                                            <span class="event-time-12hr" datetime="^startDate}" date-format="LT">^startDate|date %I:%M %p}</span>
-                                                            <span class="event-time-24hr" datetime="^startDate}" date-format="LT">^startDate|date %H:%M}</span>
-                                                        </div>
-                                                        <div class="eventlist-datetag-status"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            ^.if title}<h4 class="event-title">^title}</h4>^.end}
-                                            <a href="#" data-id="^id}" data-url="^fullUrl}" data-tags="^tags}" data-start-date="^startDate}" data-end-date="^endDate}" data-title="^title}" class="schedule-event"></a>
-                                        </div>
-                                        <div class="event-descr">
-                                            ^.if excerpt}
-                                            <div class="descr">^excerpt}</div>
-                                            ^.or}
-                                            <div class="descr">^body}</div>
-                                            ^.end}
-                                        </div>
-                                    </li>
-                                    ^.end}
-                                    ^.end}
-                    </script>
                     {.or}
                     {squarespace.main-content}
                     {.end}
