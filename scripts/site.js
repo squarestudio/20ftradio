@@ -666,7 +666,7 @@ function donateWithLiqPay(val, name, surname, email) {
                     var name = form.one('.first-name input').get('value');
                     var surname = form.one('.last-name input').get('value');
                     var val = parseInt(localStorage.getItem('paymentSumm'));
-                    var email = localStorage.getItem('payerEmail');
+                    var email = form.one('.email input').get('value');
                     console.log(form)
                 });
                 window.Y.Get.js('https://static.liqpay.ua/libjs/checkout.js', function (err, tx) {
