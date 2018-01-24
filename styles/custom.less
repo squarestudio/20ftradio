@@ -1068,6 +1068,13 @@ html {
   }
   &.cordova-new-app {
     overflow: hidden !important;
+    &.mobile-menu-active {
+      .new-footer-content {
+        #mobile-navigation {
+          .scale(1,1);
+        }
+      }
+    }
     #castDiv {
       height: 70vh;
       padding: 0 !important;
