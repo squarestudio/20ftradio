@@ -653,6 +653,7 @@ function donateWithLiqPay(val, name, surname, email) {
             }
         }
         if(Y.one('#liqpay_checkout')){
+            form:submitSuccess
             var initLiqPayForm = function () {
                 var name = localStorage.getItem('payerName');
                 var surname = localStorage.getItem('payerSurname');
