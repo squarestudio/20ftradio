@@ -1100,10 +1100,14 @@ html {
       .eventlist-datetag-time, .eventlist-datetag-enddate {
         border: none;
         position: relative;
+        text-align: center;
         &:before {
-          position: absolute;
+          content: ' ';
+          display: inline-block;
+          //position: absolute;
           height: 1px;
-          background-color: #;
+          background-color: #ddd;
+          width: 40%;
         }
       }
     }
