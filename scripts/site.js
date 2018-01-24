@@ -657,6 +657,8 @@ function donateWithLiqPay(val, name, surname, email) {
             }
         }
         if (Y.one('#liqpay_checkout')) {
+            var codeBlockLiq = Y.one('#liqpay_checkout').ancestor('#code-block');
+            codeBlockLiq.addClass('hidden');
             if (!Y.one('#liqpayAPI')) {
                 window.Y.Get.js('https://static.liqpay.ua/libjs/checkout.js', function (err, tx) {
                     if (err) {
@@ -672,6 +674,7 @@ function donateWithLiqPay(val, name, surname, email) {
                 var surname = form.one('.last-name input').get('value');
                 var val = parseInt(form.one('.field input[placeholder*="UAH"]').get('value'));
                 var email = form.one('.email input').get('value');
+                codeBlockLiq.removeClass('hidden');
                 donateWithLiqPay(val, name, surname, email);
             });
         }
