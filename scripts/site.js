@@ -634,6 +634,12 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
             }
         }
         if(Y.one('#liqpay_checkout')){
+            if(!Y.one('#liqpayAPI')){
+                
+            <script src="https://static.liqpay.ua/libjs/checkout.js"></script>
+            } else {
+
+            }
             var name = localStorage.getItem('payerName');
             var surname = localStorage.getItem('payerSurname');
             var val = parseInt(localStorage.getItem('paymentSumm'));
