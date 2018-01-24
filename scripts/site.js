@@ -526,6 +526,23 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
 
     });
 });
+var callbackArr = initLiqpayCall(val, name, surname, email);
+window.LiqPayCheckoutCallback = function () {
+    LiqPayCheckout.init({
+        data: callbackArr['data'],
+        signature: callbackArr['signature'],
+        embedTo: "#liqpay_checkout",
+        language: "ru",
+        mode: "embed" // embed || popup
+    }).on("liqpay.callback", function (data) {
+        console.log(data.status);
+        console.log(data);
+    }).on("liqpay.ready", function (data) {
+        // ready
+    }).on("liqpay.close", function (data) {
+        // close
+    });
+}();
 (function () {
     'use strict';
     window.aj = new AjaxLoader({
@@ -635,8 +652,13 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
         }
         if(Y.one('#liqpay_checkout')){
             if(!Y.one('#liqpayAPI')){
-                
-            <script src="https://static.liqpay.ua/libjs/checkout.js"></script>
+                window.Y.Get.js('https://static.liqpay.ua/libjs/checkout.js', function (err, tx) {
+                    if (err) {
+                        Y.log('Error loading Lazy Summaries JS: ' + err[0].error, 'error');
+                        return;
+                    }
+                    tx && tx.nodes[0].setAttribute('id', 'liqpayAPI');
+                });
             } else {
 
             }
@@ -644,27 +666,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
             var surname = localStorage.getItem('payerSurname');
             var val = parseInt(localStorage.getItem('paymentSumm'));
             var email = localStorage.getItem('payerEmail');
-            isInitialized = false;
-            if(!isInitialized) {
-                var callbackArr = initLiqpayCall(val, name, surname, email);
-                window.LiqPayCheckoutCallback = function () {
-                    LiqPayCheckout.init({
-                        data: callbackArr['data'],
-                        signature: callbackArr['signature'],
-                        embedTo: "#liqpay_checkout",
-                        language: "ru",
-                        mode: "embed" // embed || popup
-                    }).on("liqpay.callback", function (data) {
-                        console.log(data.status);
-                        console.log(data);
-                    }).on("liqpay.ready", function (data) {
-                        // ready
-                    }).on("liqpay.close", function (data) {
-                        // close
-                    });
-                }();
-                isInitialized = true;
-            }
+
         }
     })
 }());
