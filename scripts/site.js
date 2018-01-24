@@ -664,7 +664,6 @@ function donateWithLiqPay(val, name, surname, email) {
                         return;
                     }
                     tx && tx.nodes[0].setAttribute('id', 'liqpayAPI');
-
                 });
             }
             formSubmitEvent = Y.Global.on('form:submitSuccess', function (e) {
