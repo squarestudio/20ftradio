@@ -663,6 +663,10 @@ function donateWithLiqPay(val, name, surname, email) {
             if(!Y.one('#liqpayAPI')){
                 formSubmitEvent =  Y.Global.on('form:submitSuccess', function(e){
                     var form = Y.one('#container form');
+                    var name = form.one('.first-name input').get('value');
+                    var surname = form.one('.last-name input').get('value');
+                    var val = parseInt(localStorage.getItem('paymentSumm'));
+                    var email = localStorage.getItem('payerEmail');
                     console.log(form)
                 });
                 window.Y.Get.js('https://static.liqpay.ua/libjs/checkout.js', function (err, tx) {
