@@ -526,23 +526,25 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
 
     });
 });
-var callbackArr = initLiqpayCall(val, name, surname, email);
-window.LiqPayCheckoutCallback = function () {
-    LiqPayCheckout.init({
-        data: callbackArr['data'],
-        signature: callbackArr['signature'],
-        embedTo: "#liqpay_checkout",
-        language: "ru",
-        mode: "embed" // embed || popup
-    }).on("liqpay.callback", function (data) {
-        console.log(data.status);
-        console.log(data);
-    }).on("liqpay.ready", function (data) {
-        // ready
-    }).on("liqpay.close", function (data) {
-        // close
-    });
-}();
+function donateWithLiqPay(val, name, surname, email) {
+    var callbackArr = initLiqpayCall(val, name, surname, email);
+    window.LiqPayCheckoutCallback = function () {
+        LiqPayCheckout.init({
+            data: callbackArr['data'],
+            signature: callbackArr['signature'],
+            embedTo: "#liqpay_checkout",
+            language: "ru",
+            mode: "embed" // embed || popup
+        }).on("liqpay.callback", function (data) {
+            console.log(data.status);
+            console.log(data);
+        }).on("liqpay.ready", function (data) {
+            // ready
+        }).on("liqpay.close", function (data) {
+            // close
+        });
+    }();
+}
 (function () {
     'use strict';
     window.aj = new AjaxLoader({
