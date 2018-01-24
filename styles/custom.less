@@ -1189,9 +1189,13 @@ html {
     padding: 0 10px;
     box-sizing: border-box;
     height: 100%;
+    position: relative;
     #mobile-navigation {
       position: absolute;
-      top: 0;
+      width: 100%;
+      bottom: 100%;
+      box-sizing: border-box ;
+      left: 0;
       text-align: left;
       .transition(all .3s);
       .scale(0,0);
