@@ -171,8 +171,6 @@
     {.end}
 </div>
 
-<script src="https://static.liqpay.ua/libjs/checkout.js" async></script>
-
 {.if authenticatedAccount}
 <squarespace:script src="admin.js" combo="false"/>
 {.or}
