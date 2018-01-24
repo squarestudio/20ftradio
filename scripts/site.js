@@ -633,7 +633,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 new_schedule.all('.event-time-wrapper').setStyles({minWidth: min_width_time+'px'})
             }
         }
-        if(Y.one('#liqpay_checkout')&&initLiqpayCall){
+        if(Y.one('#liqpay_checkout')){
             var name = localStorage.getItem('payerName');
             var surname = localStorage.getItem('payerSurname');
             var val = parseInt(localStorage.getItem('paymentSumm'));
