@@ -526,6 +526,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
 
     });
 });
+
 function donateWithLiqPay(val, name, surname, email) {
     var callbackArr = initLiqpayCall(val, name, surname, email);
     window.LiqPayCheckoutCallback = function () {
@@ -545,6 +546,7 @@ function donateWithLiqPay(val, name, surname, email) {
         });
     }();
 }
+
 (function () {
     'use strict';
     window.aj = new AjaxLoader({
@@ -605,13 +607,14 @@ function donateWithLiqPay(val, name, surname, email) {
             return false;
         }
     }
+
     Y.use('squarespace-ui-base', function (Y) {
-        Y.one(".project-item .meta h1")&&Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1").plug(Y.Squarespace.TextShrink);
-        Y.one(".siteTitle h1")&&Y.one(".siteTitle h1").plug(Y.Squarespace.TextShrink, {
+        Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1") && Y.one(".project-item .meta h1").plug(Y.Squarespace.TextShrink);
+        Y.one(".siteTitle h1") && Y.one(".siteTitle h1").plug(Y.Squarespace.TextShrink, {
             triggerWidth: 640
         });
     });
-    var formSubmitEvent =  null;
+    var formSubmitEvent = null;
     Y.config.win.Squarespace.onInitialize(Y, function () {
         var body = Y.one('body');
         Y.use('node', function () {
@@ -624,7 +627,7 @@ function donateWithLiqPay(val, name, surname, email) {
                 }
                 var textContent = moment(value).format(format);
                 if (format === 'ddd' && isToday(value)) {
-                    textContent = navigator.language.split('-')[0] === 'ru'? 'Сегодня': navigator.language.split('-')[0] === 'ua'? 'Сьогоднi' : 'Today';
+                    textContent = navigator.language.split('-')[0] === 'ru' ? 'Сегодня' : navigator.language.split('-')[0] === 'ua' ? 'Сьогоднi' : 'Today';
                 }
                 time.set('textContent', textContent);
             })
@@ -646,15 +649,15 @@ function donateWithLiqPay(val, name, surname, email) {
                 });
                 var min_width_time = 0;
                 new_schedule.all('.event-time-wrapper').each(function (item) {
-                    if(item.width()>min_width_time){
+                    if (item.width() > min_width_time) {
                         min_width_time = item.width();
                     }
                 });
-                new_schedule.all('.event-time-wrapper').setStyles({minWidth: min_width_time+'px'})
+                new_schedule.all('.event-time-wrapper').setStyles({minWidth: min_width_time + 'px'})
             }
         }
-        if(Y.one('#liqpay_checkout')){
-            if(!Y.one('#liqpayAPI')){
+        if (Y.one('#liqpay_checkout')) {
+            if (!Y.one('#liqpayAPI')) {
                 window.Y.Get.js('https://static.liqpay.ua/libjs/checkout.js', function (err, tx) {
                     if (err) {
                         Y.log('Error loading Lazy Summaries JS: ' + err[0].error, 'error');
@@ -664,17 +667,17 @@ function donateWithLiqPay(val, name, surname, email) {
 
                 });
             }
-            formSubmitEvent =  Y.Global.on('form:submitSuccess', function(e){
+            formSubmitEvent = Y.Global.on('form:submitSuccess', function (e) {
                 var form = Y.one('#container form');
                 var name = form.one('.first-name input').get('value');
                 var surname = form.one('.last-name input').get('value');
                 var val = parseInt(form.one('.field input[placeholder*="UAH"]').get('value'));
                 var email = form.one('.email input').get('value');
-                donateWithLiqPay(val,name,surname,email);
+                donateWithLiqPay(val, name, surname, email);
             });
         }
     });
     Y.config.win.Squarespace.onDestroy(Y, function () {
-        formSubmitEvent&&formSubmitEvent.detach();
+        formSubmitEvent && formSubmitEvent.detach();
     })
 }());
