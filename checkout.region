@@ -201,7 +201,7 @@
             }).on("liqpay.close", function (data) {
                 // close
             });
-        }(); 
+        }();
         isInitialized = true;
     }
 </script>
