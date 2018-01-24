@@ -27,7 +27,7 @@
         </article>
         {.end}
         {.repeated section upcoming}
-        <div id="{id}" class="event-item event-item-{id} clear date-{startDate|date %B|slugify}-{startDate|date %d|slugify}" data-start-date="{startDate}" data-end-date="{endDate}">
+        <div id="{id}" class="event-item event-item-{id} clear date-{startDate|date %B|slugify}-{startDate|date %d|slugify}" data-title="{title}" data-tags="{tags}" data-start-date="{startDate}" data-end-date="{endDate}">
             <div class="event-time-wrapper">
                     <div class="eventlist-column-info">
                         <span class="event-time" datetime="{startDate}" date-format="LT">{startDate|date %l%p}</span><span class="event-time event-time-end" datetime="{endDate}" date-format="LT">{endDate|date %l%p}</span>
