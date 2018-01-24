@@ -638,6 +638,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
             var surname = localStorage.getItem('payerSurname');
             var val = parseInt(localStorage.getItem('paymentSumm'));
             var email = localStorage.getItem('payerEmail');
+            isInitialized = false;
             if(!isInitialized) {
                 var callbackArr = initLiqpayCall(val, name, surname, email);
                 window.LiqPayCheckoutCallback = function () {
