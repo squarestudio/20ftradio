@@ -646,7 +646,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                         data: callbackArr['data'],
                         signature: callbackArr['signature'],
                         embedTo: "#liqpay_checkout",
-                        language: "ru",
+                        language: "ru", 
                         mode: "embed" // embed || popup
                     }).on("liqpay.callback", function (data) {
                         console.log(data.status);
