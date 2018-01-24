@@ -670,7 +670,7 @@ function donateWithLiqPay(val, name, surname, email) {
                 var surname = form.one('.last-name input').get('value');
                 var val = parseInt(form.one('.field input[placeholder*="UAH"]').get('value'));
                 var email = form.one('.email input').get('value');
-                console.log(name,surname,email,val)
+                donateWithLiqPay(val,name,surname,email);
             });
         }
     })
