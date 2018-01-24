@@ -1125,6 +1125,11 @@ html {
           padding: 0 5%;
           .eventlist-title {
             pointer-events: none;
+            a{
+              &:after {
+                display: none;
+              }
+            }
           }
           .event-excerpt {
             max-height: 0;
