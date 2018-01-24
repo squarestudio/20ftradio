@@ -1042,6 +1042,7 @@ html {
       #castDiv {
         transform: translateY(-12%) scale(0.8);
         -webkit-transform: translateY(-12%) scale(0.8);
+        .transition(transform .3s .2s ease-out);
       }
       #container {
         opacity: 1;
@@ -1398,7 +1399,7 @@ html {
     margin: 0;
     .transform(none);
     &.initialized {
-      .transition(transform .3s ease-in);
+      .transition(transform .3s .2s ease-out);
     }
   }
   #castDiv .mobile-image {
