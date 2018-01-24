@@ -670,7 +670,7 @@ function donateWithLiqPay(val, name, surname, email) {
                 var form = Y.one('#container form');
                 var name = form.one('.first-name input').get('value');
                 var surname = form.one('.last-name input').get('value');
-                var val = form.one('.field input[placeholder*="UAH"]')?parseInt(form.one('.field input[placeholder*="UAH"]').get('value')): 10; 
+                var val = form.one('.field input[placeholder*="UAH"]')?parseInt(form.one('.field input[placeholder*="UAH"]').get('value')): 10;
                 var email = form.one('.email input').get('value');
                 codeBlockLiq.removeClass('hidden');
                 donateWithLiqPay(val, name, surname, email);
