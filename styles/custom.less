@@ -1008,6 +1008,10 @@ body {
   margin: auto;
   max-width: 384px;
   width: 100%;
+  &:empty {
+    max-height: 0;
+    opacity: 0;
+  }
 }
 
 body.auth {
