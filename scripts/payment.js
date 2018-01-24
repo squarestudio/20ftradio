@@ -58,8 +58,8 @@ function initLiqpayCall(value,name,surname,email) {
     var html = {
         'public_key'     : 'i27357705397',
         'action'         : 'pay',
-        'sender_first_name' : name + ' / ' + email,
-        'sender_last_name' : surname,
+        'sender_first_name' : transliterate(name) + ' / ' + email,
+        'sender_last_name' : transliterate(surname),
         'amount'         : value,
         'currency'       : 'UAH',
         'description'    : 'Your donation amount. thank\'s for supporting us!',
