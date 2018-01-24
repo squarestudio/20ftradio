@@ -611,6 +611,7 @@ function donateWithLiqPay(val, name, surname, email) {
             triggerWidth: 640
         });
     });
+    var formSubmitEvent =  null;
     Y.config.win.Squarespace.onInitialize(Y, function () {
         var body = Y.one('body');
         Y.use('node', function () {
@@ -653,7 +654,6 @@ function donateWithLiqPay(val, name, surname, email) {
             }
         }
         if(Y.one('#liqpay_checkout')){
-            form:submitSuccess
             var initLiqPayForm = function () {
                 var name = localStorage.getItem('payerName');
                 var surname = localStorage.getItem('payerSurname');
@@ -661,6 +661,9 @@ function donateWithLiqPay(val, name, surname, email) {
                 var email = localStorage.getItem('payerEmail');
             }
             if(!Y.one('#liqpayAPI')){
+                formSubmitEvent =  Y.Global.on('form:submitSuccess', function(e){
+                    
+                });
                 window.Y.Get.js('https://static.liqpay.ua/libjs/checkout.js', function (err, tx) {
                     if (err) {
                         Y.log('Error loading Lazy Summaries JS: ' + err[0].error, 'error');
@@ -673,5 +676,8 @@ function donateWithLiqPay(val, name, surname, email) {
 
             }
         }
+    })
+    Y.config.win.Squarespace.onDestroy(Y, function () {
+        formSubmitEvent&&formSubmitEvent.detach();
     })
 }());
