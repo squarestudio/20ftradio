@@ -1,6 +1,8 @@
 <html>
     <head>
         {squarespace-headers}
+        <squarespace:script src="MobileCastController.js" combo="false"/>
+        <squarespace:script src="MobileEventsController.js" combo="false"/>
     </head>
     <body class="cordova-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
     <div id="navigator">
