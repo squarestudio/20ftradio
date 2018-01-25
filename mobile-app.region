@@ -1,10 +1,6 @@
 <html>
     <head>
         {squarespace-headers}
-        <squarespace:script src="MobileCastController.js" combo="true"/>
-        <squarespace:script src="MobileEventsController.js" combo="true"/>
-        <squarespace:script src="general.js" combo="true"/>
-        <squarespace:script src="mobile-app.js" combo="true"/>
     </head>
     <body class="cordova-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
     <div id="navigator">
@@ -115,5 +111,9 @@
     {.end}
     </div>
     <div id="bottomContainer"></div>
+    <squarespace:script src="MobileCastController.js" combo="true"/>
+    <squarespace:script src="MobileEventsController.js" combo="true"/>
+    <squarespace:script src="general.js" combo="true"/>
+    <squarespace:script src="mobile-app.js" combo="true"/>
     </body>
 </html>
