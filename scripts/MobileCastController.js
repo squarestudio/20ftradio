@@ -445,6 +445,8 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function pausePlayersExept(playerType) {
+        console.log(playerType);
+        return;
         playerType = playerType || false;
         for (var player in players) {
             if (players.hasOwnProperty(player) && player !== playerType) {
