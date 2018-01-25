@@ -1101,11 +1101,8 @@ html {
             position: absolute;
             text-transform: uppercase;
             display: block;
-            background-color: #444;
-            font-size: 20px;
-            font-weight: bold;
+            font-size: 16px;
             line-height: 1.2;
-            width: 20%;
             color: #fff;
             z-index: 1000;
             white-space: normal;
@@ -1113,11 +1110,13 @@ html {
           }
           &:before {
             content: 'In your local time';
-            left: 16px;
+            left: 0;
+            text-align: left;
           }
           &:after {
             content: 'Add';
-            right: 16px;
+            right: 0;
+            text-align: right;
           }
         }
       }
