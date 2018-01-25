@@ -1,7 +1,6 @@
 window.Template.Controllers.MobileCastController = function (element) {
     'use strict';
     var dontCheck = false;
-    //console.log = function () {};
     var sitePlayer = Y.one('.site-player'),
         trackName = sitePlayer.one('.track-name'),
         youtubeUrl,
@@ -43,30 +42,26 @@ window.Template.Controllers.MobileCastController = function (element) {
         eventStatusInterval,
         currentEvents,
         liveIndicator,
-        localNotification = false,
-        useNotifications = true,
         castContainer = Y.one('#castDiv');
     var DEBUG = false;
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
-    var autoplay = false;
     var mobileImage;
 
     function initialize() {
+        window.CASTHERE = true;
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
             mobile = Y.UA.mobile;
             Site && Site._setupPositioning();
             setTimeout(function () {
                 Site && Site._setupPositioning();
             }, 50);
-            setTimeout(function () {
-                initCast();
-            }, 100);
+            initCast();
             Y.one(window).on('resize', refreshImages);
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
-
         }
+        currentEvents = null;
     }
 
     function simulateResize() {
@@ -95,7 +90,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             var channel = youtubeUrl.split('channel=')[1];
             youtubeUrl = 'live_stream';
         }
-        console.log(youtubeUrl, channel);
+        DEBUG && console.log(youtubeUrl, channel);
         youtubePlayer = new YT.Player('youtubePlayer', {
             height: '720',
             width: '1280',
@@ -125,7 +120,7 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function initYoutubeStream() {
         if (youtubeUrl) {
-            console.log('init youtube');
+            DEBUG && console.log('init youtube');
             if (!castContainer.one('#youtubePlayer')) {
                 castContainer.prepend('<div id="youtubePlayer" class="stream-player"></div>');
             }
@@ -134,16 +129,16 @@ window.Template.Controllers.MobileCastController = function (element) {
                 tag.src = "https://www.youtube.com/iframe_api";
                 var firstScriptTag = document.getElementsByTagName('script')[0];
                 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-                console.log('YOUTUBE API ADDED')
+                DEBUG && console.log('YOUTUBE API ADDED')
             } else {
                 initYoutubePlayer();
             }
             window.onYouTubeIframeAPIReady = function () {
-                console.log('YOUTUBE API READY');
+                DEBUG && console.log('YOUTUBE API READY');
                 initYoutubePlayer();
             };
         } else {
-            console.log("No data to init youtube");
+            DEBUG && console.log("No data to init youtube");
             notYoutube = true;
             onYoutubeError();
         }
@@ -155,6 +150,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         };
         HTMLMediaElement.prototype.pauseVideo = function () {
             this.pause();
+            console.log(this,'PAUSED')
         };
         HTMLMediaElement.prototype.setVolume = function (volume) {
             this.volume = volume / 100;
@@ -171,7 +167,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function initCast() {
-        console.log('init cast');
+        DEBUG && console.log('init cast');
         Y.one('#castDiv').addClass('initialized');
         mobilePlayButton = castContainer.one('.mobile-trigger');
         mobileImage = castContainer.one('.mobile-image');
@@ -185,14 +181,15 @@ window.Template.Controllers.MobileCastController = function (element) {
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
         var playButtonClick = function (e) {
-            e.halt();
-            console.log(activePlayer, players);
+            e.halt && e.halt();
+            console.log(activePlayer);
             if (!activePlayer) return;
             var state = null;
             if (activePlayer == 'youtube') {
                 state = youtubePlayer.getPlayerState();
-                console.log('youtube video', state, YT.PlayerState.PLAYING);
+                DEBUG && console.log('youtube video', state, YT.PlayerState.PLAYING);
                 if (mobile && !userClickPlay) {
+                    youtubePlayer.unMute();
                     youtubePlayer.playVideo();
                     userPaused = false;
                     checkStreams();
@@ -202,6 +199,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     userPaused = true;
                 } else if (state === YT.PlayerState.PAUSED) {
                     youtubePlayer.playVideo();
+                    youtubePlayer.unMute();
                     userPaused = false;
                 } else {
                     youtubePlayer.playVideo();
@@ -219,14 +217,26 @@ window.Template.Controllers.MobileCastController = function (element) {
             }
             else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
+                console.log('SHOUTCAST State', state, castContainer.hasClass('paused'), document.querySelector('#shoutcastPlayer').getPlayerState())
                 if (mobile && !userClickPlay) {
+                    console.log('first play');
+                    if (!shoutcastPlayer.currentTime){
+                        shoutcastPlayer.load();
+                    }
+                    shoutcastPlayer.setVolume(100);
                     shoutcastPlayer.playVideo();
                     userPaused = false;
+                    checkStreams();
                 }
                 else if (state) {
+                    console.log('Play');
+                    if (!shoutcastPlayer.currentTime){
+                        shoutcastPlayer.load();
+                    }
                     shoutcastPlayer.playVideo();
                     userPaused = false;
                 } else {
+                    console.log('Pause');
                     shoutcastPlayer.pauseVideo();
                     userPaused = true;
                 }
@@ -285,15 +295,15 @@ window.Template.Controllers.MobileCastController = function (element) {
             if (castContainer.get('offsetWidth') < 430) {
                 sitePlayer.toggleClass('volume-range-visible');
             } else {
-                console.log('volume - ' + activePlayer);
+                DEBUG && console.log('volume - ' + activePlayer);
                 if (e.currentTarget.hasClass('icono-volumeMute')) {
                     if (activePlayer) {
                         if (activePlayer == 'soundcloud' || activePlayer == 'facebook' || activePlayer == 'mixcloud') {
-                            players[activePlayer].setVolume(0.5);
+                            players[activePlayer].setVolume(1);
                         } else {
-                            players[activePlayer].setVolume(50);
+                            players[activePlayer].setVolume(100);
                         }
-                        volumeControl.set('value', 50);
+                        volumeControl.set('value', 100);
                         volumeIcon._node.className = 'icono-volumeMedium';
                     }
                 } else {
@@ -325,37 +335,74 @@ window.Template.Controllers.MobileCastController = function (element) {
                 }
             }
         });
-        if (!facebookUrl) {
-            if (!youtubeUrl) {
-                youtubeReady = true;
-                youtubeStatusLoad = true;
-                retry = maxRetry - 1;
-            }
-            if (!shoutCastUrl) {
-                shoutCastReady = true;
-                retry = maxRetry - 1;
-            }
-            if (youtubeUrl) {
-                console.log('Have Youtube Url');
-                initYoutubeStream();
-            } else if (shoutCastUrl) {
-                initShoutCast();
-            } else if (someCloudUrl) {
-                initSomeCloud();
-            } else {
-                console.log("No data to init");
-            }
-        } else {
-            initFBPlayer();
-        }
+        youtubeUrl = false;
+        youtubeReady = true;
+        youtubeStatusLoad = true;
+        retry = maxRetry - 1;
         getShoutcastStatus();
+        initShoutCast();
+        document.addEventListener("pause", handlePause);
+        document.addEventListener("resume", handleResume);
+        function initMusicControls() {
+            function events(action) {
+                switch (action) {
+                    case 'music-controls-pause':
+                        if (activePlayer) {
+                            pausePlayersExept('all');
+                        }
+                        break;
+                    case 'music-controls-play':
+                        userClickPlay = true;
+                        if (activePlayer) {
+                            if (players[activePlayer].playVideo) {
+                                players[activePlayer].playVideo()
+                            } else if (players[activePlayer].play) {
+                                players[activePlayer].play();
+                            }
+                        }
+                        break;
+                    case 'music-controls-destroy':
+                        // Do something
+                        break;
+                    // External controls (iOS only)
+                    case 'music-controls-toggle-play-pause' :
+                        break;
+                    case 'music-controls-media-button' :
+                        break;
+                    case 'music-controls-headset-unplugged':
+                        // Do something
+                        break;
+                    case 'music-controls-headset-plugged':
+                        // Do something
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            MusicControls.subscribe(events);
+            MusicControls.listen();
+        }
+        initMusicControls();
+        setMusicMeta(trackName.get('text'), false);
+    }
+
+    function handlePause() {
+        console.log('APP paused', userPaused);
+        if (activePlayer == 'youtube' && !userPaused) {
+            youtubePlayer.playVideo();
+        }
+    }
+
+    function handleResume() {
+        console.log('APP continue');
     }
 
     function initFBPlayer() {
         window.fbAsyncInit = function () {
-            console.log('FB init');
+            DEBUG && console.log('FB init');
             FB.Event.subscribe('xfbml.ready', function (msg) {
-                console.log(msg)
+                DEBUG && console.log(msg)
                 if (msg.type === 'video' && msg.id === 'fbPlayer') {
                     fbPlayer = msg.instance;
                     fbPlayer.subscribe('startedPlaying', function () {
@@ -401,7 +448,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         playerType = playerType || false;
         for (var player in players) {
             if (players.hasOwnProperty(player) && player !== playerType) {
-                console.log(player + ': Paused');
+                DEBUG && console.log(player + ': Paused');
                 if (players[player].pauseVideo) {
                     players[player].pauseVideo();
                 } else if (players[player].pause) {
@@ -424,15 +471,15 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function checkStreams() {
-        if (dontCheck) return;
+        var state;
         var now = new Date().getTime();
         retry++;
-        console.log('Retries: ' + retry, now - lastCheckTime);
+        DEBUG && console.log('Retries: ' + retry, now - lastCheckTime);
         if (now - lastCheckTime < checkingTime - 1000) {
             preventLoops++;
         }
         if (preventLoops > maxRetry * 3) {
-            console.log('FFFFFF');
+            DEBUG && console.log('FFFFFF');
             //offlineMessage();
             //return;
         }
@@ -446,11 +493,10 @@ window.Template.Controllers.MobileCastController = function (element) {
             if (activePlayer == 'youtube' || activePlayer == 'facebook') {
                 if (shoutcastStatusCheckInterval) {
                     clearInterval(shoutcastStatusCheckInterval);
-                    console.log('Shoutcast status reset');
+                    DEBUG && console.log('Shoutcast status reset');
                     shoutcastStatusCheckInterval = null;
                     trackName.one('span').set('text', '');
                     trackName.removeClass('scroll-track');
-                    setLocalNotification();
                 }
                 if (!eventStatusInterval) {
                     getCurrentEvent();
@@ -458,164 +504,96 @@ window.Template.Controllers.MobileCastController = function (element) {
                         getCurrentEvent();
                     }, 10000);
                     Y.on('getCurrentEvent', getCurrentEvent);
-                    console.log('Event status set');
+                    DEBUG && console.log('Event status set');
                 }
             }
             else if (activePlayer == 'shoutcast') {
                 if (!shoutcastStatusCheckInterval) {
                     if (eventStatusInterval) {
                         clearInterval(eventStatusInterval);
-                        console.log('Event status reset');
+                        DEBUG && console.log('Event status reset');
                         eventStatusInterval = null;
                         Y.detach('getCurrentEvent', getCurrentEvent);
-                        trackName.one('span').set('text', '');
+                        trackName.one('span').set('text', '  ');
                         trackName.removeClass('scroll-track');
-                        setLocalNotification();
                     }
                     getShoutcastStatus();
                     shoutcastStatusCheckInterval = setInterval(function () {
-                        if(!shoutcastStatusFactor){
+                        if (!shoutcastStatusFactor) {
                             getShoutcastStatus();
                         }
-                    }, 10000);
-                    console.log('Shoutcast status interval set');
+                    }, 30000);
+                    DEBUG && console.log('Shoutcast status interval set');
                 }
             }
             else {
                 if (eventStatusInterval) {
                     clearInterval(eventStatusInterval);
-                    console.log('Event status reset');
+                    DEBUG && console.log('Event status reset');
                     eventStatusInterval = null;
                     Y.detach('getCurrentEvent', getCurrentEvent);
                 }
                 if (shoutcastStatusCheckInterval) {
                     clearInterval(shoutcastStatusCheckInterval);
-                    console.log('Shoutcast status reset');
+                    DEBUG && console.log('Shoutcast status reset');
                     shoutcastStatusCheckInterval = null;
                 }
-                trackName.one('span').set('text', '');
-                setLocalNotification();
+                trackName.one('span').set('text', '  ');
                 trackName.removeClass('scroll-track');
             }
+
             if (activePlayer) {
                 sitePlayer.addClass('played');
                 mobilePlayButton.addClass('visible');
                 Y.one('#navigator').addClass('stream-found');
-                Y.one('.loading-overlay .line') && Y.one('.loading-overlay .line').setStyles({transform: 'scaleY(1000)'});
-                setTimeout(function () {
-                    !Y.one('.loading-overlay').hasClass('hided') && Y.one('.loading-overlay').hide(true).addClass('hided');
-                }, 600)
+                var hideOverlay = function () {
+                    Y.one('.loading-overlay .line') && Y.one('.loading-overlay .line').setStyles({transform: 'scaleY(1000)'});
+                    setTimeout(function () {
+                        !Y.one('.loading-overlay').hasClass('hided') && Y.one('.loading-overlay').hide(true).addClass('hided');
+                    }, 600)
+                };
+                if (activePlayer == 'shoutcast') {
+                    Site&&Site._setupPositioning();
+                    shoutcastPlayer.canPlay && hideOverlay();
+                } else if (activePlayer == 'youtube') {
+                    youtubePlayer.canPlay && hideOverlay();
+                } else {
+                    hideOverlay();
+                }
             }
             lastCheckTime = new Date().getTime();
-            console.log('ACTIVE PLAYER ==== ' + activePlayer);
+            DEBUG && console.log('ACTIVE PLAYER ==== ' + activePlayer);
         };
-        if (!userPaused && activePlayer !== 'facebook') {
-            console.log('CHECK Before Youtube');
-            if (youtubeStatusLoad) {
-                if (youtubePlayer && youtubeReady) {
-                    var state = youtubePlayer.getPlayerState && youtubePlayer.getPlayerState();
-                    if (youtubeStatus) {
-                        if (state > 1 && !mobile) youtubePlayer.playVideo();
-                        if (state == 3) {
-                            youtubeRetry++;
-                            if (youtubeRetry > maxRetry) {
-                                retry = maxRetry;
-                                //youtubeStatus = false;
-                                return;
-                            }
-                        } else {
-                            youtubeRetry = 0;
-                        }
-                        if (state == 1) {
-                            youtubeStatus = true;
-                        }
-                        activePlayer = 'youtube';
-                        pausePlayersExept('youtube');
-                        onPlayerStateChange('youtube', state);
-                        status();
-                        retry = 1;
-                        return;
+        if (!userPaused) {
+            if (shoutcastPlayer) {
+                state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
+                DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError,shoutcastStatus);
+                if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
+                    !mobile && shoutcastPlayer.play();
+                    activePlayer = 'shoutcast';
+                    pausePlayersExept('shoutcast');
+                    onPlayerStateChange('shoutcast');
+                    status();
+                    retry = maxRetry - 1;
+                    return;
+                } else {
+                    if (retry < maxRetry + 25) {
+                        DEBUG && console.log('try to load shoutcast');
+                        shoutcastPlayer.load();
+                    } else {
+                        DEBUG && console.log('wait to load shoutcast');
+                        retry++;
                     }
-                    console.log('Youtube State == ' + state, youtubePlayer.getDuration && youtubePlayer.getDuration(), youtubeStatus);
-                }
-                console.log('CHECK After Youtube');
-                if (!youtubeStatus) {//retry > maxRetry || notYoutube
-                    console.log('try another players', notShoutcast, notSoundCloud);
-                    if (shoutcastPlayer && !notShoutcast) {
-                        state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                        console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError);
-                        if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
-                            autoplay && shoutcastPlayer.play();
-                            activePlayer = 'shoutcast';
-                            pausePlayersExept('shoutcast');
-                            onPlayerStateChange('shoutcast');
-                            if (state == false) {
-                                if (mobile) {
-                                    notSoundCloud = true;
-                                    notYoutube = true;
-                                }
-                            }
-                            status();
-                            retry = maxRetry - 1;
-                            return;
-                        } else {
-                            if (retry > maxRetry + 3 && retry < maxRetry + 5) {
-                                console.log('try to load shoutcast');
-                                shoutcastPlayer.load();
-                            } else {
-                                console.log('wait to load shoutcast');
-                            }
-                        }
-                    }
-                    else {
-                        if (shoutCastUrl) {
-                            initShoutCast();
-                            status();
-                        } else {
-                            notShoutcast = true;
-                            retry = maxRetry + 6;
-                        }
-                    }
-                    console.log('CHECK Before Soundcloud');
-                    if (retry > maxRetry + 5 || notShoutcast) {
-                        if (soundCloudPlayer && !notSoundCloud) {
-                            activePlayer = 'soundcloud';
-                            soundCloudPlayer.isPaused(function (paused) {
-                                if (paused) {
-                                    autoplay && soundCloudPlayer.play();
-                                    activePlayer = 'soundcloud';
-                                    onPlayerStateChange('soundcloud');
-                                    pausePlayersExept('soundcloud');
-                                } else {
-                                    //retry = maxRetry + 6;
-                                }
-                                status();
-                            });
-                        } else if (mixCloudPlayer && !notMixCloud) {
-                            activePlayer = 'mixcloud';
-                            mixCloudPlayer.getIsPaused().then(function (paused) {
-                                if (paused) {
-                                    autoplay && mixCloudPlayer.play();
-                                    activePlayer = 'mixcloud';
-                                    onPlayerStateChange('mixcloud');
-                                    pausePlayersExept('mixcloud');
-                                } else {
-                                    //retry = maxRetry + 6;
-                                }
-                                status()
-                            });
-                        } else {
-                            if (someCloudUrl && youtubeReady) {
-                                initSomeCloud();
-                            }
-                            status();
-                        }
-                    }
-                    console.log('CHECK After Soundcloud');
                 }
             }
             else {
-                console.log('Still have no youtubee status load')
+                if (shoutCastUrl) {
+                    initShoutCast();
+                    status();
+                } else {
+                    notShoutcast = true;
+                    retry = maxRetry + 6;
+                }
             }
             if (!Y.one('#navigator').hasClass('stream-found')) {
                 Y.one('.loading-overlay .line') && Y.one('.loading-overlay .line').setStyles({transform: 'scaleY(' + retry * 15 + ')'})
@@ -628,26 +606,21 @@ window.Template.Controllers.MobileCastController = function (element) {
         castContainer.all('.stream-player').removeClass('active-player');
         if (active == 'youtube') {
             castContainer.one('#youtubePlayer') && castContainer.one('#youtubePlayer').addClass('active-player');
-            Y.one('body').addClass('video-player');
         } else if (active == 'facebook') {
             castContainer.one('#fbPlayer') && castContainer.one('#fbPlayer').addClass('active-player');
-            Y.one('body').addClass('video-player');
         } else if (active == 'shoutcast') {
             castContainer.one('#shoutcastPlayer') && castContainer.one('#shoutcastPlayer').addClass('active-player');
-            Y.one('body').removeClass('video-player');
         } else if (active == 'soundcloud') {
             castContainer.one('#soundCloudPlayer') && castContainer.one('#soundCloudPlayer').addClass('active-player');
-            Y.one('body').removeClass('video-player');
         } else if (active == 'mixcloud') {
             castContainer.one('#mixCloudPlayer') && castContainer.one('#mixCloudPlayer').addClass('active-player');
-            Y.one('body').removeClass('video-player');
         }
     }
 
     function initMixCloud() {
-        console.log('MixCloud init');
+        DEBUG && console.log('MixCloud init');
         if (mixCloudPlayer) {
-            autoplay && mixCloudPlayer.play();
+            !mobile && mixCloudPlayer.play();
         } else {
             mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
             castContainer.append(mixCloudPlayer);
@@ -656,16 +629,19 @@ window.Template.Controllers.MobileCastController = function (element) {
                 disablePushstate: true,
                 disableUnloadWarning: true
             });
-            mixCloudPlayer.ready.then(function (widget) {
+            mixCloudPlayer.ready.then(function (widget, t) {
+                console.log(t)
                 mixCloudPlayer = widget;
                 mixCloudPlayer.events.play.on(function () {
+                    console.log('mx play')
                     onPlayerStateChange('mixcloud', 'play')
                 });
                 mixCloudPlayer.events.pause.on(function () {
+                    console.log('mx pause')
                     onPlayerStateChange('mixcloud', 'pause')
                 });
                 mixCloudPlayer.events.error.on(function (e) {
-                    console.log('MixCloud Error', e);
+                    DEBUG && console.log('MixCloud Error', e);
                 });
                 onPlayerReady('mixcloud');
             });
@@ -675,7 +651,7 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function initSoundCloud() {
         if (soundCloudPlayer) {
-            autoplay && soundCloudPlayer.play();
+            !mobile && soundCloudPlayer.play();
         } else {
             soundCloudPlayer = Y.Node.create('<iframe id="soundCloudPlayer" src="https://w.soundcloud.com/player/?url=' + someCloudUrl + '&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&visual=false" class="stream-player soundcloud-stream"></iframe>');
             castContainer.append(soundCloudPlayer);
@@ -686,9 +662,9 @@ window.Template.Controllers.MobileCastController = function (element) {
                     var skipIndex = 0;
                     if (sounds && sounds.length) {
                         skipIndex = Math.floor(Math.random() * (sounds.length - 1 + 1));
-                        console.log('SKIPSCINDEX == ' + skipIndex);
+                        DEBUG && console.log('SKIPSCINDEX == ' + skipIndex);
                         soundCloudPlayer.skip(skipIndex);
-                        soundCloudPlayer.setVolume(50);
+                        soundCloudPlayer.setVolume(100);
                     }
                     onPlayerReady('soundcloud', {scSkipIndex: skipIndex});
                 })
@@ -711,29 +687,44 @@ window.Template.Controllers.MobileCastController = function (element) {
             } else if (someCloudUrl.indexOf('soundcloud') > -1) {
                 initSoundCloud();
             }
-            console.log('Some cloud loading');
+            DEBUG && console.log('Some cloud loading');
         } else {
-            console.log('no SoundCloud url')
+            DEBUG && console.log('no SoundCloud url')
         }
     }
 
     function initShoutCast() {
         if (shoutCastUrl) {
-            console.log('shoutcast starting');
+            DEBUG && console.log('shoutcast starting');
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
-            if (!shoutcastPlayer) {
-                shoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" class="stream-player" preload playsinline -webkit-playsinline autoplay="0" name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
+            var YshoutcastPlayer;
+            shoutcastStatus = true;
+            activePlayer = 'shoutcast';
+            if(window.firstPlayClick){
+                userClickPlay = true;
             }
-            castContainer.append(shoutcastPlayer);
-            shoutcastPlayer = shoutcastPlayer._node;
+            if (!shoutcastPlayer) {
+                YshoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" title="20FT Radio" class="stream-player" autoplay poster="https://www.20ftradio.net/assets/icon.png" preload playsinline -webkit-playsinline name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
+            } else {
+                console.log('EXIST');
+                YshoutcastPlayer = shoutcastPlayer;
+                shoutcastPlayer = YshoutcastPlayer._node;
+                if(!shoutcastPlayer.paused){
+                    userPaused = false;
+                }
+                onPlayerReady('shoutcast');
+            }
+            shoutcastPlayer = YshoutcastPlayer._node;
             shoutcastPlayer.addEventListener('loadstart', function () {
                 onPlayerReady('shoutcast');
+                console.log('LOADSTART')
             });
             shoutcastPlayer.addEventListener('play', function () {
                 onPlayerStateChange('shoutcast', 'play')
             });
             shoutcastPlayer.addEventListener('pause', function () {
-                onPlayerStateChange('shoutcast', 'pause')
+                console.log('PAUSEDD')
+                onPlayerStateChange('shoutcast', 'pause');
             });
             shoutcastPlayer.addEventListener('error', onShoutCastError);
             shoutcastPlayer.addEventListener('abort', onShoutCastError);
@@ -741,8 +732,9 @@ window.Template.Controllers.MobileCastController = function (element) {
             shoutcastPlayer.addEventListener('suspend', onShoutCastError);
             shoutcastPlayer.addEventListener('emptied', onShoutCastError);
             players['shoutcast'] = shoutcastPlayer;
+            castContainer.append(YshoutcastPlayer);
         } else {
-            console.log('no shoutcast url to start');
+            DEBUG && console.log('no shoutcast url to start');
             notShoutcast = true;
         }
     }
@@ -753,42 +745,46 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function onSoundCloudError(e) {
-        console.log('soundcloud error', e);
+        DEBUG && console.log('soundcloud error', e);
     }
 
     function onYoutubeError(event) {
-        console.log('youtube error');
+        DEBUG && console.log('youtube error');
         if (mobile) {
-            notYoutube = true;
             retry = maxRetry;
             checkStreams();
         }
     }
 
     function onFBError(e) {
-        console.log('FB failed - ', e);
+        DEBUG && console.log('FB failed - ', e);
     }
 
     function onPlayerReady(playerType, data) {
         if (playerType == 'youtube') {
-            youtubePlayer.setVolume(50);
-            youtubePlayer.playVideo();
+            youtubePlayer.mute();
+            setTimeout(function () {
+                youtubePlayer.playVideo();
+            }, 50);
+            setTimeout(function () {
+                youtubePlayer.canPlay = true;
+            }, 250);
             youtubeReady = true;
             pausePlayersExept('youtube');
             if (!youtubeCheckInterval && !youtubeStatusLoad) {
                 youtubeCheckInterval = setInterval(function () {
-                    if(!youtubeStatusFactor){
+                    if (!youtubeStatusFactor) {
                         getYoutubeStatus();
                     }
-                }, 70000);
-                console.log('youtube check interval set');
+                }, 30000);
+                DEBUG && console.log('youtube check interval set');
                 getYoutubeStatus();
             }
         }
         else if (playerType == 'facebook') {
-            fbPlayer.setVolume(0.5);
+            fbPlayer.setVolume(1);
             if (!mobile) {
-                autoplay && fbPlayer.play();
+                fbPlayer.play();
             }
             if (mobile) {
                 mobilePlayButton.addClass('hidden');
@@ -800,21 +796,21 @@ window.Template.Controllers.MobileCastController = function (element) {
         }
         else if (playerType == 'shoutcast') {
             if (!shoutCastReady) {
-                shoutcastPlayer.setVolume(50);
                 shoutCastReady = true;
-                setActivePlayer();
+                setActivePlayer(playerType);
+                //shoutcastPlayer.load();
             }
         }
         else if (playerType == 'soundcloud') {
             if (!soundCloudReady) {
-                soundCloudPlayer.setVolume(0.5);
+                soundCloudPlayer.setVolume(1);
                 soundCloudReady = true;
                 setActivePlayer();
             }
         }
         else if (playerType == 'mixcloud') {
             if (!mixCloudReady) {
-                mixCloudPlayer.setVolume(0.5);
+                mixCloudPlayer.setVolume(1);
                 mixCloudReady = true;
                 setActivePlayer();
             }
@@ -825,19 +821,20 @@ window.Template.Controllers.MobileCastController = function (element) {
                 streamCheckInterval = setInterval(function () {
                     checkStreams();
                 }, checkingTime);
-                console.log('stream check interval set');
+                DEBUG && console.log('stream check interval set');
                 window.addEventListener('offline', offlineMessage);
                 window.addEventListener('online', onlineMessage);
             }
-            console.log('check STREAMS');
+            DEBUG && console.log('check STREAMS');
             checkStreams();
         }
         sitePlayer && sitePlayer.addClass('initialized').removeClass('not-init').removeClass('no-events');
-        console.log(playerType, 'playerReady');
+        DEBUG && console.log(playerType, 'playerReady');
     }
 
     function offlineMessage() {
-        console.log('offline');
+        DEBUG && console.log('offline');
+        pausePlayersExept('all');
         if (streamCheckInterval) {
             clearInterval(streamCheckInterval);
             streamCheckInterval = false;
@@ -847,24 +844,27 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function onlineMessage() {
-        console.log('online');
+        DEBUG && console.log('online');
+        shoutcastPlayer && shoutcastPlayer.load();
         if (streamCheckInterval == false) {
             streamCheckInterval = setInterval(function () {
                 checkStreams();
             }, checkingTime);
-            console.log('stream check interval set')
+            DEBUG && console.log('stream check interval set')
         }
     }
 
     function setPlaying(playerType) {
-        console.log('SET PLAYING: ' + playerType);
-        sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
-        castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
-        !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
-        setActivePlayer(playerType);
-        pausePlayersExept(playerType);
-        sitePlayer.addClass('played');
-        mobilePlayButton.addClass('visible');
+        if (userClickPlay) {
+            DEBUG && console.log('SET PLAYING: ' + playerType);
+            sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
+            castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
+            !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+            setActivePlayer(playerType);
+            pausePlayersExept(playerType);
+            sitePlayer.addClass('played');
+            mobilePlayButton.addClass('visible');
+        }
     }
 
     function setPaused() {
@@ -873,15 +873,20 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function onPlayerStateChange(playerType, state) {
-        //if (mobile && !userClickPlay) return;
         if (playerType == 'youtube') {
-            console.log('youtube player change', state);
+            DEBUG && console.log('youtube player change', state);
             if (youtubePlayer && state) {
                 if (state == YT.PlayerState.PLAYING) {
                     setPlaying(playerType);
                 } else if (state == YT.PlayerState.PAUSED) {
                     setPaused();
                 }
+                setTimeout(function () {
+                    if (userClickPlay) {
+                        var track = trackName.get('text') || youtubePlayer.getVideoData().title;
+                        setMusicMeta(track, state == YT.PlayerState.PLAYING);
+                    }
+                }, 40)
             }
         }
         else if (playerType == 'facebook') {
@@ -897,21 +902,42 @@ window.Template.Controllers.MobileCastController = function (element) {
             } else {
                 setPaused();
             }
-        } else if (playerType == 'soundcloud') {
+            if (state) {
+                setTimeout(function () {
+                    if (userClickPlay) {
+                        setMusicMeta(trackName.get('text'), state == 'play');
+                    }
+                }, 40)
+            }
+        }
+        else if (playerType == 'soundcloud') {
             soundCloudPlayer.isPaused(function (paused) {
                 if (!paused) {
                     setPlaying(playerType);
                 } else {
                     setPaused();
                 }
+                setTimeout(function () {
+                    if (userClickPlay) {
+                        var track = trackName.get('text') || 'Soundcloud';
+                        setMusicMeta(track, !paused);
+                    }
+                }, 40)
             });
-        } else if (playerType == 'mixcloud') {
+        }
+        else if (playerType == 'mixcloud') {
             mixCloudPlayer.getIsPaused().then(function (paused) {
                 if (!paused) {
                     setPlaying(playerType);
                 } else {
                     setPaused();
                 }
+                setTimeout(function () {
+                    if (userClickPlay) {
+                        var track = trackName.get('text') || 'Mixcloud';
+                        setMusicMeta(track, !paused);
+                    }
+                }, 40)
             });
         }
     }
@@ -966,36 +992,49 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function getCurrentEvent(shoutcast) {
         var checkEvents = function () {
-            var currentTime = new Date();
-            var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
-            var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
-            currentTime = currentTime.getTime();
+            var currentTime = moment().valueOf();
             var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
-                if (currentTime >= new Date(event.startDate + siteTimezoneOffset + userTimezoneOffset).getTime() && currentTime <= new Date(event.endDate + siteTimezoneOffset + userTimezoneOffset).getTime()) {
+                if (currentTime >= event.startDate && currentTime <= event.endDate&&!eventOnAir) {
                     eventOnAir = event;
-                    console.log(event.title);
+                    DEBUG && console.log(event.title);
                 }
             });
             if (eventOnAir) {
                 if (trackName.get('text') !== eventOnAir.title) {
                     trackName.one('span').set('text', eventOnAir.title);
                     trackName.removeClass('scroll-track').addClass('scroll-track');
-                    setLocalNotification(eventOnAir.title);
+                    //setLocalNotification(eventOnAir.title);
                     checkTrackNameOverflow();
                 }
-                if (Y.one('.event-item-' + eventOnAir.id)) {
-                    Y.all('.event-item-' + eventOnAir.id).addClass('event-on-air');
+                if (Y.all('#mobile-events-upcoming .event-item').size()) {
+                    Y.all('#mobile-events-upcoming .event-item').each(function (item) {
+                        if (item.getAttribute('id') == eventOnAir.id) {
+                            item.addClass('event-on-air');
+                        } else {
+                            if (item.hasClass('event-on-air')) {
+                                item.removeClass('event-on-air');
+                                item.hide(true);
+                                setTimeout(function () {
+                                    item.remove();
+                                }, 400)
+                            }
+                        }
+                    })
                 }
             } else {
-                if(!shoutcast){
+                if (!shoutcast) {
                     trackName.one('span').set('text', '');
-                    setLocalNotification();
+                    //setLocalNotification();
                     trackName.removeClass('scroll-track');
                 }
-                console.log('no current event');
+                DEBUG && console.log('no current event');
                 if (Y.one('.event-on-air')) {
-                    Y.all('.event-on-air').removeClass('event-on-air');
+                    var curr_event = Y.one('.event-on-air');
+                    curr_event.removeClass('event-on-air').hide(true);
+                    setTimeout(function () {
+                        curr_event.remove();
+                    }, 400)
                 }
             }
         };
@@ -1017,12 +1056,12 @@ window.Template.Controllers.MobileCastController = function (element) {
                 youtubeStatusLoad = true;
             }
             youtubeStatusFactor = true;
-            Y.io('https://app.20ftradio.net/20ft-radio-youtube-status.php', {//https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo
+            Y.io('https://app.20ftradio.net/20ft-radio-youtube-status.php?time='+new Date().getTime(), {//https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo
                 on: {
                     success: function (i, data) {
                         if (data.status == 200 && data.readyState == 4) {
                             var live = data.responseText == 'online';
-                            console.log('Youtube STREAM is:  --' + live);
+                            DEBUG && console.log('Youtube STREAM is:  --' + live);
                             youtubeStatus = live;
                             checkStreams();
                             youtubeStatusFactor = false;
@@ -1031,7 +1070,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     },
                     failure: function (e) {
                         youtubeStatusFactor = false;
-                        DEBUG && console.log(e);
+                        DEBUG && DEBUG && console.log(e);
                         resolve(false);
                     }
                 }
@@ -1069,35 +1108,68 @@ window.Template.Controllers.MobileCastController = function (element) {
         }
     }
 
+    function setMusicMeta(track, play, img) {
+        //MusicControls && MusicControls.destroy();
+        var cover = isAndroid() ? 'https://www.20ftradio.net/assets/x-icon.png' : 'https://www.20ftradio.net/assets/icon.png';
+        MusicControls && MusicControls.create({
+            track: track || '',
+            artist: '20ft Radio',
+            cover: cover,
+            isPlaying: play,
+            dismissable: false,
+            hasPrev: false,
+            hasNext: false,
+            hasClose: false
+            // iOS only, optional
+            //album: 'Absolution',
+            //duration: 60,
+            //elapsed: 10,
+        });
+    }
+
     function getShoutcastStatus() {
         shoutcastStatusFactor = true;
-        Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php', {
+        Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php?time='+new Date().getTime(), {
             on: {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
                         var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
-                        if (status_html && status_html.one('table[cellpadding=2]')) {
-                            var current_song = status_html.one('table[cellpadding=2] a[href*="currentsong"]').get('text');
+                        if (status_html && status_html.one('a[href*="currentsong"]')) {
+                            var current_song = status_html.one('a[href*="currentsong"]').get('text');
                             current_song = 'Now playing: ' + current_song;
-                            console.log(current_song,trackName.get('text'),trackName.get('text') !== current_song, activePlayer);
+                            DEBUG && console.log(current_song, trackName.get('text'), trackName.get('text') !== current_song, activePlayer);
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
                                 trackName.one('span').set('text', current_song);
+                                shoutcastPlayer.title = current_song;
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                                 checkTrackNameOverflow();
+                                shoutcastPlayer.title = current_song;
+                                setMusicMeta(current_song, !shoutcastPlayer.getPlayerState());
+                                if (!shoutcastPlayer) {
+                                    initShoutCast()
+                                }
                             } else {
                                 getCurrentEvent(true);
                             }
                             shoutcastStatus = true;
-                            console.log('SHOUTCAST STATUS TRUE');
+                            DEBUG && console.log('SHOUTCAST STATUS TRUE');
                         } else {
-                            console.log('SHOUTCAST STATUS FALSE');
+                            DEBUG && console.log('SHOUTCAST STATUS FALSE');
+                            shoutcastPlayer.pause();
                             shoutcastStatus = false;
+                            if(data.responseText === 'Offline'){
+                                trackName.one('span').set('text', 'Stream offline now');
+                                shoutcastPlayer.title = 'Stream offline now';
+                                trackName.removeClass('scroll-track').addClass('scroll-track');
+                                checkTrackNameOverflow();
+                            }
                         }
                     }
                     shoutcastStatusFactor = false;
                 },
                 failure: function () {
+                    shoutcastStatus = false;
                     shoutcastStatusFactor = false;
                 }
             }
@@ -1111,7 +1183,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             initialize();
         },
         destroy: function () {
-            console.log('destroy cast');
+            DEBUG && console.log('destroy cast');
             Y.one(window).detach('resize', refreshImages);
             Y.detach('getCurrentEvent', getCurrentEvent);
         }
