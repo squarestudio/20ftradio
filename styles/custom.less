@@ -1094,9 +1094,11 @@ html {
       display: none!important;
     }
     .eventlist-datetag-inner {
-      &:before{
+      &:before,&:after {
         position: absolute;
-        content: '';
+      }
+      &:before{
+        content: 'In your local time';
       }
     }
     .site-player-block {
