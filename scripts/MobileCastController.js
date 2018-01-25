@@ -1157,8 +1157,8 @@ window.Template.Controllers.MobileCastController = function (element) {
                             shoutcastStatus = true;
                             DEBUG && console.log('SHOUTCAST STATUS TRUE');
                         } else {
-                            DEBUG && console.log('SHOUTCAST STATUS FALSE');
-                            shoutcastPlayer.pause();
+                            console.log('SHOUTCAST STATUS FALSE');
+                            //shoutcastPlayer.pause();
                             shoutcastStatus = false;
                             if(data.responseText === 'Offline'){
                                 trackName.one('span').set('text', 'Stream offline now');
