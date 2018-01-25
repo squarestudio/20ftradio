@@ -528,6 +528,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
 });
 
 function donateWithLiqPay(val, name, surname, email) {
+    console.log(val, name, surname, email)
     var callbackArr = initLiqpayCall(val, name, surname, email);
     LiqPayCheckout.init({
         data: callbackArr['data'],
