@@ -1093,26 +1093,30 @@ html {
     #mobileNav {
       display: none !important;
     }
-    .eventlist-datetag-inner:first-child {
-      position: relative;
-      &:before, &:after {
-        position: absolute;
-        text-transform: uppercase;
-        display: block;
-        width: 20%;
-        height: 100%;
-        color: #fff;
-        z-index: 1000;
-        white-space: normal;
-        .v-align;
-      }
-      &:before {
-        content: 'In your local time';
-        left: 16px;
-      }
-      &:after {
-        content: 'Add';
-        right: 16px;
+    .eventlist--upcoming {
+      article:first-of-type {
+        .eventlist-datetag-inner{
+          position: relative;
+          &:before, &:after {
+            position: absolute;
+            text-transform: uppercase;
+            display: block;
+            width: 20%;
+            height: 100%;
+            color: #fff;
+            z-index: 1000;
+            white-space: normal;
+            .v-align;
+          }
+          &:before {
+            content: 'In your local time';
+            left: 16px;
+          }
+          &:after {
+            content: 'Add';
+            right: 16px;
+          }
+        }
       }
     }
     .site-player-block {
