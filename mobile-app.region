@@ -25,7 +25,7 @@
             <div class="nav-container">
                 <div id="mobileNav">
                     <div class="wrapper">
-                        <squarespace:navigation navigationId="pages" template="mobile-navigation"/>
+                        <squarespace:navigation navigationId="app-links" template="mobile-navigation"/>
                     </div>
                 </div>
                 <squarespace:navigation navigationId="pages" template="navigation"/>
