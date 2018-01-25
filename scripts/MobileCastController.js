@@ -445,8 +445,6 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function pausePlayersExept(playerType) {
-        console.log(playerType);
-        return;
         playerType = playerType || false;
         for (var player in players) {
             if (players.hasOwnProperty(player) && player !== playerType) {
@@ -716,6 +714,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 }
                 onPlayerReady('shoutcast');
             }
+            //castContainer.append(YshoutcastPlayer);
             shoutcastPlayer = YshoutcastPlayer._node;
             shoutcastPlayer.addEventListener('loadstart', function () {
                 onPlayerReady('shoutcast');
@@ -725,7 +724,6 @@ window.Template.Controllers.MobileCastController = function (element) {
                 onPlayerStateChange('shoutcast', 'play')
             });
             shoutcastPlayer.addEventListener('pause', function () {
-                console.log('PAUSEDD')
                 onPlayerStateChange('shoutcast', 'pause');
             });
             shoutcastPlayer.addEventListener('error', onShoutCastError);
@@ -734,7 +732,6 @@ window.Template.Controllers.MobileCastController = function (element) {
             shoutcastPlayer.addEventListener('suspend', onShoutCastError);
             shoutcastPlayer.addEventListener('emptied', onShoutCastError);
             players['shoutcast'] = shoutcastPlayer;
-            castContainer.append(YshoutcastPlayer);
         } else {
             DEBUG && console.log('no shoutcast url to start');
             notShoutcast = true;
@@ -1157,8 +1154,8 @@ window.Template.Controllers.MobileCastController = function (element) {
                             shoutcastStatus = true;
                             DEBUG && console.log('SHOUTCAST STATUS TRUE');
                         } else {
-                            console.log('SHOUTCAST STATUS FALSE');
-                            //shoutcastPlayer.pause();
+                            DEBUG && console.log('SHOUTCAST STATUS FALSE');
+                            shoutcastPlayer.pause();
                             shoutcastStatus = false;
                             if(data.responseText === 'Offline'){
                                 trackName.one('span').set('text', 'Stream offline now');
