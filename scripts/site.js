@@ -668,13 +668,15 @@ function donateWithLiqPay(val, name, surname, email) {
             }
             formSubmitEvent = Y.Global.on('form:submitSuccess', function (e) {
                 var form = Y.one('#container form');
-                var name = form.one('.first-name input').get('value');
-                var surname = form.one('.last-name input').get('value');
-                var val = form.one('.field input[placeholder*="UAH"]')?parseInt(form.one('.field input[placeholder*="UAH"]').get('value')): 10;
+                var name = form.one('.first-name input').get('value') || 'John';
+                var surname = form.one('.last-name input').get('value') || 'Smith';
+                var val = form.one('.field input[placeholder*="UAH"]') ? parseInt(form.one('.field input[placeholder*="UAH"]').get('value')) : 10;
                 var email = form.one('.email input').get('value');
                 codeBlockLiq.removeClass('hidden');
                 localStorage.setItem('payerName', name);
                 localStorage.setItem('payerSurname', surname);
+                localStorage.setItem('paymentSumm', value);
+                localStorage.setItem('payerEmail', email);
                 donateWithLiqPay(val, name, surname, email);
             });
         }
