@@ -1016,6 +1016,12 @@ window.Template.Controllers.CastController = function (element) {
                             DEBUG && console.log('SHOUTCAST STATUS FALSE');
                             shoutcastPlayer.pause();
                             shoutcastStatus = false;
+                            if(data.responseText === 'Offline'){
+                                trackName.one('span').set('text', 'Stream offline now');
+                                shoutcastPlayer.title = 'Stream offline now';
+                                trackName.removeClass('scroll-track').addClass('scroll-track');
+                                checkTrackNameOverflow();
+                            }
                         }
                     }
                     shoutcastStatusFactor = false;
