@@ -20,7 +20,7 @@
         </script>
         <script type="text/javascript" src="file:///cordova.js"></script>
         <script type="text/javascript" src="file:///js/jquery.min.js"></script>
-        
+
     </head>
     <body class="cordova-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
     <div id="navigator">
