@@ -511,7 +511,7 @@ window.Template.Controllers.CastController = function (element) {
         if (!userPaused) {
             if (shoutcastPlayer) {
                 state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError,shoutcastStatus);
+                //console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError,shoutcastStatus);
                 if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
                     !mobile && shoutcastPlayer.play();
                     activePlayer = 'shoutcast';
@@ -522,10 +522,10 @@ window.Template.Controllers.CastController = function (element) {
                     return;
                 } else {
                     if (retry < maxRetry + 35) {
-                        console.log('try to load shoutcast');
+                        //console.log('try to load shoutcast');
                         shoutcastPlayer.load();
                     } else {
-                        console.log('wait to load shoutcast');
+                        //console.log('wait to load shoutcast');
                         pausePlayersExept('all');
                         retry++;
                     }
