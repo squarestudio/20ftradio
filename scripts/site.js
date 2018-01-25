@@ -678,6 +678,7 @@ function donateWithLiqPay(val, name, surname, email) {
                 localStorage.setItem('payerSurname', surname);
                 localStorage.setItem('paymentSumm', value);
                 localStorage.setItem('payerEmail', email);
+                console.log('formSubmit')
                 donateWithLiqPay(val, name, surname, email);
             });
         }
