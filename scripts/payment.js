@@ -1,3 +1,29 @@
+var isInitialized = false;
+$(function(){
+    $('.ft-donate .form-block form input[name="fname"]').on('blur', function () {
+        var name = transliterate($('.ft-donate .form-block form input[name="fname"]').val());
+        if(name.length == 0) {
+            name = "John";
+        }
+        localStorage.setItem('payerName', name);
+    });
+    $('.ft-donate .form-block form input[name="lname"]').on('blur', function () {
+        var surname = transliterate($('.ft-donate .form-block form input[name="lname"]').val());
+        if(surname.length == 0) {
+            surname = "Smith";
+        }
+        localStorage.setItem('payerSurname', surname);
+    });
+    $('.ft-donate .form-block form .field-list > div:last-child input').on('blur', function () {
+        var value = $(this).val();
+        localStorage.setItem('paymentSumm', value);
+    });
+    $('.ft-donate .form-block form .field-list > div:nth-child(2) input').on('blur', function () {
+        var email = $(this).val();
+        localStorage.setItem('payerEmail', email);
+    });
+});
+
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
