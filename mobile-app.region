@@ -1,5 +1,6 @@
 <html>
     <head>
+
         {squarespace-headers}
     </head>
     <body class="cordova-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
