@@ -1,6 +1,29 @@
 <html>
     <head>
-
+        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-eval' 'unsafe-inline' data: gap: https://ssl.gstatic.com;
+        style-src 'self' https://www.20ftradio.net https://static1.squarespace.com https://static.squarespace.com https://fonts.googleapis.com 'unsafe-inline'; media-src *;
+        img-src * data:;
+        font-src 'self' https://use.typekit.net https://static.squarespace.com https://fonts.googleapis.com  https://fonts.gstatic.com/s/;
+        script-src * 'unsafe-inline' 'unsafe-eval';">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <title>20FT Radio</title>
+        <meta charset="utf-8">
+        <link rel="preload" href="img/cast-image-empty.jpg">
+        <link rel="preload" href="img/cast-image-play.jpg">
+        <link rel="preload" href="img/cast-image-pause.jpg">
+        <link rel="stylesheet" type="text/css" href="file:///css/app.css">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <script>
+            SQUARESPACE_ROLLUPS = {};
+            window.Static = {};
+            window.Template = {
+                Util: {},
+                Controllers: {}
+            }
+        </script>
+        <script type="text/javascript" src="file:///cordova.js"></script>
+        <script type="text/javascript" src="file:///js/jquery.min.js"></script>
         {squarespace-headers}
     </head>
     <body class="cordova-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
