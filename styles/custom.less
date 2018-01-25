@@ -1093,7 +1093,7 @@ html {
     #mobileNav {
       display: none !important;
     }
-    .eventlist-datetag-inner {
+    .eventlist-datetag-inner:first-child {
       position: relative;
       &:before, &:after {
         position: absolute;
@@ -1101,6 +1101,8 @@ html {
         display: block;
         width: 20%;
         height: 100%;
+        color: #fff;
+        .v-align;
       }
       &:before {
         content: 'In your local time';
