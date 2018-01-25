@@ -526,6 +526,7 @@ window.Template.Controllers.CastController = function (element) {
                         shoutcastPlayer.load();
                     } else {
                         DEBUG && console.log('wait to load shoutcast');
+                        pausePlayersExept('all');
                         retry++;
                     }
                 }
