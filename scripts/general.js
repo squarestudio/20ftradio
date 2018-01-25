@@ -1,4 +1,4 @@
-Y.use('node', function () {
+/*Y.use('node', function () {
     Y.on('domready', function () {
         var move;
         Y.all('.subnav a').each(function (a) {
@@ -15,7 +15,7 @@ Y.use('node', function () {
             });
         });
     });
-});
+});*/
 function donateWithLiqPay(val, name, surname, email) {
     var callbackArr = initLiqpayCall(val, name, surname, email);
     LiqPayCheckout.init({
