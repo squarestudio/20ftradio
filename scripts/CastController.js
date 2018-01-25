@@ -1019,6 +1019,7 @@ window.Template.Controllers.CastController = function (element) {
                     shoutcastStatusFactor = false;
                 },
                 failure: function () {
+                    console.log('SHOUTCAST STATUS FALSE');
                     shoutcastStatus = false;
                     shoutcastStatusFactor = false;
                 }
