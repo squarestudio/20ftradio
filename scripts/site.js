@@ -673,11 +673,11 @@ function donateWithLiqPay(val, name, surname, email) {
                 var val = form.one('.field input[placeholder*="UAH"]') ? parseInt(form.one('.field input[placeholder*="UAH"]').get('value')) : 10;
                 var email = form.one('.email input').get('value');
                 codeBlockLiq.removeClass('hidden');
-                localStorage.setItem('payerName', name);
+                /*localStorage.setItem('payerName', name);
                 localStorage.setItem('payerSurname', surname);
                 localStorage.setItem('paymentSumm', value);
                 localStorage.setItem('payerEmail', email);
-                donateWithLiqPay(val, name, surname, email);
+                donateWithLiqPay(val, name, surname, email);*/
             });
         }
     });
