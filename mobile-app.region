@@ -1,26 +1,6 @@
 <html>
     <head>
-
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <title>20FT Radio</title>
-        <meta charset="utf-8">
-        <link rel="preload" href="img/cast-image-empty.jpg">
-        <link rel="preload" href="img/cast-image-play.jpg">
-        <link rel="preload" href="img/cast-image-pause.jpg">
-        <link rel="stylesheet" type="text/css" href="file:///css/app.css">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <script>
-            SQUARESPACE_ROLLUPS = {};
-            window.Static = {};
-            window.Template = {
-                Util: {},
-                Controllers: {}
-            }
-        </script>
-        <script type="text/javascript" src="file:///cordova.js"></script>
-        <script type="text/javascript" src="file:///js/jquery.min.js"></script>
-
+        {squarespace-headers}
     </head>
     <body class="cordova-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
     <div id="navigator">
