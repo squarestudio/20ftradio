@@ -1094,15 +1094,18 @@ html {
       display: none !important;
     }
     .eventlist-datetag-inner {
+      position: relative;
       &:before, &:after {
         position: absolute;
         text-transform: uppercase;
       }
       &:before {
         content: 'In your local time';
+        left: 16px;
       }
       &:after {
         content: 'Add';
+        right: 16px;
       }
     }
     .site-player-block {
