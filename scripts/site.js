@@ -528,7 +528,6 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
 });
 
 function donateWithLiqPay(val, name, surname, email) {
-    console.log(val, name, surname, email)
     var callbackArr = initLiqpayCall(val, name, surname, email);
     LiqPayCheckout.init({
         data: callbackArr['data'],
@@ -678,7 +677,6 @@ function donateWithLiqPay(val, name, surname, email) {
                 localStorage.setItem('payerSurname', surname);
                 localStorage.setItem('paymentSumm', value);
                 localStorage.setItem('payerEmail', email);
-                console.log('formSubmit')
                 donateWithLiqPay(val, name, surname, email);
             });
         }
