@@ -10,9 +10,9 @@ function donateWithLiqPay(val, name, surname, email) {
         console.log(data.status);
         console.log(data);
     }).on("liqpay.ready", function (data) {
-        // ready
+        console.log(data);
     }).on("liqpay.close", function (data) {
-        // close
+        console.log(data);
     });
 }
 var formSubmitEvent = null;
