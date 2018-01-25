@@ -1014,6 +1014,7 @@ window.Template.Controllers.CastController = function (element) {
                             DEBUG && console.log('SHOUTCAST STATUS TRUE');
                         } else {
                             DEBUG && console.log('SHOUTCAST STATUS FALSE');
+                            shoutcastPlayer.pause();
                             shoutcastStatus = false;
                         }
                     }
