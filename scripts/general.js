@@ -26,10 +26,9 @@ function sendReplyEmail(name, surname, email, data) {
             email: email,
             data: data
         },
-        success: function (data) {
-            console.log(data)
-        },
         dataType: 'json'
+    }).done(function (data) {
+        console.log(data)
     });
 }
 
