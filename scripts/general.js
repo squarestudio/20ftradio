@@ -21,8 +21,7 @@ function sendReplyEmail(name, surname, email, data) {
         name: name,
         surname: surname,
         email: email,
-        order_id: data.liqpay_order_id,
-
+        data: data
     }).done(function (data) {
            console.log(data)
         });
