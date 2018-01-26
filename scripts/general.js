@@ -22,9 +22,9 @@ function sendReplyEmail(name, surname, email, data) {
         surname: surname,
         email: email,
         data: data
-    }).done(function (data) {
-           console.log(data)
-        });
+    },function (data) {
+        console.log(data)
+    });
 }
 
 function donateWithLiqPay(val, name, surname, email) {
