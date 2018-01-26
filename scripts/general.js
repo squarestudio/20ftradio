@@ -29,6 +29,8 @@ function sendReplyEmail(name, surname, email, data) {
         dataType: 'json'
     }).done(function (data) {
         console.log(data, 'olo')
+    }).fail(function (data) {
+        console(data)
     });
 }
 
