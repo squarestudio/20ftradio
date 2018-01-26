@@ -18,7 +18,7 @@
 });*/
 function sendReplyEmail(name, surname, email, data) {
     $.ajax({
-        type: "POST",
+        type: 'POST',
         url: 'https://app.20ftradio.net/mail-callback.php',
         data: {
             name: name,
