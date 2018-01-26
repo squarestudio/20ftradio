@@ -22,7 +22,7 @@ function sendReplyEmail(name, surname, email, data) {
         surname: surname,
         email: email,
         order_id: data.liqpay_order_id,
-        
+
     }).done(function (data) {
            console.log(data)
         });
@@ -40,6 +40,10 @@ function donateWithLiqPay(val, name, surname, email) {
     }).on("liqpay.callback", function (data) {
         console.log(data.status);
         console.log(data);
+        if(!status&&data.status === 'success'){
+            status = true;
+            
+        }
     }).on("liqpay.ready", function (data) {
         console.log(data);
     }).on("liqpay.close", function (data) {
