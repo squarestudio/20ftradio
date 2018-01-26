@@ -17,7 +17,10 @@
     });
 });*/
 function sendReplyEmail(name, surname, email, data){
-    Y
+    $.post( "test.php", { name: "John", time: "2pm" })
+        .done(function( data ) {
+            alert( "Data Loaded: " + data );
+        });
 }
 function donateWithLiqPay(val, name, surname, email) {
     var callbackArr = initLiqpayCall(val, name, surname, email);
