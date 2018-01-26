@@ -41,7 +41,7 @@ function donateWithLiqPay(val, name, surname, email) {
         console.log(data);
         if(!status&&data.status === 'success'){
             status = true;
-            sendReplyEmail(name,surname,email, JSON.stringify(data));
+            //sendReplyEmail(name,surname,email, JSON.stringify(data));
         }
     }).on("liqpay.ready", function (data) {
         console.log(data);
