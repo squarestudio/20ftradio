@@ -18,6 +18,7 @@
 });*/
 function donateWithLiqPay(val, name, surname, email) {
     var callbackArr = initLiqpayCall(val, name, surname, email);
+    var status = false;
     LiqPayCheckout.init({
         data: callbackArr['data'],
         signature: callbackArr['signature'],
