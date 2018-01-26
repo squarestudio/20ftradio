@@ -16,12 +16,18 @@
         });
     });
 });*/
-function sendReplyEmail(name, surname, email, data){
-    $.post('https://app.20ftradio.net/mail-callback.php', { name: name, surname: surname, email: email, order_id:  })
-        .done(function( data ) {
-            alert( "Data Loaded: " + data );
+function sendReplyEmail(name, surname, email, data) {
+    $.post('https://app.20ftradio.net/mail-callback.php', {
+        name: name,
+        surname: surname,
+        email: email,
+        order_id: data.liqpay_order_id,
+        
+    }).done(function (data) {
+           console.log(data)
         });
 }
+
 function donateWithLiqPay(val, name, surname, email) {
     var callbackArr = initLiqpayCall(val, name, surname, email);
     var status = false;
@@ -40,6 +46,7 @@ function donateWithLiqPay(val, name, surname, email) {
         console.log(data);
     });
 }
+
 var formSubmitEvent = null;
 Y.config.win.Squarespace.onInitialize(Y, function () {
     if (Y.one('#liqpay_checkout')) {
