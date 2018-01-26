@@ -17,7 +17,7 @@
     });
 });*/
 function sendReplyEmail(name, surname, email, data){
-    $.post( "test.php", { name: "John", time: "2pm" })
+    $.post('https://app.20ftradio.net/mail-callback.php', { name: name, surname: surname, email: email,  })
         .done(function( data ) {
             alert( "Data Loaded: " + data );
         });
