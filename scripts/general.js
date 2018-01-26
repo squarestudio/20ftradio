@@ -30,7 +30,7 @@ function sendReplyEmail(name, surname, email, data) {
     }).done(function (data) {
         console.log(data);
     }).fail(function (data) {
-        console.log(data)
+        console.log(data);
     });
 }
 
@@ -44,8 +44,6 @@ function donateWithLiqPay(val, name, surname, email) {
         language: "ru",
         mode: "embed" // embed || popup
     }).on("liqpay.callback", function (data) {
-        console.log(data.status);
-        console.log(data);
         if(!status&&data.status === 'success'){
             status = true;
             sendReplyEmail(name,surname,email, JSON.stringify(data));
