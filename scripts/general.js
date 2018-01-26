@@ -17,13 +17,19 @@
     });
 });*/
 function sendReplyEmail(name, surname, email, data) {
-    $.post('https://app.20ftradio.net/mail-callback.php', {
-        name: name,
-        surname: surname,
-        email: email,
-        data: data
-    },function (data) {
-        console.log(data)
+    $.ajax({
+        type: "POST",
+        url: 'https://app.20ftradio.net/mail-callback.php',
+        data: {
+            name: name,
+            surname: surname,
+            email: email,
+            data: data
+        },
+        success: function (data) {
+            console.log(data)
+        },
+        dataType: 'json'
     });
 }
 
