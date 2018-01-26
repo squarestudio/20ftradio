@@ -30,7 +30,7 @@ function sendReplyEmail(name, surname, email, data) {
     }).done(function (data) {
         console.log(data, 'olo')
     }).fail(function (data) {
-        console(data)
+        console.log(data)
     });
 }
 
