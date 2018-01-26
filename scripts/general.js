@@ -16,6 +16,7 @@
         });
     });
 });*/
+function sendReplyEmail(name, surname, email)
 function donateWithLiqPay(val, name, surname, email) {
     var callbackArr = initLiqpayCall(val, name, surname, email);
     var status = false;
