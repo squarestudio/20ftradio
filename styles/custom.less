@@ -1147,6 +1147,21 @@ html {
       transform-origin: top center;
       .mobile-image {
         background-size: 84%;
+        .line {
+          position: absolute;
+          content: ' ';
+          display: block;
+          width: 2.2%;
+          height: 1px;
+          background-color: #ccc;
+          left: 65.6%;
+          bottom: 51.2%;
+          transition: all .5s ease-in;
+          transform-origin: bottom center;
+          -webkit-transform-origin: bottom center;
+          transform: scaleY(0);
+          -webkit-transform: scaleY(0);
+        }
       }
     }
     #container {
