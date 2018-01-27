@@ -224,6 +224,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                         shoutcastPlayer.load();
                     }
                     shoutcastPlayer.setVolume(100);
+                    shoutcastPlayer.muted = false;
                     shoutcastPlayer.playVideo();
                     userPaused = false;
                     checkStreams();
