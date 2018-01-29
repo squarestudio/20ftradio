@@ -96,6 +96,9 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     }
     if (Y.one('.embed-block[data-block-json*="mixcloud.com"]')){
         initMixCloudFooter();
+        Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
+            iframe.setAttribute('')
+        })
     }
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
