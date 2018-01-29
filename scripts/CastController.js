@@ -562,9 +562,6 @@ window.Template.Controllers.CastController = function (element) {
         if (mixCloudFooterPlayer) {
 
         } else {
-            /*            mixCloudPlayer = Y.Node.create('<iframe id="mixCloudPlayer" src="https://www.mixcloud.com/widget/iframe/?feed=' + someCloudUrl + '&disable_unload_warning=1" class="stream-player mixcloud-stream"></iframe>');
-                        castContainer.append(mixCloudPlayer);
-                        mixCloudPlayer = mixCloudPlayer._node;*/
             mixCloudFooterPlayer = Mixcloud.FooterWidget(someCloudUrl, {
                 disablePushstate: true,
                 disableUnloadWarning: true
