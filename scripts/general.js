@@ -96,7 +96,9 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             donateWithLiqPay(val, name, surname, email);
         });
     }
-    if (Y.one('embed-block'))
+    if (Y.one('embed-block[data-block-json*="mixcloud.com"]')){
+        initMixCloudFooter();
+    }
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
