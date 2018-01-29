@@ -720,10 +720,10 @@ window.Template.Controllers.MobileCastController = function (element) {
             }
             //castContainer.append(YshoutcastPlayer);
             shoutcastPlayer = YshoutcastPlayer._node;
-            shoutcastPlayer.addEventListener('loadstart', function () {
+ /*           shoutcastPlayer.addEventListener('loadstart', function () {
                 onPlayerReady('shoutcast');
                 console.log('LOADSTART')
-            });
+            });*/
             shoutcastPlayer.addEventListener('play', function () {
                 onPlayerStateChange('shoutcast', 'play')
             });
