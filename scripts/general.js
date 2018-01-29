@@ -41,7 +41,7 @@ function donateWithLiqPay(val, name, surname, email) {
 function initMixCloudFooter() {
     if (!mixCloudFooterPlayer) {
         console.log('MixCloudFooter init');
-        mixCloudFooterPlayer = Mixcloud.FooterWidget(someCloudUrl, {
+        mixCloudFooterPlayer = Mixcloud.FooterWidget('https://www.mixcloud.com/20ftradio/', {
             disablePushstate: true,
             disableUnloadWarning: true
         });
