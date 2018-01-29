@@ -56,10 +56,6 @@ function initMixCloudFooter() {
             mixCloudFooterPlayer.events.error.on(function (e) {
                console.log('MixCloud Error', e);
             });
-            onPlayerReady('mixcloud');
-            pausePlayersExept('all');
-            mixCloudFooterPlayer.play();
-            sitePlayer.addClass('played');
         });
     } else {
         console.log('MixCloudFooter here');
