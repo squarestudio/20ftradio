@@ -78,16 +78,6 @@ window.Template.Controllers.CastController = function (element) {
                 }
             })
         }
-        Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
-            var widget = Mixcloud.PlayerWidget(iframe._node);
-            widget.ready.then(function (widget) {
-                widget.events.play.on(function(){
-                    userPaused = true;
-                    pausePlayersExept('all');
-                });
-                mixCloudEmbeds.push(widget);
-            });
-        })
     }
 
     function refreshImages() {
