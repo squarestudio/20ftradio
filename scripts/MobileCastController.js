@@ -724,7 +724,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 onPlayerReady('shoutcast');
                 console.log('LOADSTART')
             });*/
-            shoutcastPlayer.addEventListener('play', function () {
+            shoutcastPlayer.addEventListener('playing', function () {
                 onPlayerStateChange('shoutcast', 'play')
             });
             shoutcastPlayer.addEventListener('pause', function () {
