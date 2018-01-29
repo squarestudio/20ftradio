@@ -710,7 +710,6 @@ window.Template.Controllers.MobileCastController = function (element) {
                 YshoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" title="20FT Radio" class="stream-player" autoplay poster="https://www.20ftradio.net/assets/icon.png" preload playsinline -webkit-playsinline name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
             } else {
                 console.log('EXIST');
-                userClickPlay = true;
                 YshoutcastPlayer = shoutcastPlayer;
                 shoutcastPlayer = YshoutcastPlayer._node;
                 if(!shoutcastPlayer.paused){
