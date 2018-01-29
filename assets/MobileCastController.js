@@ -220,10 +220,12 @@ window.Template.Controllers.MobileCastController = function (element) {
             else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
                 if (mobile && !userClickPlay) {
+                    shoutcastPlayer.muted = false;
                     shoutcastPlayer.playVideo();
                     userPaused = false;
                 }
                 else if (state) {
+                    shoutcastPlayer.muted = false;
                     shoutcastPlayer.playVideo();
                     userPaused = false;
                 } else {
