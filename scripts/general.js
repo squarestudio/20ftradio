@@ -49,8 +49,6 @@ function initMixCloudFooter() {
             mixCloudFooterPlayer = widget;
             mixCloudFooterPlayer.events.play.on(function () {
                 Y.fire('mixcloud:play');
-                userPaused = true;
-                pausePlayersExept('all');
             });
             mixCloudFooterPlayer.events.pause.on(function () {
                 //onPlayerStateChange('mixcloud', 'pause')
