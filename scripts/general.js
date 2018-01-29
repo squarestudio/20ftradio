@@ -1,21 +1,4 @@
-/*Y.use('node', function () {
-    Y.on('domready', function () {
-        var move;
-        Y.all('.subnav a').each(function (a) {
-            a.on('touchstart', function () {
-                move = false;
-            });
-            a.on('touchmove', function () {
-                move = true;
-            });
-            a.on('touchend', function () {
-                if (move === false) {
-                    window.location = a.getAttribute('href');
-                }
-            });
-        });
-    });
-});*/
+var mixCloudFooterPlayer = false;
 function sendReplyEmail(name, surname, email, data) {
     $.ajax({
         type: 'POST',
@@ -44,15 +27,45 @@ function donateWithLiqPay(val, name, surname, email) {
         language: "ru",
         mode: "embed" // embed || popup
     }).on("liqpay.callback", function (data) {
-        if(!status&&data.status === 'success'){
+        if (!status && data.status === 'success') {
             status = true;
-            sendReplyEmail(name,surname,email, JSON.stringify(data));
+            sendReplyEmail(name, surname, email, JSON.stringify(data));
         }
     }).on("liqpay.ready", function (data) {
         //console.log(data);
     }).on("liqpay.close", function (data) {
         //console.log(data);
     });
+}
+
+function initMixCloudFooter() {
+    if (!mixCloudFooterPlayer) {
+        console.log('MixCloudFooter init');
+        mixCloudFooterPlayer = Mixcloud.FooterWidget(someCloudUrl, {
+            disablePushstate: true,
+            disableUnloadWarning: true
+        });
+        mixCloudFooterPlayer.then(function (widget) {
+            mixCloudFooterPlayer = widget;
+            DEBUG && console.log(mixCloudPlayer);
+            mixCloudFooterPlayer.events.play.on(function () {
+                userPaused = true;
+                pausePlayersExept('all');
+            });
+            mixCloudFooterPlayer.events.pause.on(function () {
+                //onPlayerStateChange('mixcloud', 'pause')
+            });
+            mixCloudFooterPlayer.events.error.on(function (e) {
+                DEBUG && console.log('MixCloud Error', e);
+            });
+            onPlayerReady('mixcloud');
+            pausePlayersExept('all');
+            mixCloudFooterPlayer.play();
+            sitePlayer.addClass('played');
+        });
+    } else {
+        console.log('MixCloudFooter here');
+    }
 }
 
 var formSubmitEvent = null;
