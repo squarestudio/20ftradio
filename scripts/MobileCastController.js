@@ -235,6 +235,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     if (!shoutcastPlayer.currentTime){
                         shoutcastPlayer.load();
                     }
+                    shoutcastPlayer.muted = false;
                     shoutcastPlayer.playVideo();
                     userPaused = false;
                 } else {
