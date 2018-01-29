@@ -47,8 +47,8 @@ function initMixCloudFooter() {
         });
         mixCloudFooterPlayer.then(function (widget) {
             mixCloudFooterPlayer = widget;
-            DEBUG && console.log(mixCloudPlayer);
             mixCloudFooterPlayer.events.play.on(function () {
+                Y.fire('mixcloud:play');
                 userPaused = true;
                 pausePlayersExept('all');
             });
@@ -56,7 +56,7 @@ function initMixCloudFooter() {
                 //onPlayerStateChange('mixcloud', 'pause')
             });
             mixCloudFooterPlayer.events.error.on(function (e) {
-                DEBUG && console.log('MixCloud Error', e);
+               console.log('MixCloud Error', e);
             });
             onPlayerReady('mixcloud');
             pausePlayersExept('all');
