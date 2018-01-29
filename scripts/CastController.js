@@ -59,6 +59,11 @@ window.Template.Controllers.CastController = function (element) {
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
+            Y.on('mixcloud:play',function () {
+                console.log('MIXCLOUD PLAY');
+                userPaused = true;
+                pausePlayersExept('all');
+            });
         }
         var currentTime = new Date();
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
