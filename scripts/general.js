@@ -62,10 +62,11 @@ function initMixCloudFooter() {
         mixCloudFooterPlayer.then(function (widget) {
             mixCloudFooterPlayer = widget;
             mixCloudFooterPlayer.events.play.on(function () {
-
+                body.addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.fire('mixcloud:play');
             });
             mixCloudFooterPlayer.events.pause.on(function () {
+                body.removeClass('mixcloud-footer-playing').addClass('mixcloud-footer-stopped');
                 Y.fire('mixcloud:pause');
             });
             mixCloudFooterPlayer.events.error.on(function (e) {
