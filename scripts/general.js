@@ -97,19 +97,18 @@ function activateMixcloudThings() {
         var content = embed.one('.sqs-block-content');
         var api_url = embed.getAttribute('data-mixcloud-api-url');
         if (api_url) {
-            Y.io(api_url, {
-                on: {
-                    success: function(id, o) {
-                        if (o.responseText && JSON.parse(o.responseText)) {
-                            var data = JSON.parse(o.responseText);
-                            console.log(data)
-                        }
-                    },
-                    failure: function(st, err) {
-                        console.log(err)
-                    }
-                }
-            });
+            $.getJSON(api_url, function() {
+                console.log( "success" );
+            })
+                .done(function() {
+                    console.log( "second success" );
+                })
+                .fail(function() {
+                    console.log( "error" );
+                })
+                .always(function() {
+                    console.log( "complete" );
+                });
         }
         /*var widget = Mixcloud.PlayerWidget(iframe._node);
         widget.ready.then(function (widg) {
