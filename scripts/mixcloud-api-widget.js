@@ -230,7 +230,7 @@
     }
 
     function y(e, t) {
-        var n = M + "/widget/iframe/?feed=" + encodeURIComponent(e) + "&hide_cover=1";
+        var n = M + "/widget/iframe/?feed=" + encodeURIComponent(e) + "&footer_widget=1";
         return t.stylecolor && (n += "&stylecolor=" + encodeURIComponent(t.stylecolor)), t.hide_artwork && (n += "&hide_artwork=1"), t.autoplay && (n += "&autoplay=1"), t.light && (n += "&light=1"), t.html5audio && (n += "&html5audio=1"), t.disableUnloadWarning && (n += "&disable_unload_warning=1"), n
     }
 
