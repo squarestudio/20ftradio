@@ -2,6 +2,7 @@ var mixCloudFooterPlayer = false;
 var window_loaded = false;
 window.mixCloudEmbeds = [];
 var body = Y.one('body');
+var html = Y.one('html);
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -62,11 +63,11 @@ function initMixCloudFooter() {
         mixCloudFooterPlayer.then(function (widget) {
             mixCloudFooterPlayer = widget;
             mixCloudFooterPlayer.events.play.on(function () {
-                body.addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
+                html.addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.fire('mixcloud:play');
             });
             mixCloudFooterPlayer.events.pause.on(function () {
-                body.removeClass('mixcloud-footer-playing').addClass('mixcloud-footer-stopped');
+                html.removeClass('mixcloud-footer-playing').addClass('mixcloud-footer-stopped');
                 Y.fire('mixcloud:pause');
             });
             mixCloudFooterPlayer.events.error.on(function (e) {
