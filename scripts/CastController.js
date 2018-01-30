@@ -1012,7 +1012,6 @@ window.Template.Controllers.CastController = function (element) {
             DEBUG && console.log('destroy cast');
             Y.one(window).detach('resize', refreshImages);
             Y.detach('getCurrentEvent', getCurrentEvent);
-            mixCloudEmbeds = [];
         }
     };
 };
