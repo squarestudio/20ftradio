@@ -180,5 +180,8 @@ if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
     body.delegate('click', function (e) {
         e.halt()
         var url = e.currentTarget.ancestor('.embed-block').getAttribute('data-mixcloud-url');
+        if(url){
+            mixCloudFooterPlayer&&mixCloudFooterPlayer.load&&mixCloudFooterPlayer.load(url, true);
+        }
     }, '.mixcloud-butt')
 }
