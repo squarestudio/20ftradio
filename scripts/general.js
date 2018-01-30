@@ -107,14 +107,14 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
             iframe.setAttribute('data-mixcloud-play-button', iframe.getAttribute('src'));
             var widget = Mixcloud.PlayerWidget(iframe._node);
-            widget.ready.then(function () {
+            widget.ready.then(function (widg) {
                 var url = getParameterByName('feed', iframe.getAttribute('src'));
-                widget.events.play.on(function(){
+                widg.events.play.on(function(){
                     console.log(url);
                     //mixCloudFooterPlayer.load(url, true);
                     //mixCloudFooterPlayer.play();
                 });
-                mixCloudEmbeds.push(widget);
+                mixCloudEmbeds.push(widg);
             });
         })
     }
