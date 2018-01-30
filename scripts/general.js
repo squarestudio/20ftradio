@@ -78,7 +78,7 @@ function initMixCloudFooter() {
             });
             mixCloudFooterPlayer.events.pause.on(function () {
                 html.removeClass('mixcloud-footer-playing');
-                if(!html.one('#catDiv').hasClass('playing')){
+                if(!html.one('#castDiv').hasClass('playing')){
                     html.addClass('mixcloud-footer-stopped');
                 }
                 Y.fire('mixcloud:pause');
