@@ -90,7 +90,6 @@ function activateMixcloudThings() {
                 console.log(url);
                 widget.pause();
                 mixCloudFooterPlayer.load(url, true);
-                //mixCloudFooterPlayer.play();
             });
             widg.events.error.on(function () {
                 console.log(url);
