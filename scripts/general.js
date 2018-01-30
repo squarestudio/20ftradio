@@ -95,21 +95,23 @@ function activateMixcloudThings() {
     initMixCloudFooter();
     Y.all('.embed-block[data-block-json*="mixcloud.com"], .code-block iframe[src*="mixcloud.com"]').each(function (item) {
         var code_block = false;
-        if(item.get('nodeName') === 'IFRAME'){
+        var iframe_src = false;
+        if (item.get('nodeName') === 'IFRAME') {
+            iframe_src = item.getAttribute('src');
             item = item.ancestor('.code-block');
             code_block = true;
         }
         var content = item.one('.sqs-block-content');
-        if(!item.hasClass('inited')){
-            var json = JSON.parse(item.getAttribute('data-block-json'));
+        if (!item.hasClass('inited')) {
+            var json = code_block ? {html:} : JSON.parse(item.getAttribute('data-block-json'));
             var feed = decodeURIComponent(json.html.split('feed=')[1].split('"')[0]).replace('https://mixcloud.com/', '').replace('https://www.mixcloud.com/', '').replace('&hide_cover=1', '') || '';
             if (feed) {
-                item.setAttribute('data-mixcloud-url', '/'+feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed)+'-mix-item').addClass('inited');
+                item.setAttribute('data-mixcloud-url', '/' + feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed) + '-mix-item').addClass('inited');
                 content.empty();
                 $.getJSON('https://api.mixcloud.com/' + feed + '?callback=', function (data) {
                     console.log("success", data);
-                    content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #333 url('+data.pictures.medium+') no-repeat;background-size: cover"></div><div class="text-info clear">' +
-                        '<a class="play-button mixcloud-butt"></a><div class="meta"><div class="track-title">'+data.name+'</div></div></div></div>')
+                    content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #333 url(' + data.pictures.medium + ') no-repeat;background-size: cover"></div><div class="text-info clear">' +
+                        '<a class="play-button mixcloud-butt"></a><div class="meta"><div class="track-title">' + data.name + '</div></div></div></div>')
                 })
                     .fail(function (err) {
                         console.log(err);
@@ -162,8 +164,8 @@ if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
     body.delegate('click', function (e) {
         e.halt()
         var url = e.currentTarget.ancestor('.embed-block').getAttribute('data-mixcloud-url');
-        if(url){
-            mixCloudFooterPlayer&&mixCloudFooterPlayer.load&&mixCloudFooterPlayer.load(url, true);
+        if (url) {
+            mixCloudFooterPlayer && mixCloudFooterPlayer.load && mixCloudFooterPlayer.load(url, true);
         }
     }, '.mixcloud-butt')
 }
