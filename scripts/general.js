@@ -102,6 +102,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     }
     if (Y.one('.embed-block[data-block-json*="mixcloud.com"]')){
         initMixCloudFooter();
+        window.mixCloudEmbeds = [];
         Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
             iframe.setAttribute('data-mixcloud-play-button', iframe.getAttribute('src'));
             var widget = Mixcloud.PlayerWidget(iframe._node);
@@ -112,7 +113,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
                     mixCloudFooterPlayer.load(url, true);
                     //mixCloudFooterPlayer.play();
                 });
-                //mixCloudEmbeds.push(widget);
+                mixCloudEmbeds.push(widget);
             });
         })
     }
