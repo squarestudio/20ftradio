@@ -94,14 +94,14 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         initMixCloudFooter();
         Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
             iframe.setAttribute('data-mixcloud-play-button', iframe.getAttribute('src'));
-/*            var widget = Mixcloud.PlayerWidget(iframe._node);
+            var widget = Mixcloud.PlayerWidget(iframe._node);
             widget.ready.then(function (widget) {
                 widget.events.play.on(function(){
                     userPaused = true;
                     pausePlayersExept('all');
                 });
                 mixCloudEmbeds.push(widget);
-            });*/
+            });
         })
     }
 });
