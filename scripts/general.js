@@ -99,7 +99,7 @@ function activateMixcloudThings() {
         if (api_url) {
             $.getJSON(api_url + '?callback=', function (data) {
                 console.log("success", data);
-                content.append('<div class="custom-mixcloud-widget">.</div>')
+                content.append('<div class="custom-mixcloud-widget"><div class="track-art"></div><div class="track-title"></div></div>')
             })
                 .fail(function (err) {
                     console.log(err);
