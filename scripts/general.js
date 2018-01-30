@@ -97,8 +97,8 @@ function activateMixcloudThings() {
         var content = embed.one('.sqs-block-content');
         var api_url = embed.getAttribute('data-mixcloud-api-url');
         if (api_url) {
-            $.getJSON(api_url + '?callback=', function () {
-                console.log("success");
+            $.getJSON(api_url + '?callback=', function (data) {
+                console.log("success", data);
             })
                 .done(function () {
                     console.log("second success");
