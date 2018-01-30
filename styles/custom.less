@@ -1009,20 +1009,22 @@ body {
 }
 
 body {
-  &.mixcloud-footer-stopped,&.mixcloud-footer-playing {
+  &.mixcloud-footer-stopped, &.mixcloud-footer-playing {
     .mixcloud-footer-widget-container {
-      bottom: 0!important;
+      bottom: 0 !important;
     }
   }
   &.viewable, &.viewable-on-scroll {
-    .mixcloud-footer-widget-container {
-      bottom: 80px!important;
+    &.mixcloud-footer-stopped, &.mixcloud-footer-playing {
+      .mixcloud-footer-widget-container {
+        bottom: 80px !important;
+      }
     }
   }
 }
 
 .mixcloud-footer-widget-container {
-  bottom: -160px!important;
+  bottom: -160px !important;
 }
 
 body.auth {
