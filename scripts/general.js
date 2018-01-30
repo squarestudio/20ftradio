@@ -107,8 +107,8 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             var widget = Mixcloud.PlayerWidget(iframe._node);
             widget.ready.then(function () {
                 var url = getParameterByName('feed', iframe.getAttribute('src'));
-                console.log(url);
                 widget.events.play.on(function(){
+                    console.log(url);
                     mixCloudFooterPlayer.load(url, true);
                     //mixCloudFooterPlayer.play();
                 });
