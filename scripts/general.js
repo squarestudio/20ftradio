@@ -147,7 +147,7 @@ if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
     Y.all('.embed-block[data-block-json*="mixcloud.com"]').each(function (item) {
         var content = item.one('.sqs-block-content');
         var json = JSON.parse(item.getAttribute('data-block-json'));
-        var feed = json.html.split('feed=')[0].split('"')[0];
+        var feed = json.html.split('feed=')[1].split('"')[0];
         console.log(feed)
         content.empty();
     });
