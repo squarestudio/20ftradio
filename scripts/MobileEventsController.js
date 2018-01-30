@@ -41,8 +41,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             Y.one(id).addClass('active');
             if(Y.one(id+ ' #grid')){
                 var gal = Y.one(id+ ' #grid').getData('gallery');
-                //gal.refresh();
-                console.log('gallery here');
+                gal.refresh();
             }
             mobileEvents.getDOMNode().className = id.replace('#', 'tab-');
         });
