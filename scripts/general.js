@@ -115,6 +115,9 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
                     //mixCloudFooterPlayer.load(url, true);
                     //mixCloudFooterPlayer.play();
                 });
+                widg.events.error.on(function(){
+                    console.log(url);
+                });
                 mixCloudEmbeds.push(widg);
             });
         })
