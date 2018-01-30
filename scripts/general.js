@@ -133,7 +133,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     console.log(window_loaded,Y.all('.embed-block[data-block-json*="mixcloud.com"]'))
     if (window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
         Y.all('.embed-block[data-block-json*="mixcloud.com"]').each(function (item) {
-            item.empty();
+            //item.one('.sqs-block-content').empty();
         });
         console.log('runnnn');
         activateMixcloudThings()
@@ -145,7 +145,7 @@ Y.config.win.Squarespace.onDestroy(Y, function () {
 if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
     console.log('DOM Ready');
     Y.all('.embed-block[data-block-json*="mixcloud.com"]').each(function (item) {
-        item.empty();
+        item.one('.sqs-block-content').empty();
     });
     activateMixcloudThings();
 }
