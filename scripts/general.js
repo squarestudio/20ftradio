@@ -95,19 +95,21 @@ function activateMixcloudThings() {
     initMixCloudFooter();
     Y.all('.embed-block[data-block-json*="mixcloud.com"]').each(function (item) {
         var content = item.one('.sqs-block-content');
-        var json = JSON.parse(item.getAttribute('data-block-json'));
-        var feed = decodeURIComponent(json.html.split('feed=')[1].split('"')[0]).replace('https://mixcloud.com/', '').replace('https://www.mixcloud.com/', '').replace('&hide_cover=1', '') || '';
-        if (feed) {
-            item.setAttribute('data-mixcloud-url', '/'+feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed)+'-mix-item');
-            content.empty();
-            $.getJSON('https://api.mixcloud.com/' + feed + '?callback=', function (data) {
-                console.log("success", data);
-                content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #333 url('+data.pictures.medium+') no-repeat;background-size: cover"></div><div class="text-info clear">' +
-                    '<a class="play-button mixcloud-butt"></a><div class="meta"><div class="track-title">'+data.name+'</div></div></div></div>')
-            })
-                .fail(function (err) {
-                    console.log(err);
+        if(!item.hasClass('inited')){
+            var json = JSON.parse(item.getAttribute('data-block-json'));
+            var feed = decodeURIComponent(json.html.split('feed=')[1].split('"')[0]).replace('https://mixcloud.com/', '').replace('https://www.mixcloud.com/', '').replace('&hide_cover=1', '') || '';
+            if (feed) {
+                item.setAttribute('data-mixcloud-url', '/'+feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed)+'-mix-item').addClass('inited');
+                content.empty();
+                $.getJSON('https://api.mixcloud.com/' + feed + '?callback=', function (data) {
+                    console.log("success", data);
+                    content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #333 url('+data.pictures.medium+') no-repeat;background-size: cover"></div><div class="text-info clear">' +
+                        '<a class="play-button mixcloud-butt"></a><div class="meta"><div class="track-title">'+data.name+'</div></div></div></div>')
                 })
+                    .fail(function (err) {
+                        console.log(err);
+                    })
+            }
         }
     });
 }
