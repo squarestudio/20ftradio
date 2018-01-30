@@ -1166,7 +1166,10 @@ html {
         .transition(transform .3s 0s ease-out);
       }
       .mobileEvents-wrapper {
-        display: block;
+        padding-bottom: 0;
+        .mobileEvents-container {
+          display: block;
+        }
       }
       #container {
         opacity: 1;
@@ -1204,7 +1207,10 @@ html {
 
     }
     .mobileEvents-wrapper {
-      display: none;
+      padding-bottom: 16%;
+      .mobileEvents-container {
+        display: none;
+      }
     }
     &.track-fixed {
       #topBar {
