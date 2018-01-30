@@ -99,6 +99,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             widget.ready.then(function (widget) {
                 console.log(iframe)
                 widget.events.play.on(function(){
+                    var a = Y.Node.create('<a href=')
                     console.log(iframe.getAttribute('src'));
                     mixCloudFooterPlayer.load(iframe.getAttribute('src'));
                     mixCloudFooterPlayer.play();
