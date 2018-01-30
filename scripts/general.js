@@ -97,7 +97,7 @@ function activateMixcloudThings() {
             widg.events.error.on(function () {
                 console.log(url, 'error');
             });
-            mixCloudEmbeds.push(widg);
+            window.mixCloudEmbeds.push(widg);
         });
     })
 }
@@ -132,7 +132,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     }
     console.log(window_loaded,Y.all('iframe[src*=".mixcloud"]'))
     if (window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
-        console.log('runnnn')
+        console.log('runnnn');
         activateMixcloudThings()
     }
 });
