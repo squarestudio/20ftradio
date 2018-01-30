@@ -95,7 +95,7 @@ function activateMixcloudThings() {
     initMixCloudFooter();
     Y.all('.embed-block[data-block-json*="mixcloud.com"], .code-block iframe[src*="mixcloud.com"]').each(function (item) {
         var code_block = false;
-        var iframe_src = false;
+        var iframe_src = '';
         if (item.get('nodeName') === 'IFRAME') {
             iframe_src = item.getAttribute('src');
             item = item.ancestor('.code-block');
