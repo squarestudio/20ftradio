@@ -109,8 +109,8 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
                 var url = getParameterByName('feed', iframe.getAttribute('src'));
                 console.log(url);
                 widget.events.play.on(function(){
-                    mixCloudFooterPlayer.load(iframe.getAttribute('src'));
-                    mixCloudFooterPlayer.play();
+                    mixCloudFooterPlayer.load(iframe.getAttribute('src'), true);
+                    //mixCloudFooterPlayer.play();
                 });
                 //mixCloudEmbeds.push(widget);
             });
