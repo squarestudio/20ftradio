@@ -80,6 +80,10 @@ function initMixCloudFooter() {
                 html.removeClass('mixcloud-footer-playing').addClass('mixcloud-footer-stopped');
                 Y.fire('mixcloud:pause');
             });
+            mixCloudFooterPlayer.events.ended.on(function () {
+                html.removeClass('mixcloud-footer-playing').addClass('mixcloud-footer-stopped');
+                Y.fire('mixcloud:ended');
+            });
             mixCloudFooterPlayer.events.error.on(function (e) {
                 console.log('MixCloud Error', e);
             });
