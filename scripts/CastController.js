@@ -43,7 +43,6 @@ window.Template.Controllers.CastController = function (element) {
         liveIndicator,
         streamSwiper,
         mixCloudFooterPlayer,
-        mixCloudEmbeds = [],
         firstRun = false,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
@@ -783,8 +782,8 @@ window.Template.Controllers.CastController = function (element) {
         pausePlayersExept(playerType);
         mobile && sitePlayer.addClass('played');
         mobilePlayButton.addClass('visible');
-        if(mixCloudEmbeds&&mixCloudEmbeds.length&&!userPaused){
-            mixCloudEmbeds.forEach(function (widget) {
+        if(window.mixCloudEmbeds&&window.mixCloudEmbeds.length&&!userPaused){
+            window.mixCloudEmbeds.forEach(function (widget) {
                 widget.pause&&widget.pause();
             })
         }
