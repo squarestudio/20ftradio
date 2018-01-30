@@ -105,15 +105,14 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
             iframe.setAttribute('data-mixcloud-play-button', iframe.getAttribute('src'));
             var widget = Mixcloud.PlayerWidget(iframe._node);
-            var url = getParameterByName('feed', iframe.getAttribute('src'));
-            console.log(url);
-            widget.events.play.on(function(){
-                mixCloudFooterPlayer.load(iframe.getAttribute('src'));
-                mixCloudFooterPlayer.play();
-            });
             widget.ready.then(function (widget) {
                 console.log(iframe);
-
+                var url = getParameterByName('feed', iframe.getAttribute('src'));
+                console.log(url);
+                widget.events.play.on(function(){
+                    mixCloudFooterPlayer.load(iframe.getAttribute('src'));
+                    mixCloudFooterPlayer.play();
+                });
                 //mixCloudEmbeds.push(widget);
             });
         })
