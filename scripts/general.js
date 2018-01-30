@@ -111,7 +111,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
                 var url = getParameterByName('feed', iframe.getAttribute('src'));
                 widget.events.play.on(function(){
                     console.log(url);
-                    mixCloudFooterPlayer.load(url, true);
+                    //mixCloudFooterPlayer.load(url, true);
                     //mixCloudFooterPlayer.play();
                 });
                 mixCloudEmbeds.push(widget);
