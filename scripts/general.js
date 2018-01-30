@@ -99,6 +99,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             widget.ready.then(function (widget) {
                 widget.events.play.on(function(){
                     mixCloudFooterPlayer.load(iframe.getAttribute('src'));
+                    mixCloudFooterPlayer.play();
                 });
                 //mixCloudEmbeds.push(widget);
             });
