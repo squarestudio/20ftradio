@@ -221,24 +221,28 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
         _setupBottomBar: function () {
             if (!Modernizr.touch && Y.Squarespace.Template.getTweakValue('autohide-footer') + "" === "true") {
                 var bottomBar = Y.one('#bottomBar');
+                var body = Y.one('body');
                 var layoutNode = bottomBar.one('.sqs-layout');
                 var hasSocialLinks = Y.Lang.isValue(bottomBar.one('.social-links'));
                 Y.one(window).on('mousemove', function (e) {
                     if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
                         if (e.clientY > window.innerHeight - bottomBar.height()) {
                             bottomBar.addClass('viewable');
+                            body.addClass('viewable');
                         } else {
                             bottomBar.removeClass('viewable');
+                            body.removeClass('viewable');
                         }
                     }
                 });
-                var body = Y.one('body');
                 var scroll_funct = function () {
                     if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
                         if (window.pageYOffset > body.get('offsetHeight') - bottomBar.height() - window.innerHeight || window.innerHeight > body.get('offsetHeight') - bottomBar.height()) {
                             bottomBar.addClass('viewable-on-scroll');
+                            body.addClass('viewable-on-scroll');
                         } else {
                             bottomBar.removeClass('viewable-on-scroll');
+                            body.removeClass('viewable-on-scroll');
                         }
                     }
                 };
