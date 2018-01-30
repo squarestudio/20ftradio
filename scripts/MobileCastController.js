@@ -238,6 +238,8 @@ window.Template.Controllers.MobileCastController = function (element) {
                     shoutcastPlayer.autoplay = false;
                     shoutcastPlayer.playVideo();
                     userPaused = false;
+                    userClickPlay = true;
+                    checkStreams();
                 }
                 else if (state) {
                     console.log('Play');
@@ -252,7 +254,6 @@ window.Template.Controllers.MobileCastController = function (element) {
                     shoutcastPlayer.pauseVideo();
                     userPaused = true;
                 }
-                checkStreams();
             }
             else if (activePlayer == 'soundcloud') {
                 if (mobile && !userClickPlay) {
@@ -288,7 +289,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     });
                 }
             }
-            mobile && activePlayer !== 'facebook' && checkStreams();
+            checkStreams();
             userClickPlay = true;
         };
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
