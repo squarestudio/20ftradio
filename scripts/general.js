@@ -85,7 +85,6 @@ function activateMixcloudThings() {
         var widget = Mixcloud.PlayerWidget(iframe._node);
         widget.ready.then(function (widg) {
             var url = getParameterByName('feed', iframe.getAttribute('src'));
-            console.log(widg.events)
             widg.events.buffering.on(function () {
                 console.log(url);
                 widget.pause();
