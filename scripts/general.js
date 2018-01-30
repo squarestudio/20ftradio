@@ -165,7 +165,7 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]')||Y
         e.halt()
         var url = e.currentTarget.ancestor('.sqs-block').getAttribute('data-mixcloud-url');
         if (url) {
-            mixCloudFooterPlayer && mixCloudFooterPlayer.load && mixCloudFooterPlayer.load(url, true);
+            mixCloudFooterPlayer && mixCloudFooterPlayer.load && mixCloudFooterPlayer.load(decodeURIComponent(url), true);
         }
     }, '.mixcloud-butt')
 }
