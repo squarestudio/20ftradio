@@ -1007,6 +1007,13 @@ body {
     opacity: 0;
   }
 }
+
+body {
+  &.viewable, &.viewable-on-scroll {
+
+  }
+}
+
 .mixcloud-footer-widget-container {
   bottom: -60px;
 }
@@ -1098,7 +1105,7 @@ html {
     }
     .eventlist--upcoming {
       article:first-child {
-        .eventlist-datetag-inner{
+        .eventlist-datetag-inner {
           position: relative;
           &:before, &:after {
             position: absolute;
@@ -1162,7 +1169,7 @@ html {
           transition: all .5s .2s ease-in;
           transform-origin: bottom center;
           -webkit-transform-origin: top center;
-           transform: scaley(389);
+          transform: scaley(389);
           -webkit-transform: scaley(389);
         }
       }
