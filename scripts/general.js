@@ -100,7 +100,7 @@ function activateMixcloudThings() {
             embed.addClass('inited');
             $.getJSON(api_url + '?callback=', function (data) {
                 console.log("success", data);
-                content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #333 url('+data.pictures.thumbnail+') no-repeat;background-size: cover"></div><div class="text-info">' +
+                content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #333 url('+data.pictures.medium+') no-repeat;background-size: cover"></div><div class="text-info">' +
                     '<div class="play-button"></div><div class="track-title">'+data.name+'</div></div></div>')
             })
                 .fail(function (err) {
