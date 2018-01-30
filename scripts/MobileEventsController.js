@@ -43,7 +43,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 var gal = Y.one(id+ ' #grid').getData('gallery');
                 setTimeout(function () {
                     gal.refresh();
-                })
+                }, 300)
             }
             mobileEvents.getDOMNode().className = id.replace('#', 'tab-');
         });
