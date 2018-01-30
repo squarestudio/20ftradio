@@ -166,7 +166,9 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
     activateMixcloudThings();
     body.delegate('click', function (e) {
         e.halt();
-        var url = e.currentTarget.ancestor('.sqs-block').getAttribute('data-mixcloud-url');
+        var ancestor = e.currentTarget.ancestor('.sqs-block');
+        var url = ancestor.getAttribute('data-mixcloud-url');
+        ancestor.toggleClass('playing');
         if (url) {
             mixCloudFooterPlayer && mixCloudFooterPlayer.load && mixCloudFooterPlayer.load(url, true);
         }
