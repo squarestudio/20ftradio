@@ -279,8 +279,8 @@ window.Template.Controllers.CastController = function (element) {
                     });
                 }
             }
-            mobile && activePlayer !== 'facebook' && checkStreams();
             userClickPlay = true;
+            checkStreams();
         };
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
             load: true,
