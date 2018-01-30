@@ -65,6 +65,7 @@ function initMixCloudFooter() {
                 Y.fire('mixcloud:play');
             });
             mixCloudFooterPlayer.events.pause.on(function () {
+                Y.fire('mixcloud:pause');
                 //onPlayerStateChange('mixcloud', 'pause')
             });
             mixCloudFooterPlayer.events.error.on(function (e) {
