@@ -1,7 +1,7 @@
 var mixCloudFooterPlayer = false;
 var window_loaded = false;
 window.mixCloudEmbeds = [];
-
+var body = Y.one('body');
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -62,6 +62,7 @@ function initMixCloudFooter() {
         mixCloudFooterPlayer.then(function (widget) {
             mixCloudFooterPlayer = widget;
             mixCloudFooterPlayer.events.play.on(function () {
+
                 Y.fire('mixcloud:play');
             });
             mixCloudFooterPlayer.events.pause.on(function () {
