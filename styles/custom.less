@@ -1163,7 +1163,7 @@ html {
       #castDiv {
         transform: translateY(-12%) scale(0.8);
         -webkit-transform: translateY(-12%) scale(0.8);
-        .transition(transform .3s .2s ease-out);
+        .transition(transform .3s 0s ease-out);
       }
       #container {
         opacity: 1;
@@ -1274,6 +1274,7 @@ html {
       height: 70vh;
       padding: 0 !important;
       transform-origin: top center;
+      .transition(transform 0.3s 0.2s ease-out);
       .mobile-image {
         background-size: 84%;
         .line {
@@ -1297,7 +1298,7 @@ html {
       margin-top: -40%;
       opacity: 0;
       pointer-events: none;
-      .transition(all 0.2s 0s ease-out);
+      .transition(opacity 0.2s 0s ease-out);
     }
     #mobile-navigation-label {
       display: none !important;
