@@ -150,8 +150,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             donateWithLiqPay(val, name, surname, email);
         });
     }
-    console.log(window_loaded, Y.all('.embed-block[data-block-json*="mixcloud.com"]'))
-    if (window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
+    if (window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]')||Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
         console.log('runnnn');
         activateMixcloudThings()
     }
@@ -159,7 +158,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
 });
-if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
+if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]')||Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
     console.log('DOM Ready');
     activateMixcloudThings();
     body.delegate('click', function (e) {
