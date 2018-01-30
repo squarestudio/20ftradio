@@ -170,9 +170,11 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
         var url = ancestor.getAttribute('data-mixcloud-url');
         ancestor.toggleClass('playing');
         if (url&&ancestor.hasClass('playing')) {
+            ancestor.addClass('current');
+            Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             mixCloudFooterPlayer && mixCloudFooterPlayer.load && mixCloudFooterPlayer.load(url, true);
         } else {
-            Y.all('.mixcloud-item.playing').removeClass('playing');
+            Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
             mixCloudFooterPlayer && mixCloudFooterPlayer.pause && mixCloudFooterPlayer.pause();
         }
     }, '.mixcloud-butt')
