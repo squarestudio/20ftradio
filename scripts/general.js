@@ -110,7 +110,7 @@ function activateMixcloudThings() {
                 if (feed[0] === '/') {
                     feed = feed.slice(1);
                 }
-                item.setAttribute('data-mixcloud-url', '/' + feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed) + '-mix-item').addClass('inited');
+                item.setAttribute('data-mixcloud-url', '/' + feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed) + '-mix-item').addClass('inited mixcloud-item');
                 content.empty();
                 $.getJSON('https://api.mixcloud.com/' + feed + '?callback=', function (data) {
                     console.log("success", data);
