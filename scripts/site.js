@@ -239,10 +239,10 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                     if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
                         if (window.pageYOffset > body.get('offsetHeight') - bottomBar.height() - window.innerHeight || window.innerHeight > body.get('offsetHeight') - bottomBar.height()) {
                             bottomBar.addClass('viewable-on-scroll');
-                            body.addClass('viewable');
+                            body.addClass('viewable-on-scroll');
                         } else {
                             bottomBar.removeClass('viewable-on-scroll');
-                            body.removeClass('viewable');
+                            body.removeClass('viewable-on-scroll');
                         }
                     }
                 };
