@@ -105,7 +105,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
             iframe.setAttribute('data-mixcloud-play-button', iframe.getAttribute('src'));
             var widget = Mixcloud.PlayerWidget(iframe._node);
-            widget.ready.then(function (widget) {
+            widget.ready.then(function () {
                 var url = getParameterByName('feed', iframe.getAttribute('src'));
                 console.log(url);
                 widget.events.play.on(function(){
