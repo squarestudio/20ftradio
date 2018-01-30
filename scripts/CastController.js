@@ -554,37 +554,6 @@ window.Template.Controllers.CastController = function (element) {
         }
     }
 
-    function initMixCloud() {
-        DEBUG && console.log('MixCloud init');
-        if (mixCloudFooterPlayer) {
-
-        } else {
-            mixCloudFooterPlayer = Mixcloud.FooterWidget(someCloudUrl, {
-                disablePushstate: true,
-                disableUnloadWarning: true
-            });
-            mixCloudFooterPlayer.then(function (widget) {
-                mixCloudFooterPlayer = widget;
-                DEBUG && console.log(mixCloudPlayer);
-                mixCloudFooterPlayer.events.play.on(function () {
-                    userPaused = true;
-                    pausePlayersExept('all');
-                });
-                mixCloudFooterPlayer.events.pause.on(function () {
-                    //onPlayerStateChange('mixcloud', 'pause')
-                });
-                mixCloudFooterPlayer.events.error.on(function (e) {
-                    DEBUG && console.log('MixCloud Error', e);
-                });
-                onPlayerReady('mixcloud');
-                pausePlayersExept('all');
-                mixCloudFooterPlayer.play();
-                sitePlayer.addClass('played');
-            });
-            //players['mixcloud'] = mixCloudPlayer;
-        }
-    }
-
     function initSoundCloud() {
         if (soundCloudPlayer) {
             soundCloudPlayer.play();
