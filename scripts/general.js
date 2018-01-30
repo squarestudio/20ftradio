@@ -173,6 +173,7 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
             mixCloudFooterPlayer && mixCloudFooterPlayer.load && mixCloudFooterPlayer.load(url, true);
         } else {
             Y.all('.mixcloud-item.playing').removeClass('playing');
+            mixCloudFooterPlayer && mixCloudFooterPlayer.pause && mixCloudFooterPlayer.pause();
         }
     }, '.mixcloud-butt')
 }
