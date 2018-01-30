@@ -1,5 +1,7 @@
 var mixCloudFooterPlayer = false;
+var window_loaded = false;
 window.mixCloudEmbeds = [];
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -9,6 +11,7 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
 function sendReplyEmail(name, surname, email, data) {
     $.ajax({
         type: 'POST',
@@ -65,12 +68,35 @@ function initMixCloudFooter() {
                 //onPlayerStateChange('mixcloud', 'pause')
             });
             mixCloudFooterPlayer.events.error.on(function (e) {
-               console.log('MixCloud Error', e);
+                console.log('MixCloud Error', e);
             });
         });
     } else {
         console.log('MixCloudFooter here');
     }
+}
+
+function activateMixcloudThings() {
+    window_loaded = true;
+    window.mixCloudEmbeds = [];
+    initMixCloudFooter();
+    Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
+        iframe.setAttribute('data-mixcloud-play-button', iframe.getAttribute('src'));
+        var widget = Mixcloud.PlayerWidget(iframe._node);
+        widget.ready.then(function (widg) {
+            var url = getParameterByName('feed', iframe.getAttribute('src'));
+            console.log(widg.events)
+            widg.events.play.on(function () {
+                console.log(url);
+                mixCloudFooterPlayer.load(url, true);
+                //mixCloudFooterPlayer.play();
+            });
+            widg.events.error.on(function () {
+                console.log(url);
+            });
+            mixCloudEmbeds.push(widg);
+        });
+    })
 }
 
 var formSubmitEvent = null;
@@ -101,28 +127,15 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             donateWithLiqPay(val, name, surname, email);
         });
     }
-    if (Y.one('.embed-block[data-block-json*="mixcloud.com"]')){
-        initMixCloudFooter();
-        window.mixCloudEmbeds = [];
-        Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
-            iframe.setAttribute('data-mixcloud-play-button', iframe.getAttribute('src'));
-            var widget = Mixcloud.PlayerWidget(iframe._node);
-            widget.ready.then(function (widg) {
-                var url = getParameterByName('feed', iframe.getAttribute('src'));
-                console.log(widg.events)
-                widg.events.play.on(function(){
-                    console.log(url);
-                    mixCloudFooterPlayer.load(url, true);
-                    //mixCloudFooterPlayer.play();
-                });
-                widg.events.error.on(function(){
-                    console.log(url);
-                });
-                mixCloudEmbeds.push(widg);
-            });
-        })
+    if (window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
+        activateMixcloudThings()
     }
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
+});
+Y.on('domready', function () {
+    if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
+        activateMixcloudThings()
+    }
 });
