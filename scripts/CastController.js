@@ -756,7 +756,6 @@ window.Template.Controllers.CastController = function (element) {
                 widget.pause&&widget.pause();
             })
         }
-        console.log(playerType, userPaused)
         if(window.mixCloudFooterPlayer&&!userPaused){
             window.mixCloudFooterPlayer.pause&&window.mixCloudFooterPlayer.pause();
             Y.one('html').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
