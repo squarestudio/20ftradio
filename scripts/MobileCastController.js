@@ -868,14 +868,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function setPlaying(playerType) {
-        DEBUG && console.log('SET PLAYING: ' + playerType);
-        sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
-        castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
-        !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
-        setActivePlayer(playerType);
-        pausePlayersExept(playerType);
-        sitePlayer.addClass('played');
-        mobilePlayButton.addClass('visible');
+
         if (window.mixCloudEmbeds && window.mixCloudEmbeds.length && !userPaused) {
             window.mixCloudEmbeds.forEach(function (widget) {
                 widget.pause && widget.pause();
