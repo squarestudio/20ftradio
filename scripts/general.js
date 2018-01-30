@@ -112,7 +112,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
                 console.log(widg.events)
                 widg.events.play.on(function(){
                     console.log(url);
-                    //mixCloudFooterPlayer.load(url, true);
+                    mixCloudFooterPlayer.load(url, true);
                     //mixCloudFooterPlayer.play();
                 });
                 widg.events.error.on(function(){
