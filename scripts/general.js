@@ -2,7 +2,7 @@ var mixCloudFooterPlayer = false;
 var window_loaded = false;
 window.mixCloudEmbeds = [];
 var body = Y.one('body');
-var html = Y.one('html);
+var html = Y.one('html');
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
