@@ -157,7 +157,7 @@ if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
         var feed = decodeURIComponent(json.html.split('feed=')[1].split('"')[0]).replace('https://mixcloud.com/','').replace('https://www.mixcloud.com/','').replace('&hide_cover=1','')||'';
         console.log(feed);
         if(feed){
-            item.setAttribute('mix-cloud-api-url',)
+            item.setAttribute('mixcloud-api-url','https://api.mixcloud.com/'+feed);
             content.empty();
         }
     });
