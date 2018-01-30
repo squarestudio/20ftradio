@@ -97,11 +97,11 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             iframe.setAttribute('data-mixcloud-play-button', iframe.getAttribute('src'));
             var widget = Mixcloud.PlayerWidget(iframe._node);
             widget.ready.then(function (widget) {
-                console.log(iframe)
+                console.log(iframe);
+                var a = Y.Node.create('<a href="'+iframe.getAttribute('src')+'"></a>');
+                var url = a.get('search');
+                console.log(url);
                 widget.events.play.on(function(){
-                    var a = Y.Node.create('<a href="'+iframe.getAttribute('src')+'"></a>');
-                    var url = a.get('search');
-                    console.log(url);
                     mixCloudFooterPlayer.load(iframe.getAttribute('src'));
                     mixCloudFooterPlayer.play();
                 });
