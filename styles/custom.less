@@ -1009,6 +1009,11 @@ body {
 }
 
 body {
+  &.mixcloud-footer-stopped,&.mixcloud-footer-playing {
+    .mixcloud-footer-widget-container {
+      bottom: 0!important;
+    }
+  }
   &.viewable, &.viewable-on-scroll {
     .mixcloud-footer-widget-container {
       bottom: 60px!important;
