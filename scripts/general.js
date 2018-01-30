@@ -93,7 +93,7 @@ function activateMixcloudThings() {
     window_loaded = true;
     window.mixCloudEmbeds = [];
     initMixCloudFooter();
-    Y.all('.embed-block[data-block-json*="mixcloud.com"]').each(function (item) {
+    Y.all('.embed-block[data-block-json*="mixcloud.com"], .code-block iframe').each(function (item) {
         var content = item.one('.sqs-block-content');
         if(!item.hasClass('inited')){
             var json = JSON.parse(item.getAttribute('data-block-json'));
