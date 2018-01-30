@@ -1270,8 +1270,14 @@ html {
     .site-player-block {
       line-height: 48px;
     }
-    #castDiv {
+    .castWrapper {
       height: 70vh;
+      position: relative;
+    }
+    #castDiv {
+      position: absolute;
+      top: 0;
+      left: 0;
       padding: 0 !important;
       transform-origin: top center;
       .transition(transform 0.3s 0.2s ease-out);
