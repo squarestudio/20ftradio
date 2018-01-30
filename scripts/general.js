@@ -172,7 +172,7 @@ if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
         var feed = decodeURIComponent(json.html.split('feed=')[1].split('"')[0]).replace('https://mixcloud.com/', '').replace('https://www.mixcloud.com/', '').replace('&hide_cover=1', '') || '';
         console.log(feed);
         if (feed) {
-            item.setAttribute('data-mixcloud-url', feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed)+'-mix-item');
+            item.setAttribute('data-mixcloud-url', '/'+feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed)+'-mix-item');
             content.empty();
         }
     });
