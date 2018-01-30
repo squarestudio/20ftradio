@@ -163,7 +163,7 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]')||Y
     activateMixcloudThings();
     body.delegate('click', function (e) {
         e.halt()
-        var url = e.currentTarget.ancestor('.embed-block').getAttribute('data-mixcloud-url');
+        var url = e.currentTarget.ancestor('.sqs-block').getAttribute('data-mixcloud-url');
         if (url) {
             mixCloudFooterPlayer && mixCloudFooterPlayer.load && mixCloudFooterPlayer.load(url, true);
         }
