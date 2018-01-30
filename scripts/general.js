@@ -82,6 +82,7 @@ function activateMixcloudThings() {
     window_loaded = true;
     window.mixCloudEmbeds = [];
     initMixCloudFooter();
+    console.log(Y.all('iframe[src*=".mixcloud"]'))
     Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
         var widget = Mixcloud.PlayerWidget(iframe._node);
         widget.ready.then(function (widg) {
