@@ -96,7 +96,8 @@ function activateMixcloudThings() {
     Y.all('[data-mixcloud-api-url]').each(function (embed) {
         var content = embed.one('.sqs-block-content');
         var api_url = embed.getAttribute('data-mixcloud-api-url');
-        if (api_url&&!content.one('.custom-mixcloud-widget')) {
+        if (api_url&&!embed.hasClass('inited')) {
+            embed.addClass('inited');
             $.getJSON(api_url + '?callback=', function (data) {
                 console.log("success", data);
                 content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #333 url('+data.pictures.thumbnail+') no-repeat;background-size: cover"></div><div class="play-button"></div><div class="track-title">'+data.name+'</div></div>')
