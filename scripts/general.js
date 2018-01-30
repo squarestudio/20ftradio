@@ -92,7 +92,7 @@ function activateMixcloudThings() {
                 mixCloudFooterPlayer&&mixCloudFooterPlayer.load(url, true);
             });
             widg.events.error.on(function () {
-                console.log(url, error);
+                console.log(url, 'error');
             });
             mixCloudEmbeds.push(widg);
         });
