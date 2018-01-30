@@ -88,10 +88,10 @@ function activateMixcloudThings() {
         var widget = Mixcloud.PlayerWidget(iframe._node);
         widget.ready.then(function (widg) {
             //widget.setOption('mini', true);
-            var url = getParameterByName('feed', iframe.getAttribute('src'));
+            var url = getParameterByName('feed', iframe.getAttribute('src')).replace('https://mixcloud.com','');
             widg.events.play.on(function () {
                 widg.pause();
-                mixCloudFooterPlayer&&mixCloudFooterPlayer.load&&mixCloudFooterPlayer.load(url.replace('https://mixcloud.com',''), true);
+                mixCloudFooterPlayer&&mixCloudFooterPlayer.load&&mixCloudFooterPlayer.load(url, true);
             });
             widg.events.error.on(function () {
                 console.log(url, 'error');
