@@ -93,7 +93,15 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     if (Y.one('.embed-block[data-block-json*="mixcloud.com"]')){
         initMixCloudFooter();
         Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
-            iframe.setAttribute('')
+            iframe.setAttribute('');
+/*            var widget = Mixcloud.PlayerWidget(iframe._node);
+            widget.ready.then(function (widget) {
+                widget.events.play.on(function(){
+                    userPaused = true;
+                    pausePlayersExept('all');
+                });
+                mixCloudEmbeds.push(widget);
+            });*/
         })
     }
 });
