@@ -787,6 +787,9 @@ window.Template.Controllers.CastController = function (element) {
                 widget.pause&&widget.pause();
             })
         }
+        if(mixCloudFooterPlayer&&!userPaused){
+            mixCloudFooterPlayer.pause();
+        }
     }
 
     function setPaused() {
