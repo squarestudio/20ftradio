@@ -108,7 +108,7 @@ function activateMixcloudThings() {
             feed = feed.replace('https://mixcloud.com/', '').replace('https://www.mixcloud.com/', '').replace('&hide_cover=1', '');
             if (feed) {
                 if(feed[0]==='/'){
-                    feed = feed.
+                    feed = feed.slice(1);
                 }
                 item.setAttribute('data-mixcloud-url', '/' + feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed) + '-mix-item').addClass('inited');
                 //content.empty();
