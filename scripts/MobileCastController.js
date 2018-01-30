@@ -885,7 +885,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         }
         if (window.mixCloudFooterPlayer && !userPaused) {
             window.mixCloudFooterPlayer.pause && window.mixCloudFooterPlayer.pause();
-            Y.one('body').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
+            Y.one('html').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
         }
     }
 
