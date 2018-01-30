@@ -81,7 +81,8 @@ function initMixCloudFooter() {
                 Y.fire('mixcloud:pause');
             });
             mixCloudFooterPlayer.events.ended.on(function () {
-                html.removeClass('mixcloud-footer-playing').addClass('mixcloud-footer-stopped');
+                html.removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
+                Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
                 Y.fire('mixcloud:ended');
             });
             mixCloudFooterPlayer.events.error.on(function (e) {
