@@ -154,7 +154,6 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         });
     }
     if (window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') || Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
-        console.log('runnnn');
         activateMixcloudThings()
     }
 });
