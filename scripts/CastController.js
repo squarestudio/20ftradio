@@ -279,8 +279,8 @@ window.Template.Controllers.CastController = function (element) {
                     });
                 }
             }
-            userClickPlay = true;
             checkStreams();
+            userClickPlay = true;
         };
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
             load: true,
