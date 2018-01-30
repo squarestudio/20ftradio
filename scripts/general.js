@@ -45,6 +45,7 @@ function initMixCloudFooter() {
             disablePushstate: true,
             disableUnloadWarning: true
         });
+        window.mixCloudFooterPlayer = mixCloudFooterPlayer;
         mixCloudFooterPlayer.then(function (widget) {
             mixCloudFooterPlayer = widget;
             mixCloudFooterPlayer.events.play.on(function () {
@@ -97,7 +98,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             var widget = Mixcloud.PlayerWidget(iframe._node);
             widget.ready.then(function (widget) {
                 widget.events.play.on(function(){
-                    mixCloudFooterPlayer.
+                    //mixCloudFooterPlayer.
                 });
                 //mixCloudEmbeds.push(widget);
             });
