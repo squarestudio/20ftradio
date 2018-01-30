@@ -3,6 +3,7 @@ var window_loaded = false;
 window.mixCloudEmbeds = [];
 var body = Y.one('body');
 var html = Y.one('html');
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -12,6 +13,7 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+
 function slugify(text) {
     return text.toString().toLowerCase()
         .replace(/\s+/g, '-')
@@ -20,6 +22,7 @@ function slugify(text) {
         .replace(/^-+/, '')
         .replace(/-+$/, '');
 }
+
 function sendReplyEmail(name, surname, email, data) {
     $.ajax({
         type: 'POST',
@@ -93,8 +96,8 @@ function activateMixcloudThings() {
     Y.all('[data-mixcloud-api-url]').each(function (embed) {
         var content = embed.one('.sqs-block-content');
         var api_url = embed.getAttribute('data-mixcloud-api-url');
-        if(api_url){
-            
+        if (api_url) {
+            Y.io
         }
         /*var widget = Mixcloud.PlayerWidget(iframe._node);
         widget.ready.then(function (widg) {
@@ -141,7 +144,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             donateWithLiqPay(val, name, surname, email);
         });
     }
-    console.log(window_loaded,Y.all('.embed-block[data-block-json*="mixcloud.com"]'))
+    console.log(window_loaded, Y.all('.embed-block[data-block-json*="mixcloud.com"]'))
     if (window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
         Y.all('.embed-block[data-block-json*="mixcloud.com"]').each(function (item) {
             //item.one('.sqs-block-content').empty();
@@ -158,10 +161,10 @@ if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
     Y.all('.embed-block[data-block-json*="mixcloud.com"]').each(function (item) {
         var content = item.one('.sqs-block-content');
         var json = JSON.parse(item.getAttribute('data-block-json'));
-        var feed = decodeURIComponent(json.html.split('feed=')[1].split('"')[0]).replace('https://mixcloud.com/','').replace('https://www.mixcloud.com/','').replace('&hide_cover=1','')||'';
+        var feed = decodeURIComponent(json.html.split('feed=')[1].split('"')[0]).replace('https://mixcloud.com/', '').replace('https://www.mixcloud.com/', '').replace('&hide_cover=1', '') || '';
         console.log(feed);
-        if(feed){
-            item.setAttribute('data-mixcloud-api-url','https://api.mixcloud.com/'+feed);
+        if (feed) {
+            item.setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed);
             content.empty();
         }
     });
