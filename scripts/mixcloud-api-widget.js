@@ -320,9 +320,9 @@
                 if (E && !l.disablePushstate) for (W = n.createElement("div"), W.setAttribute("class", "mixcloud-footer-widget-body-wrapper"), n.body.appendChild(W); n.body.childNodes.length > 1;) W.appendChild(n.body.childNodes[0]);
                 m();
                 var o = n.createElement("div");
-                o.setAttribute("style", "position: fixed; left: 0; bottom: 0; right: 0; height: 120px; z-index: 10"), o.setAttribute("class", "mixcloud-footer-widget-container"), n.body.appendChild(o);
+                o.setAttribute("style", "position: fixed; left: 0; bottom: 0; right: 0; height: 60px; z-index: 10"), o.setAttribute("class", "mixcloud-footer-widget-container"), n.body.appendChild(o);
                 var i = 0;
-                t.getComputedStyle && (i = parseFloat(t.getComputedStyle(n.body)["padding-bottom"].replace(/px$/, ""))), n.body.style.paddingBottom = i + 120 + "px", o.innerHTML = '<iframe width="100%" height="100%" frameborder="0" src="' + y(r, l) + '"></iframe>';
+                t.getComputedStyle && (i = parseFloat(t.getComputedStyle(n.body)["padding-bottom"].replace(/px$/, ""))), n.body.style.paddingBottom = i + 60 + "px", o.innerHTML = '<iframe width="100%" height="100%" frameborder="0" src="' + y(r, l) + '"></iframe>';
                 var a = e.PlayerWidget(o.childNodes[0]);
                 a.ready.then(function () {
                     I = a, w(l), d.resolve(a)
