@@ -39,6 +39,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         soundCloudReady = false,
         mixCloudPlayer = null,
         mixCloudReady = false,
+        firstRun = false,
         eventStatusInterval,
         currentEvents,
         liveIndicator,
@@ -49,6 +50,14 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function initialize() {
         window.CASTHERE = true;
+        if(!firstRun){
+            Y.on('mixcloud:play',function () {
+                console.log('MIXCLOUD PLAY');
+                userPaused = true;
+                pausePlayersExept('all');
+            });
+            firstRun = true;
+        }
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
             mobile = Y.UA.mobile;
             Site && Site._setupPositioning();
@@ -150,7 +159,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         };
         HTMLMediaElement.prototype.pauseVideo = function () {
             this.pause();
-            console.log(this,'PAUSED')
+            console.log(this, 'PAUSED')
         };
         HTMLMediaElement.prototype.setVolume = function (volume) {
             this.volume = volume / 100;
@@ -220,7 +229,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 console.log('SHOUTCAST State', state, castContainer.hasClass('paused'), document.querySelector('#shoutcastPlayer').getPlayerState())
                 if (mobile && !userClickPlay) {
                     console.log('first play');
-                    if (!shoutcastPlayer.currentTime){
+                    if (!shoutcastPlayer.currentTime) {
                         shoutcastPlayer.load();
                     }
                     shoutcastPlayer.setVolume(100);
@@ -231,7 +240,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 }
                 else if (state) {
                     console.log('Play');
-                    if (!shoutcastPlayer.currentTime){
+                    if (!shoutcastPlayer.currentTime) {
                         shoutcastPlayer.load();
                     }
                     shoutcastPlayer.muted = false;
@@ -346,6 +355,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         initShoutCast();
         document.addEventListener("pause", handlePause);
         document.addEventListener("resume", handleResume);
+
         function initMusicControls() {
             function events(action) {
                 switch (action) {
@@ -386,6 +396,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             MusicControls.subscribe(events);
             MusicControls.listen();
         }
+
         initMusicControls();
         setMusicMeta(trackName.get('text'), false);
     }
@@ -556,7 +567,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     }, 600)
                 };
                 if (activePlayer == 'shoutcast') {
-                    Site&&Site._setupPositioning();
+                    Site && Site._setupPositioning();
                     shoutcastPlayer.canPlay && hideOverlay();
                 } else if (activePlayer == 'youtube') {
                     youtubePlayer.canPlay && hideOverlay();
@@ -570,7 +581,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         if (!userPaused) {
             if (shoutcastPlayer) {
                 state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError,shoutcastStatus);
+                DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError, shoutcastStatus);
                 if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
                     !mobile && shoutcastPlayer.play();
                     activePlayer = 'shoutcast';
@@ -703,7 +714,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             var YshoutcastPlayer;
             shoutcastStatus = true;
             activePlayer = 'shoutcast';
-            if(window.firstPlayClick){
+            if (window.firstPlayClick) {
                 userClickPlay = true;
             }
             if (!shoutcastPlayer) {
@@ -712,17 +723,17 @@ window.Template.Controllers.MobileCastController = function (element) {
                 console.log('EXIST');
                 YshoutcastPlayer = shoutcastPlayer;
                 shoutcastPlayer = YshoutcastPlayer._node;
-                if(!shoutcastPlayer.paused){
+                if (!shoutcastPlayer.paused) {
                     userPaused = false;
                 }
                 onPlayerReady('shoutcast');
             }
             //castContainer.append(YshoutcastPlayer);
             shoutcastPlayer = YshoutcastPlayer._node;
- /*           shoutcastPlayer.addEventListener('loadstart', function () {
-                onPlayerReady('shoutcast');
-                console.log('LOADSTART')
-            });*/
+            /*           shoutcastPlayer.addEventListener('loadstart', function () {
+                           onPlayerReady('shoutcast');
+                           console.log('LOADSTART')
+                       });*/
             shoutcastPlayer.addEventListener('playing', function () {
                 onPlayerStateChange('shoutcast', 'play')
             });
@@ -857,15 +868,22 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function setPlaying(playerType) {
-        if (userClickPlay) {
-            DEBUG && console.log('SET PLAYING: ' + playerType);
-            sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
-            castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
-            !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
-            setActivePlayer(playerType);
-            pausePlayersExept(playerType);
-            sitePlayer.addClass('played');
-            mobilePlayButton.addClass('visible');
+        DEBUG && console.log('SET PLAYING: ' + playerType);
+        sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
+        castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
+        !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
+        setActivePlayer(playerType);
+        pausePlayersExept(playerType);
+        sitePlayer.addClass('played');
+        mobilePlayButton.addClass('visible');
+        if (window.mixCloudEmbeds && window.mixCloudEmbeds.length && !userPaused) {
+            window.mixCloudEmbeds.forEach(function (widget) {
+                widget.pause && widget.pause();
+            })
+        }
+        if (window.mixCloudFooterPlayer && !userPaused) {
+            window.mixCloudFooterPlayer.pause && window.mixCloudFooterPlayer.pause();
+            Y.one('body').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
         }
     }
 
@@ -997,7 +1015,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             var currentTime = moment().valueOf();
             var eventOnAir = false;
             currentEvents.upcoming.forEach(function (event) {
-                if (currentTime >= event.startDate && currentTime <= event.endDate&&!eventOnAir) {
+                if (currentTime >= event.startDate && currentTime <= event.endDate && !eventOnAir) {
                     eventOnAir = event;
                     DEBUG && console.log(event.title);
                 }
@@ -1058,7 +1076,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 youtubeStatusLoad = true;
             }
             youtubeStatusFactor = true;
-            Y.io('https://app.20ftradio.net/20ft-radio-youtube-status.php?time='+new Date().getTime(), {//https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo
+            Y.io('https://app.20ftradio.net/20ft-radio-youtube-status.php?time=' + new Date().getTime(), {//https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCN5cr3-T9kZu5pis0Du_dXw&type=video&eventType=live&key=AIzaSyCfBnsl2HqqpJZASmWcN6Y40iffswOvhzo
                 on: {
                     success: function (i, data) {
                         if (data.status == 200 && data.readyState == 4) {
@@ -1131,7 +1149,7 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function getShoutcastStatus() {
         shoutcastStatusFactor = true;
-        Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php?time='+new Date().getTime(), {
+        Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php?time=' + new Date().getTime(), {
             on: {
                 success: function (i, data) {
                     if (data.status == 200 && data.readyState == 4) {
@@ -1160,7 +1178,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                             DEBUG && console.log('SHOUTCAST STATUS FALSE');
                             shoutcastPlayer.pause();
                             shoutcastStatus = false;
-                            if(data.responseText === 'Offline'){
+                            if (data.responseText === 'Offline') {
                                 trackName.one('span').set('text', 'Stream offline now');
                                 shoutcastPlayer.title = 'Stream offline now';
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
