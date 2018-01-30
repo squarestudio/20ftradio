@@ -39,7 +39,11 @@ window.Template.Controllers.MobileEventsController = function (element) {
             }
             eventTabsLists.removeClass('active');
             Y.one(id).addClass('active');
-            if(Y.one(id+ ' .'))
+            if(Y.one(id+ ' #grid')){
+                var gal = Y.one(id+ ' #grid').getData('gallery');
+                gal.refresh();
+                console.log('gallery here');
+            }
             mobileEvents.getDOMNode().className = id.replace('#', 'tab-');
         });
         scrollEvent = Y.one(window).on('scroll', function () {
