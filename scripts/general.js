@@ -169,8 +169,10 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
         var ancestor = e.currentTarget.ancestor('.sqs-block');
         var url = ancestor.getAttribute('data-mixcloud-url');
         ancestor.toggleClass('playing');
-        if (url) {
+        if (url&&ancestor.hasClass('playing')) {
             mixCloudFooterPlayer && mixCloudFooterPlayer.load && mixCloudFooterPlayer.load(url, true);
+        } else {
+            Y.all('.mixcloud-item.playing').removeClass('playing');
         }
     }, '.mixcloud-butt')
 }
