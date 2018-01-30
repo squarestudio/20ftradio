@@ -179,6 +179,6 @@ if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
     activateMixcloudThings();
     body.delegate('click', function (e) {
         e.halt()
-        var url = e.currentTarget.ancestor('.embed-block').getAttribute('data-mixcloud-url')
+        var url = e.currentTarget.ancestor('.embed-block').getAttribute('data-mixcloud-url');
     }, '.mixcloud-butt')
 }
