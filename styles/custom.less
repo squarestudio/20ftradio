@@ -1020,7 +1020,20 @@ body {
     }
   }
 }
-
+@media only screen and (max-width: 1024px) {
+  .mixcloud-footer-stopped, .mixcloud-footer-playing {
+    body {
+      .mixcloud-footer-widget-container {
+        bottom: 80px!important;
+      }
+      &.viewable, &.viewable-on-scroll {
+        .mixcloud-footer-widget-container {
+          bottom: 80px!important;
+        }
+      }
+    }
+  }
+}
 .mixcloud-footer-widget-container {
   bottom: -200px !important;
   transition: all .4s ease-in-out;
