@@ -322,7 +322,7 @@
                 var o = n.createElement("div");
                 o.setAttribute("style", "position: fixed; left: 0; bottom: 0; right: 0; height: auto; z-index: 10"), o.setAttribute("class", "mixcloud-footer-widget-container"), n.body.appendChild(o);
                 var i = 0;
-                t.getComputedStyle && (i = parseFloat(t.getComputedStyle(n.body)["padding-bottom"].replace(/px$/, ""))),  o.innerHTML = '<iframe width="100%" height="100%" frameborder="0" src="' + y(r, l) + '"></iframe>';
+                t.getComputedStyle && (i = parseFloat(t.getComputedStyle(n.body)["padding-bottom"].replace(/px$/, ""))), n.body.style.paddingBottom = i + 200 + "px", o.innerHTML = '<iframe width="100%" height="100%" frameborder="0" src="' + y(r, l) + '"></iframe>';
                 var a = e.PlayerWidget(o.childNodes[0]);
                 a.ready.then(function () {
                     I = a, w(l), d.resolve(a)
