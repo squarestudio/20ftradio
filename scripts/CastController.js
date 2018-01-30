@@ -53,7 +53,6 @@ window.Template.Controllers.CastController = function (element) {
                 console.log('MIXCLOUD PLAY');
                 userPaused = true;
                 pausePlayersExept('all');
-                window.mixCloudFooterPlayer.play();
             });
             firstRun = true;
         }
