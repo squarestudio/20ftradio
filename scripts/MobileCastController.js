@@ -228,7 +228,6 @@ window.Template.Controllers.MobileCastController = function (element) {
                     shoutcastPlayer.autoplay = false;
                     shoutcastPlayer.playVideo();
                     userPaused = false;
-                    checkStreams();
                 }
                 else if (state) {
                     console.log('Play');
@@ -243,6 +242,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     shoutcastPlayer.pauseVideo();
                     userPaused = true;
                 }
+                checkStreams();
             }
             else if (activePlayer == 'soundcloud') {
                 if (mobile && !userClickPlay) {
