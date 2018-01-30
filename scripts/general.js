@@ -128,6 +128,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             donateWithLiqPay(val, name, surname, email);
         });
     }
+    console.log(window_loaded,Y.all('iframe[src*=".mixcloud"]'))
     if (window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
         console.log('runnnn')
         activateMixcloudThings()
