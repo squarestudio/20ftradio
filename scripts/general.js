@@ -104,7 +104,7 @@ function activateMixcloudThings() {
         var content = item.one('.sqs-block-content');
         if (!item.hasClass('inited')) {
             var json = code_block ? '' : JSON.parse(item.getAttribute('data-block-json'));
-            var feed = code_block ? decodeURIComponent(iframe_src) : decodeURIComponent(json.html.split('feed=')[1].split('"')[0]);
+            var feed = code_block ? getParameterByName('feed', iframe_src) : decodeURIComponent(json.html.split('feed=')[1].split('"')[0]);
             feed = feed.replace('https://mixcloud.com/', '').replace('https://www.mixcloud.com/', '').replace('&hide_cover=1', '');
             if (feed) {
                 item.setAttribute('data-mixcloud-url', '/' + feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed) + '-mix-item').addClass('inited');
