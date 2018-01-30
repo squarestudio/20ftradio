@@ -1035,7 +1035,11 @@ body {
   .track-art{
     height: 0;
     width: 12%;
-    padding-bottom: 100%;
+    position: relative;
+    &:before{
+      content: '';
+      padding-bottom: 100%;
+    }
   }
 }
 body.auth {
