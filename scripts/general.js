@@ -101,7 +101,7 @@ function activateMixcloudThings() {
             $.getJSON(api_url + '?callback=', function (data) {
                 console.log("success", data);
                 content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #333 url('+data.pictures.medium+') no-repeat;background-size: cover"></div><div class="text-info clear">' +
-                    '<a class="play-button"></a><div class="meta"><div class="track-title">'+data.name+'</div></div></div></div>')
+                    '<a class="play-button mixcloud-butt"></a><div class="meta"><div class="track-title">'+data.name+'</div></div></div></div>')
             })
                 .fail(function (err) {
                     console.log(err);
@@ -177,4 +177,8 @@ if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
         }
     });
     activateMixcloudThings();
+    body.delegate('click', function (e) {
+        e.halt()
+        var url = e.currentTarget.ancestor('.')
+    }, '.mixcloud-butt')
 }
