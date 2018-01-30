@@ -1,4 +1,13 @@
 var mixCloudFooterPlayer = false;
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
 function sendReplyEmail(name, surname, email, data) {
     $.ajax({
         type: 'POST',
@@ -98,8 +107,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             var widget = Mixcloud.PlayerWidget(iframe._node);
             widget.ready.then(function (widget) {
                 console.log(iframe);
-                var a = Y.Node.create('<a href="'+iframe.getAttribute('src')+'"></a>');
-                var url = a.get('search');
+                var url = getParameterByName('feed', iframe.getAttribute('src'));
                 console.log(url);
                 widget.events.play.on(function(){
                     mixCloudFooterPlayer.load(iframe.getAttribute('src'));
