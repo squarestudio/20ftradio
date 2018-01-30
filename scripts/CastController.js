@@ -44,11 +44,20 @@ window.Template.Controllers.CastController = function (element) {
         streamSwiper,
         mixCloudFooterPlayer,
         mixCloudEmbeds = [],
+        firstRun = false,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
     var DEBUG = false;
 
     function initialize() {
+        if(!firstRun){
+            Y.on('mixcloud:play',function () {
+                console.log('MIXCLOUD PLAY');
+                userPaused = true;
+                pausePlayersExept('all');
+            });
+            firstRun = true;
+        }
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
             mobile = Y.UA.mobile;
             Site && Site._setupPositioning();
@@ -59,11 +68,6 @@ window.Template.Controllers.CastController = function (element) {
             if (window.self !== window.top) {
                 window.top.Y.one('.sqs-preview-frame-content').addClass('content-loaded');
             }
-            Y.on('mixcloud:play',function () {
-                console.log('MIXCLOUD PLAY');
-                userPaused = true;
-                pausePlayersExept('all');
-            });
         }
         var currentTime = new Date();
         var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
