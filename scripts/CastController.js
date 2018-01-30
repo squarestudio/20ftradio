@@ -42,7 +42,6 @@ window.Template.Controllers.CastController = function (element) {
         currentEvents,
         liveIndicator,
         streamSwiper,
-        mixCloudFooterPlayer,
         firstRun = false,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
