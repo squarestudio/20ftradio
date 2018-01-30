@@ -86,7 +86,6 @@ function activateMixcloudThings() {
         widget.ready.then(function (widg) {
             var url = getParameterByName('feed', iframe.getAttribute('src'));
             widg.events.buffering.on(function () {
-                console.log(url);
                 widget.pause();
                 mixCloudFooterPlayer.load(url, true);
             });
