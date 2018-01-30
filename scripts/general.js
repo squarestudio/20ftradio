@@ -145,7 +145,9 @@ Y.config.win.Squarespace.onDestroy(Y, function () {
 if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
     console.log('DOM Ready');
     Y.all('.embed-block[data-block-json*="mixcloud.com"]').each(function (item) {
-        item.one('.sqs-block-content').empty();
+        var content = item.one('.sqs-block-content');
+        var json = 
+        content.empty();
     });
     activateMixcloudThings();
 }
