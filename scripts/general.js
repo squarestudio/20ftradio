@@ -94,8 +94,10 @@ function activateMixcloudThings() {
     window.mixCloudEmbeds = [];
     initMixCloudFooter();
     Y.all('.embed-block[data-block-json*="mixcloud.com"], .code-block iframe[src*="mixcloud.com"]').each(function (item) {
+        var code_block = false;
         if(item.get('nodeName') === 'IFRAME'){
             item = item.ancestor('.code-block');
+            code_block = true;
         }
         var content = item.one('.sqs-block-content');
         if(!item.hasClass('inited')){
