@@ -77,7 +77,10 @@ function initMixCloudFooter() {
                 Y.fire('mixcloud:play');
             });
             mixCloudFooterPlayer.events.pause.on(function () {
-                html.removeClass('mixcloud-footer-playing').addClass('mixcloud-footer-stopped');
+                html.removeClass('mixcloud-footer-playing');
+                if(!html.one('#catDiv').hasClass('playing')){
+                    html.addClass('mixcloud-footer-stopped');
+                }
                 Y.fire('mixcloud:pause');
             });
             mixCloudFooterPlayer.events.ended.on(function () {
