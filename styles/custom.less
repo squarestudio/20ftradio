@@ -681,6 +681,12 @@ body {
       max-width: 100%;
     }
   }
+
+  .custom-mixcloud-widget {
+    track-art {
+
+    }
+  }
 }
 
 @media only screen and (max-width: 700px) {
@@ -1020,20 +1026,22 @@ body {
     }
   }
 }
+
 @media only screen and (max-width: 1024px) {
   .mixcloud-footer-stopped, .mixcloud-footer-playing {
     body {
       .mixcloud-footer-widget-container {
-        bottom: 0!important;
+        bottom: 0 !important;
       }
       &.viewable, &.viewable-on-scroll {
         .mixcloud-footer-widget-container {
-          bottom: 0!important;
+          bottom: 0 !important;
         }
       }
     }
   }
 }
+
 .mixcloud-footer-widget-container {
   bottom: -200px !important;
   transition: all .4s ease-in-out;
@@ -1041,7 +1049,8 @@ body {
   padding-bottom: 80px;
   background-color: #000;
 }
-.mixcloud-item.playing{
+
+.mixcloud-item.playing {
   .custom-mixcloud-widget {
     .text-info .play-button {
       background: transparent url("/assets/pause-button.svg?3") no-repeat center;
@@ -1049,6 +1058,7 @@ body {
     }
   }
 }
+
 .custom-mixcloud-widget {
   width: 100%;
   padding: 0;
