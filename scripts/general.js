@@ -84,7 +84,7 @@ function activateMixcloudThings() {
     initMixCloudFooter();
     Y.all('iframe[src*=".mixcloud"]').each(function (iframe) {
         iframe.setAttribute('data-mixcloud-play-button', iframe.getAttribute('src'));
-        var widget = Mixcloud.PlayerWidget(iframe._node);
+        var widget = Mixcloud.PlayerWidget(iframe._node,{mini:true});
         widget.ready.then(function (widg) {
             var url = getParameterByName('feed', iframe.getAttribute('src'));
             widg.events.buffering.on(function () {
