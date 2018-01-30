@@ -147,6 +147,7 @@ if (!window_loaded && Y.one('.embed-block[data-block-json*="mixcloud.com"]')) {
     Y.all('.embed-block[data-block-json*="mixcloud.com"]').each(function (item) {
         var content = item.one('.sqs-block-content');
         var json = JSON.parse(item.getAttribute('data-block-json'));
+        var feed = json.html.split('feed=')[0]
         content.empty();
     });
     activateMixcloudThings();
