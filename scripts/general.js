@@ -111,7 +111,7 @@ function activateMixcloudThings() {
                     feed = feed.slice(1);
                 }
                 item.setAttribute('data-mixcloud-url', '/' + feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed) + '-mix-item').addClass('inited');
-                //content.empty();
+                content.empty();
                 $.getJSON('https://api.mixcloud.com/' + feed + '?callback=', function (data) {
                     console.log("success", data);
                     content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #333 url(' + data.pictures.medium + ') no-repeat;background-size: cover"></div><div class="text-info clear">' +
