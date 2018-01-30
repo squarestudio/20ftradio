@@ -90,9 +90,12 @@ function activateMixcloudThings() {
     window_loaded = true;
     window.mixCloudEmbeds = [];
     initMixCloudFooter();
-    console.log(Y.all('iframe[src*=".mixcloud"]'))
     Y.all('[data-mixcloud-api-url]').each(function (embed) {
         var content = embed.one('.sqs-block-content');
+        var api_url = embed.getAttribute('data-mixcloud-api-url');
+        if(api_url){
+            
+        }
         /*var widget = Mixcloud.PlayerWidget(iframe._node);
         widget.ready.then(function (widg) {
             //widget.setOption('mini', true);
