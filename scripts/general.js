@@ -97,10 +97,9 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             var widget = Mixcloud.PlayerWidget(iframe._node);
             widget.ready.then(function (widget) {
                 widget.events.play.on(function(){
-                    userPaused = true;
-                    pausePlayersExept('all');
+                    mixCloudFooterPlayer.
                 });
-                mixCloudEmbeds.push(widget);
+                //mixCloudEmbeds.push(widget);
             });
         })
     }
