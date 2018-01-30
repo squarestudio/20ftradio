@@ -107,7 +107,7 @@ function activateMixcloudThings() {
             var feed = code_block ? getParameterByName('feed', iframe_src) : decodeURIComponent(json.html.split('feed=')[1].split('"')[0]);
             feed = feed.replace('https://mixcloud.com/', '').replace('https://www.mixcloud.com/', '').replace('&hide_cover=1', '');
             if (feed) {
-                if(feed[0]==='/'){
+                if (feed[0] === '/') {
                     feed = feed.slice(1);
                 }
                 item.setAttribute('data-mixcloud-url', '/' + feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed) + '-mix-item').addClass('inited');
@@ -153,7 +153,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             donateWithLiqPay(val, name, surname, email);
         });
     }
-    if (window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]')||Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
+    if (window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') || Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
         console.log('runnnn');
         activateMixcloudThings()
     }
@@ -161,7 +161,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
 });
-if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]')||Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
+if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') || Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
     console.log('DOM Ready');
     activateMixcloudThings();
     body.delegate('click', function (e) {
