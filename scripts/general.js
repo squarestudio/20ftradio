@@ -91,6 +91,7 @@ function activateMixcloudThings() {
             var url = getParameterByName('feed', iframe.getAttribute('src')).replace('https://mixcloud.com','');
             widg.events.play.on(function () {
                 widg.pause();
+                console.log(url);
                 mixCloudFooterPlayer&&mixCloudFooterPlayer.load&&mixCloudFooterPlayer.load(url, true);
             });
             widg.events.error.on(function () {
