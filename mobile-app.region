@@ -247,7 +247,7 @@
 
     // load the sound
     setupAudioNodes();
-    loadSound("wagner-short.ogg");
+    loadSound("http://eu2.radioboss.fm:8188/20ftRadio");
 
 
     function setupAudioNodes() {
