@@ -161,7 +161,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             donateWithLiqPay(val, name, surname, email);
         });
     }
-    if (window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') || Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
+    if ((window_loaded||window.app_initialized) && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') || Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
         activateMixcloudThings()
     }
 });
