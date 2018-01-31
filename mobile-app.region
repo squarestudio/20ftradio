@@ -162,7 +162,7 @@
 
         analyser.getByteFrequencyData(dataArray);
 
-        ctx.fillStyle = "#000";
+        ctx.fillStyle = "#fff";
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
         for (var i = 0; i < bufferLength; i++) {
