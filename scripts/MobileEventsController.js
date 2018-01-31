@@ -40,10 +40,9 @@ window.Template.Controllers.MobileEventsController = function (element) {
             eventTabsLists.removeClass('active');
             Y.one(id).addClass('active');
             if(Y.one(id+ ' #grid')){
-                var gal = Y.one(id+ ' #grid').getData('gallery');
                 setTimeout(function () {
-                    gal.refresh();
-                }, 300)
+                    Y.all(id+'img').each(function(img){ImageLoader.load(img,{load:true, fit:true})})
+                }, 500)
             }
             mobileEvents.getDOMNode().className = id.replace('#', 'tab-');
         });
@@ -190,7 +189,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             Y.one('#mobile-events-past').append(resp.responseText);
                             if (Y.one('#grid')) {
                                 Site.gridEl = Y.one('#grid');
-                                Y.all('#grid img')
+                                Y.all('#grid img').each(function(img){ImageLoader.load(img,{load:true, fit:true})})
                             }
                         }
                     }
