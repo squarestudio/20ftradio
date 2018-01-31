@@ -103,6 +103,7 @@
     </section>
     {.section website}
     <footer id="bottomBar">
+        <div id="mixcloudInsert"></div>
         <div class="new-footer-content">
             <a href="#" class="menu-button footer-button">Menu</a>
             <a href="#" class="mode-button footer-button">Mode</a>
