@@ -122,7 +122,6 @@
     {.end}
 </div>
 <div id="bottomContainer"></div>
-<canvas id="canvas" width="1000" height="325" style="display: block;"></canvas>
 <div id="example">
     <audio id="player" class="hideIfNoApi" controls="controls"
            src="http://eu2.radioboss.fm:8188/20ftRadio" crossorigin="anonymous"></audio>
@@ -153,6 +152,12 @@
             $(".showIfNoApi").show();
             return;
         }
+
+        // Overkill - if we've got Web Audio API, surely we've got requestAnimationFrame. Surely?...
+        // requestAnimationFrame polyfill by Erik M�ller
+        // fixes from Paul Irish and Tino Zijdel
+        // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+        // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
         var lastTime = 0;
         var vendors = ['ms', 'moz', 'webkit', 'o'];
         for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
@@ -202,6 +207,15 @@
                 bar.style.height = frequencyData[index] + 'px';
             });
         };
+
+        // Hook up the audio routing...
+        // player -> analyser -> speakers
+        // (Do this after the player is ready to play - https://code.google.com/p/chromium/issues/detail?id=112368#c4)
+        $("#player").bind('canplay', function () {
+            var source = context.createMediaElementSource(this);
+            source.connect(analyser);
+            analyser.connect(context.destination);
+        });
 
         // Kick it off...
         update();
