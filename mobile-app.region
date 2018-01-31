@@ -129,8 +129,6 @@
 </div>
 <script>
     var audio = document.getElementById("audio");
-    audio.load();
-    audio.play();
     var context = new AudioContext();
     var src = context.createMediaElementSource(audio);
     var analyser = context.createAnalyser();
@@ -180,8 +178,6 @@
             x += barWidth + 1;
         }
     }
-
-    audio.play();
     renderFrame();
 </script>
 <script type="text/javascript">
