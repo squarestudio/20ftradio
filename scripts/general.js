@@ -193,7 +193,7 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
 function initVisual() {
     var canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight/3;
+    canvas.height = 200;
     var ctx = canvas.getContext("2d");
     var context;
     if (typeof AudioContext !== "undefined") {
