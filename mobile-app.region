@@ -125,7 +125,7 @@
         <p class="showIfNoApi">Unable to run this Web Audio API example. <a href="http://caniuse.com/#feat=audio-api">Check browser support</a></p>
         <img class="showIfNoApi" src="/img/post-2013-02-19-screenshot.png">
     </div>
-    <style>#visualisation div{background-color: #00ab6c}</style>
+    <style>#visualisation div{background-color: #00ab6c;float: left;}</style>
     <script>
         $(function () {
             // Future-proofing...
