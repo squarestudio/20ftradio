@@ -235,7 +235,7 @@ function initVisual() {
     var dataArray = new Uint8Array(bufferLength);
 
     var WIDTH = canvas.width;
-    var HEIGHT = canvas.height;
+    var HEIGHT = canvas.height*2;
     var barWidth = (WIDTH / bufferLength) * 2.5;
     var barHeight;
     var x = 0;
@@ -246,7 +246,7 @@ function initVisual() {
 
         analyser.getByteFrequencyData(dataArray);
 
-        ctx.fillStyle = 'rgba(0, 0, 0, 0)'; 
+        ctx.fillStyle = 'rgba(0, 0, 0, 0)';
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
         for (var i = 0; i < bufferLength; i++) {
             barHeight = dataArray[i];
