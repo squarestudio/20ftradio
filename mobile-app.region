@@ -180,7 +180,6 @@
         // Create the analyser
         var analyser = context.createAnalyser();
         analyser.fftSize = 64;
-        var frequencyData = new Uint8Array(analyser.frequencyBinCount);
         var bufferLength = analyser.frequencyBinCount;
         console.log(bufferLength);
 
@@ -192,20 +191,9 @@
         var barWidth = (WIDTH / bufferLength) * 2.5;
         var barHeight;
         var x = 0;
-        // Set up the visualisation elements
-        var visualisation = $("#visualisation");
-        var barSpacingPercent = 100 / analyser.frequencyBinCount;
-        for (var i = 0; i < analyser.frequencyBinCount; i++) {
-            $("<div/>").css("left", i * barSpacingPercent + "%")
-                .appendTo(visualisation);
-        }
-        var bars = $("#visualisation > div");
-
         // Get the frequency data and update the visualisation
         function update() {
             requestAnimationFrame(update);
-
-            analyser.getByteFrequencyData(frequencyData);
             x = 0;
 
             analyser.getByteFrequencyData(dataArray);
@@ -225,9 +213,6 @@
 
                 x += barWidth + 1;
             }
-            bars.each(function (index, bar) {
-                bar.style.height = frequencyData[index] + 'px';
-            });
         };
 
         // Hook up the audio routing...
