@@ -129,8 +129,6 @@
 </div>
 <script>
     var audio = document.getElementById("audio");
-
-    audio.src = 'http://eu2.radioboss.fm:8188/20ftRadio';
     audio.load();
     audio.play();
     var context = new AudioContext();
