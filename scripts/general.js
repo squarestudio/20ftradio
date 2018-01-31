@@ -264,7 +264,7 @@ function initVisual() {
             x += barWidth + 1;
         }
     }
-    var source = context.createMediaElementSource(this);
+    var source = context.createMediaElementSource(document.getElementById('shoutcastPlayer'));
     source.connect(analyser);
     analyser.connect(context.destination);
     update()
