@@ -190,8 +190,7 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
     console.log('DOM Ready');
     activateMixcloudThings();
 }
-if(window.app_initialized){
-// Future-proofing...
+function initVisual() {
     var canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight/3;
@@ -269,8 +268,12 @@ if(window.app_initialized){
         source.connect(analyser);
         analyser.connect(context.destination);
     });
+    update()
+}
+if(window.app_initialized){
+// Future-proofing...
     Y.once('play:shoutcast',function () {
         console.log('PPPPPP');
-        update()
+       initVisual();
     })
 }
