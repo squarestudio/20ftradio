@@ -1031,15 +1031,18 @@ body {
     opacity: 0;
   }
 }
-
+#bottomBar{
+  .mixcloud-footer-widget-container{
+  }
+}
 .mixcloud-footer-stopped, .mixcloud-footer-playing {
   body {
     .mixcloud-footer-widget-container {
-      bottom: 0 !important;
+      transform: translateY(0);
     }
     &.viewable, &.viewable-on-scroll {
       .mixcloud-footer-widget-container {
-        bottom: 80px!important;
+        transform: translateY(80px);
       }
     }
   }
@@ -1061,8 +1064,9 @@ body {
 }
 
 .mixcloud-footer-widget-container {
-  bottom: -200px !important;
-  transition: bottom .4s ease-in-out;
+  bottom: 0!important;
+  transition: transform .4s ease-in-out;
+  transform: translateY(200px);
   -webkit-backface-visibility: hidden;
   //padding-bottom: 44px;
   //height: 200px!important;
