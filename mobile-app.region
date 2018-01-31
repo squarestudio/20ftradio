@@ -122,7 +122,7 @@
     {.end}
 </div>
 <div id="bottomContainer"></div>
-<canvas id="canvas" style=""></canvas>
+<canvas id="canvas" style="width: 500px;height:300px"></canvas>
 <div id="example">
     <audio id="player" class="hideIfNoApi" controls="controls"
            src="http://eu2.radioboss.fm:8188/20ftRadio" crossorigin="anonymous"></audio>
