@@ -124,22 +124,9 @@
 <div id="bottomContainer"></div>
 <canvas id="canvas" width="1000" height="325" style="display: block;"></canvas>
 <div id="example">
-    <audio id="player" class="hideIfNoApi" controls="controls"
+    <audio id="audio" class="hideIfNoApi" controls="controls"
            src="http://eu2.radioboss.fm:8188/20ftRadio" crossorigin="anonymous"></audio>
-    <p class="hideIfNoApi"><strong>Music: </strong><em>Movement Proposition,</em> Kevin MacLeod (<a
-            href="http://incompetech.com/">incompetech.com</a>)</p>
-
-    <div id="visualisation" class="hideIfNoApi">
-    </div>
-
-    <p class="showIfNoApi">Unable to run this Web Audio API example. <a href="http://caniuse.com/#feat=audio-api">Check
-        browser support</a></p>
 </div>
-<style>#visualisation div {
-    background-color: #00ab6c;
-    position: absolute;
-    width: 3%;
-}</style>
 <script>
     var audio = document.getElementById("audio");
 
