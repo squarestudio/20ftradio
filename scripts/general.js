@@ -270,5 +270,8 @@ if(window.app_initialized){
         source.connect(analyser);
         analyser.connect(context.destination);
     });
-    Y.once('play:shoutcast',update)
+    Y.once('play:shoutcast',function () {
+        console.log('PPPPPP');
+        update()
+    })
 }
