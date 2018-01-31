@@ -249,7 +249,7 @@ function initVisual() {
 
         ctx.fillStyle = "#ссс";
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
+        console.log(bufferLength);
         for (var i = 0; i < bufferLength; i++) {
             barHeight = dataArray[i];
 
