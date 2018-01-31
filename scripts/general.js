@@ -264,11 +264,12 @@ function initVisual() {
             x += barWidth + 1;
         }
     }
+    var source = context.createMediaElementSource(this);
+    source.connect(analyser);
+    analyser.connect(context.destination);
     $("#shoutcastPlayer").bind('canplay', function () {
         console.log('CANPLAYYY')
-        var source = context.createMediaElementSource(this);
-        source.connect(analyser);
-        analyser.connect(context.destination);
+
     });
     update()
 }
