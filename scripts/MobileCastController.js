@@ -728,6 +728,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 if (!shoutcastPlayer.paused) {
                     userPaused = false;
                 }
+                shoutcastPlayer.muted = false;
                 onPlayerReady('shoutcast');
             }
             //castContainer.append(YshoutcastPlayer);
