@@ -190,3 +190,85 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
     console.log('DOM Ready');
     activateMixcloudThings();
 }
+if(window.app_initialized){
+// Future-proofing...
+    var canvas = document.getElementById("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight/3;
+    var ctx = canvas.getContext("2d");
+    var context;
+    if (typeof AudioContext !== "undefined") {
+        context = new AudioContext();
+    } else if (typeof webkitAudioContext !== "undefined") {
+        context = new webkitAudioContext();
+    } else {
+        console.log('NOWEBK')
+        return;
+    }
+    var lastTime = 0;
+    var vendors = ['ms', 'moz', 'webkit', 'o'];
+    for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame']
+            || window[vendors[x] + 'CancelRequestAnimationFrame'];
+    }
+
+    if (!window.requestAnimationFrame)
+        window.requestAnimationFrame = function (callback, element) {
+            var currTime = new Date().getTime();
+            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+            var id = window.setTimeout(function () {
+                    callback(currTime + timeToCall);
+                },
+                timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+
+    if (!window.cancelAnimationFrame)
+        window.cancelAnimationFrame = function (id) {
+            clearTimeout(id);
+        };
+    var analyser = context.createAnalyser();
+    analyser.fftSize = 128;
+    var bufferLength = analyser.frequencyBinCount;
+    console.log(bufferLength);
+
+    var dataArray = new Uint8Array(bufferLength);
+
+    var WIDTH = canvas.width;
+    var HEIGHT = canvas.height;
+
+    var barWidth = (WIDTH / bufferLength) * 2.5;
+    var barHeight;
+    var x = 0;
+    // Get the frequency data and update the visualisation
+    function update() {
+        requestAnimationFrame(update);
+        x = 0;
+
+        analyser.getByteFrequencyData(dataArray);
+
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, WIDTH, HEIGHT);
+
+        for (var i = 0; i < bufferLength; i++) {
+            barHeight = dataArray[i];
+
+            var r = barHeight + (25 * (i/bufferLength));
+            var g = 250 * (i/bufferLength);
+            var b = 50;
+
+            ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+            ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+
+            x += barWidth + 1;
+        }
+    }
+    $("#shoutcastPlayer").bind('canplay', function () {
+        var source = context.createMediaElementSource(this);
+        source.connect(analyser);
+        analyser.connect(context.destination);
+    });
+    Y.once('play:shoutcast',update)
+}
