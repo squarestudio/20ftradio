@@ -1,105 +1,111 @@
 <html>
-    <head>
-        {squarespace-headers}
-        <squarespace:script src="MobileCastController.js" combo="true"/>
-        <squarespace:script src="MobileEventsController.js" combo="true"/>
-        <squarespace:script src="general.js" combo="true"/>
-        <squarespace:script src="mobile-app.js" combo="true"/>
-    </head>
-    <body class="cordova-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
-    <div id="navigator">
-        {.section website}
-        <header id="topBar" class="sqs-announcement-bar-dropzone">
-            <div class="site-player-block">
-                <div class="site-player paused not-init">
-                    <div class="site-player-wrapper">
-                        <div class="site-player-controls">
-                            <a id="playButton">
-                                <i class="icono-"></i>
-                            </a>
-                            <a id="volumeButton">
-                                <i class="icono-volumeHigh"></i>
-                            </a>
-                            <input id="volControl" value="100" class="volume-control" type="range" min="0" max="100" step="1"></input>
-                        </div>
-                        <div class="track-name"><span>Now playing: </span></div>
+<head>
+    {squarespace-headers}
+    <squarespace:script src="MobileCastController.js" combo="true"/>
+    <squarespace:script src="MobileEventsController.js" combo="true"/>
+    <squarespace:script src="general.js" combo="true"/>
+    <squarespace:script src="mobile-app.js" combo="true"/>
+</head>
+<body class="cordova-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
+<div id="navigator">
+    {.section website}
+    <header id="topBar" class="sqs-announcement-bar-dropzone">
+        <div class="site-player-block">
+            <div class="site-player paused not-init">
+                <div class="site-player-wrapper">
+                    <div class="site-player-controls">
+                        <a id="playButton">
+                            <i class="icono-"></i>
+                        </a>
+                        <a id="volumeButton">
+                            <i class="icono-volumeHigh"></i>
+                        </a>
+                        <input id="volControl" value="100" class="volume-control" type="range" min="0" max="100"
+                               step="1"></input>
                     </div>
+                    <div class="track-name"><span>Now playing: </span></div>
                 </div>
             </div>
-            <div class="nav-container">
-                <div id="mobileNav">
-                    <div class="wrapper">
-                        <squarespace:navigation navigationId="app-links" template="mobile-navigation"/>
+        </div>
+        <div class="nav-container">
+            <div id="mobileNav">
+                <div class="wrapper">
+                    <squarespace:navigation navigationId="app-links" template="mobile-navigation"/>
+                </div>
+            </div>
+            <squarespace:navigation navigationId="pages" template="navigation"/>
+            <div class="header-block">
+                <squarespace:block-field id="headerBlock" class="header-block-content" columns="12"
+                                         label="Header Content" annotation-alignment="bottom"/>
+            </div>
+            <a href="#" class="video-toggle">Video</a>
+        </div>
+    </header>
+    {.end}
+    <div class="sqs-cart-dropzone"></div>
+    <squarespace:query collection="cast" limit="2">
+        {.if items}
+        {.section items.0}
+        <div class="castWrapper">
+            <div id="castDiv" data-title="{title}"
+                 class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit"
+                 sqs-controller="Template.Controllers.MobileCastController"
+                 data-url="{oembed.url}"
+                 data-facebook-url="{customContent.facebookUrl}"
+                 data-soundcloud-url="{customContent.soundCloudUrl}"
+                 data-shoutcast-url="{customContent.shoutcastUrl}">
+                <div class="mobile-image">
+                    <div class="line"></div>
+                    <div class="mobile-trigger-wrapper">
+                        <a href="#" class="mobile-trigger"></a>
                     </div>
                 </div>
-                <squarespace:navigation navigationId="pages" template="navigation"/>
-                <div class="header-block">
-                    <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content" annotation-alignment="bottom"/>
-                </div>
-                <a href="#" class="video-toggle">Video</a>
+                <div class="live-indicator">● Live</div>
             </div>
-        </header>
+        </div>
         {.end}
-        <div class="sqs-cart-dropzone"></div>
-        <squarespace:query collection="cast" limit="2">
-            {.if items}
-            {.section items.0}
-            <div class="castWrapper">
-                <div id="castDiv" data-title="{title}" class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit"
-                     sqs-controller="Template.Controllers.MobileCastController"
-                     data-url="{oembed.url}"
-                     data-facebook-url="{customContent.facebookUrl}"
-                     data-soundcloud-url="{customContent.soundCloudUrl}"
-                     data-shoutcast-url="{customContent.shoutcastUrl}">
-                    <div class="mobile-image">
-                        <div class="line"></div>
-                        <div class="mobile-trigger-wrapper">
-                            <a href="#" class="mobile-trigger"></a>
-                        </div>
+        {.end}
+    </squarespace:query>
+    <section id="container">
+        <div class="content-loader">
+            <div class="fountainG fountainG_1"></div>
+            <div class="fountainG fountainG_2"></div>
+            <div class="fountainG fountainG_3"></div>
+            <div class="fountainG fountainG_4"></div>
+            <div class="fountainG fountainG_5"></div>
+        </div>
+        <div id="container-content" class="clear" data-content-field="main-content" role="main">
+            <div id="controller" class="controller" {.equal? collection.typeName
+            "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId
+            "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
+            {.equal? collection.urlId "mobile-app"}
+            <div id="mobileEvents">
+                <div class="tabs clear">
+                    <a href="#mobile-events-upcoming" class="tab-1 active">Schedule</a>
+                    <a href="#mobile-events-past" class="tab-2">Shows</a>
+                    <div class="tab-border"></div>
+                </div>
+                <div class="content-loader" style="display:block;">
+                    <div class="fountainG fountainG_1"></div>
+                    <div class="fountainG fountainG_2"></div>
+                    <div class="fountainG fountainG_3"></div>
+                    <div class="fountainG fountainG_4"></div>
+                    <div class="fountainG fountainG_5"></div>
+                </div>
+                <div class="mobileEvents-wrapper">
+                    <div class="mobileEvents-container">
+                        <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active"
+                            style="opacity: 0">
+                            <p class="no-shows-message">No Upcoming Shows</p>
+                        </ul>
+                        <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past"></ul>
                     </div>
-                    <div class="live-indicator">● Live</div>
                 </div>
             </div>
+            {.or}
+            {squarespace.main-content}
             {.end}
-            {.end}
-        </squarespace:query>
-        <section id="container">
-            <div class="content-loader">
-                <div class="fountainG fountainG_1"></div>
-                <div class="fountainG fountainG_2"></div>
-                <div class="fountainG fountainG_3"></div>
-                <div class="fountainG fountainG_4"></div>
-                <div class="fountainG fountainG_5"></div>
-            </div>
-            <div id="container-content" class="clear" data-content-field="main-content" role="main">
-                <div id="controller" class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
-                    {.equal? collection.urlId "mobile-app"}
-                    <div id="mobileEvents">
-                        <div class="tabs clear">
-                            <a href="#mobile-events-upcoming" class="tab-1 active">Schedule</a>
-                            <a href="#mobile-events-past" class="tab-2">Shows</a>
-                            <div class="tab-border"></div>
-                        </div>
-                        <div class="content-loader" style="display:block;">
-                            <div class="fountainG fountainG_1"></div>
-                            <div class="fountainG fountainG_2"></div>
-                            <div class="fountainG fountainG_3"></div>
-                            <div class="fountainG fountainG_4"></div>
-                            <div class="fountainG fountainG_5"></div>
-                        </div>
-                        <div class="mobileEvents-wrapper">
-                            <div class="mobileEvents-container">
-                                <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active" style="opacity: 0">
-                                    <p class="no-shows-message">No Upcoming Shows</p>
-                                </ul>
-                                <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past"></ul>
-                            </div>
-                        </div>
-                    </div>
-                    {.or}
-                    {squarespace.main-content}
-                    {.end}
-            </div>
+        </div>
     </section>
     {.section website}
     <footer id="bottomBar">
@@ -114,97 +120,107 @@
         </div>
     </footer>
     {.end}
+</div>
+<div id="bottomContainer"></div>
+<div id="example">
+    <audio id="player" class="hideIfNoApi" controls="controls"
+           src="http://ianreah.apphb.com/sounds/movement%20proposition.mp3" crossorigin="anonymous"></audio>
+    <p class="hideIfNoApi"><strong>Music: </strong><em>Movement Proposition,</em> Kevin MacLeod (<a
+            href="http://incompetech.com/">incompetech.com</a>)</p>
+
+    <div id="visualisation" class="hideIfNoApi">
     </div>
-    <div id="bottomContainer"></div>
-    <div id="example">
-        <audio id="player" class="hideIfNoApi" controls="controls" src="http://ianreah.apphb.com/sounds/movement%20proposition.mp3" crossorigin="anonymous"> </audio>
-        <p class="hideIfNoApi"><strong>Music: </strong><em>Movement Proposition,</em> Kevin MacLeod (<a href="http://incompetech.com/">incompetech.com</a>)</p>
 
-        <div id="visualisation" class="hideIfNoApi"> <div style="left: 0%; height: 0px;"></div><div style="left: 3.125%; height: 0px;"></div><div style="left: 6.25%; height: 0px;"></div><div style="left: 9.375%; height: 0px;"></div><div style="left: 12.5%; height: 0px;"></div><div style="left: 15.625%; height: 0px;"></div><div style="left: 18.75%; height: 0px;"></div><div style="left: 21.875%; height: 0px;"></div><div style="left: 25%; height: 0px;"></div><div style="left: 28.125%; height: 0px;"></div><div style="left: 31.25%; height: 0px;"></div><div style="left: 34.375%; height: 0px;"></div><div style="left: 37.5%; height: 0px;"></div><div style="left: 40.625%; height: 0px;"></div><div style="left: 43.75%; height: 0px;"></div><div style="left: 46.875%; height: 0px;"></div><div style="left: 50%; height: 0px;"></div><div style="left: 53.125%; height: 0px;"></div><div style="left: 56.25%; height: 0px;"></div><div style="left: 59.375%; height: 0px;"></div><div style="left: 62.5%; height: 0px;"></div><div style="left: 65.625%; height: 0px;"></div><div style="left: 68.75%; height: 0px;"></div><div style="left: 71.875%; height: 0px;"></div><div style="left: 75%; height: 0px;"></div><div style="left: 78.125%; height: 0px;"></div><div style="left: 81.25%; height: 0px;"></div><div style="left: 84.375%; height: 0px;"></div><div style="left: 87.5%; height: 0px;"></div><div style="left: 90.625%; height: 0px;"></div><div style="left: 93.75%; height: 0px;"></div><div style="left: 96.875%; height: 0px;"></div></div>
+    <p class="showIfNoApi">Unable to run this Web Audio API example. <a href="http://caniuse.com/#feat=audio-api">Check
+        browser support</a></p>
+    <img class="showIfNoApi" src="/img/post-2013-02-19-screenshot.png">
+</div>
+<style>#visualisation div {
+    background-color: #00ab6c;
+    position: absolute;
+    width: 3%;
+}</style>
+<script>
+    $(function () {
+        // Future-proofing...
+        var context;
+        if (typeof AudioContext !== "undefined") {
+            context = new AudioContext();
+        } else if (typeof webkitAudioContext !== "undefined") {
+            context = new webkitAudioContext();
+        } else {
+            $(".hideIfNoApi").hide();
+            $(".showIfNoApi").show();
+            return;
+        }
 
-        <p class="showIfNoApi">Unable to run this Web Audio API example. <a href="http://caniuse.com/#feat=audio-api">Check browser support</a></p>
-        <img class="showIfNoApi" src="/img/post-2013-02-19-screenshot.png">
-    </div>
-    <style>#visualisation div{background-color: #00ab6c;float: left;}</style>
-    <script>
-        $(function () {
-            // Future-proofing...
-            var context;
-            if (typeof AudioContext !== "undefined") {
-                context = new AudioContext();
-            } else if (typeof webkitAudioContext !== "undefined") {
-                context = new webkitAudioContext();
-            } else {
-                $(".hideIfNoApi").hide();
-                $(".showIfNoApi").show();
-                return;
-            }
+        // Overkill - if we've got Web Audio API, surely we've got requestAnimationFrame. Surely?...
+        // requestAnimationFrame polyfill by Erik M�ller
+        // fixes from Paul Irish and Tino Zijdel
+        // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+        // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+        var lastTime = 0;
+        var vendors = ['ms', 'moz', 'webkit', 'o'];
+        for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
+            window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+            window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame']
+                || window[vendors[x] + 'CancelRequestAnimationFrame'];
+        }
 
-            // Overkill - if we've got Web Audio API, surely we've got requestAnimationFrame. Surely?...
-            // requestAnimationFrame polyfill by Erik M�ller
-            // fixes from Paul Irish and Tino Zijdel
-            // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
-            // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
-            var lastTime = 0;
-            var vendors = ['ms', 'moz', 'webkit', 'o'];
-            for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-                window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-                window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame']
-                    || window[vendors[x] + 'CancelRequestAnimationFrame'];
-            }
-
-            if (!window.requestAnimationFrame)
-                window.requestAnimationFrame = function (callback, element) {
-                    var currTime = new Date().getTime();
-                    var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-                    var id = window.setTimeout(function () { callback(currTime + timeToCall); },
-                        timeToCall);
-                    lastTime = currTime + timeToCall;
-                    return id;
-                };
-
-            if (!window.cancelAnimationFrame)
-                window.cancelAnimationFrame = function (id) {
-                    clearTimeout(id);
-                };
-
-            // Create the analyser
-            var analyser = context.createAnalyser();
-            analyser.fftSize = 64;
-            var frequencyData = new Uint8Array(analyser.frequencyBinCount);
-
-            // Set up the visualisation elements
-            var visualisation = $("#visualisation");
-            var barSpacingPercent = 100 / analyser.frequencyBinCount;
-            for (var i = 0; i < analyser.frequencyBinCount; i++) {
-                $("<div/>").css("left", i * barSpacingPercent + "%")
-                    .appendTo(visualisation);
-            }
-            var bars = $("#visualisation > div");
-
-            // Get the frequency data and update the visualisation
-            function update() {
-                requestAnimationFrame(update);
-
-                analyser.getByteFrequencyData(frequencyData);
-
-                bars.each(function (index, bar) {
-                    bar.style.height = frequencyData[index] + 'px';
-                });
+        if (!window.requestAnimationFrame)
+            window.requestAnimationFrame = function (callback, element) {
+                var currTime = new Date().getTime();
+                var timeToCall = Math.max(0, 16 - (currTime - lastTime));
+                var id = window.setTimeout(function () {
+                        callback(currTime + timeToCall);
+                    },
+                    timeToCall);
+                lastTime = currTime + timeToCall;
+                return id;
             };
 
-            // Hook up the audio routing...
-            // player -> analyser -> speakers
-            // (Do this after the player is ready to play - https://code.google.com/p/chromium/issues/detail?id=112368#c4)
-            $("#player").bind('canplay', function() {
-                var source = context.createMediaElementSource(this);
-                source.connect(analyser);
-                analyser.connect(context.destination);
-            });
+        if (!window.cancelAnimationFrame)
+            window.cancelAnimationFrame = function (id) {
+                clearTimeout(id);
+            };
 
-            // Kick it off...
-            update();
+        // Create the analyser
+        var analyser = context.createAnalyser();
+        analyser.fftSize = 64;
+        var frequencyData = new Uint8Array(analyser.frequencyBinCount);
+
+        // Set up the visualisation elements
+        var visualisation = $("#visualisation");
+        var barSpacingPercent = 100 / analyser.frequencyBinCount;
+        for (var i = 0; i < analyser.frequencyBinCount; i++) {
+            $("<div/>").css("left", i * barSpacingPercent + "%")
+                .appendTo(visualisation);
+        }
+        var bars = $("#visualisation > div");
+
+        // Get the frequency data and update the visualisation
+        function update() {
+            requestAnimationFrame(update);
+
+            analyser.getByteFrequencyData(frequencyData);
+
+            bars.each(function (index, bar) {
+                bar.style.height = frequencyData[index] + 'px';
+            });
+        };
+
+        // Hook up the audio routing...
+        // player -> analyser -> speakers
+        // (Do this after the player is ready to play - https://code.google.com/p/chromium/issues/detail?id=112368#c4)
+        $("#player").bind('canplay', function () {
+            var source = context.createMediaElementSource(this);
+            source.connect(analyser);
+            analyser.connect(context.destination);
         });
-    </script>
-    </body>
+
+        // Kick it off...
+        update();
+    });
+</script>
+</body>
 </html>
