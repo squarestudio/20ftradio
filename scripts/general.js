@@ -235,7 +235,7 @@ function initVisual() {
     var dataArray = new Uint8Array(bufferLength);
 
     var WIDTH = canvas.width;
-    var HEIGHT = canvas.height;
+    var HEIGHT = 200;
     console.log(bufferLength)
     var barWidth = (WIDTH / bufferLength) * 2;
     var barHeight;
