@@ -267,7 +267,6 @@ function initVisual() {
     update()
 }
 if(window.app_initialized){
-// Future-proofing...
     Y.once('play:shoutcast',function () {
         console.log('PPPPPP');
        initVisual();
