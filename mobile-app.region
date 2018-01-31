@@ -140,6 +140,10 @@
 <script>
     $(function () {
         // Future-proofing...
+        var canvas = document.getElementById("canvas");
+        canvas.width = 500;
+        canvas.height = 300;
+        var ctx = canvas.getContext("2d");
         var context;
         if (typeof AudioContext !== "undefined") {
             context = new AudioContext();
