@@ -258,7 +258,7 @@ function initVisual() {
             ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
             ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
-            x += barWidth + 3;
+            x += barWidth + 2;
         }
     }
     var source = context.createMediaElementSource(document.getElementById('shoutcastPlayer'));
