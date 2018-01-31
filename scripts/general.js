@@ -238,6 +238,7 @@ function initVisual() {
     var HEIGHT = 200;
     console.log(bufferLength)
     var barWidth = (WIDTH / bufferLength) * 2;
+    console.log(barWidth)
     var barHeight;
     var x = 0;
     // Get the frequency data and update the visualisation
