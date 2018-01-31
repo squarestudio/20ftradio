@@ -202,6 +202,7 @@ function initVisual() {
         context = new webkitAudioContext();
     } else {
         console.log('NOWEBK');
+        return;
     }
     var lastTime = 0;
     var vendors = ['ms', 'moz', 'webkit', 'o'];
