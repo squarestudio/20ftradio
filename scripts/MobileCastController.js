@@ -729,6 +729,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     userPaused = false;
                 }
                 shoutcastPlayer.muted = false;
+                shoutcastPlayer.volume = 1;
                 onPlayerReady('shoutcast');
             }
             //castContainer.append(YshoutcastPlayer);
