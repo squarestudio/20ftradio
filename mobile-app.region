@@ -116,8 +116,9 @@
     {.end}
     </div>
     <div id="bottomContainer"></div>
+    <audio id="player" src="urlToMp3"></audio>
     <script>
-        
+
     </script>
     </body>
 </html>
