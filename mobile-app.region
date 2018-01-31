@@ -130,9 +130,6 @@
 
     <div id="visualisation" class="hideIfNoApi">
     </div>
-
-    <p class="showIfNoApi">Unable to run this Web Audio API example. <a href="http://caniuse.com/#feat=audio-api">Check
-        browser support</a></p>
 </div>
 <style>#visualisation div {
     background-color: #00ab6c;
@@ -148,8 +145,6 @@
         } else if (typeof webkitAudioContext !== "undefined") {
             context = new webkitAudioContext();
         } else {
-            $(".hideIfNoApi").hide();
-            $(".showIfNoApi").show();
             return;
         }
 
