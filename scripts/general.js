@@ -250,6 +250,15 @@ function initVisual() {
 
         ctx.fillStyle = "#ссс";
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
+        for(var i = 0; i < bufferLength; i++) {
+            barHeight = dataArray[i]/2;
+
+            canvasCtx.fillStyle = 'rgb(' + (barHeight+100) + ',50,50)';
+            canvasCtx.fillRect(x,HEIGHT-barHeight/2,barWidth,barHeight);
+
+            x += barWidth + 1;
+        }
+    };
         for (var i = 0; i < bufferLength; i++) {
             barHeight = dataArray[i];
 
