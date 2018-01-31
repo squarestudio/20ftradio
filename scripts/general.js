@@ -231,7 +231,6 @@ function initVisual() {
     var analyser = context.createAnalyser();
     analyser.fftSize = 64;
     var bufferLength = analyser.frequencyBinCount;
-    console.log(bufferLength);
 
     var dataArray = new Uint8Array(bufferLength);
 
@@ -248,7 +247,7 @@ function initVisual() {
 
         analyser.getByteFrequencyData(dataArray);
 
-        ctx.fillStyle = "#000";
+        ctx.fillStyle = "#ссс";
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
         for (var i = 0; i < bufferLength; i++) {
