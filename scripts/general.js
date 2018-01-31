@@ -202,8 +202,7 @@ if(window.app_initialized){
     } else if (typeof webkitAudioContext !== "undefined") {
         context = new webkitAudioContext();
     } else {
-        console.log('NOWEBK')
-        return;
+        console.log('NOWEBK');
     }
     var lastTime = 0;
     var vendors = ['ms', 'moz', 'webkit', 'o'];
