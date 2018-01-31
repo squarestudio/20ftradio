@@ -118,7 +118,9 @@
     <div id="bottomContainer"></div>
     <audio id="player" src="urlToMp3"></audio>
     <script>
-
+        var audioElement = document.getElementById("player");
+        var source = context.createMediaElementSource(audioElement);
+        source.connect(context.destination);
     </script>
     </body>
 </html>
