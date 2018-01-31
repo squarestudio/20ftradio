@@ -191,8 +191,8 @@ window.Template.Controllers.MobileEventsController = function (element) {
                             if (Site && Y.one('#grid')) {
                                 Site.gridEl = Y.one('#grid');
                                 Site.gridEl.all('a[data-dynamic-load]').setAttribute('data-ajax-loader', 'ajax-loader-binded').removeAttribute('data-dynamic-load').removeAttribute('data-dynamic-receiver');
-                                Site._setupGrid();
-                                Site._setupTweakHandler();
+                                //Site._setupGrid();
+                                //Site._setupTweakHandler();
                             }
                         }
                     }
