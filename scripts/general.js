@@ -254,7 +254,7 @@ function initVisual() {
             barHeight = dataArray[i];
 
             var r = barHeight + (25 * (i/bufferLength));
-            var g = 25 * (i/bufferLength);
+            var g = 250 * (i/bufferLength);
             var b = 50;
 
             ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
