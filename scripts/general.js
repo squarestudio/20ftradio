@@ -265,6 +265,7 @@ function initVisual() {
         }
     }
     $("#shoutcastPlayer").bind('canplay', function () {
+        console.log('CANPLAYYY')
         var source = context.createMediaElementSource(this);
         source.connect(analyser);
         analyser.connect(context.destination);
