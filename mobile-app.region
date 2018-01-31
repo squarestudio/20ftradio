@@ -1,110 +1,105 @@
 <html>
-<head>
-    {squarespace-headers}
-    <squarespace:script src="MobileCastController.js" combo="true"/>
-    <squarespace:script src="MobileEventsController.js" combo="true"/>
-    <squarespace:script src="general.js" combo="true"/>
-    <squarespace:script src="mobile-app.js" combo="true"/>
-</head>
-<body class="cordova-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
-<div id="navigator">
-    {.section website}
-    <header id="topBar" class="sqs-announcement-bar-dropzone">
-        <div class="site-player-block">
-            <div class="site-player paused not-init">
-                <div class="site-player-wrapper">
-                    <div class="site-player-controls">
-                        <a id="playButton">
-                            <i class="icono-"></i>
-                        </a>
-                        <a id="volumeButton">
-                            <i class="icono-volumeHigh"></i>
-                        </a>
-                        <input id="volControl" value="100" class="volume-control" type="range" min="0" max="100" step="1"></input>
-                    </div>
-                    <div class="track-name"><span>Now playing: </span></div>
-                </div>
-            </div>
-        </div>
-        <div class="nav-container">
-            <div id="mobileNav">
-                <div class="wrapper">
-                    <squarespace:navigation navigationId="app-links" template="mobile-navigation"/>
-                </div>
-            </div>
-            <squarespace:navigation navigationId="pages" template="navigation"/>
-            <div class="header-block">
-                <squarespace:block-field id="headerBlock" class="header-block-content" columns="12"
-                                         label="Header Content" annotation-alignment="bottom"/>
-            </div>
-            <a href="#" class="video-toggle">Video</a>
-        </div>
-    </header>
-    {.end}
-    <div class="sqs-cart-dropzone"></div>
-    <squarespace:query collection="cast" limit="2">
-        {.if items}
-        {.section items.0}
-        <div class="castWrapper">
-            <div id="castDiv" data-title="{title}"
-                 class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit"
-                 sqs-controller="Template.Controllers.MobileCastController"
-                 data-url="{oembed.url}"
-                 data-facebook-url="{customContent.facebookUrl}"
-                 data-soundcloud-url="{customContent.soundCloudUrl}"
-                 data-shoutcast-url="{customContent.shoutcastUrl}">
-                <div class="mobile-image">
-                    <div class="line"></div>
-                    <div class="mobile-trigger-wrapper">
-                        <a href="#" class="mobile-trigger"></a>
+    <head>
+        {squarespace-headers}
+        <squarespace:script src="MobileCastController.js" combo="true"/>
+        <squarespace:script src="MobileEventsController.js" combo="true"/>
+        <squarespace:script src="general.js" combo="true"/>
+        <squarespace:script src="mobile-app.js" combo="true"/>
+    </head>
+    <body class="cordova-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
+    <div id="navigator">
+        {.section website}
+        <header id="topBar" class="sqs-announcement-bar-dropzone">
+            <div class="site-player-block">
+                <div class="site-player paused not-init">
+                    <div class="site-player-wrapper">
+                        <div class="site-player-controls">
+                            <a id="playButton">
+                                <i class="icono-"></i>
+                            </a>
+                            <a id="volumeButton">
+                                <i class="icono-volumeHigh"></i>
+                            </a>
+                            <input id="volControl" value="100" class="volume-control" type="range" min="0" max="100" step="1"></input>
+                        </div>
+                        <div class="track-name"><span>Now playing: </span></div>
                     </div>
                 </div>
-                <div class="live-indicator">● Live</div>
             </div>
-        </div>
+            <div class="nav-container">
+                <div id="mobileNav">
+                    <div class="wrapper">
+                        <squarespace:navigation navigationId="app-links" template="mobile-navigation"/>
+                    </div>
+                </div>
+                <squarespace:navigation navigationId="pages" template="navigation"/>
+                <div class="header-block">
+                    <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content" annotation-alignment="bottom"/>
+                </div>
+                <a href="#" class="video-toggle">Video</a>
+            </div>
+        </header>
         {.end}
-        {.end}
-    </squarespace:query>
-    <section id="container">
-        <div class="content-loader">
-            <div class="fountainG fountainG_1"></div>
-            <div class="fountainG fountainG_2"></div>
-            <div class="fountainG fountainG_3"></div>
-            <div class="fountainG fountainG_4"></div>
-            <div class="fountainG fountainG_5"></div>
-        </div>
-        <div id="container-content" class="clear" data-content-field="main-content" role="main">
-            <div id="controller" class="controller" {.equal? collection.typeName
-            "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId
-            "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
-            {.equal? collection.urlId "mobile-app"}
-            <div id="mobileEvents">
-                <div class="tabs clear">
-                    <a href="#mobile-events-upcoming" class="tab-1 active">Schedule</a>
-                    <a href="#mobile-events-past" class="tab-2">Shows</a>
-                    <div class="tab-border"></div>
-                </div>
-                <div class="content-loader" style="display:block;">
-                    <div class="fountainG fountainG_1"></div>
-                    <div class="fountainG fountainG_2"></div>
-                    <div class="fountainG fountainG_3"></div>
-                    <div class="fountainG fountainG_4"></div>
-                    <div class="fountainG fountainG_5"></div>
-                </div>
-                <div class="mobileEvents-wrapper">
-                    <div class="mobileEvents-container">
-                        <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active"
-                            style="opacity: 0">
-                            <p class="no-shows-message">No Upcoming Shows</p>
-                        </ul>
-                        <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past"></ul>
+        <div class="sqs-cart-dropzone"></div>
+        <squarespace:query collection="cast" limit="2">
+            {.if items}
+            {.section items.0}
+            <div class="castWrapper">
+                <div id="castDiv" data-title="{title}" class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit"
+                     sqs-controller="Template.Controllers.MobileCastController"
+                     data-url="{oembed.url}"
+                     data-facebook-url="{customContent.facebookUrl}"
+                     data-soundcloud-url="{customContent.soundCloudUrl}"
+                     data-shoutcast-url="{customContent.shoutcastUrl}">
+                    <div class="mobile-image">
+                        <div class="line"></div>
+                        <div class="mobile-trigger-wrapper">
+                            <a href="#" class="mobile-trigger"></a>
+                        </div>
                     </div>
+                    <div class="live-indicator">● Live</div>
                 </div>
             </div>
-            {.or}
-            {squarespace.main-content}
             {.end}
-        </div>
+            {.end}
+        </squarespace:query>
+        <section id="container">
+            <div class="content-loader">
+                <div class="fountainG fountainG_1"></div>
+                <div class="fountainG fountainG_2"></div>
+                <div class="fountainG fountainG_3"></div>
+                <div class="fountainG fountainG_4"></div>
+                <div class="fountainG fountainG_5"></div>
+            </div>
+            <div id="container-content" class="clear" data-content-field="main-content" role="main">
+                <div id="controller" class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
+                    {.equal? collection.urlId "mobile-app"}
+                    <div id="mobileEvents">
+                        <div class="tabs clear">
+                            <a href="#mobile-events-upcoming" class="tab-1 active">Schedule</a>
+                            <a href="#mobile-events-past" class="tab-2">Shows</a>
+                            <div class="tab-border"></div>
+                        </div>
+                        <div class="content-loader" style="display:block;">
+                            <div class="fountainG fountainG_1"></div>
+                            <div class="fountainG fountainG_2"></div>
+                            <div class="fountainG fountainG_3"></div>
+                            <div class="fountainG fountainG_4"></div>
+                            <div class="fountainG fountainG_5"></div>
+                        </div>
+                        <div class="mobileEvents-wrapper">
+                            <div class="mobileEvents-container">
+                                <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active" style="opacity: 0">
+                                    <p class="no-shows-message">No Upcoming Shows</p>
+                                </ul>
+                                <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past"></ul>
+                            </div>
+                        </div>
+                    </div>
+                    {.or}
+                    {squarespace.main-content}
+                    {.end}
+            </div>
     </section>
     {.section website}
     <footer id="bottomBar">
@@ -119,108 +114,7 @@
         </div>
     </footer>
     {.end}
-</div>
-<div id="bottomContainer"></div>
-<!--<div id="example">
-    <canvas id="canvas" style="width: 500px;height:300px"></canvas>
-    <audio id="player" class="hideIfNoApi" controls="controls" src="http://eu2.radioboss.fm:8188/20ftRadio" autoplay crossorigin="anonymous"></audio>
-</div>
-<style>#visualisation div {
-    background-color: #00ab6c;
-    position: absolute;
-    width: 3%;
-}</style>
-<script>
-    $(function () {
-        // Future-proofing...
-        var canvas = document.getElementById("canvas");
-        canvas.width = 500;
-        canvas.height = 300;
-        var ctx = canvas.getContext("2d");
-        var context;
-        if (typeof AudioContext !== "undefined") {
-            context = new AudioContext();
-        } else if (typeof webkitAudioContext !== "undefined") {
-            context = new webkitAudioContext();
-        } else {
-            console.log('NOWEBK')
-            return;
-        }
-        var lastTime = 0;
-        var vendors = ['ms', 'moz', 'webkit', 'o'];
-        for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-            window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-            window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame']
-                || window[vendors[x] + 'CancelRequestAnimationFrame'];
-        }
-
-        if (!window.requestAnimationFrame)
-            window.requestAnimationFrame = function (callback, element) {
-                var currTime = new Date().getTime();
-                var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-                var id = window.setTimeout(function () {
-                        callback(currTime + timeToCall);
-                    },
-                    timeToCall);
-                lastTime = currTime + timeToCall;
-                return id;
-            };
-
-        if (!window.cancelAnimationFrame)
-            window.cancelAnimationFrame = function (id) {
-                clearTimeout(id);
-            };
-
-        // Create the analyser
-        var analyser = context.createAnalyser();
-        analyser.fftSize = 128;
-        var bufferLength = analyser.frequencyBinCount;
-        console.log(bufferLength);
-
-        var dataArray = new Uint8Array(bufferLength);
-
-        var WIDTH = canvas.width;
-        var HEIGHT = canvas.height;
-
-        var barWidth = (WIDTH / bufferLength) * 2.5;
-        var barHeight;
-        var x = 0;
-        // Get the frequency data and update the visualisation
-        function update() {
-            requestAnimationFrame(update);
-            x = 0;
-
-            analyser.getByteFrequencyData(dataArray);
-
-            ctx.fillStyle = "#000";
-            ctx.fillRect(0, 0, WIDTH, HEIGHT);
-
-            for (var i = 0; i < bufferLength; i++) {
-                barHeight = dataArray[i];
-
-                var r = barHeight + (25 * (i/bufferLength));
-                var g = 250 * (i/bufferLength);
-                var b = 50;
-
-                ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
-                ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
-
-                x += barWidth + 1;
-            }
-        };
-
-        // Hook up the audio routing...
-        // player -> analyser -> speakers
-        // (Do this after the player is ready to play - https://code.google.com/p/chromium/issues/detail?id=112368#c4)
-        $("#player").bind('canplay', function () {
-            var source = context.createMediaElementSource(this);
-            source.connect(analyser);
-            analyser.connect(context.destination);
-        });
-
-        // Kick it off...
-        update();
-    });
-</script>-->
-</body>
+    </div>
+    <div id="bottomContainer"></div>
+    </body>
 </html>
