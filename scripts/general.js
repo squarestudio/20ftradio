@@ -235,8 +235,8 @@ function initVisual() {
     var dataArray = new Uint8Array(bufferLength);
 
     var WIDTH = canvas.width;
-    var HEIGHT = canvas.height*0.8;
-    var barWidth = (WIDTH / bufferLength) * 4;
+    var HEIGHT = canvas.height;
+    var barWidth = (WIDTH / bufferLength) * 2.5;
     var barHeight;
     var x = 0;
     // Get the frequency data and update the visualisation
@@ -258,7 +258,7 @@ function initVisual() {
             ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
             ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
-            x += barWidth + 2;
+            x += barWidth + 1;
         }
     }
     var source = context.createMediaElementSource(document.getElementById('shoutcastPlayer'));
