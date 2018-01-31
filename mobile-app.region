@@ -144,6 +144,7 @@
         } else if (typeof webkitAudioContext !== "undefined") {
             context = new webkitAudioContext();
         } else {
+            console.log('NOWEBK')
             return;
         }
         var lastTime = 0;
