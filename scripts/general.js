@@ -237,7 +237,7 @@ function initVisual() {
     var WIDTH = canvas.width;
     var HEIGHT = canvas.height;
 
-    var barWidth = (WIDTH / bufferLength) * 2.5;
+    var barWidth = (WIDTH / bufferLength) * 1.2;
     var barHeight;
     var x = 0;
     // Get the frequency data and update the visualisation
@@ -249,7 +249,6 @@ function initVisual() {
 
         ctx.fillStyle = "#ссс";
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
-        console.log(bufferLength);
         for (var i = 0; i < bufferLength; i++) {
             barHeight = dataArray[i];
 
