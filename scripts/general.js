@@ -248,7 +248,7 @@ function initVisual() {
 
         analyser.getByteFrequencyData(dataArray);
 
-        ctx.fillStyle = "#ссс";
+        ctx.fillStyle = 'rgb(0, 0, 0)';
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
         for (var i = 0; i < bufferLength; i++) {
             barHeight = dataArray[i];
