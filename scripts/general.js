@@ -1,5 +1,6 @@
 var mixCloudFooterPlayer = false;
 var window_loaded = false;
+var bindMixcloudPlay = false;
 window.mixCloudEmbeds = [];
 var body = Y.one('body');
 var html = Y.one('html');
