@@ -235,14 +235,14 @@ function initVisual() {
             clearTimeout(id);
         };
     var analyser = context.createAnalyser();
-    analyser.fftSize = 64;
+    analyser.fftSize = 128;
     var bufferLength = analyser.frequencyBinCount;
 
     var dataArray = new Uint8Array(bufferLength);
 
     var WIDTH = canvas.width;
     var HEIGHT = canvas.height;
-    var barWidth = (WIDTH / bufferLength);
+    var barWidth = (WIDTH / bufferLength) * 2;
     var barHeight;
     var x = 0;
 
@@ -266,7 +266,7 @@ function initVisual() {
             ctx.fillStyle = "rgb(1, 168, 158)";
             ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
-            x += barWidth+.5;
+            x += barWidth+1;
         }
     }
 
