@@ -254,7 +254,7 @@ function initVisual() {
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
         for (var i = 0; i < bufferLength; i++) {
             barHeight = dataArray[i];
-            //console.log(barHeight)
+            console.log(barHeight)
             var r = barHeight + (25 * (i/bufferLength));
             var g = 250 * (i/bufferLength);
             var b = 50;
