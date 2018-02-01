@@ -195,8 +195,8 @@ function initVisual() {
     if(canvas_activated)return;
     console.log('PPPPPP');
     var canvas = document.getElementById("visualCanvas");
-    canvas.width = canvas.innerWidth;
-    canvas.height = canvas.innerHeight;
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
     var ctx = canvas.getContext("2d");
     var context;
     if (typeof AudioContext !== "undefined") {
