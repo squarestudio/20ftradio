@@ -192,7 +192,7 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
 }
 var canvas_activated = false;
 window.heightFactor = 150;
-
+function easeInOutQuad(t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t },
 function initVisual() {
     if (canvas_activated) return;
     console.log('PPPPPP');
@@ -256,7 +256,7 @@ function initVisual() {
         ctx.fillStyle = 'rgb(0, 0, 0)';
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
         for (var i = 0; i < bufferLength; i++) {
-            barHeight = dataArray[i] - (100 * (i / ));
+            barHeight = dataArray[i] - (100 * easeInOutQuad(i /bufferLength ));
             //if(i===0){console.log(barHeight)}
             var r = barHeight + (25 * (i / bufferLength));
             var g = 250;//* (i / bufferLength);
