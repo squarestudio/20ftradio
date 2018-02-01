@@ -101,7 +101,7 @@
                     {.end}
             </div>
     </section>
-    {.section website}
+    </div>
     <footer id="bottomBar">
         <div id="mixcloudInsert"></div>
         <div class="new-footer-content">
@@ -113,8 +113,5 @@
             <!--<squarespace:block-field id="mobileFooterBlock" class="footer-block" columns="12" label="Mobile Footer Content"/>-->
         </div>
     </footer>
-    {.end}
-    </div>
-    <div id="bottomContainer"></div>
     </body>
 </html>
