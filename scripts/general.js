@@ -239,7 +239,7 @@ function initVisual() {
     var dataArray = new Uint8Array(bufferLength);
 
     var WIDTH = canvas.width;
-    var HEIGHT = canvas.height;
+    var HEIGHT = canvas.height-20;
     var barWidth = (WIDTH / bufferLength) * 2;
     var barHeight;
     var x = 0;
@@ -253,7 +253,7 @@ function initVisual() {
         ctx.fillStyle = 'rgb(0, 0, 0)';
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
         for (var i = 0; i < bufferLength; i++) {
-            barHeight = dataArray[i]-100;
+            barHeight = dataArray[i]+(HEIGHT/2);
             //console.log(barHeight)
             var r = barHeight + (25 * (i/bufferLength));
             var g = 250 * (i/bufferLength);
