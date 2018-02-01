@@ -191,7 +191,7 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
     activateMixcloudThings();
 }
 function initVisual() {
-    var canvas = document.getElementById("canvas");
+    var canvas = document.getElementById("visualCanvas");
     canvas.width = window.innerWidth;
     canvas.height = 200;
     var ctx = canvas.getContext("2d");
