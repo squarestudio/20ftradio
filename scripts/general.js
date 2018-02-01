@@ -268,5 +268,5 @@ function initVisual() {
 }
 Y.once('play:shoutcast',function () {
     console.log('PPPPPP');
-    initVisual();
-})
+    //initVisual();
+});
