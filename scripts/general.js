@@ -193,6 +193,7 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
 var canvas_activated = false;
 function initVisual() {
     if(canvas_activated)return;
+    console.log('PPPPPP');
     var canvas = document.getElementById("visualCanvas");
     canvas.width = canvas.innerWidth;
     canvas.height = canvas.innerHeight;
@@ -270,6 +271,5 @@ function initVisual() {
     canvas_activated = true;
 }
 Y.once('play:shoutcast',function () {
-    console.log('PPPPPP');
-    //initVisual();
+    initVisual();
 });
