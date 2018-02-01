@@ -190,7 +190,9 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
     console.log('DOM Ready');
     activateMixcloudThings();
 }
+var canvas_activated = false;
 function initVisual() {
+    if(canvas_activated)return;
     var canvas = document.getElementById("visualCanvas");
     canvas.width = canvas.innerWidth;
     canvas.height = canvas.innerHeight;
@@ -264,7 +266,8 @@ function initVisual() {
     var source = context.createMediaElementSource(document.getElementById('shoutcastPlayer'));
     source.connect(analyser);
     analyser.connect(context.destination);
-    update()
+    update();
+    canvas_activated = true;
 }
 Y.once('play:shoutcast',function () {
     console.log('PPPPPP');
