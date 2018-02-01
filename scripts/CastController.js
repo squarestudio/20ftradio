@@ -238,8 +238,6 @@ window.Template.Controllers.CastController = function (element) {
                     userPaused = false;
                 }
                 else if (state) {
-                    console.log('first play');
-                    Y.fire('play:shoutcast');
                     shoutcastPlayer.playVideo();
                     userPaused = false;
                 } else {
@@ -750,6 +748,9 @@ window.Template.Controllers.CastController = function (element) {
         !castContainer.hasClass('stream-activated') && castContainer.addClass('stream-activated');
         setActivePlayer(playerType);
         pausePlayersExept(playerType);
+        if(playerType === 'shoutcast') {
+            Y.fire('play:shoutcast');
+        }
         mobile && sitePlayer.addClass('played');
         mobilePlayButton.addClass('visible');
         if(window.mixCloudEmbeds&&window.mixCloudEmbeds.length&&!userPaused){
