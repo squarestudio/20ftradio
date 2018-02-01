@@ -197,7 +197,7 @@ function initVisual() {
     if (canvas_activated) return;
     console.log('PPPPPP');
     canvas_activated = true;
-    var canvas = document.getElementById("visualCanvas");
+    var canvas = document.getElementById("visualCanvas")||document.getElementById("canvas");
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
     var ctx = canvas.getContext("2d");
