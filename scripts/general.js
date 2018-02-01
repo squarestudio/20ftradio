@@ -266,9 +266,7 @@ function initVisual() {
     analyser.connect(context.destination);
     update()
 }
-if(window.app_initialized){
-    Y.once('play:shoutcast',function () {
-        console.log('PPPPPP');
-       initVisual();
-    })
-}
+Y.once('play:shoutcast',function () {
+    console.log('PPPPPP');
+    initVisual();
+})
