@@ -266,7 +266,7 @@ function initVisual() {
             ctx.fillStyle = "rgb(1, 168, 158)";
             ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
-            x += barWidth+2;
+            x += barWidth+1;
         }
     }
 
