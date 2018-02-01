@@ -191,8 +191,8 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
     activateMixcloudThings();
 }
 var canvas_activated = false;
-window.heightFactor = function (inp) {
-    return inp - 120;
+window.heightFactor = function (t) {
+    return t<.5 ? 2*t*t : -1+(4-2*t)*t
 }
 
 function initVisual() {
