@@ -235,14 +235,14 @@ function initVisual() {
             clearTimeout(id);
         };
     var analyser = context.createAnalyser();
-    analyser.fftSize = 128;
+    analyser.fftSize = 96;
     var bufferLength = analyser.frequencyBinCount;
 
     var dataArray = new Uint8Array(bufferLength);
 
     var WIDTH = canvas.width;
     var HEIGHT = canvas.height;
-    var barWidth = (WIDTH / bufferLength) * 2;
+    var barWidth = (WIDTH / bufferLength);
     var barHeight;
     var x = 0;
 
