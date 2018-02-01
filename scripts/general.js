@@ -262,6 +262,7 @@ function initVisual() {
             var g = 250;//* (i / bufferLength);
             var b = 250;
 
+            //ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
             ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
             ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
