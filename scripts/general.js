@@ -79,7 +79,7 @@ function initMixCloudFooter() {
             });
             mixCloudFooterPlayer.events.pause.on(function () {
                 html.removeClass('mixcloud-footer-playing');
-                if(!html.one('#castDiv').hasClass('playing')){
+                if (!html.one('#castDiv').hasClass('playing')) {
                     html.addClass('mixcloud-footer-stopped');
                 }
                 Y.fire('mixcloud:pause');
@@ -123,7 +123,7 @@ function activateMixcloudThings() {
                 content.empty();
                 $.getJSON('https://api.mixcloud.com/' + feed + '?callback=', function (data) {
                     //console.log(data);
-                    content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #'+data.picture_primary_color+' url(' + data.pictures.large + ') no-repeat;background-size: cover"></div><div class="text-info clear">' +
+                    content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #' + data.picture_primary_color + ' url(' + data.pictures.large + ') no-repeat;background-size: cover"></div><div class="text-info clear">' +
                         '<div class="play-button mixcloud-butt"></div><div class="meta"><div class="track-title">' + data.name + '</div></div></div></div>')
                 })
                     .fail(function (err) {
@@ -162,15 +162,15 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             donateWithLiqPay(val, name, surname, email);
         });
     }
-    if ((window_loaded||window.app_initialized) && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') || Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
+    if ((window_loaded || window.app_initialized) && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') || Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
         activateMixcloudThings();
-        if(!bindMixcloudPlay){
+        if (!bindMixcloudPlay) {
             body.delegate('click', function (e) {
                 e.halt();
                 var ancestor = e.currentTarget.ancestor('.sqs-block');
                 var url = ancestor.getAttribute('data-mixcloud-url');
                 ancestor.toggleClass('playing');
-                if (url&&ancestor.hasClass('playing')) {
+                if (url && ancestor.hasClass('playing')) {
                     ancestor.addClass('current');
                     Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
                     ancestor.removeClass('current');
@@ -191,8 +191,9 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
     activateMixcloudThings();
 }
 var canvas_activated = false;
+
 function initVisual() {
-    if(canvas_activated)return;
+    if (canvas_activated) return;
     console.log('PPPPPP');
     canvas_activated = true;
     var canvas = document.getElementById("visualCanvas");
@@ -239,10 +240,11 @@ function initVisual() {
     var dataArray = new Uint8Array(bufferLength);
 
     var WIDTH = canvas.width;
-    var HEIGHT = canvas.height-20;
+    var HEIGHT = canvas.height - 10;
     var barWidth = (WIDTH / bufferLength) * 2;
     var barHeight;
     var x = 0;
+
     // Get the frequency data and update the visualisation
     function update() {
         requestAnimationFrame(update);
@@ -253,10 +255,10 @@ function initVisual() {
         ctx.fillStyle = 'rgb(0, 0, 0)';
         ctx.fillRect(0, 0, WIDTH, HEIGHT);
         for (var i = 0; i < bufferLength; i++) {
-            barHeight = dataArray[i]+(HEIGHT/2);
+            barHeight = dataArray[i] + (HEIGHT/3);
             //console.log(barHeight)
-            var r = barHeight + (25 * (i/bufferLength));
-            var g = 250 * (i/bufferLength);
+            var r = barHeight + (25 * (i / bufferLength));
+            var g = 250 * (i / bufferLength);
             var b = 50;
 
             ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
@@ -265,11 +267,13 @@ function initVisual() {
             x += barWidth + 1;
         }
     }
+
     var source = context.createMediaElementSource(document.getElementById('shoutcastPlayer'));
     source.connect(analyser);
     analyser.connect(context.destination);
     update();
 }
-Y.once('play:shoutcast',function () {
+
+Y.once('play:shoutcast', function () {
     initVisual();
 });
