@@ -238,6 +238,8 @@ window.Template.Controllers.CastController = function (element) {
                     userPaused = false;
                 }
                 else if (state) {
+                    console.log('first play');
+                    Y.fire('play:shoutcast');
                     shoutcastPlayer.playVideo();
                     userPaused = false;
                 } else {
