@@ -240,7 +240,7 @@ function initVisual() {
 
     var WIDTH = canvas.width;
     var HEIGHT = canvas.height/2;
-    var barWidth = (WIDTH / bufferLength) * 2.5;
+    var barWidth = (WIDTH / bufferLength) * 2;
     var barHeight;
     var x = 0;
     // Get the frequency data and update the visualisation
