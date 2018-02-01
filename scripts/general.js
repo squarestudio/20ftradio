@@ -234,7 +234,7 @@ function initVisual() {
             clearTimeout(id);
         };
     var analyser = context.createAnalyser();
-    analyser.fftSize = 256;
+    analyser.fftSize = 128;
     var bufferLength = analyser.frequencyBinCount;
 
     var dataArray = new Uint8Array(bufferLength);
