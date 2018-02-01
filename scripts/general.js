@@ -192,7 +192,7 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
 }
 var canvas_activated = false;
 window.heightFactor = 150;
-function easeInOutQuad(t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t },
+function easeInOutQuad(t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t };
 function initVisual() {
     if (canvas_activated) return;
     console.log('PPPPPP');
