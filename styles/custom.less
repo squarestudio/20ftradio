@@ -690,6 +690,7 @@ body {
       width: 80%;
     }
   }
+
   #visualCanvas {
     top: auto;
     right: auto;
@@ -1038,11 +1039,13 @@ body {
     opacity: 0;
   }
 }
-#bottomBar{
+
+#bottomBar {
   .mixcloud-footer-widget-container {
     transform: translateY(200%);
   }
 }
+
 .mixcloud-footer-stopped, .mixcloud-footer-playing {
   body {
     .mixcloud-footer-widget-container {
@@ -1053,7 +1056,7 @@ body {
         transform: translateY(-80px);
       }
     }
-    #bottomBar{
+    #bottomBar {
       .mixcloud-footer-widget-container {
         transform: translateY(0);
       }
@@ -1077,7 +1080,7 @@ body {
 }
 
 .mixcloud-footer-widget-container {
-  bottom: 0!important;
+  bottom: 0 !important;
   transition: transform .4s ease-in-out;
   transform: translateY(200px);
   -webkit-backface-visibility: hidden;
@@ -1143,6 +1146,7 @@ body {
     }
   }
 }
+
 #visualCanvas {
   width: 128px;
   height: 20px;
@@ -1150,6 +1154,7 @@ body {
   right: 0;
   opacity: 0;
 }
+
 body.auth {
   .new-events-schedule {
     display: block;
@@ -1179,7 +1184,7 @@ html {
   &.full-mode-active {
     .cordova-new-app {
       position: relative;
-      overflow-y: auto!important;
+      overflow-y: auto !important;
       #navigator {
         //height: auto;
       }
@@ -1219,7 +1224,7 @@ html {
     display: none;
   }
   &.cordova-new-app {
-    overflow: hidden!important;
+    overflow: hidden !important;
     width: 100%;
     height: 100%;
     top: 0;
@@ -1231,6 +1236,10 @@ html {
       .mobileEvents-container {
         //display: none;
       }
+    }
+    #bottomBar {
+      height: auto;
+      max-height: none !important;
     }
     &.track-fixed {
       #topBar {
@@ -1311,8 +1320,8 @@ html {
       height: 70vh;
       left: 0;
       padding: 0 !important;
-      transition: none!important;
-      transform: translateZ(0)!important;
+      transition: none !important;
+      transform: translateZ(0) !important;
       .mobile-image {
         transform: translateZ(0) scale(1);
         .transition(transform .3s cubic-bezier(0, 1.5, 1, 1));
@@ -1355,7 +1364,7 @@ html {
     #mobileEvents .mobileEvents-wrapper {
       max-height: 74vh;
     }
-    #mobile-events-past{
+    #mobile-events-past {
       #grid {
         //display:none;
         //height: 0!important;
@@ -1363,8 +1372,8 @@ html {
           width: 100%;
           height: auto;
           position: relative;
-          transform: none!important;
-          img{
+          transform: none !important;
+          img {
             width: 100%;
           }
         }
@@ -1518,7 +1527,7 @@ html {
       }
     }
     #bottomBar {
-      max-height: none!important;
+      max-height: none !important;
     }
   }
   .new-footer-content {
