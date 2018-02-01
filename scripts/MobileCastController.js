@@ -229,8 +229,6 @@ window.Template.Controllers.MobileCastController = function (element) {
                 state = shoutcastPlayer.getPlayerState();
                 console.log('SHOUTCAST State', state, castContainer.hasClass('paused'), document.querySelector('#shoutcastPlayer').getPlayerState())
                 if (mobile && !userClickPlay) {
-                    console.log('first play');
-                    Y.fire('play:shoutcast');
                     if (!shoutcastPlayer.currentTime) {
                         shoutcastPlayer.load();
                     }
@@ -880,6 +878,9 @@ window.Template.Controllers.MobileCastController = function (element) {
             pausePlayersExept(playerType);
             sitePlayer.addClass('played');
             mobilePlayButton.addClass('visible');
+        }
+        if(playerType === 'shoutcast') {
+            Y.fire('play:shoutcast');
         }
         if (window.mixCloudEmbeds && window.mixCloudEmbeds.length && !userPaused) {
             window.mixCloudEmbeds.forEach(function (widget) {
