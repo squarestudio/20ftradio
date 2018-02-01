@@ -190,7 +190,6 @@ if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') ||
     console.log('DOM Ready');
     activateMixcloudThings();
 }
-/*
 function initVisual() {
     var canvas = document.getElementById("canvas");
     canvas.width = window.innerWidth;
@@ -272,4 +271,4 @@ if(window.app_initialized){
         console.log('PPPPPP');
        initVisual();
     })
-}*/
+}
