@@ -194,6 +194,7 @@ var canvas_activated = false;
 function initVisual() {
     if(canvas_activated)return;
     console.log('PPPPPP');
+    canvas_activated = true;
     var canvas = document.getElementById("visualCanvas");
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
@@ -268,7 +269,6 @@ function initVisual() {
     source.connect(analyser);
     analyser.connect(context.destination);
     update();
-    canvas_activated = true;
 }
 Y.once('play:shoutcast',function () {
     initVisual();
