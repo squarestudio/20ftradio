@@ -51,8 +51,8 @@
                      data-facebook-url="{customContent.facebookUrl}"
                      data-soundcloud-url="{customContent.soundCloudUrl}"
                      data-shoutcast-url="{customContent.shoutcastUrl}">
+                    <div class="line"></div>
                     <div class="mobile-image">
-                        <div class="line"></div>
                         <div class="mobile-trigger-wrapper">
                             <a href="#" class="mobile-trigger"></a>
                         </div>
