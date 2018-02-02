@@ -61,9 +61,9 @@ window.Template.Controllers.MobileCastController = function (element) {
         }
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
             mobile = Y.UA.mobile;
-            Site && Site._setupPositioning();
+            //Site && Site._setupPositioning();
             setTimeout(function () {
-                Site && Site._setupPositioning();
+                //Site && Site._setupPositioning();
             }, 50);
             initCast();
             Y.one(window).on('resize', refreshImages);
@@ -719,7 +719,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 userClickPlay = true;
             }
             if (!shoutcastPlayer) {
-                YshoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" title="20FT Radio" class="stream-player" autoplay poster="https://www.20ftradio.net/assets/icon.png" preload playsinline -webkit-playsinline name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></video>');
+                YshoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" title="20FT Radio" class="stream-player" crossorigin="anonymous" autoplay poster="https://www.20ftradio.net/assets/icon.png" preload="auto" playsinline -webkit-playsinline name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
             } else {
                 console.log('EXIST');
                 YshoutcastPlayer = shoutcastPlayer;
