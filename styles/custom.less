@@ -1213,6 +1213,15 @@ html {
   &.platform-iPhone {
     .cordova-app.cordova-new-app #mobileEvents .mobileEvents-wrapper{
       width: 100%;
+      .mobileEvents {
+        width: 100%;
+        float: none;
+        max-height: none!important;
+        display: none;
+        &.active {
+          display: block;
+        }
+      }
     }
   }
 }
