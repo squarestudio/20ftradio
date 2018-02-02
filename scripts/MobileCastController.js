@@ -243,7 +243,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 else if (state) {
                     console.log('Play');
                     if (!shoutcastPlayer.currentTime) {
-                        //shoutcastPlayer.load();
+                        shoutcastPlayer.load();
                     }
                     shoutcastPlayer.muted = false;
                     shoutcastPlayer.playVideo();
