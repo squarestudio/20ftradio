@@ -227,7 +227,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             }
             else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
-                console.log('SHOUTCAST State', state, castContainer.hasClass('paused'), shoutcastPlayer.currentTime)
+                console.log('SHOUTCAST State', state, castContainer.hasClass('paused'), shoutcastPlayer.currentTime);
                 if (mobile && !userClickPlay) {
                     if (!shoutcastPlayer.currentTime) {
                         shoutcastPlayer.load();
