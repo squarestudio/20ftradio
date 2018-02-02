@@ -227,10 +227,10 @@ window.Template.Controllers.MobileCastController = function (element) {
             }
             else if (activePlayer == 'shoutcast') {
                 state = shoutcastPlayer.getPlayerState();
-                console.log('SHOUTCAST State', state, castContainer.hasClass('paused'), document.querySelector('#shoutcastPlayer').getPlayerState())
+                console.log('SHOUTCAST State', state, castContainer.hasClass('paused'), shoutcastPlayer.currentTime)
                 if (mobile && !userClickPlay) {
                     if (!shoutcastPlayer.currentTime) {
-                        shoutcastPlayer.load();
+                        //shoutcastPlayer.load();
                     }
                     shoutcastPlayer.setVolume(100);
                     shoutcastPlayer.muted = false;
@@ -243,7 +243,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 else if (state) {
                     console.log('Play');
                     if (!shoutcastPlayer.currentTime) {
-                        shoutcastPlayer.load();
+                        //shoutcastPlayer.load();
                     }
                     shoutcastPlayer.muted = false;
                     shoutcastPlayer.playVideo();
