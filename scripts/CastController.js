@@ -45,7 +45,7 @@ window.Template.Controllers.CastController = function (element) {
         firstRun = false,
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
-    var DEBUG = true;
+    var DEBUG = false;
 
     function initialize() {
         if(!firstRun){
