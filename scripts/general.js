@@ -4,7 +4,7 @@ var bindMixcloudPlay = false;
 window.mixCloudEmbeds = [];
 var body = Y.one('body');
 var html = Y.one('html');
-
+var canvasEq = false;
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -277,5 +277,5 @@ function initVisual() {
 }
 
 Y.once('play:shoutcast', function () {
-    initVisual();
+    canvasEq&&initVisual();
 });
