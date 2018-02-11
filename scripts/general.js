@@ -277,5 +277,5 @@ function initVisual() {
 }
 
 Y.once('play:shoutcast', function () {
-    canvasEq&&initVisual();
+    initVisual();
 });
