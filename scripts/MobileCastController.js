@@ -1159,11 +1159,11 @@ window.Template.Controllers.MobileCastController = function (element) {
         Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php?time=' + new Date().getTime(), {
             on: {
                 success: function (i, data) {
-                    if (data.status == 200 && data.readyState == 4) {
+                    if (data.status === 200 && data.readyState === 4) {
                         var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
                         if (status_html && status_html.one('a[href*="currentsong"]')) {
-                            var current_song = status_html.one('a[href*="currentsong"]').get('text');
+                            var current_song = status_html.one('a[href*="currentsong"]').get('text').trim();
                             current_song = 'Now playing: ' + current_song;
                             DEBUG && console.log(current_song, trackName.get('text'), trackName.get('text') !== current_song, activePlayer);
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
