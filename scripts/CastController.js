@@ -967,6 +967,7 @@ window.Template.Controllers.CastController = function (element) {
                     if (data.status == 200 && data.readyState == 4) {
                         var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
+                        console.log(status_html.one('table[cellpadding=2]'),status_html.one('a[href*="currentsong"]'))
                         if (status_html && status_html.one('table[cellpadding=2]')) {
                             var current_song = status_html.one('table[cellpadding=2] a[href*="currentsong"]').get('text').trim();
                             current_song = 'Now playing: ' + current_song;
