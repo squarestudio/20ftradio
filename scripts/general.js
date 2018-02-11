@@ -194,7 +194,7 @@ var canvas_activated = false;
 window.heightFactor = 150;
 function easeInOutQuad(t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t };
 function initVisual() {
-    if (canvas_activated) return;
+    if (canvas_activated||!canvasEq) return;
     console.log('PPPPPP');
     canvas_activated = true;
     var canvas = document.getElementById("visualCanvas")||document.getElementById("canvas");
