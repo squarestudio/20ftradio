@@ -964,14 +964,14 @@ window.Template.Controllers.CastController = function (element) {
         Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php', {
             on: {
                 success: function (i, data) {
-                    if (data.status == 200 && data.readyState == 4) {
+                    if (data.status === 200 && data.readyState === 4) {
                         var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
                         console.log(status_html.one('table[cellpadding=2]'),status_html.one('a[href*="currentsong"]'))
                         if (status_html && status_html.one('table[cellpadding=2]')) {
                             var current_song = status_html.one('table[cellpadding=2] a[href*="currentsong"]').get('text').trim();
                             current_song = 'Now playing: ' + current_song;
-                            if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
+                            if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer === 'shoutcast') {
                                 trackName.one('span').set('text', current_song);
                                 shoutcastPlayer.title = current_song;
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
