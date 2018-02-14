@@ -186,8 +186,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
 });
-if (!window_loaded && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') || Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
-    console.log('DOM Ready');
+if (!window_loaded) {
     activateMixcloudThings();
 }
 var canvas_activated = false;
