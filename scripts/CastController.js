@@ -291,7 +291,7 @@ window.Template.Controllers.CastController = function (element) {
         });
         var videoButtonClick = function (e) {
             e.halt();
-
+            
         };
         sitePlayer.one('#videoButton').on('click', videoButtonClick);
         sitePlayer.one('#playButton').on('click', playButtonClick);
