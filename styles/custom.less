@@ -1264,7 +1264,14 @@ html {
       }
       .mobileEvents-container {
         max-height: none!important;
-        overflow: hidden;
+        height: auto!important;
+        overflow: hidden!important;
+      }
+      &.overflow-auto {
+        .mobileEvents-container {
+
+          max-height: 77vh;
+        }
       }
     }
     #bottomBar {
