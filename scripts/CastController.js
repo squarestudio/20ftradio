@@ -110,7 +110,7 @@ window.Template.Controllers.CastController = function (element) {
         } else if (youtubeUrl.indexOf('live_stream') > -1) {
             var channel = youtubeUrl.split('channel=')[1];
             youtubeUrl = 'live_stream';
-            getYoutubeStatus();
+            //getYoutubeStatus();
         }
         DEBUG && console.log(youtubeUrl, channel)
         youtubePlayer = new YT.Player('youtubePlayer', {
@@ -670,14 +670,14 @@ window.Template.Controllers.CastController = function (element) {
             !mobile && youtubePlayer.playVideo();
             youtubeReady = true;
             pausePlayersExept('youtube');
-            if (!youtubeCheckInterval) {
+            /*if (!youtubeCheckInterval) {
                 youtubeCheckInterval = setInterval(function () {
                     if (!youtubeStatusFactor) {
                         getYoutubeStatus();
                     }
                 }, 60000);
                 DEBUG && console.log('youtube check interval set')
-            }
+            }*/
         }
         else if (playerType == 'facebook') {
             fbPlayer.setVolume(1);
