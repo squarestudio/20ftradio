@@ -286,6 +286,11 @@ window.Template.Controllers.CastController = function (element) {
             load: true,
             fill: true
         });
+        var videoButtonClick = function (e) {
+            e.halt();
+            
+        };
+        sitePlayer.one('#videoButton').on('click', videoButtonClick);
         sitePlayer.one('#playButton').on('click', playButtonClick);
         mobilePlayButton.on('click', playButtonClick);
         videoYoutubazing();
