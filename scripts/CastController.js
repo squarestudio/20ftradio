@@ -970,10 +970,9 @@ window.Template.Controllers.CastController = function (element) {
             on: {
                 success: function (i, data) {
                     if (data.status === 200 && data.readyState === 4) {
-                        var resp = data.response;
-                        console.log(resp)
-                        if (status_html && status_html.one('a[href*="currentsong"]')) {
-                            var current_song = status_html.one('a[href*="currentsong"]').get('text').trim();
+                        var resp = JSON.parse(data.response);
+                        if (resp && resp.shoutcast&&resp.shoutcast.live) {
+                            var current_song = resp.shoutcast.track.trim();
                             current_song = 'Now playing: ' + current_song;
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer === 'shoutcast') {
                                 trackName.one('span').set('text', current_song);
