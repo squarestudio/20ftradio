@@ -112,7 +112,7 @@ window.Template.Controllers.CastController = function (element) {
             youtubeUrl = 'live_stream';
             //getYoutubeStatus();
         }
-        DEBUG && console.log(youtubeUrl, channel)
+        DEBUG && console.log(youtubeUrl, channel);
         youtubePlayer = new YT.Player('youtubePlayer', {
             height: '720',
             width: '1280',
