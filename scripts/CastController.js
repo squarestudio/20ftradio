@@ -969,6 +969,7 @@ window.Template.Controllers.CastController = function (element) {
             },
             on: {
                 success: function (i, data) {
+                    console.log(data)
                     if (data.status === 200 && data.readyState === 4) {
                         var html = data.responseText.replace(/src=/g, 'data-href=');
                         var status_html = Y.Node.create(html);
