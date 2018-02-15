@@ -519,35 +519,39 @@ window.Template.Controllers.CastController = function (element) {
             DEBUG && console.log('ACTIVE PLAYER ==== ' + activePlayer);
         };
         if (!userPaused) {
-            if (shoutcastPlayer) {
-                state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                //console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError,shoutcastStatus);
-                if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
-                    !mobile && shoutcastPlayer.play();
-                    activePlayer = 'shoutcast';
-                    pausePlayersExept('shoutcast');
-                    onPlayerStateChange('shoutcast');
-                    status();
-                    retry = maxRetry - 1;
-                    return;
-                } else {
-                    if (retry < maxRetry + 35) {
-                        //console.log('try to load shoutcast');
-                        shoutcastPlayer.load();
+            if (activePlayer === 'youtube'){
+                
+            } else {
+                if (shoutcastPlayer) {
+                    state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
+                    //console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError,shoutcastStatus);
+                    if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
+                        !mobile && shoutcastPlayer.play();
+                        activePlayer = 'shoutcast';
+                        pausePlayersExept('shoutcast');
+                        onPlayerStateChange('shoutcast');
+                        status();
+                        retry = maxRetry - 1;
+                        return;
                     } else {
-                        //console.log('wait to load shoutcast');
-                        pausePlayersExept('all');
-                        retry++;
+                        if (retry < maxRetry + 35) {
+                            //console.log('try to load shoutcast');
+                            shoutcastPlayer.load();
+                        } else {
+                            //console.log('wait to load shoutcast');
+                            pausePlayersExept('all');
+                            retry++;
+                        }
                     }
                 }
-            }
-            else {
-                if (shoutCastUrl) {
-                    initShoutCast();
-                    status();
-                } else {
-                    notShoutcast = true;
-                    retry = maxRetry + 6;
+                else {
+                    if (shoutCastUrl) {
+                        initShoutCast();
+                        status();
+                    } else {
+                        notShoutcast = true;
+                        retry = maxRetry + 6;
+                    }
                 }
             }
         }
