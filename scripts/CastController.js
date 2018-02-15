@@ -963,7 +963,7 @@ window.Template.Controllers.CastController = function (element) {
 
     function getShoutcastStatus() {
         shoutcastStatusFactor = true;
-        Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php', {
+        Y.io('http://app.20ftradio.net/stream-status.php', {
             headers: {
                 'Content-Type': 'application/json'
             },
