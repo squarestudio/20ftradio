@@ -182,6 +182,10 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             }, '.mixcloud-butt');
         }
     }
+    if(window.app_initialized) {
+        var cont = document.getElementById('container');
+        
+    }
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
