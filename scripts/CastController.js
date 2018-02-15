@@ -964,6 +964,9 @@ window.Template.Controllers.CastController = function (element) {
     function getShoutcastStatus() {
         shoutcastStatusFactor = true;
         Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
             on: {
                 success: function (i, data) {
                     if (data.status === 200 && data.readyState === 4) {
