@@ -446,6 +446,7 @@ window.Template.Controllers.CastController = function (element) {
             else {
                 liveIndicator.removeClass('active');
             }
+            getCurrentEvent();
             if (activePlayer == 'youtube' || activePlayer == 'facebook') {
                 if (shoutcastStatusCheckInterval) {
                     clearInterval(shoutcastStatusCheckInterval);
