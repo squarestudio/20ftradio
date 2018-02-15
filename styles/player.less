@@ -41,7 +41,19 @@
     display: inline-block;
   }
   #videoButton {
-    display: none; 
+    display: none;
+    &:before{
+      width: 20px;
+      height: 10px;
+      background-color: #ddd;
+    }
+    i {
+      border-width: 10px 16px 10px 0px;
+      border-style: solid;
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      margin: 7px 9px;
+    }
   }
   &.initialized.played {
     overflow: visible;
