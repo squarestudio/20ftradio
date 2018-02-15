@@ -700,7 +700,8 @@ window.Template.Controllers.CastController = function (element) {
                 shoutCastReady = true;
                 setActivePlayer();
             }
-        } else if (playerType == 'soundcloud') {
+        }
+        else if (playerType == 'soundcloud') {
             if (!soundCloudReady) {
                 soundCloudPlayer.setVolume(1);
                 soundCloudReady = true;
