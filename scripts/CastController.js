@@ -196,6 +196,9 @@ window.Template.Controllers.CastController = function (element) {
         facebookUrl = castContainer.getAttribute('data-facebook-url');
         shoutCastUrl = castContainer.getAttribute('data-shoutcast-url');
         someCloudUrl = castContainer.getAttribute('data-soundcloud-url');
+        if(youtubeUrl){
+            sitePlayer.addClass('youtube-here');
+        }
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
         var playButtonClick = function (e) {
@@ -288,7 +291,7 @@ window.Template.Controllers.CastController = function (element) {
         });
         var videoButtonClick = function (e) {
             e.halt();
-            
+
         };
         sitePlayer.one('#videoButton').on('click', videoButtonClick);
         sitePlayer.one('#playButton').on('click', playButtonClick);
