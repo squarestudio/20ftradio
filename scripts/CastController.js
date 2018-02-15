@@ -972,9 +972,9 @@ window.Template.Controllers.CastController = function (element) {
                     if (data.status === 200 && data.readyState === 4) {
                         var resp = JSON.parse(data.response);
                         if(resp&&resp.youtube){
-
+                            sitePlayer.addClass('video-stream');
                         } else {
-                            
+                            sitePlayer.removeClass('video-stream');
                         }
                         if (resp && resp.shoutcast&&resp.shoutcast.live) {
                             var current_song = resp.shoutcast.track.trim();
