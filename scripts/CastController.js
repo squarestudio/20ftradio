@@ -971,6 +971,11 @@ window.Template.Controllers.CastController = function (element) {
                 success: function (i, data) {
                     if (data.status === 200 && data.readyState === 4) {
                         var resp = JSON.parse(data.response);
+                        if(resp&&resp.youtube){
+
+                        } else {
+                            
+                        }
                         if (resp && resp.shoutcast&&resp.shoutcast.live) {
                             var current_song = resp.shoutcast.track.trim();
                             current_song = 'Now playing: ' + current_song;
