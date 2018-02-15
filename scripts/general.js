@@ -184,7 +184,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     }
     if(window.app_initialized) {
         var cont = document.getElementById('container');
-        
+        cont.scrollTo(0, 0);
     }
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
