@@ -63,6 +63,9 @@
                             <div class="fountainG fountainG_5"></div>
                         </div>
                         <div class="site-player-controls">
+                            <a id="videoButton">
+                                <i class="icono-"></i>
+                            </a>
                             <a id="playButton">
                                 <i class="icono-"></i>
                             </a>
