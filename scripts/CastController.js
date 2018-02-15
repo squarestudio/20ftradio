@@ -900,8 +900,8 @@ window.Template.Controllers.CastController = function (element) {
                 }
             } else {
                 if (!shoutcast) {
-                    //trackName.one('span').set('text', '');
-                    //trackName.removeClass('scroll-track');
+                    trackName.one('span').set('text', '');
+                    trackName.removeClass('scroll-track');
                 }
                 DEBUG && console.log('no current event');
                 if (Y.one('.event-on-air')) {
