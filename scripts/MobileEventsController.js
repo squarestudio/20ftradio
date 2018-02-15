@@ -46,13 +46,13 @@ window.Template.Controllers.MobileEventsController = function (element) {
             }
             mobileEvents.getDOMNode().className = id.replace('#', 'tab-');
         });
-        scrollEvent = Y.one(window).on('scroll', function () {
+/*        scrollEvent = Y.one(window).on('scroll', function () {
             if (window.pageYOffset + 100 > mobileEvents.getY()) {
                 mobileEvents.addClass('overflow-auto');
             } else {
                 mobileEvents.removeClass('overflow-auto');
             }
-        });
+        });*/
         mobileEvents.one('.content-loader').removeAttribute('style');
     }
 
