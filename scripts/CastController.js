@@ -520,7 +520,7 @@ window.Template.Controllers.CastController = function (element) {
         };
         if (!userPaused) {
             if (activePlayer === 'youtube'){
-                
+
             } else {
                 if (shoutcastPlayer) {
                     state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
