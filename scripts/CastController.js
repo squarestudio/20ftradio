@@ -340,7 +340,6 @@ window.Template.Controllers.CastController = function (element) {
         retry = maxRetry - 1;
         getShoutcastStatus();
         initShoutCast();
-        getCurrentEvent();
         Y.on('getCurrentEvent', getCurrentEvent);
         if (castContainer.one('.stream-gallery')) {
             streamSwiper = new Swiper('.stream-gallery .swiper-container', {
