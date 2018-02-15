@@ -292,6 +292,7 @@ window.Template.Controllers.CastController = function (element) {
         var videoButtonClick = function (e) {
             e.halt();
             castContainer.get('parentNode').toggleClass('visible');
+            initYoutubeStream();
             //pausePlayersExept('all');
         };
         sitePlayer.one('#videoButton').on('click', videoButtonClick);
@@ -343,7 +344,7 @@ window.Template.Controllers.CastController = function (element) {
                 }
             }
         });
-        youtubeUrl = false;
+        //youtubeUrl = false;
         youtubeReady = true;
         youtubeStatusLoad = true;
         retry = maxRetry - 1;
