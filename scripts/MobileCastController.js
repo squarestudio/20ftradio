@@ -1051,9 +1051,9 @@ window.Template.Controllers.MobileCastController = function (element) {
                 }
             } else {
                 if (!shoutcast) {
-                    trackName.one('span').set('text', '');
+                    //trackName.one('span').set('text', '');
                     //setLocalNotification();
-                    trackName.removeClass('scroll-track');
+                    //trackName.removeClass('scroll-track');
                 }
                 DEBUG && console.log('no current event');
                 if (Y.one('.event-on-air')) {
