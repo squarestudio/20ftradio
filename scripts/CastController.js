@@ -206,7 +206,7 @@ window.Template.Controllers.CastController = function (element) {
             DEBUG && console.log(activePlayer, players);
             if (!activePlayer) return;
             var state = null;
-            console.log(activePlayer)
+            console.log(activePlayer, youtubePlayer)
             if (activePlayer == 'youtube') {
                 state = youtubePlayer.getPlayerState();
                 DEBUG && console.log('youtube video', state, YT.PlayerState.PLAYING);
