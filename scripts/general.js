@@ -186,6 +186,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         var cont = document.getElementById('container');
         cont.scrollTo(0, 0);
     }
+    Y.fire('getCurrentEvent');
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
