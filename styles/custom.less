@@ -166,7 +166,16 @@ body {
     }
   }
 }
-
+body{
+  &:not(.cordova-app){
+    .castWrapper {
+      display: none;
+      &.visible {
+        display: block;
+      }
+    }
+  }
+}
 .castWrapper {
   width: 100%;
   &.visible {
