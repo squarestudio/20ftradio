@@ -1207,7 +1207,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 }
             }
         });
-    } 
+    }
 
     initialize();
 
