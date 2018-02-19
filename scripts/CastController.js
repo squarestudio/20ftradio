@@ -1001,6 +1001,7 @@ window.Template.Controllers.CastController = function (element) {
                                 shoutcastPlayer.title = current_song;
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
                                 checkTrackNameOverflow();
+                                getCurrentEvent(true);
                             } else {
                                 getCurrentEvent(true);
                             }
