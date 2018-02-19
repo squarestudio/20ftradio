@@ -897,8 +897,8 @@ window.Template.Controllers.CastController = function (element) {
                 }
             });
             if (eventOnAir) {
-                //trackName.one('span').set('text', eventOnAir.title);
-                //trackName.addClass('scroll-track');
+                trackName.one('span').set('text', eventOnAir.title);
+                trackName.addClass('scroll-track');
                 checkTrackNameOverflow();
                 if (Y.all('.event-item').size()) {
                     Y.all('.event-item').each(function (item) {
