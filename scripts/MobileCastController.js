@@ -1156,36 +1156,41 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function getShoutcastStatus() {
         shoutcastStatusFactor = true;
-        Y.io('https://app.20ftradio.net/20ft-radiobossfm-status.php?time=' + new Date().getTime(), {
+        Y.io('https://app.20ftradio.net/stream-status.php', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
             on: {
                 success: function (i, data) {
                     if (data.status === 200 && data.readyState === 4) {
-                        var html = data.responseText.replace(/src=/g, 'data-href=');
-                        var status_html = Y.Node.create(html);
-                        if (status_html && status_html.one('a[href*="currentsong"]')) {
-                            var current_song = status_html.one('a[href*="currentsong"]').get('text').trim();
+                        var resp = JSON.parse(data.response);
+                        if(resp&&resp.youtube){
+                            sitePlayer.addClass('video-stream');
+                        } else {
+                            sitePlayer.removeClass('video-stream');
+                        }
+                        if (resp && resp.shoutcast&&resp.shoutcast.live) {
+                            var current_song = resp.shoutcast.track.trim();
                             current_song = 'Now playing: ' + current_song;
-                            DEBUG && console.log(current_song, trackName.get('text'), trackName.get('text') !== current_song, activePlayer);
-                            if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer == 'shoutcast') {
+                            if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer === 'shoutcast') {
                                 trackName.one('span').set('text', current_song);
                                 shoutcastPlayer.title = current_song;
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
+                                getCurrentEvent(true);
                                 checkTrackNameOverflow();
-                                shoutcastPlayer.title = current_song;
-                                setMusicMeta(current_song, !shoutcastPlayer.getPlayerState());
-                                if (!shoutcastPlayer) {
-                                    initShoutCast()
-                                }
                             } else {
                                 getCurrentEvent(true);
                             }
                             shoutcastStatus = true;
+                            if (!shoutcastPlayer) {
+                                initShoutCast()
+                            }
                             DEBUG && console.log('SHOUTCAST STATUS TRUE');
                         } else {
                             DEBUG && console.log('SHOUTCAST STATUS FALSE');
                             shoutcastPlayer.pause();
                             shoutcastStatus = false;
-                            if (data.responseText === 'Offline') {
+                            if(data.responseText === 'Offline'){
                                 trackName.one('span').set('text', 'Stream offline now');
                                 shoutcastPlayer.title = 'Stream offline now';
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
@@ -1196,6 +1201,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     shoutcastStatusFactor = false;
                 },
                 failure: function () {
+                    console.log('SHOUTCAST STATUS FALSE');
                     shoutcastStatus = false;
                     shoutcastStatusFactor = false;
                 }
