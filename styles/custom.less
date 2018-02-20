@@ -776,7 +776,7 @@ body{
 
   .mobile-share-active {
     footer#bottomBar .socialaccountlinks-v2-block {
-      .transform(rotate(90deg) translateY(0));
+      .transform(rotate(90deg) scaleX(1));
     }
   }
 
@@ -793,10 +793,10 @@ body{
       right: 10px;
       z-index: 10000;
       .transform-origin(right, top);
-      .transform(rotate(90deg) translateY(100%));
+      .transform(rotate(90deg) scaleX(0));
       line-height: 1;
       margin: -@logoSize 0 0 0;
-      top: 100%;
+      top: 100%;-
       padding: 0 !important;
       //.scale(0, 0);
       .transition(transform .1s ease-in-out);
