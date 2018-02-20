@@ -166,8 +166,9 @@ body {
     }
   }
 }
-body{
-  &:not(.cordova-app){
+
+body {
+  &:not(.cordova-app) {
     .castWrapper {
       display: none;
       &.visible {
@@ -176,6 +177,7 @@ body{
     }
   }
 }
+
 .castWrapper {
   width: 100%;
   &.visible {
@@ -455,7 +457,7 @@ body{
       vertical-align: top;
       .schedule-title-font;
       margin-bottom: 5px !important;
-      line-height: 16px!important;
+      line-height: 16px !important;
     }
     .event-time-end {
       &:before {
@@ -990,7 +992,8 @@ body{
     }
   }
 }
-@media only screen and (max-width: 400px){
+
+@media only screen and (max-width: 400px) {
   .site-player {
     &.youtube-here.video-stream {
       a {
@@ -1001,10 +1004,12 @@ body{
       }
     }
   }
+
   .nav-container .site-player-block .site-player .site-player-controls {
     margin-right: 16px;
   }
 }
+
 @media only screen and (max-width: 375px) {
   @logoSize: 64px;
 
@@ -1273,7 +1278,7 @@ html {
     width: 100%;
     height: 100%;
     top: 0;
-    padding: 0!important;
+    padding: 0 !important;
     #topBar {
       position: fixed !important;
       width: 100%;
@@ -1309,7 +1314,7 @@ html {
         z-index: 1;
         position: absolute;
         top: 0;
-        height: 100%!important;
+        height: 100% !important;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         padding: 15% 0 5% 0;
@@ -1344,7 +1349,7 @@ html {
     &.mobile-menu-active {
       .new-footer-content {
         #mobile-navigation {
-         .transform(translateX(0));
+          .transform(translateX(0));
         }
       }
     }
@@ -1399,7 +1404,7 @@ html {
       white-space: normal;
       line-height: 1.4;
       &.scrolling span {
-        animation: none!important;
+        animation: none !important;
       }
     }
     .site-player-block {
@@ -1447,8 +1452,8 @@ html {
       > div {
         background-color: #000;
       }
-      .controller{
-        padding: 0 8px!important;
+      .controller {
+        padding: 0 8px !important;
       }
     }
     #mobile-navigation-label {
@@ -1532,7 +1537,7 @@ html {
           .eventlist-title {
             line-height: 20px !important;
             margin-bottom: 0 !important;
-            font-size: 14px!important;
+            font-size: 14px !important;
             a {
               pointer-events: none;
               &:after {
@@ -1642,7 +1647,8 @@ html {
     height: 100%;
     position: relative;
     .socialaccountlinks-v2-block {
-      top: 0!important;
+      top: 0 !important;
+      margin: 0 !important;
     }
     #mobile-navigation {
       position: absolute;
@@ -1764,8 +1770,8 @@ html {
     }
   }
   .castWrapper {
-    overflow: auto!important;
-    display: block!important;
+    overflow: auto !important;
+    display: block !important;
   }
   #castDiv {
     height: 40vh;
