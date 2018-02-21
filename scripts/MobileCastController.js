@@ -132,19 +132,17 @@ window.Template.Controllers.MobileCastController = function (element) {
         if (youtubeUrl) {
             DEBUG && console.log('init youtube');
             if (!castContainer.one('#youtubePlayer')) {
-                castContainer.prepend('<div id="youtubePlayer" class="stream-player"></div>');
+                castContainer.prepend('<div id="youtubePlayer" class="stream-player" style="opacity: 1; pointer-events: none;"></div>');
             }
             if (!window.YT) {
                 var tag = document.createElement('script');
                 tag.src = "https://www.youtube.com/iframe_api";
                 var firstScriptTag = document.getElementsByTagName('script')[0];
                 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-                DEBUG && console.log('YOUTUBE API ADDED')
             } else {
                 initYoutubePlayer();
             }
             window.onYouTubeIframeAPIReady = function () {
-                DEBUG && console.log('YOUTUBE API READY');
                 initYoutubePlayer();
             };
         } else {
