@@ -848,6 +848,7 @@ body {
   #navigator header#topBar {
     position: fixed;
   }
+
   .site-player {
     &.youtube-here.video-stream {
       a {
@@ -1262,6 +1263,7 @@ html {
     }
   }
 }
+
 /*#castDiv .mobile-image .back.gen {
   opacity: 1;
   bottom: 0;
@@ -1403,10 +1405,15 @@ html {
       a {
         vertical-align: middle;
         margin: 0 5px;
-        box-sizing: border-box ;
+        box-sizing: border-box;
       }
-      #videoButton:before {
-        vertical-align: middle;
+      #videoButton {
+        &:before {
+          vertical-align: middle;
+        }
+        i {
+          margin: 0 0 0 -8px;
+        }
       }
     }
     .site-player .track-name.scroll-track {
@@ -1856,7 +1863,7 @@ html {
       box-sizing: border-box;
       vertical-align: middle;
       width: 44%;
-      margin: 0!important;
+      margin: 0 !important;
     }
     .track-name {
       width: 54%;
