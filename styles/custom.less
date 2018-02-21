@@ -1220,11 +1220,13 @@ html {
     }
   }
   &.stream-visible {
-    &.full-mode-active{
+    &.full-mode-active {
       #container {
-        .transform(translateY(42%))!important;
+        .transform(translateY(42%)) !important;
         .controller {
-          padding-bottom: 60%!important;
+          &:not([sqs-controller="Template.Controllers.MobileEventsController"]) {
+            padding-bottom: 60% !important;
+          }
         }
       }
     }
@@ -1496,7 +1498,7 @@ html {
         height: 80%;
         opacity: 0;
         pointer-events: none;
-        transform: none!important;
+        transform: none !important;
       }
     }
     #container {
