@@ -300,11 +300,13 @@ window.Template.Controllers.MobileCastController = function (element) {
         });
         sitePlayer.one('#playButton').on('click', playButtonClick);
         mobilePlayButton.on('click', playButtonClick);
-        Y.one('.video-toggle') && Y.one('.video-toggle').on('click', function (e) {
+        var videoButtonClick = function (e) {
             e.halt();
-            e.currentTarget.toggleClass('active');
-            Y.one('body').toggleClass('show-current-player');
-        });
+            castContainer.get('parentNode').toggleClass('visible');
+            initYoutubeStream();
+            //pausePlayersExept('all');
+        };
+        sitePlayer.one('#videoButton').on('click', videoButtonClick);
         videoYoutubazing();
         volumeIcon.on('click', function (e) {
             e.halt();
