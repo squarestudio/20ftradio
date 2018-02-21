@@ -1235,6 +1235,11 @@ html {
         pointer-events: all;
         .transform(translateY(0));
       }
+      .site-player-block {
+        site-player.initialized.played {
+          transform: translate3d(0, 0, 0);
+        }
+      }
       .new-footer-content {
         .footer-button {
           &.mode-button {
@@ -1400,6 +1405,9 @@ html {
     .site-player-block {
       max-width: 100%;
       width: 100%;
+      site-player.initialized.played {
+        transform: translate3d(0, 200px, 0);
+      }
     }
     .site-player {
       max-width: 100%;
