@@ -848,6 +848,16 @@ body {
   #navigator header#topBar {
     position: fixed;
   }
+  .site-player {
+    &.youtube-here.video-stream {
+      a {
+        margin-left: 5px;
+      }
+    }
+    #volumeButton {
+      display: none;
+    }
+  }
 }
 
 @media only screen and (max-width: 560px) {
@@ -998,17 +1008,6 @@ body {
 }
 
 @media only screen and (max-width: 435px) {
-  .site-player {
-    &.youtube-here.video-stream {
-      a {
-        margin-left: 5px;
-      }
-    }
-    #volumeButton {
-      display: none;
-    }
-  }
-
   .nav-container .site-player-block .site-player .site-player-controls {
     margin-right: 16px;
   }
