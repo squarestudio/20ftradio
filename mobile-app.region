@@ -10,26 +10,6 @@
     <div id="navigator">
         {.section website}
         <header id="topBar" class="sqs-announcement-bar-dropzone">
-            <div class="site-player-block">
-                <div class="site-player paused not-init">
-                    <div class="site-player-wrapper">
-                        <div class="track-name"><span>Now playing: </span></div>
-                        <div class="site-player-controls">
-                            <a id="videoButton">
-                                <i class="icono-"></i>
-                            </a>
-                            <a id="playButton">
-                                <i class="icono-"></i>
-                            </a>
-                            <a id="volumeButton">
-                                <i class="icono-volumeHigh"></i>
-                            </a>
-                            <input id="volControl" value="100" class="volume-control" type="range" min="0" max="100" step="1"/>
-                        </div>
-                    </div>
-                </div>
-                <canvas id="visualCanvas" class="v-align"></canvas>
-            </div>
             <div class="nav-container">
                 <div id="mobileNav">
                     <div class="wrapper">
@@ -39,6 +19,26 @@
                 <squarespace:navigation navigationId="pages" template="navigation"/>
                 <div class="header-block">
                     <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content" annotation-alignment="bottom"/>
+                </div>
+                <div class="site-player-block">
+                    <div class="site-player paused not-init">
+                        <div class="site-player-wrapper">
+                            <div class="track-name"><span>Now playing: </span></div>
+                            <div class="site-player-controls">
+                                <a id="videoButton">
+                                    <i class="icono-"></i>
+                                </a>
+                                <a id="playButton">
+                                    <i class="icono-"></i>
+                                </a>
+                                <a id="volumeButton">
+                                    <i class="icono-volumeHigh"></i>
+                                </a>
+                                <input id="volControl" value="100" class="volume-control" type="range" min="0" max="100" step="1"/>
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="visualCanvas" class="v-align"></canvas>
                 </div>
             </div>
         </header>
