@@ -1170,6 +1170,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                             sitePlayer.addClass('video-stream');
                         } else {
                             sitePlayer.removeClass('video-stream');
+                            Y.one('html').removeClass('stream-visible');
                         }
                         if (resp && resp.shoutcast&&resp.shoutcast.live) {
                             var current_song = resp.shoutcast.track.trim();
