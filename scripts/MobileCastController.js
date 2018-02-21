@@ -291,6 +291,9 @@ window.Template.Controllers.MobileCastController = function (element) {
             checkStreams();
             userClickPlay = true;
         };
+        if(youtubeUrl){
+            sitePlayer.addClass('youtube-here');
+        }
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
             load: true,
             fill: true
