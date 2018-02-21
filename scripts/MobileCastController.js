@@ -300,7 +300,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         mobilePlayButton.on('click', playButtonClick);
         var videoButtonClick = function (e) {
             e.halt();
-            castContainer.get('parentNode').toggleClass('visible');
+            Y.one('html').toggleClass('stream-visible');
             initYoutubeStream();
             //pausePlayersExept('all');
         };
