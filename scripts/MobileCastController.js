@@ -353,7 +353,6 @@ window.Template.Controllers.MobileCastController = function (element) {
                 }
             }
         });
-        youtubeUrl = false;
         youtubeReady = true;
         youtubeStatusLoad = true;
         retry = maxRetry - 1;
