@@ -328,7 +328,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 }
             }
         });
-        volumeControl.on(['change', 'input'], function (e) {
+        volumeControl&&volumeControl.on(['change', 'input'], function (e) {
             e.halt();
             var volume = parseInt(e.currentTarget.get('value'));
             if (volume > 55) {
