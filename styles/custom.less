@@ -1431,7 +1431,7 @@ html {
       transform: translateZ(0) !important;
       .mobile-image {
         transform: translateZ(0) scale(1);
-        .transition(transform .5s cubic-bezier(0, 1.1, 1, 1));
+        .transition(transform .5s ease-in-out);
         background-size: 84%;
         transform-origin: top center;
         .line {
@@ -1456,7 +1456,7 @@ html {
       overflow-x: hidden;
       .transform(translateY(110%));
       pointer-events: none;
-      .transition(transform .5s cubic-bezier(0, 1.1, 1, 1));
+      .transition(transform .5s ease-in-out);
       > div {
         background-color: #000;
       }
