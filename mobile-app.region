@@ -47,7 +47,6 @@
                 <div class="header-block">
                     <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content" annotation-alignment="bottom"/>
                 </div>
-                <a href="#" class="video-toggle">Video</a>
             </div>
         </header>
         {.end}
