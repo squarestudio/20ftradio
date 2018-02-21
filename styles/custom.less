@@ -1411,7 +1411,8 @@ html {
       .site-player.initialized.played {
         .site-player-controls {
           transform: translate3d(0, 200px, 0);
-          opacity: 1;
+          .transition(all .2s ease-in-out);
+          opacity: 0;
         }
       }
     }
