@@ -34,7 +34,6 @@
                                 <a id="volumeButton">
                                     <i class="icono-volumeHigh"></i>
                                 </a>
-                                <input id="volControl" value="100" class="volume-control" type="range" min="0" max="100" step="1"/>
                             </div>
                         </div>
                     </div>
