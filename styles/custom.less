@@ -1580,6 +1580,28 @@ html {
         .eventlist-column-date .eventlist-datetag {
           min-height: 0;
         }
+        .eventlist-datetag {
+          text-align: left;
+          align-self: start;
+        }
+        .eventlist-datetag-inner {
+          display: block;
+          text-align: left;
+          .eventlist-datetag-startdate {
+            display: inline-block;
+            &:after {
+              display: inline-block;
+              content: '/';
+              margin: 0 3px;
+            }
+          }
+          .eventlist-datetag-time {
+            text-align: left;
+            &:before {
+              display: none;
+            }
+          }
+        }
       }
       .event-item {
         display: flex;
