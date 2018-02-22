@@ -1142,7 +1142,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     function setMusicMeta(track, play, img) {
         //MusicControls && MusicControls.destroy();
         var cover = isAndroid() ? 'https://www.20ftradio.net/assets/x-icon.png' : 'https://www.20ftradio.net/assets/icon.png';
-        if (window.MusicControls) {
+        if (window.MusicControls) { 
             window.MusicControls.create({
                 track: track || '',
                 artist: '20ft Radio',
