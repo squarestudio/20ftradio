@@ -1373,12 +1373,6 @@ html {
       height: 100vh !important;
       overflow: hidden !important;
     }
-    .mobileEvents-wrapper {
-      //padding-bottom: 16%;
-      .mobileEvents-container {
-        //display: none;
-      }
-    }
     #mobileEvents {
       position: absolute;
       height: 100%;
@@ -1411,7 +1405,7 @@ html {
         padding: 15% 0 5% 0;
         box-sizing: border-box;
         .mobileEvents {
-          padding: 0 8px;
+          padding: 0 10px;
         }
       }
       .mobileEvents-container {
@@ -1794,184 +1788,6 @@ html {
       }
     }
   }
-  .new-footer-content {
-    display: none;
-    justify-content: space-between;
-    align-content: center;
-    align-self: center;
-    align-items: center;
-    max-width: 1024px !important;
-    width: 100%;
-    padding: 5px 10px;
-    max-height: 84px;
-    box-sizing: border-box;
-    height: 100%;
-    position: relative;
-    .footer-button {
-      display: inline-block;
-      color: #000;
-      font-weight: 700;
-      text-transform: uppercase;
-      padding: 1em 1.3em;
-      line-height: 1;
-      align-self: center;
-      text-align: center;
-      font-size: .8em;
-      width: 14%;
-      &.follow-button {
-        background: #0e9a95;
-      }
-      &.menu-button {
-        background: #fe2c13;
-      }
-      &.mode-button {
-        background: #fff;
-        border-radius: 50%;
-        padding: 0 !important;
-        width: 44px;
-        line-height: 44px;
-        transition: none;
-        border: 2px solid transparent;
-      }
-    }
-  }
-  .link-wall-index {
-    display: none;
-  }
-  #navigator {
-    opacity: 1;
-    &:not(.stream-found) {
-      header, #container, footer {
-        //opacity: 0;
-      }
-    }
-    &.stream-found {
-      .loading-overlay .line {
-
-      }
-    }
-  }
-  header, #container, footer {
-    .transition(opacity 0.3s 0.4s ease-in);
-  }
-  .eventlist-actions .squarespace-social-buttons {
-    display: none;
-  }
-  #navigator .nav-container #mobileNav #mobile-navigation {
-    #mobile-navigation-label, ul li {
-      box-sizing: border-box;
-      padding: 0 24.2%;
-      text-align: right;
-    }
-    ul {
-      top: 50px;
-    }
-  }
-  #navigator {
-    header#topBar, #mobile-navigation {
-      background-color: transparent;
-    }
-    #mobile-navigation-label:after {
-      padding: 10px 0;
-      background-color: #000;
-    }
-  }
-  .castWrapper {
-    overflow: auto !important;
-    display: block !important;
-  }
-  #castDiv {
-    height: 40vh;
-    min-height: 228px;
-    opacity: 1;
-    margin: 0;
-    .transform(none);
-    &.initialized {
-
-    }
-  }
-  #castDiv .mobile-image {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    bottom: 0;
-    z-index: 200;
-    background-color: #000;
-    overflow: hidden;
-  }
-  #castDiv .stream-player.active-player {
-    pointer-events: none;
-    opacity: 0;
-    .transition(opacity .3s ease-in-out);
-  }
-  &.show-current-player {
-    #mobileNav {
-      #mobile-navigation {
-        background-color: #000 !important;
-      }
-    }
-    #castDiv {
-      .mobile-image {
-        opacity: 0;
-        z-index: 120;
-      }
-      .stream-player.active-player {
-        z-index: 310 !important;
-        opacity: 1;
-        pointer-events: all;
-      }
-    }
-  }
-  .site-player-block {
-    position: absolute;
-    width: 100%;
-    overflow: hidden;
-    z-index: 10;
-    box-sizing: border-box;
-  }
-  .site-player {
-    position: relative;
-    top: 0;
-    left: 0;
-    margin: 0;
-    transform: none;
-    -webkit-transform: none;
-    box-sizing: border-box;
-    .site-player-controls {
-      height: auto;
-      display: inline-block;
-      box-sizing: border-box;
-      vertical-align: middle;
-      width: 44%;
-      margin: 0 !important;
-      padding: 0 10px 0 0;
-      a {
-        margin: 0 0 0 6px;
-      }
-    }
-    .track-name {
-      width: 54%;
-      display: inline-block;
-      box-sizing: border-box;
-      vertical-align: middle;
-      max-height: 100px;
-      bottom: auto;
-      position: relative;
-      .scroll-track {
-        position: relative;
-        bottom: auto;
-      }
-    }
-  }
-  #container-content {
-    padding: 0;
-    .controller {
-      padding: 8px 10px;
-      &[sqs-controller="Template.Controllers.MobileEventsController"] {
-        padding: 8px 0;
-      }
-    }
-  }
   #mobileEvents {
     &.tab-mobile-events-past {
       .mobileEvents-wrapper {
@@ -2195,6 +2011,184 @@ html {
             transform: translateY(0);
           }
         }
+      }
+    }
+  }
+  .new-footer-content {
+    display: none;
+    justify-content: space-between;
+    align-content: center;
+    align-self: center;
+    align-items: center;
+    max-width: 1024px !important;
+    width: 100%;
+    padding: 5px 10px;
+    max-height: 84px;
+    box-sizing: border-box;
+    height: 100%;
+    position: relative;
+    .footer-button {
+      display: inline-block;
+      color: #000;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 1em 1.3em;
+      line-height: 1;
+      align-self: center;
+      text-align: center;
+      font-size: .8em;
+      width: 14%;
+      &.follow-button {
+        background: #0e9a95;
+      }
+      &.menu-button {
+        background: #fe2c13;
+      }
+      &.mode-button {
+        background: #fff;
+        border-radius: 50%;
+        padding: 0 !important;
+        width: 44px;
+        line-height: 44px;
+        transition: none;
+        border: 2px solid transparent;
+      }
+    }
+  }
+  .link-wall-index {
+    display: none;
+  }
+  #navigator {
+    opacity: 1;
+    &:not(.stream-found) {
+      header, #container, footer {
+        //opacity: 0;
+      }
+    }
+    &.stream-found {
+      .loading-overlay .line {
+
+      }
+    }
+  }
+  header, #container, footer {
+    .transition(opacity 0.3s 0.4s ease-in);
+  }
+  .eventlist-actions .squarespace-social-buttons {
+    display: none;
+  }
+  #navigator .nav-container #mobileNav #mobile-navigation {
+    #mobile-navigation-label, ul li {
+      box-sizing: border-box;
+      padding: 0 24.2%;
+      text-align: right;
+    }
+    ul {
+      top: 50px;
+    }
+  }
+  #navigator {
+    header#topBar, #mobile-navigation {
+      background-color: transparent;
+    }
+    #mobile-navigation-label:after {
+      padding: 10px 0;
+      background-color: #000;
+    }
+  }
+  .castWrapper {
+    overflow: auto !important;
+    display: block !important;
+  }
+  #castDiv {
+    height: 40vh;
+    min-height: 228px;
+    opacity: 1;
+    margin: 0;
+    .transform(none);
+    &.initialized {
+
+    }
+  }
+  #castDiv .mobile-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    bottom: 0;
+    z-index: 200;
+    background-color: #000;
+    overflow: hidden;
+  }
+  #castDiv .stream-player.active-player {
+    pointer-events: none;
+    opacity: 0;
+    .transition(opacity .3s ease-in-out);
+  }
+  &.show-current-player {
+    #mobileNav {
+      #mobile-navigation {
+        background-color: #000 !important;
+      }
+    }
+    #castDiv {
+      .mobile-image {
+        opacity: 0;
+        z-index: 120;
+      }
+      .stream-player.active-player {
+        z-index: 310 !important;
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+  }
+  .site-player-block {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    z-index: 10;
+    box-sizing: border-box;
+  }
+  .site-player {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    transform: none;
+    -webkit-transform: none;
+    box-sizing: border-box;
+    .site-player-controls {
+      height: auto;
+      display: inline-block;
+      box-sizing: border-box;
+      vertical-align: middle;
+      width: 44%;
+      margin: 0 !important;
+      padding: 0 10px 0 0;
+      a {
+        margin: 0 0 0 6px;
+      }
+    }
+    .track-name {
+      width: 54%;
+      display: inline-block;
+      box-sizing: border-box;
+      vertical-align: middle;
+      max-height: 100px;
+      bottom: auto;
+      position: relative;
+      .scroll-track {
+        position: relative;
+        bottom: auto;
+      }
+    }
+  }
+  #container-content {
+    padding: 0;
+    .controller {
+      padding: 8px 10px;
+      &[sqs-controller="Template.Controllers.MobileEventsController"] {
+        padding: 8px 0;
       }
     }
   }
