@@ -222,6 +222,36 @@
         }
     </script>
     <script>
+        function initFirstInteract() {
+            var video = document.getElementById('shoutcastPlayer');
+            var navigator = document.querySelector('html');
+            var mobileTrigger = document.querySelector('.mobile-trigger');
+            mobileTrigger.addEventListener('click', function (e) {
+                e.preventDefault();
+                console.log(window.CASTHERE);
+                if (!window.CASTHERE) {
+                    if (!window.firstPlayClick) {
+                        video.pause();
+                        window.firstPlayClick = true;
+                        setTimeout(function () {
+                            video.volume = 1;
+                            video.muted = false;
+                            video.autoplay = false;
+                            console.log('clicked');
+                            video.play();
+                        }, 16)
+                    } else {
+                        if (video.paused) {
+                            video.play();
+                            video.muted = false;
+                        } else {
+                            video.pause();
+                        }
+                    }
+                }
+            }, false);
+        }
+        initFirstInteract();
         var audio = document.getElementById('shoutcastPlayer');
         audio.volume = 0;
         audio.muted = true;
