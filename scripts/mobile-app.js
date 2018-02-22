@@ -3,13 +3,7 @@ function loadOneShow(url) {
         Y.io(url + '?format=main-content', {
             on: {
                 success: function (data, resp) {
-                    Y.one('#mobile-events-past').append(resp.responseText);
-                    if (Y.one('#grid')) {
-                        Site.gridEl = Y.one('#grid');
-                        Y.all('#grid img').each(function (img) {
-                            ImageLoader.load(img, {load: true, fit: true})
-                        })
-                    }
+                    Y.one('#mobile-events-past').empty().append(resp.responseText);
                 }
             }
         })
