@@ -36,7 +36,7 @@ window.Squarespace.onInitialize(Y, function () {
                 Y.one('#mobileEvents .tab2').simulate('click');
             }
         } else if(e.currentTarget.hasAttribute('data-dynamic-load')){
-            loadOneShow(url);
+            loadOneShow('https://www.20ftradio.net'+url);
         }
     }, '[data-dynamic-load],a[href="/shows"]');
 });
