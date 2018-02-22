@@ -42,6 +42,7 @@ Y.one('body').delegate('click', function (e) {
     console.log(url, e.currentTarget.hasAttribute('data-dynamic-load'));
     if (url.indexOf('/shows') > -1) {
         if (mobileEvents.one('.tab-2')) {
+            mobileEvents.all('.tabs a').removeClass('active');
             mobileEvents.one('.tab-2').addClass('active');
             mobileEvents.one('.mobileEvents-Past').addClass('active');
             mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
@@ -63,6 +64,7 @@ Y.one('body').delegate('click', function (e) {
         }
     } else if (url.indexOf('/mobile-app') > -1) {
         if (mobileEvents.one('.tab-1')) {
+            mobileEvents.all('.tabs a').removeClass('active');
             mobileEvents.one('.tab-1').addClass('active');
             mobileEvents.one('.mobileEvents-Past').removeClass('active');
             mobileEvents.one('.mobileEvents-Upcoming').addClass('active');
