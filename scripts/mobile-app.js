@@ -28,17 +28,18 @@ function loadShows() {
         }
     })
 }
+
 Y.one('body').delegate('click', function (e) {
     e.halt();
     var url = e.currentTarget.getAttribute('href');
-    console.log(url,e.currentTarget.hasAttribute('data-dynamic-load'));
+    console.log(url, e.currentTarget.hasAttribute('data-dynamic-load'));
     if (url.indexOf('/shows') > -1) {
         if (Y.one('#mobileEvents .tab-2')) {
             Y.one('#mobileEvents .tab-2').simulate('click');
             Y.one('html').addClass('full-mode-active');
             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
             e.currentTarget.addClass('active-link');
-            if(Y.one('#mobile-events-past .sqs-layout')){
+            if (Y.one('#mobile-events-past .sqs-layout')) {
                 Y.one('#mobile-events-past').empty();
                 loadShows();
             }
