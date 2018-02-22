@@ -296,8 +296,8 @@
         }
         var $body = $('body');
         var $html = $('html');
-        $html.addClass('platform-' + navigator.platform);
-        $html.addClass('model-' + navigator.model);
+        $html.addClass('platform-' + window.navigator.platform);
+        $html.addClass('model-' + window.navigator.model);
         if (navigator.platform === 'iPhone' && window.innerHeight === 812) {
             $html.addClass('device-IphoneX');
         }
