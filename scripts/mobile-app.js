@@ -5,6 +5,7 @@ function loadOneShow(url) {
                 success: function (data, resp) {
                     window.SQS.Lifecycle.destroy();
                     Y.one('#mobile-events-past').empty().append(resp.responseText);
+                    Y.one('#mobile-events-past')._node.scrollTo(0,0);
                     window.SQS.Lifecycle.init();
                     setTimeout(function () {
                         Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
