@@ -183,7 +183,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 })
             }
             if (Y.one('#mobile-events-past')) {
-
+                loadShows();
             }
             initTabs();
         } else {
