@@ -1109,7 +1109,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function isAndroid() {
-        return Y.UA.mobile.indexOf('droid') > -1 || device.platform.indexOf('droid') > -1;
+        return Y.UA.mobile.indexOf('droid') > -1 || window.device&&window.device.platform.indexOf('droid') > -1;
     }
 
     function setLocalNotification(text) {
