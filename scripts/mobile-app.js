@@ -25,7 +25,7 @@ function loadShows() {
                     Y.all('#grid img').each(function (img) {
                         ImageLoader.load(img, {load: true, fit: true})
                     });
-                    Y.all('.mobile-nav-custom a[href*="/shows"]').addClass('active-link');
+                    Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
                 }
             }
         }
