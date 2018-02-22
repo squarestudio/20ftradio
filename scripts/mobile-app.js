@@ -21,7 +21,8 @@ function loadShows() {
                     Site.gridEl = Y.one('#grid');
                     Y.all('#grid img').each(function (img) {
                         ImageLoader.load(img, {load: true, fit: true})
-                    })
+                    });
+                    Y.all('.mobile-nav-custom a[href*="/shows"]').addClass('active-link');
                 }
             }
         }
@@ -35,7 +36,7 @@ Y.one('body').delegate('click', function (e) {
         if (Y.one('#mobileEvents .tab-2')) {
             Y.one('#mobileEvents .tab-2').simulate('click');
             Y.one('html').addClass('full-mode-active');
-            Y.all('.active-link').removeClass('active-link');
+            Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
             e.currentTarget.addClass('active-link');
             if(Y.one('#mobile-events-past .sqs-layout')){
                 Y.one('#mobile-events-past').empty();
