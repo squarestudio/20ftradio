@@ -35,6 +35,7 @@ function loadShows() {
 Y.one('body').delegate('click', function (e) {
     e.halt();
     var url = e.currentTarget.getAttribute('href');
+    var eventTabsBorder = Y.one('#mobileEvents .tab-border');
     console.log(url, e.currentTarget.hasAttribute('data-dynamic-load'));
     if (url.indexOf('/shows') > -1) {
         if (Y.one('#mobileEvents .tab-2')) {
