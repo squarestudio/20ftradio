@@ -26,11 +26,11 @@ window.Template.Controllers.MobileEventsController = function (element) {
                     'transform': 'translate3d(0,0,0)'
                 });
                 Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
-                Y.all('.mobile-nav-custom a[href*="/mobile-app"]').addClass('active-link');
+                Y.one('.mobile-nav-custom a[href*="/mobile-app"]').get('parentNode').addClass('active-link');
             }
             else {
                 setTimeout(function () {
-                    mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
+                    mobileEvents.one('.mobileEvents-Upcoming').get('parentNode').removeClass('active');
                 }, 360);
                 eventTabsContainer.setStyles({
                     'transform': 'translate3d(-50%,0,0)'
