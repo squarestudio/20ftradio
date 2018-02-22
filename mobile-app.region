@@ -6,7 +6,6 @@
             <squarespace:script src="MobileCastController.js" combo="true"/>
             <squarespace:script src="MobileEventsController.js" combo="true"/>
             <squarespace:script src="general.js" combo="true"/>
-            <squarespace:script src="lazy-loader.js" combo="true"/>
             <squarespace:script src="mobile-app.js" combo="true"/>
         </noscript>
     </head>
