@@ -1323,6 +1323,12 @@ html {
     top: 0;
     padding: 0 !important;
     position: fixed;
+    a {
+      transition: none!important;
+      &:hover,&:active,&:visited {
+        color: inherit;
+      }
+    }
     #mixcloudInsert {
       transition: all .4s ease-in-out;
       transform: translateY(200px);
