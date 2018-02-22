@@ -1321,6 +1321,11 @@ html {
         .transform(rotate(90deg) translateY(0));
       }
     }
+    &.mobile-menu-active {
+      #mobile-navigation {
+        .transform(translateX(0));
+      }
+    }
     .socialaccountlinks-v2-block {
       position: absolute;
       right: 10px;
@@ -1432,11 +1437,6 @@ html {
       .site-player-wrapper {
         animation: fadein .4s;
         -webkit-animation: fadein .4s;
-      }
-    }
-    &.mobile-menu-active {
-      #mobile-navigation {
-        .transform(translateX(0));
       }
     }
     #mobileNav {
