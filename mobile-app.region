@@ -247,6 +247,10 @@
     <squarespace:script src="ProjectController.js" combo="true"/>
     <squarespace:script src="sha1.js" combo="true"/>
     <squarespace:script src="payment.js" combo="true"/>
+    <squarespace:script src="MobileCastController.js" combo="true"/>
+    <squarespace:script src="MobileEventsController.js" combo="true"/>
+    <squarespace:script src="general.js" combo="true"/>
+    <squarespace:script src="mobile-app.js" combo="true"/>
     {squarespace-footers}
     <script>
         function initFirstInteract() {
