@@ -54,6 +54,7 @@ Y.one('body').delegate('click', function (e) {
         Y.one('html').addClass('full-mode-active');
         Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
         Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
+        Y.one('body').removeClass('mobile-app-menu-active');
     };
     var activateTab1 = function(){
         mobileEvents.all('.tabs a').removeClass('active');
@@ -69,6 +70,7 @@ Y.one('body').delegate('click', function (e) {
         Y.one('html').addClass('full-mode-active');
         Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
         Y.one('.mobile-nav-custom a[href*="/mobile-app"]').get('parentNode').addClass('active-link');
+        Y.one('body').removeClass('mobile-app-menu-active');
     };
     if (url.indexOf('/shows') > -1) {
         if (mobileEvents.one('.tab-2')) {
