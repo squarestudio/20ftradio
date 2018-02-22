@@ -294,6 +294,28 @@
             motionPlayActive = true;
             audio.play();
         }
+        var $body = $('body');
+        var $html = $('html');
+        $html.addClass('platform-' + navigator.platform);
+        $html.addClass('model-' + navigator.model);
+        if (navigator.platform === 'iPhone' && window.innerHeight === 812) {
+            $html.addClass('device-IphoneX');
+        }
+        $body.delegate('.follow-button', 'click', function (e) {
+            e.preventDefault();
+            $body.toggleClass('mobile-share-active');
+        });
+        $body.delegate('.mode-button', 'click', function (e) {
+            e.preventDefault();
+            $html.toggleClass('full-mode-active');
+            if (!$html.hasClass('full-mode-active')) {
+                window.scrollTo(0, 0);
+            }
+        });
+        $body.delegate('.menu-button', 'click', function (e) {
+            e.preventDefault();
+            $body.toggleClass('mobile-menu-active');
+        });
     </script>
     <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
     <squarespace:script src="imagesloaded.pkgd.min.js" combo="false"/>
