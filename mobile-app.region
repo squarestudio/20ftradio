@@ -2,10 +2,12 @@
     <head>
         <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         {squarespace-headers}
-        <squarespace:script src="MobileCastController.js" combo="true"/>
-        <squarespace:script src="MobileEventsController.js" combo="true"/>
-        <squarespace:script src="general.js" combo="true"/>
-        <squarespace:script src="mobile-app.js" combo="true"/>
+        <noscript id="loaderThings">
+            <squarespace:script src="MobileCastController.js" combo="true"/>
+            <squarespace:script src="MobileEventsController.js" combo="true"/>
+            <squarespace:script src="general.js" combo="true"/>
+            <squarespace:script src="mobile-app.js" combo="true"/>
+        </noscript>
     </head>
     <body class="cordova-app cordova-new-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
     <style>
