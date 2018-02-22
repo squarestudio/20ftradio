@@ -31,18 +31,19 @@ function loadShows() {
         }
     })
 }
+Y.one('body').delegate('click', function (e) {
+    e.halt();
+    var url = e.currentTarget.getAttribute('href');
+    console.log(url);
+    if (url.indexOf('/shows') > -1) {
+        if (Y.one('#mobileEvents .tab-2')) {
+            Y.one('#mobileEvents .tab-2').simulate('click');
+        }
+    } else if (e.currentTarget.hasAttribute('data-dynamic-load')) {
+        loadOneShow('https://www.20ftradio.net' + url);
+    }
+}, '[data-dynamic-load],a[href="/shows"]');
 
 window.Squarespace.onInitialize(Y, function () {
-    Y.one('body').delegate('click', function (e) {
-        e.halt();
-        var url = e.currentTarget.getAttribute('href');
-        console.log(url);
-        if (url.indexOf('/shows') > -1) {
-            if (Y.one('#mobileEvents .tab-2')) {
-                Y.one('#mobileEvents .tab-2').simulate('click');
-            }
-        } else if (e.currentTarget.hasAttribute('data-dynamic-load')) {
-            loadOneShow('https://www.20ftradio.net' + url);
-        }
-    }, '[data-dynamic-load],a[href="/shows"]');
+
 });
