@@ -101,6 +101,7 @@ Y.one('body').delegate('click', function (e) {
 
 window.Squarespace.onInitialize(Y, function () {
     if (window.activateShows) {
-
+        window.activateShows = false;
+        activateTab2();
     }
 });
