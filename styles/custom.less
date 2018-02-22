@@ -1277,21 +1277,23 @@ html {
     }
   }
   &.device-iPhoneX {
-    .cordova-app .site-player {
+    .cordova-app {
       .site-player-block {
-        
+        overflow: visible;
       }
-      .track-name {
-        margin: 0;
-        width: 100%;
-        display: block;
-        position: absolute;
-        transform: translateY(100%);
-      }
-      .site-player-controls {
-        width: 100%;
-        display: block;
-        margin: 0 16px;
+      .site-player {
+        .track-name {
+          margin: 0;
+          width: 100%;
+          display: block;
+          position: absolute;
+          transform: translateY(100%);
+        }
+        .site-player-controls {
+          width: 100%;
+          display: block;
+          margin: 0 16px;
+        }
       }
     }
   }
