@@ -40,7 +40,9 @@ Y.one('body').delegate('click', function (e) {
     console.log(url, e.currentTarget.hasAttribute('data-dynamic-load'));
     if (url.indexOf('/shows') > -1) {
         if (mobileEvents.one('.tab-2')) {
-            //mobileEvents.one('.tab-2').simulate('click');
+            mobileEvents.one('.tab-2').simulate('click');
+            mobileEvents.one('.mobileEvents-Past').addClass('active');
+            mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
             Y.one('html').addClass('full-mode-active');
             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
             Y.all('.mobile-nav-custom a[href*="/shows"]').addClass('active-link');
@@ -54,8 +56,9 @@ Y.one('body').delegate('click', function (e) {
         }
     } else if (url.indexOf('/mobile-app') > -1) {
         if (mobileEvents.one('.tab-1')) {
-            mobileEvents.one('.mobileEvents-Past').removeClass('active');
             mobileEvents.one('.tab-1').simulate('click');
+            mobileEvents.one('.mobileEvents-Past').removeClass('active');
+            mobileEvents.one('.mobileEvents-Upcoming').addClass('active');
             Y.one('html').addClass('full-mode-active');
             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
             Y.all('.mobile-nav-custom a[href*="/mobile-app"]').addClass('active-link');
