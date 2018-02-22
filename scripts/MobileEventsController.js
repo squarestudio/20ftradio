@@ -190,21 +190,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             mobileEvents.one('.content-loader').removeAttribute('style');
         }
     }
-    function loadOneShow(url) {
-        if(Y.one('#mobile-events-past')){
-            Y.io(url+'?format=main-content', {
-                on: {
-                    success: function (data, resp) {
-                        Y.one('#mobile-events-past').append(resp.responseText);
-                        if (Y.one('#grid')) {
-                            Site.gridEl = Y.one('#grid');
-                            Y.all('#grid img').each(function(img){ImageLoader.load(img,{load:true, fit:true})})
-                        }
-                    }
-                }
-            })
-        }
-    }
+    
     function loadShows() {
         Y.io('https://www.20ftradio.net/shows?format=main-content', {
             on: {
