@@ -224,8 +224,6 @@ window.Template.Controllers.MobileEventsController = function (element) {
         sync: function () {
             initialize();
         },
-        loadShows: loadShows,
-        loadOneShow: loadOneShow,
         destroy: function () {
             console.log('destroy Mobile Events');
             tabClickEvents && tabClickEvents.detach();
