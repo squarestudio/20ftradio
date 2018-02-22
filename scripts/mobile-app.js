@@ -47,6 +47,8 @@ Y.one('body').delegate('click', function (e) {
                 Y.one('#mobile-events-past').empty();
                 loadShows();
             }
+        } else {
+
         }
     } else if (e.currentTarget.hasAttribute('data-dynamic-load')) {
         loadOneShow('https://www.20ftradio.net' + url);
