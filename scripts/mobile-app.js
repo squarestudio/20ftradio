@@ -4,6 +4,7 @@ function loadOneShow(url) {
             on: {
                 success: function (data, resp) {
                     Y.one('#mobile-events-past').empty().append(resp.responseText);
+                    window.SQS.Lifecycle.init();
                 }
             }
         })
