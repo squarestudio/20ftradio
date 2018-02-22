@@ -9,6 +9,7 @@ function loadOneShow(url) {
                     setTimeout(function () {
                         Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
                         Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
+                        Y.one('body').removeClass('mobile-app-menu-active');
                     }, 400);
                 }
             }
@@ -50,7 +51,9 @@ function activateTab2() {
     Y.one('html').addClass('full-mode-active');
     Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
     Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
-    Y.one('body').removeClass('mobile-app-menu-active');
+    setTimeout(function () {
+        Y.one('body').removeClass('mobile-app-menu-active');
+    }, 400);
 }
 
 function activateTab1() {
@@ -70,7 +73,9 @@ function activateTab1() {
     Y.one('html').addClass('full-mode-active');
     Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
     Y.one('.mobile-nav-custom a[href*="/mobile-app"]').get('parentNode').addClass('active-link');
-    Y.one('body').removeClass('mobile-app-menu-active');
+    setTimeout(function () {
+        Y.one('body').removeClass('mobile-app-menu-active');
+    }, 400);
 };
 Y.one('body').delegate('click', function (e) {
     e.halt();
