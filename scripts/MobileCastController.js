@@ -395,9 +395,10 @@ window.Template.Controllers.MobileCastController = function (element) {
                         break;
                 }
             }
-
-            MusicControls.subscribe(events);
-            MusicControls.listen();
+            if(window.MusicControls){
+                MusicControls.subscribe(events);
+                MusicControls.listen();
+            }
         }
 
         initMusicControls();
