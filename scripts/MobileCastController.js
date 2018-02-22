@@ -1168,7 +1168,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             },
             on: {
                 success: function (i, data) {
-                    if (data.status === 200 && data.readyState === 4) {
+                    if (data.status === 200 && data.readyState === 4 && data.response[0] !== '<') {
                         var resp = JSON.parse(data.response);
                         if (resp && resp.youtube) {
                             sitePlayer.addClass('video-stream');
