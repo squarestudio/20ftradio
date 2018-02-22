@@ -53,11 +53,16 @@
                      data-facebook-url="{customContent.facebookUrl}"
                      data-soundcloud-url="{customContent.soundCloudUrl}"
                      data-shoutcast-url="{customContent.shoutcastUrl}">
-                    <div class="line"></div>
                     <div class="mobile-image">
-                        <div class="mobile-trigger-wrapper">
-                            <a href="#" class="mobile-trigger"></a>
-                        </div>
+                        <svg class="back gen h-align" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1019.73 956"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#00a89c;}.cls-3{fill:#c1272d;}.cls-4{fill:#29a9e1;}</style></defs><g><g><path class="cls-1" d="M254.93,127.47A127.47,127.47,0,0,1,382.4,254.93H509.87C509.87,114.14,395.73,0,254.93,0S0,114.14,0,254.93H127.47A127.47,127.47,0,0,1,254.93,127.47Z"/><path class="cls-2" d="M509.87,254.93H382.4A127.47,127.47,0,0,1,254.93,382.4V509.87C395.73,509.87,509.87,395.73,509.87,254.93Z"/><path class="cls-3" d="M0,637.33H127.47A127.47,127.47,0,0,1,254.93,509.87V382.4C114.14,382.4,0,496.54,0,637.33Z"/><rect class="cls-4" y="637.33" width="127.47" height="127.47"/><path class="cls-1" d="M517.9,637.33H127.47V764.8H517.9a257,257,0,0,1,0-127.47Z"/><path class="cls-3" d="M777.55,446.45q-6.34-.31-12.75-.32c-4.27,0-8.52.12-12.75.33C638.92,452,545.18,531.34,517.9,637.33a257,257,0,0,0,0,127.47C546.2,874.75,646,956,764.8,956c140.8,0,254.93-114.14,254.93-254.93C1019.73,564.55,912.42,453.09,777.55,446.45ZM764.8,828.53A127.47,127.47,0,1,1,892.27,701.07,127.47,127.47,0,0,1,764.8,828.53Z"/><polygon class="cls-1" points="994.24 254.93 841.28 254.93 815.79 254.93 815.79 280.43 815.79 305.92 815.79 331.41 815.79 382.4 841.28 382.4 841.28 331.41 892.27 331.41 892.27 305.92 841.28 305.92 841.28 280.43 930.51 280.43 930.51 382.4 956 382.4 956 280.43 994.24 280.43 994.24 254.93"/><circle fill="#000" cx="764.08" cy="702" r="129"/></g></g><g class="mobile-trigger">
+                            <g class="play" fill="#fff">
+                                <polygon points="720.5,606.3 720.5,797.7 870.9,702"/>
+                            </g>
+                            <g class="pause" fill="#fff">
+                                <path d="M689,789.6h50.1V614.4H689V789.6z M789.1,614.4v175.2h50.1V614.4H789.1z"/>
+                            </g>
+                        </g></svg>
+                        <div class="line"></div>
                     </div>
                     <div class="live-indicator">● Live</div>
                 </div>
