@@ -49,6 +49,9 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 }, 500)
             }
             mobileEvents.getDOMNode().className = id.replace('#', 'tab-');
+            setTimeout(function () {
+                Y.one('body').removeClass('mobile-app-menu-active');
+            }, 400);
         });
 /*        scrollEvent = Y.one(window).on('scroll', function () {
             if (window.pageYOffset + 100 > mobileEvents.getY()) {
