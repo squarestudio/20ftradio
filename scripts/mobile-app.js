@@ -1,3 +1,4 @@
 Y.one('body').delegate('click', function (e) {
-
-}, '[data-dynamic-load]')
+    console.log(e);
+    e.halt()
+}, '[data-dynamic-load],a[href="/shows"]');
