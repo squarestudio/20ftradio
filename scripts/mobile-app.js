@@ -36,7 +36,7 @@ window.Squarespace.onInitialize(Y, function () {
                 Y.one('#mobileEvents .tab2').simulate('click');
             }
         } else if(e.currentTarget.hasAttribute('data-dynamic-load')){
-            window.Template.Controllers.MobileEventsController.loadOneShow(url);
+            loadOneShow(url);
         }
     }, '[data-dynamic-load],a[href="/shows"]');
 });
