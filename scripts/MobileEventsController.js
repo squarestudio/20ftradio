@@ -58,7 +58,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
 
     function createEvent(e) {
         e.halt();
-        if(e.currentTarget.hasClass('event-on-air')) return false;
+        if(e.currentTarget.hasClass('event-on-air')||!window.plugins||!window.plugins.calendar) return false;
         var parent = e.currentTarget.ancestor('.event-item');
         var title = parent.getAttribute('data-title') || "Listen 20FTRadio";
         var eventLocation = parent.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
