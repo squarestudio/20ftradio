@@ -162,7 +162,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         mobileEvents = Y.one('#mobileEvents');
         if (mobileEvents && Y.one('.mobileEvents-container')) {
             if (Y.one('#mobile-events-upcoming')) {
-                Y.io('http://20ftradio.net/events?format=main-content', {
+                Y.io('https://20ftradio.net/events?format=main-content', {
                     on: {
                         success: function (data, resp) {
                             if (resp.responseText) {
@@ -183,7 +183,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 })
             }
             if (Y.one('#mobile-events-past')) {
-                Y.io('http://20ftradio.net/shows?format=main-content', {
+                Y.io('https://20ftradio.net/shows?format=main-content', {
                     on: {
                         success: function (data, resp) {
                             Y.one('#mobile-events-past').append(resp.responseText);
