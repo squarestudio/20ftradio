@@ -44,6 +44,12 @@ Y.one('body').delegate('click', function (e) {
             mobileEvents.one('.tab-2').simulate('click');
             mobileEvents.one('.mobileEvents-Past').addClass('active');
             mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
+            eventTabsContainer.setStyles({
+                'transform': 'translate3d(-50%,0,0)'
+            });
+            eventTabsBorder.setStyles({
+                'transform': 'translate3d(100%,0,0)'
+            });
             Y.one('html').addClass('full-mode-active');
             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
             Y.all('.mobile-nav-custom a[href*="/shows"]').addClass('active-link');
