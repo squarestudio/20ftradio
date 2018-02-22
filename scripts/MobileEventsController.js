@@ -190,7 +190,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             mobileEvents.one('.content-loader').removeAttribute('style');
         }
     }
-    
+
     function loadShows() {
         Y.io('https://www.20ftradio.net/shows?format=main-content', {
             on: {
