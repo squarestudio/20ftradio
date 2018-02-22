@@ -40,21 +40,39 @@ Y.one('body').delegate('click', function (e) {
     var eventTabsContainer = mobileEvents.one('.mobileEvents-wrapper');
     var eventTabsBorder = mobileEvents.one('.tab-border');
     console.log(url, e.currentTarget.hasAttribute('data-dynamic-load'));
+    var activateTab2 = function () {
+        mobileEvents.all('.tabs a').removeClass('active');
+        mobileEvents.one('.tab-2').addClass('active');
+        mobileEvents.one('.mobileEvents-Past').addClass('active');
+        mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
+        eventTabsContainer.setStyles({
+            'transform': 'translate3d(-50%,0,0)'
+        });
+        eventTabsBorder.setStyles({
+            'transform': 'translate3d(100%,0,0)'
+        });
+        Y.one('html').addClass('full-mode-active');
+        Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
+        Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
+    };
+    var activateTab1 = function(){
+        mobileEvents.all('.tabs a').removeClass('active');
+        mobileEvents.one('.tab-1').addClass('active');
+        mobileEvents.one('.mobileEvents-Past').removeClass('active');
+        mobileEvents.one('.mobileEvents-Upcoming').addClass('active');
+        eventTabsContainer.setStyles({
+            'transform': 'translate3d(0,0,0)'
+        });
+        eventTabsBorder.setStyles({
+            'transform': 'translate3d(0,0,0)'
+        });
+        Y.one('html').addClass('full-mode-active');
+        Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
+        Y.one('.mobile-nav-custom a[href*="/mobile-app"]').get('parentNode').addClass('active-link');
+    };
     if (url.indexOf('/shows') > -1) {
         if (mobileEvents.one('.tab-2')) {
-            mobileEvents.all('.tabs a').removeClass('active');
-            mobileEvents.one('.tab-2').addClass('active');
-            mobileEvents.one('.mobileEvents-Past').addClass('active');
-            mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
-            eventTabsContainer.setStyles({
-                'transform': 'translate3d(-50%,0,0)'
-            });
-            eventTabsBorder.setStyles({
-                'transform': 'translate3d(100%,0,0)'
-            });
-            Y.one('html').addClass('full-mode-active');
-            Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
-            Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
+            activateTab2();
             if (Y.one('#mobile-events-past .sqs-layout')) {
                 Y.one('#mobile-events-past').empty();
                 loadShows();
@@ -64,19 +82,7 @@ Y.one('body').delegate('click', function (e) {
         }
     } else if (url.indexOf('/mobile-app') > -1) {
         if (mobileEvents.one('.tab-1')) {
-            mobileEvents.all('.tabs a').removeClass('active');
-            mobileEvents.one('.tab-1').addClass('active');
-            mobileEvents.one('.mobileEvents-Past').removeClass('active');
-            mobileEvents.one('.mobileEvents-Upcoming').addClass('active');
-            eventTabsContainer.setStyles({
-                'transform': 'translate3d(0,0,0)'
-            });
-            eventTabsBorder.setStyles({
-                'transform': 'translate3d(0,0,0)'
-            });
-            Y.one('html').addClass('full-mode-active');
-            Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
-            Y.one('.mobile-nav-custom a[href*="/mobile-app"]').get('parentNode').addClass('active-link');
+            activateTab1();
         } else {
 
         }
