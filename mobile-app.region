@@ -122,6 +122,27 @@
         </div>
     </footer>
     </body>
+    <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
+    <squarespace:script src="imagesloaded.pkgd.min.js" combo="false"/>
+    <squarespace:script src="moment.js" combo="true"/>
+    <squarespace:script src="moment-timezone.js" combo="true"/>
+    <squarespace:script src="jquery.min.js" combo="true"/>
+    <squarespace:script src="typed.min.js" combo="true"/>
+    <!--<squarespace:script src="json-template.js" combo="true"/>-->
+    <squarespace:script src="core-0.2.0.min.js" combo="true"/>
+    <squarespace:script src="sqs-controller.js" combo="true"/>
+    <squarespace:script src="ajaxLoader.js" combo="true"/>
+    <squarespace:script src="site.js" combo="true"/>
+    <squarespace:script src="wall-scripts/swiper.min.js" combo="true"/>
+    <squarespace:script src="wall-scripts/classie.js" combo="true"/>
+    <squarespace:script src="wall-scripts/AnimOnScroll.js" combo="true"/>
+    <squarespace:script src="share-buttons.js" combo="true"/>
+    <squarespace:script src="WallController.js" combo="true"/>
+    <squarespace:script src="soundcloud-api-widget.js" combo="true"/>
+    <squarespace:script src="mixcloud-api-widget.js" combo="true"/>
+    <squarespace:script src="ProjectController.js" combo="true"/>
+    <squarespace:script src="sha1.js" combo="true"/>
+    <squarespace:script src="payment.js" combo="true"/>
     <style>
         html {
             -ms-touch-action: manipulation;
