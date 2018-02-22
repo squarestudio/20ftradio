@@ -30,7 +30,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
             }
             else {
                 setTimeout(function () {
-                    mobileEvents.one('.mobileEvents-Upcoming').get('parentNode').removeClass('active');
+                    mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
                 }, 360);
                 eventTabsContainer.setStyles({
                     'transform': 'translate3d(-50%,0,0)'
@@ -39,7 +39,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                     'transform': 'translate3d(100%,0,0)'
                 });
                 Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
-                Y.all('.mobile-nav-custom a[href*="/shows"]').addClass('active-link');
+                Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
             }
             eventTabsLists.removeClass('active');
             Y.one(id).addClass('active');
