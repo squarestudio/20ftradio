@@ -305,7 +305,7 @@
     <squarespace:script src="core-0.2.0.min.js" combo="true"/>
     <squarespace:script src="sqs-controller.js" combo="true"/>
     <squarespace:script src="ajaxLoader.js" combo="true"/>
-    <squarespace:script src="site.js" combo="true"/>
+    <squarespace:script src="app-site.js" combo="true"/>
     <squarespace:script src="wall-scripts/swiper.min.js" combo="true"/>
     <squarespace:script src="wall-scripts/classie.js" combo="true"/>
     <squarespace:script src="wall-scripts/AnimOnScroll.js" combo="true"/>
