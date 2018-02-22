@@ -37,8 +37,9 @@ Y.one('body').delegate('click', function (e) {
             Y.one('html').addClass('full-mode-active');
             Y.all('.active-link').removeClass('active-link');
             e.currentTarget.addClass('active-link');
-            if(Y.one('.sqs-layout')){
-
+            if(Y.one('#mobile-events-past .sqs-layout')){
+                Y.one('#mobile-events-past').empty();
+                loadShows();
             }
         }
     } else if (e.currentTarget.hasAttribute('data-dynamic-load')) {
