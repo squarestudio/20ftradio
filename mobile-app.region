@@ -316,6 +316,9 @@
             e.preventDefault();
             $body.toggleClass('mobile-menu-active');
         });
+        setTimeout(function () {
+            Y.fire('appready');
+        }, 100);
     </script>
     <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
     <squarespace:script src="imagesloaded.pkgd.min.js" combo="false"/>
