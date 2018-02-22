@@ -15,11 +15,6 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
         var nav = Y.one('#mobile-navigation');
         var doc = Y.one('html');
         var body = Y.one('body');
-        // move cart pill below nav
-        if (Y.one('#topBar')) {
-            var topBarHeight = Y.one('#topBar .nav-container').get('offsetHeight');
-            Y.all('.sqs-cart-dropzone').setStyle('top', topBarHeight + 10);
-        }
         //folder subnav
         var toggleFolder = function (elem) {
             if (elem) {
@@ -52,18 +47,19 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
             }
         });
         ajaxL.modifyLinkState('/mobile-app/');
+        var footerHeight = Y.one('.new-footer-content').height();
         if (Y.one('#mobile-navigation')) {
-            Y.one('.new-footer-content').prepend(Y.one('#mobile-navigation'));
+            Y.one('body').append(Y.one('#mobile-navigation').addClass('mobile-nav-custom').setStyle('bottom',footerHeight));
         }
         if (Y.one('.header-block-content')) {
             var header_content = Y.one('.header-block-content');
             var soc_icons;
             if (header_content.one('.sqs-svg-icon--list')) {
                 header_content.one('.socialaccountlinks-v2-block .sqs-svg-icon--list').append('<a href="https://www.mixcloud.com/20ftradio/" target="_blank" class="sqs-svg-icon--wrapper mixcloud"><div><svg class="sqs-svg-icon--social" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMax" viewBox="0 0 16 16" fill="#eee"><g fill-rule="nonzero"><path d="M14.634 12.716c-.103 0-.206-.03-.297-.09-.246-.167-.31-.5-.15-.74.493-.73.75-1.588.75-2.48 0-.892-.257-1.75-.75-2.48-.165-.246-.096-.578.144-.738.247-.166.572-.097.738.143.612.91.932 1.973.932 3.076s-.32 2.167-.932 3.076c-.097.154-.263.234-.434.234z"/><path d="M13.108 11.853c-.103 0-.206-.03-.298-.092-.246-.164-.308-.496-.143-.736.326-.48.498-1.035.498-1.618 0-.577-.172-1.137-.498-1.618-.165-.245-.103-.57.143-.737.246-.165.572-.102.738.144.446.657.68 1.423.68 2.212 0 .795-.234 1.56-.68 2.212-.097.155-.27.235-.44.235zM10.62 7.085c-.21-2.132-2.01-3.8-4.2-3.8C4.606 3.284 3 4.45 2.423 6.14 1.058 6.342 0 7.52 0 8.942c0 1.562 1.275 2.836 2.84 2.836h7.272c1.31 0 2.378-1.063 2.378-2.372 0-1.137-.8-2.086-1.87-2.32zm-.508 3.63h-7.27c-.978 0-1.78-.794-1.78-1.772 0-.977.796-1.772 1.78-1.772.473 0 .92.184 1.257.52.204.207.542.207.753 0 .206-.204.206-.542 0-.753-.366-.366-.817-.618-1.31-.743.504-1.11 1.625-1.852 2.876-1.852 1.743 0 3.16 1.417 3.16 3.155 0 .337-.05.67-.16.99-.09.28.058.576.338.673.057.018.114.03.166.03.222 0 .428-.144.503-.367.068-.21.12-.423.154-.64.493.19.84.663.84 1.218.007.726-.588 1.315-1.308 1.315z"/></g></svg></div></a>');
-                soc_icons = header_content.one('.socialaccountlinks-v2-block');
+                soc_icons = header_content.one('.socialaccountlinks-v2-block').addClass('mobile-soc-icons');
             }
             if (soc_icons) {
-                Y.one('.new-footer-content .follow-button') && Y.one('.new-footer-content .follow-button').append(soc_icons);
+                Y.one('body').append(soc_icons);
             }
         }
         Y.use('squarespace-ui-base', function (Y) {
