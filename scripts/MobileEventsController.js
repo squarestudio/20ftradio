@@ -25,6 +25,8 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 eventTabsBorder.setStyles({
                     'transform': 'translate3d(0,0,0)'
                 });
+                Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
+                Y.all('.mobile-nav-custom a[href*="/mobile-app"]').addClass('active-link');
             }
             else {
                 setTimeout(function () {
