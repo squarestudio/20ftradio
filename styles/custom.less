@@ -1309,9 +1309,6 @@ html {
   #canvas {
     display: none;
   }
-  &.collection-layout-mobile-app {
-    
-  }
   &.cordova-new-app {
     overflow: hidden !important;
     width: 100%;
@@ -1546,8 +1543,12 @@ html {
         transform: none !important;
       }
     }
+    &.collection-layout-mobile-app {
+      #container {
+        overflow: hidden;
+      }
+    }
     #container {
-      will-change: transform;
       background-color: #000;
       margin-top: 0 !important;
       margin-bottom: 60px !important;
