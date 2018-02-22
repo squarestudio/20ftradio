@@ -38,6 +38,7 @@ Y.one('body').delegate('click', function (e) {
     if (url.indexOf('/shows') > -1) {
         if (Y.one('#mobileEvents .tab-2')) {
             Y.one('#mobileEvents .tab-2').simulate('click');
+            Y.one('html').addClass('full-mode-active');
         }
     } else if (e.currentTarget.hasAttribute('data-dynamic-load')) {
         loadOneShow('https://www.20ftradio.net' + url);
