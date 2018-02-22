@@ -7,7 +7,7 @@ function loadOneShow(url) {
                     Y.one('#mobile-events-past').empty().append(resp.responseText);
                     window.SQS.Lifecycle.init();
                     setTimeout(function () {
-                        Y.all('.mobile-nav-custom a[href*="/shows"]').addClass('active-link');
+                        Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
                     }, 400);
                 }
             }
