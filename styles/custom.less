@@ -1316,6 +1316,12 @@ html {
   #canvas {
     display: none;
   }
+  #mixcloudInsert {
+    transition: all .4s ease-in-out;
+    transform: translateY(200px);
+    -webkit-backface-visibility: hidden;
+    opacity: 1;
+  }
   &.cordova-new-app {
     overflow: hidden !important;
     width: 100%;
@@ -1328,12 +1334,6 @@ html {
       &:hover,&:active,&:visited {
         color: inherit;
       }
-    }
-    #mixcloudInsert {
-      transition: all .4s ease-in-out;
-      transform: translateY(200px);
-      -webkit-backface-visibility: hidden;
-      opacity: 1;
     }
     .mixcloud-footer-widget-container {
       transform: none !important;
