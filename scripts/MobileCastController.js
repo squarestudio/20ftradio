@@ -50,8 +50,8 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function initialize() {
         window.CASTHERE = true;
-        if(!firstRun){
-            Y.on('mixcloud:play',function () {
+        if (!firstRun) {
+            Y.on('mixcloud:play', function () {
                 console.log('MIXCLOUD PLAY');
                 userPaused = true;
                 pausePlayersExept('all');
@@ -289,7 +289,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             checkStreams();
             userClickPlay = true;
         };
-        if(youtubeUrl){
+        if (youtubeUrl) {
             sitePlayer.addClass('youtube-here');
         }
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
@@ -331,7 +331,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 }
             }
         });
-        volumeControl&&volumeControl.on(['change', 'input'], function (e) {
+        volumeControl && volumeControl.on(['change', 'input'], function (e) {
             e.halt();
             var volume = parseInt(e.currentTarget.get('value'));
             if (volume > 55) {
@@ -395,7 +395,8 @@ window.Template.Controllers.MobileCastController = function (element) {
                         break;
                 }
             }
-            if(window.MusicControls){
+
+            if (window.MusicControls) {
                 MusicControls.subscribe(events);
                 MusicControls.listen();
             }
@@ -872,7 +873,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function setPlaying(playerType) {
-        if(userClickPlay){
+        if (userClickPlay) {
             DEBUG && console.log('SET PLAYING: ' + playerType);
             sitePlayer.addClass('playing').removeClass('paused').removeClass('stopped');
             castContainer.addClass('playing').removeClass('paused').removeClass('stopped');
@@ -882,7 +883,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             sitePlayer.addClass('played');
             mobilePlayButton.addClass('visible');
         }
-        if(playerType === 'shoutcast') {
+        if (playerType === 'shoutcast') {
             Y.fire('play:shoutcast');
         }
         if (window.mixCloudEmbeds && window.mixCloudEmbeds.length && !userPaused) {
@@ -1109,7 +1110,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function isAndroid() {
-        return Y.UA.mobile.indexOf('droid') > -1 || window.device&&window.device.platform.indexOf('droid') > -1;
+        return Y.UA.mobile.indexOf('droid') > -1 || window.device && window.device.platform.indexOf('droid') > -1;
     }
 
     function setLocalNotification(text) {
@@ -1141,20 +1142,22 @@ window.Template.Controllers.MobileCastController = function (element) {
     function setMusicMeta(track, play, img) {
         //MusicControls && MusicControls.destroy();
         var cover = isAndroid() ? 'https://www.20ftradio.net/assets/x-icon.png' : 'https://www.20ftradio.net/assets/icon.png';
-        MusicControls && MusicControls.create({
-            track: track || '',
-            artist: '20ft Radio',
-            cover: cover,
-            isPlaying: play,
-            dismissable: false,
-            hasPrev: false,
-            hasNext: false,
-            hasClose: false
-            // iOS only, optional
-            //album: 'Absolution',
-            //duration: 60,
-            //elapsed: 10,
-        });
+        if (window.MusicControls) {
+            window.MusicControls.create({
+                track: track || '',
+                artist: '20ft Radio',
+                cover: cover,
+                isPlaying: play,
+                dismissable: false,
+                hasPrev: false,
+                hasNext: false,
+                hasClose: false
+                // iOS only, optional
+                //album: 'Absolution',
+                //duration: 60,
+                //elapsed: 10,
+            });
+        }
     }
 
     function getShoutcastStatus() {
@@ -1167,13 +1170,13 @@ window.Template.Controllers.MobileCastController = function (element) {
                 success: function (i, data) {
                     if (data.status === 200 && data.readyState === 4) {
                         var resp = JSON.parse(data.response);
-                        if(resp&&resp.youtube){
+                        if (resp && resp.youtube) {
                             sitePlayer.addClass('video-stream');
                         } else {
                             sitePlayer.removeClass('video-stream');
                             Y.one('html').removeClass('stream-visible');
                         }
-                        if (resp && resp.shoutcast&&resp.shoutcast.live) {
+                        if (resp && resp.shoutcast && resp.shoutcast.live) {
                             var current_song = resp.shoutcast.track.trim();
                             current_song = 'Now playing: ' + current_song;
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer === 'shoutcast') {
@@ -1194,7 +1197,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                             DEBUG && console.log('SHOUTCAST STATUS FALSE');
                             shoutcastPlayer.pause();
                             shoutcastStatus = false;
-                            if(data.responseText === 'Offline'){
+                            if (data.responseText === 'Offline') {
                                 trackName.one('span').set('text', 'Stream offline now');
                                 shoutcastPlayer.title = 'Stream offline now';
                                 trackName.removeClass('scroll-track').addClass('scroll-track');
