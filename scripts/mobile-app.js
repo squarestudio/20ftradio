@@ -76,8 +76,6 @@ Y.one('body').delegate('click', function (e) {
     e.halt();
     var url = e.currentTarget.getAttribute('href');
     var mobileEvents = Y.one('#mobileEvents');
-    var eventTabsContainer = mobileEvents.one('.mobileEvents-wrapper');
-    var eventTabsBorder = mobileEvents.one('.tab-border');
     console.log(url, e.currentTarget.hasAttribute('data-dynamic-load'));
     if (url.indexOf('/shows') > -1) {
         if (mobileEvents.one('.tab-2')) {
