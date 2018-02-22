@@ -220,6 +220,50 @@
             Controllers: {}
         }
     </script>
+    <script>
+        var audio = document.getElementById('shoutcastPlayer');
+        audio.volume = 0;
+        audio.muted = true;
+        audio.play();
+        if (navigator.platform.indexOf('iP')>-1){
+            //audio.pause();
+        }
+        setTimeout(function () {
+            if (!window.CASTHERE&&document.getElementById('castDiv').className.indexOf('playing')===-1) {
+                audio.pause();
+            }
+        }, 20000);
+        audio.addEventListener('playing', function () {
+            if (!window.CASTHERE) {
+                console.log('playING', window.firstPlayClick);
+                if(window.firstPlayClick){
+                    var navigator = document.querySelector('html');
+                    navigator.className = ' stream-found';
+                    document.getElementById('castDiv').className += ' playing';
+                }
+            }
+        });
+        audio.addEventListener('pause', function () {
+            if (!window.CASTHERE) {
+                console.log('pauSED');
+                document.getElementById('castDiv').className =  document.getElementById('castDiv').className.replace(' playing', '');
+            }
+        });
+        audio.addEventListener('canplaythrough', function () {
+            if (!window.CASTHERE) {
+                console.log('CANPLAY');
+                var navigator = document.querySelector('html');
+                navigator.className = navigator.className.replace(' stream-found','')+' stream-found';
+            }
+        });
+        var motionPlayActive = false;
+        window.ondevicemotion = function(){
+            if(motionPlayActive) return;
+            console.log('Motion Play Activate');
+            motionPlayActive = true;
+            audio.play();
+        }
+    </script>
     <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
     <squarespace:script src="imagesloaded.pkgd.min.js" combo="false"/>
     <squarespace:script src="moment.js" combo="true"/>
