@@ -36,10 +36,11 @@ Y.one('body').delegate('click', function (e) {
     e.halt();
     var url = e.currentTarget.getAttribute('href');
     var eventTabsBorder = Y.one('#mobileEvents .tab-border');
+    var mobileEvents = Y.one('#mobileEvents');
     console.log(url, e.currentTarget.hasAttribute('data-dynamic-load'));
     if (url.indexOf('/shows') > -1) {
-        if (Y.one('#mobileEvents .tab-2')) {
-            Y.one('#mobileEvents .tab-2').simulate('click');
+        if (mobileEvents.one('.tab-2')) {
+            //mobileEvents.one('.tab-2').simulate('click');
             Y.one('html').addClass('full-mode-active');
             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
             Y.all('.mobile-nav-custom a[href*="/shows"]').addClass('active-link');
@@ -52,8 +53,9 @@ Y.one('body').delegate('click', function (e) {
 
         }
     } else if (url.indexOf('/mobile-app') > -1) {
-        if (Y.one('#mobileEvents .tab-1')) {
-            Y.one('#mobileEvents .tab-1').simulate('click');
+        if (mobileEvents.one('.tab-1')) {
+            mobileEvents.one('.mobileEvents-Past').removeClass('active');
+            mobileEvents.one('.tab-1').simulate('click');
             Y.one('html').addClass('full-mode-active');
             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
             Y.all('.mobile-nav-custom a[href*="/mobile-app"]').addClass('active-link');
