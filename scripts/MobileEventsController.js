@@ -121,7 +121,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         if (scheduleEvents.size()) {
             var startDate = new Date(parseInt(scheduleEvents.item(0).getAttribute('data-start-date')));
             var endDate = new Date(parseInt(scheduleEvents.item(scheduleEvents._nodes.length - 1).getAttribute('data-end-date')));
-            window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, startDate, endDate, function (data) {
+            window.plugins&&window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, startDate, endDate, function (data) {
                 if (data.length) {
                     data.forEach(function (event) {
                         scheduleEvents.each(function (e) {
