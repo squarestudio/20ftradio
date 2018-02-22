@@ -53,7 +53,7 @@ Y.one('body').delegate('click', function (e) {
     } else if (e.currentTarget.hasAttribute('data-dynamic-load')) {
         loadOneShow('https://www.20ftradio.net' + url);
     }
-}, '[data-dynamic-load],a[href="/shows"]');
+}, '[data-dynamic-load],a[href="/shows"],a[href="/shows"]');
 
 window.Squarespace.onInitialize(Y, function () {
 
