@@ -39,6 +39,8 @@ Y.one('body').delegate('click', function (e) {
         if (Y.one('#mobileEvents .tab-2')) {
             Y.one('#mobileEvents .tab-2').simulate('click');
             Y.one('html').addClass('full-mode-active');
+            Y.all('.active-link').removeClass('active-link');
+            e.currentTarget.addClass('active-link');
         }
     } else if (e.currentTarget.hasAttribute('data-dynamic-load')) {
         loadOneShow('https://www.20ftradio.net' + url);
