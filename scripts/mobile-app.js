@@ -32,8 +32,8 @@ window.Squarespace.onInitialize(Y, function () {
         var url = e.currentTarget.getAttribute('href');
         console.log(url);
         if(url.indexOf('/shows')>-1){
-            if(Y.one('#mobileEvents .tab2')){
-                Y.one('#mobileEvents .tab2').simulate('click');
+            if(Y.one('#mobileEvents .tab-2')){
+                Y.one('#mobileEvents .tab-2').simulate('click');
             }
         } else if(e.currentTarget.hasAttribute('data-dynamic-load')){
             loadOneShow('https://www.20ftradio.net'+url);
