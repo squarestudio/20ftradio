@@ -34,7 +34,7 @@ function loadShows() {
 Y.one('body').delegate('click', function (e) {
     e.halt();
     var url = e.currentTarget.getAttribute('href');
-    console.log(url);
+    console.log(url,e.currentTarget.hasAttribute('data-dynamic-load'));
     if (url.indexOf('/shows') > -1) {
         if (Y.one('#mobileEvents .tab-2')) {
             Y.one('#mobileEvents .tab-2').simulate('click');
