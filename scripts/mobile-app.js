@@ -57,10 +57,6 @@ Y.one('body').delegate('click', function (e) {
             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
             Y.all('.mobile-nav-custom a[href*="/mobile-app"]').addClass('active-link');
             e.currentTarget.addClass('active-link');
-            if (Y.one('#mobile-events-past .sqs-layout')) {
-                Y.one('#mobile-events-past').empty();
-                loadShows();
-            }
         } else {
 
         }
