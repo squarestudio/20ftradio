@@ -39,6 +39,7 @@ Y.one('body').delegate('click', function (e) {
             Y.one('#mobileEvents .tab-2').simulate('click');
             Y.one('html').addClass('full-mode-active');
             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
+            Y.all('.mobile-nav-custom a[href*="/shows"]').addClass('active-link');
             e.currentTarget.addClass('active-link');
             if (Y.one('#mobile-events-past .sqs-layout')) {
                 Y.one('#mobile-events-past').empty();
