@@ -1087,17 +1087,17 @@ body {
 
 .mixcloud-footer-stopped, .mixcloud-footer-playing {
   body {
-    .mixcloud-footer-widget-container {
+    .mixcloud-footer-widget-container, #mixcloudInsert {
       transform: translateY(0);
       visibility: visible;
     }
     &.viewable, &.viewable-on-scroll {
-      .mixcloud-footer-widget-container {
+      .mixcloud-footer-widget-container, #mixcloudInsert {
         transform: translateY(-80px);
       }
     }
     #bottomBar {
-      .mixcloud-footer-widget-container {
+      .mixcloud-footer-widget-container, #mixcloudInsert {
         transform: translateY(0);
       }
     }
@@ -1324,8 +1324,8 @@ html {
       -webkit-backface-visibility: hidden;
     }
     .mixcloud-footer-widget-container {
-      transform: none!important;
-      transition: none!important;
+      transform: none !important;
+      transition: none !important;
     }
     &.mobile-share-active {
       .mobile-soc-icons {
@@ -1559,7 +1559,7 @@ html {
     }
     &.collection-layout-mobile-app {
       #container {
-        overflow: hidden!important;
+        overflow: hidden !important;
         -webkit-overflow-scrolling: auto;
       }
     }
