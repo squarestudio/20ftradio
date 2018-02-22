@@ -143,6 +143,10 @@
     <squarespace:script src="ProjectController.js" combo="false"/>
     <squarespace:script src="sha1.js" combo="false"/>
     <squarespace:script src="payment.js" combo="false"/>
+    <squarespace:script src="MobileCastController.js" combo="true"/>
+    <squarespace:script src="MobileEventsController.js" combo="true"/>
+    <squarespace:script src="general.js" combo="true"/>
+    <squarespace:script src="mobile-app.js" combo="true"/>
     <style>
         html {
             -ms-touch-action: manipulation;
