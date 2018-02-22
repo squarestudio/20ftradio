@@ -35,8 +35,9 @@ function loadShows() {
 Y.one('body').delegate('click', function (e) {
     e.halt();
     var url = e.currentTarget.getAttribute('href');
-    var eventTabsBorder = Y.one('#mobileEvents .tab-border');
     var mobileEvents = Y.one('#mobileEvents');
+    var eventTabsContainer = mobileEvents.one('.mobileEvents-wrapper');
+    var eventTabsBorder = mobileEvents.one('.tab-border');
     console.log(url, e.currentTarget.hasAttribute('data-dynamic-load'));
     if (url.indexOf('/shows') > -1) {
         if (mobileEvents.one('.tab-2')) {
@@ -59,6 +60,12 @@ Y.one('body').delegate('click', function (e) {
             mobileEvents.one('.tab-1').simulate('click');
             mobileEvents.one('.mobileEvents-Past').removeClass('active');
             mobileEvents.one('.mobileEvents-Upcoming').addClass('active');
+            eventTabsContainer.setStyles({
+                'transform': 'translate3d(0,0,0)'
+            });
+            eventTabsBorder.setStyles({
+                'transform': 'translate3d(0,0,0)'
+            });
             Y.one('html').addClass('full-mode-active');
             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
             Y.all('.mobile-nav-custom a[href*="/mobile-app"]').addClass('active-link');
