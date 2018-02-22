@@ -1316,6 +1316,32 @@ html {
     top: 0;
     padding: 0 !important;
     position: fixed;
+    .socialaccountlinks-v2-block {
+      position: absolute;
+      right: 10px;
+      z-index: 10000;
+      .transform-origin(right, top);
+      .transform(rotate(90deg) translateY(-150%));
+      line-height: 1;
+      margin: -@logoSize 0 0 0;
+      top: 100%;
+      padding: 0 !important;
+      //.scale(0, 0);
+      .transition(transform .2s ease-in-out);
+      //transform-origin: right;
+      .sqs-block-content {
+        background: @background;
+      }
+    }
+    .sqs-svg-icon--list {
+      text-align: center;
+      white-space: nowrap;
+      .sqs-svg-icon--wrapper {
+        margin: 12px;
+        .transform(rotate(-90deg));
+        .transform(-webkit-rotate(-90deg));
+      }
+    }
     #topBar {
       position: fixed !important;
       width: 100%;
