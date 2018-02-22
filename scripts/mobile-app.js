@@ -33,6 +33,45 @@ function loadShows() {
     })
 }
 
+function activateTab2() {
+    var mobileEvents = Y.one('#mobileEvents');
+    var eventTabsContainer = mobileEvents.one('.mobileEvents-wrapper');
+    var eventTabsBorder = mobileEvents.one('.tab-border');
+    mobileEvents.all('.tabs a').removeClass('active');
+    mobileEvents.one('.tab-2').addClass('active');
+    mobileEvents.one('.mobileEvents-Past').addClass('active');
+    mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
+    eventTabsContainer.setStyles({
+        'transform': 'translate3d(-50%,0,0)'
+    });
+    eventTabsBorder.setStyles({
+        'transform': 'translate3d(100%,0,0)'
+    });
+    Y.one('html').addClass('full-mode-active');
+    Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
+    Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
+    Y.one('body').removeClass('mobile-app-menu-active');
+}
+
+function activateTab1() {
+    var mobileEvents = Y.one('#mobileEvents');
+    var eventTabsContainer = mobileEvents.one('.mobileEvents-wrapper');
+    var eventTabsBorder = mobileEvents.one('.tab-border');
+    mobileEvents.all('.tabs a').removeClass('active');
+    mobileEvents.one('.tab-1').addClass('active');
+    mobileEvents.one('.mobileEvents-Past').removeClass('active');
+    mobileEvents.one('.mobileEvents-Upcoming').addClass('active');
+    eventTabsContainer.setStyles({
+        'transform': 'translate3d(0,0,0)'
+    });
+    eventTabsBorder.setStyles({
+        'transform': 'translate3d(0,0,0)'
+    });
+    Y.one('html').addClass('full-mode-active');
+    Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
+    Y.one('.mobile-nav-custom a[href*="/mobile-app"]').get('parentNode').addClass('active-link');
+    Y.one('body').removeClass('mobile-app-menu-active');
+};
 Y.one('body').delegate('click', function (e) {
     e.halt();
     var url = e.currentTarget.getAttribute('href');
@@ -40,38 +79,6 @@ Y.one('body').delegate('click', function (e) {
     var eventTabsContainer = mobileEvents.one('.mobileEvents-wrapper');
     var eventTabsBorder = mobileEvents.one('.tab-border');
     console.log(url, e.currentTarget.hasAttribute('data-dynamic-load'));
-    var activateTab2 = function () {
-        mobileEvents.all('.tabs a').removeClass('active');
-        mobileEvents.one('.tab-2').addClass('active');
-        mobileEvents.one('.mobileEvents-Past').addClass('active');
-        mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
-        eventTabsContainer.setStyles({
-            'transform': 'translate3d(-50%,0,0)'
-        });
-        eventTabsBorder.setStyles({
-            'transform': 'translate3d(100%,0,0)'
-        });
-        Y.one('html').addClass('full-mode-active');
-        Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
-        Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
-        Y.one('body').removeClass('mobile-app-menu-active');
-    };
-    var activateTab1 = function(){
-        mobileEvents.all('.tabs a').removeClass('active');
-        mobileEvents.one('.tab-1').addClass('active');
-        mobileEvents.one('.mobileEvents-Past').removeClass('active');
-        mobileEvents.one('.mobileEvents-Upcoming').addClass('active');
-        eventTabsContainer.setStyles({
-            'transform': 'translate3d(0,0,0)'
-        });
-        eventTabsBorder.setStyles({
-            'transform': 'translate3d(0,0,0)'
-        });
-        Y.one('html').addClass('full-mode-active');
-        Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
-        Y.one('.mobile-nav-custom a[href*="/mobile-app"]').get('parentNode').addClass('active-link');
-        Y.one('body').removeClass('mobile-app-menu-active');
-    };
     if (url.indexOf('/shows') > -1) {
         if (mobileEvents.one('.tab-2')) {
             activateTab2();
@@ -95,5 +102,7 @@ Y.one('body').delegate('click', function (e) {
 }, '[data-dynamic-load],a[href="/shows"],a[href*="/mobile-app"]');
 
 window.Squarespace.onInitialize(Y, function () {
+    if (window.activateShows) {
 
+    }
 });
