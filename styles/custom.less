@@ -1347,6 +1347,23 @@ html {
         .transform(-webkit-rotate(-90deg));
       }
     }
+    #mobile-navigation {
+      position: absolute;
+      width: 50%;
+      bottom: 60px;
+      background-color: #000 !important;
+      box-sizing: border-box;
+      left: 0;
+      padding: 0 16px 0 32px;
+      text-align: left;
+      transform-origin: bottom center;
+      .transition(transform .3s ease-in-out);
+      .transform(translateX(-100%));
+      will-change: transform;
+      ul {
+        display: block;
+      }
+    }
     #topBar {
       position: fixed !important;
       width: 100%;
@@ -1770,23 +1787,6 @@ html {
     }
     #bottomBar {
       max-height: none !important;
-    }
-    #mobile-navigation {
-      position: absolute;
-      width: 50%;
-      bottom: 60px;
-      background-color: #000 !important;
-      box-sizing: border-box;
-      left: 0;
-      padding: 0 16px 0 32px;
-      text-align: left;
-      transform-origin: bottom center;
-      .transition(transform .3s ease-in-out);
-      .transform(translateX(-100%));
-      will-change: transform;
-      ul {
-        display: block;
-      }
     }
     .sqs-svg-icon--list {
       a {
