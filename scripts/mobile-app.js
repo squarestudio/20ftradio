@@ -50,12 +50,12 @@ Y.one('body').delegate('click', function (e) {
         } else {
 
         }
-    } if (url.indexOf('/mobile-app') > -1) {
-        if (Y.one('#mobileEvents .tab-2')) {
-            Y.one('#mobileEvents .tab-2').simulate('click');
+    } else if (url.indexOf('/mobile-app') > -1) {
+        if (Y.one('#mobileEvents .tab-1')) {
+            Y.one('#mobileEvents .tab-1').simulate('click');
             Y.one('html').addClass('full-mode-active');
             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
-            Y.all('.mobile-nav-custom a[href*="/shows"]').addClass('active-link');
+            Y.all('.mobile-nav-custom a[href*="/mobile-app"]').addClass('active-link');
             e.currentTarget.addClass('active-link');
             if (Y.one('#mobile-events-past .sqs-layout')) {
                 Y.one('#mobile-events-past').empty();
