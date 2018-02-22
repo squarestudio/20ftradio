@@ -150,7 +150,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
 
         initialize: function () {
             this._setupNavigation();
-            this._setupBottomBar();
+            //this._setupBottomBar();
             this._setupPositioning();
 
             this.gridEl = Y.one('#grid');
