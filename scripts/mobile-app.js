@@ -3,6 +3,7 @@ function loadOneShow(url) {
         Y.io(url + '?format=main-content', {
             on: {
                 success: function (data, resp) {
+                    window.SQS.Lifecycle.destroy();
                     Y.one('#mobile-events-past').empty().append(resp.responseText);
                     window.SQS.Lifecycle.init();
                 }
