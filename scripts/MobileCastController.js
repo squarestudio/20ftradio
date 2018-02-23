@@ -780,16 +780,12 @@ window.Template.Controllers.MobileCastController = function (element) {
 
     function onPlayerReady(playerType, data) {
         if (playerType == 'youtube') {
-            youtubePlayer.mute();
-            setTimeout(function () {
-                youtubePlayer.playVideo();
-            }, 50);
-            setTimeout(function () {
-                youtubePlayer.canPlay = true;
-            }, 250);
+            youtubePlayer.setVolume(100);
+            !mobile && youtubePlayer.playVideo();
             youtubeReady = true;
+            activePlayer = 'youtube';
             pausePlayersExept('youtube');
-            if (!youtubeCheckInterval && !youtubeStatusLoad) {
+/*            if (!youtubeCheckInterval && !youtubeStatusLoad) {
                 youtubeCheckInterval = setInterval(function () {
                     if (!youtubeStatusFactor) {
                         getYoutubeStatus();
@@ -797,7 +793,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 }, 30000);
                 DEBUG && console.log('youtube check interval set');
                 getYoutubeStatus();
-            }
+            }*/
         }
         else if (playerType == 'facebook') {
             fbPlayer.setVolume(1);
