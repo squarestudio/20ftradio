@@ -293,7 +293,9 @@ window.Template.Controllers.CastController = function (element) {
         var videoButtonClick = function (e) {
             e.halt();
             castContainer.get('parentNode').toggleClass('visible');
-            initYoutubeStream();
+            if(!youtubePlayer){
+                initYoutubeStream();
+            }
             //pausePlayersExept('all');
         };
         sitePlayer.one('#videoButton').on('click', videoButtonClick);
