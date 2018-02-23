@@ -295,8 +295,9 @@ window.Template.Controllers.CastController = function (element) {
             castContainer.get('parentNode').toggleClass('visible');
             if(!youtubePlayer){
                 initYoutubeStream();
+            } else {
+                pausePlayersExept('all');
             }
-            //pausePlayersExept('all');
         };
         sitePlayer.one('#videoButton').on('click', videoButtonClick);
         sitePlayer.one('#playButton').on('click', playButtonClick);
