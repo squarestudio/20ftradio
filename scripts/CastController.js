@@ -296,7 +296,7 @@ window.Template.Controllers.CastController = function (element) {
             if(!youtubePlayer){
                 initYoutubeStream();
             } else {
-                pausePlayersExept('all');
+                pausePlayersExept('youtube');
             }
         };
         sitePlayer.one('#videoButton').on('click', videoButtonClick);
