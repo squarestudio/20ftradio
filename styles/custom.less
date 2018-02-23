@@ -1223,8 +1223,11 @@ html {
   }
   &.stream-visible {
     &.full-mode-active {
-      .stream-player {
-        opacity: 1;
+      #castDiv {
+        .stream-player {
+          opacity: 1;
+          pointer-events: auto;
+        }
       }
       #container {
         .transform(translateY(42%)) !important;
