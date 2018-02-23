@@ -584,38 +584,39 @@ window.Template.Controllers.MobileCastController = function (element) {
             DEBUG && console.log('ACTIVE PLAYER ==== ' + activePlayer);
         };
         if (!userPaused) {
-            if (shoutcastPlayer) {
-                state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
-                DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError, shoutcastStatus);
-                if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
-                    !mobile && shoutcastPlayer.play();
-                    activePlayer = 'shoutcast';
-                    pausePlayersExept('shoutcast');
-                    onPlayerStateChange('shoutcast');
-                    status();
-                    retry = maxRetry - 1;
-                    return;
-                } else {
-                    if (retry < maxRetry + 25) {
-                        DEBUG && console.log('try to load shoutcast');
-                        shoutcastPlayer.load();
+            if (activePlayer === 'youtube') {
+
+            } else {
+                if (shoutcastPlayer) {
+                    state = shoutcastPlayer.getPlayerState && shoutcastPlayer.getPlayerState();
+                    DEBUG && console.log(state, shoutcastPlayer.duration, shoutcastPlayer.duration.toString() == 'NaN', shoutcastPlayer.networkState, shoutcastPlayer.readyState, shoutcastPlayer.error, shoutcastPlayer.someError, shoutcastStatus);
+                    if (shoutcastPlayer.duration.toString() !== 'NaN' && shoutcastPlayer.networkState && shoutcastPlayer.networkState < 3 && shoutcastPlayer.networkState !== 1 || shoutcastStatus) {
+                        !mobile && shoutcastPlayer.play();
+                        activePlayer = 'shoutcast';
+                        pausePlayersExept('shoutcast');
+                        onPlayerStateChange('shoutcast');
+                        status();
+                        retry = maxRetry - 1;
+                        return;
                     } else {
-                        DEBUG && console.log('wait to load shoutcast');
-                        retry++;
+                        if (retry < maxRetry + 25) {
+                            DEBUG && console.log('try to load shoutcast');
+                            shoutcastPlayer.load();
+                        } else {
+                            DEBUG && console.log('wait to load shoutcast');
+                            retry++;
+                        }
                     }
                 }
-            }
-            else {
-                if (shoutCastUrl) {
-                    initShoutCast();
-                    status();
-                } else {
-                    notShoutcast = true;
-                    retry = maxRetry + 6;
+                else {
+                    if (shoutCastUrl) {
+                        initShoutCast();
+                        status();
+                    } else {
+                        notShoutcast = true;
+                        retry = maxRetry + 6;
+                    }
                 }
-            }
-            if (!Y.one('#navigator').hasClass('stream-found')) {
-                Y.one('.loading-overlay .line') && Y.one('.loading-overlay .line').setStyles({transform: 'scaleY(' + retry * 15 + ')'})
             }
         }
     }
@@ -786,15 +787,15 @@ window.Template.Controllers.MobileCastController = function (element) {
             activePlayer = 'youtube';
             youtubePlayer.canPlay = true;
             pausePlayersExept('youtube');
-/*            if (!youtubeCheckInterval && !youtubeStatusLoad) {
-                youtubeCheckInterval = setInterval(function () {
-                    if (!youtubeStatusFactor) {
-                        getYoutubeStatus();
-                    }
-                }, 30000);
-                DEBUG && console.log('youtube check interval set');
-                getYoutubeStatus();
-            }*/
+            /*            if (!youtubeCheckInterval && !youtubeStatusLoad) {
+                            youtubeCheckInterval = setInterval(function () {
+                                if (!youtubeStatusFactor) {
+                                    getYoutubeStatus();
+                                }
+                            }, 30000);
+                            DEBUG && console.log('youtube check interval set');
+                            getYoutubeStatus();
+                        }*/
         }
         else if (playerType == 'facebook') {
             fbPlayer.setVolume(1);
@@ -1107,7 +1108,7 @@ window.Template.Controllers.MobileCastController = function (element) {
     }
 
     function isAndroid() {
-        return Y.UA.mobile&&Y.UA.mobile.indexOf('droid') > -1 || window.device && window.device.platform.indexOf('droid') > -1;
+        return Y.UA.mobile && Y.UA.mobile.indexOf('droid') > -1 || window.device && window.device.platform.indexOf('droid') > -1;
     }
 
     function setLocalNotification(text) {
