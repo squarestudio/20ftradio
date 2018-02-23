@@ -190,7 +190,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         var volumeControl = sitePlayer.one('#volControl');
         var playButtonClick = function (e) {
             e.halt && e.halt();
-            console.log(activePlayer);
+            console.log(activePlayer, youtubePlayer);
             if (!activePlayer) return;
             var state = null;
             if (activePlayer == 'youtube') {
