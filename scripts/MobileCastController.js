@@ -301,7 +301,9 @@ window.Template.Controllers.MobileCastController = function (element) {
         var videoButtonClick = function (e) {
             e.halt();
             Y.one('html').toggleClass('stream-visible');
-            initYoutubeStream();
+            if(!youtubePlayer){
+                initYoutubeStream();
+            }
             //pausePlayersExept('all');
         };
         sitePlayer.one('#videoButton').on('click', videoButtonClick);
