@@ -20,20 +20,23 @@ function loadOneShow(url) {
 }
 
 function loadShows() {
+    var append = function (content) {
+        Y.one('#mobile-events-past').append(content);
+        if (Y.one('#grid')) {
+            Site.gridEl = Y.one('#grid');
+            Y.all('#grid img').each(function (img) {
+                ImageLoader.load(img, {load: true, fit: true})
+            });
+            Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
+        }
+    }
     Y.io('https://www.20ftradio.net/shows?format=main-content', {
         on: {
             success: function (data, resp) {
-                Y.one('#mobile-events-past').append(resp.responseText);
-                if (Y.one('#grid')) {
-                    Site.gridEl = Y.one('#grid');
-                    Y.all('#grid img').each(function (img) {
-                        ImageLoader.load(img, {load: true, fit: true})
-                    });
-                    Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
-                    setTimeout(function () {
-                        window.SHOWS_CONTENT = Y.one('#mobile-events-past').getContent();
-                    }, 300)
-                }
+                append(resp.responseText);
+                setTimeout(function () {
+                    window.SHOWS_CONTENT = Y.one('#mobile-events-past').getContent();
+                }, 300)
             }
         }
     })
