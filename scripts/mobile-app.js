@@ -1,5 +1,6 @@
 function loadOneShow(url) {
     if (Y.one('#mobile-events-past')) {
+        var slugified_url = slugify(url);
         Y.io(url + '?format=main-content', {
             on: {
                 success: function (data, resp) {
@@ -12,7 +13,7 @@ function loadOneShow(url) {
                         Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
                         Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
                         Y.one('body').removeClass('mobile-app-menu-active');
-                        window.SHOWS[u]
+                        window.SHOWS[slugify(url)]
                     }, 400);
                 }
             }
