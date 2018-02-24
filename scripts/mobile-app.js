@@ -30,6 +30,9 @@ function loadShows() {
                         ImageLoader.load(img, {load: true, fit: true})
                     });
                     Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
+                    setTimeout(function () {
+                        window.SHOWS_CONTENT = Y.one('#mobile-events-past').getContent();
+                    }, 300)
                 }
             }
         }
