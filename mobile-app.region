@@ -188,8 +188,7 @@
             {.end}
         </squarespace:query>
         <section id="container">
-            <div class="content-loader">
-            </div>
+            <div class="content-loader"></div>
             <div id="container-content" class="clear" data-content-field="main-content" role="main">
                 <div id="controller" class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
                     {.equal? collection.urlId "mobile-app"}
