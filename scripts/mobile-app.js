@@ -19,7 +19,7 @@ function loadOneShow(url) {
         };
         var slugified_url = slugify(url);
         if(window.SHOWS[slugified_url]){
-
+            append(window.SHOWS[slugified_url]);
         } else {
             Y.io(url + '?format=main-content', {
                 on: {
