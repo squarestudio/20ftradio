@@ -1,3 +1,12 @@
+function slugify(text) {
+    return text.toString().toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\-]+/g, '')
+        .replace(/\-\-+/g, '-')
+        .replace(/\//g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '');
+}
 function loadOneShow(url) {
     if (Y.one('#mobile-events-past')) {
         var slugified_url = slugify(url);
@@ -13,7 +22,7 @@ function loadOneShow(url) {
                         Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
                         Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
                         Y.one('body').removeClass('mobile-app-menu-active');
-                        window.SHOWS[slugify(url)]
+                        window.SHOWS[slugified_url] = Y.one('#mobile-events-past').getContent();
                     }, 400);
                 }
             }
