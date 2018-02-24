@@ -24,7 +24,7 @@ function loadOneShow(url) {
             Y.io(url + '?format=main-content', {
                 on: {
                     success: function (data, resp) {
-
+                        append(resp.responseText);
                         setTimeout(function () {
                             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
                             Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
