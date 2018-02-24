@@ -209,7 +209,10 @@ window.Template.Controllers.MobileEventsController = function (element) {
                         Site.gridEl = Y.one('#grid');
                         Y.all('#grid img').each(function (img) {
                             ImageLoader.load(img, {load: true, fit: true})
-                        })
+                        });
+                        setTimeout(function () {
+                            window.SHOWS_CONTENT = Y.one('#mobile-events-past').getContent();
+                        }, 300)
                     }
                 }
             }
