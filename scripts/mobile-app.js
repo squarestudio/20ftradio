@@ -10,6 +10,13 @@ function slugify(text) {
 }
 function loadOneShow(url) {
     if (Y.one('#mobile-events-past')) {
+        var append = function (content) {
+            window.SQS.Lifecycle.destroy();
+            Y.one('#mobile-events-past').empty();
+            Y.one('#mobile-events-past')._node.scrollTo(0, 0);
+            Y.one('#mobile-events-past').append(content);
+            window.SQS.Lifecycle.init();
+        }
         var slugified_url = slugify(url);
         if(window.SHOWS[slugified_url]){
 
@@ -17,11 +24,7 @@ function loadOneShow(url) {
             Y.io(url + '?format=main-content', {
                 on: {
                     success: function (data, resp) {
-                        window.SQS.Lifecycle.destroy();
-                        Y.one('#mobile-events-past').empty();
-                        Y.one('#mobile-events-past')._node.scrollTo(0, 0);
-                        Y.one('#mobile-events-past').append(resp.responseText);
-                        window.SQS.Lifecycle.init();
+
                         setTimeout(function () {
                             Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
                             Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
