@@ -16,7 +16,7 @@ function loadOneShow(url) {
             Y.one('#mobile-events-past')._node.scrollTo(0, 0);
             Y.one('#mobile-events-past').append(content);
             window.SQS.Lifecycle.init();
-        }
+        };
         var slugified_url = slugify(url);
         if(window.SHOWS[slugified_url]){
 
