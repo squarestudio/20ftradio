@@ -43,29 +43,31 @@ window.Template.Controllers.MobileEventsController = function (element) {
             }
             eventTabsLists.removeClass('active');
             Y.one(id).addClass('active');
-            if(Y.one(id+ ' #grid')){
+            if (Y.one(id + ' #grid')) {
                 setTimeout(function () {
-                    Y.all(id+'img').each(function(img){ImageLoader.load(img,{load:true, fit:true})})
+                    Y.all(id + 'img').each(function (img) {
+                        ImageLoader.load(img, {load: true, fit: true})
+                    })
                 }, 500)
             }
             mobileEvents.getDOMNode().className = id.replace('#', 'tab-');
-/*            setTimeout(function () {
-                Y.one('body').removeClass('mobile-app-menu-active');
-            }, 400);*/
+            /*            setTimeout(function () {
+                            Y.one('body').removeClass('mobile-app-menu-active');
+                        }, 400);*/
         });
-/*        scrollEvent = Y.one(window).on('scroll', function () {
-            if (window.pageYOffset + 100 > mobileEvents.getY()) {
-                mobileEvents.addClass('overflow-auto');
-            } else {
-                mobileEvents.removeClass('overflow-auto');
-            }
-        });*/
+        /*        scrollEvent = Y.one(window).on('scroll', function () {
+                    if (window.pageYOffset + 100 > mobileEvents.getY()) {
+                        mobileEvents.addClass('overflow-auto');
+                    } else {
+                        mobileEvents.removeClass('overflow-auto');
+                    }
+                });*/
         mobileEvents.one('.content-loader').removeAttribute('style');
     }
 
     function createEvent(e) {
         e.halt();
-        if(e.currentTarget.hasClass('event-on-air')||!window.plugins||!window.plugins.calendar) return false;
+        if (e.currentTarget.hasClass('event-on-air') || !window.plugins || !window.plugins.calendar) return false;
         var parent = e.currentTarget.ancestor('.event-item');
         var title = parent.getAttribute('data-title') || "Listen 20FTRadio";
         var eventLocation = parent.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
@@ -128,7 +130,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         if (scheduleEvents.size()) {
             var startDate = new Date(parseInt(scheduleEvents.item(0).getAttribute('data-start-date')));
             var endDate = new Date(parseInt(scheduleEvents.item(scheduleEvents._nodes.length - 1).getAttribute('data-end-date')));
-            window.plugins&&window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, startDate, endDate, function (data) {
+            window.plugins && window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, startDate, endDate, function (data) {
                 if (data.length) {
                     data.forEach(function (event) {
                         scheduleEvents.each(function (e) {
@@ -205,12 +207,15 @@ window.Template.Controllers.MobileEventsController = function (element) {
                     Y.one('#mobile-events-past').append(resp.responseText);
                     if (Y.one('#grid')) {
                         Site.gridEl = Y.one('#grid');
-                        Y.all('#grid img').each(function(img){ImageLoader.load(img,{load:true, fit:true})})
+                        Y.all('#grid img').each(function (img) {
+                            ImageLoader.load(img, {load: true, fit: true})
+                        })
                     }
                 }
             }
         })
     }
+
     initialize();
 
     return {
