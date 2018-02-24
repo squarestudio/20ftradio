@@ -5,7 +5,7 @@ function loadOneShow(url) {
                 success: function (data, resp) {
                     window.SQS.Lifecycle.destroy();
                     Y.one('#mobile-events-past').empty();
-                    Y.one('#mobile-events-past')._node.scrollTo(0,0);
+                    Y.one('#mobile-events-past')._node.scrollTo(0, 0);
                     Y.one('#mobile-events-past').append(resp.responseText);
                     window.SQS.Lifecycle.init();
                     setTimeout(function () {
@@ -29,17 +29,21 @@ function loadShows() {
             });
             Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
         }
-    }
-    Y.io('https://www.20ftradio.net/shows?format=main-content', {
-        on: {
-            success: function (data, resp) {
-                append(resp.responseText);
-                setTimeout(function () {
-                    window.SHOWS_CONTENT = Y.one('#mobile-events-past').getContent();
-                }, 300)
+    };
+    if (window.SHOWS_CONTENT) {
+        append(window.SHOWS_CONTENT);
+    } else {
+        Y.io('https://www.20ftradio.net/shows?format=main-content', {
+            on: {
+                success: function (data, resp) {
+                    append(resp.responseText);
+                    setTimeout(function () {
+                        window.SHOWS_CONTENT = Y.one('#mobile-events-past').getContent();
+                    }, 300)
+                }
             }
-        }
-    })
+        })
+    }
 }
 
 function activateTab2() {
