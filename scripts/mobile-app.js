@@ -12,6 +12,7 @@ function loadOneShow(url) {
                         Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
                         Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
                         Y.one('body').removeClass('mobile-app-menu-active');
+                        window.SHOWS[u]
                     }, 400);
                 }
             }
