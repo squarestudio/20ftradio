@@ -117,7 +117,7 @@ Y.one('body').delegate('click', function (e) {
         if (mobileEvents.one('.tab-2')) {
             activateTab2();
             if (Y.one('#mobile-events-past .sqs-layout')) {
-                Y.one('#mobile-events-past').empty();
+                Y.one('#mobile-events-past').empty().append('<div class="content-loader"></div>');
                 loadShows();
             }
         } else {
@@ -131,6 +131,7 @@ Y.one('body').delegate('click', function (e) {
         }
     }
     else if (e.currentTarget.hasAttribute('data-dynamic-load')) {
+        Y.one('#mobile-events-past').empty().append('<div class="content-loader"></div>');
         loadOneShow('https://www.20ftradio.net' + url);
     }
 }, '[data-dynamic-load],a[href="/shows"],a[href*="/mobile-app"]');
