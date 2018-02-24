@@ -1,3 +1,4 @@
+window.SHOWS = {};
 function slugify(text) {
     return text.toString().toLowerCase()
         .replace(/\s+/g, '-')
@@ -10,23 +11,27 @@ function slugify(text) {
 function loadOneShow(url) {
     if (Y.one('#mobile-events-past')) {
         var slugified_url = slugify(url);
-        Y.io(url + '?format=main-content', {
-            on: {
-                success: function (data, resp) {
-                    window.SQS.Lifecycle.destroy();
-                    Y.one('#mobile-events-past').empty();
-                    Y.one('#mobile-events-past')._node.scrollTo(0, 0);
-                    Y.one('#mobile-events-past').append(resp.responseText);
-                    window.SQS.Lifecycle.init();
-                    setTimeout(function () {
-                        Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
-                        Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
-                        Y.one('body').removeClass('mobile-app-menu-active');
-                        window.SHOWS[slugified_url] = Y.one('#mobile-events-past').getContent();
-                    }, 400);
+        if(window.SHOWS[slugified_url]){
+
+        } else {
+            Y.io(url + '?format=main-content', {
+                on: {
+                    success: function (data, resp) {
+                        window.SQS.Lifecycle.destroy();
+                        Y.one('#mobile-events-past').empty();
+                        Y.one('#mobile-events-past')._node.scrollTo(0, 0);
+                        Y.one('#mobile-events-past').append(resp.responseText);
+                        window.SQS.Lifecycle.init();
+                        setTimeout(function () {
+                            Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
+                            Y.one('.mobile-nav-custom a[href*="/shows"]').get('parentNode').addClass('active-link');
+                            Y.one('body').removeClass('mobile-app-menu-active');
+                            window.SHOWS[slugified_url] = Y.one('#mobile-events-past').getContent();
+                        }, 400);
+                    }
                 }
-            }
-        })
+            })
+        }
     }
 }
 
