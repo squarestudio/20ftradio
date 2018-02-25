@@ -13,8 +13,8 @@ function loadOneShow(url) {
         var append = function (content) {
             window.SQS.Lifecycle.destroy();
             Y.one('#mobile-events-past').addClass('loaded').empty();
-            Y.one('#mobile-events-past')._node.scrollTo(0, 0);
             Y.one('#mobile-events-past').append(content);
+            Y.one('#mobile-events-past')._node.scrollTo(0, 0);
             window.SQS.Lifecycle.init();
         };
         var slugified_url = slugify(url);
