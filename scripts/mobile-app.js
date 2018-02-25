@@ -131,7 +131,7 @@ Y.one('body').delegate('click', function (e) {
         }
     }
     else if (e.currentTarget.hasAttribute('data-dynamic-load')) {
-        Y.one('#mobile-events-past').empty().append('<div class="content-loader"></div>');
+        Y.one('#mobile-events-past').empty().append('<div class="content-loader"></div>').removeClass('loaded');
         loadOneShow('https://www.20ftradio.net' + url);
     }
 }, '[data-dynamic-load],a[href="/shows"],a[href*="/mobile-app"]');
