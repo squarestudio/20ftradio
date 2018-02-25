@@ -175,7 +175,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                     on: {
                         success: function (data, resp) {
                             if (resp.responseText) {
-                                Y.one('#mobile-events-upcoming').empty().prepend(resp.responseText);
+                                Y.one('#mobile-events-upcoming').addClass('loaded').empty().prepend(resp.responseText);
                                 Y.fire('getCurrentEvent');
                                 localizeAndBuildDates && localizeAndBuildDates();
                                 checkScheduledEvents();
@@ -204,7 +204,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
         Y.io('https://www.20ftradio.net/shows?format=main-content', {
             on: {
                 success: function (data, resp) {
-                    Y.one('#mobile-events-past').append(resp.responseText);
+                    Y.one('#mobile-events-past').addClass('loaded').empty().append(resp.responseText);
                     if (Y.one('#grid')) {
                         Site.gridEl = Y.one('#grid');
                         Y.all('#grid img').each(function (img) {
