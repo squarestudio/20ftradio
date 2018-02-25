@@ -117,7 +117,7 @@ Y.one('body').delegate('click', function (e) {
         if (mobileEvents.one('.tab-2')) {
             activateTab2();
             if (Y.one('#mobile-events-past .sqs-layout')) {
-                Y.one('#mobile-events-past').empty().append('<div class="content-loader"></div>');
+                Y.one('#mobile-events-past').empty().append('<div class="content-loader"></div>').addClass('loaded');
                 loadShows();
             }
         } else {
