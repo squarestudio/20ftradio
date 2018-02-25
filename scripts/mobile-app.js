@@ -40,7 +40,7 @@ function loadOneShow(url) {
 
 function loadShows() {
     var append = function (content) {
-        Y.one('.mobileEvents-wrapper')._node.scrollTo(0, 0);
+        Y.one('.mobileEvents-wrapper')&&Y.one('.mobileEvents-wrapper')._node.scrollTo(0, 0);
         Y.one('#mobile-events-past').append(content).addClass('loaded');
         if (Y.one('#grid')) {
             Site.gridEl = Y.one('#grid');
@@ -67,6 +67,7 @@ function loadShows() {
 }
 
 function activateTab2() {
+    Y.one('.mobileEvents-wrapper')&&Y.one('.mobileEvents-wrapper')._node.scrollTo(0, 0);
     var mobileEvents = Y.one('#mobileEvents');
     var eventTabsContainer = mobileEvents.one('.mobileEvents-wrapper');
     var eventTabsBorder = mobileEvents.one('.tab-border');
