@@ -1964,6 +1964,11 @@ html {
       min-height: 1px;
       max-height: 1px;
       opacity: 0;
+      &:not(.loaded){
+        .content-loader {
+          display: block;
+        }
+      }
       &.active {
         max-height: none;
         opacity: 1;
