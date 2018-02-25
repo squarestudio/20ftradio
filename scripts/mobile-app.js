@@ -40,7 +40,7 @@ function loadOneShow(url) {
 
 function loadShows() {
     var append = function (content) {
-        Y.one('#mobile-events-past').append(content).removeClass('loaded');
+        Y.one('#mobile-events-past').append(content).addClass('loaded');
         if (Y.one('#grid')) {
             Site.gridEl = Y.one('#grid');
             Y.all('#grid img').each(function (img) {
