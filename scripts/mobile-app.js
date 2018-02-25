@@ -40,6 +40,7 @@ function loadOneShow(url) {
 
 function loadShows() {
     var append = function (content) {
+        Y.one('.mobileEvents-wrapper')._node.scrollTo(0, 0);
         Y.one('#mobile-events-past').append(content).addClass('loaded');
         if (Y.one('#grid')) {
             Site.gridEl = Y.one('#grid');
