@@ -12,7 +12,7 @@ function loadOneShow(url) {
     if (Y.one('#mobile-events-past')) {
         var append = function (content) {
             window.SQS.Lifecycle.destroy();
-            Y.one('#mobile-events-past').empty();
+            Y.one('#mobile-events-past').addClass('loaded').empty();
             Y.one('#mobile-events-past')._node.scrollTo(0, 0);
             Y.one('#mobile-events-past').append(content);
             window.SQS.Lifecycle.init();
