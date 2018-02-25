@@ -198,15 +198,15 @@
                             <a href="#mobile-events-past" class="tab-2">Shows</a>
                             <div class="tab-border"></div>
                         </div>
-                        <div class="content-loader" style="display:block;">
-
-                        </div>
                         <div class="mobileEvents-wrapper">
                             <div class="mobileEvents-container">
                                 <ul id="mobile-events-upcoming" class="mobileEvents mobileEvents-Upcoming active" style="opacity: 0">
+                                    <div class="content-loader"></div>
                                     <p class="no-shows-message">No Upcoming Shows</p>
                                 </ul>
-                                <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past"></ul>
+                                <ul id="mobile-events-past" class="mobileEvents mobileEvents-Past">
+                                    <div class="content-loader"></div>
+                                </ul>
                             </div>
                         </div>
                     </div>
