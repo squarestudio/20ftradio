@@ -74,18 +74,18 @@ function initMixCloudFooter() {
         mixCloudFooterPlayer.then(function (widget) {
             mixCloudFooterPlayer = widget;
             mixCloudFooterPlayer.events.play.on(function () {
-                html.addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
+                Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.fire('mixcloud:play');
             });
             mixCloudFooterPlayer.events.pause.on(function () {
-                html.removeClass('mixcloud-footer-playing');
-                if (!html.one('#castDiv').hasClass('playing')) {
-                    html.addClass('mixcloud-footer-stopped');
+                Y.one('html').removeClass('mixcloud-footer-playing');
+                if (!Y.one('html').one('#castDiv').hasClass('playing')) {
+                    Y.one('html').addClass('mixcloud-footer-stopped');
                 }
                 Y.fire('mixcloud:pause');
             });
             mixCloudFooterPlayer.events.ended.on(function () {
-                html.removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
+                Y.one('html').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
                 Y.fire('mixcloud:ended');
             });
