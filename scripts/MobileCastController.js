@@ -372,6 +372,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                         break;
                     case 'music-controls-play':
                         userClickPlay = true;
+                        console.log(activePlayer, 'PLAY')
                         if (activePlayer) {
                             if (players[activePlayer].playVideo) {
                                 players[activePlayer].playVideo()
