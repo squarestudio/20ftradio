@@ -189,7 +189,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
         var playButtonClick = function (e) {
-            e.halt && e.halt();
+            e && e.halt && e.halt();
             console.log(activePlayer, youtubePlayer);
             if (!activePlayer) return;
             var state = null;
@@ -301,7 +301,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         var videoButtonClick = function (e) {
             e.halt();
             Y.one('html').toggleClass('stream-visible');
-            if(!youtubePlayer){
+            if (!youtubePlayer) {
                 initYoutubeStream();
             } else {
                 pausePlayersExept('youtube');
