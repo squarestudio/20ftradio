@@ -1391,14 +1391,15 @@ html {
       position: absolute;
       right: 10px;
       bottom: 0;
-      z-index: 10000;
+      z-index: 11000;
+      opacity: 0;
       .transform-origin(right, top);
       .transform(rotate(90deg) translateY(-98%));
       line-height: 1;
       padding: 0 !important;
       margin: 0 !important;
       //.scale(0, 0);
-      .transition(transform .2s ease-in-out);
+      .transition(all .2s ease-in-out);
       //transform-origin: right;
       .sqs-block-content {
         background: @background;
@@ -1424,9 +1425,11 @@ html {
       padding: 0 16px 0 32px;
       text-align: left;
       transform-origin: bottom center;
-      .transition(transform .3s ease-in-out);
+      .transition(all .3s ease-in-out);
       .transform(translateX(-98%));
-      will-change: transform;
+      will-change: transform, opacity;
+      opacity: 0;
+      z-index: 11000;
       ul {
         display: block;
       }
