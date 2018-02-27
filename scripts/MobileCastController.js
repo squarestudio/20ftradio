@@ -364,6 +364,7 @@ window.Template.Controllers.MobileCastController = function (element) {
 
         function initMusicControls() {
             function events(action) {
+                console.log(action);
                 switch (action) {
                     case 'music-controls-pause':
                         if (activePlayer) {
@@ -372,7 +373,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                         break;
                     case 'music-controls-play':
                         userClickPlay = true;
-                        console.log(activePlayer, 'PLAY')
+                        console.log(activePlayer, 'PLAY');
                         if (activePlayer) {
                             if (players[activePlayer].playVideo) {
                                 players[activePlayer].playVideo()
