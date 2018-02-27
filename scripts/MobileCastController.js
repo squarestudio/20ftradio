@@ -1145,7 +1145,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 dismissable: false,
                 hasPrev: false,
                 hasNext: false,
-                hasClose: true
+                hasClose: false
                 // iOS only, optional
                 //album: 'Absolution',
                 //duration: 60,
