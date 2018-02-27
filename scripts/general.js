@@ -79,7 +79,7 @@ function initMixCloudFooter() {
             });
             mixCloudFooterPlayer.events.pause.on(function () {
                 Y.one('html').removeClass('mixcloud-footer-playing');
-                if (!Y.one('html').one('#castDiv').hasClass('playing')) {
+                if (!Y.one('#castDiv').hasClass('playing')) {
                     Y.one('html').addClass('mixcloud-footer-stopped');
                 }
                 Y.fire('mixcloud:pause');
@@ -178,6 +178,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
                     Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 } else {
                     Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
+                    Y.one('html').removeClass('mixcloud-footer-playing');
                     mixCloudFooterPlayer && mixCloudFooterPlayer.pause && mixCloudFooterPlayer.pause();
                 }
             }, '.mixcloud-butt');
