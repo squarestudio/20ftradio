@@ -365,6 +365,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         function initMusicControls() {
             function events(action) {
                 console.log(action);
+                action = JSON.parse(action).message;
                 switch (action) {
                     case 'music-controls-pause':
                         if (activePlayer) {
