@@ -401,6 +401,7 @@ window.Template.Controllers.MobileCastController = function (element) {
 
         initMusicControls();
         setMusicMeta(trackName.get('text'), false);
+        MusicControls.updateIsPlaying(true);
     }
 
     function handlePause() {
