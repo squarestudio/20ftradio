@@ -756,19 +756,19 @@ window.Template.Controllers.MobileCastController = function (element) {
             var onprogress = function () {
                 var buffered = shoutcastPlayer.buffered.end(0) || 0;
                 var played = shoutcastPlayer.played.end(0) || 0;
-                console.log(loadingTimeout,Y.one('html').hasClass('data-playing'))
+                console.log(loadingTimeout, Y.one('html').hasClass('data-playing'))
                 if (currPlayed < played && played < buffered && currBuff < buffered) {
-                        if(loadingTimeout){
-                            window.clearTimeout(loadingTimeout);
-                            loadingTimeout = null;
-                        }
+                    if (loadingTimeout) {
+                        window.clearTimeout(loadingTimeout);
+                        loadingTimeout = null;
+                    }
                 } else {
-                    if(!loadingTimeout){
+                    if (!loadingTimeout) {
                         console.log('Set loading TIMEOUT');
                         loadingTimeout = setTimeout(function (e) {
                             var st = shoutcastPlayer.paused;
                             shoutcastPlayer.load();
-                            if(!st&&!userPaused){
+                            if (!st && !userPaused) {
                                 shoutcastPlayer.play();
                             }
                             window.clearTimeout(loadingTimeout);
