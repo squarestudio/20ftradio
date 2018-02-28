@@ -757,7 +757,9 @@ window.Template.Controllers.MobileCastController = function (element) {
                 var buffered = shoutcastPlayer.buffered.end(0) || 0;
                 var played = shoutcastPlayer.played.end(0) || 0;
                 if (currPlayed < played && played < buffered && currBuff < buffered) {
-
+                        if(loadingTimeout){
+                            window.clearTimeout(loadingTimeout);
+                        }
                 } else {
                     if(!loadingTimeout){
                         console.log('Set loading TIMEOUT');
