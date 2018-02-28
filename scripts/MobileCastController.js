@@ -370,7 +370,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 console.log(action);
                 switch (action) {
                     case 'music-controls-pause':
-                        //pausePlayersExept('all');
+                        pausePlayersExept('all');
                         mobilePlayButton.simulate('click');
                         break;
                     case 'music-controls-play':
