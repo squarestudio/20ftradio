@@ -1142,7 +1142,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         var cover = isAndroid() ? 'https://www.20ftradio.net/assets/x-icon.png' : 'https://www.20ftradio.net/assets/icon.png';
         if (window.MusicControls) {
             if(currentTrack === track){
-                
+                MusicControls.updateIsPlaying(play);
             } else {
                 window.MusicControls.create({
                     track: track || '',
