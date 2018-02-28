@@ -752,6 +752,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             shoutcastPlayer.addEventListener('emptied', onShoutCastError);
             var currPlayed = shoutcastPlayer.played.end(0) || 0;
             var currBuff = shoutcastPlayer.buffered.end(0) || 0;
+            var loadingTimeout;
             var onprogress = function () {
                 var buffered = shoutcastPlayer.buffered.end(0) || 0;
                 var played = shoutcastPlayer.played.end(0) || 0;
@@ -761,6 +762,12 @@ window.Template.Controllers.MobileCastController = function (element) {
                     //console.log('NOT PLAYING');
                     html.classList.remove('data-playing');
                     html.classList.add('data-loading');
+                    if(!loadingTimeout){
+                        console.log('Set loading TIMEOUT');
+                        loadingTimeout = setTimeout(function (e) {
+                            
+                        })
+                    }
                 }
                 currPlayed = played;
                 currBuff = buffered;
