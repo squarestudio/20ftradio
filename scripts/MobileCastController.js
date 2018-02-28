@@ -1148,7 +1148,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     track: track || '',
                     artist: '20ft Radio',
                     cover: cover,
-                    isPlaying: play,
+                    //isPlaying: play,
                     dismissable: false,
                     hasPrev: false,
                     hasNext: false,
