@@ -158,7 +158,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         };
         HTMLMediaElement.prototype.pauseVideo = function () {
             this.pause();
-            console.log(this, 'PAUSED')
+            //console.log(this, 'PAUSED')
         };
         HTMLMediaElement.prototype.setVolume = function (volume) {
             this.volume = volume / 100;
