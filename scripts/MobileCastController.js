@@ -781,6 +781,7 @@ window.Template.Controllers.MobileCastController = function (element) {
             shoutcastPlayer.addEventListener('progress', onprogress, false);
             players['shoutcast'] = shoutcastPlayer;
             setMusicMeta(trackName.get('text'), Y.one('html').hasClass('data-playing'));
+            console.log('SET MUSIC META');
         } else {
             DEBUG && console.log('no shoutcast url to start');
             notShoutcast = true;
