@@ -376,6 +376,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                         break;
                     case 'music-controls-play':
                         userPaused = false;
+                        userClickPlay = true;
                         mobilePlayButton.simulate('click');
                         break;
                     case 'music-controls-destroy':
