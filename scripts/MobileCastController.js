@@ -750,6 +750,23 @@ window.Template.Controllers.MobileCastController = function (element) {
             shoutcastPlayer.addEventListener('stalled', onShoutCastError);
             shoutcastPlayer.addEventListener('suspend', onShoutCastError);
             shoutcastPlayer.addEventListener('emptied', onShoutCastError);
+            var error
+            var onprogress = function () {
+                html = document.querySelector('html');
+                var buffered = shoutcastPlayer.buffered.end(0)||0;
+                var played = shoutcastPlayer.played.end(0)||0;
+                //console.log('PROGRESS: ',currBuff, buffered, played);
+                if(currPlayed < played && played < buffered && currBuff<buffered){
+
+                } else {
+                    //console.log('NOT PLAYING');
+                    html.classList.remove('data-playing');
+                    html.classList.add('data-loading');
+                }
+                currPlayed = played;
+                currBuff = buffered;
+            }
+            shoutcastPlayer.addEventListener('progress', onprogress, false);
             players['shoutcast'] = shoutcastPlayer;
         } else {
             DEBUG && console.log('no shoutcast url to start');
