@@ -958,9 +958,10 @@ window.Template.Controllers.MobileCastController = function (element) {
                 setPaused();
             }
             if (state) {
+                setMusicMeta(trackName.get('text'), state == 'play');
                 setTimeout(function () {
                     if (userClickPlay) {
-                        setMusicMeta(trackName.get('text'), state == 'play');
+
                     }
                 }, 40)
             }
