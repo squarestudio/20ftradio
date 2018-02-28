@@ -759,14 +759,16 @@ window.Template.Controllers.MobileCastController = function (element) {
                 if (currPlayed < played && played < buffered && currBuff < buffered) {
 
                 } else {
-                    //console.log('NOT PLAYING');
-                    html.classList.remove('data-playing');
-                    html.classList.add('data-loading');
                     if(!loadingTimeout){
                         console.log('Set loading TIMEOUT');
                         loadingTimeout = setTimeout(function (e) {
-                            
-                        })
+                            var st = shoutcastPlayer.paused;
+                            shoutcastPlayer.load();
+                            if(!st&&!userPaused){
+                                shoutcastPlayer.play();
+                            }
+                            window.clearTimeout(loadingTimeout);
+                        }, 2000)
                     }
                 }
                 currPlayed = played;
