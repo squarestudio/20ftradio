@@ -770,7 +770,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                                 shoutcastPlayer.play();
                             }
                             window.clearTimeout(loadingTimeout);
-                        }, 2000)
+                        }, 20000)
                     }
                 }
                 currPlayed = played;
