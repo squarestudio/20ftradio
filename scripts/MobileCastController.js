@@ -43,6 +43,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         eventStatusInterval,
         currentEvents,
         liveIndicator,
+        MUSContrl,
         castContainer = Y.one('#castDiv');
     var DEBUG = false;
     var youtubeStatusFactor = false, shoutcastStatusFactor = false;
