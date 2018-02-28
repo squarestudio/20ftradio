@@ -760,6 +760,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                 if (currPlayed < played && played < buffered && currBuff < buffered) {
                         if(loadingTimeout){
                             window.clearTimeout(loadingTimeout);
+                            loadingTimeout = null;
                         }
                 } else {
                     if(!loadingTimeout){
