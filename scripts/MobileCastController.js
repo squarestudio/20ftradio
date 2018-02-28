@@ -1142,7 +1142,7 @@ window.Template.Controllers.MobileCastController = function (element) {
         var cover = isAndroid() ? 'https://www.20ftradio.net/assets/x-icon.png' : 'https://www.20ftradio.net/assets/icon.png';
         if (window.MusicControls) {
             if (currentTrack !== track) {
-                window.MusicControls.create({
+                /*window.MusicControls.create({
                     track: track || '',
                     artist: '20ft Radio',
                     cover: cover,
@@ -1155,7 +1155,7 @@ window.Template.Controllers.MobileCastController = function (element) {
                     //album: 'Absolution',
                     //duration: 60,
                     //elapsed: 10,
-                });
+                });*/
             }
             currentTrack = track;
         }
