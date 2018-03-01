@@ -621,13 +621,15 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
             if (new_schedule.one('.date-container')) {
                 new_schedule.all('.date-container').each(function (date_container) {
                     var date_attr = date_container.getAttribute('data-date-attr');
+                    existing_dates.push(date_attr);
+                    if (new_schedule.one('.' + date_attr)) {
+                        date_container.one('.items-container').append(new_schedule.all('.' + date_attr))
+                    }
+                });
+                new_schedule.all('.date-container').each(function (date_container) {
+                    var date_attr = date_container.getAttribute('data-date-attr');
                     if (existing_dates.indexOf(date_attr) > -1) {
                         date_container.remove();
-                    } else {
-                        existing_dates.push(date_attr);
-                        if (new_schedule.one('.' + date_attr)) {
-                            date_container.one('.items-container').append(new_schedule.all('.' + date_attr))
-                        }
                     }
                 });
                 var min_width_time = 0;
