@@ -74,6 +74,7 @@ window.Template.Controllers.CastController = function (element) {
         var events = Array.prototype.slice.call(document.querySelectorAll('.eventlist--upcoming .event-item'));
         if(events.length){
             events.forEach(function (event) {
+                console.log(event)
                 if (currentTime >= new Date(event.getAttribute('data-end-date') + siteTimezoneOffset + userTimezoneOffset).getTime()) {
                     event&&document.body.removeChild(event);
                     console.log('removed')
