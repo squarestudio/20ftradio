@@ -79,7 +79,7 @@ window.Template.Controllers.CastController = function (element) {
                     event&&event.parentNode.removeChild(event);
                     console.log('removed')
                 }
-            }) 
+            })
         }
     }
 
