@@ -76,10 +76,10 @@ window.Template.Controllers.CastController = function (element) {
             events.forEach(function (event) {
                 //console.log(event, currentTime>new Date(parseInt(event.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset).getTime())
                 if (currentTime >= new Date(parseInt(event.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset).getTime()) {
-                    event&&document.body.removeChild(event);
+                    event&&event.parentNode.removeChild(event);
                     console.log('removed')
                 }
-            })
+            }) 
         }
     }
 
