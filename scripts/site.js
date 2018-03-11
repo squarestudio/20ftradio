@@ -631,7 +631,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                     }
                 });
                 new_schedule.all('.date-container').each(function (date_container) {
-
+                    if(date_container.one(''))
                 });
                 var min_width_time = 0;
                 new_schedule.all('.event-time-wrapper').each(function (item) {
