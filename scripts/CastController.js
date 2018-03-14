@@ -81,6 +81,12 @@ window.Template.Controllers.CastController = function (element) {
                 }
             })
         }
+        Y.all('.date-container').each(function (date_container) {
+            if(!date_container.one('.event-item')){
+                console.log('ss')
+                date_container.remove();
+            }
+        });
     }
 
     function refreshImages() {
