@@ -633,7 +633,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 new_schedule.all('.date-container').each(function (date_container) {
                     if(!date_container.one('.event-item')){
                         console.log('ss')
-                        date_container.remove();
+                        //date_container.remove();
                     }
                 });
                 var min_width_time = 0;
