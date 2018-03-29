@@ -299,7 +299,7 @@ window.Template.Controllers.CastController = function (element) {
         });
         var videoButtonClick = function (e) {
             e.halt();
-            castContainer.get('parentNode').toggleClass('visible');
+            Y.one('body').toggleClass('cast-visible');
             if(!youtubePlayer){
                 initYoutubeStream();
             } else {
