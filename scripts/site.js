@@ -171,9 +171,8 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 var topBarHeight = Y.one('#topBar').get('offsetHeight');
                 if (Y.one('#castDiv')) {
                     Y.one('#castDiv').setStyle('marginTop', topBarHeight);
-                } else {
-                    Y.one('#container').setStyle('marginTop', topBarHeight);
                 }
+                Y.one('#container').setStyle('marginTop', topBarHeight);
                 Y.all('#project .switcher').setStyle('top', topBarHeight + 35);
             }
         },
