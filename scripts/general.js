@@ -27,7 +27,8 @@ function slugify(text) {
 
 function addScript(script, callback) {
     var s;
-    if (script.id && !document.head.querySelector('#' + script.id)) {
+    var parent = script.parent||document.head;
+    if (script.id && !parent.querySelector('#' + script.id)) {
         s = document.createElement("script");
         s.id = script.id;
     } else {
@@ -60,7 +61,7 @@ function addScript(script, callback) {
         s.appendChild(document.createTextNode(script.innerText));
     }
     s.async = !!script.async;
-    document.head.appendChild(s);
+    parent.appendChild(s);
 }
 
 function sendReplyEmail(name, surname, email, data) {
