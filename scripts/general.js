@@ -227,6 +227,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         cont.scrollTo(0, 0);
     }
     Y.fire('getCurrentEvent');
+    console.log(Y.all('#navigator script[data-src]'))
     Y.all('#navigator script[data-src]').each(function (script) {
         script = script._node;
         script.src = script.dataset.src;
