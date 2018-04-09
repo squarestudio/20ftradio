@@ -23,19 +23,29 @@ function slugify(text) {
         .replace(/^-+/, '')
         .replace(/-+$/, '');
 }
-function injectScript(file, id, node, callback) {
-    if (node.querySelector('#' + id)) return;
-    var script = document.createElement("script");
-    script.src = chrome.extension.getURL(file);
-    script.id = id;
-    script.onload = function() {
-        this.remove();
-        if (callback) {
-            callback(this);
-        }
-    };
-    node.appendChild(script);
-}
+var addScript = function(script, name, async) {
+    var s = document.createElement("script");
+    s.type = "text/javascript";
+    if (s.readyState) {
+        s.onreadystatechange = function() {
+            if (s.readyState == "loaded" || s.readyState == "complete") {
+                s.onreadystatechange = null;
+                if (name === 'commerce'&&!Y.Squarespace.Commerce.initializeCommerce) {
+                    Y.use('squarespace-commerce', function(Y) {});
+                }
+            }
+        };
+    } else {
+        s.onload = function() {
+            if (name === 'commerce'&&!Y.Squarespace.Commerce.initializeCommerce) {
+                Y.use('squarespace-commerce', function(Y) {  });
+            }
+        };
+    }
+    s.src = script.src;
+    s.async = !!async;
+    document.head.appendChild(s);
+};
 function sendReplyEmail(name, surname, email, data) {
     $.ajax({
         type: 'POST',
