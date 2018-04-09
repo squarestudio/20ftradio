@@ -232,7 +232,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         script = script._node;
         script.src = script.dataset.src;
         script.id = script.id || slugify(script.src);
-        addScript(script);
+        //addScript(script);
     })
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
