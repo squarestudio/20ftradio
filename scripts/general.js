@@ -41,7 +41,6 @@ function addScript(script, callback) {
             s.onreadystatechange = function () {
                 if (s.readyState == "loaded" || s.readyState == "complete") {
                     s.onreadystatechange = null;
-                    this.remove();
                     if (callback) {
                         callback(this);
                     }
@@ -49,7 +48,6 @@ function addScript(script, callback) {
             };
         } else {
             s.onload = function () {
-                this.remove();
                 if (callback) {
                     callback(this);
                 }
