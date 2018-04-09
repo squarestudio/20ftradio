@@ -231,10 +231,11 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     Y.all('#navigator script[data-src]').each(function (script) {
         script = script._node;
         script.id = script.id || slugify(script.src);
-        script.parentNode.removeChild(script);
+        var parent = script.parentNode;
+        parent.removeChild(script);
         script.src = script.dataset.src;
         console.log(script);
-        script.parentNode.appendChild(script);
+        parent.appendChild(script);
         //addScript(script);
     })
 });
