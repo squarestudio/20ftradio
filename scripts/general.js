@@ -231,7 +231,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     Y.all('#navigator script[data-src]').each(function (script) {
         script = script._node;
         script.src = script.dataset.src;
-        script.id = script.id || slugify(script.src);
+        script.id = slugify(script.src);
         addScript(script);
     })
 });
