@@ -5,6 +5,7 @@ window.mixCloudEmbeds = [];
 var body = Y.one('body');
 var html = Y.one('html');
 var canvasEq = false;
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -23,6 +24,7 @@ function slugify(text) {
         .replace(/^-+/, '')
         .replace(/-+$/, '');
 }
+
 function addScript(script, callback) {
     var s;
     if (script.id && !document.querySelector('#' + script.id)) {
@@ -34,9 +36,10 @@ function addScript(script, callback) {
         }
         return;
     }
+    script.scr = script.src || script.dataset.src;
     if (script.src) {
         if (s.readyState) {
-            s.onreadystatechange = function() {
+            s.onreadystatechange = function () {
                 if (s.readyState == "loaded" || s.readyState == "complete") {
                     s.onreadystatechange = null;
                     this.remove();
@@ -46,7 +49,7 @@ function addScript(script, callback) {
                 }
             };
         } else {
-            s.onload = function() {
+            s.onload = function () {
                 this.remove();
                 if (callback) {
                     callback(this);
@@ -61,6 +64,7 @@ function addScript(script, callback) {
     s.async = !!script.async;
     document.head.appendChild(s);
 }
+
 function sendReplyEmail(name, surname, email, data) {
     $.ajax({
         type: 'POST',
@@ -221,12 +225,14 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             }, '.mixcloud-butt');
         }
     }
-    if(window.app_initialized) {
+    if (window.app_initialized) {
         var cont = document.getElementById('container');
         cont.scrollTo(0, 0);
     }
     Y.fire('getCurrentEvent');
-    Y.all('')
+    Y.all('#navigator script[data-src]').each(function (script) {
+
+    })
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
@@ -236,12 +242,16 @@ if (!window_loaded) {
 }
 var canvas_activated = false;
 window.heightFactor = 150;
-function easeInOutQuad(t) { return t<.5 ? 2*t*t : -1+(4-2*t)*t };
+
+function easeInOutQuad(t) {
+    return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t
+};
+
 function initVisual() {
-    if (canvas_activated||!canvasEq) return;
+    if (canvas_activated || !canvasEq) return;
     console.log('PPPPPP');
     canvas_activated = true;
-    var canvas = document.getElementById("visualCanvas")||document.getElementById("canvas");
+    var canvas = document.getElementById("visualCanvas") || document.getElementById("canvas");
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
     var ctx = canvas.getContext("2d");
@@ -310,7 +320,7 @@ function initVisual() {
             ctx.fillStyle = "rgb(1, 168, 158)";
             ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
-            x += barWidth+1;
+            x += barWidth + 1;
         }
     }
 
