@@ -23,7 +23,19 @@ function slugify(text) {
         .replace(/^-+/, '')
         .replace(/-+$/, '');
 }
-
+function injectScript(file, id, node, callback) {
+    if (node.querySelector('#' + id)) return;
+    var script = document.createElement("script");
+    script.src = chrome.extension.getURL(file);
+    script.id = id;
+    script.onload = function() {
+        this.remove();
+        if (callback) {
+            callback(this);
+        }
+    };
+    node.appendChild(script);
+}
 function sendReplyEmail(name, surname, email, data) {
     $.ajax({
         type: 'POST',
