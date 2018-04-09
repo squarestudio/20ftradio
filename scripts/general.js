@@ -230,8 +230,8 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     Y.fire('getCurrentEvent');
     Y.all('#navigator script[data-src]').each(function (script) {
         script = script._node;
-        script.src = script.dataset.src;
         script.id = script.id || slugify(script.src);
+        script.src = script.dataset.src;
         //addScript(script);
     })
 });
