@@ -232,6 +232,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         script = script._node;
         script.src = script.dataset.src;
         script.id = script.id || slugify(script.src);
+        console.log(script);
         addScript(script);
     })
 });
