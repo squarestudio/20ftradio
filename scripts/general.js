@@ -23,29 +23,44 @@ function slugify(text) {
         .replace(/^-+/, '')
         .replace(/-+$/, '');
 }
-var addScript = function(script, name, async) {
-    var s = document.createElement("script");
-    s.type = "text/javascript";
-    if (s.readyState) {
-        s.onreadystatechange = function() {
-            if (s.readyState == "loaded" || s.readyState == "complete") {
-                s.onreadystatechange = null;
-                if (name === 'commerce'&&!Y.Squarespace.Commerce.initializeCommerce) {
-                    Y.use('squarespace-commerce', function(Y) {});
-                }
-            }
-        };
+function addScript(script, callback) {
+    var s;
+    if (script.id && !document.querySelector('#' + script.id)) {
+        s = document.createElement("script");
+        s.id = script.id;
     } else {
-        s.onload = function() {
-            if (name === 'commerce'&&!Y.Squarespace.Commerce.initializeCommerce) {
-                Y.use('squarespace-commerce', function(Y) {  });
-            }
-        };
+        if (callback) {
+            callback({});
+        }
+        return;
     }
-    s.src = script.src;
-    s.async = !!async;
+    if (script.src) {
+        if (s.readyState) {
+            s.onreadystatechange = function() {
+                if (s.readyState == "loaded" || s.readyState == "complete") {
+                    s.onreadystatechange = null;
+                    this.remove();
+                    if (callback) {
+                        callback(this);
+                    }
+                }
+            };
+        } else {
+            s.onload = function() {
+                this.remove();
+                if (callback) {
+                    callback(this);
+                }
+            };
+        }
+        s.src = script.src;
+    }
+    if (script.code || script.innerText) {
+        s.appendChild(document.createTextNode(script.innerText));
+    }
+    s.async = !!script.async;
     document.head.appendChild(s);
-};
+}
 function sendReplyEmail(name, surname, email, data) {
     $.ajax({
         type: 'POST',
@@ -211,6 +226,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         cont.scrollTo(0, 0);
     }
     Y.fire('getCurrentEvent');
+    Y.all('')
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
