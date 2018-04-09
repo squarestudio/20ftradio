@@ -27,6 +27,7 @@ function slugify(text) {
 
 function addScript(script, callback) {
     var s;
+    console.log(script);
     if (script.id && !document.querySelector('#' + script.id)) {
         s = document.createElement("script");
         s.id = script.id;
@@ -36,7 +37,6 @@ function addScript(script, callback) {
         }
         return;
     }
-    console.log(script);
     if (script.src) {
         if (s.readyState) {
             s.onreadystatechange = function () {
