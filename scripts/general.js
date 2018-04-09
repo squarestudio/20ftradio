@@ -28,7 +28,7 @@ function slugify(text) {
 function addScript(script, callback) {
     var s;
     console.log(script);
-    if (script.id && !document.querySelector('#' + script.id)) {
+    if (script.id && !document.head.querySelector('#' + script.id)) {
         s = document.createElement("script");
         s.id = script.id;
     } else {
@@ -232,7 +232,6 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         script = script._node;
         script.src = script.dataset.src;
         script.id = script.id || slugify(script.src);
-        console.log(script);
         addScript(script);
     })
 });
