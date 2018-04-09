@@ -234,7 +234,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         script.parentNode.removeChild(script);
         script.src = script.dataset.src;
         console.log(script);
-        //script.parentNode.appendChild(script);
+        script.parentNode.appendChild(script);
         //addScript(script);
     })
 });
