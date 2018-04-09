@@ -36,7 +36,6 @@ function addScript(script, callback) {
         }
         return;
     }
-    script.scr = script.src || script.dataset.src;
     if (script.src) {
         if (s.readyState) {
             s.onreadystatechange = function () {
@@ -231,7 +230,10 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     }
     Y.fire('getCurrentEvent');
     Y.all('#navigator script[data-src]').each(function (script) {
-
+        script = script._node;
+        script.src = script.dataset.src;
+        script.id = script.id || slugify(script.src);
+        addScript(script);
     })
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
