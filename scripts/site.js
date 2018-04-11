@@ -225,8 +225,8 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 var hasSocialLinks = Y.Lang.isValue(bottomBar.one('.social-links'));
                 Y.one(window).on('mousemove', function (e) {
                     if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
-                        var height = Y.on
-                        if (e.clientY > window.innerHeight - bottomBar.height()) {
+                        var height = Y.one('html').get('className').indexOf('mixcloud-footer')>-1?bottomBar.height()-60:bottomBar.height();
+                        if (e.clientY > window.innerHeight - height) {
                             bottomBar.addClass('viewable');
                             body.addClass('viewable');
                         } else {
