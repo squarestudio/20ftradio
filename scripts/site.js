@@ -226,6 +226,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 Y.one(window).on('mousemove', function (e) {
                     if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
                         var height = Y.one('html').get('className').indexOf('mixcloud-footer') > -1 ? 50 : bottomBar.height();
+                        console.log(e.clientY , window.innerHeight - height);
                         if (e.clientY > window.innerHeight - height) {
                             bottomBar.addClass('viewable');
                             body.addClass('viewable');
