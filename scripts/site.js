@@ -225,6 +225,7 @@ Y.use('node', 'squarespace-gallery-ng', function (Y) {
                 var hasSocialLinks = Y.Lang.isValue(bottomBar.one('.social-links'));
                 Y.one(window).on('mousemove', function (e) {
                     if (bottomBar && (!layoutNode.hasClass('empty') || hasSocialLinks || Static.SQUARESPACE_CONTEXT.authenticatedAccount)) {
+                        var height = Y.on
                         if (e.clientY > window.innerHeight - bottomBar.height()) {
                             bottomBar.addClass('viewable');
                             body.addClass('viewable');
