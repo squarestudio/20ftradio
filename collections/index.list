@@ -49,7 +49,7 @@
           <div class="project-title">
             <h2>{title}</h2>
             <!--<h3>&mdash; view &mdash;</h3>-->
-            {excerpt}
+            {description}
           </div>
         </div>
         {.section mainImage}
