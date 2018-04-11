@@ -804,12 +804,7 @@ body.project-hover-zoom .loaded #grid .item {
   display: table-cell;
   vertical-align: middle;
 }
-
-#grid .item a div.wrapper div.project-title h2 {
-  color: @gridHeadingColor;
-  .grid-heading-font;
-  margin: 0 0 10px;
-  padding: 0 24px;
+div.project-title {
   .project-descr{
     color: @gridSubheadingColor;
     margin-top: 0;
@@ -820,6 +815,12 @@ body.project-hover-zoom .loaded #grid .item {
       color: @gridSubheadingColor;
     }
   }
+}
+#grid .item a div.wrapper div.project-title h2 {
+  color: @gridHeadingColor;
+  .grid-heading-font;
+  margin: 0 0 10px;
+  padding: 0 24px;
 }
 
 #grid .item a div.wrapper div.project-title h3 {
