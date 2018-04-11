@@ -48,7 +48,8 @@
         <div class="wrapper">
           <div class="project-title">
             <h2>{title}</h2>
-            <h3>&mdash; view &mdash;</h3>
+            <!--<h3>&mdash; view &mdash;</h3>-->
+            {excerpt}
           </div>
         </div>
         {.section mainImage}
