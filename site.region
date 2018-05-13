@@ -27,6 +27,7 @@
 <div id="navigator">
     <div class="filter-sidebar">
     <squarespace:query collection="music-feed">
+            <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
             <div class="filter-sidebar-wrapper">
                 {.section collection.tags}
                 <ul class="FeedFilter">
