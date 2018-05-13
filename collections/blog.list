@@ -9,7 +9,7 @@
                     {.section collection.tags}
                     <ul class="FeedFilter">
                         {.repeated section @}
-                        <li class="tag-item"><a href="{collection.fullUrl}?tag={@|url-encode}" data-val="{@}" rel="tag">{@}</a>
+                        <li class="FeedFilter-item"><a href="{collection.fullUrl}?tag={@|url-encode}" data-val="{@}" rel="tag">{@}</a>
                         </li>
                         {.end}
                     </ul>
@@ -37,7 +37,7 @@
                                 {.end}
                                 <span class="date">
                                     <time class="published"
-                                          datetime="{publishOn|date %F}">{publishOn|date %A %m.%d.%y}
+                                          datetime="{publishOn|date %F}">{publishOn|date %m.%d.%y}
                                     </time>
                                 </span>
                             </div>
