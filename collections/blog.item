@@ -64,7 +64,7 @@
         {.end}
       </div>
       <div class="social-like">{@|like-button}
-            {@|social-button}</div>
+            {@|sqs-share-buttons}</div>
     </section>
     
   </article>
