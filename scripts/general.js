@@ -188,7 +188,6 @@ function filterMusicFeed() {
     var tags_string = tags.length ? '&tag=' + tags : '';
     filterableFeed.addClass('loading');
     filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
-        console.log(e);
         filterableFeed.removeClass('loading');
     })
 }
