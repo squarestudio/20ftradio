@@ -193,7 +193,7 @@ function filterMusicFeed() {
     setTimeout(function () {
         filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
             filterableFeed.all('.FilterItem').each(function(it,i){
-                it.setStyle('transitionDelay',100*i);
+                it.setStyle('transitionDelay',(100*i)+'ms');
             });
             setTimeout(function () {
                 filterableFeed.removeClass('loading');
