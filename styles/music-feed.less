@@ -36,21 +36,29 @@
   #filterBlock {
     padding: 0 5px;
   }
-}
-.FeedFilter-item {
-  display: block;
-  margin: 5px;
-  a {
+  .FeedFilter-item {
     display: block;
-    padding: 4px 16px;
-    transition: background .2s ease;
+    margin: 5px;
+    a {
+      display: block;
+      padding: 4px 16px;
+      transition: background .2s ease;
+      background-color: darken(@FeedFilterColor, 60%);
+      .FeedFilter-item-font;
+      color: @FeedFilterColor;
+      &:hover,&.active {
+        color: darken(@FeedFilterColor, 60%);
+        background-color: @FeedFilterColor;
+      }
+    }
+  }
+  button{
+    -webkit-appearance: none;
+    display: block;
+    cursor: pointer;
+    margin: 10px 5px;
     background-color: darken(@FeedFilterColor, 60%);
     .FeedFilter-item-font;
-    color: @FeedFilterColor;
-    &:hover,&.active {
-      color: darken(@FeedFilterColor, 60%);
-      background-color: @FeedFilterColor;
-    }
   }
 }
 .filter-sidebar,.filterable-feed{
