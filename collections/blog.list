@@ -7,25 +7,27 @@
                     <ul class="FeedGrid">
                         {.repeated section items}
                         <li class="FeedItem">
-                            {.section tags}
-                            <span class="tags">{.repeated section @}
+                            <div class="FeedItemWrapper">
+                                {.section tags}
+                                <span class="tags">{.repeated section @}
                                 <span>{@}</span>{.end}
                             </span>
-                            {.end}
-                            {.main-image?}
-                            <div class="FeedImage">
-                                <img src="{assetUrl}?format=500w" data-load="false"/>
-                            </div>
-                            {.end}
-                            <div class="FeedMeta">
-                                {.if title}
-                                <h2><a href="{fullUrl}">{title}</a></h2>
                                 {.end}
-                                <span class="date">
+                                {.main-image?}
+                                <div class="FeedImage">
+                                    <img src="{assetUrl}?format=500w" data-load="false"/>
+                                </div>
+                                {.end}
+                                <div class="FeedMeta">
+                                    {.if title}
+                                    <h2><a href="{fullUrl}">{title}</a></h2>
+                                    {.end}
+                                    <span class="date">
                                     <time class="published"
                                           datetime="{publishOn|date %F}">{publishOn|date %m.%d.%y}
                                     </time>
                                 </span>
+                                </div>
                             </div>
                         </li>
                         {.end}
