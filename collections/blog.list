@@ -9,8 +9,7 @@
                     {.section collection.tags}
                     <ul class="FeedFilter">
                         {.repeated section @}
-                        <li class="FeedFilter-item"><a href="{collection.fullUrl}?tag={@|url-encode}" data-val="{@}" rel="tag">{@}</a>
-                        </li>
+                        <li class="FeedFilter-item"><a href="{collection.fullUrl}?tag={@|url-encode}" data-val="{@}" rel="tag">{@}</a></li>
                         {.end}
                     </ul>
                     {.end}
