@@ -2,7 +2,7 @@
     <div class="content">
         {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
         <div class="filterable-feed">
-            <div class="filter-grid">
+            <div class="filter-grid clear">
                 <div class="filter-grid-wrapper">
                     <ul class="FeedGrid">
                         {.repeated section items}
