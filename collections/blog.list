@@ -1,7 +1,5 @@
 <div id="blog">
 <div class="content">
-  <script>Y.use('squarespace-social-buttons')</script> 
-
   {.repeated section items}
 
   <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
