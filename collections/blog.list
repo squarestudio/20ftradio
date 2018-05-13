@@ -26,7 +26,7 @@
                                 <a href="{collection.fullUrl}?tag={@|url-encode}"rel="tag">{@}</a>
                             </span>
                             {.end}
-                            {.mainImage?}
+                            {.main-image?}
                             <div class="FeedImage">
                                 <img {@|image-meta} data-load="false"/>
                             </div>
