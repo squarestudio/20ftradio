@@ -23,7 +23,7 @@
                         <li class="FeedItem">
                             {.section tags}
                             <span class="tags">{.repeated section @}
-                                <span href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</span>{.end
+                                <a href="{collection.fullUrl}?tag={@|url-encode}"rel="tag">{@}</a>
                             </span>
                             {.end}
                         </li>
