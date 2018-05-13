@@ -176,6 +176,11 @@ function activateMixcloudThings() {
 
 var formSubmitEvent = null;
 var filterInit = null;
+function filterMusicFeed(){
+    Y.all('.FeedFilter-item.active').each(function(tag){
+        
+    })
+}
 Y.config.win.Squarespace.onInitialize(Y, function () {
     if (Y.one('#liqpay_checkout')) {
         var codeBlockLiq = Y.one('#liqpay_checkout').ancestor('.code-block');
@@ -226,7 +231,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     if(!filterInit){
         filterInit = Y.one('body').delegate('click', function (e) {
             e.currentTarget.toggleClass('active');
-        }, '.FeedFilter-item a');
+        }, '.FeedFilter-item');
         Y.one('body').delegate('click', function (e) {
 
         }, '.filterButton')
