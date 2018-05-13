@@ -187,13 +187,13 @@ function filterMusicFeed() {
     });
     var tags_string = tags.length ? '&tag=' + tags : '';
     filterableFeed.all('.FeedItem').each(function(it,i){
-        it.setStyle('transitionDelay',(100*i)+'ms');
+        it.setStyle('transitionDelay',(60*i)+'ms');
     });
     filterableFeed.addClass('loading');
     setTimeout(function () {
         filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
             filterableFeed.all('.FeedItem').each(function(it,i){
-                it.setStyle('transitionDelay',(100*i)+'ms');
+                it.setStyle('transitionDelay',(60*i)+'ms');
             });
             setTimeout(function () {
                 filterableFeed.removeClass('loading');
