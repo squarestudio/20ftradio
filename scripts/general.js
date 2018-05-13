@@ -193,7 +193,7 @@ function filterMusicFeed() {
                 filterableFeed.removeClass('loading');
             },200)
         })
-    }, 200);
+    }, 500);
 }
 
 Y.config.win.Squarespace.onInitialize(Y, function () {
