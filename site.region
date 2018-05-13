@@ -22,7 +22,7 @@
     </script>
 </head>
 
-<body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
+<body class="page-{collection.typeLabel} {squarespace.page-classes} filter-page" id="{squarespace.page-id}" >
 
 <div id="navigator">
     {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
