@@ -47,12 +47,12 @@
       display: block;
       padding: 4px 16px;
       transition: background .2s ease;
-      background-color: #444;
+      background-color: darken(@FeedFilterColor, 60%);
       .FeedFilter-item-font;
       color: @FeedFilterColor;
       &:hover,&.active {
-        color: invert(@FeedFilterColor);
-        background-color: #444;
+        color: darken(@FeedFilterColor, 60%);
+        background-color: @FeedFilterColor;
       }
     }
   }
