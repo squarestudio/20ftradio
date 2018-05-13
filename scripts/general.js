@@ -185,8 +185,10 @@ function filterMusicFeed(){
         tags.push(tag.getAttribute('data-val'));
     });
     var tags_string = tags.length?'&tags='+tags:'';
+    filterableFeed.addClass('loading');
     filterableFeed.load(collectionUrl+tags_string,'.filter-grid',function (e) {
-        console.log(e)
+        console.log(e);
+        filterableFeed.removeClass('loading');
     })
 }
 Y.config.win.Squarespace.onInitialize(Y, function () {
