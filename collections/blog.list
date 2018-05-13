@@ -28,7 +28,7 @@
                             {.end}
                             {.main-image?}
                             <div class="FeedImage">
-                                <img {@|image-meta} data-load="false"/>
+                                <img src="{assetUrl?format=500w}" data-load="false"/>
                             </div>
                             {.end}
                             <div class="FeedMeta">
