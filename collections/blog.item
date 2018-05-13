@@ -64,7 +64,7 @@
         {.end}
       </div>
       <div class="social-like">{@|like-button}
-            {@|social-button-inline}</div>
+            {@|social-button}</div>
     </section>
     
   </article>
