@@ -22,7 +22,7 @@
                         <li class="FeedItem">
                             {.section tags}
                             <span class="tags">{.repeated section @}
-                                <a href="{collection.fullUrl}?tag={@|url-encode}"rel="tag">{@}</a>
+                                <a href="{collection.fullUrl}?tag={@|url-encode}"rel="tag">{@}</a>{.end}
                             </span>
                             {.end}
                             {.main-image?}
@@ -129,7 +129,6 @@
             {.if pagination.prevPage}<a href="{prevPageUrl}">Newer</a>{.or}Newer{.end} /
             {.if pagination.nextPage}<a href="{nextPageUrl}">Older</a>{.or}Older{.end}
         </nav>
-        {.end}
         {.end}
         {.end}
     </div>
