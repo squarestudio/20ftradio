@@ -175,6 +175,7 @@ function activateMixcloudThings() {
 }
 
 var formSubmitEvent = null;
+var filterInit = null;
 Y.config.win.Squarespace.onInitialize(Y, function () {
     if (Y.one('#liqpay_checkout')) {
         var codeBlockLiq = Y.one('#liqpay_checkout').ancestor('.code-block');
@@ -221,7 +222,15 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         script.src = script.dataset.src;
         script.parent = parent;
         addScript(script);
-    })
+    });
+    if(!filterInit){
+        filterInit = Y.one('body').delegate('click', function (e) {
+
+        }, '.FeedFilter-item a');
+        Y.one('body').delegate('click', function (e) {
+
+        }, '.FeedFilter-item a')
+    }
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
