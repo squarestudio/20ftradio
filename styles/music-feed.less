@@ -50,6 +50,10 @@
       background-color: #444;
       .FeedFilter-item-font;
       color: @FeedFilterColor;
+      &:hover,&.active {
+        color: invert(@FeedFilterColor);
+        background-color: #444;
+      }
     }
   }
   .filter-grid {
