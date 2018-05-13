@@ -1,6 +1,7 @@
 <div id="blog">
     <div class="content">
         <squarespace:block-field id="blogIntroBlock-{collection.id}" class="blog-Intro" columns="12" label="Blog Intro Content"/>
+        {.equals? collection.id "container"}
         {.repeated section items}
 
         <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
