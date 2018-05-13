@@ -1,7 +1,7 @@
 <div id="blog">
     <div class="content">
         <squarespace:block-field id="blogIntroBlock-{collection.id}" class="blog-Intro" columns="12" label="Blog Intro Content"/>
-        {.equal? collection.id "5af7cccd6d2a736d3c85303"}
+        {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
 
         {.or}
         {.repeated section items}
