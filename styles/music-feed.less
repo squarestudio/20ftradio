@@ -8,6 +8,8 @@
   letter-spacing: 1px;
   line-height: 1.2em;
 }
+// tweak: { "type" : "color", "title" : "Genre Font", "category" : "Music Feed", "target" : ".FeedFilter-item"}
+@FeedFilterColor: #fff;
 // tweak: { "type" : "font", "title" : "Genre Font", "category" : "Music Feed", "target" : ".FeedItem .tags"}
 .FeedFilter-tags-font
 {
@@ -19,6 +21,8 @@
   line-height: 1.2em;
   text-transform: uppercase;
 }
+// tweak: { "type" : "color", "title" : "Genre Font", "category" : "Music Feed", "target" : ".FeedItem .tags"}
+@FeedItemTagsColor: #fff;
 .filterable-feed {
   * {
     box-sizing: border-box;
@@ -43,6 +47,7 @@
     background-color: #444;
     a {
       .FeedFilter-item-font;
+      color: @FeedFilterColor;
     }
   }
   .filter-grid {
