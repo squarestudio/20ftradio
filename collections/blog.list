@@ -3,7 +3,6 @@
         {.repeated section items}
 
         <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
-
             <section class="main">
                 <header class="">
                     {.if title}
