@@ -30,6 +30,11 @@
                                 <img {@|image-meta} data-load="false"/>
                             </div>
                             {.end}
+                            {.if title}
+                                <div class="FeedTitle">
+                                    <h2>{title}</h2>
+                                </div>
+                            {.end}
                         </li>
                         {.end}
                     </ul>
