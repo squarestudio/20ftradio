@@ -178,9 +178,13 @@ var formSubmitEvent = null;
 var filterInit = null;
 function filterMusicFeed(){
     var tags=[];
+    var collectionUrl = 
     Y.all('.FeedFilter-item.active').each(function(tag){
         tags.push(tag.getAttribute('data-val'));
     })
+    if(tags.length){
+
+    }
 }
 Y.config.win.Squarespace.onInitialize(Y, function () {
     if (Y.one('#liqpay_checkout')) {
