@@ -26,6 +26,7 @@
                                 <a href="{collection.fullUrl}?tag={@|url-encode}"rel="tag">{@}</a>
                             </span>
                             {.end}
+                            
                         </li>
                         {.end}
                     </ul>
