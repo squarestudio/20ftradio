@@ -25,6 +25,19 @@
 <body class="page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
 
 <div id="navigator">
+    {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
+    <div class="filter-sidebar">
+        <div class="filter-sidebar-wrapper">
+            {.section collection.tags}
+            <ul class="FeedFilter">
+                {.repeated section @}
+                <li class="FeedFilter-item"><a href="{collection.fullUrl}?tag={@|url-encode}" data-val="{@}" rel="tag">{@}</a></li>
+                {.end}
+            </ul>
+            {.end}
+        </div>
+    </div>
+    {.end}
     {.section website}
     <header id="topBar" class="sqs-announcement-bar-dropzone">
         <div data-content-field="site-title" class="siteTitle">
