@@ -229,7 +229,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         }, '.FeedFilter-item a');
         Y.one('body').delegate('click', function (e) {
 
-        }, '.FeedFilter-item a')
+        }, '.filterButton')
     }
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
