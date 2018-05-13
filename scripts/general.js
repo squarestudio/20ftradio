@@ -178,7 +178,7 @@ var formSubmitEvent = null;
 var filterInit = null;
 function filterMusicFeed(){
     var tags=[];
-    var collectionUrl = '/music-feed/?format=main-content'
+    var collectionUrl = '/music-feed/?format=main-content';
     Y.all('.FeedFilter-item.active').each(function(tag){
         tags.push(tag.getAttribute('data-val'));
     })
