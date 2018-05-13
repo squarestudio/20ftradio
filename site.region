@@ -35,6 +35,7 @@
                     <li class="FeedFilter-item"><a href="#{@|url-encode}" data-val="{@}" rel="tag">{@}</a></li>
                     {.end}
                 </ul>
+                <button>Filter Items</button>
                 {.end}
             </squarespace:query>
         </div>
