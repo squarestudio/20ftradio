@@ -186,13 +186,13 @@ function filterMusicFeed() {
         tags.push(tag.getAttribute('data-val'));
     });
     var tags_string = tags.length ? '&tag=' + tags : '';
-    filterableFeed.all('.FilterItem').each(function(it,i){
+    filterableFeed.all('.FeedItem').each(function(it,i){
         it.setStyle('transitionDelay',(100*i)+'ms');
     });
     filterableFeed.addClass('loading');
     setTimeout(function () {
         filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
-            filterableFeed.all('.FilterItem').each(function(it,i){
+            filterableFeed.all('.FeedItem').each(function(it,i){
                 it.setStyle('transitionDelay',(100*i)+'ms');
             });
             setTimeout(function () {
