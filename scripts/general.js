@@ -187,9 +187,13 @@ function filterMusicFeed() {
     });
     var tags_string = tags.length ? '&tag=' + tags : '';
     filterableFeed.addClass('loading');
-    filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
-        filterableFeed.removeClass('loading');
-    })
+    setTimeout(function () {
+        filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
+            setTimeout(function () {
+                filterableFeed.removeClass('loading');
+            },200)
+        })
+    }, 200);
 }
 
 Y.config.win.Squarespace.onInitialize(Y, function () {
