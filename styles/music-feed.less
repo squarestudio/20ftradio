@@ -52,6 +52,9 @@
       }
       &.active {
         .close {
+          opacity: 1;
+          pointer-events: all;
+          cursor: pointer;
           &:before {
             transform: rotate(45deg);
             -webkit-transform: rotate(45deg);
@@ -63,11 +66,16 @@
         }
       }
       .close {
-        width: 36px;
-        height: 36px;
+        opacity: 0;
+        pointer-events: none;
+        width: 16px;
+        height: 16px;
         line-height: 0;
         cursor: pointer;
         overflow: hidden;
+        display: inline-block;
+        position: absolute;
+        right: 6px;
         &:before,
         &:after {
           content: '';
