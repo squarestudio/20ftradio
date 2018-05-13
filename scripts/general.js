@@ -177,27 +177,15 @@ function activateMixcloudThings() {
 var formSubmitEvent = null;
 var filterInit = null;
 function filterMusicFeed(){
+    var filterableFeed = Y.one('.filterable-feed');
+    if(!filterableFeed) return;
     var tags=[];
     var collectionUrl = '/music-feed/?format=main-content';
     Y.all('.FeedFilter-item.active').each(function(tag){
         tags.push(tag.getAttribute('data-val'));
     });
     var tags_string = tags.length?'&tags='+tags:'';
-    Y.io(collectionUrl+tags_string, {
-        on: {
-            success: function(tx, r) {
-                try {
-                    var frag = Y.Node.create(r.responseText);
-                    console.log(frag)
-                } catch (e) {
-                    console.log(e);
-                }
-            },
-            failure: function(e) {
-                console.warn('error : ' + e.message);
-            }
-        }
-    });
+    filterableFeed.load(collectionUrl+tags_string,)
 }
 Y.config.win.Squarespace.onInitialize(Y, function () {
     if (Y.one('#liqpay_checkout')) {
