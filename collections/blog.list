@@ -33,8 +33,12 @@
                             {.end}
                             <div class="FeedMeta">
                                 {.if title}
-                                    <h2>{title}</h2>
+                                <h2>{title}</h2>
                                 {.end}
+                                <span class="date">
+                                    <time class="published"
+                                          datetime="{publishOn|date %F}">{publishOn|date %A %m.%d.%y}</time>
+                                </span>
                             </div>
                         </li>
                         {.end}
