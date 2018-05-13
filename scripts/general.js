@@ -182,26 +182,20 @@ function filterMusicFeed(){
     Y.all('.FeedFilter-item.active').each(function(tag){
         tags.push(tag.getAttribute('data-val'));
     });
-    var tags_string = tags.length?'&tags':'';
+    var tags_string = tags.length?'&tags='+tags:'';
     Y.io(collectionUrl+tags_string, {
         on: {
             success: function(tx, r) {
                 var data;
                 try {
-                    data = Y.JSON.parse(r.responseText);
-                    if (data) {
-                        resolve(data);
-                        saveToStorage(data, 'airCache-' + url);
-                    }
+                    var frag = Y.Node.create(r.responseText);
+                    console.log(frag)
                 } catch (e) {
-                    console.log("JSON Parse failed!");
-                    reject("JSON Parse failed!")
+                    console.log(e);
                 }
             },
             failure: function(e) {
-
                 console.warn('error : ' + e.message);
-                reject('error : ' + e.message);
             }
         }
     });
