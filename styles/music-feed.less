@@ -50,10 +50,21 @@
         color: darken(@FeedFilterColor, 60%);
         background-color: @FeedFilterColor;
       }
+      &.active{
+        &:before {
+          transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+        }
+        &:after {
+          transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+        }
+      }
       .close{
         width: 36px;
         height: 36px;
         line-height: 0;
+
         &:before,
         &:after {
           content: '';
@@ -66,14 +77,6 @@
           background: #000;
           transition-delay: 0s;
           transition: transform .3s ease-in-out;
-        }
-        &:before {
-          transform: rotate(45deg);
-          -webkit-transform: rotate(45deg);
-        }
-        &:after {
-          transform: rotate(-45deg);
-          -webkit-transform: rotate(-45deg);
         }
       }
     }
