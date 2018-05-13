@@ -185,7 +185,9 @@ function filterMusicFeed(){
         tags.push(tag.getAttribute('data-val'));
     });
     var tags_string = tags.length?'&tags='+tags:'';
-    filterableFeed.load(collectionUrl+tags_string,)
+    filterableFeed.load(collectionUrl+tags_string,'.filter-grid',function (e) {
+        console.log(e)
+    })
 }
 Y.config.win.Squarespace.onInitialize(Y, function () {
     if (Y.one('#liqpay_checkout')) {
