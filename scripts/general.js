@@ -185,7 +185,7 @@ function filterMusicFeed() {
     Y.all('.FeedFilter-item.active').each(function (tag) {
         tags.push(tag.getAttribute('data-val'));
     });
-    var tags_string = tags.length ? '&tags=' + tags : '';
+    var tags_string = tags.length ? '&tag=' + tags : '';
     filterableFeed.addClass('loading');
     filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
         console.log(e);
