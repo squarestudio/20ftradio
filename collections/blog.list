@@ -12,6 +12,11 @@
                     </ul>
                     {.end}
                 </div>
+                <div class="filter-grid">
+                    {.repeated section items}
+
+                    {.end}
+                </div>
             </div>
         {.or}
         {.repeated section items}
