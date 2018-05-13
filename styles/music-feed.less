@@ -1,6 +1,5 @@
 // tweak: { "type" : "font", "title" : "Genre Font", "category" : "Music Feed", "target" : ".FeedFilter-item"}
-.FeedFilter-item-font
-{
+.FeedFilter-item-font {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -9,11 +8,11 @@
   text-transform: uppercase;
   line-height: 1.2em;
 }
+
 // tweak: { "type" : "color", "title" : "Genre Font", "category" : "Music Feed", "target" : ".FeedFilter-item"}
 @FeedFilterColor: #fff;
 // tweak: { "type" : "font", "title" : "Genre Font", "category" : "Music Feed", "target" : ".FeedItem .tags"}
-.FeedFilter-tags-font
-{
+.FeedFilter-tags-font {
   font-family: Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -22,6 +21,7 @@
   line-height: 1.2em;
   text-transform: uppercase;
 }
+
 // tweak: { "type" : "color", "title" : "Genre Font", "category" : "Music Feed", "target" : ".FeedItem .tags"}
 @FeedItemTagsColor: #fff;
 .filter-sidebar {
@@ -29,7 +29,7 @@
   position: fixed;
   left: 0;
   top: initial;
-  .filter-sidebar-wrapper{
+  .filter-sidebar-wrapper {
     position: relative;
     margin: 10px;
   }
@@ -39,28 +39,30 @@
   li {
     display: block;
     margin: 5px 0;
-    .FeedFilter-item  {
+    .FeedFilter-item {
       display: block;
       padding: 4px 16px;
       transition: background .2s ease;
       background-color: darken(@FeedFilterColor, 60%);
       .FeedFilter-item-font;
       color: @FeedFilterColor;
-      &:hover,&.active {
+      &:hover, &.active {
         color: darken(@FeedFilterColor, 60%);
         background-color: @FeedFilterColor;
       }
-      &.active{
-        &:before {
-          transform: rotate(45deg);
-          -webkit-transform: rotate(45deg);
-        }
-        &:after {
-          transform: rotate(-45deg);
-          -webkit-transform: rotate(-45deg);
+      &.active {
+        .close {
+          &:before {
+            transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+          }
+          &:after {
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+          }
         }
       }
-      .close{
+      .close {
         width: 36px;
         height: 36px;
         line-height: 0;
@@ -81,7 +83,7 @@
       }
     }
   }
-  .filterButton{
+  .filterButton {
     -webkit-appearance: none;
     display: block;
     width: 100%;
@@ -95,22 +97,25 @@
     .FeedFilter-item-font;
   }
 }
-.filter-sidebar,.filterable-feed{
+
+.filter-sidebar, .filterable-feed {
   display: none;
 }
+
 .filter-page {
-   .filter-sidebar,.filterable-feed{
-     display: block;
-     * {
-       box-sizing: border-box;
-     }
-     ul {
-       list-style: none;
-       margin: 0;
-       padding: 0;
-     }
-   }
- }
+  .filter-sidebar, .filterable-feed {
+    display: block;
+    * {
+      box-sizing: border-box;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
 .filterable-feed {
   .filter-grid {
     width: 100%;
