@@ -186,18 +186,18 @@ function filterMusicFeed() {
         tags.push(tag.getAttribute('data-val'));
     });
     var tags_string = tags.length ? '&tag=' + tags : '';
-    filterableFeed.all('.FeedItem').each(function(it,i){
-        it.setStyle('transitionDelay',(60*i)+'ms');
+    filterableFeed.all('.FeedItem').each(function (it, i) {
+        it.setStyle('transitionDelay', (60 * i) + 'ms');
     });
     filterableFeed.addClass('loading');
     setTimeout(function () {
         filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
-            filterableFeed.all('.FeedItem').each(function(it,i){
-                it.setStyle('transitionDelay',(60*i)+'ms');
+            filterableFeed.all('.FeedItem').each(function (it, i) {
+                it.setStyle('transitionDelay', (60 * i) + 'ms');
             });
             setTimeout(function () {
                 filterableFeed.removeClass('loading');
-            },200)
+            }, 100)
         })
     }, 500);
 }
