@@ -9,7 +9,7 @@
                         <li class="FeedItem">
                             {.section tags}
                             <span class="tags">{.repeated section @}
-                                <span href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</span>{.end}
+                                <span>{@}</span>{.end}
                             </span>
                             {.end}
                             {.main-image?}
