@@ -4,18 +4,24 @@
         {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
             <div class="filterable-feed">
                 <div class="filter-sidebar">
-                    {.section collection.tags}
-                    <ul class="FeedFilter">
-                        {.repeated section @}
-                        <li class="tag-item"><a href="{collection.fullUrl}?tag={@|url-encode}" data-val="{@}" rel="tag">{@}</a></li>
+                    <div class="filter-sidebar-wrapper">
+                        {.section collection.tags}
+                        <ul class="FeedFilter">
+                            {.repeated section @}
+                            <li class="tag-item"><a href="{collection.fullUrl}?tag={@|url-encode}" data-val="{@}" rel="tag">{@}</a></li>
+                            {.end}
+                        </ul>
                         {.end}
-                    </ul>
-                    {.end}
+                    </div>
                 </div>
                 <div class="filter-grid">
-                    {.repeated section items}
+                    <div class="filter-grid-wrapper">
+                        <ul class="FeedGreed">
+                        {.repeated section items}
 
-                    {.end}
+                        {.end}
+                        </ul>
+                    </div>
                 </div>
             </div>
         {.or}
