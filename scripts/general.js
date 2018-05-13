@@ -27,7 +27,7 @@ function slugify(text) {
 
 function addScript(script, callback) {
     var s;
-    var parent = script.parent||document.head;
+    var parent = script.parent || document.head;
     if (script.id && !parent.querySelector('#' + script.id)) {
         s = document.createElement("script");
         s.id = script.id;
@@ -176,21 +176,23 @@ function activateMixcloudThings() {
 
 var formSubmitEvent = null;
 var filterInit = null;
-function filterMusicFeed(){
+
+function filterMusicFeed() {
     var filterableFeed = Y.one('.filterable-feed');
-    if(!filterableFeed) return;
-    var tags=[];
+    if (!filterableFeed) return;
+    var tags = [];
     var collectionUrl = '/music-feed/?format=main-content';
-    Y.all('.FeedFilter-item.active').each(function(tag){
+    Y.all('.FeedFilter-item.active').each(function (tag) {
         tags.push(tag.getAttribute('data-val'));
     });
-    var tags_string = tags.length?'&tags='+tags:'';
+    var tags_string = tags.length ? '&tags=' + tags : '';
     filterableFeed.addClass('loading');
-    filterableFeed.load(collectionUrl+tags_string,'.filter-grid',function (e) {
+    filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
         console.log(e);
         filterableFeed.removeClass('loading');
     })
 }
+
 Y.config.win.Squarespace.onInitialize(Y, function () {
     if (Y.one('#liqpay_checkout')) {
         var codeBlockLiq = Y.one('#liqpay_checkout').ancestor('.code-block');
@@ -238,7 +240,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         script.parent = parent;
         addScript(script);
     });
-    if(!filterInit){
+    if (!filterInit) {
         filterInit = Y.one('body').delegate('click', function (e) {
             e.halt();
             e.currentTarget.toggleClass('active');
