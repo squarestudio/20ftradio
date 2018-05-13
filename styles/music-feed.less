@@ -15,11 +15,11 @@
     position: fixed;
   }
   .FeedFilter-item {
-    display: inline-block;
+    display: block;
     margin-right: 5px;
     padding: 2px 6px;
     transition: background .2s ease;
-    background-color: #0e9a95;
+    background-color: #444;
     a {
       .main-nav-font;
     }
@@ -35,6 +35,17 @@
       width: 20%;
       border: 1px solid #eee;
       padding: 5px;
+      height: auto;
+    }
+    .tags {
+      a {
+        display: inline-block;
+        margin-right: 5px;
+        padding: 2px 6px;
+        transition: background .2s ease;
+        background-color: #0e9a95;
+        .main-nav-font;
+      }
     }
     .FeedImage {
       font-size: 0;
