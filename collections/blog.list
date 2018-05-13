@@ -9,9 +9,11 @@
                         <li class="FeedItem">
                             <div class="FeedItemWrapper">
                                 {.section tags}
-                                <span class="tags">{.repeated section @}
-                                <span>{@}</span>{.end}
-                            </span>
+                                <span class="tags">
+                                    {.repeated section @}
+                                        <span>{@}</span>
+                                    {.end}
+                                </span>
                                 {.end}
                                 {.main-image?}
                                 <div class="FeedImage">
