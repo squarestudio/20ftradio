@@ -240,10 +240,12 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     });
     if(!filterInit){
         filterInit = Y.one('body').delegate('click', function (e) {
+            e.halt();
             e.currentTarget.toggleClass('active');
             filterMusicFeed();
         }, '.FeedFilter-item');
         Y.one('body').delegate('click', function (e) {
+            e.halt();
             filterMusicFeed();
         }, '.filterButton')
     }
