@@ -181,10 +181,30 @@ function filterMusicFeed(){
     var collectionUrl = '/music-feed/?format=main-content';
     Y.all('.FeedFilter-item.active').each(function(tag){
         tags.push(tag.getAttribute('data-val'));
-    })
-    if(tags.length){
+    });
+    var tags_string = tags.length?'&tags':'';
+    Y.io(collectionUrl+tags_string, {
+        on: {
+            success: function(tx, r) {
+                var data;
+                try {
+                    data = Y.JSON.parse(r.responseText);
+                    if (data) {
+                        resolve(data);
+                        saveToStorage(data, 'airCache-' + url);
+                    }
+                } catch (e) {
+                    console.log("JSON Parse failed!");
+                    reject("JSON Parse failed!")
+                }
+            },
+            failure: function(e) {
 
-    }
+                console.warn('error : ' + e.message);
+                reject('error : ' + e.message);
+            }
+        }
+    });
 }
 Y.config.win.Squarespace.onInitialize(Y, function () {
     if (Y.one('#liqpay_checkout')) {
