@@ -252,7 +252,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             filterMusicFeed();
         }, '.FeedFilter-item');
         Y.one('body').delegate('click', function (e) {
-
+            filterMusicFeed();
         }, '.filterButton')
     }
 });
