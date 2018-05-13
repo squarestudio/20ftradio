@@ -24,38 +24,39 @@
 }
 // tweak: { "type" : "color", "title" : "Genre Font", "category" : "Music Feed", "target" : ".FeedItem .tags"}
 @FeedItemTagsColor: #fff;
-.filterable-feed {
-  * {
-    box-sizing: border-box;
-  }
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .filter-sidebar, .filter-grid {
-    //float: left;
-  }
-  .filter-sidebar {
-    width: 300px;
-    position: fixed;
-  }
-  .FeedFilter-item {
+.filter-sidebar {
+  width: 300px;
+  position: fixed;
+}
+.FeedFilter-item {
+  display: block;
+  margin: 5px;
+  a {
     display: block;
-    margin: 5px;
-    a {
-      display: block;
-      padding: 4px 16px;
-      transition: background .2s ease;
-      background-color: darken(@FeedFilterColor, 60%);
-      .FeedFilter-item-font;
-      color: @FeedFilterColor;
-      &:hover,&.active {
-        color: darken(@FeedFilterColor, 60%);
-        background-color: @FeedFilterColor;
-      }
+    padding: 4px 16px;
+    transition: background .2s ease;
+    background-color: darken(@FeedFilterColor, 60%);
+    .FeedFilter-item-font;
+    color: @FeedFilterColor;
+    &:hover,&.active {
+      color: darken(@FeedFilterColor, 60%);
+      background-color: @FeedFilterColor;
     }
   }
+}
+.filter-page {
+   .filter-sidebar,.filterable-feed{
+     * {
+       box-sizing: border-box;
+     }
+     ul {
+       list-style: none;
+       margin: 0;
+       padding: 0;
+     }
+   }
+ }
+.filterable-feed {
   .filter-grid {
     width: 100%;
     margin-left: 320px;
