@@ -177,8 +177,9 @@ function activateMixcloudThings() {
 var formSubmitEvent = null;
 var filterInit = null;
 function filterMusicFeed(){
+    var tags=[];
     Y.all('.FeedFilter-item.active').each(function(tag){
-        
+        tags.push(tag.getAttribute('data-val'));
     })
 }
 Y.config.win.Squarespace.onInitialize(Y, function () {
