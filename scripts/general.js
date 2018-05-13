@@ -186,7 +186,6 @@ function filterMusicFeed(){
     Y.io(collectionUrl+tags_string, {
         on: {
             success: function(tx, r) {
-                var data;
                 try {
                     var frag = Y.Node.create(r.responseText);
                     console.log(frag)
