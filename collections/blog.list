@@ -4,7 +4,7 @@
         {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
             <div class="filterable-feed">
                 <div class="filter-sidebar">
-                    {.section tags}
+                    {.section collection.tags}
                     <ul class="FeedFilter">
                         {.repeated section @}
                         <li class="tag-item"><a href="{collection.fullUrl}?tag={@|url-encode}" data-val="{@}" rel="tag">{@}</a></li>
