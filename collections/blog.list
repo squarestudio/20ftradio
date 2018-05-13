@@ -64,7 +64,6 @@
           {.end}
         {.end}
       </div>
-      <div class="social-like">{@|like-button}</div>
       {@|apply sqs-share-buttons}
     </section>
    </article>
