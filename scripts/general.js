@@ -187,7 +187,7 @@ function filterMusicFeed() {
     });
     var tags_string = tags.length ? '&tag=' + tags : '';
     filterableFeed.all('.FilterItem').each(function(it,i){
-        it.setStyle('transitionDelay',100*i);
+        it.setStyle('transitionDelay',(100*i)+'ms');
     });
     filterableFeed.addClass('loading');
     setTimeout(function () {
