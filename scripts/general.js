@@ -225,7 +225,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     });
     if(!filterInit){
         filterInit = Y.one('body').delegate('click', function (e) {
-
+            e.currentTarget.toggleClass('active');
         }, '.FeedFilter-item a');
         Y.one('body').delegate('click', function (e) {
 
