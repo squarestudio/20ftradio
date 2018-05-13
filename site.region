@@ -25,7 +25,7 @@
 <body class="page-{collection.typeLabel} {squarespace.page-classes}  {.equal? collection.id "5af7cccd6d2a736d3c85303d"}filter-page{.end}" id="{squarespace.page-id}" >
 
 <div id="navigator">
-    {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
+    <squarespace:query collection
     <div class="filter-sidebar">
         <div class="filter-sidebar-wrapper">
             {.section collection.tags}
