@@ -12,7 +12,7 @@
                     <div class="text-info clear">
                         <div class="play-button mixcloud-butt"></div>
                         <div class="meta">
-                            <div class="track-title">{title}</div>
+                            <div class="track-title entry-title">{title}</div>
                         </div>
                     </div>
                 </div>
