@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="meta">
-                    {.section tags}<span class="tags genres-tags">{.repeated section @}<span>{@}</span></span>{.end}
+                    {.section tags}<span class="tags genres-tags">{.repeated section @}<span>{@}</span>{.end}</span>{.end}
                     {.section categories}
                     <div class="categories">{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="category">{@}</a>{.alternates with}, {.end}
                     </div>
