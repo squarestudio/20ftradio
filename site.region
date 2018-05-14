@@ -36,7 +36,7 @@
                     <li><a class="FeedFilter-item" href="#{@|url-encode}" data-val="{@}" rel="tag">{@}<span class="close"></span></a></li>
                     {.end}
                 </ul>
-                <a class="filterButton" href="#filter">Filter</a>
+                <!--<a class="filterButton" href="#filter">Filter</a>-->
                 {.end}
                 {.or}
                     <p>Hmm... seems no items there.</p>
