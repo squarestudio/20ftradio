@@ -268,7 +268,12 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         }, '.filterButton');
         var filterList = Y.one('.FeedFilter');
         if(filterList&&!filterList.hasClass('sorted')){
-            filterList.all('')
+            var items = filterList.all('li');
+            if(items.size()){
+                items._nodes.sort(function (a, b) {
+
+                })
+            }
         }
     }
     var doc = Y.one('html');
