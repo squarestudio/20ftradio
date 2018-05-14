@@ -4,8 +4,7 @@
         {.section item}
         <article style="background-image: url({assetUrl})" class="{@|item-classes}" id="article-{id}"
                  data-item-id="{id}"
-                 data-mixcloud-url="/20ftradio/20ft-hip-hop-10072017/"
-        >
+                 data-mixcloud-url="/20ftradio/{urlId}/">
             <header class="">
                 {.if title}
                 <h1 class="entry-title">
