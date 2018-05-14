@@ -5,8 +5,8 @@
         <article style="background-image: url({item.assetUrl})" class="{item|item-classes}" id="article-{item.id}"
                  data-item-id="{id}"
                  data-mixcloud-url="/20ftradio/{item.urlId}/">
-            {.section item}
             <header class="">
+                {.section item}
                 {.if title}
                 <h1 class="entry-title">
                     {title}
@@ -29,14 +29,14 @@
                     </div>
                     {.end}
                 </div>
+                {.end}
+                {.section pagination}
+                <nav class="pagination">
+                    {.section prevItem}<a href="{fullUrl}">Newer</a>{.or}Newer{.end} /
+                    {.section nextItem}<a href="{fullUrl}">Older</a>{.or}Older{.end}
+                </nav>
+                {.end}
             </header>
-            {.end}
-            {.section pagination}
-            <nav class="pagination">
-                {.section prevItem}<a href="{fullUrl}">Newer</a>{.or}Newer{.end} /
-                {.section nextItem}<a href="{fullUrl}">Older</a>{.or}Older{.end}
-            </nav>
-            {.end}
         </article>
         {.end}
         {.or}
