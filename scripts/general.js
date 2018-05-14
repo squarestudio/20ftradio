@@ -268,7 +268,7 @@ if (!window_loaded) {
     activateMixcloudThings();
     body.delegate('click', function (e) {
         e.halt();
-        var ancestor = e.currentTarget.ancestor('.sqs-block')||e.currentTarget.ancestor('article');
+        var ancestor = e.currentTarget.ancestor('.sqs-block')||e.currentTarget.ancestor('.mixcloud-item');
         var url = ancestor.getAttribute('data-mixcloud-url');
         ancestor.toggleClass('playing');
         if (url && ancestor.hasClass('playing')) {
