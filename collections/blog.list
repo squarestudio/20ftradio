@@ -6,7 +6,7 @@
                 <div class="filter-grid-wrapper">
                     <ul class="FeedGrid">
                         {.repeated section items}
-                        <li class="FeedItem">
+                        <li class="FeedItem mixcloud-item">
                             <div class="FeedItemWrapper">
                                 {.section tags}
                                 <span class="tags genres-tags">
