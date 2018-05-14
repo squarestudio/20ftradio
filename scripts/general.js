@@ -265,7 +265,11 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         Y.one('body').delegate('click', function (e) {
             e.halt();
             filterMusicFeed();
-        }, '.filterButton')
+        }, '.filterButton');
+        var filterList = Y.one('.FeedFilter');
+        if(filterList&&!filterList.hasClass('sorted')){
+            filterList.all('')
+        }
     }
     var doc = Y.one('html');
     if(doc.hasClass('mixcloud-footer-playing')&&doc.getAttribute('data-mixcloud-pl-url')){
