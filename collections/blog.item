@@ -2,6 +2,17 @@
 <div class="content">
 {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
   <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
+    <header class="">
+      {.if title}
+      <h1 class="entry-title">
+        {.passthrough?}
+        <a href="{sourceUrl}">{title} <span>&rarr;</span></a>
+        {.or}
+        {title}
+        {.end}
+      </h1>
+      {.end}
+    </header>
     <section>
       <div class="body entry-content">{body}</div>
       {.passthrough?}{.or}{.section sourceUrl}<div class="entry-source">Source: <a href="{sourceUrl}" target="_blank">{sourceUrl|truncate 42}</a></div>{.end}{.end}
