@@ -25,6 +25,12 @@
     </footer>
   </article>
   {.end}
+  {.section pagination}
+  <nav class="pagination">
+    {.section prevItem}<a href="{fullUrl}">Newer</a>{.or}Newer{.end} /
+    {.section nextItem}<a href="{fullUrl}">Older</a>{.or}Older{.end}
+  </nav>
+  {.end}
 {.or}
 {.section item}
 
