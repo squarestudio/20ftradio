@@ -3,7 +3,9 @@
         {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
         {.section item}
         <article style="background-image: url({assetUrl})" class="{@|item-classes}" id="article-{id}"
-                 data-item-id="{id}">
+                 data-item-id="{id}"
+                 data-mixcloud-url="/20ftradio/20ft-hip-hop-10072017/"
+        >
             <header class="">
                 {.if title}
                 <h1 class="entry-title">
