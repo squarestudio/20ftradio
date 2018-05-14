@@ -1,6 +1,9 @@
 <div id="blog">
 <div class="content">
-
+{.equal? collection.id "5af7cccd6d2a736d3c85303d"}
+  <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
+  </article>
+{or}
 {.section item}
 
   <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
@@ -69,7 +72,7 @@
   </article>
 
 {.end}
-
+{.end}
 <!--PAGINATION-->
   {.section pagination}
     <nav class="pagination">
