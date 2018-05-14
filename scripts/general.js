@@ -264,7 +264,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     if(doc.hasClass('mixcloud-footer-playing')&&doc.getAttribute('data-mixcloud-pl-url')){
         var pl_mixcloud_items = doc.all('[data-mixcloud-url="'+doc.getAttribute('data-mixcloud-pl-url')+'"]');
         if(pl_mixcloud_items&&pl_mixcloud_items.size()){
-            pl_mixcloud_items.addClass('playing')
+            pl_mixcloud_items.addClass('playing');
         }
     }
 });
