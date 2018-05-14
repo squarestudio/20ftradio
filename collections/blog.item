@@ -2,7 +2,7 @@
 <div class="content">
 {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
   {.section item}
-  <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
+  <article style="background-image: url({assetUrl})" class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
     <header class="">
       {.if title}
       <h1 class="entry-title">
