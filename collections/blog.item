@@ -2,6 +2,15 @@
 <div class="content">
 {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
   <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
+    <section>
+      <div class="body entry-content">{body}</div>
+      {.passthrough?}{.or}{.section sourceUrl}<div class="entry-source">Source: <a href="{sourceUrl}" target="_blank">{sourceUrl|truncate 42}</a></div>{.end}{.end}
+    </section>
+    <footer>
+      <div class="meta">
+        {.section tags}<span class="tags">tags: {.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
+        {.section categories}<div class="categories">categories: {.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="category">{@}</a>{.alternates with}, {.end}</div>{.end}
+    </footer>
   </article>
 {or}
 {.section item}
