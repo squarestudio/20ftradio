@@ -116,6 +116,7 @@ function initMixCloudFooter() {
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
             mixCloudFooterPlayer.events.play.on(function (e) {
                 console.log(e);
+                var pl_url = Y.one('html').getAttribute('data-mixcloud-pl-url')
                 Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.fire('mixcloud:play');
             });
