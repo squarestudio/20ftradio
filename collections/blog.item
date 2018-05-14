@@ -1,10 +1,11 @@
 <div id="blog">
     <div class="content">
         {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
-        {.section item}
-        <article style="background-image: url({assetUrl})" class="{@|item-classes}" id="article-{id}"
+        {.if item}
+        <article style="background-image: url({item.assetUrl})" class="{item|item-classes}" id="article-{item.id}"
                  data-item-id="{id}"
-                 data-mixcloud-url="/20ftradio/{urlId}/">
+                 data-mixcloud-url="/20ftradio/{item.urlId}/">
+            {.section item}
             <header class="">
                 <div class="custom-mixcloud-widget">
                     <div class="track-art"
@@ -25,13 +26,14 @@
                         {.end}
                 </div>
             </header>
+            {.end}
+            {.section pagination}
+            <nav class="pagination">
+                {.section prevItem}<a href="{fullUrl}">Newer</a>{.or}Newer{.end} /
+                {.section nextItem}<a href="{fullUrl}">Older</a>{.or}Older{.end}
+            </nav>
+            {.end}
         </article>
-        {.end}
-        {.section pagination}
-        <nav class="pagination">
-            {.section prevItem}<a href="{fullUrl}">Newer</a>{.or}Newer{.end} /
-            {.section nextItem}<a href="{fullUrl}">Older</a>{.or}Older{.end}
-        </nav>
         {.end}
         {.or}
         {.section item}
