@@ -7,13 +7,18 @@
                  data-mixcloud-url="/20ftradio/{item.urlId}/">
             {.section item}
             <header class="">
+                {.if title}
+                <h1 class="entry-title">
+                    {title}
+                </h1>
+                {.end}
                 <div class="custom-mixcloud-widget">
                     <div class="track-art"
                          style="background: #1b2340 url({assetUrl}?format=300w) no-repeat;background-size: cover"></div>
                     <div class="text-info clear">
                         <div class="play-button mixcloud-butt"></div>
                         <div class="meta">
-                            <div class="track-title entry-title">{title}</div>
+                            <div class="track-title">{title}</div>
                         </div>
                     </div>
                 </div>
