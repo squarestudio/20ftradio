@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div class="meta">
-                    {.section tags}<span class="tags">tags: {.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
+                    {.section tags}<span class="tags">{.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
                     {.section categories}
                     <div class="categories">categories: {.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="category">{@}</a>{.alternates with}, {.end}
                     </div>
