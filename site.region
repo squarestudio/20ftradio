@@ -29,6 +29,7 @@
         <div class="filter-sidebar-wrapper">
             <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
             <squarespace:query collection="music-feed">
+                {.if items}
                 {.section collection.tags}
                 <ul class="FeedFilter">
                     {.repeated section @}
@@ -36,6 +37,7 @@
                     {.end}
                 </ul>
                 <a class="filterButton" href="#filter">Filter</a>
+                {.end}
                 {.end}
             </squarespace:query>
         </div>
