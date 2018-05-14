@@ -271,7 +271,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             var items = filterList.all('li');
             if(items.size()){
                 items._nodes.sort(function (a, b) {
-
+                        a
                 })
             }
         }
