@@ -1,5 +1,5 @@
 <div id="blog">
-    <div class="content">
+    <div class="content" style="position: relative">
         {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
         <div class="filterable-feed">
             <div class="filter-grid clear">
