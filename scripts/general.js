@@ -161,7 +161,7 @@ function activateMixcloudThings() {
                 }
                 item.setAttribute('data-mixcloud-url', '/' + feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed) + '-mix-item').addClass('inited mixcloud-item');
                 content.empty();
-                $.getJSON('https://api.mixcloud.com/' + feed, function (data) {
+                $.get('https://api.mixcloud.com/' + feed, function (data) {
                     console.log(data);
                     content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: #' + data.picture_primary_color + ' url(' + data.pictures.large + ') no-repeat;background-size: cover"></div><div class="text-info clear">' +
                         '<div class="play-button mixcloud-butt"></div><div class="meta"><div class="track-title">' + data.name + '</div></div></div></div>')
