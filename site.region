@@ -39,7 +39,7 @@
                 <a class="filterButton" href="#filter">Filter</a>
                 {.end}
                 {.or}
-                    <p>Hmm..seems no items there.</p>
+                    <p>Hmm... seems no items there.</p>
                 {.end}
             </squarespace:query>
         </div>
