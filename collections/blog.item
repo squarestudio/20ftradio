@@ -72,29 +72,22 @@
 
                 <footer class="">
                     <div class="meta">
-
-                        {.section tags}<span class="tags">tags: {.repeated section @}<a
-                            href="{collection.fullUrl}?tag={@|url-encode}"
-                            rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
+                        {.section tags}<span class="tags">tags: {.repeated section @}<a href="{collection.fullUrl}?tag={@|url-encode}" rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
                         {.section categories}
-                        <div class="categories">categories: {.repeated section @}<a
-                                href="{collection.fullUrl}?category={@|url-encode}" rel="category">{@}</a>{.alternates
+                        <div class="categories">categories: {.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="category">{@}</a>{.alternates
                             with}, {.end}
                         </div>
                         {.end}
 
                 </footer>
-
                 <div class="sqs-post-entry">{postItemInjectCode}</div>
             </section>
 
             <!--POST HEADER-->
 
             <section class="sidebar">
-                <span class="date"><time class="published"
-                                         datetime="{publishOn|date %F}">{publishOn|date %A %m.%d.%y}</time></span>
-                <address rel="author">{.section author}<span class="author">Posted by <a
-                        href="{collection.fullUrl}?author={author.id}">{displayName}</a></span>{.end}
+                <span class="date"><time class="published" datetime="{publishOn|date %F}">{publishOn|date %A %m.%d.%y}</time></span>
+                <address rel="author">{.section author}<span class="author">Posted by <a href="{collection.fullUrl}?author={author.id}">{displayName}</a></span>{.end}
                 </address>
                 <div class="comments">
                     {.comments?}
