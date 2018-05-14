@@ -259,6 +259,11 @@
       height: 0;
       padding-bottom: 60%;
       position: relative;
+      &:hover{
+        &:after{
+          opacity: .7;
+        }
+      }
       &:after{
         z-index: 2;
         position: absolute;
@@ -270,6 +275,7 @@
         right: 0;
         opacity: 0;
         background-color: #0d0d0d;
+        transition: opacity .2s ease-in-out;
       }
       img {
         width: 100%;
