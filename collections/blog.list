@@ -37,13 +37,13 @@
                     </ul>
                 </div>
             </div>
-            {.section pagination}
-            <nav class="pagination">
-                {.if pagination.prevPage}<a href="{prevPageUrl}">Newer</a>{.or}Newer{.end} /
-                {.if pagination.nextPage}<a href="{nextPageUrl}">Older</a>{.or}Older{.end}
-            </nav>
-            {.end}
         </div>
+        {.section pagination}
+        <nav class="pagination">
+            {.if pagination.prevPage}<a href="{prevPageUrl}">Newer</a>{.or}Newer{.end} /
+            {.if pagination.nextPage}<a href="{nextPageUrl}">Older</a>{.or}Older{.end}
+        </nav>
+        {.end}
         {.or}
         {.repeated section items}
 
