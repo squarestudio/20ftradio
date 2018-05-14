@@ -37,7 +37,6 @@
         {.end}
         {.or}
         {.section item}
-
         <article class="{@|item-classes}" id="article-{id}" data-item-id="{id}">
 
             <!--POST BODY-->
@@ -115,7 +114,6 @@
             </section>
 
         </article>
-
         {.end}
         <!--PAGINATION-->
         {.section pagination}
