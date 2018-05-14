@@ -113,12 +113,14 @@ function initMixCloudFooter() {
         window.mixCloudFooterPlayer = mixCloudFooterPlayer;
         mixCloudFooterPlayer.then(function (widget) {
             mixCloudFooterPlayer = widget;
+            window.mixCloudFooterPlayer = mixCloudFooterPlayer;
             mixCloudFooterPlayer.events.play.on(function () {
                 Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.fire('mixcloud:play');
             });
             mixCloudFooterPlayer.events.pause.on(function () {
                 Y.one('html').removeClass('mixcloud-footer-playing');
+                Y.all('[data-mixcloud-url]').removeClass('playing');
                 if (!Y.one('#castDiv').hasClass('playing')) {
                     Y.one('html').addClass('mixcloud-footer-stopped');
                 }
