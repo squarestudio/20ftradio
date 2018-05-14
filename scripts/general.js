@@ -271,8 +271,8 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             var items = filterList.all('li');
             if(items.size()){
                 items._nodes.sort(function(a, b) {
-                    a = a.querySelector('[data-title]') ? a.querySelector('[data-title]').dataset['title'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : a.querySelector('.summary-title-link') ? a.querySelector('.summary-title-link').innerText.toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : '';
-                    b = b.querySelector('[data-title]') ? b.querySelector('[data-title]').dataset['title'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : b.querySelector('.summary-title-link') ? b.querySelector('.summary-title-link').innerText.toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : '';
+                    a = a.querySelector('[data-val]') ? a.querySelector('[data-val]').dataset['val'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') :'';
+                    b = b.querySelector('[data-val]') ? b.querySelector('[data-val]').dataset['val'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : '';
                     return (a < b) ? -1 : (a > b) ? 1 : 0;
                 })
             }
