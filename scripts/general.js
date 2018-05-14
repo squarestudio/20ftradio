@@ -117,7 +117,10 @@ function initMixCloudFooter() {
             mixCloudFooterPlayer.events.play.on(function (e) {
                 console.log(e);
                 var pl_url = Y.one('html').getAttribute('data-mixcloud-pl-url');
-                if
+                var pl_mixcloud_items =  Y.one('html').all('[data-mixcloud-url="'+pl_url+'"]');
+                if(pl_mixcloud_items&&pl_mixcloud_items.size()){
+                    pl_mixcloud_items.addClass('playing');
+                }
                 Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.fire('mixcloud:play');
             });
