@@ -275,6 +275,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
                     b = b.querySelector('[data-val]') ? b.querySelector('[data-val]').dataset['val'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : '';
                     return (a < b) ? -1 : (a > b) ? 1 : 0;
                 })
+                filterList.addClass('sorted').insert(items,null);
             }
         }
     }
