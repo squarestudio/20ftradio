@@ -94,7 +94,6 @@
   </article>
 
 {.end}
-{.end}
 <!--PAGINATION-->
   {.section pagination}
     <nav class="pagination">
@@ -108,6 +107,7 @@
   <section class="comments-wrapper">
     {@|comments}
   </section>
+{.end}
 {.end}
 </div>
 </div>
