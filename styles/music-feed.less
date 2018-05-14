@@ -250,7 +250,7 @@
       column-gap: 0;
     }
     .FeedItem {
-      display: inline-block;
+      display: block;
       width: 100%;
       vertical-align: top;
       min-height: 200px;
@@ -258,6 +258,9 @@
       color: #fff;
       height: auto;
       transition: transform .3s ease-in-out, opacity .3s linear;
+      &:first-child{
+        margin-top: -10px;
+      }
       .FeedItemWrapper {
         margin: 10px;
         border: 1px solid #eee;
