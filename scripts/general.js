@@ -270,8 +270,10 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         if(filterList&&!filterList.hasClass('sorted')){
             var items = filterList.all('li');
             if(items.size()){
-                items._nodes.sort(function (a, b) {
-                        a
+                items._nodes.sort(function(a, b) {
+                    a = a.querySelector('[data-title]') ? a.querySelector('[data-title]').dataset['title'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : a.querySelector('.summary-title-link') ? a.querySelector('.summary-title-link').innerText.toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : '';
+                    b = b.querySelector('[data-title]') ? b.querySelector('[data-title]').dataset['title'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : b.querySelector('.summary-title-link') ? b.querySelector('.summary-title-link').innerText.toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : '';
+                    return (a < b) ? -1 : (a > b) ? 1 : 0;
                 })
             }
         }
