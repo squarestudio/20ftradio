@@ -262,7 +262,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     }
     var doc = Y.one('html');
     if(doc.hasClass('mixcloud-footer-playing')&&doc.getAttribute('data-mixcloud-pl-url')){
-        var pl_mixcloud_item = doc.one('').getAttribute('data-mixcloud-pl-url')
+        var pl_mixcloud_item = doc.one('.mixcloud-item[]').getAttribute('data-mixcloud-pl-url')
     }
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
