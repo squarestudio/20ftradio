@@ -9,7 +9,7 @@
                         <li class="FeedItem">
                             <div class="FeedItemWrapper">
                                 {.section tags}
-                                <span class="tags">
+                                <span class="tags genres-tags">
                                     {.repeated section @}
                                         <span>{@}</span>
                                     {.end}
