@@ -30,6 +30,7 @@
                     {.end}
                 </div>
                 {.end}
+                {@|apply sqs-share-buttons}
                 {.section pagination}
                 <nav class="pagination">
                     {.section prevItem}<a href="{fullUrl}">Next</a>{.or}Next{.end} /
