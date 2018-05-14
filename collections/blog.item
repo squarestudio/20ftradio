@@ -2,7 +2,7 @@
     <div class="content">
         {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
         {.if item}
-        <article style="background-image: url({item.assetUrl})" class="{item|item-classes}" id="article-{item.id}"
+        <article style="background-image: url({item.assetUrl})" class="{item|item-classes} mixcloud-item" id="article-{item.id}"
                  data-item-id="{id}"
                  data-mixcloud-url="/20ftradio/{item.urlId}/">
             <header class="">
