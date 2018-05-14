@@ -6,15 +6,6 @@
                  data-item-id="{id}"
                  data-mixcloud-url="/20ftradio/{urlId}/">
             <header class="">
-                {.if title}
-                <h1 class="entry-title">
-                    {.passthrough?}
-                    <a href="{sourceUrl}">{title} <span>&rarr;</span></a>
-                    {.or}
-                    {title}
-                    {.end}
-                </h1>
-                {.end}
                 <div class="custom-mixcloud-widget">
                     <div class="track-art"
                          style="background: #1b2340 url({assetUrl}?format=300w) no-repeat;background-size: cover"></div>
