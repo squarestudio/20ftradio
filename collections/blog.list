@@ -26,7 +26,7 @@
                                     {.end}
                                     <span class="date">
                                     <time class="published"
-                                          datetime="{publishOn|date %F}">{publishOn|date %m.%d.%y}
+                                          datetime="{publishOn|date %F}">{publishOn|date %d.%m.%y}
                                     </time>
                                 </span>
                                 </div>
