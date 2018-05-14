@@ -16,7 +16,7 @@
                         </div>
                     </div>
                 </div>
-                    <div class="meta">
+                <div class="meta">
                         {.section tags}<span class="tags">tags: {.repeated section @}<a
                             href="{collection.fullUrl}?tag={@|url-encode}"
                             rel="tag">{@}</a>{.alternates with}, {.end}</span>{.end}
@@ -26,6 +26,7 @@
                             with}, {.end}
                         </div>
                         {.end}
+                </div>
             </header>
         </article>
         {.end}
