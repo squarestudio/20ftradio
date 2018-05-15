@@ -33,10 +33,10 @@
                 {@|apply sqs-share-buttons}
                 {.if pagination}
                 <nav class="pagination">
-                    <a href="{collection.fullUrl}" class="home-link">Music Feed</a>
+                    <a data-ajax-loader="ajax-loader-binded" href="{collection.fullUrl}" class="home-link">Music Feed</a>
                     {.section pagination}
-                    {.section prevItem}<a href="{fullUrl}">Next</a>{.or}Next{.end} /
-                    {.section nextItem}<a href="{fullUrl}">Prev</a>{.or}Prev{.end}
+                    {.section prevItem}<a data-ajax-loader="ajax-loader-binded" href="{fullUrl}">Next</a>{.or}Next{.end} /
+                    {.section nextItem}<a data-ajax-loader="ajax-loader-binded" href="{fullUrl}">Prev</a>{.or}Prev{.end}
                     {.end}
                 </nav>
                 {.end}
