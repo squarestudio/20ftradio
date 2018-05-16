@@ -199,6 +199,7 @@ function filterMusicFeed() {
     filterableFeed.addClass('loading');
     setTimeout(function () {
         filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
+            mixcloudFeedGrid();
             filterableFeed.all('.FeedItem').each(function (it, i) {
                 it.setStyle('transitionDelay', (60 * i) + 'ms');
             });
@@ -307,6 +308,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             pl_mixcloud_items.addClass('playing');
         }
     }
+    mixcloudFeedGrid();
 });
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
