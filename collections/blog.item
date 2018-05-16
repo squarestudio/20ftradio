@@ -35,7 +35,7 @@
                 <nav class="pagination">
                     <a data-ajax-loader="ajax-loader-binded" href="{collection.fullUrl}" class="home-link">Music Feed</a>
                     {.section pagination}
-                    {.section prevItem}<a data-ajax-loader="ajax-loader-binded" href="{fullUrl}">Next</a>{.or}<span>Next</span>{.end} 
+                    {.section prevItem}<a data-ajax-loader="ajax-loader-binded" href="{fullUrl}"></a>{.or}<span>Next</span>{.end}
                     {.section nextItem}<a data-ajax-loader="ajax-loader-binded" href="{fullUrl}">Prev</a>{.or}<span>Prev</span>{.end}
                     {.end}
                 </nav>
