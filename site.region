@@ -44,7 +44,7 @@
             </squarespace:query>
         </div>
     </div>
-    <nav class="active-filter-tags"></nav>
+    <ul class="active-filter-tags"></ul>
     {.section website}
     <header id="topBar" class="sqs-announcement-bar-dropzone">
         <div data-content-field="site-title" class="siteTitle">
