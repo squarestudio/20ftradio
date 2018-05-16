@@ -334,7 +334,16 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
 function activateFilterTags(params) {
     if (params && params.tag) {
         var tags = params.tag.split(',');
-        console.log(tags)
+        var filterItems = Y.all('.FeedFilter-item');
+        console.log(tags);
+        if(tags.length&&filterItems.size()){
+            filterItems.each(function(it){
+                var val = it.getAttribute('data-val');
+                if(val&&tags.indexOf(val)>-1&&!it.hasClass('active')){
+                    it.addClass('active');
+                }
+            })
+        }
     }
 }
 
