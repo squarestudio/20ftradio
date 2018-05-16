@@ -287,7 +287,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         filterInit = Y.one('body').delegate('click', function (e) {
             e.halt();
             e.currentTarget.toggleClass('active');
-            var activeFilterTags = Y.one('.active-filter-tags');
+            var activeFilterTags = Y.one('.active-filter-tags ul');
             var val = e.currentTarget.getAttribute('data-val');
             if(!activeFilterTags.one('[data-val]="'+val+'"')&&e.currentTarget.hasClass('active')){
                 var cloned = e.currentTarget.get('parentNode').cloneNode(!0);
