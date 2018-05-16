@@ -198,8 +198,10 @@ function filterMusicFeed() {
     });
     filterableFeed.addClass('loading');
     setTimeout(function () {
-       var sim_a =  Y.Node.create('<a href=""></a>');
-        filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
+       var sim_a =  Y.Node.create('<a href="'+collectionUrl+tags_string+'"></a>');
+       sim_a.simulate('click');
+       //sim_a.remove();
+/*        filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
             mixcloudFeedGrid();
             filterableFeed.all('.FeedItem').each(function (it, i) {
                 it.setStyle('transitionDelay', (60 * i) + 'ms');
@@ -207,7 +209,7 @@ function filterMusicFeed() {
             setTimeout(function () {
                 filterableFeed.removeClass('loading');
             }, 200)
-        })
+        })*/
     }, 500);
 }
 function mixcloudFeedGrid() {
