@@ -294,10 +294,8 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
                 activeFilterTags.append(cloned);
             }
             if(e.currentTarget.hasClass('top-tag')&&!e.currentTarget.hasClass('active')){
-                var sidebar_tag = 
-                if(Y.one('[data-val]="'+val+'"'){
-
-                }
+                var sidebar_tag = Y.one('.FeedFilter [data-val]="'+val+'"');
+                sidebar_tag&&sidebar_tag.removeClass('active');
             }
             filterMusicFeed();
         }, '.FeedFilter-item');
