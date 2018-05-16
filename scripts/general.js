@@ -322,7 +322,8 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
 });
 function activateFilterTags(params){
     if(params&&params.tag){
-        var tags = params.tag.split(',')
+        var tags = params.tag.split(',');
+        console.log(tags)
     }
 }
 Y.config.win.Squarespace.onDestroy(Y, function () {
