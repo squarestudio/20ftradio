@@ -236,7 +236,7 @@ function mixcloudFeedGrid() {
             });
         });
         setTimeout(function () {
-            Y.one('.FeedGrid').removeClass('loading');
+            //Y.one('.FeedGrid').removeClass('loading');
         }, 200)
     }
 }
