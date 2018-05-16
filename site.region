@@ -25,25 +25,6 @@
 <body class="page-{collection.typeLabel} {squarespace.page-classes}  {.equal? collection.id "5af7cccd6d2a736d3c85303d"}filter-page{.end}" id="{squarespace.page-id}" >
 
 <div id="navigator">
-    <div class="filter-sidebar">
-        <div class="filter-sidebar-wrapper">
-            <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
-            <squarespace:query collection="music-feed">
-                {.if items}
-                {.section collection.tags}
-                <ul class="FeedFilter">
-                    {.repeated section @}
-                    <li><a class="FeedFilter-item" href="#{@|url-encode}" data-val="{@}" rel="tag">{@}<span class="close"></span></a></li>
-                    {.end}
-                </ul>
-                <!--<a class="filterButton" href="#filter">Filter</a>-->
-                {.end}
-                {.or}
-                    <p>Hmm... seems no items there.</p>
-                {.end}
-            </squarespace:query>
-        </div>
-    </div>
     {.section website}
     <header id="topBar" class="sqs-announcement-bar-dropzone">
         <div data-content-field="site-title" class="siteTitle">
@@ -150,6 +131,25 @@
         {.end}
     </squarespace:query>
     <section id="container">
+        <div class="filter-sidebar">
+            <div class="filter-sidebar-wrapper">
+                <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
+                <squarespace:query collection="music-feed">
+                    {.if items}
+                    {.section collection.tags}
+                    <ul class="FeedFilter">
+                        {.repeated section @}
+                        <li><a class="FeedFilter-item" href="#{@|url-encode}" data-val="{@}" rel="tag">{@}<span class="close"></span></a></li>
+                        {.end}
+                    </ul>
+                    <!--<a class="filterButton" href="#filter">Filter</a>-->
+                    {.end}
+                    {.or}
+                    <p>Hmm... seems no items there.</p>
+                    {.end}
+                </squarespace:query>
+            </div>
+        </div>
         <div class="active-filter-tags">
             <ul></ul>
         </div>
