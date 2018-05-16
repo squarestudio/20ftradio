@@ -218,7 +218,9 @@
     .filter-sidebar {
       .FeedFilter-item {
         &.active{
-          display: none;
+          max-height: 0;
+          opacity: 0;
+          overflow: hidden;
         }
       }
     }
