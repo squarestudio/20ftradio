@@ -208,7 +208,28 @@ function filterMusicFeed() {
         })
     }, 500);
 }
-
+function mixcloudFeedGrid() {
+    if(Y.one('.FeedGrid .FeedItem')){
+        Y.use('squarespace-gallery-ng', function () {
+            k = new Y.Squarespace.Gallery2({
+                container: ".FeedGrid",
+                slides: ".FeedItem",
+                autoplay: !1,
+                lazyLoad: !0,
+                loaderOptions: { mode:  "fill" },
+                design: "autocolumns",
+                designOptions: {
+                    lightbox: !1,
+                    columnWidthBehavior: 'max',
+                    gutter: 0,
+                    columnWidth: (window.innerWidth/3),
+                    aspectRatio: 0
+                },
+                historyHash: !1
+            });
+        })
+    }
+}
 Y.config.win.Squarespace.onInitialize(Y, function () {
     if (Y.one('#liqpay_checkout')) {
         var codeBlockLiq = Y.one('#liqpay_checkout').ancestor('.code-block');
