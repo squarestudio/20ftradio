@@ -296,7 +296,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             if(e.currentTarget.get('parentNode').hasClass('top-tag')&&!e.currentTarget.hasClass('active')){
                 var sidebar_tag = Y.one('.FeedFilter [data-val]="'+val+'"');
                 sidebar_tag&&sidebar_tag.removeClass('active');
-                e.currentTarget.remove();
+                e.currentTarget.get('parentNode').remove();
             }
             filterMusicFeed();
         }, '.FeedFilter-item');
