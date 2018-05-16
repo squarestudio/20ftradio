@@ -57,6 +57,21 @@
   #filterBlock {
     padding: 0 5px;
   }
+  .filterButton {
+    -webkit-appearance: none;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    margin: 10px 0;
+    padding: 8px 16px;
+    border: none;
+    background-color: darken(@FeedFilterColor, 60%);
+    color: @FeedFilterColor;
+    text-align: center;
+    .FeedFilter-item-font;
+  }
+}
+.filter-sidebar, .active-filter-tags{
   li {
     display: block;
     margin: 5px 0;
@@ -118,21 +133,7 @@
       }
     }
   }
-  .filterButton {
-    -webkit-appearance: none;
-    display: block;
-    width: 100%;
-    cursor: pointer;
-    margin: 10px 0;
-    padding: 8px 16px;
-    border: none;
-    background-color: darken(@FeedFilterColor, 60%);
-    color: @FeedFilterColor;
-    text-align: center;
-    .FeedFilter-item-font;
-  }
 }
-
 .filter-sidebar, .filterable-feed, .active-filter-tags {
   display: none;
 }
