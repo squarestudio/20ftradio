@@ -189,7 +189,7 @@ function filterMusicFeed() {
     if (!filterableFeed) return;
     var tags = [];
     var collectionUrl = '/music-feed/';//?format=main-content
-    Y.all('.FeedFilter-item.active').each(function (tag) {
+    Y.all('.filter-sidebar.FeedFilter-item.active').each(function (tag) {
         tags.push(tag.getAttribute('data-val'));
     });
     var tags_string = tags.length ? '?tag=' + tags : '';
