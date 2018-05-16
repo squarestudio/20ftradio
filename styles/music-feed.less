@@ -276,8 +276,17 @@
 }
 .pagination {
   color: #fff;
-  a {
-    color: #fff;
+  a,span {
+    padding: 4px 32px 4px 16px;
+    transition: all .3s ease;
+    max-height: 100px;
+    background-color: darken(@FeedFilterColor, 60%);
+    .FeedFilter-item-font;
+    color: @FeedFilterColor;
+    &:hover, &.active {
+      color: darken(@FeedFilterColor, 60%);
+      background-color: @FeedFilterColor;
+    }
   }
   .home-link {
     margin-right: 20px;
