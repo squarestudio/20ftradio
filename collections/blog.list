@@ -1,10 +1,10 @@
 <div id="blog">
     <div class="content">
         {.equal? collection.id "5af7cccd6d2a736d3c85303d"}
-        <div class="filterable-feed">
+        <div class="filterable-feed loading">
             <div class="filter-grid clear">
                 <div class="filter-grid-wrapper">
-                    <ul class="FeedGrid loading">
+                    <ul class="FeedGrid">
                         {.repeated section items}
                         <li class="FeedItem mixcloud-item" data-mixcloud-url="/20ftradio/{urlId}/">
                             <div class="FeedItemWrapper">
