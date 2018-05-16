@@ -197,8 +197,7 @@ function filterMusicFeed() {
         b = b.toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '');
         return (a < b) ? -1 : (a > b) ? 1 : 0;
     });
-    console.log(tags)
-    var tags_string = tags.length ? '?tag=' + tags : '';
+    var tags_string = tags.length ? '?tag=' + tags : '/';
     filterableFeed.all('.FeedItem').each(function (it, i) {
         it.setStyle('transitionDelay', (60 * i) + 'ms');
     });
