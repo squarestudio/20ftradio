@@ -287,7 +287,9 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         filterInit = Y.one('body').delegate('click', function (e) {
             e.halt();
             e.currentTarget.toggleClass('active');
-            if()
+            var activeFilterTags = Y.one('.active-filter-tags');
+            
+            if(!activeFilterTags('[data-val]=""'))
             filterMusicFeed();
         }, '.FeedFilter-item');
         Y.one('body').delegate('click', function (e) {
