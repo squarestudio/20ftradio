@@ -340,7 +340,6 @@ function activateFilterTags(params) {
     if (params && params.tag) {
         var tags = params.tag.split(',');
         var filterItems = Y.all('.FeedFilter-item');
-        console.log(tags);
         if(tags.length&&filterItems.size()){
             var activeFilterTags = Y.one('.active-filter-tags ul');
             filterItems.each(function(it){
