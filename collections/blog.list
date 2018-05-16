@@ -4,7 +4,7 @@
         <div class="filterable-feed">
             <div class="filter-grid clear">
                 <div class="filter-grid-wrapper">
-                    <ul class="FeedGrid">
+                    <ul class="FeedGrid loading">
                         {.repeated section items}
                         <li class="FeedItem mixcloud-item" data-mixcloud-url="/20ftradio/{urlId}/">
                             <div class="FeedItemWrapper">
