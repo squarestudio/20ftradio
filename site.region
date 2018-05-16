@@ -44,9 +44,6 @@
             </squarespace:query>
         </div>
     </div>
-    <div class="active-filter-tags">
-        <ul></ul>
-    </div>
     {.section website}
     <header id="topBar" class="sqs-announcement-bar-dropzone">
         <div data-content-field="site-title" class="siteTitle">
@@ -159,6 +156,9 @@
             <div class="fountainG fountainG_3"></div>
             <div class="fountainG fountainG_4"></div>
             <div class="fountainG fountainG_5"></div>
+        </div>
+        <div class="active-filter-tags">
+            <ul></ul>
         </div>
         <div id="container-content" data-content-field="main-content" role="main">
 <!--            {.section collection}{.equal? typeName "products"}{.section categories}
