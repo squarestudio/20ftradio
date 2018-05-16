@@ -203,16 +203,6 @@ function filterMusicFeed() {
        sim_a.simulate('click');
        sim_a.remove();
        sim_a = null;
-       //sim_a.remove();
-/*        filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
-            mixcloudFeedGrid();
-            filterableFeed.all('.FeedItem').each(function (it, i) {
-                it.setStyle('transitionDelay', (60 * i) + 'ms');
-            });
-            setTimeout(function () {
-                filterableFeed.removeClass('loading');
-            }, 200)
-        })*/
     }, 500);
 }
 function mixcloudFeedGrid() {
