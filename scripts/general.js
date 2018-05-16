@@ -293,7 +293,9 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
                 var cloned = e.currentTarget.get('parentNode').cloneNode(!0).addClass('top-tag');
                 activeFilterTags.append(cloned);
             }
-            if(e.currentTarget)
+            if(e.currentTarget.hasClass('top-tag')){
+                
+            }
             filterMusicFeed();
         }, '.FeedFilter-item');
         Y.one('body').delegate('click', function (e) {
