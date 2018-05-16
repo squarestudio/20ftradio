@@ -290,7 +290,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             var activeFilterTags = Y.one('.active-filter-tags');
             var val = e.currentTarget.getAttribute('data-val');
             if(!activeFilterTags('[data-val]="'+val+'"')){
-                
+                activeFilterTags.append(e.currentTarget.cloneNode(!0))
             }
             filterMusicFeed();
         }, '.FeedFilter-item');
