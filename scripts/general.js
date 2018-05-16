@@ -192,7 +192,7 @@ function filterMusicFeed() {
     Y.all('.FeedFilter-item.active').each(function (tag) {
         tags.push(tag.getAttribute('data-val'));
     });
-    var tags_string = tags.length ? '&tag=' + tags : '';
+    var tags_string = tags.length ? '?tag=' + tags : '';
     filterableFeed.all('.FeedItem').each(function (it, i) {
         it.setStyle('transitionDelay', (60 * i) + 'ms');
     });
