@@ -234,7 +234,10 @@ function mixcloudFeedGrid() {
                 },
                 historyHash: !1
             });
-        })
+        });
+        setTimeout(function () {
+            Y.one('.FeedGrid').removeClass('loading');
+        }, 200)
     }
 }
 Y.config.win.Squarespace.onInitialize(Y, function () {
