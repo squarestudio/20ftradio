@@ -337,10 +337,15 @@ function activateFilterTags(params) {
         var filterItems = Y.all('.FeedFilter-item');
         console.log(tags);
         if(tags.length&&filterItems.size()){
+            var activeFilterTags = Y.one('.active-filter-tags ul');
             filterItems.each(function(it){
                 var val = it.getAttribute('data-val');
                 if(val&&tags.indexOf(val)>-1&&!it.hasClass('active')){
                     it.addClass('active');
+                    if(!activeFilterTags.one('[data-val]="'+val+'"')){
+                        var cloned = it.get('parentNode').cloneNode(!0);
+                        activeFilterTags.append(cloned);
+                    }
                 }
             })
         }
