@@ -280,12 +280,11 @@
     display: inline-block;
     padding: 4px 16px;
     transition: all .3s ease;
-    background-color: darken(@FeedFilterColor, 60%);
+    background-color: @FeedFilterColor;
     .FeedFilter-item-font;
-    color: @FeedFilterColor;
-    &:hover, &.active {
-      color: darken(@FeedFilterColor, 60%);
-      background-color: @FeedFilterColor;
+    color: darken(@FeedFilterColor, 60%);
+    &:hover {
+      opacity: 0.8;
     }
   }
   .home-link {
