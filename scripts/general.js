@@ -293,6 +293,7 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
                 var cloned = e.currentTarget.get('parentNode').cloneNode(!0);
                 activeFilterTags.append(cloned);
             }
+            if()
             filterMusicFeed();
         }, '.FeedFilter-item');
         Y.one('body').delegate('click', function (e) {
