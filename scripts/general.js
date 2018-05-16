@@ -319,9 +319,11 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         }
     }
     try {
-        var search = location.search.substring(1);
-        var params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
-        activateFilterTags(params);
+        if(location.search){
+            var search = location.search.substring(1);
+            var params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
+            activateFilterTags(params);
+        }
     } catch (e) {
         console.log(e);
     }
