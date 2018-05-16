@@ -38,7 +38,7 @@
                 </div>
                 {.section pagination}
                 <nav class="pagination">
-                    {.if pagination.prevPage}<a data-ajax-loader="ajax-loader-binded" href="{prevPageUrl}">Newer</a>{.or}<span>Newer</span>{.end}  
+                    {.if pagination.prevPage}<a data-ajax-loader="ajax-loader-binded" href="{prevPageUrl}">Newer</a>{.or}<span>Newer</span>{.end}
                     {.if pagination.nextPage}<a data-ajax-loader="ajax-loader-binded" href="{nextPageUrl}">Older</a>{.or}<span>Older</span>{.end}
                 </nav>
                 {.end}
