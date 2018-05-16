@@ -217,6 +217,7 @@ function filterMusicFeed() {
 }
 function mixcloudFeedGrid() {
     if(Y.one('.FeedGrid .FeedItem')){
+        var filterableFeed = Y.one('.filterable-feed');
         Y.use('squarespace-gallery-ng', function () {
             k = new Y.Squarespace.Gallery2({
                 container: ".FeedGrid",
@@ -235,9 +236,12 @@ function mixcloudFeedGrid() {
                 historyHash: !1
             });
         });
+        filterableFeed.all('.FeedItem').each(function (it, i) {
+            it.setStyle('transitionDelay', (60 * i) + 'ms');
+        });
         setTimeout(function () {
-            Y.one('.filterable-feed').removeClass('loading');
-        }, 200) 
+            filterableFeed.removeClass('loading');
+        }, 200)
     }
 }
 Y.config.win.Squarespace.onInitialize(Y, function () {
