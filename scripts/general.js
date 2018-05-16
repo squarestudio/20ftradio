@@ -288,8 +288,10 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             e.halt();
             e.currentTarget.toggleClass('active');
             var activeFilterTags = Y.one('.active-filter-tags');
-            
-            if(!activeFilterTags('[data-val]=""'))
+            var val = e.currentTarget.getAttribute('data-val');
+            if(!activeFilterTags('[data-val]="'+val+'"')){
+                
+            }
             filterMusicFeed();
         }, '.FeedFilter-item');
         Y.one('body').delegate('click', function (e) {
