@@ -116,8 +116,8 @@ function initMixCloudFooter() {
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
             mixCloudFooterPlayer.events.play.on(function (e) {
                 var pl_url = Y.one('html').getAttribute('data-mixcloud-pl-url');
-                var pl_mixcloud_items =  Y.one('html').all('[data-mixcloud-url="'+pl_url+'"]');
-                if(pl_mixcloud_items&&pl_mixcloud_items.size()){
+                var pl_mixcloud_items = Y.one('html').all('[data-mixcloud-url="' + pl_url + '"]');
+                if (pl_mixcloud_items && pl_mixcloud_items.size()) {
                     pl_mixcloud_items.addClass('playing');
                 }
                 Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
@@ -198,15 +198,16 @@ function filterMusicFeed() {
     });
     filterableFeed.addClass('loading');
     setTimeout(function () {
-       var sim_a =  Y.Node.create('<a data-ajax-loader="ajax-loader-binded" href="'+collectionUrl+tags_string+'"></a>');
-       Y.one('body').append(sim_a);
-       sim_a.simulate('click');
-       sim_a.remove();
-       sim_a = null;
+        var sim_a = Y.Node.create('<a data-ajax-loader="ajax-loader-binded" href="' + collectionUrl + tags_string + '"></a>');
+        Y.one('body').append(sim_a);
+        sim_a.simulate('click');
+        sim_a.remove();
+        sim_a = null;
     }, 500);
 }
+
 function mixcloudFeedGrid() {
-    if(Y.one('.FeedGrid .FeedItem')){
+    if (Y.one('.FeedGrid .FeedItem')) {
         var filterableFeed = Y.one('.filterable-feed');
         Y.use('squarespace-gallery-ng', function () {
             k = new Y.Squarespace.Gallery2({
@@ -214,13 +215,13 @@ function mixcloudFeedGrid() {
                 slides: ".FeedItem",
                 autoplay: !1,
                 lazyLoad: !0,
-                loaderOptions: { mode:  "fill" },
+                loaderOptions: {mode: "fill"},
                 design: "autocolumns",
                 designOptions: {
                     lightbox: !1,
                     columnWidthBehavior: 'max',
                     gutter: 0,
-                    columnWidth: Math.max(window.innerWidth/3,320),
+                    columnWidth: Math.max(window.innerWidth / 3, 320),
                     aspectRatio: 0
                 },
                 historyHash: !1
@@ -234,6 +235,7 @@ function mixcloudFeedGrid() {
         }, 200)
     }
 }
+
 Y.config.win.Squarespace.onInitialize(Y, function () {
     if (Y.one('#liqpay_checkout')) {
         var codeBlockLiq = Y.one('#liqpay_checkout').ancestor('.code-block');
@@ -292,40 +294,42 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             filterMusicFeed();
         }, '.filterButton');
         var filterList = Y.one('.FeedFilter');
-        if(filterList&&!filterList.hasClass('sorted')){
+        if (filterList && !filterList.hasClass('sorted')) {
             var items = filterList.all('li');
-            if(items.size()){
-                items._nodes.sort(function(a, b) {
-                    a = a.querySelector('[data-val]') ? a.querySelector('[data-val]').dataset['val'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') :'';
+            if (items.size()) {
+                items._nodes.sort(function (a, b) {
+                    a = a.querySelector('[data-val]') ? a.querySelector('[data-val]').dataset['val'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : '';
                     b = b.querySelector('[data-val]') ? b.querySelector('[data-val]').dataset['val'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : '';
                     return (a < b) ? -1 : (a > b) ? 1 : 0;
                 });
-                filterList.addClass('sorted').insert(items,null);
+                filterList.addClass('sorted').insert(items, null);
             }
         }
     }
     var doc = Y.one('html');
-    if(doc.hasClass('mixcloud-footer-playing')&&doc.getAttribute('data-mixcloud-pl-url')){
-        var pl_mixcloud_items = doc.all('[data-mixcloud-url="'+doc.getAttribute('data-mixcloud-pl-url')+'"]');
-        if(pl_mixcloud_items&&pl_mixcloud_items.size()){
+    if (doc.hasClass('mixcloud-footer-playing') && doc.getAttribute('data-mixcloud-pl-url')) {
+        var pl_mixcloud_items = doc.all('[data-mixcloud-url="' + doc.getAttribute('data-mixcloud-pl-url') + '"]');
+        if (pl_mixcloud_items && pl_mixcloud_items.size()) {
             pl_mixcloud_items.addClass('playing');
         }
     }
-    try{
+    try {
         var search = location.search.substring(1);
         var params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
         activateFilterTags(params);
-    }catch(e){
+    } catch (e) {
         console.log(e);
     }
     mixcloudFeedGrid();
 });
-function activateFilterTags(params){
-    if(params&&params.tag){
+
+function activateFilterTags(params) {
+    if (params && params.tag) {
         var tags = params.tag.split(',');
         console.log(tags)
     }
 }
+
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
 });
@@ -333,7 +337,7 @@ if (!window_loaded) {
     activateMixcloudThings();
     body.delegate('click', function (e) {
         e.halt();
-        var ancestor = e.currentTarget.ancestor('.sqs-block')||e.currentTarget.ancestor('.mixcloud-item');
+        var ancestor = e.currentTarget.ancestor('.sqs-block') || e.currentTarget.ancestor('.mixcloud-item');
         var url = ancestor.getAttribute('data-mixcloud-url');
         ancestor.toggleClass('playing');
         if (url && ancestor.hasClass('playing')) {
@@ -341,7 +345,7 @@ if (!window_loaded) {
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
             mixCloudFooterPlayer && mixCloudFooterPlayer.load && mixCloudFooterPlayer.load(url, true);
-            Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url',url);
+            Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
         } else {
             Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
             Y.one('html').removeClass('mixcloud-footer-playing');
