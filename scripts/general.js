@@ -348,7 +348,7 @@ function activateFilterTags(params) {
                 var val = it.getAttribute('data-val');
                 if(val&&tags.indexOf(val)>-1&&!it.hasClass('active')){
                     it.addClass('active');
-                    if(!activeFilterTags.one('[data-val]="'+val+'"')){
+                    if(!activeFilterTags.one('[data-val="'+val+'"]')){
                         var cloned = it.get('parentNode').cloneNode(!0).addClass('top-tag');
                         activeFilterTags.append(cloned);
                     }
