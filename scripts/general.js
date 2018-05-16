@@ -290,8 +290,8 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             var activeFilterTags = Y.one('.active-filter-tags ul');
             var val = e.currentTarget.getAttribute('data-val');
             if(!activeFilterTags.one('[data-val]="'+val+'"')&&e.currentTarget.hasClass('active')){
-                var cloned = e.currentTarget.get('parentNode').cloneNode(!0);
-                activeFilterTags.append(cloned.addClass('top-tag'));
+                var cloned = e.currentTarget.get('parentNode').cloneNode(!0).addClass('top-tag');
+                activeFilterTags.append(cloned);
             }
             if(e.currentTarget.hasClass('top-tag')&&!e.currentTarget.hasClass('active')){
                 var sidebar_tag = Y.one('.FeedFilter [data-val]="'+val+'"');
@@ -348,8 +348,8 @@ function activateFilterTags(params) {
                 if(val&&tags.indexOf(val)>-1&&!it.hasClass('active')){
                     it.addClass('active');
                     if(!activeFilterTags.one('[data-val]="'+val+'"')){
-                        var cloned = it.get('parentNode').cloneNode(!0);
-                        activeFilterTags.append(cloned.addClass('top-tag'));
+                        var cloned = it.get('parentNode').cloneNode(!0).addClass('top-tag');
+                        activeFilterTags.append(cloned);
                     }
                 }
             })
