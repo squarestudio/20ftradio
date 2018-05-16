@@ -311,8 +311,20 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
             pl_mixcloud_items.addClass('playing');
         }
     }
+    try{
+        var search = location.search.substring(1);
+        var params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
+        activateFilterTags(params);
+    }catch(e){
+        console.log(e);
+    }
     mixcloudFeedGrid();
 });
+function activateFilterTags(params){
+    if(params&&params.tag){
+        var tags = params.tag.split(',')
+    }
+}
 Y.config.win.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
 });
