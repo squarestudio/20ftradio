@@ -205,7 +205,7 @@ function filterMusicFeed() {
             });
             setTimeout(function () {
                 filterableFeed.removeClass('loading');
-            }, 100)
+            }, 200)
         })
     }, 500);
 }
