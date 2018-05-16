@@ -198,6 +198,7 @@ function filterMusicFeed() {
     });
     filterableFeed.addClass('loading');
     setTimeout(function () {
+       var sim_a =  Y.Node.create('<a href=""></a>');
         filterableFeed.load(collectionUrl + tags_string, '.filter-grid', function (e) {
             mixcloudFeedGrid();
             filterableFeed.all('.FeedItem').each(function (it, i) {
