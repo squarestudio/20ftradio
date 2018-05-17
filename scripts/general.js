@@ -226,7 +226,7 @@ function mixcloudFeedGrid() {
                     lightbox: !1,
                     columnWidthBehavior: 'max',
                     gutter: 0,
-                    columnWidth: Math.max(window.innerWidth / 3, 320),
+                    columnWidth: Math.max(window.innerWidth / 3, 400),
                     aspectRatio: 0
                 },
                 historyHash: !1
