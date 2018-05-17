@@ -1147,7 +1147,20 @@ body {
     }
   }
 }
-
+@media only screen and (max-width: 375px) {
+  .mixcloud-footer-stopped, .mixcloud-footer-playing {
+    body {
+      .mixcloud-footer-widget-container {
+        transform: translateY(-64px);
+      }
+      &.viewable, &.viewable-on-scroll {
+        .mixcloud-footer-widget-container {
+          transform: translateY(-64px);
+        }
+      }
+    }
+  }
+}
 .mixcloud-footer-widget-container {
   bottom: 0 !important;
   transition: all .4s ease-in-out;
