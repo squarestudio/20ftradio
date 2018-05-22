@@ -1,4 +1,4 @@
-.small-scroll{
+.small-scroll {
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(200, 200, 200, 0.3);
     border-radius: 3px;
@@ -15,6 +15,7 @@
     background-color: #888;
   }
 }
+
 // tweak: { "type" : "font", "title" : "Genre Font", "category" : "Music Feed", "target" : ".FeedFilter-item"}
 .FeedFilter-item-font {
   font-family: Helvetica, Arial, sans-serif;
@@ -74,7 +75,8 @@
     .FeedFilter-item-font;
   }
 }
-.filter-sidebar, .active-filter-tags{
+
+.filter-sidebar, .active-filter-tags {
   li {
     display: block;
     margin: 0;
@@ -139,12 +141,13 @@
     }
   }
 }
+
 .filter-sidebar, .filterable-feed, .active-filter-tags {
   display: none;
 }
 
 .filter-page {
-  padding-bottom: 0!important;
+  padding-bottom: 0 !important;
   &.view-item {
     #container, #container-content {
       padding: 0;
@@ -153,8 +156,8 @@
       position: relative;
     }
     #bottomBar {
-      position: fixed!important;
-      bottom: -80px!important;
+      position: fixed !important;
+      bottom: -80px !important;
     }
     #blog article {
       max-width: none;
@@ -214,7 +217,7 @@
     #container-content {
       padding: 0;
     }
-    #navigator{
+    #navigator {
       .pagination {
         width: 100%;
         width: calc(~'100% - 240px');
@@ -237,7 +240,7 @@
     }
     .filter-sidebar {
       .FeedFilter-item {
-        &.active{
+        &.active {
           max-height: 0;
           opacity: 0;
           overflow: hidden;
@@ -263,7 +266,7 @@
       color: @FeedItemTagsColor;
     }
   }
-  #bottomBar{
+  #bottomBar {
     display: none;
   }
   .active-filter-tags {
@@ -289,24 +292,28 @@
     }
   }
 }
-.mixcloud-footer-playing body.viewable-on-scroll.filter-page .mixcloud-footer-widget-container{
+
+.mixcloud-footer-playing body.viewable-on-scroll.filter-page .mixcloud-footer-widget-container {
   transform: translatey(0);
 }
-@media only screen and (max-width: 1024px){
-  .filter-page  #navigator footer#bottomBar {
+
+@media only screen and (max-width: 1024px) {
+  .filter-page #navigator footer#bottomBar {
     display: block;
   }
 }
 
 .pagination {
   color: #fff;
-  a,span {
+  a, span {
     display: inline-block;
     padding: 4px 16px;
     transition: all .3s ease;
     background-color: @FeedFilterColor;
     .FeedFilter-item-font;
     color: darken(@FeedFilterColor, 60%);
+  }
+  a {
     &:hover {
       opacity: 0.8;
     }
@@ -314,7 +321,8 @@
   .home-link {
     margin-right: 20px;
   }
- }
+}
+
 .filterable-feed {
   margin-left: 240px;
   margin-top: 34px;
@@ -419,6 +427,7 @@
   .filter-page.view-item #blog article header {
     //top: 5%;
   }
+
   .filter-page.view-list .filter-sidebar {
     width: 100%;
     position: relative;
@@ -431,10 +440,11 @@
       height: 150px;
     }
   }
+
   .filter-page .active-filter-tags {
     margin: 0;
     position: relative;
-    ul{
+    ul {
       width: 100%;
       white-space: normal;
       overflow-x: hidden;
@@ -442,12 +452,15 @@
       max-height: 200px;
     }
   }
+
   .filterable-feed {
     margin: 0;
   }
+
   .filter-page.view-list #navigator .pagination {
     width: 100%;
   }
+
   .filter-page.view-list #container {
     margin-top: 0 !important;
   }
@@ -462,6 +475,7 @@
       top: 10%;
     }
   }
+
   .filterable-feed .filter-grid .FeedGrid {
     //column-count: 1;
   }
