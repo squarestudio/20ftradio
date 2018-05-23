@@ -294,8 +294,15 @@
 }
 
 .mixcloud-footer-playing, .mixcloud-footer-stopped {
-  body.filter-page .mixcloud-footer-widget-container {
-    transform: translatey(0);
+  body.filter-page {
+    &.viewable-on-scroll {
+      .mixcloud-footer-widget-container {
+        transform: translatey(0);
+      }
+    }
+    .mixcloud-footer-widget-container {
+      transform: translatey(0);
+    }
   }
 }
 
