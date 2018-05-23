@@ -147,7 +147,7 @@
 }
 
 .filter-page {
-  //padding-bottom: 0 !important;
+  padding-bottom: 0 !important;
   &.view-item {
     #container, #container-content {
       padding: 0;
@@ -293,195 +293,193 @@
   }
 }
 
-.mixcloud-footer-playing, .mixcloud-footer-stopped {
-  body.viewable-on-scroll.filter-page .mixcloud-footer-widget-container {
-    transform: translatey(0);
+.mixcloud-footer-playing body.viewable-on-scroll.filter-page .mixcloud-footer-widget-container {
+  transform: translatey(0);
+}
+
+@media only screen and (max-width: 1024px) {
+  .filter-page #navigator footer#bottomBar {
+    display: block;
   }
 }
-  @media only screen and (max-width: 1024px) {
-    .filter-page #navigator footer#bottomBar {
-      display: block;
+
+.pagination {
+  color: #fff;
+  a, span {
+    display: inline-block;
+    padding: 4px 16px;
+    transition: all .3s ease;
+    background-color: @FeedFilterColor;
+    .FeedFilter-item-font;
+    color: darken(@FeedFilterColor, 60%);
+  }
+  span {
+    opacity: .5;
+  }
+  a {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .home-link {
+    margin-right: 20px;
+  }
+}
+
+.filterable-feed {
+  margin-left: 240px;
+  margin-top: 34px;
+  &.loading {
+    .FeedItem {
+      opacity: 0;
+      transform: scale(.5);
+    }
+  }
+  .filter-grid {
+    width: 100%;
+    .FeedGrid {
+      //column-count: 3;
+      //column-gap: 0;
+    }
+    .FeedItem {
+      display: inline-block;
+      width: 33%;
+      //float: left;
+      vertical-align: top;
+      min-height: 200px;
+      break-inside: avoid;
+      color: #fff;
+      height: auto;
+      transition: transform .3s ease-in-out, opacity .3s linear;
+      //margin-bottom: 20px;
+      .FeedItemWrapper {
+        margin: 10px;
+        border: 1px solid #eee;
+      }
+      &.playing {
+        .play-button {
+          background-color: #333;
+          background-image: url("assets/pause-button-white.svg");
+        }
+        img {
+          filter: blur(4px);
+        }
+        .FeedImage:after {
+          opacity: .7;
+        }
+      }
+    }
+    .FeedMeta {
+      padding: 5px 10px;
+      .date {
+        font-size: 80%;
+      }
+    }
+    .FeedImage {
+      font-size: 0;
+      height: 0;
+      padding-bottom: 60%;
+      position: relative;
+      overflow: hidden;
+      &:hover {
+        &:after {
+          opacity: .7;
+        }
+      }
+      &:after {
+        z-index: 2;
+        position: absolute;
+        content: ' ';
+        display: block;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        background-color: #0d0d0d;
+        transition: opacity .2s ease-in-out;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+      }
+    }
+    .mixcloud-butt {
+      position: absolute;
+      z-index: 3;
+      padding: 20px;
+      opacity: .8;
+      background-image: url("assets/play-button-white.svg");
+      .v-h-align;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .filterable-feed .filter-grid .FeedGrid {
+    //column-count: 2;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .filter-page.view-item #blog article header {
+    //top: 5%;
+  }
+
+  .filter-page.view-list .filter-sidebar {
+    width: 100%;
+    position: relative;
+    margin-top: 84px;
+    left: 0;
+    top: initial;
+    height: 200px;
+    overflow: hidden;
+    .FeedFilter {
+      height: 150px;
     }
   }
 
-  .pagination {
-    color: #fff;
-    a, span {
-      display: inline-block;
-      padding: 4px 16px;
-      transition: all .3s ease;
-      background-color: @FeedFilterColor;
-      .FeedFilter-item-font;
-      color: darken(@FeedFilterColor, 60%);
-    }
-    span {
-      opacity: .5;
-    }
-    a {
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-    .home-link {
-      margin-right: 20px;
+  .filter-page .active-filter-tags {
+    margin: 0;
+    position: relative;
+    ul {
+      width: 100%;
+      white-space: normal;
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 200px;
     }
   }
 
   .filterable-feed {
-    margin-left: 240px;
-    margin-top: 34px;
-    &.loading {
-      .FeedItem {
-        opacity: 0;
-        transform: scale(.5);
-      }
-    }
-    .filter-grid {
-      width: 100%;
-      .FeedGrid {
-        //column-count: 3;
-        //column-gap: 0;
-      }
-      .FeedItem {
-        display: inline-block;
-        width: 33%;
-        //float: left;
-        vertical-align: top;
-        min-height: 200px;
-        break-inside: avoid;
-        color: #fff;
-        height: auto;
-        transition: transform .3s ease-in-out, opacity .3s linear;
-        //margin-bottom: 20px;
-        .FeedItemWrapper {
-          margin: 10px;
-          border: 1px solid #eee;
-        }
-        &.playing {
-          .play-button {
-            background-color: #333;
-            background-image: url("assets/pause-button-white.svg");
-          }
-          img {
-            filter: blur(4px);
-          }
-          .FeedImage:after {
-            opacity: .7;
-          }
-        }
-      }
-      .FeedMeta {
-        padding: 5px 10px;
-        .date {
-          font-size: 80%;
-        }
-      }
-      .FeedImage {
-        font-size: 0;
-        height: 0;
-        padding-bottom: 60%;
-        position: relative;
-        overflow: hidden;
-        &:hover {
-          &:after {
-            opacity: .7;
-          }
-        }
-        &:after {
-          z-index: 2;
-          position: absolute;
-          content: ' ';
-          display: block;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          opacity: 0;
-          background-color: #0d0d0d;
-          transition: opacity .2s ease-in-out;
-        }
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 1;
-        }
-      }
-      .mixcloud-butt {
-        position: absolute;
-        z-index: 3;
-        padding: 20px;
-        opacity: .8;
-        background-image: url("assets/play-button-white.svg");
-        .v-h-align;
-      }
+    margin: 0;
+  }
+
+  .filter-page.view-list #navigator .pagination {
+    width: 100%;
+  }
+
+  .filter-page.view-list #container {
+    margin-top: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .filter-page.view-item #blog article {
+    height: auto;
+    min-height: 100vh;
+    position: relative;
+    header {
+      top: 10%;
     }
   }
 
-  @media only screen and (max-width: 1200px) {
-    .filterable-feed .filter-grid .FeedGrid {
-      //column-count: 2;
-    }
-  }
-
-  @media only screen and (max-width: 860px) {
-    .filter-page.view-item #blog article header {
-      //top: 5%;
-    }
-
-    .filter-page.view-list .filter-sidebar {
-      width: 100%;
-      position: relative;
-      margin-top: 84px;
-      left: 0;
-      top: initial;
-      height: 200px;
-      overflow: hidden;
-      .FeedFilter {
-        height: 150px;
-      }
-    }
-
-    .filter-page .active-filter-tags {
-      margin: 0;
-      position: relative;
-      ul {
-        width: 100%;
-        white-space: normal;
-        overflow-x: hidden;
-        overflow-y: auto;
-        max-height: 200px;
-      }
-    }
-
-    .filterable-feed {
-      margin: 0;
-    }
-
-    .filter-page.view-list #navigator .pagination {
-      width: 100%;
-    }
-
-    .filter-page.view-list #container {
-      margin-top: 0 !important;
-    }
-  }
-
-  @media only screen and (max-width: 560px) {
-    .filter-page.view-item #blog article {
-      height: auto;
-      min-height: 100vh;
-      position: relative;
-      header {
-        top: 10%;
-      }
-    }
-
-    .filterable-feed .filter-grid .FeedGrid {
-      //column-count: 1;
-    }
+  .filterable-feed .filter-grid .FeedGrid {
+    //column-count: 1;
   }
 }
