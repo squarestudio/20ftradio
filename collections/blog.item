@@ -23,7 +23,6 @@
                     </div>
                 </div>
                 <div class="article-meta">
-                    <div class="body entry-content">{body}</div>
                     {.section tags}<span class="tags genres-tags">{.repeated section @}<span>{@}</span>{.end}</span>{.end}
                     {.section categories}
                     <div class="categories">{.repeated section @}<a href="{collection.fullUrl}?category={@|url-encode}" rel="category">{@}</a>{.alternates with}, {.end}
@@ -40,6 +39,9 @@
                     {.section nextItem}<a data-ajax-loader="ajax-loader-binded" href="{fullUrl}">Next</a>{.or}<span>Next</span>{.end}
                     {.end}
                 </nav>
+                {.end}
+                {.section item}
+                <div class="body entry-content">{body}</div>
                 {.end}
             </header>
         </article>
