@@ -341,7 +341,26 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
     }
     mixcloudFeedGrid();
     if(!mobileMenuListener){
-        mobileMenuListener = Y.one('body')
+        var nav = Y.one('#mobile-navigation');
+        var doc = Y.one('html');
+        var body = Y.one('body');
+        if (nav) {
+            if (doc.hasClass('touch')) {
+                nav.on('click', function (e) {
+                    nav.toggleClass('sqs-mobile-nav-open');
+                    Y.one('body').toggleClass('sqs-mobile-nav-open');
+                });
+            } else {
+                nav.on('hover', function (e) {
+                    nav.addClass('sqs-mobile-nav-open');
+                    body.addClass('sqs-mobile-nav-open');
+                }, function () {
+                    nav.removeClass('sqs-mobile-nav-open');
+                    body.removeClass('sqs-mobile-nav-open');
+                });
+            }
+            mobileMenuListener = true;
+        }
     }
 });
 
