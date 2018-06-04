@@ -1,6 +1,7 @@
 var mixCloudFooterPlayer = false;
 var window_loaded = false;
 var bindMixcloudPlay = false;
+var mobileMenuListener = false;
 window.mixCloudEmbeds = [];
 var body = Y.one('body');
 var html = Y.one('html');
@@ -339,6 +340,9 @@ Y.config.win.Squarespace.onInitialize(Y, function () {
         console.log(e);
     }
     mixcloudFeedGrid();
+    if(!mobileMenuListener){
+        mobileMenuListener = Y.one('body')
+    }
 });
 
 function activateFilterTags(params) {
