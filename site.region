@@ -135,7 +135,6 @@
             <div class="filter-sidebar-wrapper">
                 <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
                 <squarespace:category collection="archive" limit="10">
-                    <script>console.log({@|json})</script>
                     {.section collection.tags}
                     <ul class="FeedFilter">
                         {.repeated section @}
