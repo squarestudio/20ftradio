@@ -131,28 +131,7 @@
         {.end}
     </squarespace:query>
     <section id="container">
-        <div class="filter-sidebar">
-            <div class="filter-sidebar-wrapper">
-                <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
-                <squarespace:query collection="archive">
-                    {.if items}
-                    {.section collection.tags}
-                    <ul class="FeedFilter">
-                        {.repeated section @}
-                        <li><a class="FeedFilter-item" href="#{@|url-encode}" data-val="{@}" rel="tag">{@}<span class="close"></span></a></li>
-                        {.end}
-                    </ul>
-                    <!--<a class="filterButton" href="#filter">Filter</a>-->
-                    {.end}
-                    {.or}
-                    <p>Hmm... seems no items there.</p>
-                    {.end}
-                </squarespace:query>
-            </div>
-        </div>
-        <div class="active-filter-tags">
-            <ul></ul>
-        </div>
+
         <div class="content-loader">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100%" height="36" fill="white">
                 <path transform="translate(2)" d="M 0 10.98 V 21.02 H 4 V 10.98 Z">
