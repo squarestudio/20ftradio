@@ -134,7 +134,7 @@
         <div class="filter-sidebar">
             <div class="filter-sidebar-wrapper">
                 <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
-                <squarespace:query collection="music-feed">
+                <squarespace:query collection="archive">
                     {.if items}
                     {.section collection.tags}
                     <ul class="FeedFilter">
