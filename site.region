@@ -136,7 +136,6 @@
                 <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
                 <squarespace:category collection="archive" limit="10">
                     <script>console.log({@|json})</script>
-                    {.if items}
                     {.section collection.tags}
                     <ul class="FeedFilter">
                         {.repeated section @}
@@ -144,9 +143,6 @@
                         {.end}
                     </ul>
                     <!--<a class="filterButton" href="#filter">Filter</a>-->
-                    {.end}
-                    {.or}
-                    <p>Hmm... seems no items there.</p>
                     {.end}
                 </squarespace:category>
             </div>
