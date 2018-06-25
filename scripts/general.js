@@ -189,7 +189,7 @@ function filterMusicFeed() {
     var filterableFeed = Y.one('.filterable-feed');
     if (!filterableFeed) return;
     var tags = [];
-    var collectionUrl = '/archive';//'/music-feed';//?format=main-content
+    var collectionUrl = location.pathname||'/archive';//'/music-feed';//?format=main-content
     Y.all('.FeedFilter .active').each(function (tag) {
         tags.push(tag.getAttribute('data-val'));
     });
