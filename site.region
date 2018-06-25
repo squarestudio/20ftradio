@@ -135,8 +135,8 @@
             <div class="filter-sidebar-wrapper">
                 <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
                 <squarespace:category collection="archive">
-                    {.if categories}
                     <script>console.log({@|json})</script>
+                    {.if categories}
                     {.end}
                 </squarespace:category>
                 <squarespace:query collection="archive" limit="10">
