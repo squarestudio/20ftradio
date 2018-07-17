@@ -188,6 +188,24 @@
             {.end}
         </squarespace:query>
         <section id="container">
+            <div class="filter-sidebar">
+                <div class="filter-sidebar-wrapper">
+                    <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
+                    <squarespace:category collection="archive" limit="10">
+                        {.section collection.tags}
+                        <ul class="FeedFilter">
+                            {.repeated section @}
+                            <li><a class="FeedFilter-item" href="#{@|url-encode}" data-val="{@}" rel="tag">{@}<span class="close"></span></a></li>
+                            {.end}
+                        </ul>
+                        <!--<a class="filterButton" href="#filter">Filter</a>-->
+                        {.end}
+                    </squarespace:category>
+                </div>
+            </div>
+            <div class="active-filter-tags">
+                <ul></ul>
+            </div>
             <div class="content-loader"></div>
             <div id="container-content" class="clear" data-content-field="main-content" role="main">
                 <div id="controller" class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
