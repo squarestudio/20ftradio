@@ -206,9 +206,10 @@ function filterMusicFeed() {
     setTimeout(function () {
         var sim_a = Y.Node.create('<a data-ajax-loader="ajax-loader-binded" href="' + collectionUrl + tags_string + '"></a>');
         Y.one('body').append(sim_a);
+        console.log('trying', sim_a);
         sim_a.simulate('click');
-        sim_a.remove();
-        sim_a = null;
+        //sim_a.remove();
+        //sim_a = null;
     }, 500);
 }
 
