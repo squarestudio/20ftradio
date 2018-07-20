@@ -208,7 +208,7 @@ function filterMusicFeed() {
         Y.one('body').append(sim_a);
         console.log('trying', sim_a);
         //sim_a._node.click();
-        sim_a.simulate('mousedown');
+        sim_a.simulate('click');
     }, 500);
 }
 
