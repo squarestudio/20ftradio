@@ -236,10 +236,10 @@ function mixcloudFeedGrid() {
         filterableFeed.all('.FeedItem').each(function (it, i) {
             it.setStyle('transitionDelay', (60 * i) + 'ms');
         });
-        setTimeout(function () {
-            filterableFeed.removeClass('loading');
-        }, 200);
     }
+    setTimeout(function () {
+        filterableFeed.removeClass('loading');
+    }, 200);
 }
 
 Y.config.win.Squarespace.onInitialize(Y, function () {
