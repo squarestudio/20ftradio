@@ -213,8 +213,8 @@ function filterMusicFeed() {
 }
 
 function mixcloudFeedGrid() {
+    var filterableFeed = Y.one('.filterable-feed');
     if (Y.one('.FeedGrid .FeedItem')) {
-        var filterableFeed = Y.one('.filterable-feed');
         Y.use('squarespace-gallery-ng', function () {
             k = new Y.Squarespace.Gallery2({
                 container: ".FeedGrid",
@@ -238,7 +238,7 @@ function mixcloudFeedGrid() {
         });
     }
     setTimeout(function () {
-        filterableFeed.removeClass('loading');
+        filterableFeed&& filterableFeed.removeClass('loading');
     }, 200);
 }
 
