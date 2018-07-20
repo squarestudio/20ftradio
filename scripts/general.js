@@ -214,7 +214,6 @@ function filterMusicFeed() {
 
 function mixcloudFeedGrid() {
     var filterableFeed = Y.one('.filterable-feed');
-    console.log(filterableFeed)
     if (Y.one('.FeedGrid .FeedItem')) {
         Y.use('squarespace-gallery-ng', function () {
             k = new Y.Squarespace.Gallery2({
