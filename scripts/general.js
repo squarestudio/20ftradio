@@ -203,7 +203,7 @@ function filterMusicFeed() {
         it.setStyle('transitionDelay', (60 * i) + 'ms');
     });
     filterableFeed.addClass('loading');
-    var sim_a = Y.Node.create('<a style="display:none" class="sim_link" data-ajax-loader="ajax-loader-binded" href="' + collectionUrl + tags_string + '"></a>');
+    var sim_a = Y.Node.create('<a style="display:none" class="sim_link needsclick" data-ajax-loader="ajax-loader-binded" href="' + collectionUrl + tags_string + '"></a>');
     Y.one('body').append(sim_a);
     setTimeout(function () {
         //sim_a._node.click();
