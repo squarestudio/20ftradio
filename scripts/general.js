@@ -207,7 +207,7 @@ function filterMusicFeed() {
     Y.one('body').append(sim_a);
     setTimeout(function () {
         sim_a._node.click();
-        sim_a.simulate('click');
+        //sim_a.simulate('click');
     }, 200);
 }
 
