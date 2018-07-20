@@ -203,10 +203,10 @@ function filterMusicFeed() {
         it.setStyle('transitionDelay', (60 * i) + 'ms');
     });
     filterableFeed.addClass('loading');
+    var sim_a = Y.Node.create('<a style="display:none" class="sim_link" data-ajax-loader="ajax-loader-binded" href="' + collectionUrl + tags_string + '"></a>');
+    Y.one('body').append(sim_a);
+    console.log('trying', sim_a);
     setTimeout(function () {
-        var sim_a = Y.Node.create('<a style="display:none" class="sim_link" data-ajax-loader="ajax-loader-binded" href="' + collectionUrl + tags_string + '"></a>');
-        Y.one('body').append(sim_a);
-        console.log('trying', sim_a);
         //sim_a._node.click();
         sim_a.simulate('click');
     }, 500);
