@@ -208,7 +208,7 @@ function filterMusicFeed() {
     setTimeout(function () {
         console.log('ddd')
         sim_a._node.click();
-        //sim_a.simulate('click');
+        sim_a.simulate('click');
     }, 200);
 }
 
