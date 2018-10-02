@@ -18,7 +18,6 @@
                                 {.main-image?}
                                 <div class="FeedImage">
                                     <img src="{assetUrl}?format=500w" data-load="false"/>
-                                    <div class="play-button mixcloud-butt"></div>
                                 </div>
                                 {.end}
                                 <div class="FeedMeta">
