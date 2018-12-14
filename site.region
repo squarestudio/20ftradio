@@ -222,12 +222,13 @@
 <squarespace:script src="share-buttons.js" combo="true"/>
 <squarespace:script src="WallController.js" combo="true"/>
 <squarespace:script src="soundcloud-api-widget.js" combo="true"/>
-<squarespace:script src="mixcloud-api-widget.js" combo="true"/>
+<!-- <squarespace:script src="mixcloud-api-widget.js" combo="true"/> -->
 <squarespace:script src="ProjectController.js" combo="true"/>
 <squarespace:script src="sha1.js" combo="true"/>
 <squarespace:script src="payment.js" combo="true"/>
 <squarespace:script src="general.js" combo="true"/>
 <squarespace:script src="CastController.js" combo="true"/>
+<script src="//widget.mixcloud.com/media/js/footerWidgetApi.js" type="text/javascript"></script>
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
 <script>
