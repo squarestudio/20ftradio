@@ -333,7 +333,6 @@
         else {
             var I = {
                 load: function(e, o, r) {
-                	console.log(e,o,r)
                     C.replace(e), n.title = o, r && (t.location.hash = r), P && (p().scrollTo(0, P > 20 ? P : 0), P = null)
                 },
                 play: function(e) {
