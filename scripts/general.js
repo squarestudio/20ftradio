@@ -126,6 +126,7 @@ function initMixCloudFooter() {
                 Y.fire('mixcloud:play');
             });
             mixCloudFooterPlayer.events.pause.on(function () {
+                console.log('PAUSE');
                 Y.one('html').removeClass('mixcloud-footer-playing');
                 Y.all('[data-mixcloud-url]').removeClass('playing');
                 if (!Y.one('#castDiv').hasClass('playing')) {
