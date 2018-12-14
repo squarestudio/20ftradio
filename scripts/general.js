@@ -146,7 +146,7 @@ function initMixCloudFooter() {
                 console.log('MixCloud Error', e);
             });
         });
-        window.mixCloudFooterPlayer = mixCloudFooterPlayer;
+        //window.mixCloudFooterPlayer = mixCloudFooterPlayer;
     } else {
         console.log('MixCloudFooter here');
     }
