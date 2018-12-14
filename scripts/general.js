@@ -242,7 +242,7 @@ function mixcloudFeedGrid() {
     }, 200);
 }
 
-Y.config.win.Squarespace.onInitialize(Y, function () {
+window.Squarespace.onInitialize(Y, function () {
     Y.all('.sim_link').remove();
     if (Y.one('#liqpay_checkout')) {
         var codeBlockLiq = Y.one('#liqpay_checkout').ancestor('.code-block');
