@@ -119,6 +119,7 @@
         }
 
         function n(e, t) {
+        	console.log(t)
             e.postMessage(JSON.stringify(t), o)
         }
         var o = "https://www.mixcloud.com",
