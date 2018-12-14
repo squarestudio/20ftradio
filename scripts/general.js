@@ -385,7 +385,7 @@ function activateFilterTags(params) {
     }
 }
 
-Y.config.win.Squarespace.onDestroy(Y, function () {
+window.Squarespace.onDestroy(Y, function () {
     formSubmitEvent && formSubmitEvent.detach();
 });
 if (!window_loaded) {
