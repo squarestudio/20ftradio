@@ -405,9 +405,10 @@ if (!window_loaded) {
             ancestor.addClass('current');
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
-            if (window.mixCloudFooterPlayer && window.mixCloudFooterPlayer.load) {
-                window.mixCloudFooterPlayer.load(url, true).then(function(){
-                    console.log('LOADED')
+            if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
+                mixCloudFooterPlayer.load(url, true).then(function(){
+                    console.log('LOADED');
+                    mixCloudFooterPlayer.play();
                 });
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
