@@ -41,7 +41,7 @@ function addScript(script, callback) {
     console.log(script);
     if (script.src) {
         if (s.readyState) {
-            s.onreadystatechange = function () {
+            s.onreadystatechange = function() {
                 if (s.readyState == "loaded" || s.readyState == "complete") {
                     s.onreadystatechange = null;
                     if (callback) {
@@ -50,7 +50,7 @@ function addScript(script, callback) {
                 }
             };
         } else {
-            s.onload = function () {
+            s.onload = function() {
                 if (callback) {
                     callback(this);
                 }
@@ -76,9 +76,9 @@ function sendReplyEmail(name, surname, email, data) {
             data: data
         },
         dataType: 'json'
-    }).done(function (data) {
+    }).done(function(data) {
         console.log(data);
-    }).fail(function (data) {
+    }).fail(function(data) {
         console.log(data);
     });
 }
@@ -92,14 +92,14 @@ function donateWithLiqPay(val, name, surname, email) {
         embedTo: "#liqpay_checkout",
         language: "ru",
         mode: "embed" // embed || popup
-    }).on("liqpay.callback", function (data) {
+    }).on("liqpay.callback", function(data) {
         if (!status && data.status === 'success') {
             status = true;
             sendReplyEmail(name, surname, email, JSON.stringify(data));
         }
-    }).on("liqpay.ready", function (data) {
+    }).on("liqpay.ready", function(data) {
         //console.log(data);
-    }).on("liqpay.close", function (data) {
+    }).on("liqpay.close", function(data) {
         //console.log(data);
     });
 }
@@ -111,12 +111,11 @@ function initMixCloudFooter() {
             disablePushstate: true,
             disableUnloadWarning: true
         });
-        window.mixCloudFooterPlayer = mixCloudFooterPlayer;
-        mixCloudFooterPlayer.then(function (widget) {
+        mixCloudFooterPlayer.then(function(widget) {
             mixCloudFooterPlayer = widget;
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
             console.log('PLLLAAAYY')
-            mixCloudFooterPlayer.events.play.on(function (e) {
+            mixCloudFooterPlayer.events.play.on(function(e) {
                 console.log('PLLLAAAYY')
                 var pl_url = Y.one('html').getAttribute('data-mixcloud-pl-url');
                 var pl_mixcloud_items = Y.one('html').all('[data-mixcloud-url="' + pl_url + '"]');
@@ -126,7 +125,7 @@ function initMixCloudFooter() {
                 Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.fire('mixcloud:play');
             });
-            mixCloudFooterPlayer.events.pause.on(function () {
+            mixCloudFooterPlayer.events.pause.on(function() {
                 console.log('PAUSE');
                 Y.one('html').removeClass('mixcloud-footer-playing');
                 Y.all('[data-mixcloud-url]').removeClass('playing');
@@ -135,15 +134,16 @@ function initMixCloudFooter() {
                 }
                 Y.fire('mixcloud:pause');
             });
-            mixCloudFooterPlayer.events.ended.on(function () {
+            mixCloudFooterPlayer.events.ended.on(function() {
                 Y.one('html').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
                 Y.fire('mixcloud:ended');
             });
-            mixCloudFooterPlayer.events.error.on(function (e) {
+            mixCloudFooterPlayer.events.error.on(function(e) {
                 console.log('MixCloud Error', e);
             });
         });
+        window.mixCloudFooterPlayer = mixCloudFooterPlayer;
     } else {
         console.log('MixCloudFooter here');
     }
@@ -153,7 +153,7 @@ function activateMixcloudThings() {
     window_loaded = true;
     window.mixCloudEmbeds = [];
     initMixCloudFooter();
-    Y.all('.embed-block[data-block-json*="mixcloud.com"], .code-block iframe[src*="mixcloud.com"]').each(function (item) {
+    Y.all('.embed-block[data-block-json*="mixcloud.com"], .code-block iframe[src*="mixcloud.com"]').each(function(item) {
         var code_block = false;
         var iframe_src = '';
         if (item.get('nodeName') === 'IFRAME') {
@@ -172,12 +172,12 @@ function activateMixcloudThings() {
                 }
                 item.setAttribute('data-mixcloud-url', '/' + feed).setAttribute('data-mixcloud-api-url', 'https://api.mixcloud.com/' + feed).addClass(slugify(feed) + '-mix-item').addClass('inited mixcloud-item');
                 content.empty();
-                $.getJSON('https://api.mixcloud.com/' + feed, function (data) {
-                    //console.log(data);
-                    content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: url(' + data.pictures.large + ') no-repeat;background-size: cover"></div><div class="text-info clear">' +
-                        '<div class="play-button mixcloud-butt"></div><div class="meta"><div class="track-title">' + data.name + '</div></div></div></div>')
-                })
-                    .fail(function (err) {
+                $.getJSON('https://api.mixcloud.com/' + feed, function(data) {
+                        //console.log(data);
+                        content.append('<div class="custom-mixcloud-widget"><div class="track-art" style="background: url(' + data.pictures.large + ') no-repeat;background-size: cover"></div><div class="text-info clear">' +
+                            '<div class="play-button mixcloud-butt"></div><div class="meta"><div class="track-title">' + data.name + '</div></div></div></div>')
+                    })
+                    .fail(function(err) {
                         console.log(err);
                     })
             }
@@ -192,23 +192,23 @@ function filterMusicFeed() {
     var filterableFeed = Y.one('.filterable-feed');
     if (!filterableFeed) return;
     var tags = [];
-    var collectionUrl = location.pathname||'/archive';//'/music-feed';//?format=main-content
-    Y.all('.FeedFilter .active').each(function (tag) {
+    var collectionUrl = location.pathname || '/archive'; //'/music-feed';//?format=main-content
+    Y.all('.FeedFilter .active').each(function(tag) {
         tags.push(tag.getAttribute('data-val'));
     });
-    tags.sort(function (a, b) {
+    tags.sort(function(a, b) {
         a = a.toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '');
         b = b.toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '');
         return (a < b) ? -1 : (a > b) ? 1 : 0;
     });
     var tags_string = tags.length ? '?tag=' + tags : '/';
-    filterableFeed.all('.FeedItem').each(function (it, i) {
+    filterableFeed.all('.FeedItem').each(function(it, i) {
         it.setStyle('transitionDelay', (60 * i) + 'ms');
     });
     filterableFeed.addClass('loading');
     var sim_a = Y.Node.create('<a style="display:none" class="sim_link needsclick" data-ajax-loader="ajax-loader-binded" href="' + collectionUrl + tags_string + '"></a>');
     Y.one('body').append(sim_a);
-    setTimeout(function () {
+    setTimeout(function() {
         console.log('fff')
         sim_a._node.click();
         sim_a.simulate('click');
@@ -218,13 +218,13 @@ function filterMusicFeed() {
 function mixcloudFeedGrid() {
     var filterableFeed = Y.one('.filterable-feed');
     if (Y.one('.FeedGrid .FeedItem')) {
-        Y.use('squarespace-gallery-ng', function () {
+        Y.use('squarespace-gallery-ng', function() {
             k = new Y.Squarespace.Gallery2({
                 container: ".FeedGrid",
                 slides: ".FeedItem",
                 autoplay: !1,
                 lazyLoad: !0,
-                loaderOptions: {mode: "fill"},
+                loaderOptions: { mode: "fill" },
                 design: "autocolumns",
                 designOptions: {
                     lightbox: !1,
@@ -236,22 +236,22 @@ function mixcloudFeedGrid() {
                 historyHash: !1
             });
         });
-        filterableFeed.all('.FeedItem').each(function (it, i) {
+        filterableFeed.all('.FeedItem').each(function(it, i) {
             it.setStyle('transitionDelay', (60 * i) + 'ms');
         });
     }
-    setTimeout(function () {
-        filterableFeed&& filterableFeed.removeClass('loading');
+    setTimeout(function() {
+        filterableFeed && filterableFeed.removeClass('loading');
     }, 200);
 }
 
-window.Squarespace.onInitialize(Y, function () {
+window.Squarespace.onInitialize(Y, function() {
     Y.all('.sim_link').remove();
     if (Y.one('#liqpay_checkout')) {
         var codeBlockLiq = Y.one('#liqpay_checkout').ancestor('.code-block');
         codeBlockLiq.addClass('hidden');
         if (!Y.one('#liqpayAPI')) {
-            window.Y.Get.js('https://static.liqpay.ua/libjs/checkout.js', function (err, tx) {
+            window.Y.Get.js('https://static.liqpay.ua/libjs/checkout.js', function(err, tx) {
                 if (err) {
                     Y.log('Error loading Lazy Summaries JS: ' + err[0].error, 'error');
                     return;
@@ -259,7 +259,7 @@ window.Squarespace.onInitialize(Y, function () {
                 tx && tx.nodes[0].setAttribute('id', 'liqpayAPI');
             });
         }
-        formSubmitEvent = Y.Global.on('form:submitSuccess', function (e) {
+        formSubmitEvent = Y.Global.on('form:submitSuccess', function(e) {
             var form = Y.one('#container form');
             var name = form.one('.first-name input').get('value') || 'John';
             var surname = form.one('.last-name input').get('value') || 'Smith';
@@ -284,7 +284,7 @@ window.Squarespace.onInitialize(Y, function () {
         cont.scrollTo(0, 0);
     }
     Y.fire('getCurrentEvent');
-    Y.all('#navigator script[data-src]').each(function (script) {
+    Y.all('#navigator script[data-src]').each(function(script) {
         script = script._node;
         script.id = script.id || slugify(script.src);
         var parent = script.parentNode;
@@ -294,23 +294,23 @@ window.Squarespace.onInitialize(Y, function () {
         addScript(script);
     });
     if (!filterInit) {
-        filterInit = Y.one('body').delegate('click', function (e) {
+        filterInit = Y.one('body').delegate('click', function(e) {
             e.halt();
             e.currentTarget.toggleClass('active');
             var activeFilterTags = Y.one('.active-filter-tags ul');
             var val = e.currentTarget.getAttribute('data-val');
-            if(!activeFilterTags.one('[data-val="'+val+'"]')&&e.currentTarget.hasClass('active')){
+            if (!activeFilterTags.one('[data-val="' + val + '"]') && e.currentTarget.hasClass('active')) {
                 var cloned = e.currentTarget.get('parentNode').cloneNode(!0).addClass('top-tag');
                 activeFilterTags.append(cloned);
             }
-            if(e.currentTarget.get('parentNode').hasClass('top-tag')&&!e.currentTarget.hasClass('active')){
-                var sidebar_tag = Y.one('.FeedFilter [data-val="'+val+'"]');
-                sidebar_tag&&sidebar_tag.removeClass('active');
+            if (e.currentTarget.get('parentNode').hasClass('top-tag') && !e.currentTarget.hasClass('active')) {
+                var sidebar_tag = Y.one('.FeedFilter [data-val="' + val + '"]');
+                sidebar_tag && sidebar_tag.removeClass('active');
                 e.currentTarget.get('parentNode').remove();
             }
             filterMusicFeed();
         }, '.FeedFilter-item');
-        Y.one('body').delegate('click', function (e) {
+        Y.one('body').delegate('click', function(e) {
             e.halt();
             filterMusicFeed();
         }, '.filterButton');
@@ -318,7 +318,7 @@ window.Squarespace.onInitialize(Y, function () {
         if (filterList && !filterList.hasClass('sorted')) {
             var items = filterList.all('li');
             if (items.size()) {
-                items._nodes.sort(function (a, b) {
+                items._nodes.sort(function(a, b) {
                     a = a.querySelector('[data-val]') ? a.querySelector('[data-val]').dataset['val'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : '';
                     b = b.querySelector('[data-val]') ? b.querySelector('[data-val]').dataset['val'].toLowerCase().replace(/\r?\n|\r/g, '').replace(/ /g, '') : '';
                     return (a < b) ? -1 : (a > b) ? 1 : 0;
@@ -335,7 +335,7 @@ window.Squarespace.onInitialize(Y, function () {
         }
     }
     try {
-        if(location.search){
+        if (location.search) {
             var search = location.search.substring(1);
             var params = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g, '":"') + '"}');
             activateFilterTags(params);
@@ -344,21 +344,21 @@ window.Squarespace.onInitialize(Y, function () {
         console.log(e);
     }
     mixcloudFeedGrid();
-    if(!mobileMenuListener){
+    if (!mobileMenuListener) {
         var nav = Y.one('#mobile-navigation');
         var doc = Y.one('html');
         var body = Y.one('body');
         if (nav) {
             if (doc.hasClass('touch')) {
-                nav.on('click', function (e) {
+                nav.on('click', function(e) {
                     nav.toggleClass('sqs-mobile-nav-open');
                     Y.one('body').toggleClass('sqs-mobile-nav-open');
                 });
             } else {
-                nav.on('hover', function (e) {
+                nav.on('hover', function(e) {
                     nav.addClass('sqs-mobile-nav-open');
                     body.addClass('sqs-mobile-nav-open');
-                }, function () {
+                }, function() {
                     nav.removeClass('sqs-mobile-nav-open');
                     body.removeClass('sqs-mobile-nav-open');
                 });
@@ -372,13 +372,13 @@ function activateFilterTags(params) {
     if (params && params.tag) {
         var tags = params.tag.split(',');
         var filterItems = Y.all('.FeedFilter-item');
-        if(tags.length&&filterItems.size()){
+        if (tags.length && filterItems.size()) {
             var activeFilterTags = Y.one('.active-filter-tags ul');
-            filterItems.each(function(it){
+            filterItems.each(function(it) {
                 var val = it.getAttribute('data-val');
-                if(val&&tags.indexOf(val)>-1&&!it.hasClass('active')){
+                if (val && tags.indexOf(val) > -1 && !it.hasClass('active')) {
                     it.addClass('active');
-                    if(!activeFilterTags.one('[data-val="'+val+'"]')){
+                    if (!activeFilterTags.one('[data-val="' + val + '"]')) {
                         var cloned = it.get('parentNode').cloneNode(!0).addClass('top-tag');
                         activeFilterTags.append(cloned);
                     }
@@ -388,12 +388,12 @@ function activateFilterTags(params) {
     }
 }
 
-window.Squarespace.onDestroy(Y, function () {
+window.Squarespace.onDestroy(Y, function() {
     formSubmitEvent && formSubmitEvent.detach();
 });
 if (!window_loaded) {
     activateMixcloudThings();
-    body.delegate('click', function (e) {
+    body.delegate('click', function(e) {
         e.halt();
         var ancestor = e.currentTarget.ancestor('.sqs-block') || e.currentTarget.ancestor('.mixcloud-item');
         var url = ancestor.getAttribute('data-mixcloud-url');
@@ -439,15 +439,15 @@ function initVisual() {
     var vendors = ['ms', 'moz', 'webkit', 'o'];
     for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
         window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame']
-            || window[vendors[x] + 'CancelRequestAnimationFrame'];
+        window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] ||
+            window[vendors[x] + 'CancelRequestAnimationFrame'];
     }
 
     if (!window.requestAnimationFrame)
-        window.requestAnimationFrame = function (callback, element) {
+        window.requestAnimationFrame = function(callback, element) {
             var currTime = new Date().getTime();
             var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function () {
+            var id = window.setTimeout(function() {
                     callback(currTime + timeToCall);
                 },
                 timeToCall);
@@ -456,7 +456,7 @@ function initVisual() {
         };
 
     if (!window.cancelAnimationFrame)
-        window.cancelAnimationFrame = function (id) {
+        window.cancelAnimationFrame = function(id) {
             clearTimeout(id);
         };
     var analyser = context.createAnalyser();
@@ -484,7 +484,7 @@ function initVisual() {
             barHeight = dataArray[i] - 130;
             //if(i===0){console.log(barHeight)}
             var r = barHeight + (25 * (i / bufferLength));
-            var g = 250;//* (i / bufferLength);
+            var g = 250; //* (i / bufferLength);
             var b = 250;
 
             //ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
@@ -501,6 +501,6 @@ function initVisual() {
     update();
 }
 
-Y.once('play:shoutcast', function () {
+Y.once('play:shoutcast', function() {
     initVisual();
 });
