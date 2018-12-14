@@ -205,6 +205,7 @@
 {.or}
 
 {.end}
+<script src="//widget.mixcloud.com/media/js/footerWidgetApi.js" type="text/javascript"></script>
 <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
 <squarespace:script src="imagesloaded.pkgd.min.js" combo="false"/>
 <squarespace:script src="moment.js" combo="true"/>
@@ -228,7 +229,7 @@
 <squarespace:script src="payment.js" combo="true"/>
 <squarespace:script src="general.js" combo="true"/>
 <squarespace:script src="CastController.js" combo="true"/>
-<script src="//widget.mixcloud.com/media/js/footerWidgetApi.js" type="text/javascript"></script>
+
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
 <script>
