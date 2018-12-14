@@ -115,6 +115,7 @@ function initMixCloudFooter() {
         mixCloudFooterPlayer.then(function (widget) {
             mixCloudFooterPlayer = widget;
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
+            console.log('PLLLAAAYY')
             mixCloudFooterPlayer.events.play.on(function (e) {
                 console.log('PLLLAAAYY')
                 var pl_url = Y.one('html').getAttribute('data-mixcloud-pl-url');
