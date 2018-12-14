@@ -113,7 +113,6 @@ function initMixCloudFooter() {
         });
         mixCloudFooterPlayer.then(function(widget) {
             mixCloudFooterPlayer = widget;
-            window.mixCloudFooterPlayer = mixCloudFooterPlayer;
             console.log('READY')
             mixCloudFooterPlayer.events.play.on(function(e) {
                 console.log('PLLLAAAYY')
@@ -134,7 +133,7 @@ function initMixCloudFooter() {
                 }
                 Y.fire('mixcloud:pause');
             });
-            mixCloudFooterPlayer.events.buffering.on(function(e){
+            mixCloudFooterPlayer.events.buffering.on(function(e) {
                 console.log('BUFFF')
             })
             mixCloudFooterPlayer.events.ended.on(function() {
@@ -145,6 +144,7 @@ function initMixCloudFooter() {
             mixCloudFooterPlayer.events.error.on(function(e) {
                 console.log('MixCloud Error', e);
             });
+            window.mixCloudFooterPlayer = mixCloudFooterPlayer;
         });
         //window.mixCloudFooterPlayer = mixCloudFooterPlayer;
     } else {
