@@ -408,7 +408,7 @@ if (!window_loaded) {
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.play(url).then(function() {
                     console.log('LOADED');
-                    mixCloudFooterPlayer.play();
+                    //mixCloudFooterPlayer.play();
                 });
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
