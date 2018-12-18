@@ -113,10 +113,10 @@ function initMixCloudFooter() {
         });
         mixCloudFooterPlayer.then(function(widget) {
             mixCloudFooterPlayer = widget;
-            console.log('READY');
+            //console.log('READY');
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
             mixCloudFooterPlayer.events.play.on(function(e) {
-                console.log('PLLLAAAYY')
+                //console.log('PLLLAAAYY')
                 var pl_url = Y.one('html').getAttribute('data-mixcloud-pl-url');
                 var pl_mixcloud_items = Y.one('html').all('[data-mixcloud-url="' + pl_url + '"]');
                 if (pl_mixcloud_items && pl_mixcloud_items.size()) {
@@ -134,9 +134,9 @@ function initMixCloudFooter() {
                 }
                 Y.fire('mixcloud:pause');
             });
-            mixCloudFooterPlayer.events.buffering.on(function(e) {
+/*            mixCloudFooterPlayer.events.buffering.on(function(e) {
                 console.log('BUFFF')
-            })
+            });*/
             mixCloudFooterPlayer.events.ended.on(function() {
                 Y.one('html').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
