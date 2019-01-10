@@ -234,7 +234,7 @@ function filterMusicFeed() {
     setTimeout(function() {
         sim_a._node.click();
         sim_a.simulate('click');
-    }, 200);
+    }, 500);
 }
 
 function mixcloudFeedGrid() {
