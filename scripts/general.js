@@ -304,10 +304,10 @@ window.Squarespace.onInitialize(Y, function() {
                 value = new RegExp(value.toLowerCase(), 'gi');
                 Y.all('.FeedFilter-item').each(function(genre) {
                     var genre_val = genre.getAttribute('data-val');
-                    if (genre_val.textContent.match(value)) {
+                    if (genre_val.match(value)) {
                         genre.hide(true);
                     } else {
-                        genre.show(true;
+                        genre.show(true);
                     }
                 });
             }
