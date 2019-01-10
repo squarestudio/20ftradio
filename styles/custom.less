@@ -1250,11 +1250,27 @@ body {
   right: 0;
   opacity: 0;
 }
+.search-tags-container {
+  margin: 5px 6px;
+}
+*::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: inherit;
+  opacity: 1; /* Firefox */
+}
+
+*:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: inherit;
+}
+
+*::-ms-input-placeholder { /* Microsoft Edge */
+  color: inherit;
+}
 
 #searchTag {
   color: #fff;
   background-color: transparent;
   border: 1px solid #fff;
+
 }
 
 body.auth {
