@@ -222,6 +222,7 @@ function filterMusicFeed() {
         return (a < b) ? -1 : (a > b) ? 1 : 0;
     });
     var tags_string = tags.length ? '?tag=' + tags : '/';
+    console.log(tags_string)
     filterableFeed.all('.FeedItem').each(function(it, i) {
         it.setStyle('transitionDelay', (60 * i) + 'ms');
     });
