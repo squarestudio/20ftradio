@@ -205,12 +205,11 @@ var searchGenre = function(e) {
 };
 
 function filterMusicFeed() {
-    console.log('ololo')
     var filterableFeed = Y.one('.filterable-feed');
     if (!filterableFeed) return;
     var tags = [];
     var collectionUrl = location.pathname || '/archive'; //'/music-feed';//?format=main-content
-    console.log(collectionUrl)
+    console.log(collectionUrl,)
     if (collectionUrl[collectionUrl.length - 1] == '/') {
         collectionUrl = collectionUrl.slice(0, collectionUrl.length - 1);
     }
