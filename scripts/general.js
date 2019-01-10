@@ -296,20 +296,24 @@ window.Squarespace.onInitialize(Y, function() {
         addScript(script);
     });
     if (!filterInit) {
-        searchGenreInit = Y.one('body').delegate('valuechange', function(e) {
-            e.halt();
+        var searcGenre = function(e) {
+            e.halt && e.halt();
             var value = e.newVal.trim();
             if (value && value.length) {
                 value = new RegExp(value.toLowerCase(), 'gi');
                 Y.all('.FeedFilter-item').each(function(genre) {
                     var genre_val = genre.getAttribute('data-val');
-                    if (genre_val.match(value)||genre.hasClass('active')) {
+                    if (genre_val.match(value) || genre.hasClass('active')) {
                         genre.show(true);
                     } else {
                         genre.hide(true);
                     }
                 });
             }
+        }
+        searchGenreInit = Y.one('body').delegate('valuechange', function(e) {
+
+
         }, '#searchTag')
         filterInit = Y.one('body').delegate('click', function(e) {
             e.halt();
