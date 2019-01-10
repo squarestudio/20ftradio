@@ -303,7 +303,7 @@ window.Squarespace.onInitialize(Y, function() {
                 value = new RegExp(value.toLowerCase(), 'gi');
                 Y.all('.FeedFilter-item').each(function(genre) {
                     var genre_val = genre.getAttribute('data-val');
-                    if (genre_val.match(value)) {
+                    if (genre_val.match(value)||genre.hasClass('active')) {
                         genre.show(true);
                     } else {
                         genre.hide(true);
