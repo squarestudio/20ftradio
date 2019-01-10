@@ -202,7 +202,7 @@ var searchGenre = function(e) {
             genre.hide(true);
         }
     });
-}ж
+};
 
 function filterMusicFeed() {
     var filterableFeed = Y.one('.filterable-feed');
