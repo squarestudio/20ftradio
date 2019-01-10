@@ -305,9 +305,9 @@ window.Squarespace.onInitialize(Y, function() {
                 Y.all('.FeedFilter-item').each(function(genre) {
                     var genre_val = genre.getAttribute('data-val');
                     if (genre_val.textContent.match(value)) {
-                        itemsArr[i].classList.remove('anim-hide');
+                        genre.hide(true);
                     } else {
-                        itemsArr[i].classList.add('anim-hide');
+                        genre.show(true;
                     }
                 });
             }
