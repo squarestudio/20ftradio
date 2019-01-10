@@ -209,8 +209,8 @@ function filterMusicFeed() {
     if (!filterableFeed) return;
     var tags = [];
     var collectionUrl = location.pathname || '/archive'; //'/music-feed';//?format=main-content
-    if(collectionUrl[collectionUrl.length-1]=='/'){
-        collectionUrl = collectionUrl.slice(0, collectionUrl.length-1);
+    if (collectionUrl[collectionUrl.length - 1] == '/') {
+        collectionUrl = collectionUrl.slice(0, collectionUrl.length - 1);
     }
     Y.all('.FeedFilter .active').each(function(tag) {
         tags.push(tag.getAttribute('data-val'));
