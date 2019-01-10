@@ -305,9 +305,9 @@ window.Squarespace.onInitialize(Y, function() {
                 Y.all('.FeedFilter-item').each(function(genre) {
                     var genre_val = genre.getAttribute('data-val');
                     if (genre_val.match(value)) {
-                        genre.hide(true);
-                    } else {
                         genre.show(true);
+                    } else {
+                        genre.hide(true);
                     }
                 });
             }
