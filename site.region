@@ -136,7 +136,7 @@
                 <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
                 <squarespace:category collection="archive" limit="10">
                     {.section collection.tags}
-                    <div class="search-tags-container"><input id="searchTag"></div>
+                    <div class="search-tags-container"><input id="searchTag" placeholder="Search Genre"/></div>
                     <ul class="FeedFilter">
                         {.repeated section @}
                         <li><a class="FeedFilter-item" href="#{@|url-encode}" data-val="{@}" rel="tag">{@}<span class="close"></span></a></li>
