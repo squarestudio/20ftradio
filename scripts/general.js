@@ -296,7 +296,7 @@ window.Squarespace.onInitialize(Y, function() {
         addScript(script);
     });
     if (!filterInit) {
-        var searcGenre = function(e) {
+        var searchGenre = function(e) {
             e.halt && e.halt();
             var value = e.newVal.trim();
             if (value && value.length) {
@@ -311,10 +311,7 @@ window.Squarespace.onInitialize(Y, function() {
                 });
             }
         }
-        searchGenreInit = Y.one('body').delegate('valuechange', function(e) {
-
-
-        }, '#searchTag')
+        searchGenreInit = Y.one('body').delegate('valuechange', searchGenre, '#searchTag')
         filterInit = Y.one('body').delegate('click', function(e) {
             e.halt();
             e.currentTarget.toggleClass('active');
