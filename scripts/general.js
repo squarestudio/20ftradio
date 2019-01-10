@@ -227,6 +227,7 @@ function filterMusicFeed() {
     });
     filterableFeed.addClass('loading');
     var sim_a = Y.Node.create('<a style="display:none" class="sim_link needsclick" data-ajax-loader="ajax-loader-binded" href="' + collectionUrl + tags_string + '"></a>');
+    console.log(sim_a.getAttribute('href'))
     Y.one('body').append(sim_a);
     if (Y.one('#searchTag')) {
         searchGenre({ newVal: Y.one('#searchTag').get('value') })
