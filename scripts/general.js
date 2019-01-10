@@ -302,17 +302,15 @@ window.Squarespace.onInitialize(Y, function() {
         var searchGenre = function(e) {
             e.halt && e.halt();
             var value = e.newVal.trim();
-            if (value && value.length) {
-                value = new RegExp(value.toLowerCase(), 'gi');
-                Y.all('.FeedFilter-item').each(function(genre) {
-                    var genre_val = genre.getAttribute('data-val');
-                    if (genre_val.match(value) || genre.hasClass('active')) {
-                        genre.show(true);
-                    } else {
-                        genre.hide(true);
-                    }
-                });
-            }
+            value = value&&value.length?new RegExp(value.toLowerCase(), 'gi'): false;
+            Y.all('.FeedFilter-item').each(function(genre) {
+                var genre_val = genre.getAttribute('data-val');
+                if (value&&genre_val.match(value) || genre.hasClass('active')||!value) {
+                    genre.show(true);
+                } else {
+                    genre.hide(true);
+                }
+            });
         }
         searchGenreInit = Y.one('body').delegate('valuechange', searchGenre, '#searchTag');
         filterInit = Y.one('body').delegate('click', function(e) {
