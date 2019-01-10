@@ -311,7 +311,7 @@ window.Squarespace.onInitialize(Y, function() {
                 });
             }
         }
-        searchGenreInit = Y.one('body').delegate('valuechange', searchGenre, '#searchTag')
+        searchGenreInit = Y.one('body').delegate('valuechange', searchGenre, '#searchTag');
         filterInit = Y.one('body').delegate('click', function(e) {
             e.halt();
             e.currentTarget.toggleClass('active');
