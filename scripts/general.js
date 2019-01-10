@@ -211,6 +211,9 @@ function filterMusicFeed() {
     filterableFeed.addClass('loading');
     var sim_a = Y.Node.create('<a style="display:none" class="sim_link needsclick" data-ajax-loader="ajax-loader-binded" href="' + collectionUrl + tags_string + '"></a>');
     Y.one('body').append(sim_a);
+    if (Y.one('#searchTag')) {
+        searchGenre({ newVal: Y.one('#searchTag').get('value') })
+    }
     setTimeout(function() {
         sim_a._node.click();
         sim_a.simulate('click');
