@@ -299,8 +299,8 @@ window.Squarespace.onInitialize(Y, function() {
     if (!filterInit) {
         searchGenreInit = Y.one('body').delegate('valuechange', function(e) {
             e.halt();
-            var value = e.currentTarget.get('value').trim();
-            console.log(e)
+            var value = e.newVal.trim();
+            console.log(value)
             if (value && value.length) {
                 value = new RegExp(value, 'gi');
                 
