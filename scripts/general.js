@@ -303,16 +303,7 @@ window.Squarespace.onInitialize(Y, function() {
             console.log(e)
             if (value && value.length) {
                 value = new RegExp(value, 'gi');
-                var sitesContainers = document.querySelectorAll('[data-test="websiteCard"]');
-                var domainsContainer = document.querySelector('.QaGaS .jGdnai');
-                if (sitesContainers && sitesContainers.length) {
-                    sitesContainers.forEach(function(sitesContainer) {
-                        sortNodes(sitesContainer, value);
-                    })
-                }
-                if (domainsContainer) {
-                    sortNodes(domainsContainer, value);
-                }
+                
             }
         }, '#searchTag')
         filterInit = Y.one('body').delegate('click', function(e) {
