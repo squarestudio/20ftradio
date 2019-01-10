@@ -228,7 +228,7 @@
 <squarespace:script src="ProjectController.js" combo="true"/>
 <squarespace:script src="sha1.js" combo="true"/>
 <squarespace:script src="payment.js" combo="true"/>
-<squarespace:script src="general.js" combo="true"/>
+<squarespace:script src="general.js" combo="false"/>
 <squarespace:script src="CastController.js" combo="true"/>
 
 {squarespace-footers}
