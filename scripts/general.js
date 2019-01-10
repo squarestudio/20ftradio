@@ -392,6 +392,7 @@ window.Squarespace.onInitialize(Y, function() {
 });
 
 function activateFilterTags(params) {
+    console.log(params)
     if (params && params.tag) {
         var tags = params.tag.split(',');
         var filterItems = Y.all('.FeedFilter-item');
