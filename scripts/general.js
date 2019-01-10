@@ -302,7 +302,9 @@ window.Squarespace.onInitialize(Y, function() {
             var value = e.newVal.trim();
             if (value && value.length) {
                 value = new RegExp(value, 'gi');
-                
+                Y.all('.FeedFilter-item').each(function(genre){
+
+                });      
             }
         }, '#searchTag')
         filterInit = Y.one('body').delegate('click', function(e) {
