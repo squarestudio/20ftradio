@@ -297,9 +297,10 @@ window.Squarespace.onInitialize(Y, function() {
         addScript(script);
     });
     if (!filterInit) {
-        search.addEventListener('input', function(e) {
-            e.preventDefault();
-            var value = search.value.trim();
+        searchGenreInit = Y.one('body').delegate('valuechange', function(e) {
+            e.halt();
+            var value = e.currentTarget.get('value').trim();
+            console.log(e)
             if (value && value.length) {
                 value = new RegExp(value, 'gi');
                 var sitesContainers = document.querySelectorAll('[data-test="websiteCard"]');
@@ -313,7 +314,7 @@ window.Squarespace.onInitialize(Y, function() {
                     sortNodes(domainsContainer, value);
                 }
             }
-        })
+        }, '#searchTag')
         filterInit = Y.one('body').delegate('click', function(e) {
             e.halt();
             e.currentTarget.toggleClass('active');
