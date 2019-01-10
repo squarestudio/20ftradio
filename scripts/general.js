@@ -208,7 +208,7 @@ function filterMusicFeed() {
     var filterableFeed = Y.one('.filterable-feed');
     if (!filterableFeed) return;
     var tags = [];
-    var collectionUrl = location.pathname?location.pathname : '/archive'; //'/music-feed';//?format=main-content
+    var collectionUrl = location.pathname&&location.pathname.length>2?location.pathname : '/archive'; //'/music-feed';//?format=main-content
     console.log(collectionUrl,location.pathname)
     if (collectionUrl[collectionUrl.length - 1] == '/') {
         collectionUrl = collectionUrl.slice(0, collectionUrl.length - 1);
