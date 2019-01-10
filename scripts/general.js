@@ -209,7 +209,7 @@ function filterMusicFeed() {
     if (!filterableFeed) return;
     var tags = [];
     var collectionUrl = location.pathname&&location.pathname.length>2?location.pathname : '/archive'; //'/music-feed';//?format=main-content
-    console.log(collectionUrl,location.pathname)
+    //console.log(collectionUrl,location.pathname)
     if (collectionUrl[collectionUrl.length - 1] == '/') {
         collectionUrl = collectionUrl.slice(0, collectionUrl.length - 1);
     }
@@ -222,13 +222,11 @@ function filterMusicFeed() {
         return (a < b) ? -1 : (a > b) ? 1 : 0;
     });
     var tags_string = tags.length ? '?tag=' + tags : '/';
-    console.log(tags_string)
     filterableFeed.all('.FeedItem').each(function(it, i) {
         it.setStyle('transitionDelay', (60 * i) + 'ms');
     });
     filterableFeed.addClass('loading');
     var sim_a = Y.Node.create('<a style="display:none" class="sim_link needsclick" data-ajax-loader="ajax-loader-binded" href="' + collectionUrl + tags_string + '"></a>');
-    console.log(sim_a.getAttribute('href'))
     Y.one('body').append(sim_a);
     if (Y.one('#searchTag')) {
         searchGenre({ newVal: Y.one('#searchTag').get('value') })
