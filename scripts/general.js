@@ -205,6 +205,7 @@ var searchGenre = function(e) {
 };
 
 function filterMusicFeed() {
+    console.log('ololo')
     var filterableFeed = Y.one('.filterable-feed');
     if (!filterableFeed) return;
     var tags = [];
