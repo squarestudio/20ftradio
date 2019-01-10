@@ -196,7 +196,7 @@ var searchGenre = function(e) {
     value = value && value.length ? new RegExp(value.toLowerCase(), 'gi') : false;
     Y.all('.filter-sidebar .FeedFilter-item').each(function(genre) {
         var genre_val = genre.getAttribute('data-val');
-        if (value && genre_val.match(value) || genre.hasClass('active') || !value) {
+        if (value && genre_val.match(value) || !value) {
             genre.show(true);
         } else {
             genre.hide(true);
