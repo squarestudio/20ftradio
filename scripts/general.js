@@ -303,7 +303,7 @@ window.Squarespace.onInitialize(Y, function() {
             if (value && value.length) {
                 value = new RegExp(value, 'gi');
                 Y.all('.FeedFilter-item').each(function(genre){
-
+                    var genre_val = genre.getAttribute('data-val');
                 });      
             }
         }, '#searchTag')
