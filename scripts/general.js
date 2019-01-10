@@ -301,10 +301,15 @@ window.Squarespace.onInitialize(Y, function() {
             e.halt();
             var value = e.newVal.trim();
             if (value && value.length) {
-                value = new RegExp(value, 'gi');
-                Y.all('.FeedFilter-item').each(function(genre){
+                value = new RegExp(value.toLowerCase(), 'gi');
+                Y.all('.FeedFilter-item').each(function(genre) {
                     var genre_val = genre.getAttribute('data-val');
-                });      
+                    if (genre_val.textContent.match(value)) {
+                        itemsArr[i].classList.remove('anim-hide');
+                    } else {
+                        itemsArr[i].classList.add('anim-hide');
+                    }
+                });
             }
         }, '#searchTag')
         filterInit = Y.one('body').delegate('click', function(e) {
