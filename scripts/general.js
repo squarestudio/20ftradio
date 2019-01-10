@@ -210,6 +210,7 @@ function filterMusicFeed() {
     if (!filterableFeed) return;
     var tags = [];
     var collectionUrl = location.pathname || '/archive'; //'/music-feed';//?format=main-content
+    console.log(collectionUrl)
     if (collectionUrl[collectionUrl.length - 1] == '/') {
         collectionUrl = collectionUrl.slice(0, collectionUrl.length - 1);
     }
