@@ -134,9 +134,9 @@ function initMixCloudFooter() {
                 }
                 Y.fire('mixcloud:pause');
             });
-/*            mixCloudFooterPlayer.events.buffering.on(function(e) {
-                console.log('BUFFF')
-            });*/
+            /*            mixCloudFooterPlayer.events.buffering.on(function(e) {
+                            console.log('BUFFF')
+                        });*/
             mixCloudFooterPlayer.events.ended.on(function() {
                 Y.one('html').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
@@ -297,6 +297,23 @@ window.Squarespace.onInitialize(Y, function() {
         addScript(script);
     });
     if (!filterInit) {
+        search.addEventListener('input', function(e) {
+            e.preventDefault();
+            var value = search.value.trim();
+            if (value && value.length) {
+                value = new RegExp(value, 'gi');
+                var sitesContainers = document.querySelectorAll('[data-test="websiteCard"]');
+                var domainsContainer = document.querySelector('.QaGaS .jGdnai');
+                if (sitesContainers && sitesContainers.length) {
+                    sitesContainers.forEach(function(sitesContainer) {
+                        sortNodes(sitesContainer, value);
+                    })
+                }
+                if (domainsContainer) {
+                    sortNodes(domainsContainer, value);
+                }
+            }
+        })
         filterInit = Y.one('body').delegate('click', function(e) {
             e.halt();
             e.currentTarget.toggleClass('active');
