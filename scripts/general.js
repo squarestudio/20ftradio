@@ -140,7 +140,7 @@ function initMixCloudFooter() {
                 mixcloudPlay();
             });
             mixCloudFooterPlayer.events.pause.on(function() {
-
+                mixcloudPause();
             });
             /*            mixCloudFooterPlayer.events.buffering.on(function(e) {
                             console.log('BUFFF')
