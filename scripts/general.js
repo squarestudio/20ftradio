@@ -137,24 +137,7 @@ function initMixCloudFooter() {
             console.log('READY');
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
             //mixCloudFooterPlayer.load('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/')
-            mixCloudFooterPlayer.events.play.on(function(e) {
-                console.log('ololoSH')
-                mixcloudPlay();
-            });
-            mixCloudFooterPlayer.events.pause.on(function() {
-                mixcloudPause();
-            });
-            /*            mixCloudFooterPlayer.events.buffering.on(function(e) {
-                            console.log('BUFFF')
-                        });*/
-            mixCloudFooterPlayer.events.ended.on(function() {
-                Y.one('html').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
-                Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
-                Y.fire('mixcloud:ended');
-            });
-            mixCloudFooterPlayer.events.error.on(function(e) {
-                console.log('MixCloud Error', e);
-            });
+
         });
         window.mixCloudFooterPlayer = mixCloudFooterPlayer;
     } else {
@@ -441,6 +424,24 @@ if (!window_loaded) {
                     console.log('LOADED');
                     mixCloudFooterPlayer.play();
                     mixcloudPlay();
+                    mixCloudFooterPlayer.events.play.on(function(e) {
+                        console.log('ololoSH')
+                        mixcloudPlay();
+                    });
+                    mixCloudFooterPlayer.events.pause.on(function() {
+                        mixcloudPause();
+                    });
+                    /*            mixCloudFooterPlayer.events.buffering.on(function(e) {
+                                    console.log('BUFFF')
+                                });*/
+                    mixCloudFooterPlayer.events.ended.on(function() {
+                        Y.one('html').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
+                        Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
+                        Y.fire('mixcloud:ended');
+                    });
+                    mixCloudFooterPlayer.events.error.on(function(e) {
+                        console.log('MixCloud Error', e);
+                    });
                 });
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
