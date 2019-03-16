@@ -138,7 +138,7 @@ function initMixCloudFooter() {
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
             //mixCloudFooterPlayer.load('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/')
             mixCloudFooterPlayer.events.play.on(function(e) {
-                 console.log('ololoSH')
+                console.log('ololoSH')
                 mixcloudPlay();
             });
             mixCloudFooterPlayer.events.pause.on(function() {
@@ -439,8 +439,8 @@ if (!window_loaded) {
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.load(url, true).then(function(widg) {
                     console.log('LOADED');
+                    mixCloudFooterPlayer.play();
                     mixcloudPlay()
-                    //mixCloudFooterPlayer.play();
                 });
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
