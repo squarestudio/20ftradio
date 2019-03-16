@@ -439,15 +439,7 @@ if (!window_loaded) {
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.load(url, true).then(function(widg) {
                     console.log('LOADED');
-                    //mixcloudPlay()
-                    mixCloudFooterPlayer.events.play.on(function(e) {
-                        console.log('ololo')
-                        mixcloudPlay();
-                    });
-                    mixCloudFooterPlayer.events.pause.on(function() {
-                        console.log('pause')
-                        mixcloudPause();
-                    });
+                    mixcloudPlay()
                     mixCloudFooterPlayer.play();
                 });
             }
