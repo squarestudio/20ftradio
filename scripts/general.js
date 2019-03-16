@@ -440,9 +440,11 @@ if (!window_loaded) {
                     console.log('LOADED');
                     //mixcloudPlay()
                     mixCloudFooterPlayer.events.play.on(function(e) {
+                        console.log('ololo')
                         mixcloudPlay();
                     });
                     mixCloudFooterPlayer.events.pause.on(function() {
+                        console.log('pause')
                         mixcloudPause();
                     });
                     mixCloudFooterPlayer.play();
