@@ -212,7 +212,7 @@
             if (!T) return void k.then(function() {
                 c(e, t, n)
             });
-            P = null, t || C.updateScrollPosition(h()), S ? S.parentNode.removeChild(S) : d(), P = n, T.innerHTML = '<iframe width="100%" height="100%" frameborder="0"></iframe>', S = T.childNodes[0], p().location = f() + encodeURI(e), t || C.push(e)
+            P = null, t || C.updateScrollPosition(h()), S ? S.parentNode.removeChild(S) : d(), P = n, T.innerHTML = '<iframe width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>', S = T.childNodes[0], p().location = f() + encodeURI(e), t || C.push(e)
         }
 
         function d() {
