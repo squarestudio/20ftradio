@@ -104,6 +104,27 @@ function donateWithLiqPay(val, name, surname, email) {
     });
 }
 
+function mixcloudPlay() {
+    console.log('PLLLAAAYY')
+    var pl_url = Y.one('html').getAttribute('data-mixcloud-pl-url');
+    var pl_mixcloud_items = Y.one('html').all('[data-mixcloud-url="' + pl_url + '"]');
+    if (pl_mixcloud_items && pl_mixcloud_items.size()) {
+        pl_mixcloud_items.addClass('playing');
+    }
+    Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
+    Y.fire('mixcloud:play');
+}
+
+function mixcloudPause() {
+    console.log('PAUSE');
+    Y.one('html').removeClass('mixcloud-footer-playing');
+    Y.all('[data-mixcloud-url]').removeClass('playing');
+    if (!Y.one('#castDiv').hasClass('playing')) {
+        Y.one('html').addClass('mixcloud-footer-stopped');
+    }
+    Y.fire('mixcloud:pause');
+}
+
 function initMixCloudFooter() {
     if (!mixCloudFooterPlayer) {
         console.log('MixCloudFooter init');
@@ -116,23 +137,10 @@ function initMixCloudFooter() {
             console.log('READY');
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
             mixCloudFooterPlayer.events.play.on(function(e) {
-                console.log('PLLLAAAYY')
-                var pl_url = Y.one('html').getAttribute('data-mixcloud-pl-url');
-                var pl_mixcloud_items = Y.one('html').all('[data-mixcloud-url="' + pl_url + '"]');
-                if (pl_mixcloud_items && pl_mixcloud_items.size()) {
-                    pl_mixcloud_items.addClass('playing');
-                }
-                Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
-                Y.fire('mixcloud:play');
+                mixcloudPlay();
             });
             mixCloudFooterPlayer.events.pause.on(function() {
-                console.log('PAUSE');
-                Y.one('html').removeClass('mixcloud-footer-playing');
-                Y.all('[data-mixcloud-url]').removeClass('playing');
-                if (!Y.one('#castDiv').hasClass('playing')) {
-                    Y.one('html').addClass('mixcloud-footer-stopped');
-                }
-                Y.fire('mixcloud:pause');
+
             });
             /*            mixCloudFooterPlayer.events.buffering.on(function(e) {
                             console.log('BUFFF')
@@ -208,7 +216,7 @@ function filterMusicFeed() {
     var filterableFeed = Y.one('.filterable-feed');
     if (!filterableFeed) return;
     var tags = [];
-    var collectionUrl = location.pathname&&location.pathname.length>2?location.pathname : '/archive'; //'/music-feed';//?format=main-content
+    var collectionUrl = location.pathname && location.pathname.length > 2 ? location.pathname : '/archive'; //'/music-feed';//?format=main-content
     //console.log(collectionUrl,location.pathname)
     if (collectionUrl[collectionUrl.length - 1] == '/') {
         collectionUrl = collectionUrl.slice(0, collectionUrl.length - 1);
