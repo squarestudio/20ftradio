@@ -428,7 +428,8 @@ if (!window_loaded) {
             ancestor.removeClass('current');
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.load(url, true).then(function(widg) {
-                    console.log('LOADED', widg);
+                    console.log('LOADED');
+                    mixCloudFooterPlayer.play()
                 });
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
