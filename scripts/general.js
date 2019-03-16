@@ -113,10 +113,10 @@ function initMixCloudFooter() {
         });
         mixCloudFooterPlayer.then(function(widget) {
             mixCloudFooterPlayer = widget;
-            //console.log('READY');
+            console.log('READY');
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
             mixCloudFooterPlayer.events.play.on(function(e) {
-                //console.log('PLLLAAAYY')
+                console.log('PLLLAAAYY')
                 var pl_url = Y.one('html').getAttribute('data-mixcloud-pl-url');
                 var pl_mixcloud_items = Y.one('html').all('[data-mixcloud-url="' + pl_url + '"]');
                 if (pl_mixcloud_items && pl_mixcloud_items.size()) {
