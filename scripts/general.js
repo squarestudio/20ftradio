@@ -445,7 +445,7 @@ if (!window_loaded) {
                     mixCloudFooterPlayer.events.pause.on(function() {
                         mixcloudPause();
                     });
-                    mixCloudFooterPlayer.play()
+                    mixCloudFooterPlayer.play();
                 });
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
