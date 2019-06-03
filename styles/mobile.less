@@ -152,7 +152,7 @@ html.touch {
   margin-right: 10px !important
 }
 
-@media only screen and (max-width: 640px) { /* PHONE */
+@media only screen and (max-width: 640px), body.mobile-look { /* PHONE */
 
   // collapse sqs layouts
   @import 'sqs-grid-breaker';
@@ -165,9 +165,9 @@ html.touch {
 
   #container-content { padding: 45px @mobilePadding 75px; }
 
-  body.collection-type-template-page:not(.page-read-me),
-  body.collection-type-gallery,
-  body.collection-type-index {
+  .collection-type-template-page:not(.page-read-me),
+  .collection-type-gallery,
+  .collection-type-index {
     #container-content { padding: 0; }
   }
 
