@@ -1257,7 +1257,119 @@ body {
 }
 
 body.mobile-look {
-    
+    .new-events-schedule {
+        max-width: 80%;
+    }
+
+    #mobile-navigation {
+        .main-nav-font;
+        font-size: 15px;
+
+        ul {
+            li {
+                font-size: 15px;
+                padding: 5px 0;
+
+                &.folder .folder-parent {
+                    >a:first-child:before {
+                        content: '+';
+                        margin-right: 0.25em;
+                    }
+                }
+
+                &.folder {
+                    &.dropdown-open .folder-parent {
+                        >a:first-child:before {
+                            content: '-';
+                        }
+                    }
+
+                    .folder-child {
+                        display: none;
+                        height: 0;
+                        overflow: hidden;
+                        opacity: 1;
+                        margin-top: 0;
+                    }
+                }
+
+                &.folder.dropdown-open,
+                &.folder.active-link {
+                    .folder-child {
+                        display: block;
+                        height: auto !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-h-content {
+        display: block;
+        max-width: none;
+    }
+
+    #navigator {
+        .nav-container {
+            height: @logoSize;
+
+            .header-block,
+            .main-nav {
+                display: none;
+            }
+
+            #mobileNav {
+                display: block;
+                float: left;
+                width: 50%;
+                height: @logoSize;
+                margin-left: 25%;
+
+                #mobile-navigation {
+                    display: block;
+                    padding: 0;
+
+                    #mobile-navigation-label {
+                        line-height: @logoSize;
+                    }
+
+                    ul {
+                        line-height: @logoSize / 2;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        footer#bottomBar {
+            position: fixed !important;
+            bottom: 0 !important;
+
+            #footerBlock {
+                display: none;
+            }
+        }
+    }
+
+    .touch .cast-container.initialized .mobile-play-button {
+        display: block;
+        .v-h-align;
+        position: absolute;
+        height: 64px;
+        width: 64px;
+        z-index: 120;
+        background: rgba(0, 0, 0, 0.48);
+        border-radius: 100%;
+        opacity: 0;
+
+        &.visible {
+            opacity: 1;
+        }
+    }
+
+    .touch .cast-container.initialized.stream-activated .mobile-play-button {
+        display: none;
+    }
 
 }
 #liqpay_checkout {
