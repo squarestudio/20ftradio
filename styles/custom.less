@@ -1404,6 +1404,7 @@ body.mobile-look {
         box-sizing: border-box;
         padding: 10px 16px;
     }
+
     #navigator .siteTitle img {
         margin: 0;
     }
@@ -1417,11 +1418,20 @@ body.mobile-look {
 
     .footer-h-content {
         padding: 0;
-        max-width: none!important;
+        max-width: none !important;
+
         .sqs-col-12 {
             .sqs-row {
                 padding: 0 16px;
 
+            }
+
+            .sqs-block-button {
+                &:first-child {
+                    .sqs-block-button-element {
+                        padding-left: 0;
+                    }
+                }
             }
 
             .col {
