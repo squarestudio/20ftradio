@@ -130,7 +130,8 @@ function initMixCloudFooter() {
         console.log('MixCloudFooter init');
         mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio/osnova-w-dj-ian-20ft-radio-14022019/', {
             disablePushstate: true,
-            disableUnloadWarning: true
+            disableUnloadWarning: true,
+            autoplay: true
         });
         mixCloudFooterPlayer.then(function(widget) {
             mixCloudFooterPlayer = widget;
