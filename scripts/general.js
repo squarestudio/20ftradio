@@ -420,10 +420,12 @@ if (!window_loaded) {
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
+                var loaded = false;
                 mixCloudFooterPlayer.load(url, true).then(function(widg) {
                     console.log('LOADED');
                     mixCloudFooterPlayer.play();
                     mixcloudPlay();
+                    if(loaded)return;
                     mixCloudFooterPlayer.events.play.on(function(e) {
                         console.log('ololoSH')
                         mixcloudPlay();
@@ -442,6 +444,7 @@ if (!window_loaded) {
                     mixCloudFooterPlayer.events.error.on(function(e) {
                         console.log('MixCloud Error', e);
                     });
+                    loaded = true;
                 });
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
