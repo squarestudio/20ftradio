@@ -426,6 +426,7 @@ if (!window_loaded) {
                     mixCloudFooterPlayer.play();
                     mixcloudPlay();
                     if(loaded)return;
+                    console.log('events')
                     mixCloudFooterPlayer.events.play.on(function(e) {
                         console.log('ololoSH')
                         mixcloudPlay();
