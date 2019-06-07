@@ -212,7 +212,7 @@
             if (!T) return void k.then(function() {
                 c(e, t, n)
             });
-            P = null, t || C.updateScrollPosition(h()), S ? S.parentNode.removeChild(S) : d(), P = n, T.innerHTML = '<iframe width="100%" height="100%" frameborder="0"></iframe>', S = T.childNodes[0], p().location = f() + encodeURI(e), t || C.push(e)
+            P = null, t || C.updateScrollPosition(h()), S ? S.parentNode.removeChild(S) : d(), P = n, T.innerHTML = '<iframe width="100%" height="100%" frameborder="0" allow="autoplay"></iframe>', S = T.childNodes[0], p().location = f() + encodeURI(e), t || C.push(e)
         }
 
         function d() {
@@ -356,7 +356,7 @@
                         var o = n.createElement("div");
                         o.setAttribute("style", "position: fixed; left: 0; bottom: 0; right: 0; height: 60px; z-index: 10"), o.setAttribute("class", "mixcloud-footer-widget-container"), n.body.appendChild(o);
                         var i = 0;
-                        t.getComputedStyle && (i = parseFloat(t.getComputedStyle(n.body)["padding-bottom"].replace(/px$/, ""))), n.body.style.paddingBottom = i + 60 + "px", o.innerHTML = '<iframe width="100%" height="100%" frameborder="0" src="' + v(r, l) + '"></iframe>';
+                        t.getComputedStyle && (i = parseFloat(t.getComputedStyle(n.body)["padding-bottom"].replace(/px$/, ""))), n.body.style.paddingBottom = i + 60 + "px", o.innerHTML = '<iframe allow="autoplay" width="100%" height="100%" frameborder="0" src="' + v(r, l) + '"></iframe>';
                         var a = e.PlayerWidget(o.childNodes[0]);
                         a.ready.then(function() {
                             W = a, y(l), c.resolve(a)
