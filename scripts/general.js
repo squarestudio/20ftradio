@@ -444,6 +444,13 @@ if (!window_loaded) {
                     console.log('LOADED');
                     //mixCloudFooterPlayer.play();
                     mixcloudPlay();
+                    widg.events.play.on(function(e) {
+                        console.log('ololoSH')
+                        mixcloudPlay();
+                    });
+                    widg.events.pause.on(function() {
+                        mixcloudPause();
+                    });
                     if (!loaded) {
                         console.log('events')
 
