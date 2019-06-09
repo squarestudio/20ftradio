@@ -145,7 +145,9 @@ function initMixCloudFooter() {
         console.log('MixCloudFooter here');
     }
     window.onbeforeunload = function(e) {
-        console.log(e)
+        console.log(e);
+        e.preventDefault();
+        e.stopImmediatePropagation();
         return ''
     }
 }
