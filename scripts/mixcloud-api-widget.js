@@ -256,7 +256,9 @@
         function y(e) {
             W.events.play.on(w), W.events.pause.on(b), W.events.buffering.on(b), W.events.ended.on(b), W.events.error.on(b), e.disableHotkeys || (o(n, "keydown", function(e) {
                 W && m(e) && W.togglePlay()
-            }), W.enableHotkeys()), e.disableUnloadWarning || false
+            }), W.enableHotkeys()), e.disableUnloadWarning || o(t, "beforeunload", function(e) {
+                if (D) return e.returnValue = "Are you sure you want to stop listening and leave this page?", e.returnValue
+            })
         }
 
         function w() {
@@ -330,7 +332,6 @@
         else {
             var I = {
                 load: function(e, o, r) {
-                    console.log(e, o, r)
                     C.replace(e), n.title = o, r && (t.location.hash = r), P && (p().scrollTo(0, P > 20 ? P : 0), P = null)
                 },
                 play: function(e) {
