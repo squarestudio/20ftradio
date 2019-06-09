@@ -435,7 +435,7 @@ if (!window_loaded) {
                     setTimeout(function(){
                         console.log('delay');
                         mixCloudFooterPlayer.play();
-                    },500)
+                    },100)
                     if (!widg.loaded) {
                         console.log('events');
                         mixCloudFooterPlayer.events.play.on(function(e) {
