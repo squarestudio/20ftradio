@@ -442,6 +442,7 @@ if (!window_loaded) {
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 if (loadedTracks.current == url) {
                     mixcloudPlay();
+                    mixCloudFooterPlayer.play();
                 } else {
                     mixCloudFooterPlayer.load(url, true);
                     mixCloudFooterPlayer.ready.then(function(widg) {
