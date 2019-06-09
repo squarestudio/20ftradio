@@ -38,7 +38,6 @@ function addScript(script, callback) {
         }
         return;
     }
-    console.log(script);
     if (script.src) {
         if (s.readyState) {
             s.onreadystatechange = function() {
