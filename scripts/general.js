@@ -130,7 +130,7 @@ function initMixCloudFooter() {
         mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio/', {
             disablePushstate: true,
             disableUnloadWarning: true,
-            autoplay: false
+            autoplay: Y.UA.mobile
         });
         window.mixCloudFooterPlayer = mixCloudFooterPlayer;
         mixCloudFooterPlayer.then(function(widget) {
