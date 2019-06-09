@@ -446,10 +446,10 @@ if (!window_loaded) {
                     loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
                     mixCloudFooterPlayer = widg;
                     console.log('LOADED', widg, widg.loaded);
-                    if(!widg.loaded == 'undefined'){
+                    if (!widg.loaded == 'undefined') {
                         widg.loaded = 0;
                     }
-                    if (widg.loaded<2) {
+                    if (widg.loaded < 2) {
                         console.log('events');
                         mixCloudFooterPlayer.events.play.on(function(e) {
                             console.log('ololoSH')
