@@ -163,7 +163,7 @@ function initMixCloudFooter() {
         console.log('MixCloudFooter here');
     }
     window.onbeforeunload = function() {
-        return false
+        return ''
     }
 }
 
