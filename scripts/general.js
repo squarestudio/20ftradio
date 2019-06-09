@@ -131,7 +131,6 @@ function initMixCloudFooter() {
             var data = e.data ? JSON.parse(e.data) : false;
             if (data && data.mixcloud) {
                 if (data.type && data.type == 'ready') {
-                    console.log(data, e)
                     mixCloudFooterPlayer.play && mixCloudFooterPlayer.play()
                 }
             }
