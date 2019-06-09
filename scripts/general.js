@@ -456,8 +456,6 @@ if (!window_loaded) {
                         });
                     }
                     widg.loaded = true;
-                }).error(function(e){
-                    console.log(e)
                 });
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
