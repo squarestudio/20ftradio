@@ -452,7 +452,6 @@ if (!window_loaded) {
                     loadedTracks.current = url;
                     loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
                     mixCloudFooterPlayer = widg;
-                    console.log('LOADED', widg, widg.loaded);
                     mixCloudFooterPlayer.play();
                     widg.loaded++;
                 });
