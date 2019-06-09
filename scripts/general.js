@@ -433,7 +433,6 @@ window.Squarespace.onDestroy(Y, function() {
 });
 if (!window_loaded) {
     activateMixcloudThings();
-    var loaded = false;
     body.delegate('click', function(e) {
         e.halt();
         var ancestor = e.currentTarget.ancestor('.sqs-block') || e.currentTarget.ancestor('.mixcloud-item');
@@ -443,18 +442,8 @@ if (!window_loaded) {
             ancestor.addClass('current');
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
-            if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
-                mixCloudFooterPlayer.play(url).then(function(widg) {
-                    console.log('LOADED');
-                    //mixCloudFooterPlayer.play();
-                    //mixcloudPlay();
-                
-                    if (!loaded) {
-                        console.log('events')
-
-                    }
-                    //loaded = true;
-                });
+            if (mixCloudFooterPlayer && mixCloudFooterPlayer.play) {
+                mixCloudFooterPlayer.play(url);
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
         } else {
