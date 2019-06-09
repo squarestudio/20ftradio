@@ -128,7 +128,7 @@
             function o(e, t) {
                 "ready" === e ? n(u, {
                     type: "getApi"
-                }) : "api" === e ? a(t) : "event" === e ? console.log(d,t)&&d[t.eventName].apply(f, t.args) : "methodResponse" === e && s[t.methodId] && (s[t.methodId].resolve(t.value), delete s[t.methodId])
+                }) : "api" === e ? a(t) : "event" === e ? console.log(t, f)&&d[t.eventName].apply(f, t.args) : "methodResponse" === e && s[t.methodId] && (s[t.methodId].resolve(t.value), delete s[t.methodId])
             }
 
             function a(t) {
