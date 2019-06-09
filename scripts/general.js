@@ -449,7 +449,7 @@ if (!window_loaded) {
                     if (widg.hasOwnProperty('loaded')) {
                         widg.loaded = 0;
                     }
-                    if (widg.loaded&&widg.loaded < 2) {
+                    if (widg.loaded&&widg.loaded < 3) {
                         console.log('events');
                         mixCloudFooterPlayer.events.play.on(function(e) {
                             console.log('ololoSH')
