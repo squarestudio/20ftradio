@@ -132,7 +132,7 @@ function initMixCloudFooter() {
             if (data && data.mixcloud) {
                 if (data.type && data.type == 'ready') {
                     console.log(data, e)
-                    mixCloudFooterPlayer.play()
+                    mixCloudFooterPlayer.play&&mixCloudFooterPlayer.play()
                 }
             }
         }, !1)
@@ -146,7 +146,6 @@ function initMixCloudFooter() {
             mixCloudFooterPlayer = widget;
             console.log('READY');
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
-            widget.setVolume(0);
             //mixCloudFooterPlayer.load('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/')
 
         });
