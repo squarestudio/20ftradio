@@ -445,8 +445,6 @@ if (!window_loaded) {
                     loadedTracks.current = url;
                     loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
                     mixCloudFooterPlayer = widg;
-                    mixCloudFooterPlayer.play();
-                    mixcloudPlay();
                     console.log('LOADED', widg, widg.loaded);
                     mixCloudFooterPlayer.events.play.on(function(e) {
                         console.log('ololoSH')
@@ -474,8 +472,8 @@ if (!window_loaded) {
                         console.log('events');
                         
                     }*/
-                    //
-                    //mixcloudPlay();
+                    mixCloudFooterPlayer.play();
+                    mixcloudPlay();
                     widg.loaded = true;
                 });
             }
