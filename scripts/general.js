@@ -441,8 +441,11 @@ if (!window_loaded) {
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
+                if(loadedTracks.current == url)
                 mixCloudFooterPlayer.load(url, true);
                 mixCloudFooterPlayer.ready.then(function(widg) {
+                    loadedTracks.current = url;
+                    loadedTracks.all.indexOf(url)==-1&&loadedTracks.all.push(url);
                     mixCloudFooterPlayer = widg;
                     mixcloudPlay();
                     console.log('LOADED', widg, widg.loaded);
