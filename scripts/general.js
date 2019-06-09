@@ -440,13 +440,13 @@ if (!window_loaded) {
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
-                mixCloudFooterPlayer.events.pause.off();
-                mixCloudFooterPlayer.events.play.off();
                 mixCloudFooterPlayer.load(url, true);
                 mixCloudFooterPlayer.ready.then(function(widg) {
                     loadedTracks.current = url;
                     loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
                     mixCloudFooterPlayer = widg;
+                    mixCloudFooterPlayer.events.pause.off();
+                    mixCloudFooterPlayer.events.play.off();
                     console.log('LOADED', widg, widg.loaded);
                     mixCloudFooterPlayer.events.play.on(function(e) {
                         console.log('ololoSH')
