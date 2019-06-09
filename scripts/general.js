@@ -131,7 +131,7 @@ function initMixCloudFooter() {
             disablePushstate: true,
             disableUnloadWarning: true,
             html5audio: true,
-            autoplay: true
+            autoplay: false
         });
         window.mixCloudFooterPlayer = mixCloudFooterPlayer;
         mixCloudFooterPlayer.then(function(widget) {
