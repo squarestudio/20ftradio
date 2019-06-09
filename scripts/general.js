@@ -456,7 +456,7 @@ if (!window_loaded) {
                         });
                     }
                     widg.loaded = true;
-                }).catch(function(e){
+                }).error(function(e){
                     console.log(e)
                 });
             }
