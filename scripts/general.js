@@ -445,7 +445,10 @@ if (!window_loaded) {
                     loadedTracks.current = url;
                     loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
                     mixCloudFooterPlayer = widg;
-                    
+                    console.log('LOADED', widg, widg.loaded);
+                    mixCloudFooterPlayer.play();
+                    mixcloudPlay();
+                    widg.loaded++;
                 });
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
