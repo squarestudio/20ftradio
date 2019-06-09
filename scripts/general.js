@@ -440,6 +440,7 @@ if (!window_loaded) {
                 mixCloudFooterPlayer.load(url, true);
                 mixCloudFooterPlayer.ready.then(function(widg) {
                     mixCloudFooterPlayer = widg;
+                    mixcloudPlay();
                     console.log('LOADED', widg, widg.loaded);
                     /*setTimeout(function() {
                         console.log('delay');
