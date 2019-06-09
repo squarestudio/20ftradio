@@ -145,9 +145,9 @@ function initMixCloudFooter() {
             mixCloudFooterPlayer.events.pause.on(function() {
                 mixcloudPause();
             });
-            /*            mixCloudFooterPlayer.events.buffering.on(function(e) {
-                            console.log('BUFFF')
-                        });*/
+            mixCloudFooterPlayer.events.buffering.on(function(e) {
+                console.log('BUFFF')
+            });
             mixCloudFooterPlayer.events.ended.on(function() {
                 Y.one('html').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
                 Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
@@ -162,7 +162,7 @@ function initMixCloudFooter() {
     } else {
         console.log('MixCloudFooter here');
     }
-    window.onbeforeunload = function(){
+    window.onbeforeunload = function() {
         return false
     }
 }
