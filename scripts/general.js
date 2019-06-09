@@ -444,17 +444,11 @@ if (!window_loaded) {
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
-                mixCloudFooterPlayer.load(url, true).then(function(widg) {
+                mixCloudFooterPlayer.play(url).then(function(widg) {
                     console.log('LOADED');
                     //mixCloudFooterPlayer.play();
                     mixcloudPlay();
-                    widg.events.play.on(function(e) {
-                        console.log('ololoSH')
-                        mixcloudPlay();
-                    });
-                    widg.events.pause.on(function() {
-                        mixcloudPause();
-                    });
+                
                     if (!loaded) {
                         console.log('events')
 
