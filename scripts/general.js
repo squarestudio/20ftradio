@@ -467,7 +467,7 @@ if (!window_loaded) {
                         });
                     }*/
                     //mixCloudFooterPlayer.play();
-                    mixcloudPlay();
+                    //mixcloudPlay();
                     widg.loaded = true;
                 });
             }
