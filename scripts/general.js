@@ -454,7 +454,6 @@ if (!window_loaded) {
                     mixCloudFooterPlayer = widg;
                     console.log('LOADED', widg, widg.loaded);
                     mixCloudFooterPlayer.play();
-                    mixcloudPlay();
                     widg.loaded++;
                 });
             }
