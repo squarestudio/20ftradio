@@ -77,6 +77,7 @@
                 function o(e) {
                     return function(t) {
                         try {
+                                            console.log(t,n)
                             r.resolve(e.call(this, t))
                         } catch (e) {
                             r.reject(e)
