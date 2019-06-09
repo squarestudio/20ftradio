@@ -432,11 +432,15 @@ if (!window_loaded) {
                 mixCloudFooterPlayer.ready.then(function(widg) {
                     mixCloudFooterPlayer = widg;
                     console.log('LOADED', widg, widg.loaded);
+                    setTimeout(function(){
+                        console.log('delay');
+                        mixCloudFooterPlayer.play();
+                    },500)
                     if (!widg.loaded) {
                         console.log('events');
                         mixCloudFooterPlayer.events.play.on(function(e) {
                             console.log('ololoSH')
-                            mixcloudPlay();
+                            //mixcloudPlay();
                         });
                         mixCloudFooterPlayer.events.pause.on(function() {
                             mixcloudPause();
@@ -453,7 +457,7 @@ if (!window_loaded) {
                             console.log('MixCloud Error', e);
                         });
                     }
-                    mixCloudFooterPlayer.play();
+                    //mixCloudFooterPlayer.play();
                     mixcloudPlay();
                     widg.loaded = true;
                 });
