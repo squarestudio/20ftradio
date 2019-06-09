@@ -422,11 +422,11 @@ if (!window_loaded) {
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.load(url, true).then(function(widg) {
                     console.log('LOADED');
+                    mixCloudFooterPlayer = widget;
                     mixCloudFooterPlayer.play();
                     mixcloudPlay();
                     if (!loaded) {
                         console.log('events');
-                        mixCloudFooterPlayer = widget;
                         console.log('READY');
                         window.mixCloudFooterPlayer = mixCloudFooterPlayer;
                         mixCloudFooterPlayer.events.play.on(function(e) {
