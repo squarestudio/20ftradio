@@ -127,8 +127,14 @@ function mixcloudPause() {
 function initMixCloudFooter() {
     if (!mixCloudFooterPlayer) {
         console.log('MixCloudFooter init');
-        window.addEventListener("message", function(e){
-            console.log(e)
+        window.addEventListener("message", function(e) {
+            var data = e.data ? JSON.parse(e.data) : false;
+            if(data&&data.mixcloud){
+                if(data.type&&data.type=='ready'){
+                    console.log(data)
+                    mixCloudFooterPlayer.play()
+                }
+            }
         }, !1)
         mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio/', {
             disablePushstate: true,
@@ -435,10 +441,10 @@ if (!window_loaded) {
                 mixCloudFooterPlayer.ready.then(function(widg) {
                     mixCloudFooterPlayer = widg;
                     console.log('LOADED', widg, widg.loaded);
-                    setTimeout(function(){
+                    setTimeout(function() {
                         console.log('delay');
                         mixCloudFooterPlayer.play();
-                    },100)
+                    }, 100)
                     if (!widg.loaded) {
                         console.log('events');
                         mixCloudFooterPlayer.events.play.on(function(e) {
