@@ -136,9 +136,11 @@ function initMixCloudFooter() {
                 }
                 if(data.type=='event'&&data.data){
                     if(data.data.eventName == 'play'){
+                        console.log('ppp')
                         mixcloudPlay();
                     }
                      if(data.data.eventName == 'pause'){
+                        console.log('pauuuse')
                         mixcloudPause();
                     }
                 }
