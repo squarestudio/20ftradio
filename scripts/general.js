@@ -104,7 +104,7 @@ function donateWithLiqPay(val, name, surname, email) {
 }
 
 function mixcloudPlay() {
-    console.log('PLLLAAAYY')
+    console.log('PLAY')
     var pl_url = Y.one('html').getAttribute('data-mixcloud-pl-url');
     var pl_mixcloud_items = Y.one('html').all('[data-mixcloud-url="' + pl_url + '"]');
     if (pl_mixcloud_items && pl_mixcloud_items.size()) {
