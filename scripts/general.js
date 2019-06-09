@@ -143,7 +143,7 @@ function initMixCloudFooter() {
                 }
             }
         }, !1)
-        mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/', {
+        mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio/', {
             disablePushstate: true,
             disableUnloadWarning: true,
             autoplay: Y.UA.mobile
