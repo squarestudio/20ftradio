@@ -431,7 +431,7 @@ if (!window_loaded) {
                 mixCloudFooterPlayer.load(url, true).then(function(widg) {
                     //mixCloudFooterPlayer = widg;
                     console.log('LOADED', widg, widg.loaded);
-                    mixCloudFooterPlayer.play();
+                    /*mixCloudFooterPlayer.play();
                     mixcloudPlay();
 
                     if (!widg.loaded) {
@@ -455,7 +455,7 @@ if (!window_loaded) {
                             console.log('MixCloud Error', e);
                         });
                     }
-                    widg.loaded = true;
+                    widg.loaded = true;*/
                 });
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
