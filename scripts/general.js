@@ -449,6 +449,7 @@ if (!window_loaded) {
                         loadedTracks.current = url;
                         loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
                         mixCloudFooterPlayer = widg;
+                        mixCloudFooterPlayer.play();
                         mixcloudPlay();
                         console.log('LOADED', widg, widg.loaded);
                         /*setTimeout(function() {
@@ -476,7 +477,7 @@ if (!window_loaded) {
                                 console.log('MixCloud Error', e);
                             });
                         }*/
-                        //mixCloudFooterPlayer.play();
+                        //
                         //mixcloudPlay();
                         widg.loaded = true;
                     });
