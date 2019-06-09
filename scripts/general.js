@@ -428,7 +428,8 @@ if (!window_loaded) {
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
-                mixCloudFooterPlayer.load(url, true).then(function(widg) {
+                mixCloudFooterPlayer.load(url, true)
+                mixCloudFooterPlayer.ready().then(function(widg) {
                     //mixCloudFooterPlayer = widg;
                     console.log('LOADED', widg, widg.loaded);
                     /*mixCloudFooterPlayer.play();
