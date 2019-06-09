@@ -454,7 +454,7 @@ if (!window_loaded) {
                         console.log('LOADED', widg, widg.loaded);
                         mixCloudFooterPlayer.events.play.on(function(e) {
                             console.log('ololoSH')
-                            //mixcloudPlay();
+                            mixcloudPlay();
                         });
                         mixCloudFooterPlayer.events.pause.on(function() {
                             mixcloudPause();
