@@ -134,6 +134,14 @@ function initMixCloudFooter() {
                 if (data.type && data.type == 'ready') {
                     mixCloudFooterPlayer.play && mixCloudFooterPlayer.play()
                 }
+                if(data.type=='event'&&data.data){
+                    if(data.data.eventName == 'play'){
+                        mixcloudPlay();
+                    }
+                     if(data.data.eventName == 'pause'){
+                        mixcloudPause();
+                    }
+                }
             }
         }, !1)
         mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio/', {
