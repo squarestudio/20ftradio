@@ -429,7 +429,7 @@ if (!window_loaded) {
             ancestor.removeClass('current');
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.load(url, true);
-                mixCloudFooterPlayer.then(function(widg) {
+                mixCloudFooterPlayer.ready.then(function(widg) {
                     mixCloudFooterPlayer = widg;
                     console.log('LOADED', widg, widg.loaded);
                     if (!widg.loaded) {
