@@ -127,7 +127,7 @@ function mixcloudPause() {
 function initMixCloudFooter() {
     if (!mixCloudFooterPlayer) {
         console.log('MixCloudFooter init');
-        mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio/', {
+        mixCloudFooterPlayer = Mixcloud.PlayerWidget('/20ftradio/', {
             disablePushstate: true,
             disableUnloadWarning: true,
             html5audio: true,
