@@ -134,7 +134,27 @@ function initMixCloudFooter() {
             autoplay: false
         });
         mixCloudFooterPlayer.then(function(widget) {
-
+            mixCloudFooterPlayer = widget;
+            console.log('READY');
+            window.mixCloudFooterPlayer = mixCloudFooterPlayer;
+            mixCloudFooterPlayer.events.play.on(function(e) {
+                console.log('ololoSH')
+                mixcloudPlay();
+            });
+            mixCloudFooterPlayer.events.pause.on(function() {
+                mixcloudPause();
+            });
+            /*            mixCloudFooterPlayer.events.buffering.on(function(e) {
+                            console.log('BUFFF')
+                        });*/
+            mixCloudFooterPlayer.events.ended.on(function() {
+                Y.one('html').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
+                Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
+                Y.fire('mixcloud:ended');
+            });
+            mixCloudFooterPlayer.events.error.on(function(e) {
+                console.log('MixCloud Error', e);
+            });
             //mixCloudFooterPlayer.load('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/')
 
         });
@@ -422,31 +442,10 @@ if (!window_loaded) {
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.load(url, true).then(function(widg) {
                     console.log('LOADED');
-                    mixCloudFooterPlayer = widget;
                     mixCloudFooterPlayer.play();
                     mixcloudPlay();
                     if (!loaded) {
-                        console.log('events');
-                        console.log('READY');
-                        window.mixCloudFooterPlayer = mixCloudFooterPlayer;
-                        mixCloudFooterPlayer.events.play.on(function(e) {
-                            console.log('ololoSH')
-                            mixcloudPlay();
-                        });
-                        mixCloudFooterPlayer.events.pause.on(function() {
-                            mixcloudPause();
-                        });
-                        /*            mixCloudFooterPlayer.events.buffering.on(function(e) {
-                                        console.log('BUFFF')
-                                    });*/
-                        mixCloudFooterPlayer.events.ended.on(function() {
-                            Y.one('html').removeClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
-                            Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
-                            Y.fire('mixcloud:ended');
-                        });
-                        mixCloudFooterPlayer.events.error.on(function(e) {
-                            console.log('MixCloud Error', e);
-                        });
+                        console.log('events')
 
                     }
                     loaded = true;
