@@ -446,15 +446,15 @@ if (!window_loaded) {
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.play(url).then(function(widg) {
                     mixCloudFooterPlayer = widg;
-                    console.log('LOADED');
+                    console.log('LOADED', widg, widg.loaded);
                     //mixCloudFooterPlayer.play();
                     mixcloudPlay();
-                
-                    if (!loaded) {
+
+                    if (!widg.loaded) {
                         console.log('events')
 
                     }
-                    //loaded = true;
+                    widg.loaded = true;
                 });
             }
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
