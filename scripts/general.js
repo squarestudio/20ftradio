@@ -434,7 +434,6 @@ if (!window_loaded) {
                     console.log('LOADED', widg, widg.loaded);
                     mixCloudFooterPlayer.play();
                     mixcloudPlay();
-
                     if (!widg.loaded) {
                         console.log('events');
                         mixCloudFooterPlayer.events.play.on(function(e) {
