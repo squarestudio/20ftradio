@@ -201,6 +201,7 @@
     </footer>
     {.end}
 </div>
+<div style="position: fixed; left: 0; right: 0; height: 60px; z-index: 10" class="mixcloud-footer-widget-container"><iframe id="mixcloudFooter" allow="autoplay" width="100%" height="100%" frameborder="0" src="https://www.mixcloud.com/widget/iframe/?feed=/20ftradio/&footer_widget=1&disable_unload_warning=1"></iframe></div>
 {.if authenticatedAccount}
 <squarespace:script src="admin.js" combo="false"/>
 {.or}
@@ -254,6 +255,5 @@
     });
 </script>
 {.end}
-<div style="position: fixed; left: 0; right: 0; height: 60px; z-index: 10" class="mixcloud-footer-widget-container"><iframe id="mixcloudFooter" allow="autoplay" width="100%" height="100%" frameborder="0" src="https://www.mixcloud.com/widget/iframe/?feed=/20ftradio/&footer_widget=1&disable_unload_warning=1"></iframe></div>
 </body>
 </html>
