@@ -143,10 +143,10 @@ function initMixCloudFooter() {
                 }
             }
         }, !1)
-        mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio', {
+        mixCloudFooterPlayer = (document.getElementById("mixcloudFooter")) /*Mixcloud.FooterWidget('/20ftradio', {
             disablePushstate: true,
             disableUnloadWarning: true
-        });
+        });*/
         window.mixCloudFooterPlayer = mixCloudFooterPlayer;
         mixCloudFooterPlayer.then(function(widget) {
             mixCloudFooterPlayer = widget;
