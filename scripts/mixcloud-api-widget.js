@@ -249,7 +249,7 @@
         }
 
         function v(e, t) {
-            var n = x + "/widget/iframe/?feed=" + encodeURI(e) + "&footer_widget=1";
+            var n = x + "/widget/iframe/?feed=" + encodeURIComponent(e) + "&footer_widget=1";
             return t.stylecolor && (n += "&stylecolor=" + encodeURIComponent(t.stylecolor)), t.hide_artwork && (n += "&hide_artwork=1"), t.autoplay && (n += "&autoplay=1"), t.light && (n += "&light=1"), t.html5audio && (n += "&html5audio=1"), t.disableUnloadWarning && (n += "&disable_unload_warning=1"), n
         }
 
@@ -354,9 +354,9 @@
                             for (T = n.createElement("div"), T.setAttribute("class", "mixcloud-footer-widget-body-wrapper"), n.body.appendChild(T); n.body.childNodes.length > 1;) T.appendChild(n.body.childNodes[0]);
                         g();
                         var o = n.createElement("div");
-                        o.setAttribute("style", "position: fixed; left: 0; bottom: 0; right: 0; height: 60px; z-index: 100000"), o.setAttribute("class", "mixcloud-footer-widget-container"), n.body.appendChild(o);
+                        o.setAttribute("style", "position: fixed; left: 0; bottom: 0; right: 0; height: 60px; z-index: 10"), o.setAttribute("class", "mixcloud-footer-widget-container"), n.body.appendChild(o);
                         var i = 0;
-                        t.getComputedStyle && (i = parseFloat(t.getComputedStyle(n.body)["padding-bottom"].replace(/px$/, ""))), n.body.style.paddingBottom = i + 60 + "px", o.innerHTML = '<iframe width="100%" height="100%" frameborder="0" src="' + v(r, l) + '" allow="autoplay"></iframe>';
+                        t.getComputedStyle && (i = parseFloat(t.getComputedStyle(n.body)["padding-bottom"].replace(/px$/, ""))), n.body.style.paddingBottom = i + 60 + "px", o.innerHTML = '<iframe allow="autoplay" width="100%" height="100%" frameborder="0" src="' + v(r, l) + '"></iframe>';
                         var a = e.PlayerWidget(o.childNodes[0]);
                         a.ready.then(function() {
                             W = a, y(l), c.resolve(a)
