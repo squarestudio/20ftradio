@@ -143,6 +143,7 @@ function initMixCloudFooter() {
                 }
             }
         }, !1)
+        console.log(document.getElementById("mixcloudFooter"))
         mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.getElementById("mixcloudFooter")) /*Mixcloud.FooterWidget('/20ftradio', {
             disablePushstate: true,
             disableUnloadWarning: true
