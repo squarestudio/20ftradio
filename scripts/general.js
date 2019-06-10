@@ -143,12 +143,12 @@ function initMixCloudFooter() {
                 }
             }
         }, !1)
-        mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.getElementById("mixcloudFooter")) /*Mixcloud.FooterWidget('/20ftradio', {
+        mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio', {
             disablePushstate: true,
             disableUnloadWarning: true
-        });*/
+        });
         window.mixCloudFooterPlayer = mixCloudFooterPlayer;
-        mixCloudFooterPlayer.ready.then(function(widget) {
+        mixCloudFooterPlayer.then(function(widget) {
             mixCloudFooterPlayer = widget;
             console.log('READY');
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
