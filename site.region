@@ -170,6 +170,7 @@
             </svg>
         </div>
         <div id="container-content" data-content-field="main-content" role="main">
+        <style>html{height:100%;}</style>
 <!--            {.section collection}{.equal? typeName "products"}{.section categories}
             <div id="categoryNav">
                 <input type="checkbox" name="category-nav-toggle" id="categoryNavToggle"
