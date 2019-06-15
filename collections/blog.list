@@ -15,12 +15,10 @@
                                     {.end}
                                 </span>
                                 {.end}
-                                {.main-image?}
                                 <div class="FeedImage">
-                                    <img src="{assetUrl}?format=500w" data-load="false"/>
+                                    {.main-image?}<img src="{assetUrl}?format=500w" data-load="false"/>{.end}
                                     <div class="play-button mixcloud-butt"></div>
-                                </div>
-                                {.end}
+                                </div>      
                                 <div class="FeedMeta">
                                     {.if title}
                                     <h2><a href="{fullUrl}">{title}</a></h2>
