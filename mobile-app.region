@@ -107,7 +107,6 @@
         }
     </style>
     <div id="navigator">
-        <style>html{height:100%;}</style>
         {.section website}
         <header id="topBar" class="sqs-announcement-bar-dropzone">
             <div class="nav-container">
@@ -210,6 +209,7 @@
             </div>
             <div class="content-loader"></div>
             <div id="container-content" class="clear" data-content-field="main-content" role="main">
+                <style>html{height:100%;}</style>
                 <div id="controller" class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
                     {.equal? collection.urlId "mobile-app"}
                     <div id="mobileEvents">
