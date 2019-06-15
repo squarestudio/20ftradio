@@ -15,7 +15,7 @@
                                     {.end}
                                 </span>
                                 {.end}
-                                <div class="FeedImage">
+                                <div class="FeedImage {.main-image?}no-image{.end}">
                                     {.main-image?}<img src="{assetUrl}?format=500w" data-load="false"/>{.end}
                                     <div class="play-button mixcloud-butt"></div>
                                 </div>      
