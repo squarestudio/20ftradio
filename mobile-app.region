@@ -107,6 +107,7 @@
         }
     </style>
     <div id="navigator">
+        <style>html{height:100%;}</style>
         {.section website}
         <header id="topBar" class="sqs-announcement-bar-dropzone">
             <div class="nav-container">
