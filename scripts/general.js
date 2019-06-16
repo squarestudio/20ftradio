@@ -435,7 +435,7 @@ function activateFilterTags(params) {
     }
 }
 
-function playMixcloudFooterIfLoaded() {
+function playMixcloudFooterIfLoaded(url) {
     mixCloudFooterPlayer.ready.then(function(widg) {
         loadedTracks.current = url;
         loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
@@ -465,7 +465,7 @@ if (!window_loaded) {
                 currentIframe.on('load', function() {
                     console.log('ready');
                     mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.querySelector(".mixcloud-content"));
-                    playMixcloudFooterIfLoaded();
+                    playMixcloudFooterIfLoaded(url);
                     var need_remove = mixCloudFooter.all('.need-remove');
                     if(need_remove.size()){
                         need_remove.each(function(it){
@@ -475,7 +475,7 @@ if (!window_loaded) {
                 })
                 mixCloudFooter.empty().append(currentIframe);
             } else {
-                playMixcloudFooterIfLoaded()
+                playMixcloudFooterIfLoaded(url)
             }
 
             /*if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
