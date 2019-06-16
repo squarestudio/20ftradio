@@ -450,12 +450,23 @@ if (!window_loaded) {
             ancestor.addClass('current');
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
+            var playIfLoad = function(){
+                mixCloudFooterPlayer.ready.then(function(widg) {
+                    loadedTracks.current = url;
+                    loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
+                    mixCloudFooterPlayer = widg;
+                    mixCloudFooterPlayer.play();
+                    mixcloudPlay();
+                    widg.loaded++;
+                });
+            }
             var currentIframe = body.one('#mixcloud-content');
             if (!currentIframe || currentIframe && currentIframe.getAttribute('data-src') !== url) {
                 currentIframe&&currentIframe.remove();
                 currentIframe = Y.one('<iframe id="mixcloud-content" width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=1&feed=' + (i = encodeURIComponent(decodeURIComponent(url))) + '" frameborder="0" ></iframe>')
                 currentIframe.on('load', function(){
-                    console.log('ready')
+                    console.log('ready');
+                    mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.getElementById("mixcloud-content"));
                 })
             }
 
