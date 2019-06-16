@@ -7,6 +7,10 @@ var body = Y.one('body');
 var html = Y.one('html');
 var canvasEq = false;
 var mixcloudFooter;
+var loadedTracks = {
+    current: false,
+    all: []
+};
 
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
