@@ -462,7 +462,6 @@ if (!window_loaded) {
                 //currentIframe&&currentIframe.addClass('need-remove');
                 currentIframe = Y.Node.create('<iframe data-src="'+url+'" class="mixcloud-content" width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1autoplay=1&mini=1&disable_unload_warning=1&feed=' + (i = encodeURIComponent(decodeURIComponent(url))) + '" frameborder="0" allow="autoplay"></iframe>')
                 currentIframe.on('load', function() {
-                    console.log('ready');
                     mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.querySelector(".mixcloud-content"));
                     playMixcloudFooterIfLoaded(url);
                     var need_remove = mixCloudFooter.all('.need-remove');
