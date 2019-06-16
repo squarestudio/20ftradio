@@ -447,11 +447,6 @@ window.Squarespace.onDestroy(Y, function() {
 });
 if (!window_loaded) {
     activateMixcloudThings();
-    var loadedTracks = {
-        current: false,
-        all: []
-    };
-
     body.delegate('click', function(e) {
         e.halt();
         var ancestor = e.currentTarget.ancestor('.sqs-block') || e.currentTarget.ancestor('.mixcloud-item');
