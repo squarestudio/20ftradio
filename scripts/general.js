@@ -470,7 +470,7 @@ if (!window_loaded) {
                     playMixcloudFooterIfLoaded();
                     //currentIframe && currentIframe.remove();
                 })
-                mixCloudFooter.empty().append(currentIframe);
+                mixCloudFooter.append(currentIframe);
             } else {
                 playMixcloudFooterIfLoaded()
             }
