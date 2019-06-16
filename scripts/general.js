@@ -470,6 +470,7 @@ if (!window_loaded) {
                     mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.getElementById("mixcloud-content"));
                     playMixcloudFooterIfLoaded();
                 })
+                mixCloudFooter.empty().append(currentIframe);
             } else {
                 playMixcloudFooterIfLoaded()
             }
