@@ -468,7 +468,10 @@ if (!window_loaded) {
                 currentIframe.on('load', function() {
                     console.log('ready');
                     mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.getElementById("mixcloud-content"));
+                    playMixcloudFooterIfLoaded();
                 })
+            } else {
+                playMixcloudFooterIfLoaded()
             }
 
             /*if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
