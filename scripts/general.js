@@ -24,7 +24,7 @@ function slugify(text) {
         .replace(/\-\-+/g, '-')
         .replace(/^-+/, '')
         .replace(/-+$/, '');
-}
+} 
 
 function addScript(script, callback) {
     var s;
@@ -160,7 +160,7 @@ function initMixCloudFooter() {
     }
     window.onbeforeunload = function(e) {
         console.log(e);
-        e.preventDefault();
+        e.preventDefault&&e.preventDefault();
         e.stopImmediatePropagation();
         return ''
     }
