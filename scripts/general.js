@@ -435,7 +435,7 @@ function playMixcloudFooterIfLoaded() {
     mixCloudFooterPlayer.ready.then(function(widg) {
         loadedTracks.current = url;
         loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
-        mixCloudFooterPlayer = widg;
+        //mixCloudFooterPlayer = widg;
         mixCloudFooterPlayer.play();
         mixcloudPlay();
         widg.loaded++;
