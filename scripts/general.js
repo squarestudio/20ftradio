@@ -167,12 +167,6 @@ function initMixCloudFooter() {
     } else {
         console.log('MixCloudFooter here');
     }
-    window.onbeforeunload = function(e) {
-        console.log(e);
-        e.preventDefault && e.preventDefault();
-        e.stopImmediatePropagation && e.stopImmediatePropagation();
-        return ''
-    }
 }
 
 function activateMixcloudThings() {
