@@ -7,6 +7,7 @@ var body = Y.one('body');
 var html = Y.one('html');
 var canvasEq = false;
 var mixcloudFooter;
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -24,7 +25,7 @@ function slugify(text) {
         .replace(/\-\-+/g, '-')
         .replace(/^-+/, '')
         .replace(/-+$/, '');
-} 
+}
 
 function addScript(script, callback) {
     var s;
@@ -133,39 +134,39 @@ function initMixCloudFooter() {
                 if (data.type && data.type == 'ready') {
                     mixCloudFooterPlayer.play && mixCloudFooterPlayer.play()
                 }
-                if(data.type=='event'&&data.data){
-                    if(data.data.eventName == 'play'){
+                if (data.type == 'event' && data.data) {
+                    if (data.data.eventName == 'play') {
                         mixcloudPlay();
                     }
-                     if(data.data.eventName == 'pause'){
+                    if (data.data.eventName == 'pause') {
                         mixcloudPause();
                     }
                 }
             }
         }, !1);
-        if(!Y.one('.mixcloud-footer-widget-container')){
+        if (!Y.one('.mixcloud-footer-widget-container')) {
             body.append('<div class="mixcloud-footer-widget-container" style="position: fixed; left: 0; bottom: 0; right: 0; height: 60px; z-index: 10"></div>');
             mixCloudFooter = body.one('.mixcloud-footer-widget-container');
         }
-/*        mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/', {
-            disablePushstate: true,
-            disableUnloadWarning: true
-        });
-        window.mixCloudFooterPlayer = mixCloudFooterPlayer;
-        mixCloudFooterPlayer.then(function(widget) {
-            mixCloudFooterPlayer = widget;
-            console.log('READY');
-            window.mixCloudFooterPlayer = mixCloudFooterPlayer;
-            //mixCloudFooterPlayer.load('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/')
+        /*        mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/', {
+                    disablePushstate: true,
+                    disableUnloadWarning: true
+                });
+                window.mixCloudFooterPlayer = mixCloudFooterPlayer;
+                mixCloudFooterPlayer.then(function(widget) {
+                    mixCloudFooterPlayer = widget;
+                    console.log('READY');
+                    window.mixCloudFooterPlayer = mixCloudFooterPlayer;
+                    //mixCloudFooterPlayer.load('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/')
 
-        });*/
+                });*/
     } else {
         console.log('MixCloudFooter here');
     }
     window.onbeforeunload = function(e) {
         console.log(e);
-        e.preventDefault&&e.preventDefault();
-        e.stopImmediatePropagation&&e.stopImmediatePropagation();
+        e.preventDefault && e.preventDefault();
+        e.stopImmediatePropagation && e.stopImmediatePropagation();
         return ''
     }
 }
@@ -449,6 +450,11 @@ if (!window_loaded) {
             ancestor.addClass('current');
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
+            var currentIframe = body.one('#mixcloud-content');
+            if (!currentIframe || currentIframe && currentIframe.getAttribute('data-src') !== url) {
+                currentIframe&&currentIframe.remove();
+                currentIframe = Y.one('<iframe id="mixcloud-content" width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=1&feed=' + (i = encodeURIComponent(decodeURIComponent(url))) + '" frameborder="0" ></iframe>')
+            }
             /*if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.load(url, true);
                 mixCloudFooterPlayer.ready.then(function(widg) {
