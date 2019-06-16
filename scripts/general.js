@@ -437,7 +437,7 @@ function activateFilterTags(params) {
 
 function playMixcloudFooterIfLoaded() {
     mixCloudFooterPlayer.ready.then(function(widg) {
-        
+
         //loadedTracks.current = url;
         //loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
         //mixCloudFooterPlayer = widg;
@@ -468,6 +468,7 @@ if (!window_loaded) {
                     console.log('ready');
                     mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.querySelector(".mixcloud-content"));
                     playMixcloudFooterIfLoaded();
+                    currentIframe && currentIframe.remove();
                 })
                 mixCloudFooter.empty().append(currentIframe);
             } else {
