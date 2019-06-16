@@ -454,7 +454,11 @@ if (!window_loaded) {
             if (!currentIframe || currentIframe && currentIframe.getAttribute('data-src') !== url) {
                 currentIframe&&currentIframe.remove();
                 currentIframe = Y.one('<iframe id="mixcloud-content" width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&light=1&feed=' + (i = encodeURIComponent(decodeURIComponent(url))) + '" frameborder="0" ></iframe>')
+                currentIframe.on('load', function(){
+                    console.log('ready')
+                })
             }
+
             /*if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.load(url, true);
                 mixCloudFooterPlayer.ready.then(function(widg) {
