@@ -466,7 +466,7 @@ if (!window_loaded) {
                 currentIframe = Y.Node.create('<iframe class="mixcloud-content" width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&feed=' + (i = encodeURIComponent(decodeURIComponent(url))) + '" frameborder="0" allow="autoplay"></iframe>')
                 currentIframe.on('load', function() {
                     console.log('ready');
-                    mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.getElementById("mixcloud-content"));
+                    mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.querySelector(".mixcloud-content"));
                     playMixcloudFooterIfLoaded();
                 })
                 mixCloudFooter.empty().append(currentIframe);
