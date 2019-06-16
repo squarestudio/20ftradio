@@ -147,7 +147,7 @@ function initMixCloudFooter() {
             body.append('<div class="mixcloud-footer-widget-container" style="position: fixed; left: 0; bottom: 0; right: 0; height: 60px; z-index: 10"></div>');
             mixCloudFooter = body.one('.mixcloud-footer-widget-container');
         }
-        mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/', {
+/*        mixCloudFooterPlayer = Mixcloud.FooterWidget('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/', {
             disablePushstate: true,
             disableUnloadWarning: true
         });
@@ -158,7 +158,7 @@ function initMixCloudFooter() {
             window.mixCloudFooterPlayer = mixCloudFooterPlayer;
             //mixCloudFooterPlayer.load('/20ftradio/hotel-magnolia-2-w-tosha-chehonte-ross-khmil-20ft-radio-11032019/')
 
-        });
+        });*/
     } else {
         console.log('MixCloudFooter here');
     }
