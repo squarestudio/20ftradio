@@ -1551,13 +1551,13 @@ body.mobile-look {
     .mixcloud-footer-playing {
         body {
             .mixcloud-footer-widget-container {
-                transform: translateY(-60px);
+                transform: translateY(-60px)!important;
             }
 
             &.viewable,
             &.viewable-on-scroll {
                 .mixcloud-footer-widget-container {
-                    transform: translateY(-60px);
+                    transform: translateY(-60px)!important;
                 }
             }
         }
@@ -1585,8 +1585,8 @@ body.mobile-look {
 
 .mixcloud-footer-widget-container {
     bottom: 0 !important;
-    transition: all .3s .4s ease-in-out;
-    -webkit-transition: all .3s .4s ease-in-out;
+    transition: all .3s .4s ease-in-out!important;
+    -webkit-transition: all .3s .4s ease-in-out!important;
     transform: translateY(200px);
     -webkit-backface-visibility: hidden;
     //padding-bottom: 44px;
@@ -1919,7 +1919,6 @@ html {
         position: fixed;
 
         .mixcloud-footer-widget-container {
-            transform: none !important;
             transition: none !important;
             visibility: visible !important;
         }
