@@ -1549,15 +1549,17 @@ body.mobile-look {
 
     .mixcloud-footer-stopped,
     .mixcloud-footer-playing {
-        body,.cordova-app.cordova-new-app  {
+
+        body,
+        .cordova-app.cordova-new-app {
             .mixcloud-footer-widget-container {
-                transform: translateY(-60px)!important;
+                transform: translateY(-60px) !important;
             }
 
             &.viewable,
             &.viewable-on-scroll {
                 .mixcloud-footer-widget-container {
-                    transform: translateY(-60px)!important;
+                    transform: translateY(-60px) !important;
                 }
             }
         }
@@ -1585,8 +1587,8 @@ body.mobile-look {
 
 .mixcloud-footer-widget-container {
     bottom: 0 !important;
-    transition: all .3s .4s ease-in-out!important;
-    -webkit-transition: all .3s .4s ease-in-out!important;
+    transition: all .3s .4s ease-in-out !important;
+    -webkit-transition: all .3s .4s ease-in-out !important;
     transform: translateY(200px);
     -webkit-backface-visibility: hidden;
     //padding-bottom: 44px;
@@ -1722,10 +1724,11 @@ body.auth {
 
 ////___CORDOVA APP STYLES____//
 html {
-    &[class*="platform-"]{
+    &[class*="platform-"] {
         height: 100%;
         width: 100%;
     }
+
     &.video-player {
         .video-toggle {
             display: block;
@@ -1933,6 +1936,11 @@ html {
             }
         }
 
+        .mixcloud-footer-widget-container {
+            transition: all .3s .4s ease-in-out !important;
+            -webkit-transition: all .3s .4s ease-in-out !important;
+        }
+
         .socialaccountlinks-v2-block {
             position: absolute;
             right: 10px;
@@ -2105,7 +2113,7 @@ html {
         }
 
         .site-player-block {
-            max-width: 100%!important;
+            max-width: 100% !important;
             width: 100%;
             left: 0;
             float: none;
@@ -2127,7 +2135,7 @@ html {
         .site-player {
             max-width: 100%;
             padding: 0;
-            transform: none!important;
+            transform: none !important;
 
             a {
                 vertical-align: middle;
