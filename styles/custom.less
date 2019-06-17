@@ -1549,7 +1549,7 @@ body.mobile-look {
 
     .mixcloud-footer-stopped,
     .mixcloud-footer-playing {
-        body {
+        body,.cordova-app.cordova-new-app  {
             .mixcloud-footer-widget-container {
                 transform: translateY(-60px)!important;
             }
@@ -1918,10 +1918,6 @@ html {
         padding: 0 !important;
         position: fixed;
 
-        .mixcloud-footer-widget-container {
-            transition: none !important;
-            visibility: visible !important;
-        }
 
         &.mobile-share-active {
             .mobile-soc-icons {
