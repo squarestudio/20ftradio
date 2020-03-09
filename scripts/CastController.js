@@ -635,6 +635,7 @@ window.Template.Controllers.CastController = function (element) {
             }
             shoutcastStatus = true;
             shoutcastPlayer = YshoutcastPlayer._node;
+            shoutcastPlayer.type = "audio/mpeg";
             shoutcastPlayer.addEventListener('loadstart', function () {
                 onPlayerReady('shoutcast');
             });
