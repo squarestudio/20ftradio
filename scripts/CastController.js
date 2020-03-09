@@ -631,7 +631,7 @@ window.Template.Controllers.CastController = function (element) {
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
             var YshoutcastPlayer;
             if (!shoutcastPlayer) {
-                YshoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" src="' + shoutCastUrl +'" title="20FT Radio" class="stream-player"  poster="https://www.20ftradio.net/assets/icon.png" preload="auto" playsinline -webkit-playsinline name="media" crossorigin="anonymous"><source src="'+shoutCastUrl+''></video>');
+                YshoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" src="' + shoutCastUrl +'" title="20FT Radio" class="stream-player"  poster="https://www.20ftradio.net/assets/icon.png" preload="auto" playsinline -webkit-playsinline name="media" crossorigin="anonymous"><source src="'+shoutCastUrl+'"></video>');
             }
             shoutcastStatus = true;
             shoutcastPlayer = YshoutcastPlayer._node;
