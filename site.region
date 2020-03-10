@@ -95,8 +95,8 @@
                  data-url="{oembed.url}"
                  data-facebook-url="{customContent.facebookUrl}"
                  data-soundcloud-url="{customContent.soundCloudUrl}"
-                 data-shoutcast-url="{customContent.shoutcastUrl}">
-                <!--{.if customContent.gallery && customContent.showGallery}
+                 data-shoutcast-url="https://c18.radioboss.fm:18146/stream">
+                <!--{customContent.shoutcastUrl} {.if customContent.gallery && customContent.showGallery}
                     <div class="stream-gallery">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
