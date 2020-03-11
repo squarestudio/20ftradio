@@ -759,12 +759,12 @@ window.Template.Controllers.MobileCastController = function(element) {
                     return 0;
                 }
             }
-            var currPlayed = curr_played() || 0;
-            var currBuff = shoutcastPlayer.buffered.end(0) || 0;
+            var currPlayed = curr_played();
+            var currBuff = curr_buffered();
             var loadingTimeout;
             var onprogress = function() {
-                var buffered = shoutcastPlayer.buffered.end(0) || 0;
-                var played = shoutcastPlayer.played.end(0) || 0;
+                var buffered = curr_buffered();
+                var played = curr_played();
                 console.log(loadingTimeout, Y.one('html').hasClass('data-playing'))
                 if (currPlayed < played && played < buffered && currBuff < buffered) {
                     if (loadingTimeout) {
