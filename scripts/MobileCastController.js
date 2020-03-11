@@ -800,7 +800,10 @@ window.Template.Controllers.MobileCastController = function(element) {
                 shoutcastPlayer.setVolume(100);
                 console.log('canplaythrough', !playedOnce, !userPaused);
                 if (!userPaused && !playedOnce) {
-                    shoutcastPlayer.play();
+                    shoutcastPlayer.play().then(function({
+                    shoutcastPlayer.muted = false;
+                    shoutcastPlayer.setVolume(100);
+                }));
                 }
             }, false);
 
