@@ -830,7 +830,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             loadingAfterError = true;
             setTimeout(function() {
                 loadingAfterError = false;
-            }, 100000)
+            }, 15000)
         }
     }
 
