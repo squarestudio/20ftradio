@@ -799,7 +799,7 @@ window.Template.Controllers.MobileCastController = function(element) {
                 shoutcastPlayer.setVolume(100);
                 var st = shoutcastPlayer.paused;
                 console.log('canplaythrough', !st, !userPaused);
-                if (!st && !userPaused) {
+                if (!userPaused) {
                     shoutcastPlayer.play();
                 }
             }, false);
