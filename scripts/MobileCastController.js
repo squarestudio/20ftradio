@@ -778,6 +778,11 @@ window.Template.Controllers.MobileCastController = function(element) {
                 } else {
                     if (!loadingTimeout) {
                         console.log('Set loading TIMEOUT');
+                        var st = shoutcastPlayer.paused;
+                            shoutcastPlayer.load();
+                            if (!st && !userPaused) {
+                                shoutcastPlayer.play();
+                            }
                         /*loadingTimeout = setTimeout(function(e) {
                             var st = shoutcastPlayer.paused;
                             shoutcastPlayer.load();
