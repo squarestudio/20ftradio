@@ -712,6 +712,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             var YshoutcastPlayer;
             shoutcastStatus = true;
             activePlayer = 'shoutcast';
+            var playedOnce = false;
             if (window.firstPlayClick) {
                 userClickPlay = true;
             }
@@ -734,7 +735,7 @@ window.Template.Controllers.MobileCastController = function(element) {
                            console.log('LOADSTART')
                        });*/
             shoutcastPlayer.addEventListener('play', function() {
-                onPlayerStateChange('shoutcast', 'play')
+                onPlayerStateChange('shoutcast', 'play');
             });
             shoutcastPlayer.addEventListener('pause', function() {
                 onPlayerStateChange('shoutcast', 'pause');
@@ -797,9 +798,8 @@ window.Template.Controllers.MobileCastController = function(element) {
             shoutcastPlayer.addEventListener('canplaythrough', function() {
                 shoutcastPlayer.muted = false;
                 shoutcastPlayer.setVolume(100);
-                var st = shoutcastPlayer.paused;
-                console.log('canplaythrough', !st, !userPaused);
-                if (!userPaused) {
+                console.log('canplaythrough', !playedOnce, !userPaused);
+                if (!userPaused&&!playedOnce) {
                     shoutcastPlayer.play();
                 }
             }, false);
