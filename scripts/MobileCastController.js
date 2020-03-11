@@ -805,6 +805,7 @@ window.Template.Controllers.MobileCastController = function(element) {
         e.target.someError = e.type;
         if (!loadingAfterError) {
             shoutcastPlayer.load();
+            console.log('Reload on error');
             loadingAfterError = true;
             setTimeout(function(){
                 loadingAfterError = false;
