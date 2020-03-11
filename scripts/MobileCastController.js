@@ -778,7 +778,7 @@ window.Template.Controllers.MobileCastController = function(element) {
                 } else {
                     if (!loadingTimeout) {
                         console.log('Set loading TIMEOUT');
-                        
+
                         /*loadingTimeout = setTimeout(function(e) {
                             var st = shoutcastPlayer.paused;
                             shoutcastPlayer.load();
@@ -793,6 +793,10 @@ window.Template.Controllers.MobileCastController = function(element) {
                 currBuff = buffered;
             }
             shoutcastPlayer.addEventListener('progress', onprogress, false);
+            shoutcastPlayer.addEventListener('canplaythrough', function(){
+                console.log('canplaythrough');
+            }, false);
+
             players['shoutcast'] = shoutcastPlayer;
             setMusicMeta(trackName.get('text'), Y.one('html').hasClass('data-playing'));
             console.log('SET MUSIC META');
