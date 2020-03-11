@@ -767,7 +767,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             var onprogress = function() {
                 var buffered = curr_buffered();
                 var played = curr_played();
-                //console.log(loadingTimeout, Y.one('html').hasClass('data-playing'))
+                console.log(loadingTimeout, currPlayed < played, played < buffered, currBuff < buffered)
                 if (currPlayed < played && played < buffered && currBuff < buffered) {
                     if (loadingTimeout) {
                         window.clearTimeout(loadingTimeout);
@@ -798,10 +798,12 @@ window.Template.Controllers.MobileCastController = function(element) {
             notShoutcast = true;
         }
     }
+    var loading
 
     function onShoutCastError(e) {
         console.log('shoutcast failed', e);
         e.target.someError = e.type;
+        shoutcastPlayer.load();
     }
 
     function onSoundCloudError(e) {
