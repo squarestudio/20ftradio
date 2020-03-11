@@ -718,8 +718,8 @@ window.Template.Controllers.MobileCastController = function(element) {
             }
             if (shoutcastPlayer) {
                 var source = document.createElement('source');
-                shoutcastPlayer.setAttribute('src', shoutCastUrl);
-                source.setAttribute('src', shoutCastUrl);
+                shoutcastPlayer.setAttribute('src', 'https://c18.radioboss.fm:18146/stream');
+                source.setAttribute('src', 'https://c18.radioboss.fm:18146/stream');
                 shoutcastPlayer.empty().append(source);
             }
             if (!shoutcastPlayer) {
