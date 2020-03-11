@@ -798,7 +798,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             notShoutcast = true;
         }
     }
-    var loading
+    var loading;
 
     function onShoutCastError(e) {
         console.log('shoutcast failed', e);
