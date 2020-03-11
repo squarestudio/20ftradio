@@ -744,7 +744,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             shoutcastPlayer.addEventListener('stalled', onShoutCastError);
             shoutcastPlayer.addEventListener('suspend', onShoutCastError);
             shoutcastPlayer.addEventListener('emptied', onShoutCastError);
-            shoutcastPlayer.load();
+            //shoutcastPlayer.load();
             var curr_played = function() {
                 try {
                     return shoutcastPlayer.played.end(0)
