@@ -53,6 +53,7 @@ window.Template.Controllers.MobileCastController = function(element) {
 
     function initialize() {
         window.CASTHERE = true;
+        document.body.style.display = 'none'
         if (!firstRun) {
             Y.on('mixcloud:play', function() {
                 console.log('MIXCLOUD PLAY');
@@ -706,7 +707,6 @@ window.Template.Controllers.MobileCastController = function(element) {
     }
 
     function initShoutCast() {
-        Y.one('body').setStyle('opacity', 0,2)
         if (shoutCastUrl) {
             DEBUG && console.log('shoutcast starting');
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
