@@ -794,8 +794,14 @@ window.Template.Controllers.MobileCastController = function(element) {
                 currBuff = buffered;
             }
             shoutcastPlayer.addEventListener('progress', onprogress, false);
-            shoutcastPlayer.addEventListener('canplaythrough', function(){
+            shoutcastPlayer.addEventListener('canplaythrough', function() {
                 console.log('canplaythrough');
+                shoutcastPlayer.muted = false;
+                shoutcastPlayer.setVolume(100);
+                var st = shoutcastPlayer.paused;
+                if (!st && !userPaused) {
+                    shoutcastPlayer.play();
+                }
             }, false);
 
             players['shoutcast'] = shoutcastPlayer;
