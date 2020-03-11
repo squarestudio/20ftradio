@@ -798,12 +798,18 @@ window.Template.Controllers.MobileCastController = function(element) {
             notShoutcast = true;
         }
     }
-    var loading;
+    var loadingAfterError = false;
 
     function onShoutCastError(e) {
         console.log('shoutcast failed', e);
         e.target.someError = e.type;
-        shoutcastPlayer.load();
+        if (!loadingAfterError) {
+            shoutcastPlayer.load();
+            loadingAfterError = true;
+            setTimeout(function(){
+                loadingAfterError = false;
+            }, 10000)
+        }
     }
 
     function onSoundCloudError(e) {
