@@ -801,7 +801,6 @@ window.Template.Controllers.MobileCastController = function(element) {
     function onShoutCastError(e) {
         console.log('shoutcast failed', e);
         e.target.someError = e.type;
-        shoutcastPlayer.load();
         window.clearTimeout(loadingTimeout);
         var st = shoutcastPlayer.paused;
         if (!st && !userPaused) {
@@ -809,6 +808,7 @@ window.Template.Controllers.MobileCastController = function(element) {
         }
         loadingTimeout = setTimeout(function(e) {
             var st = shoutcastPlayer.paused;
+                    shoutcastPlayer.load();
             if (!st && !userPaused) {
                 shoutcastPlayer.play();
             }
