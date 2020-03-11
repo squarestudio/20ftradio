@@ -716,6 +716,10 @@ window.Template.Controllers.MobileCastController = function(element) {
             if (window.firstPlayClick) {
                 userClickPlay = true;
             }
+            if (shoutcastPlayer){
+                var source = document.createElement('source');
+                shoutcastPlayer.setAttribute('src', shoutCastUrl);
+            }
             if (!shoutcastPlayer) {
                 YshoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" title="20FT Radio" class="stream-player" crossorigin="anonymous" autoplay poster="https://www.20ftradio.net/assets/icon.png" preload="auto" playsinline -webkit-playsinline name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
                 Y.one('body').append(YshoutcastPlayer);
