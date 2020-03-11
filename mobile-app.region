@@ -246,7 +246,7 @@
             <!--<squarespace:block-field id="mobileFooterBlock" class="footer-block" columns="12" label="Mobile Footer Content"/>-->
         </div>
     </footer>
-    <audio id="shoutcastPlayer" muted src="https://c18.radioboss.fm:18146/stream" autoplay style="display: none" class="stream-player" poster="https://www.20ftradio.net/assets/icon.png" crossorigin="anonymous" preload="auto" playsinline="" -webkit-playsinline="" name="media"></audio>
+    <audio id="shoutcastPlayer" muted src="https://c18.radioboss.fm:18146/stream" style="display: none" class="stream-player" poster="https://www.20ftradio.net/assets/icon.png" crossorigin="anonymous" preload="auto" playsinline="" -webkit-playsinline="" name="media"></audio>
     <script>
         window.Template = {
             Util: {},
