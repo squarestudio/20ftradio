@@ -765,7 +765,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             var onprogress = function() {
                 var buffered = curr_buffered();
                 var played = curr_played();
-                console.log(loadingTimeout, Y.one('html').hasClass('data-playing'))
+                //console.log(loadingTimeout, Y.one('html').hasClass('data-playing'))
                 if (currPlayed < played && played < buffered && currBuff < buffered) {
                     if (loadingTimeout) {
                         window.clearTimeout(loadingTimeout);
