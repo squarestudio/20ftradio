@@ -751,6 +751,14 @@ window.Template.Controllers.MobileCastController = function(element) {
                     return 0;
                 }
             }
+            var curr_buffered = function() {
+                try {
+                    return shoutcastPlayer.buffered.end(0)
+                } catch (e) {
+                    console.log(e);
+                    return 0;
+                }
+            }
             var currPlayed = curr_played() || 0;
             var currBuff = shoutcastPlayer.buffered.end(0) || 0;
             var loadingTimeout;
