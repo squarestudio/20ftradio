@@ -799,7 +799,7 @@ window.Template.Controllers.MobileCastController = function(element) {
                 shoutcastPlayer.muted = false;
                 shoutcastPlayer.setVolume(100);
                 console.log('canplaythrough', !playedOnce, !userPaused);
-                if (!userPaused&&!playedOnce) {
+                if (!userPaused && !playedOnce) {
                     shoutcastPlayer.play();
                 }
             }, false);
@@ -822,9 +822,10 @@ window.Template.Controllers.MobileCastController = function(element) {
             var st = shoutcastPlayer.paused;
             shoutcastPlayer.load();
             if (!st && !userPaused) {
-                shoutcastPlayer.play();
-                shoutcastPlayer.muted = false;
-                shoutcastPlayer.setVolume(100);
+                shoutcastPlayer.play().then(function({
+                    shoutcastPlayer.muted = false;
+                    shoutcastPlayer.setVolume(100);
+                }));
             }
             console.log('Reload on error');
             loadingAfterError = true;
