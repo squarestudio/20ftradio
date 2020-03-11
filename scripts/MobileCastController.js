@@ -743,7 +743,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             shoutcastPlayer.addEventListener('error', onShoutCastError);
             shoutcastPlayer.addEventListener('abort', onShoutCastError);
             shoutcastPlayer.addEventListener('stalled', onShoutCastError);
-            shoutcastPlayer.addEventListener('waiting', onShoutCastError);
+            shoutcastPlayer.addEventListener('suspend', onShoutCastError);
             shoutcastPlayer.addEventListener('emptied', onShoutCastError);
             //shoutcastPlayer.load();
             var curr_played = function() {
@@ -823,7 +823,7 @@ window.Template.Controllers.MobileCastController = function(element) {
     function onShoutCastError(e) {
         console.log('shoutcast failed', e, shoutcastPlayer.readyState);
         e.target.someError = e.type;
-        if (!loadingAfterError && shoutcastPlayer.readyState < 2) {
+        if (!loadingAfterError && (shoutcastPlayer.readyState < 4&&shoutcastPlayer.readyState > 0)) {
             shoutcastPlayer.load();
             var st = shoutcastPlayer.paused;
             shoutcastPlayer.load();
