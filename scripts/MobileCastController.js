@@ -823,7 +823,7 @@ window.Template.Controllers.MobileCastController = function(element) {
     function onShoutCastError(e) {
         console.log('shoutcast failed', e, shoutcastPlayer.readyState);
         e.target.someError = e.type;
-        if (!loadingAfterError && (shoutcastPlayer.readyState < 3 && shoutcastPlayer.readyState > 0)) {
+        if (!loadingAfterError && (shoutcastPlayer.readyState < 3)) {
             shoutcastPlayer.load();
             var st = shoutcastPlayer.paused;
             shoutcastPlayer.load();
