@@ -149,7 +149,7 @@
             {.section items.0}
             <div class="castWrapper">
                 <div id="castDiv" data-title="{title}" class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit" sqs-controller="Template.Controllers.MobileCastController" data-url="{oembed.url}" data-facebook-url="{customContent.facebookUrl}" data-soundcloud-url="{customContent.soundCloudUrl}" data-shoutcast-url="{customContent.shoutcastUrl}">
-<div class="mobile-image">
+                <div class="mobile-image">
                         <svg class="back gen h-align" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1019.7 956">
                             <style>.cls-1{fill:#fff;}.cls-2{fill:#00a89c;}.cls-3{fill:#c1272d;}.cls-4{fill:#29a9e1;}</style>
                             <g>
