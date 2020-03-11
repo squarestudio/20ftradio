@@ -1,110 +1,112 @@
 <html>
-    <head>
-        <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        {squarespace-headers}
-        <noscript id="loaderThings">
-            <squarespace:script src="MobileCastController.js" combo="true"/>
-            <squarespace:script src="MobileEventsController.js" combo="true"/>
-            <squarespace:script src="general.js" combo="true"/>
-            <squarespace:script src="mobile-app.js" combo="true"/>
-        </noscript>
-    </head>
-    <body class="cordova-app cordova-new-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
+
+<head>
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    {squarespace-headers}
+    <noscript id="loaderThings">
+        <squarespace:script src="MobileCastController.js" combo="true" />
+        <squarespace:script src="MobileEventsController.js" combo="true" />
+        <squarespace:script src="general.js" combo="true" />
+        <squarespace:script src="mobile-app.js" combo="true" />
+    </noscript>
+</head>
+
+<body class="cordova-app cordova-new-app page-{collection.typeLabel} {squarespace.page-classes}" id="{squarespace.page-id}">
     <style>
-        html {
-            -ms-touch-action: manipulation;
-            touch-action: manipulation;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        }
+    html {
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
 
-        body {
-            min-height: 100vh;
-            background: black;
-            margin: 0;
-            position: fixed;
-        }
+    body {
+        min-height: 100vh;
+        background: black;
+        margin: 0;
+        position: fixed;
+    }
 
-        .stream-found .loading-overlay {
+    .stream-found .loading-overlay {}
 
-        }
+    .cordova-app.cordova-new-app #castDiv .mobile-image .line {
+        position: absolute;
+        display: block;
+        width: 2.4%;
+        height: 0;
+        background-color: #fff;
+        left: 69.4%;
+        top: 80%;
+        transform-origin: bottom center;
+        -webkit-transform-origin: bottom center;
+        transform: scaley(1);
+        -webkit-transform: scaley(1);
+    }
 
-        .cordova-app.cordova-new-app #castDiv .mobile-image .line {
-            position: absolute;
-            display: block;
-            width: 2.4%;
-            height: 0;
-            background-color: #fff;
-            left: 69.4%;
-            top: 80%;
-            transform-origin: bottom center;
-            -webkit-transform-origin: bottom center;
-            transform: scaley(1);
-            -webkit-transform: scaley(1);
-        }
+    .castWrapper {
+        display: block !important;
+        overflow: auto;
+    }
 
-        .castWrapper {
-            display: block !important;
-            overflow: auto;
-        }
+    .cordova-app.cordova-new-app .stream-found .mobile-image .line {
+        transform: scaley(600);
+        -webkit-transform: scaley(600);
+        height: 1px;
+    }
 
-        .cordova-app.cordova-new-app .stream-found .mobile-image .line {
-            transform: scaley(600);
-            -webkit-transform: scaley(600);
-            height: 1px;
-        }
+    #castDiv .mobile-image,
+    #container {
+        will-change: transform;
+    }
 
-        #castDiv .mobile-image, #container {
-            will-change: transform;
-        }
+    #castDiv .mobile-image {
+        overflow: visible !important;
+    }
 
-        #castDiv .mobile-image {
-            overflow: visible !important;
-        }
+    #castDiv .mobile-image .pause,
+    #castDiv .mobile-image .play {
+        opacity: 0;
+    }
 
-        #castDiv .mobile-image .pause, #castDiv .mobile-image .play {
-            opacity: 0;
-        }
+    #castDiv .mobile-image .back {
+        position: absolute;
+        z-index: 10;
+        opacity: 0;
+    }
 
-        #castDiv .mobile-image .back {
-            position: absolute;
-            z-index: 10;
-            opacity: 0;
-        }
+    #castDiv .mobile-image .back.gen {
+        opacity: 1;
+        bottom: 0;
+        width: 82%;
+        height: 68%;
+    }
 
-        #castDiv .mobile-image .back.gen {
-            opacity: 1;
-            bottom: 0;
-            width: 82%;
-            height: 68%;
-        }
+    .app-fullscreen .cordova-app .mobile-image .line {
+        display: block !important;
+        z-index: 5;
+    }
 
-        .app-fullscreen .cordova-app .mobile-image .line {
-            display: block !important;
-            z-index: 5;
-        }
+    .stream-found #castDiv .mobile-image .line {
+        transform: scaley(600) !important;
+        -webkit-transform: scaley(600) !important;
+        height: 1px !important;
+    }
 
-        .stream-found #castDiv .mobile-image .line {
-            transform: scaley(600) !important;
-            -webkit-transform: scaley(600) !important;
-            height: 1px !important;
-        }
+    .stream-found #castDiv .mobile-image .play {
+        opacity: 1;
+    }
 
-        .stream-found #castDiv .mobile-image .play {
-            opacity: 1;
-        }
+    .stream-found #castDiv.playing .mobile-image .play {
+        opacity: 0;
+    }
 
-        .stream-found #castDiv.playing .mobile-image .play {
-            opacity: 0;
-        }
+    .stream-found #castDiv.playing .mobile-image .pause {
+        opacity: 1;
+    }
 
-        .stream-found #castDiv.playing .mobile-image .pause {
-            opacity: 1;
-        }
-
-        .cordova-app #navigator {
-            overflow: hidden;
-            opacity: 1;
-        }
+    .cordova-app #navigator {
+        overflow: hidden;
+        opacity: 1;
+    }
     </style>
     <div id="navigator">
         {.section website}
@@ -112,12 +114,12 @@
             <div class="nav-container">
                 <div id="mobileNav">
                     <div class="wrapper">
-                        <squarespace:navigation navigationId="app-links" template="mobile-navigation"/>
+                        <squarespace:navigation navigationId="app-links" template="mobile-navigation" />
                     </div>
                 </div>
-                <squarespace:navigation navigationId="pages" template="navigation"/>
+                <squarespace:navigation navigationId="pages" template="navigation" />
                 <div class="header-block">
-                    <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content" annotation-alignment="bottom"/>
+                    <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content" annotation-alignment="bottom" />
                 </div>
                 <div class="site-player-block">
                     <div class="site-player paused not-init">
@@ -146,15 +148,33 @@
             {.if items}
             {.section items.0}
             <div class="castWrapper">
-                <div id="castDiv" data-title="{title}" class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit"
-                     sqs-controller="Template.Controllers.MobileCastController"
-                     data-url="{oembed.url}"
-                     data-facebook-url="{customContent.facebookUrl}"
-                     data-soundcloud-url="{customContent.soundCloudUrl}"
-                     data-shoutcast-url="{customContent.shoutcastUrl}">
+                <div id="castDiv" data-title="{title}" class="cast-container {.if customContent.showLive}show-live{.end} paused content-fit" sqs-controller="Template.Controllers.MobileCastController" data-url="{oembed.url}" data-facebook-url="{customContent.facebookUrl}" data-soundcloud-url="{customContent.soundCloudUrl}" data-shoutcast-url="{customContent.shoutcastUrl}">
                     <div class="mobile-image">
                         <svg class="back gen h-align" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1019.7 956">
-                            <style>.cls-1{fill:#fff;}.cls-2{fill:#00a89c;}.cls-3{fill:#c1272d;}.cls-4{fill:#29a9e1;}.cls-5{fill:none;stroke:#000;stroke-miterlimit:10;stroke-width:20px;}</style>
+                            <style>
+                            .cls-1 {
+                                fill: #fff;
+                            }
+
+                            .cls-2 {
+                                fill: #00a89c;
+                            }
+
+                            .cls-3 {
+                                fill: #c1272d;
+                            }
+
+                            .cls-4 {
+                                fill: #29a9e1;
+                            }
+
+                            .cls-5 {
+                                fill: none;
+                                stroke: #000;
+                                stroke-miterlimit: 10;
+                                stroke-width: 20px;
+                            }
+                            </style>
                             <g>
                                 <g>
                                     <g>
@@ -190,10 +210,10 @@
         <section id="container">
             <div class="filter-sidebar">
                 <div class="filter-sidebar-wrapper">
-                    <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content"/>
+                    <squarespace:block-field id="filterBlock" columns="12" label="Filter Additional Content" />
                     <squarespace:category collection="archive" limit="10">
                         {.section collection.tags}
-                        <div class="search-tags-container"><input id="searchTag" placeholder="Type..."/></div>
+                        <div class="search-tags-container"><input id="searchTag" placeholder="Type..." /></div>
                         <ul class="FeedFilter">
                             {.repeated section @}
                             <li><a class="FeedFilter-item" href="#{@|url-encode}" data-val="{@}" rel="tag">{@}<span class="close"></span></a></li>
@@ -209,7 +229,7 @@
             </div>
             <div class="content-loader"></div>
             <div id="container-content" class="clear" data-content-field="main-content" role="main">
-                <div id="controller" class="controller" {.equal? collection.typeName "wall-index"}sqs-controller="Template.Controllers.WallController"{.or}{.equal? collection.urlId "mobile-app"}sqs-controller="Template.Controllers.MobileEventsController"{.end}{.end}>
+                <div id="controller" class="controller" {.equal? collection.typeName "wall-index" }sqs-controller="Template.Controllers.WallController" {.or}{.equal? collection.urlId "mobile-app" }sqs-controller="Template.Controllers.MobileEventsController" {.end}{.end}>
                     {.equal? collection.urlId "mobile-app"}
                     <div id="mobileEvents">
                         <div class="tabs clear">
@@ -232,8 +252,8 @@
                     {.or}
                     {squarespace.main-content}
                     {.end}
-            </div>
-    </section>
+                </div>
+        </section>
     </div>
     <footer id="bottomBar">
         <div id="mixcloudInsert"></div>
@@ -248,137 +268,140 @@
     </footer>
     <!-- <audio id="shoutcastPlayer" muted src="https://c18.radioboss.fm:18146/stream" style="display: none" class="stream-player" poster="https://www.20ftradio.net/assets/icon.png" crossorigin="anonymous" preload="auto" playsinline="" -webkit-playsinline="" name="media"></audio> -->
     <script>
-        window.Template = {
-            Util: {},
-            Controllers: {}
-        }
+    window.Template = {
+        Util: {},
+        Controllers: {}
+    }
     </script>
-    <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
-    <squarespace:script src="imagesloaded.pkgd.min.js" combo="false"/>
-    <squarespace:script src="moment.js" combo="false"/>
-    <squarespace:script src="moment-timezone.js" combo="false"/>
-    <squarespace:script src="jquery.min.js" combo="false"/>
-    <squarespace:script src="typed.min.js" combo="false"/>
+    <squarespace:script src="masonry.pkgd.min.js" combo="false" />
+    <squarespace:script src="imagesloaded.pkgd.min.js" combo="false" />
+    <squarespace:script src="moment.js" combo="false" />
+    <squarespace:script src="moment-timezone.js" combo="false" />
+    <squarespace:script src="jquery.min.js" combo="false" />
+    <squarespace:script src="typed.min.js" combo="false" />
     <!--<squarespace:script src="json-template.js" combo="false"/>-->
-    <squarespace:script src="core-0.2.0.min.js" combo="false"/>
-    <squarespace:script src="sqs-controller.js" combo="false"/>
-    <squarespace:script src="ajaxLoader.js" combo="false"/>
-    <squarespace:script src="app-site.js" combo="false"/>
-    <squarespace:script src="wall-scripts/swiper.min.js" combo="false"/>
-    <squarespace:script src="wall-scripts/classie.js" combo="false"/>
-    <squarespace:script src="wall-scripts/AnimOnScroll.js" combo="false"/>
-    <squarespace:script src="share-buttons.js" combo="false"/>
-    <squarespace:script src="WallController.js" combo="false"/>
-    <squarespace:script src="soundcloud-api-widget.js" combo="false"/>
-    <squarespace:script src="mixcloud-api-widget.js" combo="false"/>
-    <squarespace:script src="ProjectController.js" combo="false"/>
-    <squarespace:script src="sha1.js" combo="false"/>
-    <squarespace:script src="payment.js" combo="false"/>
-    <squarespace:script src="MobileCastController.js" combo="false"/>
-    <squarespace:script src="MobileEventsController.js" combo="false"/>
-    <squarespace:script src="general.js" combo="false"/>
-    <squarespace:script src="mobile-app.js" combo="false"/>
+    <squarespace:script src="core-0.2.0.min.js" combo="false" />
+    <squarespace:script src="sqs-controller.js" combo="false" />
+    <squarespace:script src="ajaxLoader.js" combo="false" />
+    <squarespace:script src="app-site.js" combo="false" />
+    <squarespace:script src="wall-scripts/swiper.min.js" combo="false" />
+    <squarespace:script src="wall-scripts/classie.js" combo="false" />
+    <squarespace:script src="wall-scripts/AnimOnScroll.js" combo="false" />
+    <squarespace:script src="share-buttons.js" combo="false" />
+    <squarespace:script src="WallController.js" combo="false" />
+    <squarespace:script src="soundcloud-api-widget.js" combo="false" />
+    <squarespace:script src="mixcloud-api-widget.js" combo="false" />
+    <squarespace:script src="ProjectController.js" combo="false" />
+    <squarespace:script src="sha1.js" combo="false" />
+    <squarespace:script src="payment.js" combo="false" />
+    <squarespace:script src="MobileCastController.js" combo="false" />
+    <squarespace:script src="MobileEventsController.js" combo="false" />
+    <squarespace:script src="general.js" combo="false" />
+    <squarespace:script src="mobile-app.js" combo="false" />
     {squarespace-footers}
     <script>
-        function initFirstInteract() {
-            var video = document.getElementById('shoutcastPlayer');
-            var navigator = document.querySelector('html');
-            var mobileTrigger = document.querySelector('.mobile-trigger');
-            mobileTrigger.addEventListener('click', function (e) {
-                e.preventDefault();
-                console.log(window.CASTHERE);
-                if (!window.CASTHERE) {
-                    if (!window.firstPlayClick) {
-                        video.pause();
-                        window.firstPlayClick = true;
-                        setTimeout(function () {
-                            video.volume = 1;
-                            video.muted = false;
-                            video.autoplay = false;
-                            console.log('clicked');
-                            video.play();
-                        }, 16)
+    function initFirstInteract() {
+        var video = document.getElementById('shoutcastPlayer');
+        var navigator = document.querySelector('html');
+        var mobileTrigger = document.querySelector('.mobile-trigger');
+        mobileTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log(window.CASTHERE);
+            if (!window.CASTHERE) {
+                if (!window.firstPlayClick) {
+                    video.pause();
+                    window.firstPlayClick = true;
+                    setTimeout(function() {
+                        video.volume = 1;
+                        video.muted = false;
+                        video.autoplay = false;
+                        console.log('clicked');
+                        video.play();
+                    }, 16)
+                } else {
+                    if (video.paused) {
+                        video.play();
+                        video.muted = false;
                     } else {
-                        if (video.paused) {
-                            video.play();
-                            video.muted = false;
-                        } else {
-                            video.pause();
-                        }
+                        video.pause();
                     }
                 }
-            }, false);
-        }
-        initFirstInteract();
-        var audio = document.getElementById('shoutcastPlayer');
+            }
+        }, false);
+    }
+    initFirstInteract();
+    var audio = document.getElementById('shoutcastPlayer');
+    if (audio) {
         audio.volume = 0;
         audio.muted = true;
         audio.play();
-        if (navigator.platform.indexOf('iP')>-1){
+        if (navigator.platform.indexOf('iP') > -1) {
             //audio.pause();
         }
-        setTimeout(function () {
-            if (!window.CASTHERE&&document.getElementById('castDiv').className.indexOf('playing')===-1) {
+        setTimeout(function() {
+            if (!window.CASTHERE && document.getElementById('castDiv').className.indexOf('playing') === -1) {
                 audio.pause();
             }
         }, 20000);
-        audio.addEventListener('playing', function () {
+        audio.addEventListener('playing', function() {
             if (!window.CASTHERE) {
                 console.log('playING', window.firstPlayClick);
-                if(window.firstPlayClick){
+                if (window.firstPlayClick) {
                     var navigator = document.querySelector('html');
                     navigator.className = ' stream-found';
                     document.getElementById('castDiv').className += ' playing';
                 }
             }
         });
-        audio.addEventListener('pause', function () {
+        audio.addEventListener('pause', function() {
             if (!window.CASTHERE) {
                 console.log('pauSED');
-                document.getElementById('castDiv').className =  document.getElementById('castDiv').className.replace(' playing', '');
+                document.getElementById('castDiv').className = document.getElementById('castDiv').className.replace(' playing', '');
             }
         });
-        audio.addEventListener('canplaythrough', function () {
+        audio.addEventListener('canplaythrough', function() {
             if (!window.CASTHERE) {
                 console.log('CANPLAY');
                 var navigator = document.querySelector('html');
-                navigator.className = navigator.className.replace(' stream-found','')+' stream-found';
+                navigator.className = navigator.className.replace(' stream-found', '') + ' stream-found';
             }
         });
-        var motionPlayActive = false;
-        window.ondevicemotion = function(){
-            if(motionPlayActive) return;
-            console.log('Motion Play Activate');
-            motionPlayActive = true;
-            audio.play();
+    }
+    var motionPlayActive = false;
+    window.ondevicemotion = function() {
+        if (motionPlayActive) return;
+        console.log('Motion Play Activate');
+        motionPlayActive = true;
+        audio.play();
+    }
+    var $body = $('body');
+    var $html = $('html');
+    $html.addClass('platform-' + window.navigator.platform);
+    $html.addClass('model-' + window.navigator.model);
+    if (navigator.platform === 'iPhone' && window.innerHeight === 812) {
+        $html.addClass('device-IphoneX');
+    }
+    $body.delegate('.follow-button', 'click', function(e) {
+        e.preventDefault();
+        $body.toggleClass('mobile-share-active');
+    });
+    $body.delegate('.mode-button', 'click', function(e) {
+        e.preventDefault();
+        $html.toggleClass('full-mode-active');
+        if (!$html.hasClass('full-mode-active')) {
+            window.scrollTo(0, 0);
         }
-        var $body = $('body');
-        var $html = $('html');
-        $html.addClass('platform-' + window.navigator.platform);
-        $html.addClass('model-' + window.navigator.model);
-        if (navigator.platform === 'iPhone' && window.innerHeight === 812) {
-            $html.addClass('device-IphoneX');
-        }
-        $body.delegate('.follow-button', 'click', function (e) {
-            e.preventDefault();
-            $body.toggleClass('mobile-share-active');
-        });
-        $body.delegate('.mode-button', 'click', function (e) {
-            e.preventDefault();
-            $html.toggleClass('full-mode-active');
-            if (!$html.hasClass('full-mode-active')) {
-                window.scrollTo(0, 0);
-            }
-        });
-        $body.delegate('.menu-button', 'click', function (e) {
-            e.preventDefault();
-            $body.toggleClass('mobile-menu-active');
-        });
-        Y.on('domready', function(){
-            setTimeout(function () {
-                Y.fire('appready');
-            }, 100);
-        })
+    });
+    $body.delegate('.menu-button', 'click', function(e) {
+        e.preventDefault();
+        $body.toggleClass('mobile-menu-active');
+    });
+    Y.on('domready', function() {
+        setTimeout(function() {
+            Y.fire('appready');
+        }, 100);
+    })
     </script>
-    </body>
+</body>
+
 </html>
