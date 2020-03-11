@@ -813,7 +813,7 @@ window.Template.Controllers.MobileCastController = function(element) {
                 shoutcastPlayer.play();
             }
             window.clearTimeout(loadingTimeout);
-        }, 10000)
+        }, 1000)
     }
 
     function onSoundCloudError(e) {
