@@ -776,14 +776,14 @@ window.Template.Controllers.MobileCastController = function(element) {
                 } else {
                     if (!loadingTimeout) {
                         console.log('Set loading TIMEOUT');
-                        loadingTimeout = setTimeout(function(e) {
+                        /*loadingTimeout = setTimeout(function(e) {
                             var st = shoutcastPlayer.paused;
                             shoutcastPlayer.load();
                             if (!st && !userPaused) {
                                 shoutcastPlayer.play();
                             }
                             window.clearTimeout(loadingTimeout);
-                        }, 10000)
+                        }, 10000)*/
                     }
                 }
                 currPlayed = played;
