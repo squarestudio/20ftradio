@@ -706,7 +706,7 @@ window.Template.Controllers.MobileCastController = function(element) {
     }
 
     function initShoutCast() {
-        Y.one('body').setStyle('opacity', 0)
+        Y.one('body').setStyle('opacity', 0,2)
         if (shoutCastUrl) {
             DEBUG && console.log('shoutcast starting');
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
