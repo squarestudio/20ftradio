@@ -818,12 +818,12 @@ window.Template.Controllers.MobileCastController = function(element) {
             notShoutcast = true;
         }
     }
-    var loadingAfterError = true;
+    var loadingAfterError = false;
 
     function onShoutCastError(e) {
-        console.log('shoutcast failed', e);
+        console.log('shoutcast failed', e, shoutcastPlayer.readyState);
         e.target.someError = e.type;
-        if (!loadingAfterError) {
+        if (!loadingAfterError && shoutcastPlayer.readyState < 2) {
             shoutcastPlayer.load();
             var st = shoutcastPlayer.paused;
             shoutcastPlayer.load();
