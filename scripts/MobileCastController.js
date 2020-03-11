@@ -50,6 +50,7 @@ window.Template.Controllers.MobileCastController = function(element) {
     var youtubeStatusFactor = false,
         shoutcastStatusFactor = false;
     var mobileImage;
+    var loadingTimeout;
 
     function initialize() {
         window.CASTHERE = true;
@@ -762,7 +763,6 @@ window.Template.Controllers.MobileCastController = function(element) {
             }
             var currPlayed = curr_played();
             var currBuff = curr_buffered();
-            var loadingTimeout;
             var onprogress = function() {
                 var buffered = curr_buffered();
                 var played = curr_played();
