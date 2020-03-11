@@ -800,10 +800,10 @@ window.Template.Controllers.MobileCastController = function(element) {
                 shoutcastPlayer.setVolume(100);
                 console.log('canplaythrough', !playedOnce, !userPaused);
                 if (!userPaused && !playedOnce) {
-                    shoutcastPlayer.play().then(function({
-                    shoutcastPlayer.muted = false;
-                    shoutcastPlayer.setVolume(100);
-                }));
+                    shoutcastPlayer.play().then(function() {
+                        shoutcastPlayer.muted = false;
+                        shoutcastPlayer.setVolume(100);
+                    });
                 }
             }, false);
 
@@ -825,10 +825,10 @@ window.Template.Controllers.MobileCastController = function(element) {
             var st = shoutcastPlayer.paused;
             shoutcastPlayer.load();
             if (!st && !userPaused) {
-                shoutcastPlayer.play().then(function({
+                shoutcastPlayer.play().then(function() {
                     shoutcastPlayer.muted = false;
                     shoutcastPlayer.setVolume(100);
-                }));
+                });
             }
             console.log('Reload on error');
             loadingAfterError = true;
