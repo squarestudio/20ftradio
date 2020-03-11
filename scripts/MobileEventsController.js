@@ -1,4 +1,4 @@
-window.Template.Controllers.MobileEventsController = function (element) {
+window.Template.Controllers.MobileEventsController = function(element) {
     'use strict';
     var mobileEvents = Y.one('#mobileEvents');
     var eventsTabs = mobileEvents.all('.tabs a');
@@ -10,13 +10,13 @@ window.Template.Controllers.MobileEventsController = function (element) {
         var eventTabsContainer = mobileEvents.one('.mobileEvents-wrapper');
         var eventTabsBorder = mobileEvents.one('.tab-border');
         var eventTabsLists = mobileEvents.all('.mobileEvents');
-        tabClickEvents = eventsTabs.on('click', function (e) {
+        tabClickEvents = eventsTabs.on('click', function(e) {
             e.halt();
             eventsTabs.removeClass('active');
             e.currentTarget.addClass('active');
             var id = e.currentTarget.getAttribute('href');
             if (e.currentTarget.hasClass('tab-1')) {
-                setTimeout(function () {
+                setTimeout(function() {
                     mobileEvents.one('.mobileEvents-Past').removeClass('active');
                 }, 360);
                 eventTabsContainer.setStyles({
@@ -27,9 +27,8 @@ window.Template.Controllers.MobileEventsController = function (element) {
                 });
                 Y.all('.mobile-nav-custom .active-link').removeClass('active-link');
                 Y.one('.mobile-nav-custom a[href*="/mobile-app"]').get('parentNode').addClass('active-link');
-            }
-            else {
-                setTimeout(function () {
+            } else {
+                setTimeout(function() {
                     mobileEvents.one('.mobileEvents-Upcoming').removeClass('active');
                 }, 360);
                 eventTabsContainer.setStyles({
@@ -44,9 +43,9 @@ window.Template.Controllers.MobileEventsController = function (element) {
             eventTabsLists.removeClass('active');
             Y.one(id).addClass('active');
             if (Y.one(id + ' #grid')) {
-                setTimeout(function () {
-                    Y.all(id + 'img').each(function (img) {
-                        ImageLoader.load(img, {load: true, fit: true})
+                setTimeout(function() {
+                    Y.all(id + 'img').each(function(img) {
+                        ImageLoader.load(img, { load: true, fit: true })
                     })
                 }, 500)
             }
@@ -62,7 +61,7 @@ window.Template.Controllers.MobileEventsController = function (element) {
                         mobileEvents.removeClass('overflow-auto');
                     }
                 });*/
-        mobileEvents.one('.content-loader').removeAttribute('style');
+        mobileEvents.one('.content-loader') && mobileEvents.one('.content-loader').removeAttribute('style');
     }
 
     function createEvent(e) {
@@ -78,26 +77,26 @@ window.Template.Controllers.MobileEventsController = function (element) {
         calOptions.firstReminderMinutes = 30; // default is 60, pass in null for no reminder (alarm)
         calOptions.secondReminderMinutes = 5;
         calOptions.url = "https://www.20ftradio.net" + parent.getAttribute('data-url');
-        var error = function (message) {
+        var error = function(message) {
             console.error("Error: " + message);
-            setTimeout(function () {
+            setTimeout(function() {
                 Y.fire('checkScheduledEvents');
                 checkScheduledEvents();
             }, 100);
         };
-        var success = function (message) {
+        var success = function(message) {
             console.log(message);
-            setTimeout(function () {
+            setTimeout(function() {
                 Y.fire('checkScheduledEvents');
                 checkScheduledEvents();
             }, 100);
         };
-        var askToDelete = function (buttonIndex) {
+        var askToDelete = function(buttonIndex) {
             if (buttonIndex == 2) {
                 window.plugins.calendar && window.plugins.calendar.deleteEvent(title, eventLocation, notes, startDate, endDate, success, error);
             }
         };
-        var askToCreate = function (buttonIndex) {
+        var askToCreate = function(buttonIndex) {
             if (buttonIndex == 2) {
                 window.plugins.calendar && window.plugins.calendar.createEventWithOptions(title, eventLocation, notes, startDate, endDate, calOptions, success, error);
             }
@@ -130,10 +129,10 @@ window.Template.Controllers.MobileEventsController = function (element) {
         if (scheduleEvents.size()) {
             var startDate = new Date(parseInt(scheduleEvents.item(0).getAttribute('data-start-date')));
             var endDate = new Date(parseInt(scheduleEvents.item(scheduleEvents._nodes.length - 1).getAttribute('data-end-date')));
-            window.plugins && window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, startDate, endDate, function (data) {
+            window.plugins && window.plugins.calendar && window.plugins.calendar.findEvent(null, null, null, startDate, endDate, function(data) {
                 if (data.length) {
-                    data.forEach(function (event) {
-                        scheduleEvents.each(function (e) {
+                    data.forEach(function(event) {
+                        scheduleEvents.each(function(e) {
                             var title = e.getAttribute('data-title') || "Listen 20FTRadio";
                             var eventLocation = e.getAttribute('data-location') || "31 Nyzhnoiurkivska Street, Kyiv, Ukraine";
                             if (event.title == title && event.location == eventLocation) {
@@ -145,21 +144,21 @@ window.Template.Controllers.MobileEventsController = function (element) {
                     console.log('No scheduled in calendar for that period');
                 }
                 upcoming.removeClass('scheduled');
-                planedEvents.length && planedEvents.forEach(function (event_item) {
+                planedEvents.length && planedEvents.forEach(function(event_item) {
                     event_item.addClass('scheduled');
                 })
-            }, function (err) {
+            }, function(err) {
                 console.error(err);
             });
         }
     }
 
     function initEventClick() {
-        mobileEvents.all('.event-item').on('click', function (e) {
+        mobileEvents.all('.event-item').on('click', function(e) {
             if (e.currentTarget.one('.event-descr')) {
-                e.currentTarget.all('img').each(function (img) {
+                e.currentTarget.all('img').each(function(img) {
                     img.removeAttribute('data-load');
-                    ImageLoader.load(img, {load: true});
+                    ImageLoader.load(img, { load: true });
                 });
                 e.currentTarget.toggleClass('active');
             }
@@ -173,13 +172,13 @@ window.Template.Controllers.MobileEventsController = function (element) {
             if (Y.one('#mobile-events-upcoming')) {
                 Y.io('https://www.20ftradio.net/events?format=main-content', {
                     on: {
-                        success: function (data, resp) {
+                        success: function(data, resp) {
                             if (resp.responseText) {
                                 Y.one('#mobile-events-upcoming').addClass('loaded').empty().prepend(resp.responseText);
                                 Y.fire('getCurrentEvent');
                                 localizeAndBuildDates && localizeAndBuildDates();
                                 checkScheduledEvents();
-                                setTimeout(function () {
+                                setTimeout(function() {
                                     initCalendarClick();
                                     initEventClick();
                                 }, 200);
@@ -203,14 +202,14 @@ window.Template.Controllers.MobileEventsController = function (element) {
     function loadShows() {
         Y.io('https://www.20ftradio.net/shows?format=main-content', {
             on: {
-                success: function (data, resp) {
+                success: function(data, resp) {
                     Y.one('#mobile-events-past').addClass('loaded').empty().append(resp.responseText);
                     if (Y.one('#grid')) {
                         Site.gridEl = Y.one('#grid');
-                        Y.all('#grid img').each(function (img) {
-                            ImageLoader.load(img, {load: true, fit: true})
+                        Y.all('#grid img').each(function(img) {
+                            ImageLoader.load(img, { load: true, fit: true })
                         });
-                        setTimeout(function () {
+                        setTimeout(function() {
                             window.SHOWS_CONTENT = Y.one('#mobile-events-past').getContent();
                         }, 300)
                     }
@@ -222,10 +221,10 @@ window.Template.Controllers.MobileEventsController = function (element) {
     initialize();
 
     return {
-        sync: function () {
+        sync: function() {
             initialize();
         },
-        destroy: function () {
+        destroy: function() {
             console.log('destroy Mobile Events');
             tabClickEvents && tabClickEvents.detach();
             scrollEvent && scrollEvent.detach();
@@ -233,4 +232,3 @@ window.Template.Controllers.MobileEventsController = function (element) {
     };
 
 };
-
