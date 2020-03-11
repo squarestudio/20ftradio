@@ -816,7 +816,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             notShoutcast = true;
         }
     }
-    var loadingAfterError = false;
+    var loadingAfterError = true;
 
     function onShoutCastError(e) {
         console.log('shoutcast failed', e);
