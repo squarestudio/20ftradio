@@ -747,7 +747,7 @@ window.Template.Controllers.MobileCastController = function(element) {
                 try {
                     return shoutcastPlayer.played.end(0)
                 } catch (e) {
-                    console.log(e);
+                    //console.log(e);
                     return 0;
                 }
             }
@@ -755,7 +755,7 @@ window.Template.Controllers.MobileCastController = function(element) {
                 try {
                     return shoutcastPlayer.buffered.end(0)
                 } catch (e) {
-                    console.log(e);
+                    //console.log(e);
                     return 0;
                 }
             }
