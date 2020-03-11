@@ -775,6 +775,7 @@ window.Template.Controllers.MobileCastController = function(element) {
                     }
                     shoutcastPlayer.muted = false;
                     shoutcastPlayer.setVolume(100);
+                    loadingAfterError = true;
                 } else {
                     if (!loadingTimeout) {
                         console.log('Set loading TIMEOUT');
