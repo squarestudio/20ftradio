@@ -805,9 +805,15 @@ window.Template.Controllers.MobileCastController = function(element) {
         e.target.someError = e.type;
         if (!loadingAfterError) {
             shoutcastPlayer.load();
+            var st = shoutcastPlayer.paused;
+            shoutcastPlayer.load();
+            if (!st && !userPaused) {
+                shoutcastPlayer.play();
+                shoutcastPlayer.muted = false;
+            }
             console.log('Reload on error');
             loadingAfterError = true;
-            setTimeout(function(){
+            setTimeout(function() {
                 loadingAfterError = false;
             }, 10000)
         }
