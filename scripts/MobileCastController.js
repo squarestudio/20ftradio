@@ -804,7 +804,9 @@ window.Template.Controllers.MobileCastController = function(element) {
                         console.log('PPPPPP');
                         shoutcastPlayer.muted = false;
                         shoutcastPlayer.setVolume(100);
-                    });
+                    }).catch(e){
+                        console.log(e);
+                    };
                 }
             }, false);
 
