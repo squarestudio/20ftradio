@@ -773,6 +773,8 @@ window.Template.Controllers.MobileCastController = function(element) {
                         window.clearTimeout(loadingTimeout);
                         loadingTimeout = null;
                     }
+                    shoutcastPlayer.muted = false;
+                    shoutcastPlayer.setVolume(100);
                 } else {
                     if (!loadingTimeout) {
                         console.log('Set loading TIMEOUT');
@@ -810,6 +812,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             if (!st && !userPaused) {
                 shoutcastPlayer.play();
                 shoutcastPlayer.muted = false;
+                shoutcastPlayer.setVolume(100);
             }
             console.log('Reload on error');
             loadingAfterError = true;
