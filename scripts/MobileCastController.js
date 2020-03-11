@@ -803,6 +803,7 @@ window.Template.Controllers.MobileCastController = function(element) {
         e.target.someError = e.type;
         shoutcastPlayer.load();
         window.clearTimeout(loadingTimeout);
+        var st = shoutcastPlayer.paused;
         if (!st && !userPaused) {
             shoutcastPlayer.play();
         }
