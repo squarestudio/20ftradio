@@ -50,7 +50,6 @@ window.Template.Controllers.MobileCastController = function(element) {
     var youtubeStatusFactor = false,
         shoutcastStatusFactor = false;
     var mobileImage;
-    var loadingTimeout;
 
     function initialize() {
         window.CASTHERE = true;
@@ -745,6 +744,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             shoutcastPlayer.addEventListener('stalled', onShoutCastError);
             shoutcastPlayer.addEventListener('suspend', onShoutCastError);
             shoutcastPlayer.addEventListener('emptied', onShoutCastError);
+            shoutcastPlayer.load();
             var curr_played = function() {
                 try {
                     return shoutcastPlayer.played.end(0)
@@ -763,6 +763,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             }
             var currPlayed = curr_played();
             var currBuff = curr_buffered();
+            var loadingTimeout;
             var onprogress = function() {
                 var buffered = curr_buffered();
                 var played = curr_played();
@@ -801,19 +802,6 @@ window.Template.Controllers.MobileCastController = function(element) {
     function onShoutCastError(e) {
         console.log('shoutcast failed', e);
         e.target.someError = e.type;
-        window.clearTimeout(loadingTimeout);
-        var st = shoutcastPlayer.paused;
-        if (!st && !userPaused) {
-            shoutcastPlayer.play();
-        }
-        loadingTimeout = setTimeout(function(e) {
-            var st = shoutcastPlayer.paused;
-                    shoutcastPlayer.load();
-            if (!st && !userPaused) {
-                shoutcastPlayer.play();
-            }
-            window.clearTimeout(loadingTimeout);
-        }, 1000)
     }
 
     function onSoundCloudError(e) {
