@@ -807,12 +807,12 @@ window.Template.Controllers.MobileCastController = function(element) {
                 shoutcastPlayer.setVolume(100);*/
                 //console.log('canplaythrough', !playedOnce, !userPaused);
                 if (!userPaused && !playedOnce) {
-                    var playPromise = shoutcastPlayer.play();
+                    /*var playPromise = shoutcastPlayer.play();
                     if (playPromise !== undefined) {
                         playPromise.then(function() {
 
                         });
-                    }
+                    }*/
                 }
             }, false);
 
