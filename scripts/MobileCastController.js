@@ -810,8 +810,8 @@ window.Template.Controllers.MobileCastController = function(element) {
                     var playPromise = shoutcastPlayer.play();
                     if (playPromise !== undefined) {
                         playPromise.then(function() {
-                            shoutcastPlayer.muted = false;
-                            shoutcastPlayer.setVolume(100);
+                            //shoutcastPlayer.muted = false;
+                            //shoutcastPlayer.setVolume(100);
                         });
                     }
                 }
