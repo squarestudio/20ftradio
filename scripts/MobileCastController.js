@@ -27,7 +27,7 @@ window.Template.Controllers.MobileCastController = function(element) {
         mobile,
         mobilePlayButton,
         userClickPlay = false,
-        userPaused = false,
+        userPaused = true,
         players = {},
         activePlayer = false,
         checkingTime = 2000,
