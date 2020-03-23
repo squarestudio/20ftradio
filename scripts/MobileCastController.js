@@ -803,8 +803,8 @@ window.Template.Controllers.MobileCastController = function(element) {
             }
             shoutcastPlayer.addEventListener('progress', onprogress, false);
             shoutcastPlayer.addEventListener('canplaythrough', function() {
-                shoutcastPlayer.muted = false;
-                shoutcastPlayer.setVolume(100);
+               /* shoutcastPlayer.muted = false;
+                shoutcastPlayer.setVolume(100);*/
                 //console.log('canplaythrough', !playedOnce, !userPaused);
                 if (!userPaused && !playedOnce) {
                     var playPromise = shoutcastPlayer.play();
