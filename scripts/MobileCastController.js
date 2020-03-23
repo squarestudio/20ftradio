@@ -782,8 +782,8 @@ window.Template.Controllers.MobileCastController = function(element) {
                         window.clearTimeout(loadingTimeout);
                         loadingTimeout = null;
                     }
-                    shoutcastPlayer.muted = false;
-                    shoutcastPlayer.setVolume(100);
+                    //shoutcastPlayer.muted = false;
+                    //shoutcastPlayer.setVolume(100);
                     loadingAfterError = true;
                 } else {
                     if (!loadingTimeout) {
