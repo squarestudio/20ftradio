@@ -816,13 +816,6 @@ window.Template.Controllers.MobileCastController = function(element) {
                             shoutcastPlayer.setVolume(100);
                         });
                     }
-                    /*shoutcastPlayer.play().then(function() {
-                        console.log('PPPPPP');
-                        shoutcastPlayer.muted = false;
-                        shoutcastPlayer.setVolume(100);
-                    }).catch(function(e) {
-                        console.log(e);
-                    });*/
                 }
             }, false);
 
