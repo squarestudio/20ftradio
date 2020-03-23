@@ -808,8 +808,6 @@ window.Template.Controllers.MobileCastController = function(element) {
                 ..console.log('canplaythrough', !playedOnce, !userPaused);
                 if (!userPaused && !playedOnce) {
                     var playPromise = shoutcastPlayer.play();
-                    // In browsers that don’t yet support this functionality,
-                    // playPromise won’t be defined.
                     if (playPromise !== undefined) {
                         playPromise.then(function() {
                             shoutcastPlayer.muted = false;
