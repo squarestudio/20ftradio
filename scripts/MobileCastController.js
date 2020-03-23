@@ -722,7 +722,7 @@ window.Template.Controllers.MobileCastController = function(element) {
                 shoutcastPlayer.setAttribute('src', 'https://c18.radioboss.fm:18146/stream');
                 source.setAttribute('src', 'https://c18.radioboss.fm:18146/stream');
                 shoutcastPlayer.empty().append(source);
-                shoutcastPlayer.removeAttribute('autoplay')
+                shoutcastPlayer.setAttribute('muted', true)
             }
             if (!shoutcastPlayer) {
                 YshoutcastPlayer = Y.Node.create('<audio id="shoutcastPlayer" title="20FT Radio" class="stream-player" crossorigin="anonymous" poster="https://www.20ftradio.net/assets/icon.png" preload="auto" playsinline -webkit-playsinline name="media"><source src="' + shoutCastUrl + '" type="audio/mpeg"></audio>');
