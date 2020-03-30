@@ -149,6 +149,7 @@ window.Template.Controllers.CastController = function(element) {
     }
 
     function initYoutubeStream() {
+        Y.one('body').addClass('cast-visible');
         if (youtubeUrl) {
             DEBUG && console.log('init youtube');
             if (!castContainer.one('#youtubePlayer')) {
