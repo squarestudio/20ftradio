@@ -987,13 +987,13 @@ window.Template.Controllers.CastController = function(element) {
                         var resp = JSON.parse(data.response);
                         if (resp && resp.youtube) {
                             sitePlayer.addClass('video-stream');
-                            if (window.innerWidth > 767) {
+                            /*if (window.innerWidth > 767) {
                                 if (!youtubePlayer) {
                                     initYoutubeStream();
                                 } else {
                                     pausePlayersExept('youtube');
                                 }
-                            }
+                            }*/
                         } else {
                             sitePlayer.removeClass('video-stream');
                         }
