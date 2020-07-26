@@ -582,3 +582,25 @@ function initVisual() {
 Y.once('play:shoutcast', function() {
     initVisual();
 });
+window.customLazySummaries = {
+    general: { //runs for all summary blocks
+        startFunction: function(sum_block, jsonData) {
+            //runs just when summary started, you do not need return smth
+
+        },
+        startRenderFunction: function(sum_block, jsonData) {
+            //runs just when summary started/sorted and before request new items
+
+        },
+        afterRenderItemFunction: function(item, jsonData) {
+            console.log(item)
+
+        },
+        allItemsRenderedFunction: function(new_items, jsonData) {
+            //access all new loaded items there, you may transform and return them
+        },
+        portionItemsAddedFunction: function(sum_block, jsonData) {
+            //runs after portion of items appended to summary block
+        }
+    }
+}
