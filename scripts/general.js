@@ -596,7 +596,10 @@ window.customLazySummaries = {
             if (jsonData && jsonData.sourceUrl && jsonData.sourceUrl.indexOf('https://www.mixcloud.com/') > -1) {
                 item.classList.add('mixcloud-item');
                 console.log(Y.one(item).one('.summary-thumbnail'));
-                Y.one(item).one('.summary-thumbnail').append('<div class="play-button mixcloud-butt"></div>');
+                var button = document.createElement('div');
+                button.className = 'play-button mixcloud-butt';
+                var thumb = item.querySelector('.summary-thumbnail');
+                thumb && thumb.appendChild(button);
             }
             return item;
 
