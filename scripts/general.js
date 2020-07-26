@@ -593,7 +593,7 @@ window.customLazySummaries = {
 
         },
         afterRenderItemFunction: function(item, jsonData) {
-            console.log(item)
+            console.log([item], jsonData)
 
         },
         allItemsRenderedFunction: function(new_items, jsonData) {
