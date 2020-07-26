@@ -600,6 +600,7 @@ window.customLazySummaries = {
                 button.className = 'play-button mixcloud-butt';
                 var thumb = item.querySelector('.summary-thumbnail');
                 thumb && thumb.appendChild(button);
+                item.setAttribute('data-mixcloud-url', jsonData.sourceUrl)
             }
             return item;
 
