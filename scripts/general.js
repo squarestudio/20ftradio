@@ -593,7 +593,10 @@ window.customLazySummaries = {
 
         },
         afterRenderItemFunction: function(item, jsonData) {
-            console.log([item], jsonData)
+            console.log([item], jsonData);
+            if(jsonData&&jsonData.sourceUrl&&jsonData.sourceUrl.indxof('https://www.mixcloud.com/')>-1){
+                
+            }
 
         },
         allItemsRenderedFunction: function(new_items, jsonData) {
