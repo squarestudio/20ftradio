@@ -598,6 +598,7 @@ window.customLazySummaries = {
                 console.log(Y.one(item).one('.summary-thumbnail'));
                 Y.one(item).one('.summary-thumbnail').append('<div class="play-button mixcloud-butt"></div>');
             }
+            return item;
 
         },
         allItemsRenderedFunction: function(new_items, jsonData) {
