@@ -593,9 +593,9 @@ window.customLazySummaries = {
 
         },
         afterRenderItemFunction: function(item, jsonData) {
-            console.log([item], jsonData);
             if(jsonData&&jsonData.sourceUrl&&jsonData.sourceUrl.indexOf('https://www.mixcloud.com/')>-1){
                 item.classList.add('mixcloud-item');
+                            console.log([item], jsonData);
                 Y.one(item).one('.summary-thumbnail').append('<div class="play-button mixcloud-butt"></div>');
             }
 
