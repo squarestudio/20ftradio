@@ -1535,7 +1535,7 @@ body.mobile-look {
 
             .mixcloud-footer-widget-container,
             #mixcloudInsert {
-                transform: translateY(-72px);
+                transform: translateY(-55px);
             }
         }
 
@@ -1569,7 +1569,26 @@ body.mobile-look {
         }
     }
 }
+@media only screen and (max-width: 640px) {
 
+    .mixcloud-footer-stopped,
+    .mixcloud-footer-playing {
+
+        body,
+        .cordova-app.cordova-new-app {
+            .mixcloud-footer-widget-container {
+                transform: translateY(-60px) !important;
+            }
+
+            &.viewable,
+            &.viewable-on-scroll {
+                .mixcloud-footer-widget-container {
+                    transform: translateY(-60px) !important;
+                }
+            }
+        }
+    }
+}
 /*@media only screen and (max-width: 375px) {
 
     .mixcloud-footer-stopped,
