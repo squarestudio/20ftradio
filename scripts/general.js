@@ -596,7 +596,8 @@ window.customLazySummaries = {
         afterRenderItemFunction: function(item, jsonData) {
             item = item._node || item;
             var b = item.querySelector('.mixcloud-butt');
-            if (jsonData && jsonData.sourceUrl && jsonData.sourceUrl.indexOf('https://www.mixcloud.com/') > -1 && !b) {
+            var thumb_container = item.querySelector('.summary-thumbnail-container');
+            if (thumb_container && jsonData && jsonData.sourceUrl && jsonData.sourceUrl.indexOf('https://www.mixcloud.com/') > -1 && !b) {
                 item.classList && item.classList.add('mixcloud-item');
                 //console.log(item.classList, item.querySelector('.summary-thumbnail'));
                 var button = document.createElement('div');
@@ -604,6 +605,8 @@ window.customLazySummaries = {
                 var thumb = item.querySelector('.summary-thumbnail');
                 thumb && thumb.appendChild(button);
                 item.setAttribute('data-mixcloud-url', jsonData.sourceUrl);
+                thumb_container.setAttribute('href', jsonData.sourceUrl);
+                thumb_container.removeAttribute('data-ajax-loader');
             }
             return item;
 
