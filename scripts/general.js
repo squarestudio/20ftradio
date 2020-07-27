@@ -453,7 +453,6 @@ if (!window_loaded) {
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
             var currentIframe = body.one('.mixcloud-content');
-            console.log(e, currentIframe);
             if (!currentIframe || currentIframe && currentIframe.getAttribute('data-src') !== url) {
                 //currentIframe&&currentIframe.addClass('need-remove');
                 currentIframe = Y.Node.create('<iframe data-src="' + url + '" class="mixcloud-content" width="100%" height="60" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1autoplay=1&mini=1&disable_unload_warning=1&feed=' + (i = encodeURIComponent(decodeURIComponent(url))) + '" frameborder="0" allow="autoplay"></iframe>')
