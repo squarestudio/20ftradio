@@ -468,7 +468,7 @@ if (!window_loaded) {
                 })
                 mixCloudFooter.empty().append(currentIframe);
             } else {
-                playMixcloudFooterIfLoaded(url)
+                playMixcloudFooterIfLoaded(url);
             }
 
             /*if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
