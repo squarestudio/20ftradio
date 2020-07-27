@@ -447,6 +447,7 @@ if (!window_loaded) {
         var ancestor = e.currentTarget.ancestor('.sqs-block') || e.currentTarget.ancestor('.mixcloud-item');
         var url = ancestor.getAttribute('data-mixcloud-url');
         ancestor.toggleClass('playing');
+        console.log(url, ancestor)
         if (url && ancestor.hasClass('playing')) {
             ancestor.addClass('current');
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
