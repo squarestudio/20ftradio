@@ -444,10 +444,10 @@ if (!window_loaded) {
     activateMixcloudThings();
     body.delegate('click', function(e) {
         e.halt();
-        console.log(e);
         var ancestor = e.currentTarget.ancestor('.sqs-block') || e.currentTarget.ancestor('.mixcloud-item');
         var url = ancestor.getAttribute('data-mixcloud-url');
         ancestor.toggleClass('playing');
+        console.log(url && ancestor.hasClass('playing'));
         if (url && ancestor.hasClass('playing')) {
             ancestor.addClass('current');
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
