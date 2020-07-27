@@ -585,8 +585,8 @@ Y.once('play:shoutcast', function() {
 });
 window.customLazySummaries = {
     general: { //runs for all summary blocks
-        afterRenderItemFunction: function(item, jsonData) {
-            var it = item._node || item;
+        afterRenderItemFunction: function(it, jsonData) {
+            var item = it._node || it;
             var b = item.querySelector('.mixcloud-butt');
             var thumb_container = item.querySelector('.summary-thumbnail-container');
             if (thumb_container && jsonData && jsonData.sourceUrl && jsonData.sourceUrl.indexOf('https://www.mixcloud.com/') > -1 && !b) {
