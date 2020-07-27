@@ -600,7 +600,6 @@ window.customLazySummaries = {
                 thumb_container.setAttribute('href', jsonData.sourceUrl);
                 thumb_container.removeAttribute('data-ajax-loader');
             }
-            return item;
         }
     }
 }
