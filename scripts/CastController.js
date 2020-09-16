@@ -153,7 +153,7 @@ window.Template.Controllers.CastController = function(element) {
         if (youtubeUrl) {
             DEBUG && console.log('init youtube');
             if (!castContainer.one('#youtubePlayer')) {
-                castContainer.prepend('<div id="youtubePlayer" class="stream-player" style="opacity: 1; pointer-events: none;"></div>');
+                castContainer.prepend('<div id="youtubePlayer" class="stream-player" style="opacity: 1;"></div>');
             }
             if (!window.YT) {
                 var tag = document.createElement('script');
