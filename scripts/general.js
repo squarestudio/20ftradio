@@ -299,6 +299,7 @@ window.Squarespace.onInitialize(Y, function() {
             });
         }
         formSubmitEvent = Y.Global.on('form:submitSuccess', function(e) {
+            console.log('form submit success');
             var form = Y.one('#container form');
             var name = form.one('.first-name input').get('value') || 'John';
             var surname = form.one('.last-name input').get('value') || 'Smith';
