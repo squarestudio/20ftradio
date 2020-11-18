@@ -89,6 +89,7 @@ function sendReplyEmail(name, surname, email, data) {
 
 function donateWithLiqPay(val, name, surname, email) {
     var callbackArr = initLiqpayCall(val, name, surname, email);
+    console.log(callbackArr);
     var status = false;
     LiqPayCheckout.init({
         data: callbackArr['data'],
