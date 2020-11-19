@@ -350,9 +350,11 @@ window.Squarespace.onInitialize(Y, function() {
             donateWithLiqPay(l_donate, l_name, l_email, l_subscription);
         });
 
-        $('button.liqpay-paypal').on('click', function(e){
-            e.preventDefault();
+        $('button.liqpay-paypal').on('click', function(){
             $('body').addClass('liqpay-on-screen');
+        });
+        $('.liqpay-close').on('click', function(){
+            $('body').removeClass('liqpay-on-screen');
         })
     }
 
