@@ -331,7 +331,7 @@ window.Squarespace.onInitialize(Y, function() {
             console.log('form submit success');
 
             var form = Y.one('#liqpay-popup form');
-            var name = form.one('.field-list .form-item:nth-child(1)').get('value') || 'John';
+            var name = form.one('.field-list .form-item:nth-child(1) input').get('value') || 'John';
             console.log(name);
             // var surname = form.one('.last-name input').get('value') || 'Smith';
             // var val = form.one('.field input[placeholder*="UAH"]') ? parseInt(form.one('.field input[placeholder*="UAH"]').get('value')) : 10;
