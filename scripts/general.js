@@ -314,6 +314,36 @@ window.Squarespace.onInitialize(Y, function() {
             donateWithLiqPay(val, name, surname, email);
         });
     }
+
+    if (Y.one('#liqpay-popup')) {
+        var codeBlockLiqPopup = Y.one('#liqpay_checkout').ancestor('.code-block');
+        codeBlockLiqPopup.addClass('hidden');
+        if (!Y.one('#liqpayAPI')) {
+            window.Y.Get.js('https://static.liqpay.ua/libjs/checkout.js', function(err, tx) {
+                if (err) {
+                    Y.log('Error loading Lazy Summaries JS: ' + err[0].error, 'error');
+                    return;
+                }
+                tx && tx.nodes[0].setAttribute('id', 'liqpayAPI');
+            });
+        }
+        formSubmitEvent = Y.Global.on('form:submitSuccess', function(e) {
+            console.log('form submit success');
+
+            // var form = Y.one('#container form');
+            // var name = form.one('.first-name input').get('value') || 'John';
+            // var surname = form.one('.last-name input').get('value') || 'Smith';
+            // var val = form.one('.field input[placeholder*="UAH"]') ? parseInt(form.one('.field input[placeholder*="UAH"]').get('value')) : 10;
+            // var email = form.one('.email input').get('value');
+            // codeBlockLiq.removeClass('hidden');
+            // localStorage.setItem('payerName', name);
+            // localStorage.setItem('payerSurname', surname);
+            // localStorage.setItem('paymentSumm', val);
+            // localStorage.setItem('payerEmail', email);
+            // donateWithLiqPay(val, name, surname, email);
+        });
+    }
+
     if ((window_loaded || window.app_initialized) && (Y.one('.embed-block[data-block-json*="mixcloud.com"]') || Y.one('.code-block iframe[src*="mixcloud.com"]'))) {
         activateMixcloudThings();
         if (!bindMixcloudPlay) {
