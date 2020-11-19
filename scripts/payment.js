@@ -33,6 +33,8 @@ function initLiqpayCall(value,name,email,subscription) {
     var html;
     if(subscription === 'SUBSCRIPTION')
     {
+        var d = new Date();
+        console.log(d.getDate());
         html = {
             'public_key'          : 'i27357705397',
             'action'              : 'pay',
@@ -43,7 +45,7 @@ function initLiqpayCall(value,name,email,subscription) {
             'order_id'            : base64_encode(getRandomArbitrary(0,1000000) + ' ' +Date.now()),
             'version'             : '3',
             'subscribe'           : '1',
-            'subscribe_date_start': '2020-11-19 16:42:00',
+            'subscribe_date_start': '2020-11-19 00:00:00',
             subscribe_periodicity : 'month'
 
         };
