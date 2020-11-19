@@ -3197,14 +3197,24 @@ html {
                     box-sizing: border-box;
                     background: #ffffff;
 
-                    text-indent: -9999;
+                    text-indent: -9999px;
                     font-size: 0;
                     color: transparent;
+                    position: relative;
                 }
                 span
                 {
                     border: 2px solid #FF6464;
                     margin-right: 23px;
+                }
+                span:before
+                {
+                    content: '';
+                    width: 28px;
+                    height: 18px;
+
+                    background: url('../assets/liqpay.png') no-repeat center;
+                    background-size: contain;
                 }
                 a
                 {
