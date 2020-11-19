@@ -34,7 +34,8 @@ function initLiqpayCall(value,name,email,subscription) {
     if(subscription === 'SUBSCRIPTION')
     {
         var d = new Date();
-        console.log(d.getDate());
+        var date = d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate()+' 00:00:00';
+        console.log(date);
         html = {
             'public_key'          : 'i27357705397',
             'action'              : 'pay',
