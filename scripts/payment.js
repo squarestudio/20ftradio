@@ -30,16 +30,34 @@ function initLiqpayCall(value,name,email,subscription) {
     console.log(subscription);
     var public_key = 'i27357705397';
     var private_key = 'chWzY6P4DCi94NDVngzJ9teTCKy0qlLyZhsu4fWv';
-    var html = {
-        'public_key'     : 'i27357705397',
-        'action'         : 'pay',
-        'sender_first_name' : transliterate(name) + ' / ' + email,
-        'amount'         : value,
-        'currency'       : 'UAH',
-        'description'    : 'Your donation amount. thank\'s for supporting us!',
-        'order_id'       : base64_encode(getRandomArbitrary(0,1000000) + ' ' +Date.now()),
-        'version'        : '3'
-    };
+    var html;
+    if(subscription === 'SUBSCRIPTION')
+    {
+        html = {
+            'public_key'          : 'i27357705397',
+            'action'              : 'pay',
+            'sender_first_name'   : transliterate(name) + ' / ' + email,
+            'amount'              : value,
+            'currency'            : 'USD',
+            'description'         : 'Your donation amount. thank\'s for supporting us!',
+            'order_id'            : base64_encode(getRandomArbitrary(0,1000000) + ' ' +Date.now()),
+            'version'             : '3',
+            'subscribe'           : '1',
+            subscribe_periodicity : 'month'
+        };
+    }else
+    {
+        html = {
+            'public_key'     : 'i27357705397',
+            'action'         : 'pay',
+            'sender_first_name' : transliterate(name) + ' / ' + email,
+            'amount'         : value,
+            'currency'       : 'USD',
+            'description'    : 'Your donation amount. thank\'s for supporting us!',
+            'order_id'       : base64_encode(getRandomArbitrary(0,1000000) + ' ' +Date.now()),
+            'version'        : '3'
+        };
+    }
     var dataArr = [];
     var json = JSON.stringify(html);
     dataArr['data'] = base64_encode(json);
@@ -78,16 +96,34 @@ function initLiqpayCall(value,name,email,subscription) {
     console.log(subscription);
     var public_key = 'i27357705397';
     var private_key = 'chWzY6P4DCi94NDVngzJ9teTCKy0qlLyZhsu4fWv';
-    var html = {
-        'public_key'     : 'i27357705397',
-        'action'         : 'pay',
-        'sender_first_name' : transliterate(name) + ' / ' + email,
-        'amount'         : value,
-        'currency'       : 'UAH',
-        'description'    : 'Your donation amount. thank\'s for supporting us!',
-        'order_id'       : base64_encode(getRandomArbitrary(0,1000000) + ' ' +Date.now()),
-        'version'        : '3'
-    };
+    var html;
+    if(subscription === 'SUBSCRIPTION')
+    {
+        html = {
+            'public_key'          : 'i27357705397',
+            'action'              : 'pay',
+            'sender_first_name'   : transliterate(name) + ' / ' + email,
+            'amount'              : value,
+            'currency'            : 'USD',
+            'description'         : 'Your donation amount. thank\'s for supporting us!',
+            'order_id'            : base64_encode(getRandomArbitrary(0,1000000) + ' ' +Date.now()),
+            'version'             : '3',
+            'subscribe'           : '1',
+            subscribe_periodicity : 'month'
+        };
+    }else
+    {
+        html = {
+            'public_key'     : 'i27357705397',
+            'action'         : 'pay',
+            'sender_first_name' : transliterate(name) + ' / ' + email,
+            'amount'         : value,
+            'currency'       : 'USD',
+            'description'    : 'Your donation amount. thank\'s for supporting us!',
+            'order_id'       : base64_encode(getRandomArbitrary(0,1000000) + ' ' +Date.now()),
+            'version'        : '3'
+        };
+    }
     var dataArr = [];
     var json = JSON.stringify(html);
     dataArr['data'] = base64_encode(json);
