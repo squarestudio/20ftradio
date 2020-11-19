@@ -3189,7 +3189,6 @@ html {
 
                 span, a
                 {
-                    display: block;
                     text-decoration: none;
 
                     width: 110px;
@@ -3201,6 +3200,10 @@ html {
                     font-size: 0;
                     color: transparent;
                     position: relative;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
                 span
                 {
@@ -3228,6 +3231,10 @@ html {
 
                     background: url('../assets/paypal.png') no-repeat center;
                     background-size: contain;
+                }
+                span:before, a:before
+                {
+                    display: block;
                 }
             }
         }
