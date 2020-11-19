@@ -315,10 +315,6 @@ window.Squarespace.onInitialize(Y, function() {
     //     });
     // }
 
-    $('#select-yui_3_17_2_1_1605783798627_24384-field').on('change',function(){
-        alert($(this).val());
-    })
-
     if (Y.one('#liqpay-popup')) {
         var codeBlockLiqPopup = Y.one('#liqpay_checkout').ancestor('.code-block');
         codeBlockLiqPopup.addClass('hidden');
@@ -331,6 +327,11 @@ window.Squarespace.onInitialize(Y, function() {
                 tx && tx.nodes[0].setAttribute('id', 'liqpayAPI');
             });
         }
+
+
+        $('#select-yui_3_17_2_1_1605783798627_24384-field').on('change',function(){
+            l_subscription = $(this).val();
+        });
         formSubmitEvent = Y.Global.on('form:submitSuccess', function(e) {
             console.log('form submit');
 
