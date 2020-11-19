@@ -194,6 +194,7 @@
             <div class="controller"{.equal? collection.typeName "wall-index"} sqs-controller="Template.Controllers.WallController"{.end}>
                 {squarespace.main-content}
             </div>
+            <squarespace:block-field id="liqpay-popup" class="liqpay-popup" columns="12" label="Liqpay Popup Content"/>
         </div>
     </section>
     {.section website}
