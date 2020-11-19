@@ -351,7 +351,6 @@ window.Squarespace.onInitialize(Y, function() {
         });
 
         $('a[href="/liqpay"]').on('click', function(e){
-            alert('yes');
             e.preventDefault();
             $('body').addClass('liqpay-on-screen');
         })
