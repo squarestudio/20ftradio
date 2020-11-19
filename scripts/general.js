@@ -94,7 +94,7 @@ function donateWithLiqPay(val, name, email, subscription) {
     LiqPayCheckout.init({
         data: callbackArr['data'],
         signature: callbackArr['signature'],
-        embedTo: "#liqpay_checkout",
+        embedTo: "#liqpay-donation",
         language: "ru",
         mode: "embed" // embed || popup
     }).on("liqpay.callback", function(data) {
