@@ -330,8 +330,9 @@ window.Squarespace.onInitialize(Y, function() {
         formSubmitEvent = Y.Global.on('form:submitSuccess', function(e) {
             console.log('form submit success');
 
-            // var form = Y.one('#container form');
-            // var name = form.one('.first-name input').get('value') || 'John';
+            var form = Y.one('#liqpay-popup form');
+            var name = form.one('.field-list .form-item:nth-child(1)').get('value') || 'John';
+            console.log(name);
             // var surname = form.one('.last-name input').get('value') || 'Smith';
             // var val = form.one('.field input[placeholder*="UAH"]') ? parseInt(form.one('.field input[placeholder*="UAH"]').get('value')) : 10;
             // var email = form.one('.email input').get('value');
