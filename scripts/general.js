@@ -332,7 +332,7 @@ window.Squarespace.onInitialize(Y, function() {
 
             let form1 = Y.one('form');
             let name1 = form1.one('.field-list .form-item:nth-child(1) input').get('value') || 'John';
-            console.log(form1);
+            console.log(Y.one('form'));
             console.log(name1);
             // var surname = form.one('.last-name input').get('value') || 'Smith';
             // var val = form.one('.field input[placeholder*="UAH"]') ? parseInt(form.one('.field input[placeholder*="UAH"]').get('value')) : 10;
