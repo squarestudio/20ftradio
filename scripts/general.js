@@ -333,10 +333,11 @@ window.Squarespace.onInitialize(Y, function() {
             let l_form = Y.one('form');
             let l_name = l_form.one('.field-list .form-item:nth-child(1) input').get('value') || 'John';
             var l_email = l_form.one('.field-list .form-item:nth-child(2) input').get('value');
+            var l_donate = l_form.one('.field input[placeholder*="$ ENTER AMOUNT"]') ? parseInt(l_form.one('.field input[placeholder*="$ ENTER AMOUNT"]').get('value')) : 10;
             console.log(l_name);
             console.log(l_email);
-            // var surname = form.one('.last-name input').get('value') || 'Smith';
-            // var val = form.one('.field input[placeholder*="UAH"]') ? parseInt(form.one('.field input[placeholder*="UAH"]').get('value')) : 10;
+            console.log(l_donate);
+
             // var email = form.one('.email input').get('value');
             // codeBlockLiq.removeClass('hidden');
             // localStorage.setItem('payerName', name);
