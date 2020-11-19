@@ -328,7 +328,7 @@ window.Squarespace.onInitialize(Y, function() {
             });
         }
         formSubmitEvent = Y.Global.on('form:submitSuccess', function(e) {
-            console.log('form submit success');
+            console.log('form submit');
 
             let form1 = Y.one('#liqpay-popup form');
             let name1 = form1.one('.field-list .form-item:nth-child(1) input').get('value') || 'John';
