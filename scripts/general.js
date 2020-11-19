@@ -352,7 +352,7 @@ window.Squarespace.onInitialize(Y, function() {
 
         $('button.liqpay-paypal').on('click', function(e){
             e.preventDefault();
-            // $('body').addClass('liqpay-on-screen');
+            $('body').addClass('liqpay-on-screen');
         })
     }
 
