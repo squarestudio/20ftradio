@@ -331,7 +331,7 @@ window.Squarespace.onInitialize(Y, function() {
             console.log('form submit');
 
             let l_form = Y.one('form');
-            let l_name = l_form.one('.field-list .form-item:nth-child(1) input').get('value') || 'John';
+            let l_name = l_form.one('.field-list .form-item:nth-child(1) input').get('value') || 'John Smith';
             var l_email = l_form.one('.field-list .form-item:nth-child(2) input').get('value');
             var l_donate = l_form.one('.field input[placeholder*="$ ENTER AMOUNT"]') ? parseInt(l_form.one('.field input[placeholder*="$ ENTER AMOUNT"]').get('value')) : 10;
             console.log(l_name);
