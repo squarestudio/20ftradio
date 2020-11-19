@@ -315,6 +315,7 @@ window.Squarespace.onInitialize(Y, function() {
     // }
 
     if (Y.one('#liqpay-popup')) {
+        $('#liqpay-popup').prepend('<div class="liqpay-close">CLOSE</div>');
         var l_subscription;
         var codeBlockLiqPopup = Y.one('#liqpay_checkout').ancestor('.code-block');
         codeBlockLiqPopup.addClass('hidden');
