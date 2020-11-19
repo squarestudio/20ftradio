@@ -330,10 +330,10 @@ window.Squarespace.onInitialize(Y, function() {
         formSubmitEvent = Y.Global.on('form:submitSuccess', function(e) {
             console.log('form submit success');
 
-            let form = Y.one('#liqpay-popup form');
-            let name = form.one('.field-list .form-item:nth-child(1) input').get('value') || 'John';
-            console.log(form);
-            console.log(name);
+            let form1 = Y.one('#liqpay-popup form');
+            let name1 = form1.one('.field-list .form-item:nth-child(1) input').get('value') || 'John';
+            console.log(form1);
+            console.log(name1);
             // var surname = form.one('.last-name input').get('value') || 'Smith';
             // var val = form.one('.field input[placeholder*="UAH"]') ? parseInt(form.one('.field input[placeholder*="UAH"]').get('value')) : 10;
             // var email = form.one('.email input').get('value');
