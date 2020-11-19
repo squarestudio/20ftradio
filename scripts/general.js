@@ -69,13 +69,12 @@ function addScript(script, callback) {
     parent.appendChild(s);
 }
 
-function sendReplyEmail(name, surname, email, data) {
+function sendReplyEmail(name, email, data) {
     $.ajax({
         type: 'POST',
         url: 'https://app.20ftradio.net/mail-callback.php',
         data: {
             name: name,
-            surname: surname,
             email: email,
             data: data
         },
@@ -100,7 +99,7 @@ function donateWithLiqPay(val, name, email, subscription) {
     }).on("liqpay.callback", function(data) {
         if (!status && data.status === 'success') {
             status = true;
-            sendReplyEmail(name, surname, email, JSON.stringify(data));
+            sendReplyEmail(name, email, JSON.stringify(data));
         }
     }).on("liqpay.ready", function(data) {
         //console.log(data);
@@ -340,6 +339,7 @@ window.Squarespace.onInitialize(Y, function() {
             let l_name = l_form.one('.field-list .form-item:nth-child(1) input').get('value') || 'John Smith';
             var l_email = l_form.one('.field-list .form-item:nth-child(2) input').get('value');
             var l_donate = l_form.one('.field input[placeholder*="$ ENTER AMOUNT"]') ? parseInt(l_form.one('.field input[placeholder*="$ ENTER AMOUNT"]').get('value')) : 10;
+
 
             codeBlockLiqPopup.removeClass('hidden');
             localStorage.setItem('payerName', l_name);
