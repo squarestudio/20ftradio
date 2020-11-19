@@ -350,7 +350,7 @@ window.Squarespace.onInitialize(Y, function() {
             localStorage.setItem('paymentSumm', l_donate);
             localStorage.setItem('payerEmail', l_email);
             localStorage.setItem('payerSubscription', l_subscription);
-            // donateWithLiqPay(l_donate, l_name, l_email, l_subscription);
+            donateWithLiqPay(l_donate, l_name, l_email, l_subscription);
         });
     }
 
