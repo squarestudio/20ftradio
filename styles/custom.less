@@ -3135,3 +3135,280 @@ html {
         background-size: 18px;
     }
 }
+
+
+/* DONATE POPUP ======================================================= */
+
+#liqpay-popup
+{
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all .15s linear;
+    transition: all .15s linear;
+
+    position: fixed;
+    top: 55px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+
+    z-index: 100;
+
+    background: #242424;
+
+    display: flex;
+    justify-content: center;
+
+    .liqpay-close
+    {
+        position: fixed;
+        right: 30px;
+        top: 95px;
+
+        font-size: 14px;
+        line-height: 1;
+        letter-spacing: 0;
+
+        cursor: pointer;
+    }
+
+    .code-block
+    {
+        text-align: center;
+        padding: 0;
+
+        h2
+        {
+            text-transform: uppercase;
+            font-size: 40px;
+            line-height: 45px;
+            letter-spacing: 0;
+
+            margin: 0 0 17px;
+        }
+        .payment-method
+        {
+            margin-bottom: 45px;
+
+            span
+            {
+                font-size: 16px;
+                line-height: 18px;
+
+                display: block;
+                margin-bottom: 35px;
+            }
+            .payment-buttons
+            {
+                display: flex;
+                justify-content: center;
+
+                span, a
+                {
+                    text-decoration: none;
+
+                    width: 110px;
+                    height: 50px;
+                    box-sizing: border-box;
+                    background: #ffffff;
+
+                    text-indent: -9999px;
+                    font-size: 0;
+                    color: transparent;
+                    position: relative;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 0;
+                }
+                span
+                {
+                    border: 2px solid #FF6464;
+                    margin-right: 23px;
+                }
+                span:before
+                {
+                    content: '';
+                    width: 28px;
+                    height: 18px;
+
+                    background: url('../assets/liqpay.png') no-repeat center;
+                    background-size: contain;
+                }
+                a
+                {
+                    margin-left: 23px;
+                }
+                a:before
+                {
+                    content: '';
+                    width: 50px;
+                    height: 13px;
+
+                    background: url('../assets/paypal.png') no-repeat center;
+                    background-size: contain;
+                }
+                span:before, a:before
+                {
+                    display: block;
+                }
+            }
+        }
+        h4
+        {
+            margin: 0 0 30px;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 18px;
+            letter-spacing: 0;
+        }
+        #liqpay-donation
+        {
+            max-height: 400px;
+            overflow-y: scroll;
+        }
+    }
+    .form-block
+    {
+        padding: 0;
+
+        .form-item
+        {
+            margin-bottom: 15px;
+        }
+
+        input:not([type="submit"])
+        {
+            padding: 20px 0;
+            margin: 0;
+            border: none;
+            outline: none !important;
+            border-bottom: 2px solid #ffffff;
+
+            font-size: 16px;
+            line-height: 1;
+            color: #fff;
+            background: transparent;
+        }
+        select
+        {
+            display: block;
+            width: 100%;
+            padding: 20px 0;
+            margin: 0;
+            border: none;
+            outline: none !important;
+            border-bottom: 2px solid #ffffff;
+
+            font-size: 16px;
+            line-height: 1;
+            color: #fff;
+            background: transparent;
+        }
+
+        input[type="submit"]
+        {
+            margin-top: 20px;
+            background: #FF6464;
+
+            height: 50px;
+            width: 240px;
+            color: #000000;
+            font-weight: 400;
+            letter-spacing: 0;
+        }
+    }
+}
+body.liqpay-on-screen
+{
+    height: 100%;
+    overflow: hidden;
+}
+body.liqpay-on-screen #liqpay-popup
+{
+    opacity: 1;
+    visibility: visible;
+}
+#liqpay-popup > .row
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+button.liqpay-paypal
+{
+    outline: none !important;
+    display: block;
+    margin: 0 auto;
+    background-color: #c43636;
+    border: none !important;
+
+    height: 42px;
+    width: 240px;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+@media only screen and (max-width: 639px)
+{
+    #liqpay-popup .liqpay-close
+    {
+        top: 60px;
+        right: 10px;
+    }
+    #liqpay-popup>.row
+    {
+        margin-left: 0;
+        margin-right: 0;
+        width: 90vw !important;
+    }
+    #liqpay-popup .code-block h2
+    {
+        line-height: 1;
+        font-size: 24px;
+    }
+    #liqpay-popup .code-block .payment-method span
+    {
+        margin-bottom: 30px;
+        font-size: 14px;
+        line-height: 1;
+    }
+    #liqpay-popup .code-block .payment-method
+    {
+        margin-bottom: 30px;
+    }
+    #liqpay-popup .code-block h4
+    {
+        margin-bottom: 0;
+        font-size: 14px;
+    }
+    .form-wrapper .field-list .field,
+    #liqpay-popup .form-block select
+    {
+        margin: 0 !important;
+    }
+    #liqpay-popup .form-block input:not([type="submit"])
+    {
+        padding: 15px 0;
+    }
+    #liqpay-popup .form-block input[type="submit"]
+    {
+        margin-top: 35px;
+    }
+    #liqpay-popup .code-block #liqpay-donation
+    {
+        max-height: 300px;
+        margin-top: 20px;
+    }
+
+}
