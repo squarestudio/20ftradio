@@ -204,7 +204,7 @@
     {.end}
 </div>
 {.if authenticatedAccount}
-<squarespace:script src="admin.js" combo="false"/>
+<!--<squarespace:script src="admin.js" combo="false"/>-->
 {.or}
 
 {.end}
