@@ -212,10 +212,10 @@ window.Template.Controllers.CastController = function(element) {
         var volumeControl = sitePlayer.one('#volControl');
         var playButtonClick = function(e) {
             e.halt();
-            console.log(activePlayer, players, shoutcastPlayer);
+            //console.log(activePlayer, players, shoutcastPlayer);
             if (!activePlayer) return;
             var state = null;
-            console.log(activePlayer, youtubePlayer)
+            console.log(activePlayer, shoutcastPlayer, userClickPlay, shoutcastPlayer.getPlayerState())
             if (activePlayer == 'youtube') {
                 state = youtubePlayer.getPlayerState();
                 DEBUG && console.log('youtube video', state, YT.PlayerState.PLAYING);
