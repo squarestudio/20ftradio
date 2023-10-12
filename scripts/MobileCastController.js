@@ -1,4 +1,3 @@
-console.log('mobilecASTcontroller');
 window.Template.Controllers.MobileCastController = function(element) {
     'use strict';
     var dontCheck = false;
