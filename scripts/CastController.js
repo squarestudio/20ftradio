@@ -674,7 +674,6 @@ window.Template.Controllers.CastController = function(element) {
     }
 
     function onPlayerReady(playerType, data) {
-        console.log('loaded');
         if (playerType == 'youtube') {
             youtubePlayer.setVolume(100);
             !mobile && youtubePlayer.playVideo();
