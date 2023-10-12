@@ -629,9 +629,9 @@ window.Template.Controllers.CastController = function(element) {
             shoutcastPlayer = YshoutcastPlayer._node;
             shoutcastPlayer.type = "audio/mpeg";
             shoutcastPlayer.crossOrigin = 'anonymous';
-            shoutcastPlayer.addEventListener('loadstart', function() {
-                onPlayerReady('shoutcast');
-            });
+            // shoutcastPlayer.addEventListener('loadstart', function() {
+            //     onPlayerReady('shoutcast');
+            // });
             shoutcastPlayer.addEventListener('play', function() {
                 onPlayerStateChange('shoutcast', 'play')
             });
