@@ -212,7 +212,7 @@ window.Template.Controllers.CastController = function(element) {
         var volumeControl = sitePlayer.one('#volControl');
         var playButtonClick = function(e) {
             e.halt();
-            console.log(activePlayer, players, shoutcastPlayer);
+            //console.log(activePlayer, players, shoutcastPlayer);
             if (!activePlayer) return;
             var state = null;
             //console.log(activePlayer, shoutcastPlayer, userClickPlay, shoutcastPlayer.getPlayerState())
@@ -790,6 +790,7 @@ window.Template.Controllers.CastController = function(element) {
     }
 
     function onPlayerStateChange(playerType, state) {
+        console.log('yess');
         //if (mobile && !userClickPlay) return;
         if (playerType == 'youtube') {
             DEBUG && console.log('youtube player change', state);
