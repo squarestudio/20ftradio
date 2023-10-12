@@ -278,6 +278,7 @@
     {squarespace-footers}
     <script>
     function initFirstInteract() {
+        console.log('first intercation');
         var video = document.getElementById('shoutcastPlayer');
         var navigator = document.querySelector('html');
         var mobileTrigger = document.querySelector('.mobile-trigger');
@@ -293,7 +294,7 @@
                         video.muted = false;
                         video.autoplay = false;
                         console.log('clicked');
-                        // video.play();
+                        video.play();
                     }, 16)
                 } else {
                     if (video.paused) {
