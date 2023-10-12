@@ -623,15 +623,15 @@ window.Template.Controllers.CastController = function(element) {
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
             var YshoutcastPlayer;
             if (!shoutcastPlayer) {
-                YshoutcastPlayer = Y.Node.create('<video autoplay allow="autoplay" id="shoutcastPlayer" src="' + shoutCastUrl + '" title="20FT Radio" class="stream-player"  poster="https://www.20ftradio.net/assets/icon.png" preload="auto" playsinline -webkit-playsinline name="media"><source src="'+shoutCastUrl+'" type="audio/mpeg"></video>');
+                YshoutcastPlayer = Y.Node.create('<video allow="autoplay" id="shoutcastPlayer" src="' + shoutCastUrl + '" title="20FT Radio" class="stream-player"  poster="https://www.20ftradio.net/assets/icon.png" preload="auto" playsinline -webkit-playsinline name="media"><source src="'+shoutCastUrl+'" type="audio/mpeg"></video>');
             }
             shoutcastStatus = true;
             shoutcastPlayer = YshoutcastPlayer._node;
             shoutcastPlayer.type = "audio/mpeg";
             shoutcastPlayer.crossOrigin = 'anonymous';
-            // shoutcastPlayer.addEventListener('loadstart', function() {
-            //     onPlayerReady('shoutcast');
-            // });
+            shoutcastPlayer.addEventListener('loadstart', function() {
+                onPlayerReady('shoutcast');
+            });
             shoutcastPlayer.addEventListener('play', function() {
                 onPlayerStateChange('shoutcast', 'play')
             });
