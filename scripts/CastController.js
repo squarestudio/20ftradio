@@ -358,7 +358,7 @@ window.Template.Controllers.CastController = function(element) {
         getShoutcastStatus();
         initShoutCast();
         getCurrentEvent(true);
-        // Y.on('getCurrentEvent', getCurrentEvent);
+        Y.on('getCurrentEvent', getCurrentEvent);
         if (castContainer.one('.stream-gallery')) {
             streamSwiper = new Swiper('.stream-gallery .swiper-container', {
                 loop: true,
