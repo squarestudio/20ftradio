@@ -791,7 +791,6 @@ window.Template.Controllers.CastController = function(element) {
 
     function onPlayerStateChange(playerType, state) {
         //if (mobile && !userClickPlay) return;
-        console.log(userClickPlay, playerType);
         if (playerType == 'youtube') {
             DEBUG && console.log('youtube player change', state);
             if (youtubePlayer && state) {
