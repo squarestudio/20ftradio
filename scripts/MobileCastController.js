@@ -294,7 +294,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             load: true,
             fill: true
         });
-        sitePlayer.one('#playButton').on('click', playButtonClick);
+        // sitePlayer.one('#playButton').on('click', playButtonClick);
         mobilePlayButton.on('click', playButtonClick);
         var videoButtonClick = function(e) {
             e.halt();
@@ -555,7 +555,6 @@ window.Template.Controllers.MobileCastController = function(element) {
             }
 
             if (activePlayer) {
-                console.log('haha');
                 sitePlayer.addClass('played');
                 mobilePlayButton.addClass('visible');
                 Y.one('#navigator').addClass('stream-found');
