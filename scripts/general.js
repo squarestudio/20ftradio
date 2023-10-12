@@ -129,24 +129,21 @@ function mixcloudPause() {
     Y.fire('mixcloud:pause');
 }
 
-function initMixCloudFinitMixCloudFooterooter() {
+function initMixCloudFooter() {
     if (!mixCloudFooterPlayer) {
         console.log('MixCloudFooter init');
         window.addEventListener("message", function(e) {
             var data = e.data ? JSON.parse(e.data) : false;
             if (data && data.mixcloud) {
                 if (data.type && data.type == 'ready') {
-                    mixCloudFooterPlayer.play && mixCloudFooterPlayer.play();
-                    console.log('1');
+                    mixCloudFooterPlayer.play && mixCloudFooterPlayer.play()
                 }
                 if (data.type == 'event' && data.data) {
                     if (data.data.eventName == 'play') {
                         mixcloudPlay();
-                        console.log('play');
                     }
                     if (data.data.eventName == 'pause') {
                         mixcloudPause();
-                        console.log('pause');
                     }
                 }
             }
