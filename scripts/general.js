@@ -114,6 +114,7 @@ function mixcloudPlay() {
     var pl_mixcloud_items = Y.one('html').all('[data-mixcloud-url="' + pl_url + '"]');
     if (pl_mixcloud_items && pl_mixcloud_items.size()) {
         pl_mixcloud_items.addClass('playing');
+        console.log('1');
     }
     Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped');
     Y.fire('mixcloud:play');
@@ -418,6 +419,7 @@ window.Squarespace.onInitialize(Y, function() {
         var pl_mixcloud_items = doc.all('[data-mixcloud-url="' + doc.getAttribute('data-mixcloud-pl-url') + '"]');
         if (pl_mixcloud_items && pl_mixcloud_items.size()) {
             pl_mixcloud_items.addClass('playing');
+            console.log('2');
         }
     }
     try {
@@ -493,6 +495,7 @@ if (!window_loaded) {
         var ancestor = e.currentTarget.ancestor('.mixcloud-item') || e.currentTarget.ancestor('.sqs-block');
         var url = ancestor.getAttribute('data-mixcloud-url');
         ancestor.toggleClass('playing');
+        console.log('3');
         //console.log(url, ancestor)
         if (url && ancestor.hasClass('playing')) {
             ancestor.addClass('current');
