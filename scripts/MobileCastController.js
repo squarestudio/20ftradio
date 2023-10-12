@@ -555,6 +555,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             }
 
             if (activePlayer) {
+                console.log('haha');
                 sitePlayer.addClass('played');
                 mobilePlayButton.addClass('visible');
                 Y.one('#navigator').addClass('stream-found');
