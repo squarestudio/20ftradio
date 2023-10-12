@@ -211,6 +211,7 @@ window.Template.Controllers.CastController = function(element) {
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
         var playButtonClick = function(e) {
+            console.log('yesss');
             e.halt();
             //console.log(activePlayer, players, shoutcastPlayer);
             if (!activePlayer) return;
