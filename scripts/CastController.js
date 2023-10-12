@@ -207,13 +207,12 @@ window.Template.Controllers.CastController = function(element) {
         someCloudUrl = castContainer.getAttribute('data-soundcloud-url');
         if (youtubeUrl) {
             sitePlayer.addClass('youtube-here');
-            console.log('added class youtube');
         }
         var volumeIcon = sitePlayer.one('#volumeButton i');
         var volumeControl = sitePlayer.one('#volControl');
         var playButtonClick = function(e) {
             e.halt();
-            //console.log(activePlayer, players, shoutcastPlayer);
+            console.log(activePlayer, players, shoutcastPlayer);
             if (!activePlayer) return;
             var state = null;
             //console.log(activePlayer, shoutcastPlayer, userClickPlay, shoutcastPlayer.getPlayerState())
