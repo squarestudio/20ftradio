@@ -212,7 +212,6 @@ window.Template.Controllers.CastController = function(element) {
         var volumeControl = sitePlayer.one('#volControl');
         var playButtonClick = function(e) {
             e.halt();
-            console.log('play click');
             //console.log(activePlayer, players, shoutcastPlayer);
             if (!activePlayer) return;
             var state = null;
@@ -792,6 +791,7 @@ window.Template.Controllers.CastController = function(element) {
 
     function onPlayerStateChange(playerType, state) {
         //if (mobile && !userClickPlay) return;
+        console.log(userClickPlay);
         if (playerType == 'youtube') {
             DEBUG && console.log('youtube player change', state);
             if (youtubePlayer && state) {
