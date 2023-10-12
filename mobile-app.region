@@ -277,8 +277,8 @@
     <squarespace:script src="mobile-app.js" combo="false" />
     {squarespace-footers}
     <script>
-    function initFirstInteract() {
-        console.log('first intercation');
+        console.log('aaaaaaaaaaaaa');
+        function initFirstInteract() {
         var video = document.getElementById('shoutcastPlayer');
         var navigator = document.querySelector('html');
         var mobileTrigger = document.querySelector('.mobile-trigger');
