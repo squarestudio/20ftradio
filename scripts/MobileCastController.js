@@ -1,3 +1,4 @@
+console.log('mobilecASTcontroller');
 window.Template.Controllers.MobileCastController = function(element) {
     'use strict';
     var dontCheck = false;
@@ -294,7 +295,7 @@ window.Template.Controllers.MobileCastController = function(element) {
             load: true,
             fill: true
         });
-        // sitePlayer.one('#playButton').on('click', playButtonClick);
+        sitePlayer.one('#playButton').on('click', playButtonClick);
         mobilePlayButton.on('click', playButtonClick);
         var videoButtonClick = function(e) {
             e.halt();
