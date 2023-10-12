@@ -356,7 +356,7 @@ window.Template.Controllers.CastController = function(element) {
         youtubeStatusLoad = true;
         retry = maxRetry - 1;
         getShoutcastStatus();
-        // initShoutCast();
+        initShoutCast();
         getCurrentEvent(true);
         Y.on('getCurrentEvent', getCurrentEvent);
         if (castContainer.one('.stream-gallery')) {
