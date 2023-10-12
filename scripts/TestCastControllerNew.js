@@ -1,4 +1,3 @@
-console.log('testCastControllerNew');
 window.Template.Controllers.TestCastController = function (element) {
     'use strict';
     var sitePlayer = Y.one('.site-player'),
