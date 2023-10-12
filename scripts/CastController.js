@@ -1,3 +1,4 @@
+console.log('CastController');
 window.Template.Controllers.CastController = function(element) {
     'use strict';
     var sitePlayer = Y.one('.site-player'),
