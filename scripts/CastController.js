@@ -303,7 +303,7 @@ window.Template.Controllers.CastController = function(element) {
             }
         };
         sitePlayer.one('#videoButton').on('click', videoButtonClick);
-        // sitePlayer.one('#playButton').on('click', playButtonClick);
+        sitePlayer.one('#playButton').on('click', playButtonClick);
         mobilePlayButton.on('click', playButtonClick);
         videoYoutubazing();
         volumeIcon.on('click', function(e) {
