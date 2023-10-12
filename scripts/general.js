@@ -539,6 +539,8 @@ if (!window_loaded) {
 var canvas_activated = false;
 window.heightFactor = 150;
 
+console.log('general');
+
 function easeInOutQuad(t) {
     return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t
 };
