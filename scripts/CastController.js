@@ -1,4 +1,3 @@
-console.log('CastController');
 window.Template.Controllers.CastController = function(element) {
     'use strict';
     var sitePlayer = Y.one('.site-player'),
@@ -675,6 +674,7 @@ window.Template.Controllers.CastController = function(element) {
     }
 
     function onPlayerReady(playerType, data) {
+        console.log('loaded');
         if (playerType == 'youtube') {
             youtubePlayer.setVolume(100);
             !mobile && youtubePlayer.playVideo();
