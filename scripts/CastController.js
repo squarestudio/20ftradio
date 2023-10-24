@@ -58,7 +58,7 @@ window.Template.Controllers.CastController = function(element) {
             firstRun = true;
         }
         if (Y.one('#castDiv') && !Y.one('#castDiv').hasClass('initialized')) {
-            mobile = Y.UA.mobile;
+            mobile = true; // we use true to stop autoplay 24.10.23 on desktops too, otherwise use Y.UA.mobile;
             Site && Site._setupPositioning();
             refreshImages();
             Site && Site._setupPositioning();
@@ -623,7 +623,7 @@ window.Template.Controllers.CastController = function(element) {
             shoutcastPlayer = Y.one('#shoutcastPlayer') || null;
             var YshoutcastPlayer;
             if (!shoutcastPlayer) {
-                YshoutcastPlayer = Y.Node.create('<video id="shoutcastPlayer" src="' + shoutCastUrl + '" title="20FT Radio" class="stream-player"  poster="https://20ftradio.net/assets/icon.png" preload="auto" playsinline -webkit-playsinline name="media"><source src="'+shoutCastUrl+'" type="audio/mpeg"></video>');
+                YshoutcastPlayer = Y.Node.create('<video allow="autoplay" id="shoutcastPlayer" src="' + shoutCastUrl + '" title="20FT Radio" class="stream-player"  poster="https://20ftradio.net/assets/icon.png" preload="auto" playsinline -webkit-playsinline name="media"><source src="'+shoutCastUrl+'" type="audio/mpeg"></video>');
             }
             shoutcastStatus = true;
             shoutcastPlayer = YshoutcastPlayer._node;
