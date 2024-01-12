@@ -119,6 +119,10 @@ window.Template.Controllers.CastController = function(element) {
             var channel = youtubeUrl.split('channel=')[1];
             youtubeUrl = 'live_stream';
             //getYoutubeStatus();
+        } else if (youtubeUrl.indexOf('live/') > -1) {
+            var channel = youtubeUrl.split('live/')[1].split('?')[0];
+            youtubeUrl = 'live';
+            //getYoutubeStatus();
         }
         DEBUG && console.log(youtubeUrl, channel);
         youtubePlayer = new YT.Player('youtubePlayer', {
