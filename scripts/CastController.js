@@ -205,6 +205,7 @@ window.Template.Controllers.CastController = function(element) {
         facebookUrl = castContainer.getAttribute('data-facebook-url');
         shoutCastUrl = castContainer.getAttribute('data-shoutcast-url');
         someCloudUrl = castContainer.getAttribute('data-soundcloud-url');
+        DEBUG && console.log(youtubeUrl);
         if (youtubeUrl) {
             sitePlayer.addClass('youtube-here');
         }
