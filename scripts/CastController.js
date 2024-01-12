@@ -46,7 +46,7 @@ window.Template.Controllers.CastController = function(element) {
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false,
         shoutcastStatusFactor = false;
-    var DEBUG = true;
+    var DEBUG = false;
 
     function initialize() {
         if (!firstRun) {
@@ -130,7 +130,7 @@ window.Template.Controllers.CastController = function(element) {
             width: '1280',
             videoId: youtubeUrl,
             playerVars: {
-                'autoplay': 0,
+                'autoplay': 1,
                 'controls': 0,
                 'modestbranding': 0,
                 'rel': 0,
