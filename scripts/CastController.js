@@ -120,8 +120,8 @@ window.Template.Controllers.CastController = function(element) {
             youtubeUrl = 'live_stream';
             //getYoutubeStatus();
         } else if (youtubeUrl.indexOf('live/') > -1) {
-            var channel = youtubeUrl.split('live/')[1].split('?')[0];
-            youtubeUrl = 'live';
+           // var channel = 
+            youtubeUrl = youtubeUrl.split('live/')[1].split('?')[0];
             //getYoutubeStatus();
         }
         DEBUG && console.log(youtubeUrl, channel);
