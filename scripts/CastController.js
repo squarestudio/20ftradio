@@ -46,7 +46,7 @@ window.Template.Controllers.CastController = function(element) {
         castContainer = Y.one('#castDiv');
     var youtubeStatusFactor = false,
         shoutcastStatusFactor = false;
-    var DEBUG = false;
+    var DEBUG = true;
 
     function initialize() {
         if (!firstRun) {
@@ -290,7 +290,7 @@ window.Template.Controllers.CastController = function(element) {
             userClickPlay = true;
         };
         castContainer.one('img') && castContainer.one('img').removeAttribute('data-load') && ImageLoader.load(castContainer.one('img'), {
-            load: true,
+            load: true, 
             fill: true
         });
         var videoButtonClick = function(e) {
