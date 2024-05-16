@@ -99,7 +99,11 @@ window.Template.Controllers.CastController = function(element) {
             },
             on: {
                 success: function(i, data) {
-                    console.log(data);
+                    if (data.status === 200 && data.readyState === 4) {
+                        var resp = JSON.parse(data.response);
+                        console.log(resp);
+                    }
+                    shoutcastStatusFactor = false;
                 },
                 failure: function() {
                     console.log('SHOUTCAST STATUS FALSE');
