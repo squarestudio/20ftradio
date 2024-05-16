@@ -84,6 +84,36 @@
                 <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content" annotation-alignment="bottom"/>
             </div>
         </div>
+
+        <audio id="grainPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
+        <button id="shoutcastPlay">Play/Pause Shoutcast</button>
+        <button id="grainPlay">Play/Pause Grain</button>
+
+        <script>
+          let grainAudio = document.getElementById('grainPlayer');
+          console.log(grainAudio.title);
+          document.getElementById('grainPlay').addEventListener('click', function(){
+            if (grainAudio.duration > 0 && !grainAudio.paused) {
+              //Its playing...do your job
+              grainAudio.pause();
+            } else {
+              //Not playing...maybe paused, stopped or never played.
+              document.getElementById('shoutcastPlayer').pause();
+              grainAudio.play();
+            }
+          })
+          document.getElementById('shoutcastPlay').addEventListener('click', function(){
+            if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
+              //Its playing...do your job
+              document.getElementById('shoutcastPlayer').pause();
+            } else {
+              //Not playing...maybe paused, stopped or never played.
+              grainAudio.pause();
+              document.getElementById('shoutcastPlayer').play();
+            }
+          })
+        </script>
+
     </header>
     {.end}
     <div class="sqs-cart-dropzone"></div>
