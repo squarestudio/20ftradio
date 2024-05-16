@@ -122,8 +122,6 @@ window.Template.Controllers.CastController = function(element) {
                     var resp = JSON.parse(data.response);
                     console.log(resp.result.content);
                     console.log(resp.result.content.title);
-                    // console.log(data.result.content.title);
-                    // var resp2 = JSON.parse(data.responseText);
                     // grainsPlay.parentElement.querySelector('span').innerText = resp.artists[0].name;
                 },
                 failure: function() {
