@@ -289,7 +289,7 @@
               shoutcastPlay.classList.remove('paused');
 
 
-              console.log(document.getElementById('shoutcastPlayer').getAttribute("title"));
+              console.log(document.getElementById('shoutcastPlayer').getAttribute("title").split('Now playing: ')[1];
             }
           })
 
