@@ -628,6 +628,38 @@ function initVisual() {
 
 Y.once('play:shoutcast', function() {
     initVisual();
+
+
+    let grainsAudio = document.getElementById('grainsPlayer');
+    let grainsPlay = document.getElementById('grainsPlay');
+    let shoutcastPlay = document.getElementById('shoutcastPlay');
+
+    console.log(document.getElementById('shoutcastPlayer').title);
+
+    grainsPlay.addEventListener('click', function(){
+        if (grainsAudio.duration > 0 && !grainsAudio.paused) {
+            grainsAudio.pause();
+            grainsPlay.classList.add('paused');
+        } else {
+            document.getElementById('shoutcastPlayer').pause();
+            shoutcastPlay.classList.add('paused');
+
+            grainsAudio.play();
+            grainsPlay.classList.remove('paused');
+        }
+    })
+    shoutcastPlay.addEventListener('click', function(){
+        if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
+            document.getElementById('shoutcastPlayer').pause();
+            shoutcastPlay.classList.add('paused');
+        } else {
+            grainsAudio.pause();
+            grainsPlay.classList.add('paused');
+
+            document.getElementById('shoutcastPlayer').play();
+            shoutcastPlay.classList.remove('paused');
+        }
+    })
 });
 window.customLazySummaries = {
     general: { //runs for all summary blocks
