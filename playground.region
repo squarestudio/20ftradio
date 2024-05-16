@@ -255,7 +255,6 @@
 <squarespace:script src="CastController.js" combo="true"/>
 
 <script>
-window.Squarespace.onInitialize(Y, function() {
 
     let grainsAudio = document.getElementById('#grainsPlayer');
     let grainsPlay = document.getElementById('#grainsPlay');
@@ -285,8 +284,6 @@ window.Squarespace.onInitialize(Y, function() {
             shoutcastPlay.classList.remove('paused');
         }
     })
-
-});
 </script>
 
 {squarespace-footers}
