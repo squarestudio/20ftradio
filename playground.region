@@ -48,7 +48,7 @@
                     {.end}
                 </div>
                 <div class="twenety-ft-shoutcast">
-                    <button id="shoutcastPlay"></button>
+                    <button id="shoutcastPlay" class="paused"></button>
                     <span></span>
                 </div>
             </div>
