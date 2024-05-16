@@ -257,6 +257,10 @@
 
 
         <script>
+
+          window.Squarespace.onInitialize(Y, function() {
+
+
           let grainsAudio = document.getElementById('grainsPlayer');
           let grainsPlay = document.getElementById('grainsPlay');
           let shoutcastPlay = document.getElementById('shoutcastPlay');
@@ -285,6 +289,8 @@
               shoutcastPlay.classList.remove('paused');
             }
           })
+
+          });
         </script>
 
 {squarespace-footers}
