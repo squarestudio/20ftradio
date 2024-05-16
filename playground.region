@@ -254,6 +254,9 @@
 <squarespace:script src="general.js" combo="false"/>
 <squarespace:script src="CastController.js" combo="true"/>
 
+<script>
+</script>
+
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
 <script>
