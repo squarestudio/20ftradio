@@ -92,6 +92,8 @@ window.Template.Controllers.CastController = function(element) {
         var grainsAudio = document.getElementById('grainsPlayer');
         var grainsPlay = document.getElementById('grainsPlay');
         var shoutcastPlay = document.getElementById('shoutcastPlay');
+        
+        console.log(document.getElementById('shoutcastPlayer').getAttribute('title').split("Now playing: ")[1]);
 
         grainsPlay.addEventListener('click', function(){
             if (grainsAudio.duration > 0 && !grainsAudio.paused) {
@@ -115,9 +117,6 @@ window.Template.Controllers.CastController = function(element) {
 
                 document.getElementById('shoutcastPlayer').play();
                 shoutcastPlay.classList.remove('paused');
-
-
-                console.log(document.getElementById('shoutcastPlayer').getAttribute('title').split("Now playing: ")[1]);
             }
         })
     }
