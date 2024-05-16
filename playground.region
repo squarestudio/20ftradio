@@ -91,7 +91,7 @@
             </div>
         </div>
 
-        <audio id="grainPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
+        <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
 
         <div id="grainsWrapper" class="grains-wrapper">
             <div class="grains-left">
