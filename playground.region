@@ -93,6 +93,9 @@
 
         <audio id="grainPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
 
+        <div id="grainWrapper" class="grain-wrapper">
+            <div class="grainLogo"><img src="assets/gop-logo.png" alt="Grains of Peace"></div>
+        </div>
         <div class="twenety-ft-grain">
             <button id="grainPlay">Play/Pause Grain</button>
             <span></span>
