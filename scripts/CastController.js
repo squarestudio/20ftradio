@@ -101,7 +101,7 @@ window.Template.Controllers.CastController = function(element) {
                 success: function(i, data) {
                     if (data.status === 200 && data.readyState === 4) {
                         var resp = JSON.parse(data.response);
-                        console.log(resp.shoutcast.track);
+                        shoutcastPlay.querySelector('span').innerText = resp.shoutcast.track;
                     }
                     shoutcastStatusFactor = false;
                 },
