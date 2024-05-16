@@ -95,7 +95,7 @@
 
         <div id="grainsWrapper" class="grains-wrapper">
             <div class="grains-left">
-                <div class="grainsLogo"><img src="assets/gop-logo.png" alt="Grains of Peace"></div>
+                <div class="grains-logo"><img src="assets/gop-logo.png" alt="Grains of Peace"></div>
                 <div class="twenety-ft-grain">
                     <button id="grainsPlay">Play/Pause Grains</button>
                     <span></span>
