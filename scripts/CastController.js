@@ -89,7 +89,37 @@ window.Template.Controllers.CastController = function(element) {
             }
         });
 
-        
+        var grainsAudio = document.getElementById('grainsPlayer');
+        var grainsPlay = document.getElementById('grainsPlay');
+        var shoutcastPlay = document.getElementById('shoutcastPlay');
+
+        grainsPlay.addEventListener('click', function(){
+            if (grainsAudio.duration > 0 && !grainsAudio.paused) {
+                grainsAudio.pause();
+                grainsPlay.classList.add('paused');
+            } else {
+                document.getElementById('shoutcastPlayer').pause();
+                shoutcastPlay.classList.add('paused');
+
+                grainsAudio.play();
+                grainsPlay.classList.remove('paused');
+            }
+        })
+        shoutcastPlay.addEventListener('click', function(){
+            if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
+                document.getElementById('shoutcastPlayer').pause();
+                shoutcastPlay.classList.add('paused');
+            } else {
+                grainsAudio.pause();
+                grainsPlay.classList.add('paused');
+
+                document.getElementById('shoutcastPlayer').play();
+                shoutcastPlay.classList.remove('paused');
+
+
+                console.log(document.getElementById('shoutcastPlayer').getAttribute('title').split("Now playing: ")[1]);
+            }
+        })
     }
 
     function refreshImages() {
