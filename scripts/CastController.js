@@ -120,8 +120,10 @@ window.Template.Controllers.CastController = function(element) {
             on: {
                 success: function(i, data) {
                     var resp = JSON.parse(data.response);
+                    var resp2 = JSON.parse(data.responseText);
                     console.log(data);
                     console.log(resp);
+                    console.log(resp2);
                     grainsPlay.parentElement.querySelector('span').innerText = resp.artists[0].name;
                 },
                 failure: function() {
