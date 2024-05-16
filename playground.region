@@ -98,7 +98,7 @@
             <div class="grains-left">
                 <div class="grains-logo"><img src="assets/gop-logo.png" alt="Grains of Peace"></div>
                 <div class="twenety-ft-grain">
-                    <button id="grainsPlay"></button>
+                    <button id="grainsPlay paused"></button>
                     <span></span>
                 </div>
             </div>
