@@ -75,7 +75,7 @@
                             </a>
                             <input id="volControl" value="100" class="volume-control" type="range" min="0" max="100" step="1"/>
                         </div>
-                        <div class="track-name"><span>Now playing: </span></div>
+                        <div class="track-name"><span></span></div>
                     </div>
                 </div>
                 <!-- <canvas id="visualCanvas" class="v-align"></canvas> -->
