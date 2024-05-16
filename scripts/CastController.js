@@ -160,7 +160,7 @@ window.Template.Controllers.CastController = function(element) {
         })
 
         function getISOTimeStamp() {
-            const now = new Date();
+            var now = new Date();
             return now.toISOString().replace(/\.0*Z$/, 'Z');  // Remove trailing ".000Z"
         }
     }
