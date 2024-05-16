@@ -115,6 +115,7 @@
               grainsPlay.classList.add('paused');
             } else {
               document.getElementById('shoutcastPlayer').pause();
+              shoutcastPlay.classList.add('paused');
 
               grainsAudio.play();
               grainsPlay.classList.remove('paused');
@@ -126,6 +127,7 @@
               shoutcastPlay.classList.add('paused');
             } else {
               grainsAudio.pause();
+              grainsPlay.classList.add('paused');
               document.getElementById('shoutcastPlayer').play();
               shoutcastPlay.classList.remove('paused');
             }
