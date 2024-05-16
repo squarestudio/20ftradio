@@ -119,7 +119,8 @@ window.Template.Controllers.CastController = function(element) {
             },
             on: {
                 success: function(i, data) {
-                    console.log(data);
+                    var resp = JSON.parse(data.response);
+                    console.log(resp);
                 },
                 failure: function() {
                     console.log('no rust');
