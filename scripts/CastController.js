@@ -92,13 +92,13 @@ window.Template.Controllers.CastController = function(element) {
 
 
 
-        let grainsAudio = document.getElementById('grainsPlayer');
-        let grainsPlay = document.getElementById('grainsPlay');
-        let shoutcastPlay = document.getElementById('shoutcastPlay');
+        let grainsAudio = Y.one('#grainsPlayer');
+        let grainsPlay = Y.one('#grainsPlay');
+        let shoutcastPlay = Y.one('#shoutcastPlay');
 
         console.log('yes');
 
-        // console.log(document.getElementById('shoutcastPlayer').title);
+        console.log(Y.one('shoutcastPlayer').title);
         //
         // grainsPlay.addEventListener('click', function(){
         //     if (grainsAudio.duration > 0 && !grainsAudio.paused) {
