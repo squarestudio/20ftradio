@@ -93,8 +93,6 @@ window.Template.Controllers.CastController = function(element) {
         var grainsPlay = document.getElementById('grainsPlay');
         var shoutcastPlay = document.getElementById('shoutcastPlay');
 
-        console.log(document.getElementById('shoutcastPlayer').getAttribute('title').split("Now playing: ")[1]);
-
         grainsPlay.addEventListener('click', function(){
             if (grainsAudio.duration > 0 && !grainsAudio.paused) {
                 grainsAudio.pause();
@@ -743,6 +741,7 @@ window.Template.Controllers.CastController = function(element) {
                 setActivePlayer();
 
                 console.log('shoutcast ready');
+                console.log(document.getElementById('shoutcastPlayer').getAttribute('title').split("Now playing: ")[1]);
             }
         } else if (playerType == 'soundcloud') {
             if (!soundCloudReady) {
