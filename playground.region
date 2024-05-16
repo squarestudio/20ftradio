@@ -265,6 +265,8 @@
           let grainsPlay = document.getElementById('grainsPlay');
           let shoutcastPlay = document.getElementById('shoutcastPlay');
 
+          console.log(document.getElementById('shoutcastPlayer').attr('title'));
+
           grainsPlay.addEventListener('click', function(){
             if (grainsAudio.duration > 0 && !grainsAudio.paused) {
               grainsAudio.pause();
