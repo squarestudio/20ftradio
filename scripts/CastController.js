@@ -93,6 +93,23 @@ window.Template.Controllers.CastController = function(element) {
         var grainsPlay = document.getElementById('grainsPlay');
         var shoutcastPlay = document.getElementById('shoutcastPlay');
 
+        Y.io('https://app.20ftradio.net/stream-status.php', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            on: {
+                success: function(i, data) {
+                    console.log(data);
+                },
+                failure: function() {
+                    console.log('SHOUTCAST STATUS FALSE');
+                    shoutcastStatus = false;
+                    shoutcastStatusFactor = false;
+                }
+            }
+        });
+
+
         grainsPlay.addEventListener('click', function(){
             if (grainsAudio.duration > 0 && !grainsAudio.paused) {
                 grainsAudio.pause();
