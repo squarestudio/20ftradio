@@ -106,7 +106,7 @@
 
         <script>
           let grainsAudio = document.getElementById('grainsPlayer');
-          console.log(grainAudio.title);
+          console.log(grainsAudio.title);
           document.getElementById('grainsPlay').addEventListener('click', function(){
             if (grainsAudio.duration > 0 && !grainsAudio.paused) {
               grainsAudio.pause();
