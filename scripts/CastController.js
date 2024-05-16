@@ -89,12 +89,14 @@ window.Template.Controllers.CastController = function(element) {
             }
         });
 
-        console.log('yes');
+
 
 
         let grainsAudio = document.getElementById('grainsPlayer');
         let grainsPlay = document.getElementById('grainsPlay');
         let shoutcastPlay = document.getElementById('shoutcastPlay');
+
+        console.log('yes');
 
         // console.log(document.getElementById('shoutcastPlayer').title);
         //
