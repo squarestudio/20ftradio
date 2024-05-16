@@ -113,7 +113,7 @@ window.Template.Controllers.CastController = function(element) {
             }
         });
 
-        fetch('https://api.radiocult.fm/api/station/:20ft%20Radio/artists', {
+        Y.io('https://api.radiocult.fm/api/station/:20ft%20Radio/artists', {
             headers: {
                 'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361',
             },
