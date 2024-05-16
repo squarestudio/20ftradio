@@ -47,7 +47,7 @@
                     <h2 class="logo-subtitle">{@}</h2>
                     {.end}
                 </div>
-                <div class="twenety-ft-shoutcast">
+                <div class="twenty-ft-shoutcast">
                     <button id="shoutcastPlay" class="paused"></button>
                     <span></span>
                 </div>
@@ -97,7 +97,7 @@
             <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
             <div class="grains-left">
                 <div class="grains-logo"><img src="assets/gop-logo.png" alt="Grains of Peace"></div>
-                <div class="twenety-ft-grain">
+                <div class="twenty-ft-grains">
                     <button id="grainsPlay" class="paused"></button>
                     <span></span>
                 </div>
@@ -261,7 +261,7 @@
           window.Squarespace.onInitialize(Y, function() {
 
 
-          
+
 
           });
         </script>
