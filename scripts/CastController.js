@@ -1054,7 +1054,7 @@ window.Template.Controllers.CastController = function(element) {
             let grainsPlay = document.getElementById('grainsPlay');
             let shoutcastPlay = document.getElementById('shoutcastPlay');
 
-            console.log(document.getElementById('shoutcastPlayer').title);
+            // console.log(document.getElementById('shoutcastPlayer').title);
 
             grainsPlay.addEventListener('click', function(){
                 if (grainsAudio.duration > 0 && !grainsAudio.paused) {
