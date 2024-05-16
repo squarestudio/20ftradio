@@ -3417,6 +3417,14 @@ button.liqpay-paypal
 
 
 body.ft20-playground {
+    .site-player-block,
+    #grainsPlayer {
+        display: none;
+
+    #grainsPlay, #shoutcastPlay {
+        display: block;
+    }
+
     #navigator header#topBar {
         padding-bottom: 0;
 
@@ -3465,64 +3473,55 @@ body.ft20-playground {
                 }
             }
         }
-    }
+        #grainsWrapper {
+            width: 100%;
+            padding: 6px 10px;
+            box-sizing: border-box;
 
-    .site-player-block,
-    #grainsPlayer {
-        display: none;
-    }
-    #grainsPlay, #shoutcastPlay {
-        display: block;
-    }
-
-    #grainsWrapper {
-        width: 100%;
-        padding: 6px 10px;
-        box-sizing: border-box;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        background: url("../assets/grains-bg.jpg") no-repeat center;
-        background-size: cover;
-
-        .grains-left {
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-between;
             align-items: center;
 
-            .grains-logo {
-                img {
-                    display: block;
-                    width: auto;
-                    height: 54px;
+            background: url("../assets/grains-bg.jpg") no-repeat center;
+            background-size: cover;
+
+            .grains-left {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                .grains-logo {
+                    img {
+                        display: block;
+                        width: auto;
+                        height: 54px;
+                    }
                 }
             }
-        }
-        .grains-right {
-            padding-right: 16px;
+            .grains-right {
+                padding-right: 16px;
 
-            a {
-                color: white;
+                a {
+                    color: white;
 
-                display: inline-block;
-                font-size: 11px;
-                line-height: 15px;
-                height: 15px;
-                font-family: Arial, Helvetica, sans-serif;
-                font-weight: 700;
-                font-style: normal;
-                border-bottom: 1px solid transparent;
+                    display: inline-block;
+                    font-size: 11px;
+                    line-height: 15px;
+                    height: 15px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-weight: 700;
+                    font-style: normal;
+                    border-bottom: 1px solid transparent;
 
-                &:hover {
-                    color: #f0f0f0;
-                    border-color: #f0f0f0;
-                    -ms-transition: border 0s ease-out;
-                    -webkit-transition: border 0s ease-out;
-                    -moz-transition: border 0s ease-out;
-                    -o-transition: border 0s ease-out;
-                    transition: border 0s ease-out;
+                    &:hover {
+                        color: #f0f0f0;
+                        border-color: #f0f0f0;
+                        -ms-transition: border 0s ease-out;
+                        -webkit-transition: border 0s ease-out;
+                        -moz-transition: border 0s ease-out;
+                        -o-transition: border 0s ease-out;
+                        transition: border 0s ease-out;
+                    }
                 }
             }
         }
