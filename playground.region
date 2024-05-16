@@ -53,7 +53,10 @@
                 </div>
             </div>
 
-            <div class="shoutcast"><button id="shoutcastPlay"></button></div>
+            <div class="shoutcast">
+                <button id="shoutcastPlay"></button>
+                <span></span>
+            </div>
 
             <squarespace:navigation navigationId="pages" template="navigation"/>
             <div class="site-player-block">
