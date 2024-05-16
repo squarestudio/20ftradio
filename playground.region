@@ -289,7 +289,7 @@
               shoutcastPlay.classList.remove('paused');
 
 
-              console.log(document.getElementById('shoutcastPlayer').attr('title'));
+              console.log(document.getElementById('shoutcastPlayer').getAttribute("title"));
             }
           })
 
