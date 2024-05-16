@@ -741,6 +741,7 @@ window.Template.Controllers.CastController = function(element) {
                 setActivePlayer();
 
                 console.log('shoutcast ready');
+                console.log(shoutcastPlayer);
                 console.log(document.getElementById('shoutcastPlayer').getAttribute('title').split("Now playing: ")[1]);
             }
         } else if (playerType == 'soundcloud') {
