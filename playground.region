@@ -128,6 +128,7 @@
             } else {
               grainsAudio.pause();
               grainsPlay.classList.add('paused');
+              
               document.getElementById('shoutcastPlayer').play();
               shoutcastPlay.classList.remove('paused');
             }
