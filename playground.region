@@ -92,7 +92,7 @@
         </div>
 
         <audio id="grainPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
-        <button id="grainPlay">Play/Pause Grain</button>
+        <button id="grainPlay"></button>
 
         <script>
           let grainAudio = document.getElementById('grainPlayer');
