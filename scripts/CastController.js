@@ -92,9 +92,9 @@ window.Template.Controllers.CastController = function(element) {
 
 
 
-        let grainsAudio = Y.one('#grainsPlayer');
-        let grainsPlay = Y.one('#grainsPlay');
-        let shoutcastPlay = Y.one('#shoutcastPlay');
+        var grainsAudio = Y.one('#grainsPlayer');
+        var grainsPlay = Y.one('#grainsPlay');
+        var shoutcastPlay = Y.one('#shoutcastPlay');
 
         console.log('yes');
 
