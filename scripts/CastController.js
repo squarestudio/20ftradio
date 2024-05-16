@@ -92,7 +92,7 @@ window.Template.Controllers.CastController = function(element) {
         var grainsAudio = document.getElementById('grainsPlayer');
         var grainsPlay = document.getElementById('grainsPlay');
         var shoutcastPlay = document.getElementById('shoutcastPlay');
-        
+
         console.log(document.getElementById('shoutcastPlayer').getAttribute('title').split("Now playing: ")[1]);
 
         grainsPlay.addEventListener('click', function(){
@@ -741,6 +741,8 @@ window.Template.Controllers.CastController = function(element) {
                 shoutcastPlayer.setVolume(100);
                 shoutCastReady = true;
                 setActivePlayer();
+
+                console.log('shoutcast ready');
             }
         } else if (playerType == 'soundcloud') {
             if (!soundCloudReady) {
