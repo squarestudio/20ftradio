@@ -48,7 +48,7 @@
                     {.end}
                 </div>
                 <div class="twenety-ft-shoutcast">
-                    <button id="shoutcastPlay">Play/Pause shoutcast</button>
+                    <button id="shoutcastPlay"></button>
                     <span></span>
                 </div>
             </div>
@@ -98,7 +98,7 @@
             <div class="grains-left">
                 <div class="grains-logo"><img src="assets/gop-logo.png" alt="Grains of Peace"></div>
                 <div class="twenety-ft-grain">
-                    <button id="grainsPlay">Play/Pause Grains</button>
+                    <button id="grainsPlay"></button>
                     <span></span>
                 </div>
             </div>
