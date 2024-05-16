@@ -91,9 +91,8 @@
             </div>
         </div>
 
-        <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
-
         <div id="grainsWrapper" class="grains-wrapper">
+            <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
             <div class="grains-left">
                 <div class="grains-logo"><img src="assets/gop-logo.png" alt="Grains of Peace"></div>
                 <div class="twenety-ft-grain">
