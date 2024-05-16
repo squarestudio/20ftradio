@@ -88,40 +88,6 @@ window.Template.Controllers.CastController = function(element) {
                 date_container.remove();
             }
         });
-
-
-
-
-        var grainsAudio = Y.one('#grainsPlayer');
-        var grainsPlay = Y.one('#grainsPlay');
-        var shoutcastPlay = Y.one('#shoutcastPlay');
-
-        console.log(Y.one('shoutcastPlayer').getAttribute('title'));
-
-        // grainsPlay.addEventListener('click', function(){
-        //     if (grainsAudio.duration > 0 && !grainsAudio.paused) {
-        //         grainsAudio.pause();
-        //         grainsPlay.classList.add('paused');
-        //     } else {
-        //         document.getElementById('shoutcastPlayer').pause();
-        //         shoutcastPlay.classList.add('paused');
-        //
-        //         grainsAudio.play();
-        //         grainsPlay.classList.remove('paused');
-        //     }
-        // })
-        // shoutcastPlay.addEventListener('click', function(){
-        //     if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
-        //         document.getElementById('shoutcastPlayer').pause();
-        //         shoutcastPlay.classList.add('paused');
-        //     } else {
-        //         grainsAudio.pause();
-        //         grainsPlay.classList.add('paused');
-        //
-        //         document.getElementById('shoutcastPlayer').play();
-        //         shoutcastPlay.classList.remove('paused');
-        //     }
-        // })
     }
 
     function refreshImages() {
