@@ -52,8 +52,9 @@
                     <squarespace:navigation navigationId="pages" template="mobile-navigation"/>
                 </div>
             </div>
-            
-            <button id="shoutcastPlay">Play/Pause Shoutcast</button>
+
+            <div class="shoutcast"><button id="shoutcastPlay"></button></div>
+
             <squarespace:navigation navigationId="pages" template="navigation"/>
             <div class="site-player-block">
                 <div class="site-player paused not-init">
