@@ -113,6 +113,9 @@ window.Template.Controllers.CastController = function(element) {
             }
         });
 
+        const currentISOTime = getISOTimeStamp();
+        console.log(currentISOTime);
+
         Y.io('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
             headers: {
                 'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
@@ -155,6 +158,18 @@ window.Template.Controllers.CastController = function(element) {
                 shoutcastPlay.classList.remove('paused');
             }
         })
+
+        function getISOTimeStamp() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // Add leading zero for single-digit months
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}Z`;
+        }
     }
 
     function refreshImages() {
