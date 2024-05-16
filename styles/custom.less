@@ -3434,7 +3434,7 @@ body.ft20-playground {
         border: none;
         margin: 0;
 
-        &:after, &:before {
+        &:before, &:after {
             content: '';
             display: block;
             width: 4px;
@@ -3444,6 +3444,12 @@ body.ft20-playground {
             position: absolute;
             top: 0;
 
+        }
+        &:before {
+            left: 6px;
+        }
+        &:after {
+            right: 6px;
         }
 
         &.paused {
