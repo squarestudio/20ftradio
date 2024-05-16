@@ -109,6 +109,9 @@
           let grainsAudio = document.getElementById('grainsPlayer');
           let grainsPlay = document.getElementById('grainsPlay');
           let shoutcastPlay = document.getElementById('shoutcastPlay');
+
+          console.log(document.getElementById('shoutcastPlayer').title);
+
           grainsPlay.addEventListener('click', function(){
             if (grainsAudio.duration > 0 && !grainsAudio.paused) {
               grainsAudio.pause();
@@ -128,7 +131,7 @@
             } else {
               grainsAudio.pause();
               grainsPlay.classList.add('paused');
-              
+
               document.getElementById('shoutcastPlayer').play();
               shoutcastPlay.classList.remove('paused');
             }
