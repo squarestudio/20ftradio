@@ -54,7 +54,7 @@
             </div>
 
             <div class="twenety-ft-shoutcast">
-                <button id="shoutcastPlay"></button>
+                <button id="shoutcastPlay">Play/Pause shoutcast</button>
                 <span></span>
             </div>
 
@@ -92,7 +92,7 @@
         </div>
 
         <audio id="grainPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
-        <button id="grainPlay"></button>
+        <button id="grainPlay">Play/Pause Grain</button>
 
         <script>
           let grainAudio = document.getElementById('grainPlayer');
