@@ -114,9 +114,9 @@ window.Template.Controllers.CastController = function(element) {
         });
 
         var currentISOTime = getISOTimeStamp();
-        console.log(currentISOTime);
+        var myTimezone = "Europe/Kiev";
 
-        Y.io('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
+        Y.io('https://api.radiocult.fm/api/station/20ft%20Radio/schedule?startDate='+currentISOTime+'&endDate='+currentISOTime+'&timezone='+myTimezone, {
             headers: {
                 'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
             },
