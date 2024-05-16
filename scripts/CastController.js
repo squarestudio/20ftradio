@@ -113,7 +113,7 @@ window.Template.Controllers.CastController = function(element) {
             }
         });
 
-        const currentISOTime = getISOTimeStamp();
+        var currentISOTime = getISOTimeStamp();
         console.log(currentISOTime);
 
         Y.io('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
