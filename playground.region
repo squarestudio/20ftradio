@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <div class="20ft-shoutcast">
+            <div class="twenety-ft-shoutcast">
                 <button id="shoutcastPlay"></button>
                 <span></span>
             </div>
