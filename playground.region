@@ -105,6 +105,39 @@
             <div class="grains-right"><a target="_blank" href="https://20ftradio.net/grains-of-peace-series/">FULL SERIES</a></div>
         </div>
 
+        <script>
+          let grainsAudio = document.getElementById('grainsPlayer');
+          let grainsPlay = document.getElementById('grainsPlay');
+          let shoutcastPlay = document.getElementById('shoutcastPlay');
+
+          console.log(document.getElementById('shoutcastPlayer').title);
+
+          grainsPlay.addEventListener('click', function(){
+            if (grainsAudio.duration > 0 && !grainsAudio.paused) {
+              grainsAudio.pause();
+              grainsPlay.classList.add('paused');
+            } else {
+              document.getElementById('shoutcastPlayer').pause();
+              shoutcastPlay.classList.add('paused');
+
+              grainsAudio.play();
+              grainsPlay.classList.remove('paused');
+            }
+          })
+          shoutcastPlay.addEventListener('click', function(){
+            if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
+              document.getElementById('shoutcastPlayer').pause();
+              shoutcastPlay.classList.add('paused');
+            } else {
+              grainsAudio.pause();
+              grainsPlay.classList.add('paused');
+
+              document.getElementById('shoutcastPlayer').play();
+              shoutcastPlay.classList.remove('paused');
+            }
+          })
+        </script>
+
     </header>
     {.end}
     <div class="sqs-cart-dropzone"></div>
@@ -253,38 +286,6 @@
 <squarespace:script src="payment.js" combo="true"/>
 <squarespace:script src="general.js" combo="false"/>
 <squarespace:script src="CastController.js" combo="true"/>
-
-<script>
-
-    let grainsAudio = document.getElementById('#grainsPlayer');
-    let grainsPlay = document.getElementById('#grainsPlay');
-    let shoutcastPlay = document.getElementById('#shoutcastPlay');
-
-    grainsPlay.addEventListener('click', function(){
-        if (grainsAudio.duration > 0 && !grainsAudio.paused) {
-            grainsAudio.pause();
-            grainsPlay.classList.add('paused');
-        } else {
-            document.getElementById('shoutcastPlayer').pause();
-            shoutcastPlay.classList.add('paused');
-
-            grainsAudio.play();
-            grainsPlay.classList.remove('paused');
-        }
-    })
-    shoutcastPlay.addEventListener('click', function(){
-        if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
-            document.getElementById('shoutcastPlayer').pause();
-            shoutcastPlay.classList.add('paused');
-        } else {
-            grainsAudio.pause();
-            grainsPlay.classList.add('paused');
-
-            document.getElementById('shoutcastPlayer').play();
-            shoutcastPlay.classList.remove('paused');
-        }
-    })
-</script>
 
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
