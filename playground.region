@@ -107,7 +107,9 @@
 
         <script>
           let grainsAudio = document.getElementById('grainsPlayer');
-          document.getElementById('grainsPlay').addEventListener('click', function(){
+          let grainsPlay = document.getElementById('grainsPlay');
+          let shoutcastPlay = document.getElementById('shoutcastPlay');
+          grainsPlay.addEventListener('click', function(){
             if (grainsAudio.duration > 0 && !grainsAudio.paused) {
               grainsAudio.pause();
             } else {
@@ -115,7 +117,7 @@
               grainsAudio.play();
             }
           })
-          document.getElementById('shoutcastPlay').addEventListener('click', function(){
+          shoutcastPlay.addEventListener('click', function(){
             if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
               document.getElementById('shoutcastPlayer').pause();
             } else {
