@@ -52,6 +52,8 @@
                     <squarespace:navigation navigationId="pages" template="mobile-navigation"/>
                 </div>
             </div>
+            
+            <button id="shoutcastPlay">Play/Pause Shoutcast</button>
             <squarespace:navigation navigationId="pages" template="navigation"/>
             <div class="site-player-block">
                 <div class="site-player paused not-init">
@@ -86,7 +88,6 @@
         </div>
 
         <audio id="grainPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
-        <button id="shoutcastPlay">Play/Pause Shoutcast</button>
         <button id="grainPlay">Play/Pause Grain</button>
 
         <script>
