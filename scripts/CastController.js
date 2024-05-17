@@ -113,9 +113,6 @@ window.Template.Controllers.CastController = function(element) {
             }
         });
 
-        var currentISOTime = getISOTimeStamp();
-        var myTimezone = "Europe/Kiev";
-
         Y.io('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
             headers: {
                 'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
@@ -125,7 +122,7 @@ window.Template.Controllers.CastController = function(element) {
                     var resp = JSON.parse(data.response);
                     console.log(data);
                     console.log(resp);
-                    grainsPlay.parentElement.querySelector('span').innerText = resp.result.content.title;
+                    grainsPlay.parentElement.querySelector('span').innerText = resp.result.content.name;
                 },
                 failure: function() {
                     console.log('no rust');
@@ -158,11 +155,6 @@ window.Template.Controllers.CastController = function(element) {
                 shoutcastPlay.classList.remove('paused');
             }
         })
-
-        function getISOTimeStamp() {
-            var now = new Date();
-            return now.toISOString();
-        }
     }
 
     function refreshImages() {
