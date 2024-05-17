@@ -91,7 +91,7 @@
         <div id="grainsWrapper" class="grains-wrapper">
             <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
             <div class="grains-left">
-                <div class="grains-logo"><img src="assets/gop-logo.png" alt="Grains of Peace"></div>
+                <div class="grains-logo"><a target="_blank" href="https://20ftradio.net/grains-of-peace-series/"><img src="assets/gop-logo.png" alt="Grains of Peace"></a></div>
                 <div class="twenty-ft-grains">
                     <button id="grainsPlay" class="paused"></button>
                     <span></span>
@@ -99,7 +99,7 @@
             </div>
             <div class="grains-right"><a target="_blank" href="https://20ftradio.net/grains-of-peace-series/">FULL SERIES</a></div>
         </div>
-        
+
         <div id="mobileNav">
             <div class="wrapper">
                 <squarespace:navigation navigationId="pages" template="mobile-navigation"/>
