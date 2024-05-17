@@ -3618,40 +3618,45 @@ body.ft20-playground {
 }
 
 @media only screen and (max-width:1025px) {
-    body.ft20-playground #mobile-navigation {
-        display: block;
-    }
-    body.ft20-playground #navigator header#topBar {
-        padding-top: 0;
+    body.ft20-playground {
+        #shoutcastPlay {
+            margin-left: 39px;
+        }
+        #mobile-navigation {
+            display: block;
+        }
+        #navigator header#topBar {
+            padding-top: 0;
 
-        .topBar-top {
-            padding: 0 5px;
+            .topBar-top {
+                padding: 0 5px;
 
-            .topBar-top-left .siteTitle {
-                margin-left: 5px;
-                width: auto;
+                .topBar-top-left .siteTitle {
+                    margin-left: 12px;
+                    width: auto;
 
 
-                a {
-                    padding: 5px 0 !important;
+                    a {
+                        padding: 5px 0 !important;
 
-                    img {
-                        width: 42px;
-                        height: 42px;
+                        img {
+                            width: 42px;
+                            height: 42px;
+                        }
                     }
                 }
+                .nav-container {
+                    display: none;
+                }
             }
-            .nav-container {
-                display: none;
-            }
-        }
-        #grainsWrapper {
-            padding: 3px 5px;
+            #grainsWrapper {
+                padding: 3px 5px;
 
-            .grains-left .grains-logo img {
-                height: 46px;
-            }
+                .grains-left .grains-logo img {
+                    height: 46px;
+                }
 
+            }
         }
     }
 }
