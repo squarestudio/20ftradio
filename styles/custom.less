@@ -3679,15 +3679,11 @@ body.ft20-playground {
     }
 }
 @media only screen and (max-width:767px) {
-    body.ft20-playground {
-        #navigator {
-            header#topBar {
-                #grainsWrapper {
-                    .grains-right {
-                        display: none;
-                    }
-                }
-            }
-        }
+    body.ft20-playground #navigator header#topBar #grainsWrapper .grains-right {
+        display: none;
+    }
+    body.ft20-playground #navigator header#topBar .topBar-top .topBar-top-left .siteTitle a img {
+        height: 31px;
+        width: 31px;
     }
 }
