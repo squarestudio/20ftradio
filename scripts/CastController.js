@@ -50,7 +50,7 @@ window.Template.Controllers.CastController = function(element) {
 
     function initialize() {
         if (!firstRun) {
-            Y.on('mixcloud:play', function () {
+            Y.on('mixcloud:play', function() {
                 console.log('MIXCLOUD PLAY');
                 userPaused = true;
                 pausePlayersExept('all');
@@ -68,18 +68,21 @@ window.Template.Controllers.CastController = function(element) {
                 window.top.Y.one('#sqs-site-frame').addClass('content-loaded');
             }
         }
-
-        // let onMetadata = (metadata) => {
-        //     document.getElementById("metadata").innerHTML = metadata.StreamTitle;
-        // };
-        // let player =
-        // new IcecastMetadataPlayer(
-        //     "https://20ft-radio.radiocult.fm/stream", // stream endpoint
-        //     {onMetadata} // options (onMetadata callback)
-        // );
-
-
-        Y.all('.date-container').each(function (date_container) {
+        var currentTime = new Date();
+        var siteTimezoneOffset = Static.SQUARESPACE_CONTEXT.website.timeZoneOffset;
+        var userTimezoneOffset = currentTime.getTimezoneOffset() * 60 * 1000;
+        currentTime = currentTime.getTime();
+        var events = Array.prototype.slice.call(document.querySelectorAll('.eventlist--upcoming .event-item'));
+        if (events.length) {
+            events.forEach(function(event) {
+                //console.log(event, currentTime>new Date(parseInt(event.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset).getTime())
+                if (currentTime >= new Date(parseInt(event.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset).getTime()) {
+                    event && event.parentNode.removeChild(event);
+                    console.log('removed')
+                }
+            })
+        }
+        Y.all('.date-container').each(function(date_container) {
             if (!date_container.one('.event-item')) {
                 console.log('ss')
                 date_container.remove();
@@ -95,14 +98,14 @@ window.Template.Controllers.CastController = function(element) {
                 'Content-Type': 'application/json'
             },
             on: {
-                success: function (i, data) {
+                success: function(i, data) {
                     if (data.status === 200 && data.readyState === 4) {
                         var resp = JSON.parse(data.response);
                         shoutcastPlay.parentElement.querySelector('span').innerText = resp.shoutcast.track;
                     }
                     shoutcastStatusFactor = false;
                 },
-                failure: function () {
+                failure: function() {
                     console.log('SHOUTCAST STATUS FALSE');
                     shoutcastStatus = false;
                     shoutcastStatusFactor = false;
@@ -115,20 +118,20 @@ window.Template.Controllers.CastController = function(element) {
                 'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
             },
             on: {
-                success: function (i, data) {
+                success: function(i, data) {
                     var resp = JSON.parse(data.response);
                     console.log(data);
                     console.log(resp);
                     grainsPlay.parentElement.querySelector('span').innerText = resp.result.content.name;
                 },
-                failure: function () {
+                failure: function() {
                     console.log('no rust');
                 }
             }
         });
 
 
-        grainsPlay.addEventListener('click', function () {
+        grainsPlay.addEventListener('click', function(){
             if (grainsAudio.duration > 0 && !grainsAudio.paused) {
                 grainsAudio.pause();
                 grainsPlay.classList.add('paused');
@@ -140,7 +143,7 @@ window.Template.Controllers.CastController = function(element) {
                 grainsPlay.classList.remove('paused');
             }
         })
-        shoutcastPlay.addEventListener('click', function () {
+        shoutcastPlay.addEventListener('click', function(){
             if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
                 document.getElementById('shoutcastPlayer').pause();
                 shoutcastPlay.classList.add('paused');
@@ -159,7 +162,7 @@ window.Template.Controllers.CastController = function(element) {
             Y.one('#fbPlayer').setAttribute('data-width', castContainer.get('offsetWidth'));
             Y.one('#fbPlayer').setAttribute('data-height', castContainer.get('offsetHeight'));
         }
-        castContainer.all('img').each(function (img) {
+        castContainer.all('img').each(function(img) {
             img.removeAttribute('data-load');
             ImageLoader.load(img, { load: true });
         });
