@@ -273,7 +273,7 @@
         "https://20ft-radio.radiocult.fm/stream", // stream endpoint
         { onMetadata }                        // options (onMetadata callback)
     );
-    console.log(metadata);
+    console.log(metadata.StreamTitle);
   });
 </script>
 
