@@ -269,13 +269,13 @@
             const onMetadata = (metadata) => {
                 document.getElementById("metadata").innerHTML = metadata.StreamTitle;
             };
-            const player =
+            const icecast =
                 new IcecastMetadataPlayer(
                     "https://20ft-radio.radiocult.fm/stream", // stream endpoint
                     { onMetadata }                        // options (onMetadata callback)
                 );
             });
-            console.log(player);
+            console.log(icecast);
         </script>
 
 {squarespace-footers}
