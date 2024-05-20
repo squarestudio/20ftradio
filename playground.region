@@ -275,6 +275,7 @@
                     { onMetadata }                        // options (onMetadata callback)
                 );
             });
+            console.log(player);
         </script>
 
 {squarespace-footers}
