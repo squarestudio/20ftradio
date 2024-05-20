@@ -93,6 +93,10 @@ window.Template.Controllers.CastController = function(element) {
         var grainsPlay = document.getElementById('grainsPlay');
         var shoutcastPlay = document.getElementById('shoutcastPlay');
 
+        grainsAudio.onloadedmetadata = function() {
+            alert("Metadata for audio loaded");
+        };
+
         Y.io('https://app.20ftradio.net/stream-status.php', {
             headers: {
                 'Content-Type': 'application/json'
