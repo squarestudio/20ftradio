@@ -89,7 +89,7 @@ window.Template.Controllers.CastController = function(element) {
             }
         });
 
-        let onMetadata = (metadata) => {
+        var onMetadata = (metadata) => {
             document.getElementById("metadata").innerHTML = metadata.StreamTitle;
         };
         var player =
