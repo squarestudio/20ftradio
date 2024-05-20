@@ -277,7 +277,6 @@
             });
             console.log(icecast);
           });
-
         </script>
 
 {squarespace-footers}
