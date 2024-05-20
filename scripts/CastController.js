@@ -131,7 +131,7 @@ window.Template.Controllers.CastController = function(element) {
                     var resp = JSON.parse(data.response);
                     console.log(data);
                     console.log(resp);
-                    grainsPlay.parentElement.querySelector('span').innerText = resp.result.content.name;
+                    grainsPlay.parentElement.querySelector('span').innerText = resp.result.content.title;
                 },
                 failure: function() {
                     console.log('no rust');
