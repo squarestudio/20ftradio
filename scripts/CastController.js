@@ -69,9 +69,9 @@ window.Template.Controllers.CastController = function(element) {
             }
         }
 
-        let onMetadata = (metadata) => {
-            document.getElementById("metadata").innerHTML = metadata.StreamTitle;
-        };
+        // let onMetadata = (metadata) => {
+        //     document.getElementById("metadata").innerHTML = metadata.StreamTitle;
+        // };
         // let player =
         // new IcecastMetadataPlayer(
         //     "https://20ft-radio.radiocult.fm/stream", // stream endpoint
