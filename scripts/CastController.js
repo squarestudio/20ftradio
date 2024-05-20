@@ -74,7 +74,7 @@ window.Template.Controllers.CastController = function(element) {
         };
         let player =
         new IcecastMetadataPlayer(
-            "https://dsmrad.io/stream/isics-all", // stream endpoint
+            "https://20ft-radio.radiocult.fm/stream", // stream endpoint
             {onMetadata} // options (onMetadata callback)
         );
 
