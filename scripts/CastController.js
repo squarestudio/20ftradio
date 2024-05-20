@@ -72,11 +72,11 @@ window.Template.Controllers.CastController = function(element) {
         let onMetadata = (metadata) => {
             document.getElementById("metadata").innerHTML = metadata.StreamTitle;
         };
-        let player =
-        new IcecastMetadataPlayer(
-            "https://20ft-radio.radiocult.fm/stream", // stream endpoint
-            {onMetadata} // options (onMetadata callback)
-        );
+        // let player =
+        // new IcecastMetadataPlayer(
+        //     "https://20ft-radio.radiocult.fm/stream", // stream endpoint
+        //     {onMetadata} // options (onMetadata callback)
+        // );
 
 
         Y.all('.date-container').each(function (date_container) {
