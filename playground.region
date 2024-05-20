@@ -266,16 +266,7 @@
         <script>
 
           window.Squarespace.onInitialize(Y, function() {
-            const onMetadata = (metadata) => {
-                document.getElementById("metadata").innerHTML = metadata.StreamTitle;
-            };
-            const icecast =
-                new IcecastMetadataPlayer(
-                    "https://20ft-radio.radiocult.fm/stream", // stream endpoint
-                    { onMetadata }                        // options (onMetadata callback)
-                );
-            });
-            console.log(icecast);
+            
           });
         </script>
 
