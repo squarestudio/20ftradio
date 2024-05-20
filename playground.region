@@ -292,7 +292,7 @@
    }
 
    // Example usage
-   const targetUrl = "https://app.radiocult.fm/embed/player/20ft%20Radio?theme=midnight&primaryColor=%2384D8F9&corners=rounded";
+   const targetUrl = "https://app.radiocult.fm/embed/player/20ft%20Radio";
    fetchData(targetUrl);
   });
 </script>
