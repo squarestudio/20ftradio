@@ -238,6 +238,7 @@
 <!-- <script src="//widget.mixcloud.com/media/js/footerWidgetApi.js" type="text/javascript"></script> -->
 <squarespace:script src="icecast-metadata-player-1.17.3.main.min.js" combo="false"/>
 <squarespace:script src="icecast-metadata-player-1.17.3.mediasource.min.js" combo="false"/>
+<squarespace:script src="icecast-metadata-player-1.17.3.synaudio.min.js" combo="false"/>
 <squarespace:script src="masonry.pkgd.min.js" combo="false"/>
 <squarespace:script src="imagesloaded.pkgd.min.js" combo="false"/>
 <squarespace:script src="moment.js" combo="true"/>
