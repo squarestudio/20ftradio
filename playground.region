@@ -263,12 +263,11 @@
 
 
 
-        <script>
-
-          window.Squarespace.onInitialize(Y, function() {
-            
-          });
-        </script>
+<script>
+  window.Squarespace.onInitialize(Y, function() {
+    
+  });
+</script>
 
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
