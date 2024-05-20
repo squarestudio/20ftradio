@@ -94,8 +94,8 @@ window.Template.Controllers.CastController = function(element) {
         // };
         let player =
             new IcecastMetadataPlayer(
-                "https://dsmrad.io/stream/isics-all", // stream endpoint
-                { onMetadata }                        // options (onMetadata callback)
+                // "https://dsmrad.io/stream/isics-all", // stream endpoint
+                // { onMetadata }                        // options (onMetadata callback)
             );
 
         var grainsAudio = document.getElementById('grainsPlayer');
