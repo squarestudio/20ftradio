@@ -265,9 +265,9 @@
 
 
 
-<script>
+<!-- <script>
   window.Squarespace.onInitialize(Y, function() {
-    <!-- const onMetadata = (metadata) => {
+   const onMetadata = (metadata) => {
         document.getElementById("metadata").innerHTML = metadata.StreamTitle;
         console.log(metadata.StreamTitle);
     };
@@ -275,9 +275,9 @@
     new IcecastMetadataPlayer(
         "//20ft-radio.radiocult.fm/stream",
         { onMetadata }
-    ); -->
+    );
   });
-</script>
+</script> -->
 
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
