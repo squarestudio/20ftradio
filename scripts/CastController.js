@@ -101,7 +101,6 @@ window.Template.Controllers.CastController = function(element) {
                 success: function(i, data) {
                     if (data.status === 200 && data.readyState === 4) {
                         var resp = JSON.parse(data.response);
-                        console.log(resp);
                         shoutcastPlay.parentElement.querySelector('span').innerText = resp.shoutcast.track;
                     }
                     shoutcastStatusFactor = false;
@@ -121,6 +120,7 @@ window.Template.Controllers.CastController = function(element) {
             on: {
                 success: function(i, data) {
                     var resp = JSON.parse(data.response);
+                    console.log(resp);
                     grainsPlay.parentElement.querySelector('span').innerText = resp.result.content.title;
                 },
                 failure: function() {
