@@ -270,7 +270,7 @@
     };
     const player =
     new IcecastMetadataPlayer(
-        "https://20ft-radio.radiocult.fm/stream", // stream endpoint
+        "//20ft-radio.radiocult.fm/stream", // stream endpoint
         { onMetadata }                        // options (onMetadata callback)
     );
     console.log(metadata.StreamTitle);
