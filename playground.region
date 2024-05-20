@@ -285,13 +285,7 @@
        const parser = new DOMParser();
        const doc = parser.parseFromString(htmlString, "text/html");
 
-       // You can now access and parse the HTML elements from the doc object
-       // For example, to get all elements with the class "my-class":
-       const elements = doc.querySelectorAll(".my-class");
-
-       // Process the elements as needed
-       console.log(elements);
-
+       console.log(doc);
      } catch (error) {
        console.error("Error fetching data:", error);
      }
