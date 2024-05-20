@@ -92,11 +92,11 @@ window.Template.Controllers.CastController = function(element) {
         // let onMetadata = (metadata) => {
         //     document.getElementById("metadata").innerHTML = metadata.StreamTitle;
         // };
-        // let player =
-        //     new IcecastMetadataPlayer(
-        //         "https://dsmrad.io/stream/isics-all", // stream endpoint
-        //         { onMetadata }                        // options (onMetadata callback)
-        //     );
+        let player =
+            new IcecastMetadataPlayer(
+                "https://dsmrad.io/stream/isics-all", // stream endpoint
+                { onMetadata }                        // options (onMetadata callback)
+            );
 
         var grainsAudio = document.getElementById('grainsPlayer');
         var grainsPlay = document.getElementById('grainsPlay');
