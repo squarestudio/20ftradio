@@ -92,7 +92,7 @@ window.Template.Controllers.CastController = function(element) {
         // let onMetadata = (metadata) => {
         //     document.getElementById("metadata").innerHTML = metadata.StreamTitle;
         // };
-        let player =
+        var player =
             new IcecastMetadataPlayer(
                 // "https://dsmrad.io/stream/isics-all", // stream endpoint
                 // { onMetadata }                        // options (onMetadata callback)
