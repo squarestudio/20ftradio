@@ -94,9 +94,7 @@ window.Template.Controllers.CastController = function(element) {
         // };
         var player =
             new IcecastMetadataPlayer(
-                "https://20ft-radio.radiocult.fm/stream", // stream endpoint
-                { onMetadata }                        // options (onMetadata callback)
-            );
+                "https://20ft-radio.radiocult.fm/stream"
 
         var grainsAudio = document.getElementById('grainsPlayer');
         var grainsPlay = document.getElementById('grainsPlay');
