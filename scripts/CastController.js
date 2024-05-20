@@ -89,6 +89,15 @@ window.Template.Controllers.CastController = function(element) {
             }
         });
 
+        const onMetadata = (metadata) => {
+            document.getElementById("metadata").innerHTML = metadata.StreamTitle;
+        };
+        const player =
+            new IcecastMetadataPlayer(
+                "https://dsmrad.io/stream/isics-all", // stream endpoint
+                { onMetadata }                        // options (onMetadata callback)
+            );
+
         var grainsAudio = document.getElementById('grainsPlayer');
         var grainsPlay = document.getElementById('grainsPlay');
         var shoutcastPlay = document.getElementById('shoutcastPlay');
