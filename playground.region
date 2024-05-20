@@ -271,7 +271,7 @@
     const player =
     new IcecastMetadataPlayer(
         "//20ft-radio.radiocult.fm/stream",
-        { onMetadata }
+        { onMetadata: (metadata) => {console.log(metadata)} }
     );
     console.log(metadata.StreamTitle);
   });
