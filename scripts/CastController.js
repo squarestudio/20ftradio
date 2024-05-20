@@ -139,8 +139,6 @@ window.Template.Controllers.CastController = function(element) {
 
                 grainsAudio.play();
                 grainsPlay.classList.remove('paused');
-
-                console.log(grainsAudio.title);
             }
         })
         shoutcastPlay.addEventListener('click', function(){
