@@ -265,7 +265,9 @@
 
 <script>
   window.Squarespace.onInitialize(Y, function() {
-    
+    const onMetadata = (metadata) => {
+        document.getElementById("metadata").innerHTML = metadata.StreamTitle;
+    };
   });
 </script>
 
