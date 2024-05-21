@@ -118,7 +118,6 @@
     {.end}
     <div class="sqs-cart-dropzone"></div>
     <squarespace:query collection="cast" limit="2">
-        <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
         {.if items}
         {.section items.0}
         <div class="castWrapper">
@@ -128,6 +127,8 @@
                  data-facebook-url="{customContent.facebookUrl}"
                  data-soundcloud-url="{customContent.soundCloudUrl}"
                  data-shoutcast-url="{customContent.shoutcastUrl}">
+
+                <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
                 <!-- {.if customContent.gallery && customContent.showGallery}
                     <div class="stream-gallery">
                         <div class="swiper-container">
