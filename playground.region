@@ -268,7 +268,7 @@
 
 
 
-<script>
+<!-- <script>
   window.Squarespace.onInitialize(Y, function() {
     var audioElement = document.getElementById("grainsPlayer");
     var icecastMetadataPlayer;
@@ -296,7 +296,7 @@
       );
     stats.start();
   });
-</script>
+</script> -->
 
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
