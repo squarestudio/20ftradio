@@ -20,15 +20,6 @@
 
     <script src="scripts/icecast-metadata-player-1.17.3.main.min.js"></script>
 
-    <script>
-        // helper functions for the demo
-        let icecastMetadataPlayer;
-
-        const onMetadata = (metadata) => {
-            document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
-        };
-    </script>
-
 
     {squarespace-headers}
     <script>
@@ -277,7 +268,14 @@
 
 <script>
   window.Squarespace.onInitialize(Y, function() {
-      const audioElement = document.getElementById("grainsPlayer");
+    const audioElement = document.getElementById("grainsPlayer");
+
+    // helper functions for the demo
+    let icecastMetadataPlayer;
+
+    const onMetadata = (metadata) => {
+        document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
+    };
 
       const getIcecastMetadataPlayer = () => {
           icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
