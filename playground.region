@@ -278,7 +278,6 @@
 <script>
   window.Squarespace.onInitialize(Y, function() {
       const audioElement = document.getElementById("grainsPlayer");
-      let metadataEl = document.getElementById("streamTitle");
 
       const getIcecastMetadataPlayer = () => {
           icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
