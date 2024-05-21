@@ -144,12 +144,12 @@ window.Template.Controllers.CastController = function(element) {
         function onMetadata(metadata) {
             document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
         }
-        // function getIcecastMetadataPlayer() {
-        //     icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
-        //         audioElement: audioElement,
-        //         onMetadata: onMetadata,
-        //     });
-        // }
+        function getIcecastMetadataPlayer() {
+            icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
+                audioElement: audioElement,
+                onMetadata: onMetadata,
+            });
+        }
 
         // getIcecastMetadataPlayer();
 
