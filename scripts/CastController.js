@@ -141,28 +141,28 @@ window.Template.Controllers.CastController = function(element) {
         var audioElement = document.getElementById("grainsPlayer");
         var icecastMetadataPlayer;
 
-        var onMetadata = (metadata) => {
-            document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
-        };
-        var getIcecastMetadataPlayer = () => {
-            icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
-                audioElement,
-                onMetadata,
-            });
-        };
-
-        getIcecastMetadataPlayer();
-
-
-        var onStats = (stats) => {
-            document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
-        };
-        var stats =
-            new IcecastMetadataStats(
-                "https://20ft-radio.radiocult.fm/stream", // stream endpoint
-                { onStats, sources: ["icy"] }         // options (stats callback, stats sources)
-            );
-        stats.start();
+        // var onMetadata = (metadata) => {
+        //     document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
+        // };
+        // var getIcecastMetadataPlayer = () => {
+        //     icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
+        //         audioElement,
+        //         onMetadata,
+        //     });
+        // };
+        //
+        // getIcecastMetadataPlayer();
+        //
+        //
+        // var onStats = (stats) => {
+        //     document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
+        // };
+        // var stats =
+        //     new IcecastMetadataStats(
+        //         "https://20ft-radio.radiocult.fm/stream", // stream endpoint
+        //         { onStats, sources: ["icy"] }         // options (stats callback, stats sources)
+        //     );
+        // stats.start();
     }
 
     function refreshImages() {
