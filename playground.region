@@ -268,35 +268,11 @@
 
 
 
-<!-- <script>
+<script>
   window.Squarespace.onInitialize(Y, function() {
-    var audioElement = document.getElementById("grainsPlayer");
-    var icecastMetadataPlayer;
-
-    var onMetadata = (metadata) => {
-        document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
-    };
-    var getIcecastMetadataPlayer = () => {
-      icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
-          audioElement,
-          onMetadata,
-      });
-    };
-
-    getIcecastMetadataPlayer();
-
-
-    const onStats = (stats) => {
-      document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
-    };
-    const stats =
-      new IcecastMetadataStats(
-        "https://20ft-radio.radiocult.fm/stream", // stream endpoint
-        { onStats, sources: ["icy"] }         // options (stats callback, stats sources)
-      );
-    stats.start();
+   
   });
-</script> -->
+</script>
 
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
