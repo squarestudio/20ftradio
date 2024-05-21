@@ -141,18 +141,22 @@ window.Template.Controllers.CastController = function(element) {
         var audioElement = document.getElementById("grainsPlayer");
         var icecastMetadataPlayer;
 
+        // Function for handling metadata
         function onMetadata(metadata) {
             document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
         }
+
+// Function to create the Icecast player
         function getIcecastMetadataPlayer() {
             icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
-                audioElement: audioElement,
+                audioElement: audioElement, // Assuming audioElement is defined elsewhere
                 onMetadata: onMetadata,
             });
         }
 
-        // getIcecastMetadataPlayer();
-
+// Call the player creation function
+        getIcecastMetadataPlayer();
+        //
         //
         // var onStats = (stats) => {
         //     document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
