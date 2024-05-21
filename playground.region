@@ -22,7 +22,7 @@
 
     <script>
         // helper functions for the demo
-        let icecastMetadataPlayer, metadataEl;
+        let icecastMetadataPlayer;
 
         const onMetadata = (metadata) => {
             document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
