@@ -151,7 +151,7 @@ window.Template.Controllers.CastController = function(element) {
         //     });
         // }
 
-        getIcecastMetadataPlayer();
+        // getIcecastMetadataPlayer();
 
         //
         // var onStats = (stats) => {
