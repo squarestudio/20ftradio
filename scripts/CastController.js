@@ -146,7 +146,7 @@ window.Template.Controllers.CastController = function(element) {
             document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
         }
 
-// Function to create the Icecast player
+        // Function to create the Icecast player
         function getIcecastMetadataPlayer() {
             icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
                 audioElement: audioElement, // Assuming audioElement is defined elsewhere
@@ -154,7 +154,7 @@ window.Template.Controllers.CastController = function(element) {
             });
         }
 
-// Call the player creation function
+        // Call the player creation function
         getIcecastMetadataPlayer();
         //
         //
