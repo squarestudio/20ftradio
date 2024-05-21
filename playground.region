@@ -127,8 +127,6 @@
                  data-facebook-url="{customContent.facebookUrl}"
                  data-soundcloud-url="{customContent.soundCloudUrl}"
                  data-shoutcast-url="{customContent.shoutcastUrl}">
-
-                <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
                 <!-- {.if customContent.gallery && customContent.showGallery}
                     <div class="stream-gallery">
                         <div class="swiper-container">
@@ -158,6 +156,8 @@
                     </svg>
                 </div>
                 <div class="live-indicator">● Live</div>
+
+                <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
             </div>
         </div>
         {.end}
