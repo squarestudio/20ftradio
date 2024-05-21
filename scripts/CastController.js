@@ -1081,7 +1081,6 @@ window.Template.Controllers.CastController = function(element) {
                         }
                         if (resp && resp.shoutcast && resp.shoutcast.live) {
                             var current_song = resp.shoutcast.track.trim();
-                            console.log(resp);
                             current_song = 'Now playing: ' + current_song;
                             if (trackName.get('text') !== current_song && current_song !== 'Now playing: ' && activePlayer === 'shoutcast') {
                                 trackName.one('span').set('text', current_song);
