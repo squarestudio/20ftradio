@@ -20,6 +20,16 @@
 
     <script src="scripts/icecast-metadata-player-1.17.3.main.min.js"></script>
 
+    <script>
+        // helper functions for the demo
+        let icecastMetadataPlayer, metadataEl;
+
+        const onMetadata = (metadata) => {
+            metadataEl.innerHTML = metadata.StreamTitle;
+        };
+    </script>
+
+
     {squarespace-headers}
     <script>
         window.Template = {
