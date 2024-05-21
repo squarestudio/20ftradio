@@ -112,7 +112,7 @@ window.Template.Controllers.CastController = function(element) {
                 }
             }
         });
-        
+
         grainsPlay.addEventListener('click', function(){
             if (grainsAudio.duration > 0 && !grainsAudio.paused) {
                 grainsAudio.pause();
@@ -137,6 +137,32 @@ window.Template.Controllers.CastController = function(element) {
                 shoutcastPlay.classList.remove('paused');
             }
         })
+
+        var audioElement = document.getElementById("grainsPlayer");
+        var icecastMetadataPlayer;
+
+        var onMetadata = (metadata) => {
+            document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
+        };
+        var getIcecastMetadataPlayer = () => {
+            icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
+                audioElement,
+                onMetadata,
+            });
+        };
+
+        getIcecastMetadataPlayer();
+
+
+        var onStats = (stats) => {
+            document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
+        };
+        var stats =
+            new IcecastMetadataStats(
+                "https://20ft-radio.radiocult.fm/stream", // stream endpoint
+                { onStats, sources: ["icy"] }         // options (stats callback, stats sources)
+            );
+        stats.start();
     }
 
     function refreshImages() {
