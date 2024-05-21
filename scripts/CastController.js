@@ -141,18 +141,18 @@ window.Template.Controllers.CastController = function(element) {
         var audioElement = document.getElementById("grainsPlayer");
         var icecastMetadataPlayer;
 
-        // var onMetadata = (metadata) => {
-        //     document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
-        // };
-        // var getIcecastMetadataPlayer = () => {
-        //     icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
-        //         audioElement,
-        //         onMetadata,
-        //     });
-        // };
-        //
-        // getIcecastMetadataPlayer();
-        //
+        function onMetadata(metadata) {
+            document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
+        }
+        function getIcecastMetadataPlayer() {
+            icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
+                audioElement: audioElement,
+                onMetadata: onMetadata,
+            });
+        }
+
+        getIcecastMetadataPlayer();
+
         //
         // var onStats = (stats) => {
         //     document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
