@@ -102,7 +102,7 @@
                 <div class="grains-logo"><a target="_blank" href="https://20ftradio.net/grains-of-peace-series/"><img src="assets/gop-logo.png" alt="Grains of Peace"></a></div>
                 <div class="twenty-ft-grains">
                     <button id="grainsPlay" class="paused"></button>
-                    <span><div id="metadata"></div></span>
+                    <span><div id="streamTitle"></div></span>
                 </div>
             </div>
             <div class="grains-right"><a target="_blank" href="https://20ftradio.net/grains-of-peace-series/">FULL SERIES</a></div>
@@ -274,7 +274,8 @@
     let icecastMetadataPlayer;
 
     const onMetadata = (metadata) => {
-        console.log(metadata.StreamTitle);
+    console.log(metadata.StreamTitle);
+        document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
     };
 
       const getIcecastMetadataPlayer = () => {
