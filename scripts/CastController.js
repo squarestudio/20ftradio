@@ -156,8 +156,7 @@ window.Template.Controllers.CastController = function(element) {
 
         // Call the player creation function
         getIcecastMetadataPlayer();
-        //
-        //
+
         // var onStats = (stats) => {
         //     document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
         // };
