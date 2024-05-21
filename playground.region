@@ -117,9 +117,8 @@
     </header>
     {.end}
     <div class="sqs-cart-dropzone"></div>
-
-    <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
     <squarespace:query collection="cast" limit="2">
+        <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
         {.if items}
         {.section items.0}
         <div class="castWrapper">
