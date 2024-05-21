@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-    <!-- <script src="scripts/icecast-metadata-player-1.17.3.main.min.js"></script> -->
+    <script src="scripts/icecast-metadata-player-1.17.3.main.min.js"></script>
     <script src="scripts/icecast-metadata-stats-0.1.11.min.js"></script>
 
 
@@ -269,7 +269,22 @@
 
 <script>
   window.Squarespace.onInitialize(Y, function() {
-    
+    var audioElement = document.getElementById("grainsPlayer");
+    var icecastMetadataPlayer;
+
+    var onMetadata = (metadata) => {
+        document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
+    };
+    var getIcecastMetadataPlayer = () => {
+      icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
+          audioElement,
+          onMetadata,
+      });
+    };
+
+    getIcecastMetadataPlayer();
+
+
     const onStats = (stats) => {
       document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
     };
