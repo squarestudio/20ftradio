@@ -263,35 +263,6 @@
 
 
 <script>
-  window.Squarespace.onInitialize(Y, function() {
-   // Function to fetch and parse HTML data
-   async function fetchData(url) {
-     try {
-       // Fetch the HTML content
-       const response = await fetch(url);
-
-       // Check for successful response
-       if (!response.ok) {
-         throw new Error(`HTTP error! status: ${response.status}`);
-       }
-
-       // Get the HTML content as text
-       const htmlString = await response.text();
-
-       // Parse the HTML using DOMParser
-       const parser = new DOMParser();
-       const doc = parser.parseFromString(htmlString, "text/html");
-
-       console.log(doc);
-     } catch (error) {
-       console.error("Error fetching data:", error);
-     }
-   }
-
-   // Example usage
-   const targetUrl = "https://app.radiocult.fm/embed/player/20ft%20Radio";
-   fetchData(targetUrl);
-  });
 </script>
 
 {squarespace-footers}
