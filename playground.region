@@ -274,7 +274,6 @@
     let icecastMetadataPlayer;
 
     const onMetadata = (metadata) => {
-    console.log(metadata.StreamTitle);
         document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
     };
 
