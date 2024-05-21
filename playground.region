@@ -157,7 +157,7 @@
                 </div>
                 <div class="live-indicator">● Live</div>
 
-                <audio id="grainsPlayer" controls src="//20ft-radio.radiocult.fm/stream"></audio>
+                <audio id="grainsPlayer" allow="autoplay" preload="auto" playsinline="" controls  src="//20ft-radio.radiocult.fm/stream"></audio>
             </div>
         </div>
         {.end}
