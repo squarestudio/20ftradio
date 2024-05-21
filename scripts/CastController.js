@@ -157,15 +157,19 @@ window.Template.Controllers.CastController = function(element) {
         // Call the player creation function
         getIcecastMetadataPlayer();
 
-        // var onStats = (stats) => {
-        //     document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
-        // };
-        // var stats =
-        //     new IcecastMetadataStats(
-        //         "https://20ft-radio.radiocult.fm/stream", // stream endpoint
-        //         { onStats, sources: ["icy"] }         // options (stats callback, stats sources)
-        //     );
-        // stats.start();
+        // Function for handling stats
+        function onStats(stats) {
+            document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
+        }
+
+        // Create Icecast stats object with options
+        var stats = new IcecastMetadataStats(
+            "https://20ft-radio.radiocult.fm/stream", // stream endpoint
+            { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
+        );
+
+        // Start collecting stats
+        stats.start();
     }
 
     function refreshImages() {
