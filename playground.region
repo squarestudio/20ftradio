@@ -263,6 +263,8 @@
 
 
 <script>
+  window.Squarespace.onInitialize(Y, function() {
+  });
 </script>
 
 {squarespace-footers}
