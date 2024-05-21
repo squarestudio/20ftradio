@@ -150,7 +150,7 @@ window.Template.Controllers.CastController = function(element) {
         function getIcecastMetadataPlayer() {
             icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
                 audioElement: audioElement, // Assuming audioElement is defined elsewhere
-                onMetadata: onMetadata,
+                onMetadata: onMetadata
             });
         }
 
