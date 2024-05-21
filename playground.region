@@ -268,23 +268,20 @@
 
 <script>
   window.Squarespace.onInitialize(Y, function() {
-    const audioElement = document.getElementById("grainsPlayer");
+    var audioElement = document.getElementById("grainsPlayer");
+    var icecastMetadataPlayer;
 
-    // helper functions for the demo
-    let icecastMetadataPlayer;
-
-    const onMetadata = (metadata) => {
+    var onMetadata = (metadata) => {
         document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
     };
+    var getIcecastMetadataPlayer = () => {
+      icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
+          audioElement,
+          onMetadata,
+      });
+    };
 
-      const getIcecastMetadataPlayer = () => {
-          icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
-              audioElement, //                  audio element in HTML
-              onMetadata, //                    called when metadata is synced with the audio
-          });
-      };
-
-      getIcecastMetadataPlayer();
+    getIcecastMetadataPlayer();
   });
 </script>
 
