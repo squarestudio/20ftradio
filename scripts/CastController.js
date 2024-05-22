@@ -12,18 +12,18 @@ var icecastMetadataPlayer;
 //         onMetadata: onMetadata
 //     });
 // }
-//
-// function onStats(stats) {
-//     document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
-// }
-//
-// var stats = new IcecastMetadataStats(
-//     "https://20ft-radio.radiocult.fm/stream", // stream endpoint
-//     { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
-// );
-//
+
 // getIcecastMetadataPlayer();
-// stats.start();
+
+function onStats(stats) {
+    document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
+}
+
+var stats = new IcecastMetadataStats(
+    "https://20ft-radio.radiocult.fm/stream", // stream endpoint
+    { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
+);
+stats.start();
 
 Y.io('https://app.20ftradio.net/stream-status.php', {
     headers: {
