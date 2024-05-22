@@ -23,6 +23,57 @@ var stats = new IcecastMetadataStats(
 getIcecastMetadataPlayer();
 stats.start();
 
+
+var grainsAudio = document.getElementById('grainsPlayer');
+var grainsPlay = document.getElementById('grainsPlay');
+var shoutcastPlay = document.getElementById('shoutcastPlay');
+
+Y.io('https://app.20ftradio.net/stream-status.php', {
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    on: {
+        success: function(i, data) {
+            if (data.status === 200 && data.readyState === 4) {
+                var resp = JSON.parse(data.response);
+                shoutcastPlay.parentElement.querySelector('span').innerText = resp.shoutcast.track;
+            }
+            shoutcastStatusFactor = false;
+        },
+        failure: function() {
+            console.log('SHOUTCAST STATUS FALSE');
+            shoutcastStatus = false;
+            shoutcastStatusFactor = false;
+        }
+    }
+});
+grainsPlay.addEventListener('click', function(){
+    console.log(grainsPlay);
+    if (grainsAudio.duration > 0 && !grainsAudio.paused) {
+        grainsAudio.pause();
+        grainsPlay.classList.add('paused');
+    } else {
+        document.getElementById('shoutcastPlayer').pause();
+        shoutcastPlay.classList.add('paused');
+
+        grainsAudio.play();
+        grainsPlay.classList.remove('paused');
+    }
+})
+shoutcastPlay.addEventListener('click', function(){
+    console.log(shoutcastPlay);
+    if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
+        document.getElementById('shoutcastPlayer').pause();
+        shoutcastPlay.classList.add('paused');
+    } else {
+        grainsAudio.pause();
+        grainsPlay.classList.add('paused');
+
+        document.getElementById('shoutcastPlayer').play();
+        shoutcastPlay.classList.remove('paused');
+    }
+})
+
 window.Template.Controllers.CastController = function(element) {
     'use strict';
     var sitePlayer = Y.one('.site-player'),
@@ -112,59 +163,6 @@ window.Template.Controllers.CastController = function(element) {
                 date_container.remove();
             }
         });
-
-        var grainsAudio = document.getElementById('grainsPlayer');
-        var grainsPlay = document.getElementById('grainsPlay');
-        var shoutcastPlay = document.getElementById('shoutcastPlay');
-
-
-
-        Y.io('https://app.20ftradio.net/stream-status.php', {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            on: {
-                success: function(i, data) {
-                    if (data.status === 200 && data.readyState === 4) {
-                        var resp = JSON.parse(data.response);
-                        shoutcastPlay.parentElement.querySelector('span').innerText = resp.shoutcast.track;
-                    }
-                    shoutcastStatusFactor = false;
-                },
-                failure: function() {
-                    console.log('SHOUTCAST STATUS FALSE');
-                    shoutcastStatus = false;
-                    shoutcastStatusFactor = false;
-                }
-            }
-        });
-
-        grainsPlay.addEventListener('click', function(){
-            console.log(grainsPlay);
-            if (grainsAudio.duration > 0 && !grainsAudio.paused) {
-                grainsAudio.pause();
-                grainsPlay.classList.add('paused');
-            } else {
-                document.getElementById('shoutcastPlayer').pause();
-                shoutcastPlay.classList.add('paused');
-
-                grainsAudio.play();
-                grainsPlay.classList.remove('paused');
-            }
-        })
-        shoutcastPlay.addEventListener('click', function(){
-            console.log(shoutcastPlay);
-            if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
-                document.getElementById('shoutcastPlayer').pause();
-                shoutcastPlay.classList.add('paused');
-            } else {
-                grainsAudio.pause();
-                grainsPlay.classList.add('paused');
-
-                document.getElementById('shoutcastPlayer').play();
-                shoutcastPlay.classList.remove('paused');
-            }
-        })
     }
 
     function refreshImages() {
@@ -1128,8 +1126,6 @@ window.Template.Controllers.CastController = function(element) {
         },
         destroy: function() {
             DEBUG && console.log('destroy cast');
-            document.getElementById('shoutcastPlay').removeEventListener('click');
-            document.getElementById('grainsPlay').removeEventListener('click');
             Y.one(window).detach('resize', refreshImages);
             Y.detach('getCurrentEvent', getCurrentEvent);
         }
