@@ -117,6 +117,8 @@ window.Template.Controllers.CastController = function(element) {
         var grainsPlay = document.getElementById('grainsPlay');
         var shoutcastPlay = document.getElementById('shoutcastPlay');
 
+
+
         Y.io('https://app.20ftradio.net/stream-status.php', {
             headers: {
                 'Content-Type': 'application/json'
@@ -1126,6 +1128,8 @@ window.Template.Controllers.CastController = function(element) {
         },
         destroy: function() {
             DEBUG && console.log('destroy cast');
+            document.getElementById('shoutcastPlay').removeEventListener('click');
+            document.getElementById('grainsPlay').removeEventListener('click');
             Y.one(window).detach('resize', refreshImages);
             Y.detach('getCurrentEvent', getCurrentEvent);
         }
