@@ -3,7 +3,7 @@ var grainsPlay = document.getElementById('grainsPlay');
 var shoutcastPlay = document.getElementById('shoutcastPlay');
 var icecastMetadataPlayer;
 function onStats(stats) {
-    document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
+    shoutcastPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
 }
 
 var stats = new IcecastMetadataStats(
@@ -20,7 +20,7 @@ Y.io('https://app.20ftradio.net/stream-status.php', {
         success: function(i, data) {
             if (data.status === 200 && data.readyState === 4) {
                 var resp = JSON.parse(data.response);
-                shoutcastPlay.parentElement.querySelector('span').innerText = resp.shoutcast.track;
+                document.getElementById("streamTitle").innerText = resp.shoutcast.track;
             }
             shoutcastStatusFactor = false;
         },
