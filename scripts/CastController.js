@@ -20,6 +20,9 @@ var stats = new IcecastMetadataStats(
     { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
 );
 
+getIcecastMetadataPlayer();
+stats.start();
+
 window.Template.Controllers.CastController = function(element) {
     'use strict';
     var sitePlayer = Y.one('.site-player'),
@@ -158,9 +161,6 @@ window.Template.Controllers.CastController = function(element) {
                 shoutcastPlay.classList.remove('paused');
             }
         })
-
-        getIcecastMetadataPlayer();
-        stats.start();
     }
 
     function refreshImages() {
