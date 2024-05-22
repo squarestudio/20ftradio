@@ -32,25 +32,23 @@ Y.io('https://app.20ftradio.net/stream-status.php', {
     }
 });
 grainsPlay.addEventListener('click', function(){
-    console.log(grainsPlay);
-    if (grainsAudio.duration > 0 && !grainsAudio.paused) {
-        grainsAudio.pause();
+    if (document.getElementById('grainsPlayer').duration > 0 && !grainsAudio.paused) {
+        document.getElementById('grainsPlayer').pause();
         grainsPlay.classList.add('paused');
     } else {
         document.getElementById('shoutcastPlayer').pause();
         shoutcastPlay.classList.add('paused');
 
-        grainsAudio.play();
+        document.getElementById('grainsPlayer').play();
         grainsPlay.classList.remove('paused');
     }
 })
 shoutcastPlay.addEventListener('click', function(){
-    console.log(shoutcastPlay);
     if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
         document.getElementById('shoutcastPlayer').pause();
         shoutcastPlay.classList.add('paused');
     } else {
-        grainsAudio.pause();
+        document.getElementById('grainsPlayer').pause();
         grainsPlay.classList.add('paused');
 
         document.getElementById('shoutcastPlayer').play();
