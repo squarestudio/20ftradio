@@ -3,7 +3,7 @@ var grainsPlay = document.getElementById('grainsPlay');
 var shoutcastPlay = document.getElementById('shoutcastPlay');
 var icecastMetadataPlayer;
 function onStats(stats) {
-    shoutcastPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
+    grainsPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
 }
 
 var stats = new IcecastMetadataStats(
