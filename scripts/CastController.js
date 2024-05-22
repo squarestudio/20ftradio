@@ -138,6 +138,7 @@ window.Template.Controllers.CastController = function(element) {
         });
 
         grainsPlay.addEventListener('click', function(){
+            console.log(grainsPlay);
             if (grainsAudio.duration > 0 && !grainsAudio.paused) {
                 grainsAudio.pause();
                 grainsPlay.classList.add('paused');
