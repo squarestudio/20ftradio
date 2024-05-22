@@ -1,5 +1,5 @@
-var audioElement = document.getElementById("grainsPlayer");
-var icecastMetadataPlayer;
+let audioElement = document.getElementById("grainsPlayer");
+let icecastMetadataPlayer;
 
 function onMetadata(metadata) {
     document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
@@ -15,7 +15,7 @@ function onStats(stats) {
     document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
 }
 
-var stats = new IcecastMetadataStats(
+let stats = new IcecastMetadataStats(
     "https://20ft-radio.radiocult.fm/stream", // stream endpoint
     { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
 );
