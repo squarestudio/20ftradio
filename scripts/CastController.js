@@ -2,19 +2,6 @@ var grainsAudio = document.getElementById('grainsPlayer');
 var grainsPlay = document.getElementById('grainsPlay');
 var shoutcastPlay = document.getElementById('shoutcastPlay');
 var icecastMetadataPlayer;
-
-// function onMetadata(metadata) {
-//     document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
-// }
-// function getIcecastMetadataPlayer() {
-//     icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
-//         audioElement: grainsAudio, // Assuming audioElement is defined elsewhere
-//         onMetadata: onMetadata
-//     });
-// }
-
-// getIcecastMetadataPlayer();
-
 function onStats(stats) {
     document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
 }
