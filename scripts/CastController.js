@@ -1,3 +1,25 @@
+var audioElement = document.getElementById("grainsPlayer");
+var icecastMetadataPlayer;
+
+function onMetadata(metadata) {
+    document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
+}
+function getIcecastMetadataPlayer() {
+    icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
+        audioElement: audioElement, // Assuming audioElement is defined elsewhere
+        onMetadata: onMetadata
+    });
+}
+
+function onStats(stats) {
+    document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
+}
+
+var stats = new IcecastMetadataStats(
+    "https://20ft-radio.radiocult.fm/stream", // stream endpoint
+    { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
+);
+
 window.Template.Controllers.CastController = function(element) {
     'use strict';
     var sitePlayer = Y.one('.site-player'),
@@ -84,7 +106,6 @@ window.Template.Controllers.CastController = function(element) {
         }
         Y.all('.date-container').each(function(date_container) {
             if (!date_container.one('.event-item')) {
-                console.log('ss')
                 date_container.remove();
             }
         });
@@ -138,30 +159,7 @@ window.Template.Controllers.CastController = function(element) {
             }
         })
 
-        var audioElement = document.getElementById("grainsPlayer");
-        var icecastMetadataPlayer;
-
-        function onMetadata(metadata) {
-            document.getElementById("streamTitle").innerHTML = metadata.StreamTitle;
-        }
-        function getIcecastMetadataPlayer() {
-            icecastMetadataPlayer = new IcecastMetadataPlayer('https://20ft-radio.radiocult.fm/stream', {
-                audioElement: audioElement, // Assuming audioElement is defined elsewhere
-                onMetadata: onMetadata
-            });
-        }
         getIcecastMetadataPlayer();
-
-
-        function onStats(stats) {
-            document.getElementById("streamTitle").innerHTML = stats.icy.StreamTitle;
-        }
-
-        var stats = new IcecastMetadataStats(
-            "https://20ft-radio.radiocult.fm/stream", // stream endpoint
-            { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
-        );
-
         stats.start();
     }
 
