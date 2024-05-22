@@ -57,7 +57,7 @@
                     {.end}
                 </div>
                 <div class="twenty-ft-shoutcast">
-                    <button id="shoutcastPlay" class="paused"></button>
+                    <button id="grainsPlay" class="paused"></button>
                     <span></span>
                 </div>
             </div>
@@ -101,7 +101,7 @@
             <div class="grains-left">
                 <div class="grains-logo"><a target="_blank" href="https://20ftradio.net/grains-of-peace-series/"><img src="assets/gop-logo.png" alt="Grains of Peace"></a></div>
                 <div class="twenty-ft-grains">
-                    <button id="grainsPlay" class="paused"></button>
+                    <button id="shoutcastPlay" class="paused"></button>
                     <span><div id="streamTitle"></div></span>
                 </div>
             </div>
