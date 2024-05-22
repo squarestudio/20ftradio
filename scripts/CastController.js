@@ -150,6 +150,7 @@ window.Template.Controllers.CastController = function(element) {
             }
         })
         shoutcastPlay.addEventListener('click', function(){
+            console.log(shoutcastPlay);
             if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
                 document.getElementById('shoutcastPlayer').pause();
                 shoutcastPlay.classList.add('paused');
