@@ -1,60 +1,64 @@
-var grainsAudio = document.getElementById('grainsPlayer');
-var grainsPlay = document.getElementById('grainsPlay');
-var shoutcastPlay = document.getElementById('shoutcastPlay');
-var icecastMetadataPlayer;
-function onStats(stats) {
-    grainsPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
-}
+if($('body').hasClass('playground')) {
 
-var stats = new IcecastMetadataStats(
-    "https://20ft-radio.radiocult.fm/stream", // stream endpoint
-    { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
-);
-stats.start();
+    var grainsAudio = document.getElementById('grainsPlayer');
+    var grainsPlay = document.getElementById('grainsPlay');
+    var shoutcastPlay = document.getElementById('shoutcastPlay');
+    var icecastMetadataPlayer;
+    function onStats(stats) {
+        grainsPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
+    }
 
-Y.io('https://app.20ftradio.net/stream-status.php', {
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    on: {
-        success: function(i, data) {
-            if (data.status === 200 && data.readyState === 4) {
-                var resp = JSON.parse(data.response);
-                document.getElementById("streamTitle").innerText = resp.shoutcast.track;
-            }
-            shoutcastStatusFactor = false;
+    var stats = new IcecastMetadataStats(
+        "https://20ft-radio.radiocult.fm/stream", // stream endpoint
+        { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
+    );
+    stats.start();
+
+    Y.io('https://app.20ftradio.net/stream-status.php', {
+        headers: {
+            'Content-Type': 'application/json'
         },
-        failure: function() {
-            console.log('SHOUTCAST STATUS FALSE');
-            shoutcastStatus = false;
-            shoutcastStatusFactor = false;
+        on: {
+            success: function(i, data) {
+                if (data.status === 200 && data.readyState === 4) {
+                    var resp = JSON.parse(data.response);
+                    document.getElementById("streamTitle").innerText = resp.shoutcast.track;
+                }
+                shoutcastStatusFactor = false;
+            },
+            failure: function() {
+                console.log('SHOUTCAST STATUS FALSE');
+                shoutcastStatus = false;
+                shoutcastStatusFactor = false;
+            }
         }
-    }
-});
-grainsPlay.addEventListener('click', function(){
-    if (document.getElementById('grainsPlayer').duration > 0 && !grainsAudio.paused) {
-        document.getElementById('grainsPlayer').pause();
-        grainsPlay.classList.add('paused');
-    } else {
-        document.getElementById('shoutcastPlayer').pause();
-        shoutcastPlay.classList.add('paused');
+    });
+    grainsPlay.addEventListener('click', function(){
+        if (document.getElementById('grainsPlayer').duration > 0 && !grainsAudio.paused) {
+            document.getElementById('grainsPlayer').pause();
+            grainsPlay.classList.add('paused');
+        } else {
+            document.getElementById('shoutcastPlayer').pause();
+            shoutcastPlay.classList.add('paused');
 
-        document.getElementById('grainsPlayer').play();
-        grainsPlay.classList.remove('paused');
-    }
-})
-shoutcastPlay.addEventListener('click', function(){
-    if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
-        document.getElementById('shoutcastPlayer').pause();
-        shoutcastPlay.classList.add('paused');
-    } else {
-        document.getElementById('grainsPlayer').pause();
-        grainsPlay.classList.add('paused');
+            document.getElementById('grainsPlayer').play();
+            grainsPlay.classList.remove('paused');
+        }
+    })
+    shoutcastPlay.addEventListener('click', function(){
+        if (document.getElementById('shoutcastPlayer').duration > 0 && !document.getElementById('shoutcastPlayer').paused) {
+            document.getElementById('shoutcastPlayer').pause();
+            shoutcastPlay.classList.add('paused');
+        } else {
+            document.getElementById('grainsPlayer').pause();
+            grainsPlay.classList.add('paused');
 
-        document.getElementById('shoutcastPlayer').play();
-        shoutcastPlay.classList.remove('paused');
-    }
-})
+            document.getElementById('shoutcastPlayer').play();
+            shoutcastPlay.classList.remove('paused');
+        }
+    })
+
+}
 
 window.Template.Controllers.CastController = function(element) {
     'use strict';
