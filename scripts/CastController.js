@@ -1,4 +1,4 @@
-if($('body').hasClass('playground')) {
+if($('body').hasClass('ft20-playground')) {
 
     var grainsAudio = document.getElementById('grainsPlayer');
     var grainsPlay = document.getElementById('grainsPlay');
