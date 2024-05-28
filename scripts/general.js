@@ -501,7 +501,6 @@ if (!window_loaded) {
             document.getElementById('grainsPlay').classList.add('paused');
             document.getElementById('shoutcastPlay').classList.add('paused');
             document.getElementById('grainsPlayer').pause();
-            document.getElementById('shoutcastPlayer').pause();
 
             ancestor.addClass('current');
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
