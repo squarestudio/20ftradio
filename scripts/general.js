@@ -480,8 +480,8 @@ function playMixcloudFooterIfLoaded(url) {
     mixCloudFooterPlayer.ready.then(function(widg) {
         loadedTracks.current = url;
         loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
-        // mixCloudFooterPlayer.play();
-        mixcloudPlay();
+        mixCloudFooterPlayer.play();
+        // mixcloudPlay();
     });
 }
 window.Squarespace.onDestroy(Y, function() {
