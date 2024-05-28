@@ -499,6 +499,7 @@ if (!window_loaded) {
         if (url && ancestor.hasClass('playing')) {
             console.log('open');
             document.getElementById('grainsPlay').classList.add('paused');
+            document.getElementById('shoutcastPlay').classList.add('paused');
 
             ancestor.addClass('current');
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
