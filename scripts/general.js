@@ -506,6 +506,7 @@ if (!window_loaded) {
                 //currentIframe&&currentIframe.addClass('need-remove');
                 currentIframe = Y.Node.create('<iframe data-src="' + url + '" class="mixcloud-content" width="100%" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1autoplay=1&mini=0&disable_unload_warning=1&feed=' + (i = encodeURIComponent(decodeURIComponent(url))) + '" frameborder="0" allow="autoplay"></iframe>')
                 currentIframe.on('load', function() {
+                    console.log(document.querySelector(".mixcloud-content"));
                     mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.querySelector(".mixcloud-content"));
                     console.log(mixCloudFooterPlayer);
 
