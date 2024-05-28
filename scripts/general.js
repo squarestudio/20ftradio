@@ -480,7 +480,7 @@ function playMixcloudFooterIfLoaded(url) {
     mixCloudFooterPlayer.ready.then(function(widg) {
         loadedTracks.current = url;
         loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
-        mixCloudFooterPlayer.play();
+        // mixCloudFooterPlayer.play();
         mixcloudPlay();
     });
 }
