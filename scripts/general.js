@@ -139,15 +139,15 @@ function initMixCloudFooter() {
                 if (data.type && data.type == 'ready') {
                     mixCloudFooterPlayer.play && mixCloudFooterPlayer.play()
                 }
-                if (data.type == 'event' && data.data) {
-                    console.log(data.data.eventName);
-                    if (data.data.eventName == 'play') {
-                        mixcloudPlay();
-                    }
-                    // if (data.data.eventName == 'pause') {
-                    //     mixcloudPause();
-                    // }
-                }
+                // if (data.type == 'event' && data.data) {
+                //     console.log(data.data.eventName);
+                //     if (data.data.eventName == 'play') {
+                //         mixcloudPlay();
+                //     }
+                //     if (data.data.eventName == 'pause') {
+                //         mixcloudPause();
+                //     }
+                // }
             }
         }, !1);
         if (!Y.one('.mixcloud-footer-widget-container')) {
