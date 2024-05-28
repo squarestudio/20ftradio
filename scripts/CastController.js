@@ -1,4 +1,4 @@
-if($('body').hasClass('20ft-playground') || $('body').hasClass('20ft-default')) {
+if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) {
 
     var grainsAudio = document.getElementById('grainsPlayer');
     var grainsPlay = document.getElementById('grainsPlay');
