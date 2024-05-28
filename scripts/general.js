@@ -477,7 +477,6 @@ function activateFilterTags(params) {
 }
 
 function playMixcloudFooterIfLoaded(url) {
-    console.log(mixCloudFooterPlayer);
     mixCloudFooterPlayer.ready.then(function(widg) {
         loadedTracks.current = url;
         loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
