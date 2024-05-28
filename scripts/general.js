@@ -508,6 +508,7 @@ if (!window_loaded) {
                     mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.querySelector(".mixcloud-content"));
 
                     setTimeout(function(){
+                        console.log('after');
                         playMixcloudFooterIfLoaded(url);
                     }, 1000)
                     var need_remove = mixCloudFooter.all('.need-remove');
