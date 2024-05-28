@@ -478,11 +478,10 @@ function activateFilterTags(params) {
 function playMixcloudFooterIfLoaded(url) {
     console.log(mixCloudFooterPlayer);
     mixCloudFooterPlayer.ready.then(function(widg) {
-        console.log('ready');
         loadedTracks.current = url;
         loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
         mixCloudFooterPlayer.play();
-        mixcloudPlay();
+        // mixcloudPlay();
     });
 }
 window.Squarespace.onDestroy(Y, function() {
