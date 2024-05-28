@@ -498,7 +498,7 @@ if (!window_loaded) {
         //console.log(url, ancestor)
         if (url && ancestor.hasClass('playing')) {
             console.log('open');
-            document.getElementById('grainsPlay').classList.remove('paused');
+            document.getElementById('grainsPlay').classList.add('paused');
 
             ancestor.addClass('current');
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
