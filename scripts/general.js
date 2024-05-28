@@ -525,9 +525,8 @@ if (!window_loaded) {
             } else {
                 playMixcloudFooterIfLoaded(url);
             }
-            console.log(mixCloudFooterPlayer);
-            console.log(mixCloudFooterPlayer.load);
-            if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
+
+            /*if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.load(url, true);
                 mixCloudFooterPlayer.ready.then(function(widg) {
                     loadedTracks.current = url;
@@ -537,7 +536,7 @@ if (!window_loaded) {
                     mixcloudPlay();
                     widg.loaded++;
                 });
-            }
+            }*/
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
         } else {
             console.log('close');
