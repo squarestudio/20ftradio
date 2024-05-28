@@ -506,6 +506,7 @@ if (!window_loaded) {
                 currentIframe.on('load', function() {
                     mixCloudFooterPlayer = Mixcloud.PlayerWidget(document.querySelector(".mixcloud-content"));
                     playMixcloudFooterIfLoaded(url);
+                    console.log(playMixcloudFooterIfLoaded(url));p
                     var need_remove = mixCloudFooter.all('.need-remove');
                     if (need_remove.size()) {
                         need_remove.each(function(it) {
