@@ -32,7 +32,7 @@
 
 </head>
 
-<body class="20ft-playground page-{collection.typeLabel} {squarespace.page-classes}  {.equal? collection.id "5af7cccd6d2a736d3c85303d"}filter-page{.end}" id="{squarespace.page-id}" >
+<body class="ft20-playground page-{collection.typeLabel} {squarespace.page-classes}  {.equal? collection.id "5af7cccd6d2a736d3c85303d"}filter-page{.end}" id="{squarespace.page-id}" >
 
 <div id="navigator">
     {.section website}
