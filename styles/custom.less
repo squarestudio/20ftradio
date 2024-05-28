@@ -3422,8 +3422,7 @@ body:not(.ft20-playground):not(.ft20-default) {
         }
     }
 }
-body.ft20-default,
-body.ft20-playground {
+body.ft20-default, body.ft20-playground {
     &.site-alignment-center section#container {
         margin-top: 100px !important;
     }
@@ -3687,6 +3686,13 @@ body.ft20-playground {
     body.ft20-playground #mobile-navigation ul,
     body.ft20-default #mobile-navigation ul {
         margin-top: 0;
+    }
+}
+@media only screen and (max-width:860px) {
+    body.ft20-default, body.ft20-playground {
+        &.filter-page.view-list #container {
+            margin-top: 0 !important;
+        }
     }
 }
 @media only screen and (max-width:767px) {
