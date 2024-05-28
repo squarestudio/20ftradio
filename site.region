@@ -13,6 +13,15 @@
     <link rel="apple-touch-icon" sizes="152x152" href="{website.logoImageUrl}">
     <link rel="apple-touch-startup-image" href="{website.logoImageUrl}">
     <meta name="theme-color" content="#000">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+
+    <script src="scripts/icecast-metadata-player-1.17.3.main.min.js"></script>
+    <script src="scripts/icecast-metadata-stats-0.1.11.min.js"></script>
+
+
     {squarespace-headers}
     <script>
         window.Template = {
@@ -23,67 +32,88 @@
 
 </head>
 
-<body class="page-{collection.typeLabel} {squarespace.page-classes}  {.equal? collection.id "5af7cccd6d2a736d3c85303d"}filter-page{.end}" id="{squarespace.page-id}" >
+<body class="20ft-default page-{collection.typeLabel} {squarespace.page-classes}  {.equal? collection.id "5af7cccd6d2a736d3c85303d"}filter-page{.end}" id="{squarespace.page-id}" >
 
 <div id="navigator">
     {.section website}
     <header id="topBar" class="sqs-announcement-bar-dropzone">
-        <div data-content-field="site-title" class="siteTitle">
+        <div class="topBar-top">
+            <div class="topBar-top-left">
+                <div data-content-field="site-title" class="siteTitle">
+                    {.if logoImageUrl}
+                    <a href="/">
+                        <img id="logo" src="{logoImageUrl}?format=1500w" alt="{siteTitle}"/>
+                    </a>
+                    {.or}
+                    <h1>
+                        <a href="/">
+                            <span id="site-title">{siteTitle}</span>
+                        </a>
+                    </h1>
+                    {.end}
 
-            {.if logoImageUrl}
-            <a href="/">
-                <img id="logo" src="{logoImageUrl}?format=1500w" alt="{siteTitle}"/>
-            </a>
-            {.or}
-            <h1>
-                <a href="/">
-                    <span id="site-title">{siteTitle}</span>
-                </a>
-            </h1>
-            {.end}
-
-            {.section siteTagLine}
-            <h2 class="logo-subtitle">{@}</h2>
-            {.end}
-        </div>
-        <div class="nav-container">
-            <div id="mobileNav">
-                <div class="wrapper">
-                    <squarespace:navigation navigationId="pages" template="mobile-navigation"/>
+                    {.section siteTagLine}
+                    <h2 class="logo-subtitle">{@}</h2>
+                    {.end}
+                </div>
+                <div class="twenty-ft-shoutcast">
+                    <button id="grainsPlay" class="paused"></button>
+                    <span></span>
                 </div>
             </div>
-            <squarespace:navigation navigationId="pages" template="navigation"/>
-            <div class="site-player-block">
-                <div class="site-player paused not-init">
-                    <div class="site-player-wrapper">
-                        <div id="fountainG">
-                            <div class="fountainG fountainG_1"></div>
-                            <div class="fountainG fountainG_2"></div>
-                            <div class="fountainG fountainG_3"></div>
-                            <div class="fountainG fountainG_4"></div>
-                            <div class="fountainG fountainG_5"></div>
+            <div class="nav-container">
+
+                <squarespace:navigation navigationId="pages" template="navigation"/>
+                <div class="site-player-block">
+                    <div class="site-player paused not-init">
+                        <div class="site-player-wrapper">
+                            <div id="fountainG">
+                                <div class="fountainG fountainG_1"></div>
+                                <div class="fountainG fountainG_2"></div>
+                                <div class="fountainG fountainG_3"></div>
+                                <div class="fountainG fountainG_4"></div>
+                                <div class="fountainG fountainG_5"></div>
+                            </div>
+                            <div class="site-player-controls">
+                                <a id="videoButton">
+                                    <i class="icono-"></i>
+                                </a>
+                                <a id="playButton">
+                                    <i class="icono-"></i>
+                                </a>
+                                <a id="volumeButton">
+                                    <i class="icono-volumeHigh"></i>
+                                </a>
+                                <input id="volControl" value="100" class="volume-control" type="range" min="0" max="100" step="1"/>
+                            </div>
+                            <div class="track-name"><span></span></div>
                         </div>
-                        <div class="site-player-controls">
-                            <a id="videoButton">
-                                <i class="icono-"></i>
-                            </a>
-                            <a id="playButton">
-                                <i class="icono-"></i>
-                            </a>
-                            <a id="volumeButton">
-                                <i class="icono-volumeHigh"></i>
-                            </a>
-                            <input id="volControl" value="100" class="volume-control" type="range" min="0" max="100" step="1"/>
-                        </div>
-                        <div class="track-name"><span>Now playing: </span></div>
                     </div>
+                    <!-- <canvas id="visualCanvas" class="v-align"></canvas> -->
                 </div>
-                <!-- <canvas id="visualCanvas" class="v-align"></canvas> -->
-            </div>
-            <div class="header-block">
-                <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content" annotation-alignment="bottom"/>
+                <div class="header-block">
+                    <squarespace:block-field id="headerBlock" class="header-block-content" columns="12" label="Header Content" annotation-alignment="bottom"/>
+                </div>
             </div>
         </div>
+
+        <div id="grainsWrapper" class="grains-wrapper">
+            <div class="grains-left">
+                <div class="grains-logo"><a target="_blank" href="https://20ftradio.net/grains-of-peace-series/"><img src="assets/gop-logo.png" alt="Grains of Peace"></a></div>
+                <div class="twenty-ft-grains">
+                    <button id="shoutcastPlay" class="paused"></button>
+                    <span><div id="streamTitle"></div></span>
+                </div>
+            </div>
+            <div class="grains-right"><a target="_blank" href="https://20ftradio.net/grains-of-peace-series/">FULL SERIES</a></div>
+        </div>
+
+        <div id="mobileNav">
+            <div class="wrapper">
+                <squarespace:navigation navigationId="pages" template="mobile-navigation"/>
+            </div>
+        </div>
+
     </header>
     {.end}
     <div class="sqs-cart-dropzone"></div>
@@ -126,6 +156,10 @@
                     </svg>
                 </div>
                 <div class="live-indicator">● Live</div>
+
+                <audio id="grainsPlayer" allow="autoplay" preload="auto" playsinline="" controls>
+                    <source src="//20ft-radio.radiocult.fm/stream" type="audio/mpeg"/>
+                </audio>
             </div>
         </div>
         {.end}
