@@ -144,9 +144,9 @@ function initMixCloudFooter() {
                     if (data.data.eventName == 'play') {
                         mixcloudPlay();
                     }
-                    if (data.data.eventName == 'pause') {
-                        mixcloudPause();
-                    }
+                    // if (data.data.eventName == 'pause') {
+                    //     mixcloudPause();
+                    // }
                 }
             }
         }, !1);
