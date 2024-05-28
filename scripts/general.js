@@ -481,7 +481,7 @@ function playMixcloudFooterIfLoaded(url) {
         loadedTracks.current = url;
         loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
         mixCloudFooterPlayer.play();
-        // mixcloudPlay();
+        mixcloudPlay();
     });
 }
 window.Squarespace.onDestroy(Y, function() {
