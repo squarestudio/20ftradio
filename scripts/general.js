@@ -498,6 +498,8 @@ if (!window_loaded) {
         //console.log(url, ancestor)
         if (url && ancestor.hasClass('playing')) {
             console.log('open');
+            document.getElementById('grainsPlay').classList.remove('paused');
+
             ancestor.addClass('current');
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
@@ -535,6 +537,7 @@ if (!window_loaded) {
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
         } else {
             console.log('close');
+
             Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
             Y.one('html').removeClass('mixcloud-footer-playing');
             mixCloudFooterPlayer && mixCloudFooterPlayer.pause && mixCloudFooterPlayer.pause();
