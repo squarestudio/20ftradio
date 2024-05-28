@@ -120,13 +120,13 @@ function mixcloudPlay() {
 }
 
 function mixcloudPause() {
-    // console.log('PAUSE');
-    // Y.one('html').removeClass('mixcloud-footer-playing');
-    // Y.all('[data-mixcloud-url]').removeClass('playing');
-    // if (!Y.one('#castDiv').hasClass('playing')) {
-    //     Y.one('html').addClass('mixcloud-footer-stopped');
-    // }
-    // Y.fire('mixcloud:pause');
+    console.log('PAUSE');
+    Y.one('html').removeClass('mixcloud-footer-playing');
+    Y.all('[data-mixcloud-url]').removeClass('playing');
+    if (!Y.one('#castDiv').hasClass('playing')) {
+        Y.one('html').addClass('mixcloud-footer-stopped');
+    }
+    Y.fire('mixcloud:pause');
 }
 
 function initMixCloudFooter() {
@@ -140,6 +140,7 @@ function initMixCloudFooter() {
                     mixCloudFooterPlayer.play && mixCloudFooterPlayer.play()
                 }
                 if (data.type == 'event' && data.data) {
+                    console.log(data.data.eventName);
                     if (data.data.eventName == 'play') {
                         mixcloudPlay();
                     }
