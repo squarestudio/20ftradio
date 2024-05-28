@@ -509,7 +509,7 @@ if (!window_loaded) {
 
                     setTimeout(function(){
                         playMixcloudFooterIfLoaded(url);
-                    }, 5000)
+                    }, 1000)
                     var need_remove = mixCloudFooter.all('.need-remove');
                     if (need_remove.size()) {
                         need_remove.each(function(it) {
