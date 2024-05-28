@@ -20,6 +20,7 @@
 
     <script src="scripts/icecast-metadata-player-1.17.3.main.min.js"></script>
     <script src="scripts/icecast-metadata-stats-0.1.11.min.js"></script>
+    <script src="//widget.mixcloud.com/media/js/widgetApi.js" type="text/javascript"></script>
 
 
     {squarespace-headers}
@@ -260,7 +261,7 @@
 <squarespace:script src="share-buttons.js" combo="true"/>
 <squarespace:script src="WallController.js" combo="true"/>
 <squarespace:script src="soundcloud-api-widget.js" combo="true"/>
-<squarespace:script src="mixcloud-api-widget.js" combo="true"/>
+<!--<squarespace:script src="mixcloud-api-widget.js" combo="true"/>-->
 <squarespace:script src="ProjectController.js" combo="true"/>
 <squarespace:script src="sha1.js" combo="true"/>
 <squarespace:script src="payment.js" combo="true"/>
