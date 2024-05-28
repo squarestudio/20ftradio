@@ -267,15 +267,6 @@
 <squarespace:script src="general.js" combo="false"/>
 <squarespace:script src="CastController.js" combo="true"/>
 
-
-
-
-<script>
-  window.Squarespace.onInitialize(Y, function() {
-
-  });
-</script>
-
 {squarespace-footers}
 {.if template.mobileStylesEnabled}{.or}
 <script>
