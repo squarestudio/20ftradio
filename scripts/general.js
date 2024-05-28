@@ -525,7 +525,8 @@ if (!window_loaded) {
             } else {
                 playMixcloudFooterIfLoaded(url);
             }
-
+            console.log(mixCloudFooterPlayer);
+            console.log(mixCloudFooterPlayer.load);
             if (mixCloudFooterPlayer && mixCloudFooterPlayer.load) {
                 mixCloudFooterPlayer.load(url, true);
                 mixCloudFooterPlayer.ready.then(function(widg) {
