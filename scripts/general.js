@@ -135,8 +135,10 @@ function initMixCloudFooter() {
         window.addEventListener("message", function(e) {
             var data = e.data ? JSON.parse(e.data) : false;
             if (data && data.mixcloud) {
+
                 // console.log(data);
                 if (data.type && data.type == 'ready') {
+                    console.log('ready ready');
                     mixCloudFooterPlayer.play && mixCloudFooterPlayer.play()
                 }
                 // if (data.type == 'event' && data.data) {
