@@ -139,7 +139,6 @@ function initMixCloudFooter() {
                     mixCloudFooterPlayer.play && mixCloudFooterPlayer.play()
                 }
                 if (data.type == 'event' && data.data) {
-                    console.log(data.data.eventName);
                     if (data.data.eventName == 'play') {
                         mixcloudPlay();
                     }
@@ -477,7 +476,9 @@ function activateFilterTags(params) {
 }
 
 function playMixcloudFooterIfLoaded(url) {
+    console.log(mixCloudFooterPlayer);
     mixCloudFooterPlayer.ready.then(function(widg) {
+        console.log('ready');
         loadedTracks.current = url;
         loadedTracks.all.indexOf(url) == -1 && loadedTracks.all.push(url);
         mixCloudFooterPlayer.play();
@@ -496,6 +497,7 @@ if (!window_loaded) {
         ancestor.toggleClass('playing');
         //console.log(url, ancestor)
         if (url && ancestor.hasClass('playing')) {
+            console.log('open');
             ancestor.addClass('current');
             Y.all('.mixcloud-item.playing:not(.current)').removeClass('playing').removeClass('current');
             ancestor.removeClass('current');
@@ -532,6 +534,7 @@ if (!window_loaded) {
             }*/
             Y.one('html').addClass('mixcloud-footer-playing').removeClass('mixcloud-footer-stopped').setAttribute('data-mixcloud-pl-url', url);
         } else {
+            console.log('close');
             Y.all('.mixcloud-item.playing').removeClass('playing').removeClass('current');
             Y.one('html').removeClass('mixcloud-footer-playing');
             mixCloudFooterPlayer && mixCloudFooterPlayer.pause && mixCloudFooterPlayer.pause();
