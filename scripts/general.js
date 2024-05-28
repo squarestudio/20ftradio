@@ -135,21 +135,18 @@ function initMixCloudFooter() {
         window.addEventListener("message", function(e) {
             var data = e.data ? JSON.parse(e.data) : false;
             if (data && data.mixcloud) {
-
-                // console.log(data);
                 if (data.type && data.type == 'ready') {
-                    console.log('ready ready');
-                    mixCloudFooterPlayer.play
+                    mixCloudFooterPlayer.play && mixCloudFooterPlayer.play()
                 }
-                // if (data.type == 'event' && data.data) {
-                //     console.log(data.data.eventName);
-                //     if (data.data.eventName == 'play') {
-                //         mixcloudPlay();
-                //     }
-                //     if (data.data.eventName == 'pause') {
-                //         mixcloudPause();
-                //     }
-                // }
+                if (data.type == 'event' && data.data) {
+                    console.log(data.data.eventName);
+                    if (data.data.eventName == 'play') {
+                        mixcloudPlay();
+                    }
+                    if (data.data.eventName == 'pause') {
+                        mixcloudPause();
+                    }
+                }
             }
         }, !1);
         if (!Y.one('.mixcloud-footer-widget-container')) {
