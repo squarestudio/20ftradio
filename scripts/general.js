@@ -139,7 +139,7 @@ function initMixCloudFooter() {
                 // console.log(data);
                 if (data.type && data.type == 'ready') {
                     console.log('ready ready');
-                    mixCloudFooterPlayer.play && mixCloudFooterPlayer.play()
+                    mixCloudFooterPlayer.play()
                 }
                 // if (data.type == 'event' && data.data) {
                 //     console.log(data.data.eventName);
