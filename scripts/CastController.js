@@ -6,7 +6,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     var icecastMetadataPlayer;
     function onStats(stats) {
         grainsPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
-        console.log(stats.icy.StreamTitle);
+        console.log(stats);
     }
 
     var stats = new IcecastMetadataStats(
