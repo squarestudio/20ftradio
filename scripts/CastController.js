@@ -6,6 +6,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     var icecastMetadataPlayer;
     function onStats(stats) {
         grainsPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
+        console.log(stats.icy.StreamTitle);
     }
 
     var stats = new IcecastMetadataStats(
@@ -22,7 +23,6 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
             success: function(i, data) {
                 if (data.status === 200 && data.readyState === 4) {
                     var resp = JSON.parse(data.response);
-                    console.log(resp.shoutcast.track);
                     document.getElementById("streamTitle").innerText = resp.shoutcast.track;
                 }
                 shoutcastStatusFactor = false;
