@@ -15,17 +15,6 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     );
     stats.start();
 
-    async function checkStreamStatus() {
-        try {
-            const res = await fetch("https://c34.radioboss.fm/stream/957", {
-                method: "HEAD",
-            });
-            return res.ok; // true = stream is up
-        } catch (e) {
-            return false; // error = stream offline
-        }
-    }
-
     Y.io('https://app.20ftradio.net/stream-status.php', {
         headers: {
             'Content-Type': 'application/json'
