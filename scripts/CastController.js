@@ -10,7 +10,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     }
 
     var stats = new IcecastMetadataStats(
-        "https://c34.radioboss.fm/stream/957", // stream endpoint
+        "https://20ft-radio.radiocult.fm/stream", // stream endpoint
         { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
     );
     stats.start();
