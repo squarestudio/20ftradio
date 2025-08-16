@@ -13,13 +13,12 @@
     <link rel="apple-touch-icon" sizes="152x152" href="{website.logoImageUrl}">
     <link rel="apple-touch-startup-image" href="{website.logoImageUrl}">
     <meta name="theme-color" content="#000">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
 
-    <script src="scripts/icecast-metadata-player-1.17.3.main.min.js"></script>
-    <script src="scripts/icecast-metadata-stats-0.1.11.min.js"></script>
+    <squarespace:script src="icecast-metadata-player-1.17.3.main.min.js" combo="false"/>
+    <squarespace:script src="icecast-metadata-stats-0.1.11.min.js" combo="false"/>
     <script src="//widget.mixcloud.com/media/js/widgetApi.js" type="text/javascript"></script>
 
 
