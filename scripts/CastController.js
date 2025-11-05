@@ -59,6 +59,13 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         }
     })
 
+
+    fetch('https://api.radiocult.fm/api/station/20ft%20Radio/artists', {
+        headers: {
+            'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
+        }
+    });
+
 }
 
 window.Template.Controllers.CastController = function(element) {
