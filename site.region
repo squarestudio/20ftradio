@@ -36,7 +36,7 @@
             }
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => console.log(data.result.metadata.title))
             .catch(err => console.error(err));
     </script>
 
