@@ -64,7 +64,18 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         headers: {
             'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
         }
-    });
+    }).then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json(); // Or .text(), .blob(), etc., depending on the expected response type
+    })
+        .then(data => {
+            console.log(data); // Process the fetched data
+        })
+        .catch(error => {
+            console.error('There was a problem with the fetch operation:', error);
+        });
 
 }
 
