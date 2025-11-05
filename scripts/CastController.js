@@ -1131,10 +1131,8 @@ fetch('https://api.radiocult.fm/api/station/20ft%20Radio/artists', {
         throw new Error(`HTTP error! status: ${response.status}`);
     }
     return response.json();
-})
-    .then(data => {
+}).then(data => {
         console.log(data);
-    })
-    .catch(error => {
+    }).catch(error => {
         console.error('There was a problem with the fetch operation:', error);
     });
