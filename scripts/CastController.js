@@ -63,9 +63,6 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         headers: {
             'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
         }
-    }).then(async res => {
-        const text = await res.text(); // read as text first
-        console.log(text);
     });
 
 }
