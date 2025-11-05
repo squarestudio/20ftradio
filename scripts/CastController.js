@@ -5,7 +5,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     var shoutcastPlay = document.getElementById('shoutcastPlay');
     var icecastMetadataPlayer;
     function onStats(stats) {
-        // console.log('stats:', stats);
+        console.log('stats:', stats);
     }
 
 
@@ -23,7 +23,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         .catch(err => console.error(err));
 
     var stats = new IcecastMetadataStats(
-        "https://20ft-radio.radiocult.fm/stream", // stream endpoint
+        "https://c34.radioboss.fm/stream/957", // stream endpoint
         { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
     );
     stats.start();
