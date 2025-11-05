@@ -1,5 +1,7 @@
 if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) {
 
+    console.log('yes');
+
     var grainsAudio = document.getElementById('grainsPlayer');
     var grainsPlay = document.getElementById('grainsPlay');
     var shoutcastPlay = document.getElementById('shoutcastPlay');
