@@ -4,7 +4,11 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     var grainsPlay = document.getElementById('grainsPlay');
     var shoutcastPlay = document.getElementById('shoutcastPlay');
     var icecastMetadataPlayer;
-    function onStats(stats) {}
+    function onStats(stats) {
+        console.log('stats:', stats);
+    }
+
+
 
     fetch('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
         headers: {
