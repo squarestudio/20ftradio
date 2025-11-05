@@ -659,12 +659,3 @@ window.customLazySummaries = {
         }
     }
 }
-
-fetch('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
-    headers: {
-        'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
-    }
-})
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.error(err));
