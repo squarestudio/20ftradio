@@ -18,7 +18,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title;
+            // grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title;
         })
         .catch(err => console.error(err));
 
