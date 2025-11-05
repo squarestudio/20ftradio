@@ -59,7 +59,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         }
     })
 
-    etch('https://api.radiocult.fm/api/station/20ft-radio/schedule/live', {
+    fetch('https://api.radiocult.fm/api/station/20ft-radio/schedule/live', {
         headers: {
             'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
         }
