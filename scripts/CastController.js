@@ -1,6 +1,12 @@
 if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) {
 
-    console.log('yes');
+    var grainsAudio = document.getElementById('grainsPlayer');
+    var grainsPlay = document.getElementById('grainsPlay');
+    var shoutcastPlay = document.getElementById('shoutcastPlay');
+    var icecastMetadataPlayer;
+    function onStats(stats) {}
+
+
 
     fetch('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
         headers: {
@@ -8,17 +14,9 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         }
     })
         .then(res => res.json())
-        .then(data => console.log(data.result.metadata.title))
+        .then(data =>
+            grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title)
         .catch(err => console.error(err));
-
-    var grainsAudio = document.getElementById('grainsPlayer');
-    var grainsPlay = document.getElementById('grainsPlay');
-    var shoutcastPlay = document.getElementById('shoutcastPlay');
-    var icecastMetadataPlayer;
-    function onStats(stats) {
-        grainsPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
-        console.log('stats:', stats);
-    }
 
     var stats = new IcecastMetadataStats(
         "https://20ft-radio.radiocult.fm/stream", // stream endpoint
