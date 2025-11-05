@@ -61,9 +61,16 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
 
     fetch('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
         headers: {
-            'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361',
-        },
+            'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
+        }
     })
+        .then(async res => {
+            const text = await res.text();
+            console.log('Status:', res.status);
+            console.log('Raw response:', text);
+            return text;
+        })
+        .catch(console.error);
 
 }
 
