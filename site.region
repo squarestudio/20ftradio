@@ -30,18 +30,6 @@
         }
     </script>
     <script>
-        fetch('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
-            headers: {
-                'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
-            }
-        })
-            .then(res => res.json())
-            .then(data => console.log(data.result.metadata.title))
-            .catch(err => console.error(err));
-
-        var grainsPlay = document.getElementById('grainsPlay');
-        console.log('grainsPlay',grainsPlay);
-
     </script>
 
 </head>
