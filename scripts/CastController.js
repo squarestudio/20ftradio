@@ -66,16 +66,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     }.then(async res => {
         const text = await res.text(); // read as text first
         console.log(text);
-        try {
-            const json = JSON.parse(text); // try to parse JSON
-            console.log('✅ JSON response:', json);
-            return json;
-        } catch {
-            console.warn('⚠️ Non-JSON response:', text);
-            return text;
-        }
-    })
-        .catch(err => console.error('❌ Fetch error:', err));
+    });
 
 }
 
