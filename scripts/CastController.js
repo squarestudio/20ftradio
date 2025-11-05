@@ -8,15 +8,15 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
 
 
 
-    fetch('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
-        headers: {
-            'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
-        }
-    })
-        .then(res => res.json())
-        .then(data =>
-            grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title)
-        .catch(err => console.error(err));
+    // fetch('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
+    //     headers: {
+    //         'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
+    //     }
+    // })
+    //     .then(res => res.json())
+    //     .then(data =>
+    //         grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title)
+    //     .catch(err => console.error(err));
 
     var stats = new IcecastMetadataStats(
         "https://20ft-radio.radiocult.fm/stream", // stream endpoint
