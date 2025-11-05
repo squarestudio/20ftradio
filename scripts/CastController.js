@@ -64,13 +64,6 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
             'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361',
         },
     })
-        .then(async res => {
-            const text = await res.text();
-            console.log('Status:', res.status);
-            console.log('Raw response:', text);
-            return text;
-        })
-        .catch(console.error);
 
 }
 
