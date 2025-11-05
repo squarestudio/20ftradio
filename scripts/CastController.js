@@ -59,22 +59,6 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         }
     })
 
-    fetch('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
-        headers: {
-            'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
-        }
-    })
-        .then(async (res) => {
-            const text = await res.text(); // get raw text
-            try {
-                const data = JSON.parse(text);
-                console.log('✅ JSON response:', data);
-            } catch (err) {
-                console.warn('⚠️ Non-JSON response:', text);
-            }
-        })
-        .catch((err) => console.error('❌ Fetch error:', err));
-
 }
 
 window.Template.Controllers.CastController = function(element) {
