@@ -1118,21 +1118,3 @@ window.Template.Controllers.CastController = function(element) {
         }
     };
 };
-
-
-
-
-fetch('https://api.radiocult.fm/api/station/20ft%20Radio/artists', {
-    headers: {
-        'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
-    }
-}).then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json();
-}).then(data => {
-        console.log(data);
-    }).catch(error => {
-        console.error('There was a problem with the fetch operation:', error);
-    });
