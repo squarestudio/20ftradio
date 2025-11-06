@@ -18,7 +18,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     })
         .then(res => res.json())
         .then(data => {
-            console.log(data.result.status);
+            console.log(data);
             if(data.result.status === 'defaultPlaylist'){
                 grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title;
             } else if (data.result.status === 'schedule'){
