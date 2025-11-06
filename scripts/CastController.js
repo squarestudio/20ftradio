@@ -6,7 +6,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     var icecastMetadataPlayer;
     function onStats(stats) {
         shoutcastPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
-        console.log('stats:', stats);
+        console.log('SECOND STREAM:', stats);
     }
 
 
@@ -19,6 +19,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         })
             .then(res => res.json())
             .then(data => {
+                console.log('FIRST STREAM:',data);
                 if (data.result.status === 'defaultPlaylist') {
                     grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title;
                 } else if (data.result.status === 'schedule') {
