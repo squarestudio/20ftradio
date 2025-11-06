@@ -42,7 +42,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         return next - now;
     }
 
-    console.log(getMsUntilNextHalfHour());
+    console.log(getMsUntilNextHalfHour() / 1000);
 
     setTimeout(() => {
         updateTitle();
