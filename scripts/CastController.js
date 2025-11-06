@@ -42,8 +42,6 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         return next - now;
     }
 
-    console.log(getMsUntilNextHalfHour() / 1000 / 60);
-
     setTimeout(() => {
         updateTitle();
         setInterval(updateTitle, 30 * 60 * 1000); // кожні 30 хвилин
