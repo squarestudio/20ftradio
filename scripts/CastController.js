@@ -19,7 +19,11 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         .then(res => res.json())
         .then(data => {
             console.log(data.result.status);
-            grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title;
+            if(data.result.status === 'defaultPlaylist'){
+                grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title;
+            } else if (data.result.status === 'schedule'){
+                grainsPlay.parentElement.querySelector('span').innerHTML = data.result.content.title;
+            }
         })
         .catch(err => console.error(err));
 
