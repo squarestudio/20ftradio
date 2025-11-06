@@ -34,8 +34,20 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     // запускається одразу
     updateTitle();
 
-    // повторюється кожну хвилину
-    setInterval(updateTitle, 60 * 1000);
+    // Обчислюємо, скільки мілісекунд до наступного 00 або 30 хв
+    function getMsUntilNextHalfHour() {
+        const now = new Date();
+        const next = new Date(now);
+        next.setMinutes(now.getMinutes() < 30 ? 30 : 60, 0, 0);
+        return next - now;
+    }
+
+    console.log(getMsUntilNextHalfHour());
+
+    setTimeout(() => {
+        updateTitle();
+        setInterval(updateTitle, 30 * 60 * 1000); // кожні 30 хвилин
+    }, getMsUntilNextHalfHour());
 
     var stats = new IcecastMetadataStats(
         "https://c34.radioboss.fm/stream/957", // stream endpoint
