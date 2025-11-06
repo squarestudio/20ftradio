@@ -19,11 +19,19 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            if(data.result.status === 'defaultPlaylist'){
-                grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title;
-            } else if (data.result.status === 'schedule'){
-                grainsPlay.parentElement.querySelector('span').innerHTML = data.result.content.title;
+            function updateTitle() {
+                if (data.result.status === 'defaultPlaylist') {
+                    grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title;
+                } else if (data.result.status === 'schedule') {
+                    grainsPlay.parentElement.querySelector('span').innerHTML = data.result.content.title;
+                }
             }
+
+            // run once immediately
+            updateTitle();
+
+            // repeat every 60 seconds
+            setInterval(updateTitle, 60 * 1000);
         })
         .catch(err => console.error(err));
 
