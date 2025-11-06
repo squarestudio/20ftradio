@@ -11,29 +11,30 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
 
 
 
-    fetch('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
-        headers: {
-            'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
-        }
-    })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            function updateTitle() {
+    function updateTitle() {
+        fetch('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
+            headers: {
+                'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
                 if (data.result.status === 'defaultPlaylist') {
                     grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title;
                 } else if (data.result.status === 'schedule') {
                     grainsPlay.parentElement.querySelector('span').innerHTML = data.result.content.title;
                 }
-            }
+            })
+            .catch(err => console.error(err));
 
-            // run once immediately
-            updateTitle();
+        console.log('fetched title');
+    }
 
-            // repeat every 60 seconds
-            setInterval(updateTitle, 60 * 1000);
-        })
-        .catch(err => console.error(err));
+    // запускається одразу
+    updateTitle();
+
+    // повторюється кожну хвилину
+    setInterval(updateTitle, 60 * 1000);
 
     var stats = new IcecastMetadataStats(
         "https://c34.radioboss.fm/stream/957", // stream endpoint
