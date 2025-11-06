@@ -46,7 +46,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
                 shoutcastStatusFactor = false;
             },
             failure: function() {
-                console.log('SHOUTCAST STATUS FALSE');
+                // console.log('SHOUTCAST STATUS FALSE');
                 shoutcastStatus = false;
                 shoutcastStatusFactor = false;
             }
@@ -132,7 +132,7 @@ window.Template.Controllers.CastController = function(element) {
     function initialize() {
         if (!firstRun) {
             Y.on('mixcloud:play', function() {
-                console.log('MIXCLOUD PLAY');
+                // console.log('MIXCLOUD PLAY');
                 userPaused = true;
                 pausePlayersExept('all');
             });
@@ -159,7 +159,7 @@ window.Template.Controllers.CastController = function(element) {
                 //console.log(event, currentTime>new Date(parseInt(event.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset).getTime())
                 if (currentTime >= new Date(parseInt(event.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset).getTime()) {
                     event && event.parentNode.removeChild(event);
-                    console.log('removed')
+                    // console.log('removed')
                 }
             })
         }
@@ -1115,7 +1115,7 @@ window.Template.Controllers.CastController = function(element) {
                     shoutcastStatusFactor = false;
                 },
                 failure: function() {
-                    console.log('SHOUTCAST STATUS FALSE');
+                    // console.log('SHOUTCAST STATUS FALSE');
                     shoutcastStatus = false;
                     shoutcastStatusFactor = false;
                 }
