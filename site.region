@@ -99,7 +99,7 @@
 
         <div id="grainsWrapper" class="grains-wrapper">
             <div class="grains-left">
-                <div class="grains-logo"><a data-ajax-loader="ajax-loader-binded" href="https://20ftradio.net/grains-of-peace-series/"><img src="/assets/HUM_logo_white.png" alt="Grains of Peace"></a></div>
+                <div class="grains-logo"><a data-ajax-loader="ajax-loader-binded" href="https://20ftradio.net/grains-of-peace-series/"><img src="/assets/gop-logo.png" alt="Grains of Peace"></a></div>
                 <div class="twenty-ft-grains">
                     <button id="shoutcastPlay" class="paused"></button>
                     <span><div id="streamTitle"></div></span>
