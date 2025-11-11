@@ -47,8 +47,22 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
         setInterval(updateTitle, 30 * 60 * 1000); // кожні 30 хвилин
     }, getMsUntilNextHalfHour());
 
+    import express from "express";
+    import fetch from "node-fetch";
+
+    const app = express();
+
+    app.get("/radio-proxy", async (req, res) => {
+        const response = await fetch("https://c34.radioboss.fm/stream/957");
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Content-Type", "audio/mpeg");
+        response.body.pipe(res);
+    });
+
+    app.listen(3000, () => console.log("Proxy running on port 3000"));
+
     var stats = new IcecastMetadataStats(
-        "https://c34.radioboss.fm/stream/957", // stream endpoint
+        "https://20ftradio.net/radio-proxy", // stream endpoint
         { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
     );
     stats.start();
