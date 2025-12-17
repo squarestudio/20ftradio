@@ -61,6 +61,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
             success: function(i, data) {
                 if (data.status === 200 && data.readyState === 4) {
                     var resp = JSON.parse(data.response);
+                    console.log(resp);
                     document.getElementById("streamTitle").innerText = resp.shoutcast.track;
                 }
                 shoutcastStatusFactor = false;
