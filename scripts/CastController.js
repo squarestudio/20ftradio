@@ -6,6 +6,7 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     var icecastMetadataPlayer;
     function onStats(stats) {
         console.log(shoutcastPlay.parentElement.querySelector('span'));
+        console.log(stats);
         shoutcastPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
         console.log('SECOND STREAM:', stats);
     }
