@@ -5,12 +5,50 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
     var shoutcastPlay = document.getElementById('shoutcastPlay');
     var icecastMetadataPlayer;
     function onStats(stats) {
-        grainsPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
-        console.log(stats);
+        shoutcastPlay.parentElement.querySelector('span').innerHTML = stats.icy.StreamTitle;
+        console.log('SECOND STREAM:', stats);
     }
 
+
+
+    function updateTitle() {
+        fetch('https://api.radiocult.fm/api/station/20ft%20Radio/schedule/live', {
+            headers: {
+                'x-api-key': 'pk_5a62b516777f48bfa17f7894a33c5361'
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('FIRST STREAM:',data);
+                if (data.result.status === 'defaultPlaylist') {
+                    grainsPlay.parentElement.querySelector('span').innerHTML = data.result.metadata.title;
+                } else if (data.result.status === 'schedule') {
+                    grainsPlay.parentElement.querySelector('span').innerHTML = data.result.content.title;
+                }
+            })
+            .catch(err => console.error(err));
+
+        console.log('fetched title');
+    }
+
+    // запускається одразу
+    updateTitle();
+
+    // Обчислюємо, скільки мілісекунд до наступного 00 або 30 хв
+    function getMsUntilNextHalfHour() {
+        const now = new Date();
+        const next = new Date(now);
+        next.setMinutes(now.getMinutes() < 30 ? 30 : 60, 0, 0);
+        return next - now;
+    }
+
+    setTimeout(() => {
+        updateTitle();
+        setInterval(updateTitle, 30 * 60 * 1000); // кожні 30 хвилин
+    }, getMsUntilNextHalfHour());
+
     var stats = new IcecastMetadataStats(
-        "https://20ft-radio.radiocult.fm/stream", // stream endpoint
+        "https://c34.radioboss.fm/stream/957", // stream endpoint
         { onStats: onStats, sources: ["icy"] }         // options (stats callback, stats sources)
     );
     stats.start();
@@ -23,12 +61,13 @@ if($('body').hasClass('ft20-playground') || $('body').hasClass('ft20-default')) 
             success: function(i, data) {
                 if (data.status === 200 && data.readyState === 4) {
                     var resp = JSON.parse(data.response);
+                    console.log(resp);
                     document.getElementById("streamTitle").innerText = resp.shoutcast.track;
                 }
                 shoutcastStatusFactor = false;
             },
             failure: function() {
-                console.log('SHOUTCAST STATUS FALSE');
+                // console.log('SHOUTCAST STATUS FALSE');
                 shoutcastStatus = false;
                 shoutcastStatusFactor = false;
             }
@@ -114,7 +153,7 @@ window.Template.Controllers.CastController = function(element) {
     function initialize() {
         if (!firstRun) {
             Y.on('mixcloud:play', function() {
-                console.log('MIXCLOUD PLAY');
+                // console.log('MIXCLOUD PLAY');
                 userPaused = true;
                 pausePlayersExept('all');
             });
@@ -141,7 +180,7 @@ window.Template.Controllers.CastController = function(element) {
                 //console.log(event, currentTime>new Date(parseInt(event.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset).getTime())
                 if (currentTime >= new Date(parseInt(event.getAttribute('data-end-date')) + siteTimezoneOffset + userTimezoneOffset).getTime()) {
                     event && event.parentNode.removeChild(event);
-                    console.log('removed')
+                    // console.log('removed')
                 }
             })
         }
@@ -1097,7 +1136,7 @@ window.Template.Controllers.CastController = function(element) {
                     shoutcastStatusFactor = false;
                 },
                 failure: function() {
-                    console.log('SHOUTCAST STATUS FALSE');
+                    // console.log('SHOUTCAST STATUS FALSE');
                     shoutcastStatus = false;
                     shoutcastStatusFactor = false;
                 }
